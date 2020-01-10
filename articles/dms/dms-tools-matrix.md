@@ -1,5 +1,5 @@
 ---
-title: Data migration service and tools matrix - Azure | Microsoft Docs
+title: Azure Database Migration Service tools matrix
 description: Learn about the services and tools available to migrate databases and to support various phases of the migration process.
 services: database-migration
 author: HJToland3
@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 12/13/2019
 ---
 
 # Services and tools available for data migration scenarios
 
 This article provides a matrix of the Microsoft and third-party services and tools available to assist you with various database and data migration scenarios and specialty tasks.
 
-The following tables identify the service and tools that you can use to plan successfully for data migration and to complete its various phases.
+The following tables identify the services and tools that you can use to plan successfully for data migration and to complete its various phases.
 
 > [!NOTE]
 > In the following tables, items marked with an asterisk (*) represent third-party tools.
@@ -55,8 +55,8 @@ The following tables identify the service and tools that you can use to plan suc
 | SQL Server | Azure SQL VM |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | SQL DW |  |  |  |
 | RDS SQL | Azure SQL DB, MI, VM |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090) |
-| Oracle | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Simora*](http://www.simora.co.uk/) |
-| Oracle | SQL DW |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Simora*](http://www.simora.co.uk/) |
+| Oracle | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Oracle | SQL DW |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Oracle | Azure DB for PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB |  | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |  |  |

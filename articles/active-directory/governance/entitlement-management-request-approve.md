@@ -1,5 +1,5 @@
 ---
-title: Approve or deny access requests in Azure AD entitlement management - Azure Active Directory
+title: Approve or deny access requests - Azure AD entitlement management
 description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''

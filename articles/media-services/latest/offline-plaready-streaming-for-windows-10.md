@@ -110,7 +110,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Offline mode playback of PlayReady protected fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 
 In summary, we have achieved offline mode on Azure Media Services:
@@ -119,6 +118,10 @@ In summary, we have achieved offline mode on Azure Media Services:
 * Content can be hosted in Azure Media Services or Azure Storage for progressive download;
 * PlayReady license delivery can be from Azure Media Services or elsewhere;
 * The prepared smooth streaming content can still be used for online streaming via DASH or smooth with PlayReady as the DRM.
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

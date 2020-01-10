@@ -1,5 +1,5 @@
 ---
-title: Get started with your Microsoft Customer Agreement billing account - Azure
+title: Get started with Microsoft Customer Agreement billing - Azure
 description: Understand your Microsoft Customer Agreement billing account
 author: bandersmsft
 manager: amberbhargava

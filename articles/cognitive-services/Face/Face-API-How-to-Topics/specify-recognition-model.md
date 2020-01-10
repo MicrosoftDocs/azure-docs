@@ -3,13 +3,12 @@ title: How to specify a recognition model - Face API
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to choose which recognition model to use with your Azure Face API application.
 services: cognitive-services
-author: longl
+author: longli0
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 12/03/2019
 ms.author: longl
 ---
 

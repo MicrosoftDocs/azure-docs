@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice:
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 12/19/2019
 ms.author: nitinme
 ---
 
@@ -32,10 +32,14 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Services")|Speech Service adds speech-enabled features to applications.|
+|[Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech service")|Speech service adds speech-enabled features to applications.|
 |[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
 |[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
+
+> [!NOTE]
+> Looking for [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Although it uses Cognitive Services for some tasks, it’s a different search technology that supports other scenarios.
+
 
 ## Language APIs
 
@@ -45,7 +49,7 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics provides natural language processing over raw text for sentiment analysis, key phrase extraction and language detection.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator text provides for machine-based text translation in near real-time.|
-|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer enables you to extract insights from your video.|
+
 
 ## Search APIs
 
@@ -80,7 +84,7 @@ Once you are signed in with your Microsoft Account, you can access [My subscript
 
 ## Upgrade to unlock limits
 
-All APIs have a free trial plan which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
+All APIs have a free trial plan, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
 
 ## Regional availability
 
@@ -92,6 +96,10 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
  Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md).
 
+## Securing resources
+
+Azure Cognitive Services provides a layered security model, including [authentication](authentication.md) via Azure Active Directory credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md).
+
 ## Container support
 
  Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md).
@@ -102,12 +110,11 @@ Cognitive Services has been awarded certifications such as CSA STAR Certificatio
 
 You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews.
 
-To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/).
+To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/)..md
 
 ## Support
 
-* For support and technical questions, post on [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
-* For feedback and feature requests, go to [UserVoice](https://cognitive.uservoice.com/)
+Cognitive Services provide several [support options](cognitive-services-support-options.md).
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: IRS 1075 blueprint sample - Deploy steps
+title: Deploy IRS 1075 blueprint sample
 description: Deploy steps for the IRS 1075 (Rev.11-2016) blueprint sample including blueprint artifact parameter details.
 ms.date: 11/20/2019
 ms.topic: sample

@@ -3,6 +3,12 @@
 - name: Understand Azure billing
   expanded: true
   items:
+  - name: Billing accounts and scopes
+    href: billing-view-all-accounts.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: billing-mca-overview.md
+  - name: Billing accounts for Microsoft Partner Agreement
+    href: mpa-overview.md
   - name: Understand your bill
     href: billing-understand-your-bill.md
   - name: Understand your bill - Microsoft Customer Agreement
@@ -29,10 +35,6 @@
     href: billing-mpa-invoice-terms-explained.md
   - name: How to pay your bill - Microsoft Customer Agreement
     href: billing-how-to-pay-bill.md
-  - name: Billing accounts for Microsoft Customer Agreement
-    href: billing-mca-overview.md
-  - name: Billing accounts for Microsoft Partner Agreement
-    href: mpa-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
@@ -147,8 +149,6 @@
     href: billing-understand-mca-roles.md
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
-  - name: View billing accounts
-    href: billing-view-all-accounts.md
   - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
   - name: EA tasks in Microsoft Customer Agreement
@@ -216,7 +216,7 @@
   - name: Link Azure AD tenant
     href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
   - name: Limits and quotas
-    href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Troubleshoot
   items:
   - name: No subscriptions found

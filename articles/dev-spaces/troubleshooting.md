@@ -3,7 +3,7 @@ title: "Troubleshooting"
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to troubleshoot and resolve common problems when enabling and using Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Azure Dev Spaces troubleshooting
@@ -248,6 +248,21 @@ Service cannot be started.
 
 This error occurs because AKS nodes run an older version of Docker that doesn't support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
 
+### Network traffic is not forwarded to your AKS cluster when connecting your development machine
+
+When using [Azure Dev Spaces to connect your AKS cluster to your development machine](how-to/connect.md), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
+
+When connecting your development machine to your AKS cluster, Azure Dev Spaces forwards network traffic between your AKS cluster and your development machine by modifying your development machine's `hosts` file. Azure Dev Spaces creates an entry in the `hosts` with the address of the Kubernetes service you are replacing as a host name. This entry is used with port forwarding to direct network traffic between your development machine and the AKS cluster. If a service on your development machine conflicts with the port of the Kubernetes service you are replacing, Azure Dev Spaces cannot forward network traffic for the Kubernetes service. For example, the *Windows BranchCache* service is usually bound to *0.0.0.0:80*, which conflicts will cause a conflict for port 80 on all local IPs.
+
+To fix this issue, you need to stop any services or processes that conflict with port of the Kubernetes service you are trying to replace. You can use tools, such as *netstat*, to inspect what services or processes on your development machine are in conflict.
+
+For example, to stop and disable the *Windows BranchCache* service:
+* Run `services.msc` from the command prompt.
+* Right click on *BranchCache* and select *Properties*.
+* Click *Stop*.
+* Optionally, you can disable it by setting *Startup type* to *Disabled*.
+* Click *OK*.
+
 ## Common issues using Visual Studio and Visual Studio Code with Azure Dev Spaces
 
 ### Error "Required tools and configurations are missing"
@@ -453,3 +468,4 @@ To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from c
 | cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
 | gcr.io | HTTP:443 | To pull helm/tiller images|
 | storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json|

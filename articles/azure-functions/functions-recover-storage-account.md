@@ -27,6 +27,8 @@ We'll walk through the four most common error cases, how to identify, and how to
 1. Storage Account credentials invalid
 1. Storage Account Inaccessible
 1. Daily Execution Quota Full
+1. App is behind a firewall
+
 
 ## Storage account deleted
 
@@ -76,6 +78,12 @@ If you have a Daily Execution Quota configured, your Function App will be tempor
 * To verify, check open Platform Features > Function App Settings in the portal. You will see the following message if you are over quota
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Remove the quota and restart your app to resolve the issue.
+
+## App is behind a firewall
+
+Your function runtime will be unreachable if your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and is configured to block inbound internet traffic, or has [inbound IP restrictions](functions-networking-options.md#inbound-ip-restrictions) configured to block internet access. The Azure portal makes calls directly to the running app to fetch the list of functions and also makes http call to KUDU endpoint. Platform level settings under the `Platform Features` tab will still be available.
+
+* To verify your ASE configuration, navigate to NSG of the subnet where ASE resides and validate inbound rules to allow traffic coming from the public IP of the computer where you are accessing the application. You can also use the portal from a computer connected to the virtual network running your app or a virtual machine running in your virtual network. [Read more about inbound rule configuration here](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
 
 ## Next Steps
 

@@ -1,15 +1,15 @@
 ---
-title: Enable passwordless sign-in with the Microsoft Authenticator app (preview) - Azure Active Directory
+title: Passwordless sign-in with the Microsoft Authenticator app - Azure Active Directory
 description: Enable passwordless sign-in to Azure AD using the Microsoft Authenticator app (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 

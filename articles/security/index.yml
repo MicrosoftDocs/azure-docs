@@ -64,12 +64,15 @@ conceptualContent:
 
     - title: Benchmarks and recommendations
       links: 
-        - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
+        - url: ./benchmarks/introduction.md
           itemType: download
           text: Azure cloud security benchmark
         - url: ../security-center/security-center-using-recommendations.md
           itemType: overview
           text: Azure Security Center recommendations
+      footerLink: 
+        url: ./benchmarks/index.yml
+        text: See more
 
     - title: Secrets and keys
       links: 

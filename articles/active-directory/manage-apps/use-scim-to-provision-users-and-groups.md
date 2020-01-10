@@ -1,6 +1,6 @@
 ---
-title: Automate provisioning of apps using SCIM in Azure AD
-description: Learn to build a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your applications.  
+title: Build a SCIM endpoint for user provisioning to apps from Azure AD
+description: Learn to build a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -20,9 +20,9 @@ ms.custom: aaddev;it-pro;seohack1
 
 ms.collection: M365-identity-device-management
 ---
-# SCIM user provisioning with Azure Active Directory (Azure AD)
+# Build a SCIM endpoint and configure user provisioning with Azure Active Directory (Azure AD)
 
-This article describes how to use System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) to automate the provisioning and deprovisioning of users and groups to an application. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
+As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
 SCIM is a standardized definition of two endpoints: a /Users endpoint and a /Groups endpoint. It uses common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email. Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the /Users endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
 
@@ -137,7 +137,7 @@ Group provisioning and deprovisioning are optional. When implemented and enabled
 This section provides example SCIM requests emitted by the Azure AD SCIM client and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see [What happens during user provisioning](user-provisioning.md#what-happens-during-provisioning)?
+> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 [User Operations](#user-operations)
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
@@ -1257,7 +1257,7 @@ Azure AD can be configured to automatically provision assigned users and groups 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
 > [!IMPORTANT]
-> The Azure AD SCIM implementation is built on top of the Azure AD user provisioning service, which is designed to constantly keep users in sync between Azure AD and the target application, and implements a very specific set of standard operations. It's important to understand these behaviors to understand the behavior of the Azure AD SCIM client. For more information, see [What happens during user provisioning?](user-provisioning.md#what-happens-during-provisioning).
+> The Azure AD SCIM implementation is built on top of the Azure AD user provisioning service, which is designed to constantly keep users in sync between Azure AD and the target application, and implements a very specific set of standard operations. It's important to understand these behaviors to understand the behavior of the Azure AD SCIM client. For more information, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 ### Getting started
 
@@ -1332,12 +1332,12 @@ Certain apps allow inbound traffic to their app. In order for the Azure AD provi
 
 ## Related articles
 
-* [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
-* [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
-* [Writing Expressions for Attribute Mappings](functions-for-customizing-application-data.md)
-* [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Account Provisioning Notifications](user-provisioning.md)
-* [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
+* [Automate user provisioning and deprovisioning to SaaS apps](user-provisioning.md)
+* [Customize attribute mappings for user provisioning](customize-application-attributes.md)
+* [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
+* [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Account provisioning notifications](user-provisioning.md)
+* [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

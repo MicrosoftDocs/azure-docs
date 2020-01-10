@@ -32,6 +32,7 @@ Option 1. In the Azure portal, use [this link](https://aka.ms/InternetAnalyzerPr
 
 Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
 ```azurecli-interactive
+    az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
 ```
 

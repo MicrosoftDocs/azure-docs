@@ -7,7 +7,7 @@ ms.author: jenhayes
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 12/31/2019
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
@@ -97,7 +97,7 @@ Select a minimum of one and a maximum of three categories. These will be used to
 
 ### Industry
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+You can optionally select up to two industries and two verticals under each industry. These categories are used for displaying your offer, when industry and verticals are used in search filters and applied in the Storefront.  If your offer is targeting a specific industry and/or vertical, make sure to describe how your offer supports the selected industries or verticals in the offer description.  Otherwise, if your offer is not industry-specific, do not make a selection and leave this section blank.
 
 ### Applicable Dynamics 365 products
 

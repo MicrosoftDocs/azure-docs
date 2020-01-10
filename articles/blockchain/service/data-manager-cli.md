@@ -410,7 +410,7 @@ az resource delete \
 
 ## Next steps
 
-Try creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)

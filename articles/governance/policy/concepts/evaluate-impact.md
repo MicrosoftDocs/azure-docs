@@ -1,6 +1,6 @@
 ---
 title: Evaluate the impact of a new Azure policy
-description: Understand the process to follow when introducing a new policy into your Azure environment.
+description: Understand the process to follow when introducing a new policy definition into your Azure environment.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ---

@@ -8,7 +8,6 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # How to install IoT Edge on Kubernetes (Preview)

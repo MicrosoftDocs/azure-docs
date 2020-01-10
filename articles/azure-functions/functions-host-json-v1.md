@@ -14,7 +14,7 @@ ms.date: 10/19/2018
 The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available for the v1 runtime. The JSON schema is at http://json.schemastore.org/host.
 
 > [!NOTE]
-> This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
+> This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x and later, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
 
 Other function app configuration options are managed in your [app settings](functions-app-settings.md).
 

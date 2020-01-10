@@ -1,15 +1,15 @@
 ---
-title: Azure Active Directory user authentication - Azure Active Directory
+title: Authenticating and securing users - Azure Active Directory
 description: As an Azure AD Administrator how do I protect user authentication while reducing end-user impact?
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 

@@ -2,8 +2,8 @@
 title: Troubleshoot errors with Azure Automation shared resources
 description: Learn how to troubleshoot issues with Azure Automation shared resources
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
