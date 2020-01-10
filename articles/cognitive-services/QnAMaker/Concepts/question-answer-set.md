@@ -5,22 +5,24 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ---
 
+# Question and answer set concepts
+
 A knowledge base consists of question and answer (QnA) sets.  Each set has one answer and a set contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance.
 
 ## Question and answer sets
 
 The **required** settings in a question-and-answer (QnA) set are:
 
-* a question - text of user query, used to QnA Maker's machine-learning, to align with text of user's question with different wording but the same answer
-* the answer - the set's answer is the response that's returned when a user query is matched with the associated question
+* a **question** - text of user query, used to QnA Maker's machine-learning, to align with text of user's question with different wording but the same answer
+* the **answer** - the set's answer is the response that's returned when a user query is matched with the associated question
 
 Each set is represented by an **ID**.
 
 The **optional** settings for a set include:
 
-* alternate forms of the question - this helps QnA Maker return the correct answer for a wider variety of question phrasings
-* metadata - tags associated with a QnA set and are represented as custom key-value text pairs (such as `Product:Shredder`), used to filter the query results
-* multi-turn prompts, used to continue a multi-turn conversation
+* **Alternate forms of the question** - this helps QnA Maker return the correct answer for a wider variety of question phrasings
+* **Metadata**: Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata tags are used to filter QnA pairs and limit the set over which query matching is performed.
+* **Multi-turn prompts**, used to continue a multi-turn conversation
 
 ![QnA Maker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
@@ -39,4 +41,4 @@ Once you are done with your edits, reimport the TSV file from the **Settings** p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Knowledge base lifecycle in QnA Maker](./development-lifecycle-knowledge-base?.md)
+> [Knowledge base lifecycle in QnA Maker](./development-lifecycle-knowledge-base.md)

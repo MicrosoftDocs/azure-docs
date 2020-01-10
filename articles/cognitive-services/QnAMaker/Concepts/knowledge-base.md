@@ -17,7 +17,7 @@ Content is brought into a knowledge base from a data source. Data source locatio
 
 ## Chit chat content
 
-The Chit chat QnA content set is offered as a complete content data source in several languages and conversational styles. This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch. Learn [how to add](../how-to/chit-chat-knowledge-base) this content set to your knowledge base.
+The Chit chat QnA content set is offered as a complete content data source in several languages and conversational styles. This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch. Learn [how to add](../how-to/chit-chat-knowledge-base.md) this content set to your knowledge base.
 
 ## Structured data format through import
 

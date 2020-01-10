@@ -1,11 +1,13 @@
 ---
-title:
-description:
+title: Integrate with other applications - QnA Maker
+description: Qna Maker integrates into client applications such as chat bots as well as with other natural language processing services such as Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 01/10/2020
 ---
 
 # Design knowledge base for client applications
+
+Qna Maker integrates into client applications such as chat bots as well as with other natural language processing services such as Language Understanding (LUIS).
 
 ## Integration with a conversational client
 
@@ -17,11 +19,11 @@ After you publish your knowledge base, create a bot from the **Publish** page, b
 
 ## Providing multi-turn conversations
 
-A bot client provides the best selected answer from your knowledge base, and can provide follow-up prompts if the answer is part of a multi-turn QnA set. Learn [how to](../how-to/multiturn-conversation) add multi-turn conversation question and answer sets to your knowledge base.
+A bot client provides the best selected answer from your knowledge base, and can provide follow-up prompts if the answer is part of a multi-turn QnA set. Learn [how to](../how-to/multiturn-conversation.md) add multi-turn conversation question and answer sets to your knowledge base.
 
 ## Natural language processing
 
-While QnA Maker processes questions that use natural language processing, it can also be used a part of a larger system that answers questions from multiple knowledge bases. You can combine QnA Maker with another Cognitive Service, Language Understanding (LUIS), to provide natural language processing before getting to a specific knowledge base. Learn more about when and how to use [LUIS and QnA Maker](../luis/choose-natural-language-processing-service?toc=/azure/cognitive-services/qnamaker/toc.json) together
+While QnA Maker processes questions that use natural language processing, it can also be used a part of a larger system that answers questions from multiple knowledge bases. You can combine QnA Maker with another Cognitive Service, Language Understanding (LUIS), to provide natural language processing before getting to a specific knowledge base. Learn more about when and how to use [LUIS and QnA Maker](../../luis/choose-natural-language-processing-service?toc=/azure/cognitive-services/qnamaker/toc.json) together
 
 ## Next steps
 

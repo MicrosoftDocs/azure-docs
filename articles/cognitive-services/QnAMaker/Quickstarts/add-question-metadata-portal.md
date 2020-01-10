@@ -81,7 +81,7 @@ In this procedure, add additional questions.
 
 ## Add metadata to filter the answers
 
-Adding metadata to a question and answer set allows your client application to request filtered answers. This filter is applied before the [first and second rankers](../concepts/knowledge-base.md#ranker-process) are applied.
+Adding metadata to a question and answer set allows your client application to request filtered answers. This filter is applied before the [first and second rankers](../concepts/query-knowledge-base.md#ranker-process) are applied.
 
 1. Add the second question and answer set, without the metadata, from the [first table in this quickstart](#qna-table), then continue with the following steps.
 

@@ -199,7 +199,9 @@ Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutori
 
 ## Version control for data in your knowledge base
 
-Version control for data is provided through the [import/export feature](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) on the **Settings** page.
+Version control for data is provided through the import/export features on the **Settings** page in the QnA Maker portal.
+
+Export your knowledge base as a `.tsv` or `.xls` file, then check in to your current source control. 
 
 ## Next steps
 

@@ -59,16 +59,11 @@ Based on what you learn from your analytics, make appropriate [updates to your k
 
 ## Version control for data in your knowledge base
 
-Version control for data is provided through the [import/export feature](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) on the **Settings** page.
+Version control for data is provided through the import/export features on the **Settings** page in the QnA Maker portal.
 
 You can backup a knowledge base by exporting the knowledge base, in either `.tsv` or `.xls` format. Once exported, include this file as part of your regular source control check.
 
-
-
 When you need to go back to a specific version, you need to import that file from your local system. An exported knowledge base **must** only be used via import on the **Settings** page. It can't be used as a file or URL document data source. This will replace questions and answers currently in the knowledge base with the contents of the imported file.
-
-Learn more about the [import/export format](../reference-data-guidelines.md).
-
 
 ## Test and production knowledge base
 A knowledge base is the repository of questions and answer sets created, maintained, and used through QnA Maker. Each QnA Maker resource can hold multiple knowledge bases.
