@@ -2,14 +2,13 @@
 title: "Quickstart: Create a web app that launches the Immersive Reader with Node.js"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
-services: cognitive-services
 author: pasta
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 01/09/2020
+ms.date: 01/14/2020
 ms.author: pasta
 #Customer intent: As a developer, I want to quickly integrate the Immersive Reader into my web application so that I can see the Immersive Reader in action and understand the value it provides.
 ---
@@ -38,7 +37,7 @@ express --view=pug quickstart-nodejs
 cd quickstart-nodejs
 ```
 
-Install yarn dependencies, and add dependencies `request` and `dotenv`, which will be used later in the tutorial.
+Install yarn dependencies, and add dependencies `request` and `dotenv`, which will be used later in the quickstart.
 
 ```bash
 yarn
