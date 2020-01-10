@@ -11,8 +11,6 @@ ms.service: azure-remote-rendering
 ---
 # Overriding hierarchical states
 
-## Preface
-
 In many cases, it is necessary to dynamically change the appearance of parts of a mesh, for example hiding subgraphs of a mesh or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph and manage material cloning and assignment on each node.
 
 To accomplish this use case with least possible overhead, there is a component called HierarchicalStateOverrideComponent. This component imposes hierarchical state updates on arbitrary branches of the scene graph. That means, a state can be defined on any level in the scene graph and it trickles down the hierarchy until either being overridden by a new state or being applied to leaf object geometry. Accordingly, a use case where the whole car should be switched to transparent rendering except for the inner engine part involves only two instances of the component:

@@ -11,10 +11,9 @@ ms.service: azure-remote-rendering
 ---
 # The ArrInspector inspection tool
 
-![ArrInspector](./media/arr-inspector.png)
-
-## Overview
 The ArrInspector is a web-based tool used to inspect a running Azure Remote Rendering session. It is meant to be used for debugging purposes, to inspect the structure of the scene being rendered, show the log messages and monitor the live performance on the server side.
+
+![ArrInspector](./media/arr-inspector.png)
 
 ## Connecting to the ArrInspector
 Once you obtain the hostname (ending in "mixedreality.azure.com") of your ARR server, connect using the [ConnectToArrInspectorAsync](../sdk/azure-frontend-authentication.md) API. The tool is compatible with Edge, Firefox and Chrome.

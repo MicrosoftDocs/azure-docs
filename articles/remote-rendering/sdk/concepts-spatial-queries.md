@@ -72,7 +72,7 @@ void sampleRaycastQuery(RemoteRenderingClient& client)
 }
 ````
 
-It has the following parameters:
+The query struct has the following parameters:
 
 - Origin (3D point)
 - EndPoint (3D point) (alternatively the C# constructor offers direction vector and length)
