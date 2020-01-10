@@ -13,8 +13,6 @@ ms.reviewer: sngun
 
 # Understanding the differences between NoSQL and relational databases
 
-Over many years, the relational model has become a mainstay in both academia and the commercial world of software development. However, software and hardware architectures have also evolved during that time. Demands for performance and speed-to-market for the delivery of applications have increased. As a result, a number of new paradigms for storing and querying data have emerged. What would have been best practice in relational databases some time ago can be considered anti-patterns for certain use cases today.
-
 This article will enumerate some of the key benefits of NoSQL databases over relational databases. We will also discuss some of the challenges in working with NoSQL. For an in-depth look at the different data stores that exist, have a look at our article on [choosing the right data store](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview).
 
 ## High throughput
