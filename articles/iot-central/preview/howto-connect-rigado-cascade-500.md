@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
+ms.date: 11/27/2019
 ---
 
 # Connect a Rigado Cascade 500 gateway device to your Azure IoT Central application

@@ -1,12 +1,11 @@
 ---
-title: Check status, set up logging, and get alerts - Azure Logic Apps
-description: Monitor status, log diagnostics data, and set up alerts for Azure Logic Apps
+title: Check status, set up logging, and get alerts
+description: Monitor status, set up logging, and turn on alerts for diagnosing errors and problems in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
 ---

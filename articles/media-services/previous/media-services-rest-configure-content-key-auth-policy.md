@@ -436,6 +436,9 @@ Add AuthorizationPolicy to ContentKey, as shown in the section "[Add an authoriz
         Widevine = 3
     }
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

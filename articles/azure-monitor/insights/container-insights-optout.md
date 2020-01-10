@@ -1,11 +1,7 @@
 ---
 title: How to Stop Monitoring Your Azure Kubernetes Service cluster | Microsoft Docs
 description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Azure Monitor for containers.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/19/2019
 
 ---

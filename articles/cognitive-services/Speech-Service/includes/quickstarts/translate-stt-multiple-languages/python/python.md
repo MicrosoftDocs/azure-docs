@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Python - Speech Service'
+title: 'Quickstart: Recognize speech, Python - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,8 +7,8 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/09/2019
 ms.author: chlandsi
 ---
 
@@ -86,7 +86,7 @@ Before you get started, make sure to:
    python quickstart.py
    ```
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to French and German). The Speech service then sends the text back to the application for display.
 
    ```
    Say something...

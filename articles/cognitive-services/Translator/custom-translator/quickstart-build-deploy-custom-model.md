@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
@@ -40,7 +40,7 @@ your project. For more details, visit [Create Project](how-to-create-project.md)
 
 ## Upload documents
 
-Next, upload [training](training-and-model.md#training-dataset-for-custom-translator), [tuning](training-and-model.md#tuning-dataset-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
+Next, upload [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
 
 You can upload documents from either the documents tab or from a specific
 project's page.
@@ -58,8 +58,8 @@ model.
 
 Select the project you've created. You'll see all the documents you've uploaded
 that share a language pair with this project. Select the documents that you want
-included in your model. You can select [training](training-and-model.md#training-dataset-for-custom-translator),
-[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [testing](training-and-model.md#testing-dataset-for-custom-translator) data or select just
+included in your model. You can select [training](training-and-model.md#training-document-type-for-custom-translator),
+[tuning](training-and-model.md#tuning-document-type-for-custom-translator), and [testing](training-and-model.md#testing-dataset-for-custom-translator) data or select just
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 

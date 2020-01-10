@@ -100,7 +100,7 @@ In this article, you created a resource group, an Event Hubs namespace, and an e
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

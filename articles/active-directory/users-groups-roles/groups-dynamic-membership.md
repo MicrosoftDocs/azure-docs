@@ -43,9 +43,9 @@ Here are some examples of advanced rules or syntax for which we recommend that y
 > [!NOTE]
 > The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
-For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
+For more step-by-step instructions, see [Create or update a dynamic group](groups-create-rule.md).
 
-![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Add membership rule for a dynamic group](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### Rule syntax for a single expression
 

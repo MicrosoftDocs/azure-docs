@@ -436,4 +436,4 @@ To get started with team development, see the following how-to articles:
 
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

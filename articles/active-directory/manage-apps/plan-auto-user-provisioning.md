@@ -86,11 +86,11 @@ In this example, users and or groups are created in an HR database connected to 
 
 1. Users/groups are created in an on-premises HR application/system, such as SAP. 
 
-1. Azure AD Connect agent runs scheduled synchronizations of identities (users and groups) from the local AD to Azure AD.
+1. **Azure AD Connect agent** runs scheduled synchronizations of identities (users and groups) from the local AD to Azure AD.
 
-1. Azure AD provisioning service begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
+1. **Azure AD provisioning service** begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
 
-1. Azure AD provisioning service queries the source system for any users and groups changed since the initial cycle, and pushes changes in [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD provisioning service** queries the source system for any users and groups changed since the initial cycle, and pushes changes in [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### Automatic user provisioning for cloud-only enterprises
 
@@ -102,9 +102,9 @@ In this example, user creation occurs in Azure AD and the  Azure AD provisioning
 
 1. Users/groups are created in Azure AD.
 
-1. Azure AD provisioning service begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
+1. **Azure AD provisioning service** begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
 
-1. Azure AD provisioning service queries the source system for any users and groups updated since the initial cycle, and performs any [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD provisioning service** queries the source system for any users and groups updated since the initial cycle, and performs any [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### Automatic user provisioning for cloud HR applications 
 
@@ -134,7 +134,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of automatic user provisioning be in a test environment with a small subset of users before scaling it to all users in production.
+We recommend that the initial configuration of automatic user provisioning be in a test environment with a small subset of users before scaling it to all users in production. See [best practices](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) for running a pilot.
 
 #### Best practices for a pilot  
 

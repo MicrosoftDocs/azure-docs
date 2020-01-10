@@ -29,7 +29,7 @@ If there's no size that supports the source VM configuration, the following mess
 
 ### Fix the problem
 
-Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to it. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 

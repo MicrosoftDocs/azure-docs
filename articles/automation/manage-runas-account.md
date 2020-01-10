@@ -2,13 +2,9 @@
 title: Manage Azure Automation Run As accounts
 description: This article describes how to manage your Run As accounts with PowerShell, or from the portal.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Manage Azure Automation Run As accounts
@@ -62,7 +58,7 @@ To configure or renew Classic Run As accounts, you must have the **Co-administra
 In this section, perform the following steps to update your Azure Automation account in the Azure portal. You create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
-2. In the Azure portal, click **All services**. In the list of resources, type **Automation**. As you begin typing, the list filters based on your input. Select **Automation Accounts**.
+2. In Azure portal, search for and select **Automation Accounts**.
 3. On the **Automation Accounts** page, select your Automation account from the list of Automation accounts.
 4. In the left-hand pane, select **Run As Accounts** under the section **Account Settings**.
 5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**. After selecting either the **Add Azure Run As** or **Add Azure Classic Run As Account** pane appears and after reviewing the overview information, click **Create** to proceed with Run As account creation.
@@ -81,7 +77,7 @@ The following list provides the requirements to create a Run As account in Power
 
 To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the script, complete the following steps:
 
-1. In the Azure portal, click **All services**. In the list of resources, type **Automation**. As you begin typing, the list filters based on your input. Select **Automation Accounts**.
+1. In Azure portal, search for and select **Automation Accounts**.
 1. On the Automation account page, select your Automation account, and then under **Account Settings** select **Properties**.
 1. Note the **Subscription ID**, **Name**, and **Resource Group** values on the **Properties** page.
 

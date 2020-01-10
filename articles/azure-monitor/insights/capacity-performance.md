@@ -4,8 +4,8 @@ description: Use the Capacity and Performance solution in Monitor to help you un
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
 
 ---

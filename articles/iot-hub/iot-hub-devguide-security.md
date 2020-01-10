@@ -59,7 +59,7 @@ Azure IoT Hub grants access to endpoints by verifying a token against the shared
 Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [!NOTE]
-> The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 For more information about how to construct and use security tokens, see [IoT Hub security tokens](iot-hub-devguide-security.md#security-tokens).
 

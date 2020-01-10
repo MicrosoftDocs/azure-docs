@@ -4,13 +4,13 @@ description: Azure Monitor can read the logs for Azure services that write diagn
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
 
 ---
 
-# Collect Azure diagnostic logs from Azure Storage
+# Collect Azure resource logs from Azure Storage
 
 Azure Monitor can read the logs for the following services that write diagnostics to table storage or IIS logs written to blob storage:
 

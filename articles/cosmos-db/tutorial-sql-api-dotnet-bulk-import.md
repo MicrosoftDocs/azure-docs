@@ -1,6 +1,6 @@
 ---
-title: Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account 
-description: Learn how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
+title: Bulk import data to Azure Cosmos DB SQL API account by using the .Net SDK
+description: Learn how to import or ingest data to Azure Cosmos DB by building a .NET console application that optimizes provisioned throughput (RU/s) required for importing data
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
 ---
-# Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account
+# Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
