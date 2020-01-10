@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Personalizer client library for Node.js"
 titleSuffix: Azure Cognitive Services
-description:  This quickstart shows how to get started with the Personalizer client library for Node.js using a learning loop. 
+description:  This quickstart shows how to get started with the Personalizer client library for Node.js using a learning loop.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 
@@ -23,7 +23,7 @@ Get started with the Personalizer client library for Node.js. Follow these steps
  * Rank a list of actions for personalization.
  * Report reward score indicating success of top ranked action.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ There are several steps to use this quickstart:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * View your resource on the [Azure portal](https://portal.azure.com/).
 
 After you get a key from your trial subscription or resource, create two [environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
@@ -59,13 +59,13 @@ In the Azure portal, both the key and endpoint values are available from the **Q
 
 ## Create a new Node.js application
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init -y` command to create a `package.json` file. 
+Run the `npm init -y` command to create a `package.json` file.
 
 ```console
 npm init -y
@@ -97,11 +97,11 @@ When a Personalizer loop is first instantiated, there is no model since there ha
 
 The Personalizer client is a PersonalizerClient object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
-To ask for a rank of the content, create a RankRequest, then pass it to client.Rank method. The Rank method returns a RankResponse, containing the ranked content. 
+To ask for a rank of the content, create a RankRequest, then pass it to client.Rank method. The Rank method returns a RankResponse, containing the ranked content.
 
-To send a reward to Personalizer, create a RewardRequest, then pass it to the client.Reward method. 
+To send a reward to Personalizer, create a RewardRequest, then pass it to the client.Reward method.
 
-Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture. 
+Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture.
 
 ## Code examples
 
@@ -113,7 +113,7 @@ These code snippets show you how to do the following with the Personalizer clien
 
 ## Create a new Node.js application
 
-Create a new Node.js application in your preferred editor or IDE named `sample.js`. 
+Create a new Node.js application in your preferred editor or IDE named `sample.js`.
 
 ## Add the dependencies
 
@@ -143,7 +143,7 @@ Actions represent the content choices you want Personalizer to rank. Add the fol
 
 ## Create the learning loop
 
-The Personalizer learning loop is a cycle of [rank](#request-a-rank) and [reward](#send-a-reward) calls. In this quickstart, each rank call, to personalize the content, is followed by a reward call to tell Personalizer how well the service ranked the content. 
+The Personalizer learning loop is a cycle of [rank](#request-a-rank) and [reward](#send-a-reward) calls. In this quickstart, each rank call, to personalize the content, is followed by a reward call to tell Personalizer how well the service ranked the content.
 
 The following looping code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
@@ -158,9 +158,9 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request a rank
 
-To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 
+To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response.
 
-This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](concept-feature-evaluation.md) [actions and features](concepts-features.md) can be a non-trivial matter.  
+This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](concept-feature-evaluation.md) [actions and features](concepts-features.md) can be a non-trivial matter.
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -168,7 +168,7 @@ This quickstart has simple context features of time of day and user food prefere
 
 To complete the reward request, the program gets the user's selection from the command line, assigns a numeric value to each selection, then sends the unique rank event ID and the numeric value to the reward method.
 
-This quickstart assigns a simple number as a reward, either a zero or a 1. In production systems, determining when and what to send to the [reward](concept-rewards.md) call can be a non-trivial matter, depending on your specific needs. 
+This quickstart assigns a simple number as a reward, either a zero or a 1. In production systems, determining when and what to send to the [reward](concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 
