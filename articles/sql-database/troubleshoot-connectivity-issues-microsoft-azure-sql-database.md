@@ -45,8 +45,8 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 It is strongly recommended that your client program has retry logic so that it could reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
 For code examples of retry logic, see:
-- [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Connect resiliently to SQL with ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
+- [Connect resiliently to SQL with PHP](https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
 
 For additional information on handling transient errors in your application review
 * [Troubleshooting transient connection errors to SQL Database](sql-database-connectivity-issues.md)
