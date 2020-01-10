@@ -4,17 +4,17 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 01/10/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
-# Guide for Optimizing Queries in Azure Cosmos DB
+# Troubleshoot query issues when using Azure Cosmos DB
 
-This document walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have consolidated most performance tips here. You should use this document as a starting place for troubleshooting for Azure Cosmos DB’s core (SQL) API.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have consolidated the most common performance tips here. You should use this document as a starting place for troubleshooting for Azure Cosmos DB’s core (SQL) API.
 
 You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
-This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data set.
+This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Obtaining query metrics:
 
@@ -22,13 +22,13 @@ When optimizing a query in Azure Cosmos DB, the first step is always to [obtain 
 
 ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
 
-After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. Use this comparison to identify the relevant sections to reference below.
+After obtaining query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
 
 You can reference the below section to understand the relevant query optimizations for your scenario:
 
 ### Query's RU charge is too high
 
-#### Loaded Document Count is significantly greater than Retrieved Document Count
+#### Retrieved Document Count is significantly greater than Output Document Count
 
 a. [Ensure that the indexing policy includes necessary paths](#ensure-that-the-indexing-policy-includes-necessary-paths)
 
@@ -42,7 +42,7 @@ e. [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by
 
 <br>
 
-#### Loaded Document Count is approximately equal to Retrieved Document Count
+#### Retrieved Document Count is approximately equal to Output Document Count
 
 a. [Avoid cross partition queries](#avoid-cross-partition-queries)
 
@@ -62,15 +62,53 @@ c. [Increasing MaxConcurrency](#increasing-maxconcurrency)
 
 d. [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
 
-## Optimizations for queries where Loaded Document Count significantly exceeds Retrieved Document Count:
+## Optimizations for queries where Retrieved Document Count significantly exceeds Output Document Count:
 
- The Retrieved Document Count is the number of documents that will show up in the results of your query. The Loaded Document Count is the number of documents that needed to be scanned. If the Loaded Document Count is significantly higher than the Retrieved Document Count, then there was at least one part of your query that was unable to utilize the index.
+ The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
+
+ Below is an example of scan query that wasn't entirely served by the index.
+
+Query:
+
+ ```sql
+SELECT VALUE c.description
+FROM   c
+WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
+ ```
+
+Query Metrics:
+
+```
+Retrieved Document Count                 :          60,951
+Retrieved Document Size                  :     399,998,938 bytes
+Output Document Count                    :               7
+Output Document Size                     :             510 bytes
+Index Utilization                        :            0.00 %
+Total Query Execution Time               :        4,500.34 milliseconds
+  Query Preparation Times
+    Query Compilation Time               :            0.09 milliseconds
+    Logical Plan Build Time              :            0.05 milliseconds
+    Physical Plan Build Time             :            0.04 milliseconds
+    Query Optimization Time              :            0.01 milliseconds
+  Index Lookup Time                      :            0.01 milliseconds
+  Document Load Time                     :        4,177.66 milliseconds
+  Runtime Execution Times
+    Query Engine Times                   :          322.16 milliseconds
+    System Function Execution Time       :           85.74 milliseconds
+    User-defined Function Execution Time :            0.00 milliseconds
+  Document Write Time                    :            0.01 milliseconds
+Client Side Metrics
+  Retry Count                            :               0
+  Request Charge                         :        4,059.95 RUs
+```
+
+Retrieved Document Count (60,951) is significantly greater than Output Document Count (7) so this query needed to do a scan.
 
 ## Ensure that the indexing policy includes necessary paths
 
 Your indexing policy should cover any properties included in WHERE clauses, ORDER BY clauses, JOINs, and most System Functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
 
-If we run a simple query on the nutrition data set, we observe a much lower RU charge when the property in the WHERE clause is indexed.
+If we run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, we observe a much lower RU charge when the property in the WHERE clause is indexed.
 
 ### Original
 
@@ -124,13 +162,15 @@ You can add additional properties to the indexing policy at any time, with no im
 
 ## Understand which system functions utilize the index
 
-If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot. Here is the list of string functions that can utilize the index:
+If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot.
+
+Here is the list of string functions that can utilize the index:
 
 -	STARTSWITH(str_expr, str_expr)
 -	LEFT(str_expr, num_expr) = str_expr
--	SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 
+-	SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
 
-Some common system functions that must load each document are shown below:
+Some common system functions that do not use the index and must load each document are below:
 
 | **System Function**                     | **Ideas   for Optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
@@ -144,7 +184,7 @@ Other parts of the query may still utilize the index despite the system function
 
 ## Optimize queries with both a filter and an ORDER BY clause
 
-While queries with a filter and an ORDER BY clause will normally utilize a range index, they will be more efficient if they can be served from a composite index.
+While queries with a filter and an ORDER BY clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Original
 
@@ -212,7 +252,7 @@ Updated indexing policy:
 
 ## Optimize queries that use DISTINCT
 
-It will be more efficient to find the DISTINCT set of results if the duplicate results are consecutive. Adding an ORDER BY clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to ORDER BY multiple properties, add a composite index.
+It will be more efficient to find the DISTINCT set of results if the duplicate results are consecutive. Adding an ORDER BY clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to ORDER BY multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Original
 
@@ -281,9 +321,9 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The JOIN expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
-## Optimizations for queries where Loaded Document Count is approximately equal to Retrieved Document Count:
+## Optimizations for queries where Retrieved Document Count is approximately equal to Output Document Count:
 
-If the Loaded Document Count is approximately equal to the Retrieved Document Count, it means the query did not have to scan many unnecessary documents. For many queries, such as those that use the TOP keyword, Loaded Document Count may exceed Retrieved Document Count by 1. This should not be cause for concern.
+If the Retrieved Document Count is approximately equal to the Output Document Count, it means the query did not have to scan many unnecessary documents. For many queries, such as those that use the TOP keyword, Retrieved Document Count may exceed Output Document Count by 1. This should not be cause for concern.
 
 ## Avoid cross partition queries
 
@@ -356,7 +396,7 @@ Here is the relevant composite index:
 
 ## Common optimizations that reduce query latency (no impact on RU charge):
 
-In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same data set, it will have the same RU charge each time. However, query latency may vary between query executions.
+In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. However, query latency may vary between query executions.
 
 ## Improving proximity between your app and Azure Cosmos DB
 
