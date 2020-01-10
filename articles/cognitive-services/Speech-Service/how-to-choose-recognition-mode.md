@@ -145,6 +145,7 @@ When using continuous recognition, you can enable dictation processing by using 
 For more information on using the `EnableDictation` function, see the [.NET Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
 
 ```csharp
+// Enable diction
 SpeechConfig.EnableDictation();
 ```
 
@@ -153,6 +154,7 @@ SpeechConfig.EnableDictation();
 For more information on using the `EnableDictation` function, see the [C++ Speech SDK docs](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
 
 ```cpp
+// Enable diction
 SpeechConfig->EnableDictation();
 ```
 
@@ -161,22 +163,22 @@ SpeechConfig->EnableDictation();
 For more information on using the `enableDictation` function, see the [Java Speech SDK docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
 
 ```java
+// Enable diction
 SpeechConfig.enableDictation();
 ```
 
 # [Python](#tab/python)
 
-For more information on using the `recognize_once` function, see the [Python Speech SDK docs](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
+For more information on using the `enable_dictation` function, see the [Python Speech SDK docs](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
 
 ```python
+# Enable diction
 SpeechConfig.enable_dictation()
 ```
 
 ***
 
 ## Next steps
-
-If you're looking for additional Speech SDK language coverage, see all the [Speech SDK samples](https://aka.ms/speech/github) on GitHub.
 
 > [!div class="nextstepaction"]
 > [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
