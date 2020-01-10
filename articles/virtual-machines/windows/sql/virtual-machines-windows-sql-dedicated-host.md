@@ -23,9 +23,10 @@ This article details the specifics of using a SQL Server VM with an [Azure Dedic
 ## Overview
 [Azure Dedicated Host](/azure/virtual-machines/windows/dedicated-hosts) is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in Microsoft's data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
+## Limitations
 
-[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
-
+- Virtual machine scale sets are not currently supported on dedicated hosts.
+- The following VM series are supported: DSv3 and ESv3. 
 
 ## Licensing
 

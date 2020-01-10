@@ -156,3 +156,4 @@ For notebooks on training models by using deep-learning-framework specific estim
 * [Train TensorFlow models](how-to-train-tensorflow.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
+* [Create and manage environments for training and deployment](how-to-use-environments.md)

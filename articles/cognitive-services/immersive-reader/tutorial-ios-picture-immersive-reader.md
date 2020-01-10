@@ -102,4 +102,4 @@ Inside the app, take or upload a photo of text by pressing the 'Take Photo' butt
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)
+* Explore the [Immersive Reader SDK Reference](./reference.md)

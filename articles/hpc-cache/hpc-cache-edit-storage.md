@@ -4,13 +4,25 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
 ---
 
 # Edit storage targets
 
-You can edit storage targets to modify some of their properties. Different properties are editable for different type of storage:
+You can remove or modify a storage target from the cache's **Storage targets** page.
+
+## Remove a storage target
+
+To remove a storage target, select it in the list and click the **Delete** button.
+
+This action removes the storage target association with this Azure HPC Cache system, but it does not change the back-end storage system. For example, if you used an Azure Blob storage container, the container and its contents still exist after you delete it from the cache. You can add the container to a different Azure HPC Cache, re-add it to this cache, or delete it with the Azure portal.
+
+Any file changes stored in the cache are written to the back-end storage system before the storage target is removed. This process can take an hour or more if a lot of changed data is in the cache.
+
+## Update storage targets
+
+You can edit storage targets to modify some of their properties. Different properties are editable for different types of storage:
 
 * For Blob storage targets, you can change the namespace path.
 

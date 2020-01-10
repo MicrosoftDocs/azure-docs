@@ -187,11 +187,12 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## Notebook examples
 
-The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article. 
+The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
 
 ## Next steps
 
-* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
+* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets
 
-* [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
+* [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets
 
+* [Create and manage environments for training and deployment](how-to-use-environments.md)
