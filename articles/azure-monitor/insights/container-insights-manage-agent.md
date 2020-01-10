@@ -7,6 +7,7 @@ ms.date: 01/10/2020
 ---
 
 # How to manage the Azure Monitor for containers agent
+
 Azure Monitor for containers uses a containerized version of the Log Analytics agent for Linux. After initial deployment, there are routine or optional tasks you may need to perform during its lifecycle. This article details on how to manually upgrade the agent and disable collection of environmental variables from a particular container. 
 
 ## How to upgrade the Azure Monitor for containers agent
@@ -71,4 +72,5 @@ To re-enable discovery of the environmental variables, apply the same process ea
 ```  
 
 ## Next steps
+
 If you experience issues while upgrading the agent, review the [troubleshooting guide](container-insights-troubleshoot.md) for support.

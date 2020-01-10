@@ -164,7 +164,7 @@ The configuration change can take a few minutes to finish before taking effect, 
 
 ## Deploy ConfigMaps for Azure Red Hat OpenShift
 
-A pre-configured copy of ConfigMap, named `container-azm-ms-agentconfig.yaml`, is available with Azure Red Hat OpenShift in the *openshift-azure-logging* namespace. To set custom key-value pairs, perform the following steps to edit the yaml file.
+A pre-configured copy of ConfigMap, named `container-azm-ms-agentconfig.yaml`, is available with Azure Red Hat OpenShift in the *openshift-azure-logging* namespace. Review the [scraping settings](#prometheus-scraping-settings) and then perform the following steps to edit the yaml file.
 
 1. To edit ConfigMap with your configuration settings, use the following command:
 
