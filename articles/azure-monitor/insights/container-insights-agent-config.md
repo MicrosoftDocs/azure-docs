@@ -60,11 +60,11 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-4. For Azure Red Hat OpenShift, save your changes in the editor.
+    For Azure Red Hat OpenShift, save your changes in the editor.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-## Verify configuration 
+## Verify configuration
 
 To verify the configuration was successfully applied to a cluster other than Azure Red Hat OpenShift, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
