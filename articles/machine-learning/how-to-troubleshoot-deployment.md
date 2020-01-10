@@ -204,6 +204,8 @@ prediction = service.run(input_data=test_sample)
 print(prediction)
 ```
 
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
+
 ### Update the service
 
 During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
