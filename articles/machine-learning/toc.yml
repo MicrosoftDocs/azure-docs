@@ -271,6 +271,9 @@
       href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
+    - name: Logging from AML Pipeline
+      displayName: log, monitor
+      href: how-to-log-from-aml-pipeline.md
     - name: Track experiments with MLflow
       displayName: log, monitor, metrics
       href: how-to-use-mlflow.md
