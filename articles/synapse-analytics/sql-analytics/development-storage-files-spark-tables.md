@@ -37,11 +37,11 @@ Metadata synchronization is auto-configured for each Spark pool provisioned in t
 
 
 
-### sp_metadata_sync_connector_add
+## sp_metadata_sync_connector_add
 
 Starts the connection to Spark for metadata synchronization.
 
-#### Syntax
+### Syntax
 
 ```
 sp_metadata_sync_connector_add [ @unique_name = ] 'connector_name'
@@ -57,7 +57,7 @@ sp_metadata_sync_connector_add [ @unique_name = ] 'connector_name'
 	[ , [ @mappings_json = ] mappings_json ]
 ```
 
-#### Arguments
+### Arguments
 
 [ @type = ] 'Spark' Specifies the type of connector to be used. Currently, only Spark is supported.
 
@@ -83,11 +83,11 @@ jdbc:sqlserver://mdsyncmetastoreserver.database.windows.net;database=MdSyncMetas
 
 [ , [ @mappings_json = ] mappings_json] Isn't an argument used at this time. Any argument value provided will be ignored.
 
-#### Result set
+### Result set
 
 No result set. An error will be provided if the operation fails.
 
-#### Example
+### Example
 
 The following example adds a connector for Spark with the metastore server *mymetastoreserver* and database name *metastore*. It will start a metadata sync synchronization.
 
@@ -103,23 +103,23 @@ exec sys.sp_metadata_sync_connector_add
 
 
 
-### sp_metadata_sync_connectors_status
+## sp_metadata_sync_connectors_status
 
 Returns metadata synchronization connectors state.
 
-#### Syntax
+### Syntax
 
 ```
 sp_metadata_sync_connectors_status [ @unique_name = 'connector_name' ]
 ```
 
-#### Arguments
+### Arguments
 
 [ @unique_name = 'connector_name' ]
 
 If specified, the state of the specific connector will be returned. When not specified, the states of all available connectors will be returned.
 
-#### Result set
+### Result set
 
 Returns row per connector:
 
@@ -131,7 +131,7 @@ Returns row per connector:
 | SyncStatus      | nvarchar(max) | Last synchronization status:<br />SUCCEEDED<br />FAILED<br />empty value - synchronization is in progress |
 | Message         | nvarchar(max) | Error message describing error during synchronization if any. Blank if no error occurred. |
 
-#### Example
+### Example
 
 The following example shows all connectors.
 
@@ -147,28 +147,28 @@ exec sys.sp_metadata_sync_connectors_status @unique_name = 'ConnectorForMYSpark'
 
 
 
-### sp_metadata_sync_connector_drop
+## sp_metadata_sync_connector_drop
 
 Stops synchronization for a specified connector and drops it.
 
-#### Syntax
+### Syntax
 
 ```
 sp_metadata_sync_connector_drop { @unique_name = 'connector_name' }
 ```
 
-#### Arguments
+### Arguments
 
 { @unique_name = 'connector_name' }
 Specifies that the specified connector will be dropped and stops synchronization.
 
-#### Result set
+### Result set
 
 No result set. An error will be provided if the operation fails.
 
-#### Example
+### Example
 
-The example below stops synchronization for a specified connector and drops it.
+The following example stops synchronization for a specified connector and drops it.
 
 ```sql
 exec sys.sp_metadata_sync_connector_drop @unique_name = 'ConnectorForMYSpark'
