@@ -60,7 +60,16 @@ router.get('/token', function(req, res) {
 });
 ```
 
-Use the `expires_on` property to determine whether your token has expired before attempting to acquire a new one.
+The `expires_on` property is the date and time at which the token expires, expressed as the number of seconds since January 1, 1970 UTC. Use this value to determine whether your token has expired before attempting to acquire a new one.
+
+```javascript
+async function getToken() {
+    if (Date.now() / 1000 > CREDENTIALS.expires_on) {
+        CREDENTIALS = await refreshCredentials();
+    }
+    return CREDENTIALS.access_token;
+}
+```
 
 ## Next steps
 
