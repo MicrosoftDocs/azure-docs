@@ -181,7 +181,7 @@ Within *30 minutes* after you send the HTTP PUT request to create your ISE, you 
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
-1. On your key vault menu, under **Settings**, select **Access policies** > **Add access policy**, for example:
+1. On your key vault menu, under **Settings**, select **Access policies** > **Add Access Policy**, for example:
 
    ![Add access policy for system-assigned managed identity](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
