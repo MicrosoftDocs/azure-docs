@@ -44,7 +44,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
     - **Disk encryption sets (DES)**: Site Recovery needs the disk encryption set(s) to be used for replica and target managed disks. You must pre-create DES in the target subscription and the target region before enabling the replication. By default, a DES is not selected. You must click on ‘Customize’ to choose a DES per source disk.
     - **Replication policy**: Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of *24 hours* for recovery point retention and *60 minutes* for app-consistent snapshot frequency.
 
-    ![Enable Replication for machine with CMK enabled disks](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmkenabledr.png)
+    ![Enable Replication for machine with CMK enabled disks](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-enable-dr.png)
 
 ## Customize target resources
 
@@ -66,7 +66,7 @@ Follow these steps to modify the Site Recovery default target settings.
 >[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
 
-![Enable Replication for machine with CMK enabled disks](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmktargetdiskproperties.png)
+![Enable Replication for machine with CMK enabled disks](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-target-disk-properties.png)
 
 ## FAQs
 
