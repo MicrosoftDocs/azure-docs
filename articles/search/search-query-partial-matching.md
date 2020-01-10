@@ -12,29 +12,28 @@ ms.date: 01/12/2020
 ---
 # Match on patterns and special characters (dashes)
 
-For queries that include special characters (`-, /, \, =`) or patterns based on partial terms within a larger term, custom analyzers are typically needed to ensure that characters or terms remain whole during indexing. 
+For queries that include special characters (`-, /, \, =`) or query patterns based on partial terms within a larger term, custom analyzers are typically needed to ensure that characters or terms remain whole during indexing. 
 
-By default, a phone number like "+1 (425) 703-6214" is tokenized as 
-"1", "425", "703", "6214". Searching on "3-62", partial terms with the dash, will fail because that content doesn't exist as such in the index. 
+By default, a phone number like `"+1 (425) 703-6214"` is tokenized as 
+`"1"`, `"425"`, `"703"`, `"6214"`. Searching on `"3-62"`, partial terms that includes a dash, will fail because that content doesn't exist like that in the index. 
 
 When you need to search on partial strings or special characters, you can override the default analyzer with a custom analyzer that operates under different tokenization rules that keeps terms intact. Taking a step back, the approach looks like this:
 
-+ Choose an analyzer that produces the output you want
-+ Optionally, define a custom analyzer in the index if you need deeper customization
++ Choose a predefined analyzer or define a custom analyzer that produces the desired output
 + Assign the analyzer to the field
 + Build the index and test
 
-This article walks you through each step. The approach you learn here can be used in other scenarios. Wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
+This article walks you through each step. The approach described here can be used in other scenarios. In particular, wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
 ## Choosing an analyzer
 
-Azure Cognitive Search uses the Standard Lucene analyzer by default. You can override this analyzer on a per-field basis to get different output in the index. The following analyzers are commonly used when you want terms to remain intact during indexing:
+Azure Cognitive Search uses the Standard Lucene analyzer by default. You can override this analyzer on a per-field basis to get different output in the index. The following analyzers are commonly used when you want to keep terms intact during indexing:
 
 | Analyzer | Behaviors |
 |----------|-----------|
-| [keyword]() | Content of the entire field is tokenized as a single term. |
-| [whitespace]() | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
-| [custom analyzer]() | (recommended) Add a new analyzer definition to an index that uses a tokenizer and token filter you provide. A recommended combination is the keyword tokenizer with a lower-case token filter. When used by itself, the built-in keyword analyzer does not lower-case any upper-case text, which can result in false negative query results. Creating a custom analyzer give you a mechanism for adding the filter. |
+| [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Content of the entire field is tokenized as a single term. |
+| [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
+| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Create a custom analyzer so that you can specify both the tokenizer and token filter. A recommended combination is the keyword tokenizer with a lower-case token filter. When used by itself, the built-in keyword analyzer does not lower-case any upper-case text, which can cause queries to fail. Creating a custom analyzer give you a mechanism for adding the token filter. |
 
 To help you choose an analyzer, test each one to view the tokens it emits. Using a web API test tool like Postman, create a request that calls the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer), passing in the analyzer and term.  An existing service and index is required for this test.
 
@@ -153,7 +152,7 @@ The following example illustrates a custom analyzer that provides the keyword to
 {
 "fields": [
   {
-  "name": "phoneNumber",
+  "name": "accountNumber",
   "analyzer":"myCustomAnalyzer",
   "type": "Edm.String",
   "searchable": true,
@@ -189,7 +188,7 @@ A token filter adds additional processing over existing tokens in your index. Th
 {
 "fields": [
   {
-  "name": "featureCode",
+  "name": "accountNumber",
   "analyzer":"myCustomAnalyzer",
   "type": "Edm.String",
   "searchable": true,
@@ -222,15 +221,9 @@ A token filter adds additional processing over existing tokens in your index. Th
 ]
 ```
 
-## Test analyzer output
-
-The service provides an API that returns tokenized terms for a specific string. The following screenshot shows the request and response to [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The equivalent API in .NET is the [AnalyzerResult class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzeresult?view=azure-dotnet).
-
-   ![Postman session input is as-35-sd-f output is 4 tokens](./media/search-query-partial-matching/postman-test-analyzer-rest-api.png "Postman session input is as-35-sd-f output is 4 tokens")
-
 ## Query for patterns
 
-Once you have an index that articulates the terms that you expect, you can proceed with a query construct designed for pattern matching.
+Once you have an index that contains terms in the correct format, you can specify patterns to find matching documents.
 
 [Wildcard](search-query-lucene-examples.md#example-7-wildcard-search) and [Regular expression (RegEx)](search-query-lucene-examples.md#example-6-regex) queries are often used to find patterns on content that is expressed as full tokens in an index. 
 
@@ -244,17 +237,11 @@ Once you have an index that articulates the terms that you expect, you can proce
 > [!NOTE]
 > You might be inclined to also use `searchFields` as a field constraint, or set `searchMode=all` as an operator contraint, but in most cases you won't need either one. A regular expression query is typically sufficient for finding an exact match.
 
-## Design a custom solution
+## Additional steps
 
-The two approaches described in this article are common design patterns, but if they don't produce expected results, you can experiment with alternatives. The following guidance might help focus your investigation.
+If changing the `analyzer` property doesn't produce expected results, explore these additional mechanisms.
 
-Recall that when search terms include special characters or combinations of partial strings, address the following challenges:
-
-+ Control the tokenization process to ensure your index actually contains complete information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed. You can override default analyzer with a specific analyzer as a control mechanism. You can also add token filters for additional modifications.
-
-+ Create queries that do the best job of setting up the matching criteria when the criteria in question contains characters or specific patterns. Wildcard queries are a common approach. Remember that if you are using wildcards and the full Lucene syntax (queryType=full) you need to formulate the string within a regular expression.
-
-### Consider dedicated analyzers for indexing and query execution
+### Use different analyzers for indexing and query processing
 
 Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 
@@ -278,7 +265,7 @@ Another option leverages the per-field analyzer assignment to optimize for diffe
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": ""
+  "analyzer": null
 },
 {
   "name": "featureCodeRegex",
@@ -291,7 +278,7 @@ Another option leverages the per-field analyzer assignment to optimize for diffe
 
 ## Next steps
 
-This article explains how analyzers both contribute to query problems and solve query problems. As a next step, take a closer look at how analyzers are used to modulate indexing and query operations. In particular, consider using the Analyze Text API to return tokenized output so that you can see exactly what an analyzer is creating for your index.
+This article explains how analyzers both contribute to query problems and solve query problems. As a next step, take a closer look at how analyzers are used to modulate indexing and query processing. In particular, consider using the Analyze Text API to return tokenized output so that you can see exactly what an analyzer is creating for your index.
 
 + [Language analyzers](search-language-support.md)
 + [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md)
