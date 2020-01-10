@@ -2,14 +2,18 @@
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/10/2020
 ---
 
 # Configure agent data collection for Azure Monitor for containers
 
-Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
+Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
 
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
+
+>[!NOTE]
+>For Azure Red Hat OpenShift, a template ConfigMap file is created in the *openshift-azure-logging* namespace. It is not configured to actively collect data from the agent.
+>
 
 ## ConfigMap file settings overview
 
@@ -39,9 +43,12 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.  
+1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml. 
 
-2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables.
+   >[!NOTE]
+   >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
+
+2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables. If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -49,10 +56,10 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
 
-3. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>` on clusters other than Azure Red Hat Openshift.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
+
     The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Verify configuration 

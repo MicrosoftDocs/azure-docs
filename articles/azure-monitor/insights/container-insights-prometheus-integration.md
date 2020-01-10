@@ -23,7 +23,7 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 - Azure Red Hat OpenShift
 
 >[!NOTE]
->For Azure Red Hat OpenShift, a pre-configured ConfigMap file is created in the *openshift-azure-logging* namespace. It is not configured to actively scrape metrics or data collection from the agent.
+>For Azure Red Hat OpenShift, a template ConfigMap file is created in the *openshift-azure-logging* namespace. It is not configured to actively scrape metrics or data collection from the agent.
 >
 
 ## Azure Red Hat OpenShift Prerequisites
@@ -164,7 +164,7 @@ The configuration change can take a few minutes to finish before taking effect, 
 
 ## Deploy ConfigMaps for Azure Red Hat OpenShift
 
-A pre-configured copy of ConfigMap, named `container-azm-ms-agentconfig.yaml`, is available with Azure Red Hat OpenShift in the *openshift-azure-logging* namespace. Review the [scraping settings](#prometheus-scraping-settings) and then perform the following steps to edit the yaml file.
+A template ConfigMap file, named `container-azm-ms-agentconfig.yaml`, is available with Azure Red Hat OpenShift in the *openshift-azure-logging* namespace. Review the [scraping settings](#prometheus-scraping-settings) and then perform the following steps to edit the yaml file.
 
 1. To edit ConfigMap with your configuration settings, use the following command:
 
