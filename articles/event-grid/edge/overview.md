@@ -51,8 +51,12 @@ Event Grid on IoT Edge is built to send events to anywhere you want. Currently, 
 
 * Other modules including IoT Hub, functions, and custom modules
 * Other edge devices
-* Services hosted in the cloud including Azure Event Grid and Azure Functions
-* Web hooks
+* WebHooks
+* Azure Event Grid cloud service
+* Event Hubs
+* Service Bus Queues
+* Service Bus Topics
+* Storage Queues
 
 ## Supported environments
 Currently, Windows 64-bit, Linux 64-bit, and ARM 32-bit environments are supported.

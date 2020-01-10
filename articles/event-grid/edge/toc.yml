@@ -64,3 +64,5 @@
     href: configure-event-grid.md
   - name: Module Twin configuration schema
     href: twin-json.md
+  - name: Release Notes
+    href: release-notes.md
