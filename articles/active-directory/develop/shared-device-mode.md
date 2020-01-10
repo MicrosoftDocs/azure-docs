@@ -17,6 +17,10 @@ ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
+> [!NOTE]
+> This feature is in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # Shared device mode for Android devices
 
@@ -38,18 +42,21 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 ## Single vs multiple-account applications
 
-Applications written using the Microsoft Authentication Library (MSAL) SDK can manage a single account or multiple accounts. This is known as [single-account mode or multiple-account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). The Microsoft identity platform features available to the application vary depending on whether the application is running in single-account mode or multiple-account mode.
+Applications written using the Microsoft Authentication Library SDK (MSAL) can manage a single account or multiple accounts. For details, see [single-account mode or multiple-account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). Microsoft identity platform features available to your app vary depending on whether the application is running in single-account mode or multiple-account mode.
 
 **Shared device mode apps only work in single-account mode**.
 
-Applications that only support multiple-account mode can't run on a shared device. If an employee loads an app that doesn't support single-account mode, it won't run on the shared device.
-
-> [!NOTE]
-> Apps written before the MSAL SDK was released run in multiple-account mode and must be updated to run in single-account mode to run on a shared device.
+> [!IMPORTANT] Applications that only support multiple-account mode can't run on a shared device. If an employee loads an app that doesn't support single-account mode, it won't run on the shared device.
+>
+> Apps written before the MSAL SDK was released run in multiple-account mode and must be updated to support single-account mode before they can run on a shared mode device.
 
 **Supporting both single-account and multiple-account mode**
 
-Your app can support running on both personal devices and shared devices. If your app supports multiple accounts, but can also support single account mode so that you can use shared device mode. Your apps may change their behavior based on the type of device they are on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode. There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL’s application factory, the correct type of application object is provided automatically.
+Your app can be built to support running on both personal devices and shared devices. If your app supports multiple accounts, you can also add support for single account mode so that you can use shared device mode.
+
+You may also want your app to change its behavior depending on the type of device it is running on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode.
+
+There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL’s application factory, the correct  application object is provided automatically.
 
 The following object model illustrates the type of object you may receive and what it means in the context of a shared device:
 
@@ -78,13 +85,13 @@ The following differences apply depending on whether your app is running on a sh
 | **Sign-out** | Global | Each application can control if the sign-out is local to the app or for the family of applications. |
 | **Supported account types** | Work accounts only | Personal and work accounts supported  |
 
-## What happens when the device mode changes
-
-If your application is running in multiple-account mode, and an administrator puts the device in shared device mode, all of the accounts on the device are cleared from the application and the application transitions to single-account mode.
-
 ## Why you may want to only support single-account mode
 
 If you are writing an app that will only be used for firstline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
+
+## What happens when the device mode changes
+
+If your application is running in multiple-account mode, and an administrator puts the device in shared device mode, all of the accounts on the device are cleared from the application and the application transitions to single-account mode.
 
 ## Global sign out and the overall app lifecycle
 
@@ -92,12 +99,10 @@ When a user signs out, you will need to take action to protect the privacy and d
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
-The following diagram shows the overall app lifecycle and common events that may occur while your app runs. It covers from the time an activity launches, signing in and signing out an account, and how events such as pausing, resuming, and stopping the activity fit in.
+The following diagram shows the overall app lifecycle and common events that may occur while your app runs. The diagram covers from the time an activity launches, signing in and signing out an account, and how events such as pausing, resuming, and stopping the activity fit in.
 
 ![Shared device app lifecycle](media/v2-shared-device-mode/lifecycle.png)
 
- See [Shared device global sign-out ](link) to learn how to check whether the user has changed and how to globally sign the previous user out of the app.
+ # Next steps
 
-## Next steps
-
-Try the [shared device mode tutorial](link). You'll setup an Android device to run in shared device mode and get the [sample]() running on it.
+See the [global sign out sample](https://github.com/brandwe/GlobalSignoutSample) for example shared device mode app code that shows how to write a firstline worker app that runs on a shared mode Android device.
