@@ -23,7 +23,7 @@ In either SQL pool or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT
 
 ## CETAS in SQL pool
 
-For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql) article.
+For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql) article. Additionally, for guidance on CTAS using SQL pool, see the [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest) article. 
 
 ## CETAS in SQL on-demand
 
@@ -48,22 +48,29 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 #### Arguments
 
-[ [ *database_name* . [ *schema_name* ] . ] | *schema_name* . ] *table_name* -
-The one to three-part name of the table to create. For an external table, SQL Analytics on-demand stores only the table metadata. No actual data is moved or stored in SQL Analytics on-demand.
+[ [ *database_name* . [ *schema_name* ] . ] | *schema_name* . ] *table_name*
 
-LOCATION = 'path_to_folder' -
+The one to three-part name of the table to create. For an external table, SQL on-demand stores only the table metadata. No actual data is moved or stored in SQL on-demand.
+
+LOCATION = 'path_to_folder'
+
 Specifies where to write the results of the SELECT statement on the external data source. The root folder is the data location specified in the external data source. LOCATION must point to a folder and have a trailing /. Example: aggregated_data/
 
-DATA_SOURCE = *external_data_source_name* -
+DATA_SOURCE = *external_data_source_name*
+
 Specifies the name of the external data source object that contains the location where the external data will be stored. To create an external data source, use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](development-tables-external-tables.md#create-external-data-source).
 
-FILE_FORMAT = *external_file_format_name* -
+FILE_FORMAT = *external_file_format_name*
+
 Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](development-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT='PARQUET' are currently supported.
 
-WITH *common_table_expression* -
+WITH *common_table_expression*
+
 Specifies a temporary named result set, known as a common table expression (CTE). For more information, see [WITH common_table_expression (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=aps-pdw-2016-au7).
 
-SELECT <select_criteria> - Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=aps-pdw-2016-au7).
+SELECT <select_criteria>
+
+Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=aps-pdw-2016-au7).
 
 ### Permissions
 
