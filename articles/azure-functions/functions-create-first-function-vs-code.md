@@ -3,42 +3,55 @@ title: Create your first function in Azure using Visual Studio Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
 
 ms.topic: quickstart
-ms.date: 06/25/2019
+ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 ---
 
 # Create your first function using Visual Studio Code
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
+In this quickstart, you create and test a "hello world" function on your local computer using Microsoft Visual Studio Code. You then publish the function code to Azure from Visual Studio Code.
 
-In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to create and test a "hello world" function on your local computer using Microsoft Visual Studio Code. You then publish the function code to Azure from Visual Studio Code.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. 
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently supports C#, JavaScript, Java, and Python functions. The steps in this article and the article that follows support only JavaScript and C# functions. To learn how to use Visual Studio Code to create and publish Python functions, see [Create and deploy serverless Azure Functions in Python with Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
+The [Azure Functions extension for Visual Studio Code] currently supports C#, JavaScript, Java, PowerShell, Python and TypesScript functions. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
-The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+The steps in this article and the article that follows support the following languages:
+
++ C#
++ JavaScript
++ Python
+
+To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
 
 ## Prerequisites
 
-To complete this quickstart:
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
-* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later. To verify your version of Azure Functions Core Tools, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func --version`. 
 
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2).
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
 
-* Install the specific requirements for your chosen language:
+* Language-specific requirements:
 
-    | Language | Requirement |
-    | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
- 
-    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+    # [C\#](#tab/csharp)
+
+    The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
+
+    # [JavaScript](#tab/nodejs)
+
+    [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+
+    # [Python](#tab/python)
+        
+    + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
+
+    + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+
+    ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
