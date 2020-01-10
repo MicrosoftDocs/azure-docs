@@ -12,6 +12,6 @@ articles/terraform/ @TomArcherMsft
 articles/governance/ @DCtheGeek
 
 # Configuration
-*.json @SyntaxC4 @tysonn @arob98
+*.json @SyntaxC4 @snoviking @arob98
 .acrolinx-config.edn @MonicaRush @arob98
-articles/zone-pivot-groups.yml @SyntaxC4 @tysonn @arob98
+articles/zone-pivot-groups.yml @SyntaxC4 @snoviking @arob98
