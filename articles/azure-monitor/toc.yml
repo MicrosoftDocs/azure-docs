@@ -4,10 +4,10 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
-  - name: FAQ
-    href: faq.md
   - name: Terminology changes
     href: terminology.md
+  - name: FAQ
+    href: faq.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
