@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/06/2020
+ ms.date: 01/10/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -15,7 +15,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 #### Setting up your Azure Key Vault
 
-1. Sign into the Azure portal and search for Key Vault
+1. Sign into the [Azure portal](https://portal.azure.com/) and search for Key Vault
 1. Search for and select **Key Vaults**.
 
 ![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)
@@ -66,6 +66,9 @@ To create and configure disk encryption sets, you must use the following link: h
 
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
+
+> [!IMPORTANT]
+> Your VM, disk, and snapshots must all be in the same region as your disk encryption set for deployment to succeed.
 
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. On the **Basic** tab, select the same region as your disk encryption set and Azure Key Vault.
