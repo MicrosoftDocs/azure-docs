@@ -160,7 +160,6 @@ Review [best practices for AKS cluster security][best-practices-security]
 
 <!-- LINKS - external -->
 
-
 <!-- LINKS - internal -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
