@@ -23,7 +23,7 @@ A bot client provides the best selected answer from your knowledge base, and can
 
 ## Natural language processing
 
-While QnA Maker processes questions that use natural language processing, it can also be used a part of a larger system that answers questions from multiple knowledge bases. You can combine QnA Maker with another Cognitive Service, Language Understanding (LUIS), to provide natural language processing before getting to a specific knowledge base. Learn more about when and how to use [LUIS and QnA Maker](../../luis/choose-natural-language-processing-service?toc=/azure/cognitive-services/qnamaker/toc.json) together
+While QnA Maker processes questions that use natural language processing, it can also be used a part of a larger system that answers questions from multiple knowledge bases. You can combine QnA Maker with another Cognitive Service, Language Understanding (LUIS), to provide natural language processing before getting to a specific knowledge base. Learn more about when and how to use [LUIS and QnA Maker](../../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json) together
 
 ## Next steps
 
