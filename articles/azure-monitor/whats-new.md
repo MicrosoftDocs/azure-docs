@@ -1,12 +1,12 @@
 ---
 title: What's new in Azure Monitor documentation
-description: Significant updates to Azure Monitor documentation
+description: Significant updates to Azure Monitor documentation updated each month.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 01/5/20
+ms.date: 01/05/2020
 
 ---
 
@@ -26,14 +26,14 @@ ms.date: 01/5/20
 - [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added supported resource types for monitoring at scale.
 
 ### Application Insights
-- [Application Insights for Worker Service apps (non-HTTP apps)](app/worker-service.md.md) - Added default logging level to C# code. Updated package reference version.
+- [Application Insights for Worker Service apps (non-HTTP apps)](app/worker-service.md) - Added default logging level to C# code. Updated package reference version.
 - [ApplicationInsights.config reference - Azure](app/configuration-with-applicationinsights-config.md) - Updated sample code.
 - [Automate Azure Application Insights with PowerShell](app/powershell.md) - Update to Resource Manager template.
 - [Azure Monitor Application Insights NuGet packages](app/nuget.md) - Updated package versions.
 - [Create a new Azure Application Insights resource](app/create-new-resource.md) - Note added to globally unique name.
-- [Diagnose with Live Metrics Stream - Azure Application Insights](app/live-stream) - Updated ASP.NET Core SDK version requirement.
+- [Diagnose with Live Metrics Stream - Azure Application Insights](app/live-stream.md) - Updated ASP.NET Core SDK version requirement.
 - [Event counters in Application Insights](app/eventcounters.md) - Updated category and table to customMetrics.
-- [Explore Java trace logs in Azure Application Insights](app/java-trace-logs) - Added configuration for Java agent logging threshold.
+- [Explore Java trace logs in Azure Application Insights](app/java-trace-logs.md) - Added configuration for Java agent logging threshold.
 - [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) - Updated IP addresses for Live Metrics Stream.
 - [Monitor Azure app services performance](app/azure-web-apps.md) - Added support for ASP.NET Core 3.0. 
 - [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added clarification for OpenCensus Python schema mapping to Azure .Monitor schema
