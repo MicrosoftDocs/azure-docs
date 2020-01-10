@@ -24,6 +24,8 @@
   items:
   - name: Event Grid concepts
     href: concepts.md
+  - name: Event handlers and destinations
+    href: event-handlers.md
   - name: Security and authentication
     href: security-authentication.md
   - name: Event schemas

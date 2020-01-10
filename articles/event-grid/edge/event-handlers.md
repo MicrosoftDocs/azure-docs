@@ -1,4 +1,16 @@
-# Event Handlers in Event Grid on Edge
+---
+title: Event Handlers and destinations - Azure Event Grid IoT Edge | Microsoft Docs 
+description: Event Handlers and destinations in Event Grid on Edge 
+author: banisadr
+ms.author: babanisa
+ms.reviewer: spelluru
+ms.date: 01/09/2020
+ms.topic: article
+ms.service: event-grid
+services: event-grid
+---
+
+# Event Handlers and destinations in Event Grid on Edge
 
 An event handler is the place where the event is sent. The handler takes some further action to process the event. With the Event Grid on Edge module, this can be on the same edge device, another device, or in the cloud. You can also use any WebHook to handle events, or you can use one of the native handlers like Azure Event Grid, the cloud service, or Service Bus.
 

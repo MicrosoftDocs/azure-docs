@@ -1,3 +1,15 @@
+---
+title: Monitor topics and event subscriptions - Azure Event Grid IoT Edge | Microsoft Docs 
+description: Monitor topics and event subscriptions 
+author: banisadr
+ms.author: babanisa
+ms.reviewer: spelluru
+ms.date: 01/09/2020
+ms.topic: article
+ms.service: event-grid
+services: event-grid
+---
+
 # Monitor topics and event subscriptions
 
 Event Grid on Edge exposes a number of metrics for topics and event subscriptions in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). This article describes the availble metrics and how to enable them.
