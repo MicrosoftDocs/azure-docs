@@ -51,7 +51,9 @@ Ideally, you want to use a single Azure Data Factory (ADF) copy activity to quer
 
 We can work around this current limitation in one of the following ways:
 
-* **Use Azure Data Factory with two Copy Activities**: (1) get JSON-formatted data from SQL to a text file in an intermediary blob storage location, and (2) load from the JSON text file to the Cosmos DB collection.
+* **Use Azure Data Factory with two copy activities**: 
+  1. Get JSON-formatted data from SQL to a text file in an intermediary blob storage location, and 
+  2. Load data from the JSON text file to a container in Azure Cosmos DB.
 
 * **Use Azure Databricks to read from SQL and write to Cosmos DB** - we will present two options here.
 
