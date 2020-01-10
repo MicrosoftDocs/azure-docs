@@ -48,6 +48,8 @@ landingContent:
             url: how-to-create-immersive-reader.md
           - text: Set the cookie policy
             url: how-to/set-cookie-policy.md
+          - text: Launch the Immersive Reader with HTML content
+            url: how-to-launch-with-html.md
           - text: Customize Immersive Reader button
             url: how-to-customize-launch-button.md
       - linkListType: reference
