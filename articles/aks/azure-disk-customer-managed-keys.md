@@ -146,7 +146,7 @@ parameters:
   diskEncryptionSetID: "/subscriptions/{subs-id}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
 Next, run this deployment in your AKS cluster:
-```
+```azurecli-interactive
 kubectl apply -f byok-azure-disk.yaml
 ```
 
