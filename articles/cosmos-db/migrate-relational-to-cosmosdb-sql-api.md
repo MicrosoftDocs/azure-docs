@@ -10,7 +10,7 @@ ms.author: thvankra
 
 ---
 
-# Migrate one-to-few relational data into Azure Cosmos DB SQL API
+# Migrate one-to-few relational data into Azure Cosmos DB SQL API account
 
 In order to migrate from a relational database to Azure Cosmos DB SQL API, it can be necessary to make changes to the data model for optimization.
 
