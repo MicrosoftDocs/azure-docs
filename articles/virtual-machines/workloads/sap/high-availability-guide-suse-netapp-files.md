@@ -203,7 +203,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
    Select Availability Set created earlier for PAS/AAS  
 
-## Disable ID mapping
+## Disable ID mapping if using NFSv4.1
 
 The instructions in this section are only applicable, if using Azure NetApp Files NFSv4.1 volumes. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
@@ -234,7 +234,7 @@ The instructions in this section are only applicable, if using Azure NetApp File
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    # to make the configuration permanent
+    # Make the configuration permanent
     echo "options nfs nfs4_disable_idmapping=N" >> /etc/modprobe.d/nfs.conf
     </code></pre>`
 
@@ -347,19 +347,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo zypper info sap-suse-cluster-connector
    
-      Information for package sap-suse-cluster-connector:
-   ---------------------------------------------------
-   Repository     : SLE-12-SP3-SAP-Updates
-   Name           : sap-suse-cluster-connector
-   Version        : 3.1.0-8.1
-   Arch           : noarch
-   Vendor         : SUSE LLC &lt;https://www.suse.com/&gt;
-   Support Level  : Level 3
-   Installed Size : 45.6 KiB
-   Installed      : Yes
-   Status         : up-to-date
-   Source package : sap-suse-cluster-connector-3.1.0-8.1.src
-   Summary        : SUSE High Availability Setup for SAP Products
+    # Information for package sap-suse-cluster-connector:
+    # ---------------------------------------------------
+    # Repository     : SLE-12-SP3-SAP-Updates
+    # Name           : sap-suse-cluster-connector
+    # Version        : 3.1.0-8.1
+    # Arch           : noarch
+    # Vendor         : SUSE LLC &lt;https://www.suse.com/&gt;
+    # Support Level  : Level 3
+    # Installed Size : 45.6 KiB
+    # Installed      : Yes
+    # Status         : up-to-date
+    # Source package : sap-suse-cluster-connector-3.1.0-8.1.src
+    # Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
 2. **[A]** Update SAP resource agents  
@@ -546,13 +546,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    sudo crm node online <b>anftstsapcl2</b>
    sudo crm node standby <b>anftstsapcl1</b>
-   # If using NVSv3
+   # If using NFSv3
    sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
    
-   # If using NVSv4.1
+   # If using NFSv4.1
    sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
