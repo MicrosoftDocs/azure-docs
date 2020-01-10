@@ -24,7 +24,7 @@ This document is related to key concepts for designing tables in Azure SQL Analy
 | [Schema names](#schema-names)                                | Yes                | Yes                     |
 | [Table names](#table-names)                                  | Yes                | No                      |
 | [Table persistence](#table-persistence)                      | Yes                | No                      |
-| [Regular table](#regular-table)                              | Yes                | Yes                     |
+| [Regular table](#regular-table)                              | Yes                | No                      |
 | [Temporary table](#temporary-table)                          | Yes                | Yes                     |
 | [External table](#external-table)                            | Yes                | Yes                     |
 | [Data types](#data-types)                                    | Yes                | Yes                     |
