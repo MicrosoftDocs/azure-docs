@@ -223,7 +223,7 @@ run.get_metrics()
 ws.get_details()
 ```
 
-## Deploy MLflow models as a web service
+<!-- ## Deploy MLflow models as a web service
 
 Deploying your MLflow experiments as an Azure Machine Learning web service allows you to leverage the Azure Machine Learning model management and data drift detection capabilities and apply them to your production models.
 
@@ -391,3 +391,4 @@ The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) dem
 ## Next steps
 * [Manage your models](concept-model-management-and-deployment.md).
 * Monitor your production models for [data drift](how-to-monitor-data-drift.md).
+ -->
