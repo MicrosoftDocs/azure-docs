@@ -90,6 +90,9 @@ az aks create \
 ```
 Where *--enable-private-cluster* is a mandatory flag for a private cluster. 
 
+> [!NOTE]
+> If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
+
 ## Connect to the private cluster
 The API server endpoint has no public IP address. Consequently, you must create an Azure virtual machine (VM) in a virtual network and connect to the API server. To do so, do the following:
 
