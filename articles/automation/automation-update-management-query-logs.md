@@ -27,7 +27,7 @@ A record with a type of `RequiredUpdate` is created that represents updates requ
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. | 
 | Product | The products for which the update is applicable for. | 
 | PublishDate | The date the update is ready to be downloaded and installed from Windows Update. |
-| Server | *Property not populated in this release*. | 
+| Server | | 
 | SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
 | SourceSystem | *OperationsManager* | 
 | TenantId | Unique identifier representing your organizations instance of Azure Active Directory. | 
@@ -86,7 +86,7 @@ A record with a type of `UpdateAgent` is created that provides details of the up
 | DaySinceLastUpdateBucket | | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | OSVersion | The version of the operating system. |
-| Server | *Property not populated in this release*. |
+| Server | |
 | SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
 | SourceSystem | *OperationsManager* | 
 | TenantId | Unique identifier representing your organizations instance of Azure Active Directory. |
