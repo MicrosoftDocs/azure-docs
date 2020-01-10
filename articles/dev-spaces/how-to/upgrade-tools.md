@@ -3,7 +3,7 @@ title: "How to upgrade Azure Dev Spaces tools"
 services: azure-dev-spaces
 ms.date: "07/03/2018"
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to upgrade the Azure Dev Spaces command line tools, Visual Studo Code extension, and Visual Studio extension"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 # How to upgrade Azure Dev Spaces tools

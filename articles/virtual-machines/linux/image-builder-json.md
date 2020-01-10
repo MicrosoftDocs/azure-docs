@@ -22,7 +22,7 @@ This is the basic template format:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+             },
     "identity":{},			 
     "dependsOn": [], 
     "properties": { 
@@ -272,7 +272,8 @@ The Restart customizer allows you to restart a Windows VM and wait for it come b
 
 ```json 
      "customize": [ 
-            "type{ ": "WindowsRestart", 
+         {
+            "type": "WindowsRestart", 
             "restartCommand": "shutdown /r /f /t 0 /c", 
             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
             "restartTimeout": "5m"

@@ -1,5 +1,6 @@
 ---
-title: Quickstart - Set up sign in for an ASP.NET application using Azure Active Directory B2C
+title: "Quickstart: Set up sign-in for an ASP.NET web app"
+titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample ASP.NET web app that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: mmacy

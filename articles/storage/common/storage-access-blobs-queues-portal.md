@@ -1,11 +1,12 @@
 ---
-title: Use the Azure portal to access blob or queue data - Azure Storage
+title: Use the Azure portal to access blob or queue data
+titleSuffix: Azure Storage
 description: When you access blob or queue data using the Azure portal, the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Azure AD account or the storage account access key.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks

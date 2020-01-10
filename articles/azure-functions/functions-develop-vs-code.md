@@ -16,7 +16,7 @@ The Azure Functions extension provides these benefits:
 * Publish your Azure Functions project directly to Azure.
 * Write your functions in various languages while taking advantage of the benefits of Visual Studio Code.
 
-The extension can be used with the following languages, which are supported by the Azure Functions version 2.x runtime:
+The extension can be used with the following languages, which are supported by the Azure Functions runtime starting with version 2.x:
 
 * [C# compiled](functions-dotnet-class-library.md)
 * [C# script](functions-reference-csharp.md)<sup>*</sup>
@@ -90,10 +90,6 @@ You can also [add a new function to your project](#add-a-function-to-your-projec
 
 Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that need them. The process for installing binding extensions depends on your project's language.
 
-# [JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # [C\#](#tab/csharp)
 
 Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following command installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
@@ -101,6 +97,10 @@ Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in t
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# [JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -110,13 +110,13 @@ You can add a new function to an existing project by using one of the predefined
 
 The results of this action depend on your project's language:
 
-# [JavaScript](#tab/nodejs)
-
-A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
-
 # [C\#](#tab/csharp)
 
 A new C# class library (.cs) file is added to your project.
+
+# [JavaScript](#tab/nodejs)
+
+A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
 
 ---
 
@@ -125,6 +125,24 @@ A new C# class library (.cs) file is added to your project.
 You can expand your function by adding input and output bindings. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
+
+# [C\#](#tab/csharp)
+
+Update the function method to add the following parameter to the `Run` method definition:
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+This code requires you to add the following `using` statement:
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
+
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) documentation.
 
 # [JavaScript](#tab/nodejs)
 
@@ -140,7 +158,7 @@ Following are example prompts to define a new storage output binding:
 | **Select binding with direction** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
 | **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
 | **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **Select setting from "local.setting.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
+| **Select setting from "local.settings.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
 
 In this example, the following binding is added to the `bindings` array in your function.json file:
 
@@ -164,25 +182,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---javascript-example) reference.
 
-# [C\#](#tab/csharp)
-
-Update the function method to add the following parameter to the `Run` method definition:
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-This code requires you to add the following `using` statement:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) documentation.
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -259,7 +259,7 @@ The Azure Functions extension lets you run a Functions project on your local dev
 
 To run your Functions project locally, you must meet these additional requirements:
 
-* Install version 2.x of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* Install version 2.x or later of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
 * Install the specific requirements for your chosen language:
 

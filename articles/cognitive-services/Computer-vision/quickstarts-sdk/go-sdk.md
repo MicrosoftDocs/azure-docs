@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Computer Vision client library for Go | Microsoft Docs"
+title: "Quickstart: Computer Vision client library for Go"
 titleSuffix: Azure Cognitive Services
-description: Get started with the Computer Vision client library for Go.
+description: Get started with the Computer Vision client library for Go with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

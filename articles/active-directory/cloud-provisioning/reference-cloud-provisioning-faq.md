@@ -36,7 +36,7 @@ Yes. Cloud provisioning can be used to sync from multiple Active Directory fores
 
 **Q: How is the agent updated?**
 
-The agents are auto upgraded by Microsoft. This reduces the burden off IT to test and validate new agent versions. 
+The agents are auto upgraded by Microsoft. For the IT team, this reduces the burden of having to test and validate new agent versions. 
 
 **Q: Can I disable auto upgrade?**
 

@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 12/14/2019
 ms.author: zhshang
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using JavaScript
@@ -18,11 +18,9 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 Make sure you have a code editor such as [Visual Studio Code](https://code.visualstudio.com/) installed.
 
-Install the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) to run Azure Function apps locally.
+Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2 or higher) to run Azure Function apps locally.
 
-Azure Functions requires [Node.js](https://nodejs.org/en/download/) version 8 or 10.
-
-In order to install extensions, Azure Functions Core Tools currently require the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
+This quickstart uses [Node.js](https://nodejs.org/en/download/) 10.x but should work with other versions. Refer to the [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) for more information on supported Node.js versions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,13 +55,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **messages** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *src/chat/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
-
-    ```bash
-    func extensions install
-    ```
-
-1. Run the function app.
+1. In the terminal, ensure that you are in the *src/chat/javascript* folder. Run the function app.
 
     ```bash
     func start

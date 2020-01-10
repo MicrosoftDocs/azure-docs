@@ -18,7 +18,7 @@ This article uses the Azure portal for demonstration, however the feature can al
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## Create and Azure AD Application
+## Create an Azure AD Application
 
 Begin by creating an Azure AD Application for your protected endpoint. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure your protected API to be called by a daemon app.

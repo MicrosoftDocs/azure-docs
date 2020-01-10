@@ -4,8 +4,8 @@ description: Use Azure diagnostics for debugging, measuring performance, monitor
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
 
 ---

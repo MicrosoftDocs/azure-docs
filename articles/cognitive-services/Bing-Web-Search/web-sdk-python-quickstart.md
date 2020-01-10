@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -18,16 +18,14 @@ The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Pyt
 
 Want to see the code right now? The [Bing Web Search SDK for Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) are available on GitHub.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Prerequisites
 The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.
 
 * Python 2.7, 3.3, 3.4, 3.5 or 3.6
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) for Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) for Python 3.x
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create and configure your virtual environment
 
@@ -62,6 +60,12 @@ Create a virtual environment with `venv` for Python 3.x:
 python -m venv mytestenv
 ```
 
+Activate your environment:
+
+```console
+mytestenv\Scripts\activate.bat
+```
+
 Install Bing Web Search SDK dependencies:
 
 ```console
@@ -77,7 +81,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Create a new Python project using your favorite IDE or editor.
 
-1. Copy this sample code into your project:  
+1. Copy this sample code into your project. `endpoint` can be the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:  
 
     ```python
     # Import required modules.

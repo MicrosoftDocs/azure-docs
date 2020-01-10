@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK for C++ (Windows) platform setup - Speech Service'
+title: 'Quickstart: Speech SDK for C++ (Windows) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C++ on Windows Desktop with the Speech Services SDK.
+description: Use this guide to set up your platform for C++ on Windows Desktop with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme

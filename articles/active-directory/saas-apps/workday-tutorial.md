@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -167,7 +167,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    > [!NOTE]
    > The value of the Environment attribute is tied to the value of the tenant URL:  
-   > -If the domain name of the Workday tenant URL starts with impl for example: *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
+   > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
    > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
 4. In the **SAML Setup** section, perform the following steps:
@@ -233,7 +233,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. As **Authentication Request Signature Method**, select **SHA256**.
 
-    ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method") 
+    ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
 
     d. Click **OK**.
 

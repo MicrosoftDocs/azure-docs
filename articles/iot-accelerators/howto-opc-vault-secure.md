@@ -94,7 +94,7 @@ Now it depends on the OPC UA device how to apply the new key pair. Typically, th
 
 Now it depends on the OPC UA device how to apply the new certificate. Typically, the CA cert and CRL are copied to a `trusted` folder, while the application certificate is applied to an `own` folder in the certificate store. Some devices might already support server push for certificate updates. Refer to the documentation of your OPC UA device.
 
-### Step 4: Device secured
+### Step 3: Device secured
 
 The OPC UA device is now ready to communicate with other OPC UA devices secured by CA signed certificates, without further configuration.
 
