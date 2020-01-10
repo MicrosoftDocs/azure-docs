@@ -163,9 +163,9 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ---
 
-## Enabling Allow Protected Append Blobs Writes
+## Enabling allow protected append blobs writes
 
-At this time, you can only access the `allowProtectedAppendWrites` setting for time-based retention polcies through this specific [portal link](https://aka.ms/immutableappendblobs). 
+At this time, you can only access the `allowProtectedAppendWrites` setting for time-based retention policies through this specific [portal link](https://aka.ms/immutableappendblobs). 
 
 > [!IMPORTANT] 
 > This feature is currently available and visible in the following regions:
