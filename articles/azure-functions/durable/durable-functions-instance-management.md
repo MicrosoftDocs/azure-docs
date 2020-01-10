@@ -737,6 +737,9 @@ The `purgeInstanceHistoryBy` method can be used to conditionally purge instance 
 }
 ```
 
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
+
 **index.js**
 
 ```javascript
