@@ -116,6 +116,8 @@ Before you can use your logic app's system-assigned managed identity for authent
 * Azure CLI ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
+<a name="azure-portal-assign-access"></a>
+
 ### Assign access in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
