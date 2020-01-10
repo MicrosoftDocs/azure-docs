@@ -1,9 +1,9 @@
 ---
 title: Building retail solutions with Azure IoT Central | Microsoft Docs
 description: Learn about using Azure IoT Central application templates to build connected logistics, digital distribution center, in-store analytics, condition monitoring, checkout, smart inventory management, and retail solutions.
-author: KishorIoT
-ms.author: nandab
-ms.date: 01/09/2020
+author: avneet723
+ms.author: avneets 
+ms.date: 01/10/2020
 ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -136,6 +136,27 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 To learn more, see the [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management-pnp.md) tutorial.
 
+## Micro-fulfillment center
+
+In the increasingly competitive retail landscape, retailers constantly face pressure to close the gap between demand and fulfillment. A new trend that has emerged to address the growing consumer demand is to house inventory near the end customers and the stores they visit.
+
+The IoT Central micro-fulfillment center application template enables solution builders to monitor and manage all aspects of their fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
+
+The application template enables you to: 
+
+- Seamlessly connect a variety of IoT sensors such as robots or condition monitoring sensors to an IoT Central application instance.
+- Monitor and manage the health of the sensor network as well as any gateway devices in the environment.
+- Create custom rules around the environmental conditions within a fulfillment center to trigger appropriate alerts.
+- Transform the environmental conditions within your fulfillment center into insights that can be leveraged by the retail warehouse team.
+- Export the aggregated insights into existing or new business applications for the benefit of the retail staff members.
+
+The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
+
+> [!div class="mx-imgBorder"]
+> ![Micro-fulfillment Center](./media/overview-iot-central-retail/MFC-Dashboard.png)
+
+To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-iot-central-smart-inventory-management-pnp.md) tutorial.
+
 ## Next steps
 
 To get started building a retail solution:
@@ -144,4 +165,5 @@ To get started building a retail solution:
 * [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics-pnp.md).
 * [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center-pnp.md).
 * [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* [Deploy and walk through the micro-fulfillment center application template](./tutorial-iot-central-smart-inventory-management-pnp.md).
 * Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).
