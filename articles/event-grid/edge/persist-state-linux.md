@@ -13,7 +13,9 @@ services: event-grid
 
 # Persist state in Linux
 
-Topics and subscriptions created in the Event Grid module are by default stored in the container file system. Without persistence, if the module is redeployed, all the metadata created would be lost. Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed or restarted, then any undelivered events will be lost.
+Topics and subscriptions created in the Event Grid module are by default stored in the container file system. Without persistence, if the module is redeployed, all the metadata created would be lost. To preserve the data across deployments and restarts, you will need to persist the data outside the container file system.
+
+By default, with a volume mounted, only metadata is persisted and events are still stored in-memory for improved performance. Follow the persist events section to enable event persistence as well.
 
 This article provides the steps to deploy the Event Grid module with persistence in Linux deployments.
 
@@ -148,3 +150,30 @@ Instead of a docker volume, you also have the option to mount a host folder.
 
     >[!IMPORTANT]
     >Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadata**.
+
+
+## Persist events
+
+In order to enable event persistence, you must first enable metadata persistence either via volume mount or host directory mount using the above sections.
+
+Important things to note about persisting events:
+
+* Persisting events is enabled on a per Event Subscription basis and is opt-in once a volume or directory has been mounted.
+* Event persistence is configured on an Event Subscription at creation time and cannot be modified once the Event Subscription is created. In order to toggle event persistence, you must delete and re-create the Event Subscription.
+* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependant on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but generally only becomes a noticible at large scale.
+
+In order to enable event persistence on an Event Subscription, set `persistencePolicy` to `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": "true",
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+    ```
