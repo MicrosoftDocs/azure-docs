@@ -122,6 +122,7 @@ In this section, you will create an Azure Database for MySQL server in Azure.
 In this section, you will create a MySQL server and add a private endpoint to it. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
+
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
     ![Private Link overview](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
@@ -137,6 +138,7 @@ In this section, you will create a MySQL server and add a private endpoint to it
     | Name | Enter *myPrivateEndpoint*. If this name is taken, create a unique name. |
     |Region|Select **West Europe**.|
     |||
+
 5. Select **Next: Resource**.
 6. In **Create a private endpoint - Resource**, enter or select this information:
 

@@ -1,6 +1,6 @@
 ---
-title: Private Link for Azure Database for MySQL (Preview) cli setup method
-description: Learn how to configure private link for Azure Database for MySQL from Azure cli
+title: Private Link for Azure Database for MySQL (Preview) CLI setup method
+description: Learn how to configure private link for Azure Database for MySQL from Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mysql
@@ -19,7 +19,7 @@ A Private Endpoint is the fundamental building block for private link in Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you decide to install and use Azure CLI locally instead, this quick start requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 
 ## Create a resource group
 

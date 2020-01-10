@@ -48,7 +48,7 @@ With Private Link, you can enable cross-premises access to the private endpoint 
 
 Private Endpoints are required to enable Private Link. This can be done using the following how-to guides.
 
-* [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
+* [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### Approval Process
