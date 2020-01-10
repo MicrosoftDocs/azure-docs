@@ -130,7 +130,7 @@ You can also encrypt the AKS data disks with your own keys.  Replace myResourceG
 
 TODO
 
-``console
+```console
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
