@@ -10,10 +10,10 @@ ms.date: 01/09/2020
 
 # Create and manage Private Link for Azure Database for PostgreSQL - Single server (Preview) using CLI
 
-A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for PostgreSQL - Single server with an Azure private endpoint using the Azure CLI. Then, you can securely access the PostgreSQL Server from the VM.
+A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 > [!NOTE]
-> This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports General Purpose and Memory Optimized pricing tiers.
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ Connect to the VM *myVm* from the internet as follows:
     Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
     Address:  10.1.3.4
 
-3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
+3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
 
 4. In **New connection**, enter or select this information:
 
@@ -173,7 +173,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 6. Browse databases from left menu.
 
-7. (Optionally) Create or query information from the postgreSQL database.
+7. (Optionally) Create or query information from the postgreSQL server.
 
 8. Close the remote desktop connection to myVm.
 

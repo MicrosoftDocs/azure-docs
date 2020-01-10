@@ -10,20 +10,20 @@ ms.date: 01/09/2020
 
 # Private Link for Azure Database for MariaDB (Preview)
 
-Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside the customer’s private VNet. The PaaS resources can be accessed using the private IP address just like any other resource in the VNet. 
+Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet.
 
-For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation page](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
+For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
 
 > [!NOTE]
-> This feature is available in all regions of Azure public cloud where Azure Database for MariaDB is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all Azure regions where Azure Database for MariaDB supports General Purpose and Memory Optimized pricing tiers.
 
 ## Data exfiltration prevention
 
-Data ex-filtration in Azure Database for MariaDB is when an authorized user, such as a database admin is able to extract data from one system and move it to another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
+Data ex-filtration in Azure Database for MariaDB is when an authorized user, such as a database admin, is able to extract data from one system and move it to another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
 
 Consider a scenario with a user running MariaDB workbench inside an Azure VM connecting to an Azure Database for MariaDB instance. This MariaDB instance is in the West US data center. The example below shows how to limit access with public endpoints on Azure Database for MariaDB using network access controls.
 
-* Disable all Azure service traffic to Azure Database for MariaDB via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses are allowed in the server either via [firewall rules](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) or [virtual network service endpoints](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet).
+* Disable all Azure service traffic to Azure Database for MariaDB via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses or ranges are allowed to access the server either via [firewall rules](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) or [virtual network service endpoints](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet).
 
 * Only allow traffic to the Azure Database for MariaDB using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](concepts-data-access-security-vnet.md) and [VNet firewall rules](howto-manage-vnet-portal.md).
 
@@ -34,26 +34,25 @@ Consider a scenario with a user running MariaDB workbench inside an Azure VM con
 
 At the end of this setup, the Azure VM can connect only to Azure Database for MariaDB in the West US region. However, the connectivity isn't restricted to a single Azure Database for MariaDB. The VM can still connect to any Azure Database for MariaDB in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.</br>
 
-With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (i.e. an Azure Database for MariaDB) and no other resource.
+With Private Link, you can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example an Azure Database for MariaDB) and no other resource.
 
 ## On-premises connectivity over private peering
 
-When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a server-level firewall rule. While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
+When you connect to the public endpoint from on-premises machines, your IP address needs to be added to the IP-based firewall using a server-level firewall rule. While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
 
-With Private Link, customers can enable cross-premises access to the private endpoint using ExpressRoute, private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
+With Private Link, you can enable cross-premises access to the private endpoint using [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), private peering or [VPN tunnel](https://docs.microsoft.com/azure/vpn-gateway/). They can subsequently disable all access via public endpoint and not use the IP-based firewall.
 
-With Private Link, customers can enable cross-premises access to the private endpoint using [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), private peering or [VPN tunnel](https://docs.microsoft.com/azure/vpn-gateway/). They can subsequently disable all access via public endpoint and not use the IP-based firewall.
-
-## How to set up Private Link for Azure Database for MariaDB
+## Configure Private Link for Azure Database for MariaDB
 
 ### Creation Process
 
-Private Endpoints can be created using:
+Private Endpoints are required to enable Private Link. This can be done using the following how-to guides.
 
-* [Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
+* [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### Approval Process
+
 Once the network admin creates the Private Endpoint (PE), the admin can manage the Private Endpoint Connection (PEC) to Azure Database for MariaDB.
 
 > [!NOTE]
@@ -78,7 +77,7 @@ Once the network admin creates the Private Endpoint (PE), the admin can manage t
 
 ![select the Private endpoint final state](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
 
-## Use cases of Private Link for Azure database for MariaDB
+## Use cases of Private Link for Azure Database for MariaDB
 
 Clients can connect to the Private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 

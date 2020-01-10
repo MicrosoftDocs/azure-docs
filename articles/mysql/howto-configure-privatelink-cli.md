@@ -10,16 +10,12 @@ ms.date: 01/09/2020
 
 # Create and manage Private Link for Azure Database for MySQL (Preview) using CLI
 
-A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for MySQL server with an Azure private endpoint using the Azure CLI. Then, you can securely access the MySQL Server from the VM.
+A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for MySQL server with an Azure private endpoint.
 
 > [!NOTE]
-> This feature is available in all regions of Azure public cloud where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all Azure regions where Azure Database for MySQL supports General Purpose and Memory Optimized pricing tiers.
 
 ## Prerequisites
-
-To step through this how-to guide, you need:
-
-- An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -156,7 +152,8 @@ Connect to the VM *myVm* from the internet as follows:
     Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
     Address:  10.1.3.4
 
-3. Install [MySQL Workbench](https://dev.mysql.com/doc/workbench/wb-installing-windows.html).
+3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/wb-installing-windows.html) to do the operation.
+
 
 4. In **New connection**, enter or select this information:
 
