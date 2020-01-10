@@ -14,46 +14,94 @@ manager:  mtillman
 
 # Capture a browser trace for troubleshooting
 
-If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The browser trace can provide important details about the network traffic at the time the issue occurs.
+If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The information you collect can provide important details about the portal at the time the issue occurs. Follow the steps in this article for the brower you use: Microsoft Edge, Google Chrome, or Apple Safari.
 
-Follow the steps in this article to capture a trace and export a _HAR file_ with the trace information. We show the steps in the Microsoft Edge, Google Chrome, and Apple Safari browsers.
+## Microsoft Edge
 
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
 
+1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps).
+
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 to open the developer tools pane, or open it from a tools menu (More tools > Developer tools). 
+1. Press F12 or select **More Tools** > **Developer Tools**.
+
+1. Ensure that the trace captures information from all the pages you visit in the portal:
+
+    1. Select the **Network** tab, and clear the option **Clear entries on navigate**.
+
+    1. Select the **Console** tab, and select **SOMELOGTHING**.
+
+1. Select the **Network** tab.
+
+1. Select **Stop profiling session** and **Clear session**.
+
+1. Restart the session, then reproduce the issue in the portal. You will see session output similar to the following image.
+
+1. Stop the session and select **Export as HAR**.
+
+1. Compress the HAR file and send it to support for analysis and troubleshooting.
+
+1. Select the **Console** tab
+
+1. Copy and save
+
+
+## Scratch
+
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
+
+1. (Optional) Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps).
+
+1. In the portal, navigate to the step just prior to where the issue occurs.
+
+ Ive also seen some teammates ask customer to collect a problem recorder trace which screen grabs their monitor when they click through some repro, so this might be also good to reference or include into workflow, whatever you guys recommend: 
+
+
+1. Open the developer tools pane:
+
+    - Edge: select **More Tools** > **Developer Tools**.
+
+    - Chrome: select **More tools** > **Developer tools**.
+
+    - Safari: first enable the developer tools by selecting **Preferences** > **Advanced** > **Show Develop menu in menu bar**. Then select **Develop** > **Show Web Inspector**.
 
 1. Select the **Network** tab.
 
 1. To ensure that, select the appropriate option for your browser:
 
-    - For Edge, clear the option **Clear entries on navigate**.
+    - Edge: clear the option **Clear entries on navigate**.
 
-    - For Chrome, select **Preserve log**.
+    - Chrome: select **Preserve log**.
 
-    - For Safari, select ****. 
+    - Safari: select ****. 
 
 1. Stop the browser trace session and clear the session.
 
-    - For Edge, select **Stop profiling session** and **Clear session**.
+    - Edge: select **Stop profiling session** and **Clear session**.
 
-    - For Chrome, select **Stop recording network log** and **Clear**.
+    - Chrome: select **Stop recording network log** and **Clear**.
 
-    - For Safari, select ****. 
+    - Safari: select ****. 
 
 1. Restart the session, then reproduce the issue in the Azure portal. You will see session output similar to the following image.
 
 1. Stop the session and save the trace as a HAR file.
 
-    - For Edge, select **Export as HAR**.
+    - Edge: select **Export as HAR**.
 
-    - For Chrome, select **Export HAR**.
+    - Chrome: select **Export HAR**.
 
-    - For Safari, select ****. 
+    - Safari: select ****. 
 
 1. Compress the HAR file and send it to support for analysis and troubleshooting.
 
 1. Console
 
-1. I’ve also seen some teammates ask customer to collect a problem recorder trace which screen grabs their monitor when they click through some repro, so this might be also good to reference or include into workflow, whatever you guys recommend: https://support.microsoft.com/en-us/help/22878/windows-10-record-steps 
+1. 
+
+## Google Chrome
+
+## Apple Safari
+
+## Next steps
