@@ -48,7 +48,7 @@ The script is designed to be flexible. It will first look for existing Immersive
         if (-not $subscriptionExists) {
             throw "Error: Subscription does not exist"
         }
-        $subscriptionResult = az account set --subscription $SubscriptionName
+        az account set --subscription $SubscriptionName
 
         $resourceGroupExists = az group exists --name $ResourceGroupName
         if ($resourceGroupExists -eq "false") {
