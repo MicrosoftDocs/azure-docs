@@ -36,7 +36,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 ![sse-key-vault-generate-settings.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Fill in the selections as you like and then select **Create**.
+1. Currently we only support "soft" and "hard" RSA keys of size 2080 Fill in the selections as you like and then select **Create**.
 
 ![sse-create-a-key-generate.png](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
@@ -53,15 +53,15 @@ To create and configure disk encryption sets, you must use the following link: h
 1. Select **Key vault and key**.
 1. Select the key vault and key you created previously, as well as the version.
 1. Press **Select**.
-
-![sse-create-disk-enc-set-blade.png](media/virtual-machines-disk-encryption-portal/sse-create-disk-enc-set-blade.png)
-
 1. Select **Review + Create** and then **Create**.
+
+![sse-disk-enc-set-blade-key.png](media/virtual-machines-disk-encryption-portal/sse-disk-enc-set-blade-key.png)
+
 1. Open the disk encryption set once it finishes creating and select the alert that pops up.
 
 ![sse-disk-enc-alert-fix.png](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
 
-     Two notifications should pop up and succeed. Doing this will allow you to use the set with your key vault.
+Two notifications should pop up and succeed. Doing this will allow you to use the set with your key vault.
 
 ![disk-enc-notification-success.png](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
 

@@ -60,6 +60,7 @@ During the preview, only the following scenarios are supported:
 - Create data disks encrypted using server-side encryption and customer-managed keys.
 - (CLI/PowerShell only) Create snapshots that are encrypted using server-side encryption and customer-managed keys.
 - Create virtual machine scale sets that are encrypted with server-side encryption and customer-managed keys.
+- ["Soft" and "Hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported.
 
 The preview also has the following restrictions:
 
@@ -70,6 +71,7 @@ The preview also has the following restrictions:
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure Portal to create your disk encryption set, you cannot use snapshots for now.
+- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 
 ### PowerShell
 
