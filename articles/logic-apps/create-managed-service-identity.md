@@ -37,8 +37,6 @@ Unlike user-assigned identities, you don't have to manually create the system-as
 
 * [Azure portal](#azure-portal-system-logic-app)
 * [Azure Resource Manager templates](#template-system-logic-app)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -110,7 +108,7 @@ When Azure creates your logic app resource definition, the `identity` object get
 
 ## Give identity access to resources
 
-After you set up a managed identity for your logic app, you can [give that identity access to other Azure resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). You can then use that identity for authentication.
+Before you can use your logic app's system-assigned managed identity for authentication, give that identity access to the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource by using either the Azure PowerShell [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) command, Azure CLI [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) command, or these steps for the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
 
