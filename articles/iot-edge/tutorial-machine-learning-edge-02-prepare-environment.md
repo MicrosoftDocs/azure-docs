@@ -76,16 +76,22 @@ The DevVM directory contains the files needed to create an Azure virtual machine
 
     If you do not have the Azure PowerShell[Azure PowerShell module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0) installed, the script will install it.
 
-The script runs for several minutes as it executes the following steps:
+   The script runs for several minutes as it executes the following steps:
 
-* Prompts you to sign in to Azure.
-* Confirms the information for the creation of your VM. Press `y` or `Enter` to continue.
-* Creates the resource group if it does not exist.
-* Deploys the virtual machine.
-* Enables Hyper-V on the VM.
-* Installs software need for development and clone the sample repository.
-* Restarts the VM.
-* Creates an RDP file on your desktop for connecting to the VM.
+   * Prompts you to sign in to Azure.
+   * Confirms the information for the creation of your VM. Press `y` or `Enter` to continue.
+   * Creates the resource group if it does not exist.
+   * Deploys the virtual machine.
+   * Enables Hyper-V on the VM.
+   * Installs software need for development and clone the sample repository.
+
+1. Determine the name of the VM that the script created by checking the Azure portal or the PowerShell **Get-VM** command. It will have a name ending with four random characters such as IoTMLDemo-o4pv3.
+
+1. Restart the VM.
+
+    ```powershell
+    Restart-AzureRmVM IoTMLDemo-o4pv3
+    ```
 
 ### Connect to the development VM
 
@@ -175,9 +181,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Open the [Azure portal](https://portal.azure.com) and go to the resource group you're using for this tutorial.
 
-1. In the list of resources, select the IoT Hub that the script created. It will have a name similar to "IotEdgeAndMlHub-jrujej6de6i7w".
-
-
+1. In the list of resources, select the IoT Hub that the script created. It will have a name ending with random characters such as "IotEdgeAndMlHub-jrujej6de6i7w".
 
 1. From the left pane menu, under **Messaging**, select **Message routing**.
 
