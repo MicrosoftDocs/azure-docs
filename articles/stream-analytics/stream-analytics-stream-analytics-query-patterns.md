@@ -182,7 +182,7 @@ Use the **LIKE** statement to check the **License_plate** field value. It should
 
 ## Specify logic for different cases/values (CASE statements)
 
-**CASE** statements can provide different computations for different fields, based on particular criterions. For example, assign lane 'A' to cars of *Make1* and lane 'B' to any other make.
+**CASE** statements can provide different computations for different fields, based on particular criterion. For example, assign lane 'A' to cars of *Make1* and lane 'B' to any other make.
 
 **Input**:
 
