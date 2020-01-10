@@ -1,5 +1,5 @@
 ---
-title: Micro-fulfillment Center Architecture
+title: Azure IoT Central micro-fulfillment center | Microsoft Docs
 description: Learn to build a micro-fulfillment center application using our Micro-fulfillment center application template in IoT Central
 author: avneet723
 ms.author: avneets
