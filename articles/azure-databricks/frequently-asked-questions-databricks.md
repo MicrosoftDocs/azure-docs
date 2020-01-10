@@ -28,7 +28,7 @@ Follow these steps:
 1. Assign the necessary permissions to the service principal in Data Lake Storage.
 1. To access a file in Data Lake Storage, use the service principal credentials in Notebook.
 
-For more information, see [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
+For more information, see [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## Fix common problems
 

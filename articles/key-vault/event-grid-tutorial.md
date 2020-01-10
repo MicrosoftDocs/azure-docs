@@ -191,8 +191,10 @@ If you've been using a polling-based system to search for status changes of secr
 
 Learn more:
 
+
+- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
+- How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
+- [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
 - [Azure Key Vault overview](key-vault-overview.md)
 - [Azure Event Grid overview](../event-grid/overview.md)
-- [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
-- [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
 - [Azure Automation overview](../automation/index.yml)

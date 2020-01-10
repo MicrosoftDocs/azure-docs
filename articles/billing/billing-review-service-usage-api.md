@@ -6,7 +6,7 @@ documentationcenter: na
 author: lleonard-msft
 manager: 
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

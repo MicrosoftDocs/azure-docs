@@ -238,7 +238,7 @@ To enable Azure AD users to sign in to TalentLMS, they must be provisioned into 
     d. Click **Add User**.
 
 > [!NOTE]
-> You can use any other TalentLMS user account creation tools or APIs provided by TalentLMS to provision AAD user accounts.
+> You can use any other TalentLMS user account creation tools or APIs provided by TalentLMS to provision Azure AD user accounts.
 
 ### Test single sign-on
 

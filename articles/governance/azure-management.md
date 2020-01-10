@@ -2,7 +2,7 @@
 title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
 ms.date: 12/06/2018
-ms.topic: article
+ms.topic: overview
 ---
 # Overview of Management services in Azure
 

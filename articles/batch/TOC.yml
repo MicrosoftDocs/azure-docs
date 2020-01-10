@@ -45,6 +45,8 @@
     href: batch-api-basics.md
   - name: APIs and tools
     href: batch-apis-tools.md
+  - name: Best practices
+    href: best-practices.md
   - name: Quotas and limits
     href: batch-quota-limit.md
   - name: Supported VM sizes
@@ -111,6 +113,8 @@
       href: batch-user-accounts.md
     - name: Submit a large number of tasks
       href: large-number-tasks.md
+    - name: Check for job and task errors
+      href: batch-job-task-error-checking.md
   - name: Create resource files
     href: resource-files.md
   - name: Persist job and task output
@@ -211,10 +215,14 @@
       href: batch-task-fail-event.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Batch Community
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Batch community
     href: https://github.com/Azure/Batch
+  - name: Batch feedback
+    href: https://feedback.azure.com/forums/269742-batch
+  - name: Batch forum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog

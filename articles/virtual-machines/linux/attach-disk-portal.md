@@ -30,10 +30,9 @@ Before you attach disks to your VM, review these tips:
 
 
 ## Find the virtual machine
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the left menu, click **Virtual Machines**.
-3. Select the virtual machine from the list.
-4. To the Virtual machines page, in **Essentials**, click **Disks**.
+1. Go to the [Azure portal](https://portal.azure.com/) to find the VM. Search for and select **Virtual machines**.
+2. Choose the VM from the list.
+3. In the **Virtual machines** page sidebar, under **Settings**, choose **Disks**.
    
     ![Open disk settings](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -180,6 +179,15 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### Alternate method using parted
+The fdisk utility needs interactive input and hence is not ideal for use within automation scripts. However, the [parted](https://www.gnu.org/software/parted/) utility can be scripted and hence lends itself better in automation scenarios. The parted utility can be used to partition and to format a data disk. For the walkthrough below, we use a new data disk /dev/sdc and format it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+
 ### Mount the disk
 Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 

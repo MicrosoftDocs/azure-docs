@@ -5,11 +5,11 @@ description: Frequently asked questions and answers related to Azure Multi-Facto
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: troubleshooting
+ms.date: 11/18/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -20,6 +20,15 @@ ms.collection: M365-identity-device-management
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> 
+> Consumption-based licensing is no longer available to new customers effective September 1, 2018.
+> Effective September 1, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+
+> [!NOTE]
+> The information shared below regarding the Azure Multi-Factor Authentication Server is only applicable for users who already have the MFA server running.
 
 **Q: How does Azure Multi-Factor Authentication Server handle user data?**
 
@@ -139,13 +148,11 @@ If your organization doesn't have legacy clients, you should not allow your user
 >
 > App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Now modern authentication is available to any customer running the March 2015 or later update for Office 2013. For more information, see the blog post [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
+**Q: My users say that sometimes they don't receive the text message or the verification times out.**
 
-Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country/region, the mobile phone carrier, and the signal strength.
+Delivery of SMS messages are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country/region, the mobile phone carrier, and the signal strength.
 
 If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
-
-If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country/region.
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 
@@ -159,7 +166,7 @@ For one-way SMS with Azure MFA Server v7.0 or higher, you can configure the time
 >[!TIP] 
 >If you have multiple MFA Servers, only the one that processed the original authentication request knows the verification code that was sent to the user. When the user enters the code, the authentication request to validate it must be sent to the same server. If the code validation is sent to a different server, the authentication is denied. 
 
-For two-way SMS with Azure MFA Server, you can configure the timeout setting in the MFA Management Portal. If users don't respond to the SMS within the defined timeout period, their authentication is denied. 
+If users don't respond to the SMS within the defined timeout period, their authentication is denied. 
 
 For one-way SMS with Azure MFA in the cloud (including the AD FS adapter or the Network Policy Server extension), you cannot configure the timeout setting. Azure AD stores the verification code for 180 seconds. 
 

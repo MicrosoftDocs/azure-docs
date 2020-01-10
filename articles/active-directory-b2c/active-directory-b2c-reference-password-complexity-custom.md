@@ -1,5 +1,6 @@
 ---
-title: Configure password complexity using custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Configure password complexity using custom policies
+titleSuffix: Azure AD B2C
 description: How to configure password complexity requirements using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy

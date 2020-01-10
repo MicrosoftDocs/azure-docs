@@ -1,13 +1,12 @@
 ---
-title: 'Tutorial: Use Azure IoT Hub Device Provisioning Service to provision devices across load balanced IoT hubs'
-description: 'Tutorial: Device Provisioning Service automatic device provisioning across load balanced IoT hubs in Azure Portal'
-author: sethmanheim
-ms.author: sethm
+title: Tutorial - Provision devices across load balanced hubs using Azure IoT Hub Device Provisioning Service
+description: This tutorial demonstrates how Device Provisioning Service (DPS) enables automatic device provisioning across load balanced IoT hubs in Azure Portal
+author: wesmc7777
+ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
 ---
 

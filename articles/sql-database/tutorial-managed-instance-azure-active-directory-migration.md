@@ -245,7 +245,7 @@ Execute the ALTER USER command to complete the migration process on managed inst
     select * from test; 
     go 
      
-    -- Check that the SQL on-premise Windows user/group exists  
+    -- Check that the SQL on-premises Windows user/group exists  
     select * from sys.database_principals; 
     go 
     -- the old user aadsqlmi\testUser1 should be there 

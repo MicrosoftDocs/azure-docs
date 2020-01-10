@@ -1,6 +1,6 @@
 ---
-title: Web app that calls web APIs (code configuration) - Microsoft identity platform
-description: Learn how to build a Web app that calls web APIs (app's code configuration)
+title: Configure web app that calls web APIs - Microsoft identity platform | Azure
+description: Learn how to configure the code of a Web app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -35,8 +35,8 @@ The libraries supporting the authorization code flow for web Apps are:
 | MSAL library | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications) |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Development in progress - in public preview |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Development in progress - in public preview |
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for Python web applications |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for Java web applications |
 
 Select the tab corresponding to the platform you're interested in:
 
@@ -89,7 +89,7 @@ In practice the [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples
 
 Here is the [Startup.cs#L40-L42](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42) code, featuring the call to the `AddMicrosoftIdentityPlatformAuthentication` method which adds authentication to the web app, and `AddMsal` which adds the capability of calling Web APIs. The call to `AddInMemoryTokenCaches` is about choosing a token cache implementation among the ones which are possible:
 
-```CSharp
+```csharp
 public class Startup
 {
   // Code not show here
@@ -109,7 +109,7 @@ public class Startup
 
 `Constants.ScopeUserRead` is defined in [Constants.cs#L5](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Infrastructure/Constants.cs#L5)
 
-```CSharp
+```csharp
 public static class Constants
 {
     public const string ScopeUserRead = "User.Read";
@@ -122,7 +122,7 @@ You've already studied the content of `AddMicrosoftIdentityPlatformAuthenticatio
 
 The code for `AddMsal` is located in [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159).
 
-```CSharp
+```csharp
 
 /// <summary>
 /// Extensions for IServiceCollection for startup initialization.
@@ -250,7 +250,7 @@ In ASP.NET Core, building the confidential client application uses information t
 
 The code for the `GetOrBuildConfidentialClientApplication()` method is in [Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333). It uses members that were injected by dependency injection (passed in the constructor of TokenAcquisition in [Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59))
 
-```CSharp
+```csharp
 public class TokenAcquisition : ITokenAcquisition
 {
   // Code omitted here for clarity
@@ -319,7 +319,7 @@ To sum-up, `AcquireTokenByAuthorizationCode` really redeems the authorization co
 
 The way ASP.NET handles things is similar to ASP.NET Core, except that the configuration of OpenIdConnect and the subscription to the `OnAuthorizationCodeReceived` event happens in the [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) file. You'll find similar concepts as in ASP.NET Core, except that in ASP.NET you'll need to specify the RedirectUri in the [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). This configuration is a bit less robust than what is done in ASP.NET Core, as you'll need to change it when you deploy your application.
 
-```CSharp
+```csharp
 public partial class Startup
 {
   public void ConfigureAuth(IAppBuilder app)

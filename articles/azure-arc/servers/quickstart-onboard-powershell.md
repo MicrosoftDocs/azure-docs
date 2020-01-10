@@ -30,6 +30,9 @@ A Service Principal is a special limited management identity that is granted onl
 
 In this example, we will use [Azure PowerShell](/powershell/azure/install-az-ps) to create a Service Principal Name (SPN). Alternatively, you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) for this task.
 
+> [!NOTE]
+> When you create the service principal, you must be an Owner or User Access Administrator on the subscription that you want to use for onboarding. If you don't have sufficient permissions to create role assignments, the service principal might be created, but it won't be able to onboard machines.
+
 The `Azure Connected Machine Onboarding` role contains only the permissions required for onboarding. You can define the permission of a SPN to allow its scope to cover a resource group or a subscription.
 
 You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a later step.
@@ -49,7 +52,13 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
-Now, retrieve the password using powershell.
+> [!NOTE] 
+> It may take a while to get your SPN permissions properly populated. Running the following role assignment to set the permissions much faster.
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
+
+Now, retrieve the password using PowerShell.
 
 ```azurepowershell-interactive
 $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
@@ -60,8 +69,11 @@ From the output, copy the **password** and **ApplicationId** (from the previous 
 
 In the install agent onboarding script:
 
-* The **ApplicationId** property is used for the `--service-principal-id` parameter used in the install agent
-* The **password** property is used for the  `--service-principal-secret` parameter in the install agent.
+* The **ApplicationId** property is used for the `--service-principal-id` parameter used to connect the agent
+* The **password** property is used for the  `--service-principal-secret` parameter used to connect the agent.
+
+> [!NOTE]
+> Make sure to use the Service Principal **ApplicationId** property, not the **Id** property. The **Id** will not work.
 
 ## Manually install the agent and connect to Azure
 
@@ -78,7 +90,6 @@ For **Linux** servers, the agent is distributed via [Microsoft's package reposit
 > [!NOTE]
 > During Public Preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
-<!-- What about this aks? -->
 The simplest option is to register the package repository, and then install the package using the distribution's package manager.
 The bash script located at [https://aka.ms/azcmagent](https://aka.ms/azcmagent) performs the following actions:
 
@@ -128,7 +139,7 @@ On Windows, open PowerShell as administrator on a target node and run:
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -150,7 +161,7 @@ Parameters:
 * `tenant-id` : The Tenant GUID. You can find it in Azure portal by selecting **Azure Active directory** -> **properties** -> **Directory ID**.
 * `subscription-id` : The GUID of the subscription, in Azure, where you want to connect your machine.
 * `resource-group` : The resource group where you want your machine connected.
-* `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2** and **West Europe**.
+* `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2**, **SouthEast Asia**, and **West Europe**.
 * `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
 
 You can find more information on the 'azcmagent' tool in [Azcmagent Reference](azcmagent-reference.md).
@@ -169,7 +180,7 @@ Upon successful completion, your machine is connected to Azure. You can view you
 For **Linux**, if the server requires a proxy server, you can either:
 
 * Run the `install_linux_hybrid_agent.sh` script from the [Install the Agent](#download-and-install-the-agent) section above, with `--proxy`.
-* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add https://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
+* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add http://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
 
 #### Windows
 
@@ -177,7 +188,7 @@ For **Windows**, if the server requires proxy server for access to internet reso
 
 ```powershell
 # If a proxy server is needed, execute these commands with actual proxy URL
-[Environment]::SetEnvironmentVariable("https_proxy", "{https:\\proxy-url:proxyport}", "Machine")
+[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
 $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
 # The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
 Restart-Service -Name himds

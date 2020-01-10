@@ -1,13 +1,9 @@
 ---
 title: Continuous deployment for Azure Functions
 description: Use the continuous deployment features of Azure App Service to publish your functions.
-author: ggailey777
-manager: gwallace
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.author: glenga
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
 

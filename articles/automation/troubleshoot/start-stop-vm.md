@@ -1,11 +1,11 @@
 ---
-title: Troubleshooting Starting and Stopping VMs with Azure Automation
-description: This article provides information on troubleshooting Starting and Stopping VMs in Azure Automation
+title: Troubleshoot Starting and Stopping VMs - Azure Automation
+description: This article provides information on troubleshooting Starting and Stopping VMs in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm

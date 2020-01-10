@@ -194,7 +194,7 @@ To enable Azure AD users to sign in to Adaptive Insights, they must be provision
    c. Click **Submit**.
 
 > [!NOTE]
-> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision AAD user accounts.
+> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision Azure AD user accounts.
 
 ### Test SSO 
 

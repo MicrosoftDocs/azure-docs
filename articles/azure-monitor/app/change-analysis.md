@@ -98,7 +98,7 @@ In Azure Monitor, Change Analysis is also built into the self-service **Diagnose
 
    ![Screenshot of "Application Crashes" options](./media/change-analysis/enable-changeanalysis.png)
 
-1. Turn on **Change Analysis** and select **Save**. The tool displays all web apps under an App Services plan. You can use the plan level switch to turn on Change Analysis for all web apps under a plan.
+1. Turn on **Change Analysis** and select **Save**. The tool displays all web apps under an App Service plan. You can use the plan level switch to turn on Change Analysis for all web apps under a plan.
 
     ![Screenshot of the "Enable Change Analysis" user interface](./media/change-analysis/change-analysis-on.png)
 

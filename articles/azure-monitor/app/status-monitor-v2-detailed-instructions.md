@@ -73,7 +73,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
 > [!NOTE] 
 > PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6.
-> For information about earlier versions, see [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+> For information about earlier versions, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 
 1. Run PowerShell as Admin with an elevated execution policy.
@@ -114,7 +114,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
 4. Install the newest version of PowerShellGet.
 	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
-	- Reference: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+	- Reference: [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
 	- Command: `Install-Module -Name PowerShellGet`.
 	- Optional parameters:
 		- `-Proxy`. Specifies a proxy server for the request.
@@ -158,7 +158,7 @@ If for any reason you can't connect to the PowerShell module, you can manually d
 
 ### Option 1: Install into a PowerShell modules directory
 Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
-For more information, see [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
+For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 
 #### Unzip nupkg as a zip file by using Expand-Archive (v1.0.1.0)
@@ -189,7 +189,7 @@ For more information, see [Installing a PowerShell Module](https://docs.microsof
 
 ### Option 2: Unzip and import nupkg manually
 Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
-For more information, see [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
+For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 If you're installing the module into any other directory, manually import the module by using [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

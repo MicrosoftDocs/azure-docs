@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Find available rooms - Azure Digital Twins'
+title: 'Quickstart: Find available rooms - Azure Digital Twins | Microsoft Docs'
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and carbon dioxide telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 ms.author: alinast
 author: alinamstanciu
@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-# As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
+# As a developer new to Azure Digital Twins, I need to understand how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
 
 # Quickstart: Find available rooms by using Azure Digital Twins
@@ -72,7 +72,7 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 1. Run `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >The Device Login Azure CLI tool is used to authenticate the user to Azure AD. The user must enter a given code to authenticate by using [the Microsoft login](https://microsoft.com/devicelogin) page. After code is entered, follow the steps to authenticate. The user must authenticate when the tool is running.
+    >The Device Login Azure CLI tool is used to authenticate the user to Azure AD. The user must enter a given code to authenticate by using [the Microsoft login](https://microsoft.com/devicelogin) page. After the code is entered, follow the steps to authenticate. The user must authenticate when the tool is running.
 
     >[!TIP]
     > When you run this step, make sure your variables were copied properly if the following error message appears:
@@ -99,7 +99,7 @@ Build and run the sensor simulator device application by following these steps.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
 1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`. Save the updated file.
-1. Run `dotnet run` to start sending sensor data. You see it sent to Digital Twins as shown in the following image.
+1. Run `dotnet run` to start sending sensor data. It will be sent to Azure Digital Twins as shown in the following image.
 
      [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
@@ -159,7 +159,7 @@ To continue to the tutorials, don't clean up the resources created in this quick
 
 ## Next steps
 
-This quickstart used a simple scenario and sample applications to show how Digital Twins can be used to find rooms with good working conditions. For in-depth analysis of this scenario, see this tutorial:
+This quickstart used a simple scenario and sample applications to show how Digital Twins can be used to find rooms with good working conditions. For in-depth analysis of this scenario, read this tutorial:
 
 >[!div class="nextstepaction"]
 >[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)

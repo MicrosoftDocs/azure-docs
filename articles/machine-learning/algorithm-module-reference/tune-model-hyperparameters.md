@@ -1,7 +1,7 @@
 ---
 title: "Tune Model Hyperparameters"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Tune Model Hyperparameters module in the Azure Machine Learning service to perform a parameter sweep on a model to determine the optimum parameter settings.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Tune Model Hyperparameters module in Azure Machine Learning to perform a parameter sweep on a model to determine the optimum parameter settings.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -64,7 +64,7 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 8.  For **Ranking**, choose a single metric to use for ranking the models.
 
-    When you run a parameter sweep, the module calculates all applicable metrics for the model type returns them in the **Sweep results** report. The module uses separate metrics for regression and classification models.
+    When you run a parameter sweep, the module calculates all applicable metrics for the model type and returns them in the **Sweep results** report. The module uses separate metrics for regression and classification models.
 
     However, the metric that you choose determines how the models are ranked. Only the top model, as ranked by the chosen metric, is output as a trained model to use for scoring.
 
@@ -150,5 +150,5 @@ Almost all learners in Azure Machine Learning support cross-validation with an i
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 

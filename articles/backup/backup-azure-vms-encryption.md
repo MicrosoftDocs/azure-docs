@@ -1,13 +1,8 @@
 ---
-title: Back up and restore encrypted Azure VMs with Azure Backup
+title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
 ---
 # Back up and restore encrypted Azure VM
 
@@ -15,7 +10,7 @@ This article describes how to back up and restore Windows or Linux Azure virtual
 
 If you want to learn more about how Azure Backup interacts with Azure VMs before you begin, review these resources:
 
-- [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
+- [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the Azure VM backup architecture.
 - [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the Azure Backup extension.
 
 ## Encryption support
@@ -135,10 +130,10 @@ To set permissions:
 You restore encrypted VMs as follows:
 
 1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
-2. Then do one of the following:
-    - Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - For Linux VMs, reset the ADE extension so the data disks are open and mounted.
+2. Recreate the virtual machine instance by doing one of the following:
+    1. Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+3. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
 
 ## Next steps
 

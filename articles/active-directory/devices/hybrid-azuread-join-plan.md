@@ -1,5 +1,5 @@
 ---
-title: How to plan hybrid Azure Active Directory join implementation in Azure Active Directory (Azure AD) | Microsoft Docs
+title: Plan hybrid Azure Active Directory join - Azure Active Directory
 description: Learn how to configure hybrid Azure Active Directory joined devices.
 
 services: active-directory
@@ -78,7 +78,7 @@ Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported f
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
-Hybrid Azure AD join is not supported on Windows down-level devices when using credential roaming or user profile roaming.
+Hybrid Azure AD join is not supported on Windows down-level devices when using credential roaming or user profile roaming or mandatory profile.
 
 If you are relying on the System Preparation Tool (Sysprep) and if you are using a **pre-Windows 10 1809** image for installation, make sure that image is not from a device that is already registered with Azure AD as Hybrid Azure AD join.
 
@@ -90,7 +90,8 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
 
-
+> [!NOTE]
+> The Azure AD registered device will not be automatically removed if it is managed by Intune.
 
 ## Review controlled validation of hybrid Azure AD join
 

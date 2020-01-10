@@ -1,5 +1,5 @@
 ---
-title: VPN gateway settings for cross-premises Azure connections | Microsoft Docs
+title: 'Azure VPN Gateway: configuration settings'
 description: Learn about VPN Gateway settings for Azure virtual network gateways.
 services: vpn-gateway
 author: cherylmc

@@ -1,15 +1,15 @@
 ---
-title: Combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
+title: Combined registration for SSPR and MFA - Azure Active Directory
 description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -105,7 +105,7 @@ This flowchart describes which methods are shown to a user when interrupted to r
 
 If you have both Multi-Factor Authentication and SSPR enabled, we recommend that you enforce Multi-Factor Authentication registration.
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
+If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to. Users must perform multi-factor authentication when accessing this page.
 
 ### Manage mode
 

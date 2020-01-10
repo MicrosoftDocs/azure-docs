@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Computer Vision client library for Node.js | Microsoft Docs"
-description: Get started with the Computer Vision client library for Node.js...
+title: "Quickstart: Computer Vision client library for Node.js"
+description: Get started with the Computer Vision client library for Node.js with this quickstart
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
@@ -261,5 +261,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [What is the Computer Vision API?](../Home.md)
+* [What is Computer Vision?](../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

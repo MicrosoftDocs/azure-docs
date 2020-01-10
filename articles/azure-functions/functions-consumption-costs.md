@@ -1,18 +1,14 @@
 ---
 title: Estimating Consumption plan costs in Azure Functions
 description: Learn how to better estimate the costs that you may incur when running your function app in a Consumption plan in Azure.
-author: ggailey777
-ms.author: glenga
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.service: azure-functions
-manager: gwallace
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in Azure Functions so that I can make better architectural and business decisions.
 ---
 
 # Estimating Consumption plan costs
 
-There are currently three types of hosting plans for an app that run in Azure Functions, with each plan having its own pricing model: 
+There are currently three types of hosting plans for an app that runs in Azure Functions, with each plan having its own pricing model: 
 
 | Plan | Description |
 | ---- | ----------- |
@@ -85,11 +81,11 @@ Use [Azure Monitor metrics explorer](../azure-monitor/platform/metrics-getting-s
 
 1. Select **Apply** to choose your function app as the resource to monitor.
 
-1. From **Metric**, choose **Function execution count** and **Sum** for **Aggregation**. This adds the sum of the execution counts during chosen period to the chart.
+1. From **Metric**, choose **Function Execution Count** and **Sum** for **Aggregation**. This adds the sum of the execution counts during chosen period to the chart.
 
     ![Define a functions app metric to add to the chart](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 
-1. Select **Add metric** and repeat steps 2-4 to add **Function execution units** to the chart. 
+1. Select **Add metric** and repeat steps 2-4 to add **Function Execution Units** to the chart. 
 
 The resulting chart contains the totals for both execution metrics in the chosen time range, which in this case is two hours.
 
@@ -188,7 +184,7 @@ This command returns a JSON payload that looks like the following example:
   ]
 }
 ```
-This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, during which the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
+This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
 
 ## Determine memory usage
 

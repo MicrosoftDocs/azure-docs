@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
@@ -105,8 +105,11 @@ For optimal performance, make sure your network meets the following requirements
 
 The following Remote Desktop clients support Windows Virtual Desktop:
 
-* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
-* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android (Preview)](connect-android.md)
 
 ## Supported virtual machine OS images
 
@@ -119,7 +122,7 @@ Windows Virtual Desktop supports the following x64 operating system images:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit) operating system images.
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 

@@ -1,6 +1,6 @@
 ---
 
-title: One-time passcode authentication for B2B guest users - Azure Active Directory | Microsoft Docs
+title: One-time passcode authentication for B2B guest users - Azure AD
 description: How to use Email one-time passcode to authenticate B2B guest users without the need for a Microsoft account.
 
 services: active-directory
