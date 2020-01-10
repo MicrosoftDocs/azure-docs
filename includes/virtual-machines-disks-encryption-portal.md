@@ -43,7 +43,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 #### Setting up your disk encryption set
 
-To create and configure disk encryption sets, you must use the following link: https://aka.ms/diskencryptionsets. Disk encryption set creation is not yet available in the public Azure portal.
+To create and configure disk encryption sets, you must use the following link: https://aka.ms/diskencryptionsets. Disk encryption set creation is not yet available in the global Azure portal.
 
 1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
 1. Select **+Add**.
