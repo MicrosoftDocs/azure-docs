@@ -69,8 +69,8 @@ Key Vault supports BYOK.  BYOK enables users to import keys from their existing 
 
 Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for Australia. The package name to download and its corresponding SHA-256 package hash are:
 
-|---|---|
 |Package Name|SHA-256 Hash|
+|---|---|
 |KeyVault-BYOK-Tools-Australia.zip|CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A|
 |
 
