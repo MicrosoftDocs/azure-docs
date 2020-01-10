@@ -178,7 +178,7 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
 - Azure NetApp Files offers [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
-- Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 . Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers). 
+- Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers). 
 
 ## Deploy Linux VMs manually via Azure portal
 
@@ -202,6 +202,42 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
 1. Create Virtual Machine 4  
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
    Select Availability Set created earlier for PAS/AAS  
+
+## Disable ID mapping
+
+The instructions in this section are only applicable, if using Azure NetApp Files NFSv4.1 volumes. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
+
+1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, i.e. **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
+
+    > [!IMPORTANT]
+    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
+
+    <pre><code>
+    sudo cat /etc/idmapd.conf
+    # Example
+    [General]
+    Verbosity = 0
+    Pipefs-Directory = /var/lib/nfs/rpc_pipefs
+    Domain = <b>defaultv4iddomain.com</b>
+    [Mapping]
+    Nobody-User = <b>nobody</b>
+    Nobody-Group = <b>nobody</b>
+    </code></pre>
+
+4. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
+
+    <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
+    mkdir /mnt/tmp
+    mount 10.23.1.4:/HN1-shared /mnt/tmp
+    umount  /mnt/tmp
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # to make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=N" >> /etc/modprobe.d/nfs.conf
+    </code></pre>`
+
 
 ## Setting up (A)SCS
 
@@ -384,7 +420,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2. **[A]** Configure autofs
+2. **[A]** Configure `autofs`
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -439,41 +475,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo service waagent restart
    </code></pre>
-
-### Disable ID mapping
-
-The instructions in this section are only applicable, if using Azure NetApp Files NFSv4.1 volumes. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
-
-1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, i.e. **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
-
-    > [!IMPORTANT]
-    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
-
-    <pre><code>
-    sudo cat /etc/idmapd.conf
-    # Example
-    [General]
-    Verbosity = 0
-    Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>defaultv4iddomain.com</b>
-    [Mapping]
-    Nobody-User = <b>nobody</b>
-    Nobody-Group = <b>nobody</b>
-    </code></pre>
-
-4. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
-
-    <pre><code>
-    # Check nfs4_disable_idmapping 
-    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
-    # If you need to set nfs4_disable_idmapping to Y
-    mkdir /mnt/tmp
-    mount 10.23.1.4:/HN1-shared /mnt/tmp
-    umount  /mnt/tmp
-    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    # to make the configuration permanent
-    echo "options nfs nfs4_disable_idmapping=N" >> /etc/modprobe.d/nfs.conf
-    </code></pre>`
 
 ### Installing SAP NetWeaver ASCS/ERS
 
@@ -665,7 +666,7 @@ The instructions in this section are only applicable, if using Azure NetApp File
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8. **[1]** Add the ASCS and ERS SAP services to the sapservice file
+8. **[1]** Add the ASCS and ERS SAP services to the `sapservice` file
 
    Add the ASCS service entry to the second node and copy the ERS service entry to the first node.
 
@@ -816,7 +817,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. **[P]** Configure autofs on PAS
+1. **[P]** Configure `autofs` on PAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -851,7 +852,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    sudo service autofs restart
    </code></pre>
 
-1. **[P]** Configure autofs on AAS
+1. **[P]** Configure `autofs` on AAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -1263,7 +1264,7 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>anftstsapcl2:~ # pgrep ms.sapQAS | xargs kill -9
    </code></pre>
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by `sapstart`. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>
    anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ASCS00
