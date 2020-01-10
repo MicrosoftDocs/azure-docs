@@ -14,23 +14,25 @@ ms.custom: security-baselines
 
 # Overview of Azure Security Controls
 
-The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.   
+The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
 
 This Benchmark focuses on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS) Controls Version 7.1 
 
 The following controls are used in the Azure Security Benchmark: 
 
-- Network Security 
-- Logging and Monitoring 
-- Identity and Access Control 
-- Data Protection 
-- Vulnerability Management 
-- Inventory and Asset Management 
-- Secure Configuration 
-- Malware Defense 
-- Data Recovery 
-- Incident Response 
-- Penetration Tests and Red Team Exercises
+- [Network Security](security-control-network-security.md)
+- [Logging and Monitoring](security-control-logging-monitoring.md)
+- [Identity and Access Control](security-control-identity-access-control.md)
+- [Data Protection](security-control-data-protection.md)
+- [Vulnerability Management](security-control-vulnerability-management.md)
+- [Inventory and Asset Management](security-control-inventory-asset-management.md)
+- [Secure Configuraton](security-control-secure-configuration.md)
+- [Malware Defense](security-control-malware-defense.md)
+- [Data Recovery](security-control-data-recovery.md)
+- [Incident Response](security-control-incident-response.md)
+- [Penetration Tests and Red Team Exercises](security-control-penetration-tests-red-team-exercises.md)
+
+You can also download the [Azure Security Benchmark v1 excel spreadsheet](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets).
 
 ## Azure Security Benchmark Recommendations 
 
@@ -45,4 +47,5 @@ We welcome your detailed feedback and active participation in the Azure Security
 
 ## Next Steps
 
-See the first security control: [Network Security](security-control-network-security.md)
+- See the first security control: [Network Security](security-control-network-security.md)
+- Download the [Azure Security Benchmark v1 excel spreadsheet](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

@@ -12,7 +12,7 @@ ms.custom: security-baselines
 
 ---
 
-# Azure security benchmarks introduction
+# Azure security benchmark introduction
 
 You may have several years or even decades of experience with on-premises computing. You know how to secure those deployments. But the cloud is different. How do you know if your cloud deployments are secure? What are the differences between security practices for on-premises systems and security practices for cloud deployments?
 
