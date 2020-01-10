@@ -9,7 +9,7 @@ ms.author: danlep
 
 # Encrypt the deployment template
 
-Azure Container Instances (ACI) gives you the option to encrypt your deployment template, in the case that you would like to encrypt secrets and other values present in it with your own key. This gives you greater control over what information is made available to us and when. We achieve this by having you create a managed key in Key Vault that you can use to encrypt the template. 
+Azure Container Instances (ACI) gives you the option to encrypt your deployment template. Encrypting your template gives you greater control over what information (secrets, environment variables, etc., in the template) is made available to us and when.
 
 This document will go through the steps required to encrypt your ACI deployment template. 
 
@@ -69,9 +69,9 @@ The access policy should now show up in your KeyVault's access policies.
 
 ## Modify your template
 
-Once the KeyVault key and access policy is set up, add the following property to your ACI deployment template. You can learn more about deployment ACI resources with a template through Azure Resource Manager and our REST API in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Once the KeyVault key and access policy are set up, add the following property to your ACI deployment template. You can learn more about deployment ACI resources with a template through Azure Resource Manager and our REST API in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-Specifically, under the "properties" section of the deployment template, add an "encryptionProperties" which contains the following values:
+Specifically, under the "properties" section of the deployment template, add an "encryptionProperties", which contains the following values:
 * vaultBaseUrl: the DNS Name of your KeyVault, can be found  on the overview blade of the KeyVault resource in Portal
 * keyName: the name of the key generated earlier
 * keyVersion: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your KeyVault resource)
