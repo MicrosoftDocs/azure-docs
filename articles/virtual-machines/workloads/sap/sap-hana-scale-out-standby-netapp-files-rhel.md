@@ -433,6 +433,8 @@ Configure and prepare your OS by doing the following steps:
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>`
 
 6. **[A]** Mount the shared Azure NetApp Files volumes.  

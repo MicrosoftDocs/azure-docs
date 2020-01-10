@@ -231,11 +231,11 @@ The instructions in this section are only applicable, if using Azure NetApp File
     cat /sys/module/nfs/parameters/nfs4_disable_idmapping
     # If you need to set nfs4_disable_idmapping to Y
     mkdir /mnt/tmp
-    mount 10.23.1.4:/HN1-shared /mnt/tmp
+    mount 10.1.0.4:/sapmnt/<b>qas</b> /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     # Make the configuration permanent
-    echo "options nfs nfs4_disable_idmapping=N" >> /etc/modprobe.d/nfs.conf
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>`
 
 
