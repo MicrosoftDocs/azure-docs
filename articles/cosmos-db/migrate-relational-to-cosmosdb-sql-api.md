@@ -47,7 +47,7 @@ The results of this query would look as below:
 ![Order Details](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png)
 
 
-Ideally, we want to use a single Azure Data Factory (ADF) Copy Activity to query SQL as the source and write the output directly to Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one Copy Activity. If we try to copy the results of the query above into a Cosmos DB SQL API collection, we will see OrderDetails as a string property of our document, instead of the expected JSON array.
+Ideally, you want to use a single Azure Data Factory (ADF) copy activity to query SQL data as the source and write the output directly to Azure Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one copy activity. If we try to copy the results of the above query into an Azure Cosmos DB SQL API container, we will see the OrderDetails field as a string property of our document, instead of the expected JSON array.
 
 We can work around this current limitation in one of the following ways:
 
