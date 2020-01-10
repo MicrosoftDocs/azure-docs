@@ -39217,7 +39217,7 @@
     {
       "source_path": "articles/azure-monitor/app/troubleshoot-faq.md",
       "redirect_url": "/azure/azure-monitor/faq",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-usage-cohorts.md",
