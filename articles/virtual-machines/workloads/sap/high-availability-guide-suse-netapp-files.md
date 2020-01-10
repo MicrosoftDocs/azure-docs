@@ -178,6 +178,7 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
 - Azure NetApp Files offers [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
+- Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 . Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers). 
 
 ## Deploy Linux VMs manually via Azure portal
 
@@ -391,7 +392,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    /- /etc/auto.direct
    </code></pre>
 
-   Create a file with
+   If using NFSv3, create a file with:
 
    <pre><code>
    sudo vi /etc/auto.direct
@@ -401,8 +402,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind,sync 10.1.0.5:/usrsap<b>qas</b>sys
    </code></pre>
    
+   If using NFSv4.1, create a file with:
+
+   <pre><code>
+   sudo vi /etc/auto.direct
+   # Add the following lines to the file, save and exit
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/sapmnt<b>qas</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/trans
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.5:/usrsap<b>qas</b>sys
+   </code></pre>
+   
    > [!NOTE]
-   > Make sure to match the NFS protocol version of the Azure NetApp Files volumes, when mounting the volumes. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
+   > Make sure to match the NFS protocol version of the Azure NetApp Files volumes, when mounting the volumes. If the Azure NetApp Files volumes are created as NFSv3 volumes, use the corresponding NFSv3 configuration. If the Azure NetApp Files volumes are created as NFSv4.1 volumes, follow the instructions to disable ID mapping and make sure to use the corresponding NFSv4.1 configuration. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
    
    Restart `autofs` to mount the new shares
     <pre><code>
@@ -429,6 +440,40 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo service waagent restart
    </code></pre>
 
+### Disable ID mapping
+
+The instructions in this section are only applicable, if using Azure NetApp Files NFSv4.1 volumes. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
+
+1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, i.e. **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
+
+    > [!IMPORTANT]
+    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
+
+    <pre><code>
+    sudo cat /etc/idmapd.conf
+    # Example
+    [General]
+    Verbosity = 0
+    Pipefs-Directory = /var/lib/nfs/rpc_pipefs
+    Domain = <b>defaultv4iddomain.com</b>
+    [Mapping]
+    Nobody-User = <b>nobody</b>
+    Nobody-Group = <b>nobody</b>
+    </code></pre>
+
+4. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
+
+    <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
+    mkdir /mnt/tmp
+    mount 10.23.1.4:/HN1-shared /mnt/tmp
+    umount  /mnt/tmp
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # to make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=N" >> /etc/modprobe.d/nfs.conf
+    </code></pre>`
 
 ### Installing SAP NetWeaver ASCS/ERS
 
@@ -439,8 +484,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
-   
+   # If using NFSv3
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
+   
+   # If using NFSv4.1
+   sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -494,8 +545,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    sudo crm node online <b>anftstsapcl2</b>
    sudo crm node standby <b>anftstsapcl1</b>
-   
+   # If using NVSv3
    sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
+   
+   # If using NVSv4.1
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
@@ -767,7 +824,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    /- /etc/auto.direct
    </code></pre>
 
-   Create a new file with
+   If using NFSv3, create a new file with:
 
    <pre><code>
    sudo vi /etc/auto.direct
@@ -775,6 +832,16 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
+   </code></pre>
+
+   If using NFSv4.1, create a new file with:
+
+   <pre><code>
+   sudo vi /etc/auto.direct
+   # Add the following lines to the file, save and exit
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/sapmnt<b>qas</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
    </code></pre>
 
    Restart `autofs` to mount the new shares
@@ -792,7 +859,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    /- /etc/auto.direct
    </code></pre>
 
-   Create a new file with
+   If using NFSv3, create a new file with:
 
    <pre><code>
    sudo vi /etc/auto.direct
@@ -800,6 +867,16 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
+   </code></pre>
+
+   If using NFSv4.1, create a new file with:
+
+   <pre><code>
+   sudo vi /etc/auto.direct
+   # Add the following lines to the file, save and exit
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/sapmnt<b>qas</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
    Restart `autofs` to mount the new shares
