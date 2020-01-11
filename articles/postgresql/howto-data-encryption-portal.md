@@ -41,7 +41,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 ![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Under the **Key Permissions** select **Get**, **Wrap**, **Unwrap** and the **Pincipal** which is the name of the PostgreSQL server.
+2. Under the **Key Permissions** select **Get**, **Wrap**, **Unwrap** and the **Principal** which is the name of the PostgreSQL server.
 
 ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
 
