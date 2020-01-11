@@ -186,13 +186,13 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Create the first demo application from a Helm chart with the following command:
 
 ```console
-helm install azure-samples/aks-helloworld --namespace ingress-basic
+helm install aks-helloworld azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 Now install a second instance of the demo application. For the second instance, you specify a new title so that the two applications are visually distinct. You also specify a unique service name:
 
 ```console
-helm install azure-samples/aks-helloworld \
+helm install aks-helloworld-2 azure-samples/aks-helloworld \
     --namespace ingress-basic \
     --set title="AKS Ingress Demo" \
     --set serviceName="ingress-demo"
@@ -343,24 +343,31 @@ kubectl delete -f cluster-issuer.yaml
 Now list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress*, *cert-manager*, and *aks-helloworld*, as shown in the following example output:
 
 ```
-$ helm list
+$ helm list --all-namespaces
 
 NAME                	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
 waxen-hamster       	1       	Wed Mar  6 23:16:00 2019	DEPLOYED	nginx-ingress-1.3.1	  0.22.0     	kube-system
 alliterating-peacock	1       	Wed Mar  6 23:17:37 2019	DEPLOYED	cert-manager-v0.6.6 	v0.6.2     	kube-system
 mollified-armadillo 	1       	Wed Mar  6 23:26:04 2019	DEPLOYED	aks-helloworld-0.1.0	           	default
 wondering-clam      	1       	Wed Mar  6 23:26:07 2019	DEPLOYED	aks-helloworld-0.1.0	           	default
+NAME                    NAMESPACE       REVISION        UPDATED                        STATUS          CHART                   APP VERSION
+aks-helloworld          ingress-basic   1               2020-01-11 15:02:21.51172346   deployed        aks-helloworld-0.1.0
+aks-helloworld-2        ingress-basic   1               2020-01-11 15:03:10.533465598  deployed        aks-helloworld-0.1.0
+nginx-ingress           ingress-basic   1               2020-01-11 14:51:03.454165006  deployed        nginx-ingress-1.28.2    0.26.2
 ```
 
-Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+Delete the releases with the `helm uninstall` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
 
 ```
-$ helm delete waxen-hamster alliterating-peacock mollified-armadillo wondering-clam
+$ helm uninstall aks-helloworld aks-helloworld-2 nginx-ingress -n ingress-basic
 
-release "billowing-kitten" deleted
-release "loitering-waterbuffalo" deleted
-release "flabby-deer" deleted
-release "linting-echidna" deleted
+release "aks-helloworld" deleted
+release "aks-helloworld-2" deleted
+release "nginx-ingress" deleted
+
+$ helm uninstall cert-manager -n cert-manager
+
+release "cert-manager" deleted
 ```
 
 Next, remove the Helm repo for the AKS hello world app:
