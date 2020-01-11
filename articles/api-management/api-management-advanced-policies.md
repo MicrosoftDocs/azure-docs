@@ -329,7 +329,7 @@ The `log-to-eventhub` policy sends messages in the specified format to an Event 
 
 ### Example
 
-Any string can be used as the value to be logged in Event Hubs. In this example the date and time, deployment service name, request id, ip address, and operation name for all inbound calls are logged to the event hub Logger registered with the `contoso-logger` id.
+Any string can be used as the value to be logged in Event Hubs. In this example the date and time, deployment service name, request ID, IP address, and operation name for all inbound calls are logged to the event hub Logger registered with the `contoso-logger` ID
 
 ```xml
 <policies>
@@ -353,7 +353,7 @@ Any string can be used as the value to be logged in Event Hubs. In this example 
 
 | Attribute     | Description                                                               | Required                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | The id of the Logger registered with your API Management service.         | Yes                                                                  |
+| logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                                  |
 | partition-id  | Specifies the index of the partition where messages are sent.             | Optional. This attribute may not be used if `partition-key` is used. |
 | partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. This attribute may not be used if `partition-id` is used.  |
 
