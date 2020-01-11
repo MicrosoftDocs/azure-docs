@@ -13,7 +13,7 @@ manager: kmadnani
 
 # Secure assets in Azure Automation
 
-Secure assets in Azure Automation include credentials, certificates, connections and encrypted variables. These are protected in Azure Automation using multiple levels of encryption. 
+Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. 
 Based on the top-level key used for the encryption, there are two models for encryption:
 -	Using Microsoft-managed keys
 -	Using customer-managed keys
@@ -26,9 +26,9 @@ Each secure asset is encrypted and stored in Azure Automation using a unique key
 
 ### Customer-managed Keys with Key Vault (preview)
 
-You can manage encryption of secure assets in Azure Automation at the level of an automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the automation account which in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable and revoke access controls. You can also audit the encryption keys used to protect your secure assets. 
+You can manage encryption of secure assets in Azure Automation at the level of an automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the automation account, which in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your secure assets. 
 
-You must use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+You must use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 
 ## Enable customer-managed keys for an Automation account
 
@@ -47,8 +47,8 @@ The following three sections describe the mechanics of enabling customer-managed
 Before enabling customer-managed keys for an Automation account, you must ensure the following pre-requisites are met
 
  - The customer-manged key is stored in an Azure Key Vault. 
- - You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault. This is required to allow for recovery of keys in case of accidental deletion.
- - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates#key-vault-keys.md).
+ - You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault. These features are required to allow for recovery of keys in case of accidental deletion.
+ - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - The automation account and the key vault can be in different subscriptions but need to be in the same Azure Active Directory tenant.
 
 ### Assign an identity to the automation account
@@ -123,7 +123,7 @@ Request body
 ``
 
 [!NOTE] 
-The tenantId and objectId fields need to be provided with values of identity.tenantId and identity.principalId from the response of managed identity for the automation account.
+The tenantId and objectId fields must be provided with values of identity.tenantId and identity.principalId from the response of managed identity for the automation account.
 
 ### Change the configuration of automation account to use customer managed key
 
@@ -184,7 +184,7 @@ To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more
 
 ## Next steps
 
-- [What is Azure Key Vault?](../../azure/key-vault/key-vault-overview.md) 
-- [Certificate assets in Azure Automation]()
-- [Credential assets in Azure Automation]()
-- [Variable assets in Azure Automation]()
+- [What is Azure Key Vault?](../key-vault/key-vault-overview.md) 
+- [Certificate assets in Azure Automation](shared-resources/certificates.md)
+- [Credential assets in Azure Automation](shared-resources/credentials.md)
+- [Variable assets in Azure Automation](shared-resources/variables.md)
