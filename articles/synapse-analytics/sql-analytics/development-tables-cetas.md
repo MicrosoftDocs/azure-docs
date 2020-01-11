@@ -19,7 +19,7 @@ In either SQL pool or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT
 1. Export, in parallel, the results of a Transact-SQL SELECT statement to
    1. Hadoop
    1. Azure Storage Blob
-   1. Azure Data Lake Store Gen2
+   1. Azure Data Lake Storage Gen2
 
 ## CETAS in SQL pool
 
@@ -27,9 +27,9 @@ For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT
 
 ## CETAS in SQL on-demand
 
-When using the SQL on-demand resource, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Store Gen2.
+When using the SQL on-demand resource, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Storage Gen2.
 
-### Syntax
+## Syntax
 
 ```
 CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] table_name   
@@ -46,7 +46,7 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
     SELECT <select_criteria>
 ```
 
-#### Arguments
+## Arguments
 
 [ [ *database_name* . [ *schema_name* ] . ] | *schema_name* . ] *table_name*
 
@@ -72,11 +72,11 @@ SELECT <select_criteria>
 
 Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=aps-pdw-2016-au7).
 
-### Permissions
+## Permissions
 
 You need to have permissions to list folder content and write to LOCATION folder for CETAS to work. 
 
-### Examples
+## Examples
 
 These examples use CETAS to save total population aggregated by year and state to an aggregated_data folder that is located in the population_ds datasource. 
 
