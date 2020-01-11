@@ -1,7 +1,7 @@
 ---
-title: Use Azure CLI to configure customer-managed keys
+title: Use Azure CLI to create an account with customer-managed keys for queues and tables
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+description: Learn how to use Azure CLI to create a storage account that uses customer-managed keys with Azure Key Vault for encryption of queues and tables. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
@@ -15,9 +15,115 @@ ms.subservice: common
 
 # Configure customer-managed keys with Azure Key Vault by using Azure CLI
 
-[!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of queue or table data.
 
-This article shows how to configure an Azure Key Vault with customer-managed keys using Azure CLI. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../../key-vault/quick-create-cli.md).
+You may opt to use customer-managed keys to encrypt queue or table data at the time that you create the storage account. This setting cannot be changed after the account is created. The storage account must be of type general-purpose v2 and must be configured for locally redundant storage (LRS).
+
+This article shows how to configure an Azure Key Vault with customer-managed keys using Azure CLI. To learn how to create a key vault using Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../../key-vault/quick-create-cli.md).
+
+## Access to customer-managed keys for queues and tables
+
+Customer-managed keys for queues and tables is currently available in the following regions:
+
+- East US
+- South Central US
+- West US 2  
+
+To create a storage account that is configured for customer-managed keys for queues and tables, you must first register to use this feature with Azure. To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
+
+### Register to use customer-managed keys for queues and tables
+
+To register to use customer-managed keys with Queue storage:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+```
+
+To register to use customer-managed keys with Table storage:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+```
+
+### Check the status of your registration
+
+To check the status of your registration for Queue storage:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+```
+
+To check the status of your registration for Table storage:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+```
+
+### Re-register the Azure Storage resource provider
+
+After your registration is approved, you must re-register the Azure Storage resource provider to enable customer-managed keys for queues and tables. Call the [az provider register](/cli/azure/provider#az-provider-register) command:
+
+```azurecli-interactive
+az provider register --namespace 'Microsoft.Storage'
+```
+
+## Create a storage account with customer-managed keys
+
+You must configure customer-managed keys for queues and tables at the time that you create the storage account. You can create the storage account and configure customer-managed keys using either Azure CLI or an Azure Resource Manager template.
+
+### [Azure CLI](#tab/azure-cli)
+
+To create a general-purpose v2 storage account with customer-managed keys for queues and tables using Azure CLI, call the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. Include the `--encryption-key-type-for-queue` option and set its value to `Account` to create the storage account with customer-managed keys for Queue storage. Include the `--encryption-key-type-for-table` option and set its value to `Account` to create the storage account with customer-managed keys for Table storage. You can enable customer-managed keys for either or both services.
+
+The following example shows how to create a storage account and enable customer-managed keys for both Queue and Table storage. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli-interactive
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --location <location> \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --encryption-key-type-for-table Account \
+    --encryption-key-type-for-queue Account
+```
+
+### [Template](#tab/template)
+
+To create a general-purpose v2 storage account with customer-managed keys for queues and tables using an Azure Resource Manager template, configure the JSON for the template as follows. Remember to replace the placeholder values in angle brackets with your own values:
+
+```json
+"resources": [
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "name": "[parameters('<storage-account>')]",
+        "location": "[parameters('<location>')]",
+        "dependsOn": [],
+        "tags": {},
+        "sku": {
+            "name": "[parameters('Standard_LRS')]"
+        },
+        "kind": "[parameters('StorageV2')]",
+        "properties": {
+            "accessTier": "[parameters('<accessTier>')]",
+            "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+            "largeFileSharesState": "[parameters('<largeFileSharesState>')]",
+            "encryption": {
+                "services": {
+                    "queue": {
+                        "keyType": "Account"
+                    },
+                    "table": {
+                        "keyType": "Account"
+                    }
+                },
+                "keySource": "Microsoft.Storage"
+            }
+        }
+    }
+],
+```
 
 ## Assign an identity to the storage account
 
@@ -37,6 +143,8 @@ az storage account update \
 For more information about configuring system-assigned managed identities with Azure CLI, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
 
 ## Create a new key vault
+
+Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Storage encryption and key management, see [Azure Storage encryption for data at rest](../articles/storage/common/storage-service-encryption.md). For more information about Azure Key Vault, see [What is Azure Key Vault?](../articles/key-vault/key-vault-overview.md)
 
 The key vault that you use to store customer-managed keys for Azure Storage encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**. To create a new key vault using PowerShell or Azure CLI with these settings enabled, execute the following commands. Remember to replace the placeholder values in brackets with your own values.
 
