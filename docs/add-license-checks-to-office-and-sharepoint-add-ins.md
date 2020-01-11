@@ -115,7 +115,7 @@ When the add-in needs to perform a license check, pass the license token to the 
 
  `https://verificationservice.officeapps.live.com/ova/verificationagent.svc`
 
-The verification service has a single method [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) that takes the license token as a parameter and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object that contains the properties of the license. The [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property specifies whether the license token is valid. Other properties, such as [ProductId](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.productid.aspx) and [EntitlementType](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.entitlementtype.aspx), contain information about the various license attributes.
+The verification service has a single method [VerifyEntitlementToken](https://msdn.microsoft.com/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) that takes the license token as a parameter and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object that contains the properties of the license. The [IsValid](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property specifies whether the license token is valid. Other properties, such as [ProductId](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.productid.aspx) and [EntitlementType](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.entitlementtype.aspx), contain information about the various license attributes.
 
 The AppSource license verification web service also supports verifying add-in license tokens by using REST calls. To validate an add-in license by using REST, use the following syntax, where `{token}` is the add-in license token, encoded by a method that complies with RFC 2396; for example, the **encodeURIComponent()** function in JavaScript, or the **Uri.EscapeDataString** method in the .NET Framework:
 
@@ -133,7 +133,7 @@ Add code to your add-in that takes the appropriate action, based on whether the 
 
 After you finish testing your add-in and you're ready to move it to production, add code to the license checks in your add-in so that it no longer accepts test licenses. This prevents users from using test licenses to access your add-in.
 
-After you pass the add-in license token to the verification service's [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method, use the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by that method to access the license properties. For test licenses, the [IsTest](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx) property returns **true** and the [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property returns **false**.
+After you pass the add-in license token to the verification service's [VerifyEntitlementToken](https://msdn.microsoft.com/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method, use the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by that method to access the license properties. For test licenses, the [IsTest](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx) property returns **true** and the [IsValid](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property returns **false**.
 
 > [!NOTE]
 > For Outlook add-ins, make sure that you remove the *et* parameter, which represents the test license token, from all **SourceLocation** elements in your add-in manifest file.
@@ -331,7 +331,7 @@ Both methods allow an add-in to get the license the same way it would if it were
 
 You can create test licenses and import them into your SharePoint deployment. To assist in testing the add-in license checking code, SharePoint enables you to upload up to ten test licenses per deployment. These test licenses are XML fragments that conform to the [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md).
 
-To import test licenses, use the [ImportAppLicense](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.importapplicense.aspx) method. To call this method, the caller must be one of the following:
+To import test licenses, use the [ImportAppLicense](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.utilities.utility.importapplicense.aspx) method. To call this method, the caller must be one of the following:
 
 - An administrator of the site collection being called.
 - An administrator of the tenancy into which the license is imported, if the SharePoint deployment into which the license is imported is a tenancy.
@@ -339,7 +339,7 @@ To import test licenses, use the [ImportAppLicense](https://msdn.microsoft.com/e
 
 After you import the test licenses, they appear in the SharePoint UI, and you can manage, assign, and delete them.
 
-For test licenses, you don't have to specify the deployment ID in the add-in license XML. The [ImportAppLicense](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.importapplicense.aspx) method supplies the correct deployment ID to the license token XML.
+For test licenses, you don't have to specify the deployment ID in the add-in license XML. The [ImportAppLicense](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.utilities.utility.importapplicense.aspx) method supplies the correct deployment ID to the license token XML.
 
 <a name="bk_example_import"> </a>
 ### Code example: Import a test license token into SharePoint
@@ -374,7 +374,7 @@ using (ClientContext ctx = new ClientContext(webUrl))
 
 Identify where in your add-in you want to check for a valid license or other license information; for example, when the add-in launches, or when the user goes to a specific page or accesses certain features. Add code at these points that queries your SharePoint deployment for the license token, and then passes that token to the AppSource verification web service for validation.
 
-To retrieve the license token from SharePoint, use the [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method. This method returns all licenses for the specified add-in that apply to the user, based on the add-in product ID in the manifest file.
+To retrieve the license token from SharePoint, use the [GetAppLicenseInformation](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method. This method returns all licenses for the specified add-in that apply to the user, based on the add-in product ID in the manifest file.
 
 If multiple licenses are purchased for the same add-in by using different Microsoft accounts, the licenses are returned in the following order of priority:
 
@@ -383,7 +383,7 @@ If multiple licenses are purchased for the same add-in by using different Micros
 - Unexpired Trial
 - Expired Trial
 
-The [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to AppSource.
+The [GetAppLicenseInformation](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to AppSource.
 
 #### Code example: Retrieve add-in license tokens
 
@@ -406,7 +406,7 @@ using(ClientContext ctx = new ClientContext(webUrl))
 }
 ```
 
-By the end of this example, `licensecollection` includes all the add-in licenses for the current user as a collection of [AppLicense](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.applicense.aspx) objects. You can use the [RawXMLLicenseToken](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.applicense.rawxmllicensetoken.aspx) property to access the license token XML. So, for example, to access the license token for the first add-in license token in the collection, you use `licensecollection.Value[0].RawXMLLicenseToken`.
+By the end of this example, `licensecollection` includes all the add-in licenses for the current user as a collection of [AppLicense](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.applicense.aspx) objects. You can use the [RawXMLLicenseToken](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.applicense.rawxmllicensetoken.aspx) property to access the license token XML. So, for example, to access the license token for the first add-in license token in the collection, you use `licensecollection.Value[0].RawXMLLicenseToken`.
 
 > [!IMPORTANT]
 > Do not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and causes the license verification check to fail.
@@ -417,7 +417,7 @@ After you retrieve the appropriate add-in license token, pass that token to the 
 
 `https://verificationservice.officeapps.live.com/ova/verificationagent.svc`
 
-The verification service has a single method, [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx), which takes the add-in license token as a parameter and returns a  [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object that contains the properties of the license. The [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property specifies whether the license token is valid, and other properties, such as [ProductId](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.productid.aspx) and [EntitlementType](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.entitlementtype.aspx), contain information about the various license attributes.
+The verification service has a single method, [VerifyEntitlementToken](https://msdn.microsoft.com/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx), which takes the add-in license token as a parameter and returns a  [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object that contains the properties of the license. The [IsValid](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property specifies whether the license token is valid, and other properties, such as [ProductId](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.productid.aspx) and [EntitlementType](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.entitlementtype.aspx), contain information about the various license attributes.
 
 The AppSource license verification web service also supports verifying add-in license tokens by using REST calls. To verify an add-in license by using REST, use the following syntax:
 
@@ -441,14 +441,14 @@ Add code to your add-in that takes the appropriate actions, based on whether the
 
 Finally, after you finish testing your add-in and are ready to move it to production, you need to add code to the license checks so that the add-in no longer accepts test licenses. This prevents users from using test licenses to access your add-in on their SharePoint deployment.
 
-After you pass the license token to the verification service's [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method, you can use the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by that method to access the license properties. For test licenses, the [IsTest](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx) property returns **true** and the [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property returns **false**.
+After you pass the license token to the verification service's [VerifyEntitlementToken](https://msdn.microsoft.com/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method, you can use the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by that method to access the license properties. For test licenses, the [IsTest](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx) property returns **true** and the [IsValid](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property returns **false**.
 
 <a name="bk_example"> </a>
 #### Code example: SharePoint Add-ins licensing checking
 
 The following example retrieves an add-in's license token from the SharePoint deployment and passes the token to the AppSource verification service for validation. The example catches a variety of possible errors if the verification fails. If the verification succeeds, it builds a string from the various license properties. Finally, the code provides logic for specifying the level of functionality based on the license type: Free, Paid, or Trial.
 
-This example requires a reference to  [Microsoft.SharePoint.Client.Utilities](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.aspx), and a web service reference to the AppSource verification service.
+This example requires a reference to  [Microsoft.SharePoint.Client.Utilities](https://msdn.microsoft.com/library/office/microsoft.sharepoint.client.utilities.aspx), and a web service reference to the AppSource verification service.
 
 ```csharp
 //Get the license token XML from SharePoint.
@@ -539,7 +539,7 @@ private void VerifyLicenseToken(string rawLicenseToken)
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
 - [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
-- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [VerificationSvc namespace](https://msdn.microsoft.com/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

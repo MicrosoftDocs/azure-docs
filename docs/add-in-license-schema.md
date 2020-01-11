@@ -12,9 +12,9 @@ localization_priority: Normal
 
 If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
 
-Use the [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the AppSource verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes an add-in license token as a parameter, and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
+Use the [VerifyEntitlementToken](https://msdn.microsoft.com/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the AppSource verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes an add-in license token as a parameter, and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
 
-To support add-in license testing, the AppSource verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. However, the service does interpret the token, and all the properties of the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
+To support add-in license testing, the AppSource verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. However, the service does interpret the token, and all the properties of the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
 
 ```xml
 <r>
@@ -232,7 +232,7 @@ The following example shows the add-in license for a user who is signed in with 
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
 - [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
-- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [VerificationSvc namespace](https://msdn.microsoft.com/library/verificationsvc.aspx)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 

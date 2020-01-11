@@ -15,7 +15,7 @@ If you're building an Office Add-in that is backed by a subscription service, yo
 
 ## Step 1: Use a single manifest for all customers
 
-To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to AppSource. That way, as you add new features, such as [add-in commands](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
+To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to AppSource. That way, as you add new features, such as [add-in commands](https://docs.microsoft.com/office/dev/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
 
 > [!NOTE]
 > Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest; for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
@@ -96,10 +96,10 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 
 Your add-in must next identify information about the user.
 
-For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/auth-external-add-ins). This allows you to use Microsoft Graph to get the following information about the user:
+For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://docs.microsoft.com/office/dev/add-ins/develop/auth-external-add-ins). This allows you to use Microsoft Graph to get the following information about the user:
 
-- Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/organization_get) method.  
-- The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action. 
+- Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/organization_get) method.  
+- The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action. 
   
   The tenant admin directory role has the following specific ID: 62e90394-69f5-4237-9190-012177145e10. You can query for other roles as well.  
 
@@ -134,7 +134,7 @@ Note that some employees might not know how to contact their administrator. Prov
 
 Include in-app telemetry to help you understand whether customers have a successful experience with your add-in. You can use this information to determine which customers to contact and when. As a best practice, let customers try your add-in, and follow up in the app, by email (link to AppSource), and in person.  
 
-For go-to-market best practices, see the [Office ISV GTM guide](https://www.microsoft.com/en-us/download/54593).
+For go-to-market best practices, see the [Office ISV GTM guide](https://www.microsoft.com/download/54593).
 
 ## Step 8: Record the sale
 
@@ -144,7 +144,7 @@ When a customer makes a purchase, update your licensing database with the record
 
 After a customer makes a purchase, you need to deploy the add-in to the customer’s environment. The customer’s tenant administrator or a reseller can deploy the add-in, or you can deploy it yourself.
 
-A tenant administrator can deploy the add-in via [centralized deployment](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/centralized-deployment). If your add-in is published in AppSource, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
+A tenant administrator can deploy the add-in via [centralized deployment](https://docs.microsoft.com/office/dev/add-ins/publish/centralized-deployment). If your add-in is published in AppSource, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
 
 <!-- In our other content, we don't say that the admin has to create a group to assign the add-in. They can assign the add-in to groups or individuals. I suggest we leave this part out as it isn't consistent with our other content, or we update the centralized deployment topics to clarify that the add-ins have to be assigned to a group. 
 
@@ -161,9 +161,9 @@ As group membership grows (or as users from the organization install the add-in 
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
 - [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
-- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [VerificationSvc namespace](https://msdn.microsoft.com/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
-- [Determine if Centralized Deployment of add-ins works for your Office 365 organization](https://support.office.com/en-us/article/Determine-if-Centralized-Deployment-of-add-ins-works-for-your-Office-365-organization-b4527d49-4073-4b43-8274-31b7a3166f92)
+- [Determine if Centralized Deployment of add-ins works for your Office 365 organization](https://support.office.com/article/Determine-if-Centralized-Deployment-of-add-ins-works-for-your-Office-365-organization-b4527d49-4073-4b43-8274-31b7a3166f92)
 
