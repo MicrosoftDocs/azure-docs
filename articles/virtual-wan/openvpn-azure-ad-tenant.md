@@ -4,7 +4,7 @@ description: You can use P2S VPN to connect to your VNet using Azure AD authenti
 services: virtual-wan
 author: anzaman
 
-ms.service: vpn-gateway
+ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.author: alzam
