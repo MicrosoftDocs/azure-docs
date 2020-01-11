@@ -1,24 +1,34 @@
 ---
-title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
+title: Azure Multi-Factor Authentication FAQ - Azure Active Directory
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.subservice: authentication
+ms.topic: troubleshooting
+ms.date: 11/18/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
 
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> 
+> Consumption-based licensing is no longer available to new customers effective September 1, 2018.
+> Effective September 1, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+
+> [!NOTE]
+> The information shared below regarding the Azure Multi-Factor Authentication Server is only applicable for users who already have the MFA server running.
 
 **Q: How does Azure Multi-Factor Authentication Server handle user data?**
 
@@ -55,7 +65,7 @@ In Canada Microsoft uses the following SMS short codes:
    * 759731 
    * 673801
 
-Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
+Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries/regions besides the United States and Canada.
 
 ## Billing
 
@@ -83,15 +93,13 @@ Learn more about your options in [How to get Azure Multi-Factor Authentication](
 
 In some instances, yes.
 
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
 
 Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Office 365 services, including Exchange Online and SharePoint Online. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider.
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
-If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. However, you can delete the MFA provider and then create one with a different billing model.
-
-When an MFA provider is created, it can be linked to an Azure Active Directory (aka “Azure AD tenant”). If the current MFA Provider is linked to an Azure AD tenant, you can safely delete the MFA provider and create one that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS) licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
+If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. 
 
 If your MFA provider is *not* linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
 
@@ -113,9 +121,11 @@ Azure Active Directory is required for the license model because licenses are ad
 
 ## Manage and support user accounts
 
-**Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
+**Q: What should I tell my users to do if they don’t receive a response on their phone?**
 
-Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
+Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesn't work please open a support case with Microsoft to further troubleshoot.
+
+If the steps above do not work hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 
 You can point your users to the [End-user troubleshooting guide](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
@@ -136,15 +146,13 @@ If your organization doesn't have legacy clients, you should not allow your user
 > [!NOTE]
 > Modern authentication for Office 2013 clients
 >
-> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Newer Office clients automatically support modern authentication protocols. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Now modern authentication is available to any customer running the March 2015 or later update for Office 2013. For more information, see the blog post [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
+**Q: My users say that sometimes they don't receive the text message or the verification times out.**
 
-Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
+Delivery of SMS messages are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country/region, the mobile phone carrier, and the signal strength.
 
-If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
-
-If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
+If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 
@@ -158,7 +166,7 @@ For one-way SMS with Azure MFA Server v7.0 or higher, you can configure the time
 >[!TIP] 
 >If you have multiple MFA Servers, only the one that processed the original authentication request knows the verification code that was sent to the user. When the user enters the code, the authentication request to validate it must be sent to the same server. If the code validation is sent to a different server, the authentication is denied. 
 
-For two-way SMS with Azure MFA Server, you can configure the timeout setting in the MFA Management Portal. If users don't respond to the SMS within the defined timeout period, their authentication is denied. 
+If users don't respond to the SMS within the defined timeout period, their authentication is denied. 
 
 For one-way SMS with Azure MFA in the cloud (including the AD FS adapter or the Network Policy Server extension), you cannot configure the timeout setting. Azure AD stores the verification code for 180 seconds. 
 
@@ -209,13 +217,13 @@ Tell them to follow this procedure to remove their account from the mobile app, 
 
 The 0x800434D4L error occurs when you try to sign in to a non-browser application, installed on a local computer, that doesn't work with accounts that require two-step verification.
 
-A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
+A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](https://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## Next steps
 
 If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:
 
-* Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
+* Search the [Microsoft Support Knowledge Base](https://support.microsoft.com) for solutions to common technical issues.
 * Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 * Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.

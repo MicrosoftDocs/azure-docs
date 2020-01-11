@@ -1,141 +1,82 @@
 ---
-title: Add intents in LUIS applications
+title: Add intents - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
-ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+manager: nitinme
+ms.custom: seodec18
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 11/08/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
 
-# Manage intents 
-Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
+# Add intents to determine user intention of utterances
 
-Intents are managed from the **Build** Section in the top toolbar. You add and manage your intents from the **Intents** page, available in the left panel. 
+Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 
-The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
+Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
+
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## Add intent
 
-1. Open your app (for example, TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
-2. On the **Intents** page, click **Create new intent**.
+1. In the [LUIS preview portal](https://preview.luis.ai), select **Build** to view intents. 
+1. On the **Intents** page, select **+ Create**.
+1. In the **Create new intent** dialog box, enter the intent name, for example `ModifyOrder`, and select **Done**.
 
-3. In the **Create new intent** dialog box, type the intent name "BookFlight" and click **Done**.
+    > [!div class="mx-imgBorder"]
+    > ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
+    The intent needs example utterances.
 
-    On the intent details page of the newly added intent, [add utterances](#add-an-utterance-on-intent-page).
+## Add an example utterance
 
-## Rename intent
+Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS) when to predict this intent, you need to add example utterances to an intent. LUIS needs in the range of 15 to 30 example utterances to begin understanding the intent. Do not add example utterances in bulk. Each utterance should be carefully chosen for how it is different than examples already in the intent. 
 
-1. On the **Intent** page, click the Rename icon ![Rename Intent](./media/luis-how-to-add-intents/Rename-Intent-btn.png) next to the intent name. 
-
-2. On the **Intent** page, the current intent name is shown in a dialog box. Edit the intent name and press enter. The new name is saved and displayed on the intent page.
-
-    ![Edit Intent](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
-
-## Delete intent
-When deleting an intent other than the None intent, you can choose to add all the utterances to the None intent. This is useful if you need to move the utterances instead of deleting them.   
-
-1. On the **Intent** page, click the **Delete Intent** button next to the right of the intent name. 
-
-    ![Delete Intent Button](./media/luis-how-to-add-intents/DeleteIntent.png)
-
-2. Click the "Ok" button on the confirmation dialog box.
-
-<!--
-    TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
-
-    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
--->
-
-
-## Add an utterance on intent page
-
-On the intent page, enter a relevant utterance you expect from your users, such as `book 2 adult business tickets to Paris tomorrow on Air France` in the text box below the intent name, and then press Enter. 
+1. On the intent details page, enter a relevant utterance you expect from your users, such as `Deliver a large cheese pizza` in the text box below the intent name, and then press Enter.
  
->[!NOTE]
->LUIS converts all utterances to lowercase.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    LUIS converts all utterances to lowercase and adds spaces around [tokens](luis-language-support.md#tokenization) such as hyphens.
 
-Utterances are added to the utterances list for the current intent. Once an utterance is added, [label any entities](luis-how-to-add-example-utterances.md) within the utterances and [train](luis-how-to-train.md) your app. 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-## Create a pattern from an utterance
-See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+## Intent prediction errors 
 
-## Edit an utterance on intent page
+An example utterance in an intent might have an intent prediction error between the intent the example utterance is currently in and the intent determined during training. 
 
-To edit an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
+To find utterance prediction errors and fix them, use the **Filter** options of Incorrect and Unclear combined with the **View** option of **Detailed view**. 
 
-![Screenshot of Intents details page, with ellipsis button highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
+![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-## Reassign utterances on intent page
-You can change the intent of one or more utterances by reassigning them to another intent. 
+When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.
 
-To reassign a single utterance to a different intent, at the right end of the utterance's row, select the correct intent name under the **Labeled intent** column. The utterance is removed from the current intent's utterance list. 
+> [!div class="mx-imgBorder"]
+> ![![When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-![Screenshot of BookFlight intent page with an utterance's intent under Labeled intent column selected](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+Each row shows the current training's prediction score for the example utterance, the nearest rival's score, which is the difference in these two scores. 
 
-To change the intent of several utterances, select the checkboxes to the left of the utterances, and then select **Reassign intent**. Select the correct intent from the list.
+### Fixing intents
 
-![Screenshot of BookFlight intent page with an utterance checked and the Reassign intent button highlighted](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+To learn how to fix intent prediction errors, use the [Summary Dashboard](luis-how-to-use-dashboard.md). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.  
 
-## Delete utterances on intent page
+## Using the contextual toolbar
 
-To delete an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
+The context toolbar provides other actions:
 
-![Screenshot of Intents details page, with Delete option highlighted](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
-
-To delete several utterances:
-
-1. Select the checkboxes to the left of the utterances, and then select **Delete utterances(s)**. 
-
-    ![Screenshot of Intents details page, with utterances checked and Delete utterance(s) button highlighted](./media/luis-how-to-add-intents/delete-several-utterances.png)
-
-2. Select **Done** in the **Delete utterances?** pop-up dialog.
-
-## Search in utterances on intent page
-You can search for utterances that contain text (words or phrases) within the intent's utterance list. For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
-
-1. Select the magnifying glass icon in the toolbar.
-
-    ![Screenshot of Intents page, with search icon of magnifying glass highlighted](./media/luis-how-to-add-intents/magnifying-glass.png)
-
-2. A search textbox appears. Type the word or phrase in the search box at the top right corner of the utterances list. The utterances list updates, to display only the utterances that include your search text. 
-
-    ![Screenshot of Intents page, with search textbox highlighted](./media/luis-how-to-add-intents/search-textbox.png)
-
-    To cancel the search and restore your full list of utterances, delete the search text you've typed. To close the search textbox, select the magnifying glass icon in the toolbar again.
-
-## Prediction discrepancy errors on intent page
-An utterance in an intent might have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. 
-
-![Screenshot of BookFlight Intent page, with prediction discrepancy score highlighted](./media/luis-how-to-add-intents/score-discrepancy.png) 
-
-## Filter by intent prediction discrepancy errors on intent page
-To filter the utterance list to only utterances with an intent prediction discrepancy, toggle from **Show All** to **Errors only** in the toolbar. 
-
-## Filter by entity type on intent page
-Use the **Entity filters** drop-down on the toolbar to filter the utterances by entity. 
-
-![Screenshot of Intents page, with entity type filter highlighted](./media/luis-how-to-add-intents/filter-by-entities.png) 
-
-To remove the filter, select the blue filter box with that word or phrase under the toolbar.  
-<!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
-
-## Switch to token view on intent page
-Toggle **Tokens View** to view the tokens instead of the entity type names. On the keyboard, you can also use **Control+E** to toggle the view. 
-
-![Screenshot of BookFlight intent, with Token View highlighted](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+* Edit or delete example utterance
+* Reassign example utterance to a different intent
+* Filters and views: only show utterances containing filtered entities or view optional details
+* Search through example utterances
 
 ## Train your app after changing model with intents
-After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
+
+After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app so that your changes are applied to endpoint queries. Do not train after every single change. Train after a group of changes. 
 
 ## Next steps
 
-After adding intents to your app, your next task is to start adding [example utterances](luis-how-to-add-example-utterances.md) for the intents you've added. 
+Learn more about adding [example utterances](luis-how-to-add-example-utterances.md) with entities. 

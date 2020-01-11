@@ -1,14 +1,8 @@
 ---
-title: Use Azure Container Instances as a Jenkins build agent
-description: Learn how to use Azure Container Instances as a Jenkins build agent.
-services: container-instances
-author: mmacy
-manager: jeconnoc
-
-ms.service: container-instances
+title: Jenkins build on container instance
+description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: marsma
 ---
 
 # Use Azure Container Instances as a Jenkins build agent
@@ -44,7 +38,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Additional settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
+4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
 5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
@@ -66,11 +60,11 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 4. After the session is connected, run the following command to retrieve the initial admin password:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Leave the SSH session and tunnel running, and go to http://localhost:8080 in a browser. Paste the initial admin password into the box, and then select **Continue**.
+5. Leave the SSH session and tunnel running, and go to `http://localhost:8080` in a browser. Paste the initial admin password into the box, and then select **Continue**.
 
    !["Unlock Jenkins" screen with the box for the administrator password](./media/container-instances-jenkins/jenkins-portal-05.png)
 
@@ -135,4 +129,4 @@ To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

@@ -4,7 +4,7 @@ description: Learn how to create a virtual network (classic) with multiple subne
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.custom: 
 

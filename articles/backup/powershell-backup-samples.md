@@ -1,13 +1,8 @@
 ---
-title: Azure Backup PowerShell Samples
-description: Azure Backup PowerShell Samples
-services: backup
-author: markgalioto
-manager: carmonm
-ms.service: backup
+title: PowerShell Samples
+description: This article provides links to PowerShell script samples that use Azure Backup to back up and restore data.
 ms.topic: sample
-ms.date: 09/07/2017
-ms.author: markgal
+ms.date: 01/31/2019
 ms.custom: mvc
 ---
 # Azure Backup PowerShell samples
@@ -19,4 +14,3 @@ The following table links to PowerShell script samples that use Azure Backup to 
 |**Back up virtual machines**||
 | [Back up an encrypted virtual machine to Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Back up all data on the encrypted virtual machine.|
 | | |
-

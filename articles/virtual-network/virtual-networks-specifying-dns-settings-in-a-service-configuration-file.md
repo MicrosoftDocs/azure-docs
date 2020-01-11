@@ -4,7 +4,7 @@ description: specifying custom DNS settings using service configuration file for
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71
@@ -37,9 +37,9 @@ A service configuration file may contain a DnsServers element with a list of IPv
 ## See Also
 [Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network Configuration Schema](https://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configure a Virtual Network Using Network Configuration Files](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configure a Virtual Network Using Network Configuration Files](https://go.microsoft.com/fwlink/?LinkId=248094)
 
-[About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092)
+[About Virtual Network settings in the Management Portal](https://go.microsoft.com/fwlink/?LinkId=248092)
 

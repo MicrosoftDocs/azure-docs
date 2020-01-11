@@ -2,13 +2,9 @@
 title: Onboard Update Management, Change Tracking, and Inventory solutions from an Azure VM
 description: Learn how to onboard an Azure virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation.
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
-ms.service: automation
 ms.custom: mvc
-manager: carmonm
 ---
 
 # Onboard Update Management, Change Tracking, and Inventory solutions from an Azure virtual machine
@@ -21,7 +17,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable the solutions
 
-Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**.
+Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account. When onboarding a solution from a VM you need to have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is onboarded to a workspace. To learn about additional permissions that are needed in general, see [permissions needed to onboard machines](automation-role-based-access-control.md#onboarding).
 
 To enable the solution for the VM only, ensure that **Enable for this VM** is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
@@ -29,7 +25,7 @@ Select the Azure Log Analytics workspace and Automation account, and then select
 
 ![Onboard the Update Management solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Go to the other solutions, and then select **Enable**. The Log Analytics and Automation account drop-down lists are disabled because these solutions use the same workspace and Automation account as the previously enabled solution.
+Go to the other solutions, and then select **Enable**. The Log Analytics workspace and Automation account drop-down lists are disabled because these solutions use the same workspace and Automation account as the previously enabled solution.
 
 > [!NOTE]
 > **Change tracking** and **Inventory** use the same solution. When one of these solutions is enabled, the other is also enabled.
@@ -62,6 +58,52 @@ Go to your workspace. Under **General**, select **Saved searches**. The two save
 Select either of the saved searches to view the query that's used to populate the group. The following image shows the query and its results:
 
 ![Saved searches](media/automation-onboard-solutions-from-vm/logsearch.png)
+
+## Unlink workspace
+
+The following solutions are dependent on a Log Analytics workspace:
+
+* [Update Management](automation-update-management.md)
+* [Change Tracking](automation-change-tracking.md)
+* [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
+
+If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal.  Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
+
+After you remove these solutions, you can perform the following steps to unlink your Automation account.
+
+> [!NOTE]
+> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
+
+1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
+
+2. On the Unlink workspace page, click **Unlink workspace**.
+
+   ![Unlink workspace page](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
+
+   You will receive a prompt verifying you wish to proceed.
+
+3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+
+If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Update schedules - Each will have names that match the update deployments you created)
+
+* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+
+If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Start and stop VM runbook schedules
+* Start and stop VM runbooks
+* Variables
+
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 

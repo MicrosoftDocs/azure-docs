@@ -24,7 +24,7 @@ In Azure DevTest Labs, a licensed image is one that includes terms and condition
 ## Determining whether a licensed image is available to users
 The first step to allowing users to create VMs from a licensed image is to make sure that the terms and conditions have been accepted for the licensed image. The following steps show how you can view the offer status of a licensed image and, if necessary, accept its terms and conditions.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 
@@ -50,7 +50,7 @@ To make sure a licensed image is available to lab users, a lab owner with admin 
 
 You can enable programmatic deployment for a licensed image by following these steps:
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), go to the list of **Marketplace images**.
+1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), go to the list of **Marketplace images**.
 
 1. Identify a licensed image for which you want users to have access but whose terms have not been accepted. For example, you might see a Data Science Virtual Machine that shows a status of either **Terms accepted** or **Terms review needed**.
 
@@ -86,7 +86,7 @@ You can enable programmatic deployment for a licensed image by following these s
 ## Related blog posts
 
 - [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## Next steps
 

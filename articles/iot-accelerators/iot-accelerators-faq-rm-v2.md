@@ -1,6 +1,6 @@
 ---
-title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
-description: Frequently asked questions for Remote Monitoring solution accelerator
+title: Remote Monitoring solution accelerator FAQ - Azure | Microsoft Docs
+description: This article answers the frequently asked questions for the Remote Monitoring solution accelerators.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -32,6 +32,10 @@ Each deployment option responds to different needs. The basic deployment is desi
 ### How do I configure a dynamic map on the dashboard?
 
 For more information, see [Upgrade map key to see devices on a dynamic map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
+
+### Where can I find information about the previous version of the Remote Monitoring solution?
+
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### Next steps
 

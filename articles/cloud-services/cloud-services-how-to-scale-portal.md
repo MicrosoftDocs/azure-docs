@@ -2,19 +2,11 @@
 title: Auto scale a cloud service in the portal | Microsoft Docs
 description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
+ms.author: tagore
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal
@@ -108,3 +100,6 @@ This setting removes automated scaling from the role and then you can set the in
 3. Instances of the role to scale to.
 
 After you have configured the scale settings, select the **Save** icon at the top.
+
+
+

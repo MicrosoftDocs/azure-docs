@@ -1,20 +1,12 @@
 ---
-title: 'About Azure Point-to-Site routing | Microsoft Docs'
+title: 'Azure VPN Gateway: About P2S routing'
 description: This article helps you understand how Point-to-Site VPN routing behaves.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: ''
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 10/08/2019
 ms.author: anzaman
 
 ---
@@ -34,7 +26,7 @@ There are a number of different diagrams in this article. Each section shows a d
 
 ## <a name="isolatedvnet"></a>One isolated VNet
 
-The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients using SSTP or IKEv2 can access VNet1.
+The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients can access VNet1.
 
 ![isolated VNet routing](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolated VNet routing")
 
@@ -144,7 +136,7 @@ Clients using Windows, or another supported OS, can access all VNets that are co
 
 In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is not connected/ peered with any other virtual network, but is connected to an on-premises site through a Site-to-Site VPN connection that is not running BGP.
 
-Windows clients can access VNet1 and the branch office (Site1), but the routes to Site1 must be manually added to the client. Non-Windows clients can access VNet1, as well as the on-premises Site1.
+Windows and non-Windows clients can only access VNet1.
 
 ![routing with a VNet and a branch office](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing with a VNet and a branch office")
 
@@ -158,7 +150,7 @@ Windows clients can access VNet1 and the branch office (Site1), but the routes t
 
 * Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
-* Routes added to Non-Windows clients: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 ### Access
 
@@ -213,7 +205,7 @@ All clients can access VNet1 only.
 
 ### Routes added
 
-* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -243,7 +235,7 @@ Clients using Windows can access VNets and sites that are connected using a Site
 
 ### Routes added
 
-* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

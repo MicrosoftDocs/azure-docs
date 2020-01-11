@@ -1,13 +1,12 @@
 ﻿---
-title: How to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service | Microsoft Docs
-description: Learn how to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service
+title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
+description: Learn how to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
-manager: briz
 ---
 
 # How to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service
@@ -24,7 +23,7 @@ In this tutorial, you first complete the steps to setup Azure CLI and the IoT ex
 
 [Python 2.7x or Python 3.x](https://www.python.org/downloads/) is required.
 
-### Step 2 - Install Azure CLI
+### Step 2 - Install the Azure CLI
 
 Follow the [installation instruction](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 

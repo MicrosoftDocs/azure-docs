@@ -1,19 +1,18 @@
 ---
-title: Load data into Azure SQL Data Warehouse by using Azure Data Factory | Microsoft Docs
-description: 'Use Azure Data Factory to copy data into Azure SQL Data Warehouse'
+title: Load data into Azure SQL Data Warehouse
+description: Use Azure Data Factory to copy data into Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-
 ---
+
 # Load data into Azure SQL Data Warehouse by using Azure Data Factory
 
 [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database that's capable of processing massive volumes of data, both relational and non-relational. SQL Data Warehouse is built on the massively parallel processing (MPP) architecture that's optimized for enterprise data warehouse workloads. It offers cloud elasticity with the flexibility to scale storage and compute independently.
@@ -31,6 +30,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 > [!NOTE]
 > For more information, see [Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory](connector-azure-sql-data-warehouse.md).
+
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -40,21 +40,22 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Create a new data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-1. In the **New data factory** page, provide values for the fields that are shown in the following image:
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. In the **New data factory** page, provide values for the fields that are shown in the following image:
       
    ![New data factory page](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadSQLDWDemo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
-    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
     * **Version**: Select **V2**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. These data stores include Azure Data Lake Store, Azure Storage, Azure SQL Database, and so on.
 
-1. Select **Create**.
-1. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
+3. Select **Create**.
+4. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
    
    ![Data factory home page](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
@@ -79,7 +80,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and passworkd. Click **Test connection** to validate the settings, then select **Finish**.
+    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
    
     ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -101,7 +102,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Select Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and passworkd. Click **Test connection** to validate the settings, then select **Finish**.
+    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
    
     ![Configure Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

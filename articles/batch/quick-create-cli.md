@@ -2,14 +2,14 @@
 title: Azure Quickstart - Run Batch job - CLI 
 description: Quickly learn to run a Batch job with the Azure CLI.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
 ---
 
@@ -21,7 +21,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -135,7 +135,7 @@ The command output includes many details, but take note of the `exitCode` of the
 
 ## View task output
 
-To list the files created by a task on a compute node, use the [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list) command. The following command lists the files created by *mytask1*: 
+To list the files created by a task on a compute node, use the [az batch task file list](/cli/azure/batch/task) command. The following command lists the files created by *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -156,7 +156,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) command. In this example, task output is in `stdout.txt`. 
+To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task) command. In this example, task output is in `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \

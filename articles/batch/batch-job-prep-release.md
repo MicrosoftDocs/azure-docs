@@ -3,19 +3,18 @@ title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure B
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: ''
 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Run job preparation and job release tasks on Batch compute nodes
@@ -69,6 +68,8 @@ Once a job is marked as completed, the job release task is executed on each node
 
 > [!NOTE]
 > Job deletion also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is later deleted.
+
+Jobs release tasks can run for a maximum of 15 minutes before being terminated by the Batch service. For more information, see the [REST API reference documentation](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 
@@ -191,9 +192,9 @@ This MSDN forum post provides an overview of several methods of preparing your n
 
 Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease

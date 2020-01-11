@@ -1,3 +1,10 @@
+---
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: juliako
+---
 The job produces a JSON output file that contains metadata about detected and tracked faces. The metadata includes coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
 The output JSON includes the following elements:

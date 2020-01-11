@@ -2,18 +2,20 @@
 title: Post event to custom Azure Event Grid topic
 description: Describes how to post an event to a custom topic for Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: tomfitz
+ms.date: 01/17/2019
+ms.author: spelluru
 ---
 
 # Post to custom topic for Azure Event Grid
 
 This article describes how to post an event to a custom topic. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Endpoint
 
@@ -30,7 +32,7 @@ az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "e
 To get the endpoint for a custom topic with Azure PowerShell, use:
 
 ```powershell
-(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+(Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
 ## Header
@@ -48,7 +50,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 To get the key for a custom topic with PowerShell, use:
 
 ```powershell
-(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
+(Get-AzEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
 ```
 
 ## Event data
@@ -70,7 +72,10 @@ For custom topics, the top-level data contains the same fields as standard resou
 ]
 ```
 
-For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
+For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB (General Availability) or 1 MB (preview).
+
+> [!NOTE]
+> An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64-KB increments. 
 
 For example, a valid event data schema is:
 

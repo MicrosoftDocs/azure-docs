@@ -1,4 +1,13 @@
-#### Prerequisites
+---
+ms.service: logic-apps
+ms.topic: include
+author: ecfan
+ms.author: estfan
+ms.date: 11/03/2016
+---
+
+## Prerequisites
+
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account 
 

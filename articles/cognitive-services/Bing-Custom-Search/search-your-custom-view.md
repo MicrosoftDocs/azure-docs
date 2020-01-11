@@ -1,41 +1,59 @@
 ---
-title: "Bing Custom Search: Search a custom view | Microsoft Docs"
-description: Describes how to search a custom view of the web
+title: Search a custom view - Bing Custom Search
+titleSuffix: Azure Cognitive Services
+description: After you've configured your custom search experience, you can test it from within the Bing Custom Search portal.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: bing-custom-search
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: v-brapel
+ms.subservice: bing-custom-search
+ms.topic: conceptual
+ms.date: 05/09/2019
+ms.author: maheshb
 ---
 
-# Call your custom search
-Before making your first call to the Custom Search API to get search results for your instance, you need to get a Cognitive Services subscription key. To get a key for Custom Search API, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+# Call your Bing Custom Search instance from the Portal
 
-> [!NOTE]
-> Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterwards, they need to migrate to the generally available version on Azure.
+After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
 
-## Try it out
-After you've configured your custom search experience, you can test the configuration from within the Custom Search portal. Sign into [Custom Search](https://customsearch.ai), click a Custom Search instance, and click the **Production** tab. The **Endpoints** tab is displayed. Your subscription will determine which endpoints are available to try, see [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/). To test an endpoint, select it from the dropdown and set the associated configuration options. 
+![a screenshot of the Bing custom search portal](media/portal-search-screen.png)
+## Create a search query 
 
-The following are the available options.
+After you've signed into the Bing Custom Search [portal](https://customsearch.ai), select your search instance and click the **Production** tab. Under **Endpoints**, select an API endpoint (for example, Web API). Your subscription determines what endpoints are shown.
 
-- **Query**: The search term to search for. Only available for Web, Image, and Autosuggest endpoints.
-- **Custom Configuration ID**: The configuration ID of the selected Custom Search instance. This field is read only.
-- **Market**: The market where the results come from. Only available for Web, Image, and Hosted UI endpoints.
-- **Subscription Key**: The subscription key to test with. You may select a key from the dropdown or enter one manually.
-- **Safe Search**: A filter used to filter webpages for adult content. Only available for Web, Image, and Hosted UI endpoints.
-- **Count**: The number of search results to return in the response. Only available for Web and Image endpoints.
-- **Offset**: The number of search results to return in the response. Only available for Web and Image endpoints.
+To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the [Custom Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) for more information. To change the subscription your search instance uses, add the appropriate subscription key, and update the appropriate market and/or language parameters.
 
-After you've specified all required options for Web, Image, or Autosuggest, click **Call** to view the JSON response in the right pane. 
+Some important parameters are below:
 
-If you select the Hosted UI endpoint, you can test the search experience from the right pane.
+
+|Parameter  |Description  |
+|---------|---------|
+|Query     | The search term to search for. Only available for Web, Image, Video, and Autosuggest endpoints |
+|Custom Configuration ID | The configuration ID of the selected Custom Search instance. This field is read only. |
+|Market     | The market that results will originate from. Only available for the Web, Image, Video, and Hosted UI endpoints.        |
+|Subscription Key | The subscription key to test with. You can select a key from the dropdown list or enter one manually.          |
+
+Clicking **Additional Parameters** reveals the following parameters:  
+
+|Parameter  |Description  |
+|---------|---------|
+|Safe Search     | A filter used to filter webpages for adult content. Only available for the Web, Image, Video, and Hosted UI endpoints.        |
+|User Interface Language    | The language used for user interface strings. For example, if you enable images and videos in Hosted UI, the **Image** and **Video** tabs use the specified language.        |
+|Count     | The number of search results to return in the response. Available only for Web, Image, and Video endpoints.         |
+|Offset    | The number of search results to skip before returning results. Available only for Web, Image, and Video endpoints.        |
+    
+After you've specified all required options, click **Call** to view the JSON response in the right pane. If you select the Hosted UI endpoint, you can test the search experience in the bottom pane.
+
+## Change your Bing Custom Search subscription
+
+You can change the subscription associated with your Bing Custom Search instance without creating a new instance. To have API calls sent and charged to a new subscription, create a new Bing Custom Search resource in the Azure portal. Use the new subscription key in your API requests, along with your instance's custom configuration ID.
 
 ## Next steps
+
 - [Call your custom view with C#](./call-endpoint-csharp.md)
 - [Call your custom view with Java](./call-endpoint-java.md)
 - [Call your custom view with NodeJs](./call-endpoint-nodejs.md)
 - [Call your custom view with Python](./call-endpoint-python.md)
+
+- [Call your custom view with the C# SDK](./sdk-csharp-quick-start.md)

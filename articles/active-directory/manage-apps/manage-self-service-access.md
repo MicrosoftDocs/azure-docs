@@ -3,24 +3,24 @@ title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
-
+author: msmimart
+manager: CelesteDG
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
-ms.author: barbkess
+ms.date: 10/23/2018
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure self-service application assignment
 
-Before your users can self-discover applications from their access panel, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
+Before your users can self-discover applications from their access panel, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to. This functionality is available for applications that were added from the [Azure AD Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) or were added via [user or admin consent](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
 
 This feature is a great way for you to save time and money as an IT group, and is highly recommended as part of a modern applications deployment with Azure Active Directory.
 
@@ -44,7 +44,7 @@ Self-service application access is a great way to allow users to self-discover a
 
 To enable self-service application access to an application, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
 2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
@@ -54,7 +54,7 @@ To enable self-service application access to an application, follow the steps be
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to enable Self-service access to from the list.
 
@@ -64,8 +64,8 @@ To enable self-service application access to an application, follow the steps be
 
 9.  Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
   
-  > [!NOTE]
-  > Groups synchronized from on-premises are not supported to be used for the group to which users who request access to this application should be added.
+    > [!NOTE]
+    > Groups synchronized from on-premises are not supported to be used for the group to which users who request access to this application should be added.
   
 10. **Optional:** If you wish to require a business approval before users are allowed access, set the **Require approval before granting access to this application?** toggle to **Yes**.
 
@@ -73,10 +73,10 @@ To enable self-service application access to an application, follow the steps be
 
 12. **Optional:** To specify the business approvers who are allowed to approve access to this application, click the selector next to the label **Who is allowed to approve access to this application?** to select up to 10 individual business approvers.
 
-   >[!NOTE]
-   >Groups are not supported.
-   >
-   >
+     > [!NOTE]
+     > Groups are not supported.
+     >
+     >
 
 13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, click the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
 

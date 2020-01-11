@@ -1,10 +1,10 @@
 ---
-title: Control routing in an Azure Virtual Network - PowerShell - Classic | Microsoft Docs
+title: Control routing in an Azure VNet - PowerShell - Classic
 description: Learn how to control routing in VNets using PowerShell | Classic
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

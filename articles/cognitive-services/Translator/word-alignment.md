@@ -1,14 +1,16 @@
 ---
-title: Word alignment information with the Microsoft Translator Text API | Microsoft Docs
-description: Receive word alignment information from the Microsoft Translator Text API.
+title: Word alignment - Translator Text API
+titleSuffix: Azure Cognitive Services
+description: To receive alignment information, use the Translate method and include the optional includeAlignment parameter.
 services: cognitive-services
-author: Jann-Skotdal
-manager: chriswendt1
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
-ms.topic: article
-ms.date: 12/14/2017
-ms.author: v-jansko
+ms.subservice: translator-text
+ms.topic: conceptual
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.custom: seodec18
 ---
 
 # How to receive word alignment information

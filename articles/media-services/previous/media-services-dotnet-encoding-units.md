@@ -1,10 +1,10 @@
 ---
 title: Scale media processing by adding encoding units - Azure |  Microsoft Docs
-description: Learn how to how to add encoding units with .NET
+description: This article demonstrates how to add encoding units with Azure Media Services .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2017
-ms.author: juliako;milangada;
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: milangada
 
 ---
 # How to scale encoding with .NET SDK
@@ -26,10 +27,6 @@ ms.author: juliako;milangada;
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
-
-> [!NOTE]
-> To get the latest version of Java SDK and get started developing with Java, see [Get started with the Java client SDK for Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> To download the latest PHP SDK for Media Services, look for version 0.5.7 of the Microsoft/WindowAzure package in the [Packagist repository](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## Overview
 > [!IMPORTANT]

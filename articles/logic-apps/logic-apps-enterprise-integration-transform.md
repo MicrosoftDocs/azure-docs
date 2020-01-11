@@ -1,14 +1,12 @@
 ---
-title: Transform XML between formats - Azure Logic Apps | Microsoft Docs
+title: Transform XML between formats
 description: Create transforms or maps that convert XML between formats in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
 ---
 
@@ -87,7 +85,7 @@ The transform action also supports maps or transforms with reference to external
 
   This example shows a map that references an assembly named "XslUtilitiesLib" and calls the `circumreference` method from the assembly.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -108,13 +106,13 @@ The transform action also supports maps or transforms with reference to external
 	 </circles>
 	</xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### Byte Order Mark
 By default, the response from the transformation starts with the Byte Order Mark (BOM). You can access this functionality only while working in the Code View editor. To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -128,7 +126,7 @@ By default, the response from the transformation starts with the Byte Order Mark
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

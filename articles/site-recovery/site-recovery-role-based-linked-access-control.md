@@ -1,19 +1,16 @@
 ---
-title: Using Role-Based Access Control to manage Azure Site Recovery | Microsoft Docs
-description: This article describes how to apply and use Role-Based Access Control (RBAC) to manage your Azure Site Recovery deployments
+title: Manage Azure role-based access control in Azure Site Recovery
+description: This article describes how to apply role-based access control (RBAC) to manage Azure Site Recovery access.
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 07/06/2018
-author: mayanknayar
+ms.date: 04/08/2019
+author: mayurigupta13
 ms.topic: conceptual
-ms.author: manayar
+ms.author: mayg
 
 ---
-# Use Role-Based Access Control to manage Site Recovery access
+# Manage Site Recovery access with role-based access control (RBAC)
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate responsibilities within your team and grant only specific access permissions to users as needed to perform specific jobs.
+Azure role-based access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate responsibilities within your team and grant only specific access permissions to users as needed to perform specific jobs.
 
 Azure Site Recovery provides 3 built-in roles to control Site Recovery management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
@@ -35,6 +32,9 @@ A user needs the following permissions to complete replication of a new virtual 
 
 > [!IMPORTANT]
 >Ensure that relevant permissions are added per the deployment model (Resource Manager/ Classic) used for resource deployment.
+
+> [!NOTE]
+> If you are enabling replication for an Azure VM and want to allow Site Recovery to manage updates, then while enabling replication you may also want to create a new Automation account in which case you would need permission to create an automation account in the same subscription as the vault as well.
 
 | **Resource Type** | **Deployment Model** | **Permission** |
 | --- | --- | --- |

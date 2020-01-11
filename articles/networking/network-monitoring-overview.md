@@ -1,5 +1,5 @@
 ---
-title: 'About Network Monitoring in Log Analytics | Microsoft Docs'
+title: 'About Network Monitoring in Azure Monitor logs | Microsoft Docs'
 description: Overview of network monitoring solutions, including NPM, to manage networks across cloud, on-premises, and hybrid environments.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -9,13 +9,13 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: monitoring-and-diagnostics
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ajaycode
+ms.author: agummadi
 
 ---
 # Network monitoring solutions 
@@ -47,9 +47,11 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 
 For more information, view the following articles:
 
-* [Configure a Network Performance Monitor Solution in Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
+* [Configure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
 * [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Product Updates: [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* Product Updates:
+  * [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## ExpressRoute Monitor
 
@@ -82,7 +84,7 @@ With Service Connectivity monitoring, you can now test reachability of applicati
 
 For more information, see the following articles:
 
-* [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
+* [Configure Network Performance Monitor for monitoring Service Endpoints](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics

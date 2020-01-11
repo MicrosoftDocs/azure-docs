@@ -4,11 +4,11 @@ description: Monitor SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -49,4 +49,4 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 **Next steps**
 
-- Refer [How to monitor SAP HANA (large instances) on Azure](troubleshooting-monitoring.md).
+- Refer [How to monitor SAP HANA (large instances) on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).

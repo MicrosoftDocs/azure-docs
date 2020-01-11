@@ -1,20 +1,18 @@
 ---
-title: Set up HBase and Phoenix backup and replication - Azure HDInsight 
-description: Set up backup and replication for HBase and Phoenix.
-services: hdinsight
+title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
+description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
 author: ashishthaps
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/22/2018
 ms.author: ashishth
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
 ---
-# Set up backup and replication for HBase and Phoenix on HDInsight
 
-HBase supports several approaches for guarding against data loss:
+# Set up backup and replication for Apache HBase and Apache Phoenix on HDInsight
+
+Apache HBase supports several approaches for guarding against data loss:
 
 * Copy the `hbase` folder
 * Export then Import
@@ -22,7 +20,7 @@ HBase supports several approaches for guarding against data loss:
 * Snapshots
 * Replication
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix stores its metadata in HBase tables, so that metadata is backed up when you back up the HBase system catalog tables.
 
 The following sections describe the usage scenario for each of these approaches.
@@ -31,7 +29,7 @@ The following sections describe the usage scenario for each of these approaches.
 
 With this approach, you copy all HBase data, without being able to select a subset of tables or column families. Subsequent approaches provide greater control.
 
-HBase in HDInsight uses the default storage selected when creating the cluster, either Azure Storage blobs or Azure Data Lake Store. In either case, HBase stores its data and metadata files under the following path:
+HBase in HDInsight uses the default storage selected when creating the cluster, either Azure Storage blobs or Azure Data Lake Storage. In either case, HBase stores its data and metadata files under the following path:
 
     /hbase
 
@@ -41,7 +39,7 @@ HBase in HDInsight uses the default storage selected when creating the cluster, 
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* In Azure Data Lake Store the `hbase` folder resides under the root path you specified when provisioning a cluster. This root path typically has a `clusters` folder, with a subfolder named after your HDInsight cluster:
+* In Azure Data Lake Storage, the `hbase` folder resides under the root path you specified when provisioning a cluster. This root path typically has a `clusters` folder, with a subfolder named after your HDInsight cluster:
 
     ```
     /clusters/<clusterName>/hbase
@@ -53,25 +51,33 @@ After you delete the cluster, you can either leave the data in place, or copy th
 
 * Create a new HDInsight instance pointing to the current storage location. The new instance is created with all the existing data.
 
-* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Store location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy.md), and for Data Lake Store use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Storage location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy.md), and for Data Lake Storage use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## Export then Import
 
-On the source HDInsight cluster, use the Export utility (included with HBase) to export data from a source table to the default attached storage. You can then copy the exported folder to the destination storage location, and run the Import utility on the destination HDInsight cluster.
+On the source HDInsight cluster, use the [Export utility](https://hbase.apache.org/book.html#export) (included with HBase) to export data from a source table to the default attached storage. You can then copy the exported folder to the destination storage location, and run the [Import utility](https://hbase.apache.org/book.html#import) on the destination HDInsight cluster.
 
-To export a table, first SSH into the head node of your source HDInsight cluster and then run the following `hbase` command:
+To export table data, first SSH into the head node of your source HDInsight cluster and then run the following `hbase` command:
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-To import a table, SSH into the head node of your destination HDInsight cluster and then run the following `hbase` command:
+The export directory must not already exist. The table name is case-sensitive.
+
+To import table data, SSH into the head node of your destination HDInsight cluster and then run the following `hbase` command:
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+
+The table must already exist.
 
 Specify the full export path to the default storage or to any of the attached storage options. For example, in Azure Storage:
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-In Azure Data Lake Store, the syntax is:
+In Azure Data Lake Storage Gen2, the syntax is:
+
+    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+
+In Azure Data Lake Storage Gen1, the syntax is:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -83,11 +89,12 @@ Note that you have to specify the number of versions of each row to export. To i
 
 ## Copy tables
 
-The CopyTable utility copies data from a source table, row by row, to an existing destination table with the same schema as the source. The destination table can be on the same cluster or a different HBase cluster.
+The [CopyTable utility](https://hbase.apache.org/book.html#copy.table) copies data from a source table, row by row, to an existing destination table with the same schema as the source. The destination table can be on the same cluster or a different HBase cluster. The table names are case-sensitive.
 
 To use CopyTable within a cluster, SSH into the head node of your source HDInsight cluster and then run this `hbase` command:
 
     hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+
 
 To use CopyTable to copy to a table on a different cluster, add the `peer` switch with the destination cluster's address:
 
@@ -97,7 +104,7 @@ The destination address is composed of the following three parts:
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>` is a comma-separated list of ZooKeeper nodes, for example:
+* `<ZooKeeperQuorum>` is a comma-separated list of Apache ZooKeeper nodes, for example:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -105,7 +112,7 @@ The destination address is composed of the following three parts:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-See [Manually Collecting the ZooKeeper Quorum List](#manually-collect-the-zookeeper-quorum-list) in this article for details on how to retrieve these values for your HDInsight cluster.
+See [Manually Collecting the Apache ZooKeeper Quorum List](#manually-collect-the-apache-zookeeper-quorum-list) in this article for details on how to retrieve these values for your HDInsight cluster.
 
 The CopyTable utility also supports parameters to specify the time range of rows to copy, and to specify the subset of column families in a table to copy. To see the complete list of parameters supported by CopyTable, run CopyTable without any parameters:
 
@@ -113,12 +120,12 @@ The CopyTable utility also supports parameters to specify the time range of rows
 
 CopyTable scans the entire source table content that will be copied over to the destination table. This may reduce your HBase cluster's performance while CopyTable executes.
 
-> [!NOTE]
+> [!NOTE]  
 > To automate the copying of data between tables, see the `hdi_copy_table.sh` script in the [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) repository on GitHub.
 
-### Manually collect the ZooKeeper quorum List
+### Manually collect the Apache ZooKeeper quorum List
 
-When both HDInsight clusters are in the same virtual network, as described previously, internal host name resolution is automatic. To use CopyTable for HDInsight clusters in two separate virtual networks connected by a VPN Gateway, you will need to provide the host IP addresses of the Zookeeper nodes in the quorum.
+When both HDInsight clusters are in the same virtual network, as described previously, internal host name resolution is automatic. To use CopyTable for HDInsight clusters in two separate virtual networks connected by a VPN Gateway, you'll need to provide the host IP addresses of the Zookeeper nodes in the quorum.
 
 To acquire the quorum host names, run the following curl command:
 
@@ -148,7 +155,7 @@ In our example:
 
 ## Snapshots
 
-Snapshots enable you to take a point-in-time backup of data in your HBase datastore. Snapshots have minimal overhead and complete within seconds, because a snapshot operation is effectively a metadata operation capturing the names of all files in storage at that instant. At the time of a snapshot, no actual data is copied. Snapshots rely on the immutable nature of the data stored in HDFS, where updates, deletes, and inserts are all represented as new data. You can restore (*clone*) a snapshot on the same cluster, or export a snapshot to another cluster.
+[Snapshots](https://hbase.apache.org/book.html#ops.snapshots) enable you to take a point-in-time backup of data in your HBase datastore. Snapshots have minimal overhead and complete within seconds, because a snapshot operation is effectively a metadata operation capturing the names of all files in storage at that instant. At the time of a snapshot, no actual data is copied. Snapshots rely on the immutable nature of the data stored in HDFS, where updates, deletes, and inserts are all represented as new data. You can restore (*clone*) a snapshot on the same cluster, or export a snapshot to another cluster.
 
 To create a snapshot, SSH in to the head node of your HDInsight HBase cluster and start the `hbase` shell:
 
@@ -178,11 +185,11 @@ The `<hdfsHBaseLocation>` can be any of the storage locations accessible to your
 
 After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot using the restore_snapshot command as previously described.
 
-Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots do not provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
+Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots don't provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
 
 ## Replication
 
-HBase replication automatically pushes transactions from a source cluster to a destination cluster, using an asynchronous mechanism with minimal overhead on the source cluster. In HDInsight, you can set up replication between clusters where:
+[HBase replication](https://hbase.apache.org/book.html#_cluster_replication) automatically pushes transactions from a source cluster to a destination cluster, using an asynchronous mechanism with minimal overhead on the source cluster. In HDInsight, you can set up replication between clusters where:
 
 * The source and destination clusters are in the same virtual network.
 * The source and destinations clusters are in different virtual networks connected by a VPN gateway, but both clusters exist in the same geographic location.
@@ -197,8 +204,9 @@ The general steps to set up replication are:
 5. Copy existing data from the source tables to the destination tables.
 6. Replication automatically copies new data modifications to the source tables into the destination tables.
 
-To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Management templates, see [Configure HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
+To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Management templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
 
 ## Next steps
 
-* [Configure HBase replication](apache-hbase-replication.md)
+* [Configure Apache HBase replication](apache-hbase-replication.md)
+* [Working with the HBase Import and Export Utility](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

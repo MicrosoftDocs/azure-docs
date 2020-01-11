@@ -1,8 +1,10 @@
-- name: Event Grid Documentation
+- name: Azure Event Grid Documentation
   href: index.yml
+- name: Switch to Event Grid on IoT Edge documentation
+  href: edge/pub-sub-events-webhook-local.md
 - name: Overview
   items:
-  - name: About Event Grid
+  - name: What is Event Grid?
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
@@ -25,6 +27,8 @@
       href: custom-event-quickstart-powershell.md
     - name: Portal
       href: custom-event-quickstart-portal.md
+  - name: Azure Functions as event handler
+    href: custom-event-to-function.md
   - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
   - name: Event Hubs as event handler
@@ -84,7 +88,7 @@
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid
+    href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -93,18 +97,28 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event filtering
+    href: event-filtering.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
     href: event-handlers.md
+  - name: Geo disaster recovery
+    href: geo-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
+  - name: Secure WebHook with AAD
+    href: secure-webhook-delivery.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
+  - name: Filter events
+    href: how-to-filter-events.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
@@ -115,14 +129,28 @@
     href: input-mappings.md
   - name: Use CloudEvents schema
     href: cloudevents-schema.md
+  - name: Manage topics with Event Domains
+    href: how-to-event-domains.md
+  - name: Implement client-side failover
+    href: custom-disaster-recovery.md
+  - name: Troubleshoot errors  
+    href: troubleshoot-errors.md    
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/eventgrid
   - name: PowerShell
-    href: /powershell/module/azurerm.eventgrid
+    href: /powershell/module/az.eventgrid
   - name: REST
     href: /rest/api/eventgrid
+  - name: .NET
+    href: /dotnet/api/overview/azure/eventgrid
+  - name: Java
+    href: /java/api/overview/azure/eventgrid
+  - name: Python
+    href: /python/api/overview/azure/event-grid
+  - name: Node.js
+    href: /javascript/api/overview/azure/eventgrid
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
@@ -138,12 +166,22 @@
       href: event-schema-event-hubs.md
     - name: IoT Hub
       href: event-schema-iot-hub.md
+    - name: Key Vault
+      href: event-schema-key-vault.md
     - name: Media Services
       href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Resource groups
       href: event-schema-resource-groups.md
     - name: Service Bus
       href: event-schema-service-bus.md
+    - name: Azure Maps
+      href: event-schema-azure-maps.md
+    - name: App Configuration
+      href: event-schema-app-configuration.md
+    - name: Azure SignalR
+      href: event-schema-azure-signalr.md
+    - name: Azure Machine Learning
+      href: event-schema-machine-learning.md
   - name: Template resources
     items:
     - name: Event subscriptions
@@ -154,6 +192,8 @@
     href: sdk-overview.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-event-grid
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
@@ -161,4 +201,4 @@
   - name: Pricing Calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventgrid
+    href: https://stackoverflow.com/questions/tagged/azure-eventgrid

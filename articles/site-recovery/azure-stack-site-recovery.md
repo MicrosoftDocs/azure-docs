@@ -6,12 +6,12 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 08/05/2019
 ms.author: raynew
 ---
-# Replicate Azure Stack VMs to Azure (preview)
+# Replicate Azure Stack VMs to Azure
 
-This article shows you how to set up disaster recovery to Azure for Azure Stack VMs, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy. The service ensures that your VM workloads remain available when expected and unexpected outages occur.
 
@@ -21,17 +21,13 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 - When everything's up and running again, you can fail back Azure VMs to your primary site, and start replicating to Azure storage again.
 
 
-> [!NOTE]
-> Site Recovery for Azure Stack is currently in public preview.
-
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * **Step 1: Prepare Azure stack VMs for replication**. Check that VMs comply with Site Recovery requirements, and prepare for installation of the Site Recovery Mobility service. This service is installed on each VM you want to replicate.
 > * **Step 2: Set up a Recovery Services vault**. Set up a vault for Site Recovery, and specify what you want to replicate. Site Recovery components and actions are configured and managed in the vault.
 > * **Step 3: Set up the source replication environment**. Set up a Site Recovery configuration server. The configuration server is a single Azure Stack VM that runs all the components needed by Site Recovery. After you've set up the configuration server, you register it in the vault.
-> * **Step 4: Set up the target replication environment**. Select your Azure acccount, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
+> * **Step 4: Set up the target replication environment**. Select your Azure account, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
 > * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins.
 > * **Step 6: Run a disaster recovery drill**: After replication is up and running, you verify that failover will work as expected by running a drill. To initiate the drill, you run a test failover in Site Recovery. The test failover doesn't impact your production environment.
 
@@ -140,7 +136,7 @@ For each machine you want to replicate, find the IP address:
 
 ## Step 2: Create a vault and select a replication goal
 
-1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
+1. In the Azure portal, select **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 2. In **Name**, enter a friendly name to identify the vault. 
 3. In **Resource group**, create or select a resource group. We're using **contosoRG**.
 4. In **Location**, enter the Azure region. We're using **West Europe**.
@@ -187,8 +183,8 @@ Now install the configuration server:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can also be installed from the command line. [Learn more](http://aka.ms/installconfigsrv).
-
+> The configuration server can also be installed from the command line. [Learn more](physical-manage-configuration-server.md#install-from-the-command-line).
+> 
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers** > ***server name*** > **Refresh Server**.
 
 ## Step 4: Set up the target environment
@@ -209,10 +205,10 @@ Select and verify target resources.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit.
     - Recovery points for replicated data are created in accordance with the time set.
     - This setting does not affect replication, which is continuous. It simply issues an alert if the threshold limit is reached without a recovery point being created.
-4. In **Recovery point retention**, Specify how long each recovery point is kept. Replicated VMs can be recovered to any point in the specified time window.
+4. In **Recovery point retention**, specify how long each recovery point is kept. Replicated VMs can be recovered to any point in the specified time window.
 5. In **App-consistent snapshot frequency**, specify how often application-consistent snapshots are created.
 
-    - A app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
+    - An app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
     - Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.
 6. Select **OK** to create the policy.
 
@@ -232,13 +228,13 @@ Make sure you've completed all the tasks in [Step 1: Prepare machine](#step-1-pr
 3. In **Machine type**, select **Physical machines**.
 4. Select the process server (configuration server). Then click **OK**.
 5. In **Target**, select the subscription and the resource group in which you want to create the VMs after failover. Choose the deployment model that you want to use for the failed-over VMs.
-6. Select the Azure storage account in which you want to stored replicated data.
+6. Select the Azure storage account in which you want to store the replicated data.
 7. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
 8. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** if you want to select the Azure network separately for each machine.
-9. In **Physical Machines**, click **+Physical machine**. Specify the name of IP address of each machine, and the operating system you want to replicate.
+9. In **Physical Machines**, click **+Physical machine**. Specify the name, IP address and OS type of each machine you want to replicate.
 
     - Use the internal IP address of the machine.
-    - If you specify the public IP address replication might not work as expected.
+    - If you specify the public IP address, replication may not work as expected.
 
 10. In **Properties** > **Configure properties**, select the account that the process server will use to automatically install Mobility Service on the machine.
 11. In **Replication settings** > **Configure replication settings**, check that the correct replication policy is selected.
@@ -247,9 +243,9 @@ Make sure you've completed all the tasks in [Step 1: Prepare machine](#step-1-pr
 
 > [!NOTE]
 > Site Recovery installs Mobility Service when replication is enabled for a VM.
-
+> 
 > It can take 15 minutes or longer for changes to take effect and appear in the portal.
-
+> 
 > To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
 
@@ -278,8 +274,8 @@ When you run a test failover, the following happens:
    place.
 2. Failover processes the data using the specified recovery point:
     - **Latest processed**: The machine fails over to the latest recovery point processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (recovery time objective).
-    - **Latest app-consistent**.The machine fails over to the latest app-consistent recovery point.
-    - **Custom**. Select the recovery point used for failover.
+    - **Latest app-consistent**: The machine fails over to the latest app-consistent recovery point.
+    - **Custom**: Select the recovery point used for failover.
 
 3. An Azure VM is created using the processed data.
 4. Test failover can automatically clean up Azure VMs created during the drill.
@@ -318,7 +314,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When you primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, you need to download the Azure VM VHD, and upload it to Azure Stack.
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, you need to download the Azure VM VHD, and upload it to Azure Stack.
 
 1. Shut down the Azure VM, so that the VHD can be downloaded. 
 2. To start downloading the VHD, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
@@ -331,7 +327,7 @@ When you primary site is up and running again, you can fail back from Azure to A
         - VHD Name: copied-3676553984.vhd
 
 5. Now, use Azure Storage Explorer to download the VHD.
-6. Upload the VHD to Azure Stack with [these steps](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm).
+6. Upload the VHD to Azure Stack with [these steps](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. In the existing VM or new VM, attach the uploaded VHDs.
 8. Check that the OS Disk is correct, and start the VM.
 

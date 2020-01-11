@@ -1,20 +1,13 @@
 ---
-title: How to query with SQL in Azure Cosmos DB? | Microsoft Docs
-description: Learn to query with SQL in Azure Cosmos DB
-services: cosmos-db
-author: rafats
-manager: kfile
-editor: ''
-tags: ''
-
+title: 'Tutorial: How to query with SQL in Azure Cosmos DB?'
+description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB using thw query playground'
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: rafats
-
-
+ms.date: 11/05/2019
+ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API
@@ -63,11 +56,11 @@ The SQL queries in this article use the following sample document.
 You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](sql-api-sdk-dotnet.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
 
 For more information about SQL queries, see:
-* [SQL query and SQL syntax](sql-api-sql-query.md)
+* [SQL query and SQL syntax](sql-query-getting-started.md)
 
 ## Prerequisites
 
-This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-mongodb-nodejs.md).
+This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-cosmosdb-resources-portal.md).
 
 ## Example query 1
 

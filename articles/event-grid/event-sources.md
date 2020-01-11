@@ -2,12 +2,12 @@
 title: Azure Event Grid event sources
 description: Describes supported event sources for Azure Event Grid 
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
-ms.author: tomfitz
+ms.date: 02/12/2019
+ms.author: spelluru
 ---
 
 # Event sources in Azure Event Grid
@@ -54,7 +54,7 @@ Subscribe to custom topics to respond to application events.
 | [PowerShell: subscribe to events for a custom topic](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 | [Resource Manager template: custom topic and WebHook endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | A Resource Manager template that creates a custom topic and subscription for that custom topic. It sends events to a WebHook. |
 |
-| [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
+| [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 | [Event schema](event-schema.md) | Shows fields in custom events. |
 
 ## Event Hubs
@@ -70,7 +70,7 @@ For examples of Event Hubs as a handler, see [Event Hubs handler](event-handlers
 
 ## IoT Hub
 
-Subscribe to IoT Hub events to respond to device created, deleted, connected and disconnected events.
+Subscribe to IoT Hub events to respond to device created, deleted, connected, disconnected and telemetry events.
 
 |Title  |Description  |
 |---------|---------|
@@ -78,6 +78,18 @@ Subscribe to IoT Hub events to respond to device created, deleted, connected and
 | [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating IoT Hub with Event Grid. |
 | [Event schema](event-schema-iot-hub.md) | Shows fields in IoT Hub events. |
 | [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
+
+## Key Vault (preview)
+
+Key Vault integration with Event Grid is currently in preview. 
+
+Subscribe to Key Vault events to be notified when a secret is about to expire, a secret expires, or a secret has a new version available. 
+
+|Title  |Description  |
+|---------|---------|
+| [Monitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Learn how to set up Event Grid notifications for Key Vault. |
+| [Event schema](event-schema-key-vault.md) | Shows fields in Key Vault events. |
 
 ## Media Services
 
@@ -100,7 +112,7 @@ Subscribe to resource group events to respond to changes in resources across a r
 | [Azure CLI: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-cli-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
 | [PowerShell: subscribe to events for a resource group](./scripts/event-grid-powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
 | [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
-| [Resource Manager template: resource group subscription](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Subscribes to events for a resource group. It sends events to a WebHook. |
+| [Resource Manager template: resource subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subscribes to events for an Azure subscription or resource group. It sends events to a WebHook. |
 | [Event Schema](event-schema-resource-groups.md) | Shows fields in resource group events. |
 
 ## Service Bus
@@ -124,9 +136,45 @@ Subscribe to Blob Storage events to respond to blob created and deleted events.
 | [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
 | [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
-| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
+| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 | [Event schema](event-schema-blob-storage.md) | Shows fields in Blob Storage events. |
+
+## Maps
+Subscribe to Azure Maps events to respond to geofence events. For example, an application could deliver an email notification every time a device enters or exits a geofence.
+
+|Title  |Description  |
+|---------|---------|
+| [React to Azure Maps events by using Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure Maps with Event Grid. |
+| [Tutorial: Set up a geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | This tutorial walks you through the basics steps to set up geofence by using Azure Maps. You use Azure Event Grid to stream the geofence results and set up a notification based on the geofence results. |
+| [Event schema](event-schema-azure-maps.md) | Shows fields in Azure Maps events. |
+
+## App Configuration
+Subscribe to Azure App Configuration events to respond to key-value modification events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
+| [Quickstart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
+| [Event schema](event-schema-app-configuration.md) | Shows fields in Azure App Configuration events. |
+
+## Azure SignalR
+Subscribe to Azure SignalR Service events to respond to client connection events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
+| [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
+| [Event schema](event-schema-azure-signalr.md) | Shows fields in Azure SignalR Service events. |
+
+## Azure Machine Learning
+
+Subscribe to Azure Machine Learning workspace events to respond to model registration.
+
+| Title | Description |
+| ----- | ----- |
+| [Consume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
+| [Azure Event Grid event schema for Azure Machine Learning](event-schema-machine-learning.md) | Shows fields in the Azure Machine Learning events. |
 
 ## Next steps
 

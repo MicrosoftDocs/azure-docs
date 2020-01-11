@@ -4,7 +4,7 @@ description: Learn how to encode with Media Encoder Premium Workflow. Code sampl
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -21,8 +21,6 @@ ms.author: juliako
 > Media Encoder Premium Workflow media processor discussed in this article is not available in China.
 >
 >
-
-For premium encoder questions, email mepd@microsoft.com.
 
 ## Overview
 Microsoft Azure Media Services is introducing the **Media Encoder Premium Workflow** media processor. This processor offers advance encoding capabilities for your premium on-demand workflows.
@@ -58,12 +56,12 @@ The following steps are performed:
     In most cases, the configuration string for the task is empty (like in the following example). There are some advanced scenarios (that require you to set runtime properties dynamically) in which case you would provide an XML string to the encoding task. Examples of such scenarios are: creating an overlay, parallel or sequential media stitching, subtitling.
 5. Add two input assets to the task.
 
-    1. 1st – the workflow asset.
-    2. 2nd – the video asset.
+   1. 1st – the workflow asset.
+   2. 2nd – the video asset.
 
-    >[!NOTE]
-    >The workflow asset must be added to the task before the media asset.
-   The configuration string for this task should be empty.
+      >[!NOTE]
+      >The workflow asset must be added to the task before the media asset.
+      The configuration string for this task should be empty.
    
 6. Submit the encoding job.
 
@@ -227,7 +225,9 @@ namespace MediaEncoderPremiumWorkflowSample
 }
 ```
 
-For premium encoder questions, email mepd@microsoft.com.
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,15 +1,15 @@
 ---
-title: Weather forecast using Azure Machine Learning with data from IoT Hub | Microsoft Docs
+title: Weather forecast using Azure Machine Learning with IoT Hub data
 description: Use Azure Machine Learning to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
-author: rangv
-manager: 
+author: robinsh
+manager: philmea
 keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
@@ -36,24 +36,24 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 ## What you need
 
-- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+- Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
-- An Azure Machine Learning Studio account. ([Try Machine Learning Studio for free](https://studio.azureml.net/)).
+- An [Azure Machine Learning Studio (classic)](https://studio.azureml.net/) account.
 
 ## Deploy the weather prediction model as a web service
 
 1. Go to the [weather prediction model page](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Click **Open in Studio** in Microsoft Azure Machine Learning Studio.
+1. Click **Open in Studio** in Microsoft Azure Machine Learning Studio (classic).
    ![Open the weather prediction model page in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Click **Run** to validate the steps in the model. This step might take 2 minutes to complete.
-   ![Open the weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Open the weather prediction model in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. Click **SET UP WEB SERVICE** > **Predictive Web Service**.
-   ![Deploy the weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Deploy the weather prediction model in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. In the diagram, drag the **Web service input** module somewhere near the **Score Model** module.
 1. Connect the **Web service input** module to the **Score Model** module.
-   ![Connect two modules in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![Connect two modules in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. Click **RUN** to validate the steps in the model.
 1. Click **DEPLOY WEB SERVICE** to deploy the model as a web service.
 1. On the dashboard of the model, download the **Excel 2010 or earlier workbook** for **REQUEST/RESPONSE**.
@@ -170,7 +170,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 Run the client application to start collecting and sending temperature and humidity data to your IoT hub. For each message that your IoT hub receives, the Stream Analytics job calls the weather forecast web service to produce the chance of rain. The result is then saved to your Azure blob storage. Azure Storage Explorer is a tool that you can use to view the result.
 
-1. [Download and install Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+1. [Download and install Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 1. Open Azure Storage Explorer.
 1. Sign in to your Azure account.
 1. Select your subscription.

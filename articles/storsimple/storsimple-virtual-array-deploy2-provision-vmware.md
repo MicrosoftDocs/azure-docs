@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
@@ -21,12 +21,15 @@ ms.custom: H1Hack27Feb2017
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## Overview
-This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, or 6.0. This article applies to the deployment of StorSimple Virtual Arrays in Azure portal and the Microsoft Azure Government Cloud.
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
+This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, 6.0 or 6.5. This article applies to the deployment of StorSimple Virtual Arrays in Azure portal and the Microsoft Azure Government Cloud.
 
 You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 ## Provisioning prerequisites
-The prerequisites to provision a virtual device on a host system running VMware ESXi 5.0, 5.5 or 6.0, are as follows.
+The prerequisites to provision a virtual device on a host system running VMware ESXi 5.0, 5.5, 6.0 or 6.5, are as follows.
 
 ### For the StorSimple Device Manager service
 Before you begin, make sure that:
@@ -60,7 +63,7 @@ To provision and connect to a virtual device, you need to perform the following 
 ## Step 1: Ensure host system meets minimum virtual device requirements
 To create a virtual device, you will need:
 
-* Access to a host system running VMware ESXi Server 5.0, 5.5 or 6.0.
+* Access to a host system running VMware ESXi Server 5.0, 5.5, 6.0 or 6.5.
 * VMware vSphere client on your system to manage the ESXi host.
 
   * A minimum of 4 cores.

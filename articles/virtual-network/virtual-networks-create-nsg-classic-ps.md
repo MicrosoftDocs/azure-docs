@@ -4,7 +4,7 @@ description: Learn how to create and deploy a network security group (classic) u
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 2/02/2019
 ms.author: genli
 
 ---
@@ -61,7 +61,13 @@ The sample PowerShell commands below expect a simple environment already created
       -SourceAddressPrefix Internet  -SourcePortRange '*' `
       -DestinationAddressPrefix '*' -DestinationPortRange '80'
     ```
+5. Associate the network security group to a subnet:
 
+    ```powershell   
+    Get-AzureNetworkSecurityGroup -Name "NSG-Frontend" `
+    | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName "TestVNet" `
+    -Subnet "FrontEnd"
+    ```
 ## Create an NSG for the back-end subnet
 
 1. Create a network security group named *NSG-BackEnd*:
@@ -90,3 +96,9 @@ The sample PowerShell commands below expect a simple environment already created
       -SourceAddressPrefix '*'  -SourcePortRange '*' `
       -DestinationAddressPrefix Internet -DestinationPortRange '*'
    ```
+4. Associate the network security group to a subnet:
+    ```powershell   
+    Get-AzureNetworkSecurityGroup -Name "NSG-Backend" `
+    | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName "TestVNet" `
+    -Subnet "BackEnd"
+    ```

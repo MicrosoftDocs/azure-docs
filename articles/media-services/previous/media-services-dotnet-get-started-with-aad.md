@@ -4,7 +4,7 @@ description: This topic shows how to use Azure Active Directory (Azure AD) authe
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,11 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 # Use Azure AD authentication to access Azure Media Services API with .NET
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports authentication based on Azure Active Directory (Azure AD). This topic shows you how to use Azure AD  authentication to access Azure Media Services API with Microsoft .NET.
 
@@ -25,7 +28,7 @@ Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports 
 - An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - The latest [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) package.
-- Familiarity with the topic [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
+- Familiarity with the topic [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -76,7 +79,7 @@ To connect to the Azure Media Service API with the user authentication option, t
 
 The values for these parameters can be found in **AzureEnvironments.AzureCloudEnvironment**. The **AzureEnvironments.AzureCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
 
-It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
+It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, or **AzureGermanCloudEnvironment** respectively.
 
 The following code example creates a token:
 	
@@ -93,14 +96,14 @@ The following code example creates a **CloudMediaContext** instance:
 
 The following example shows how to create the Azure AD token and the context:
 
-	namespace AADAuthSample
+	namespace AzureADAuthSample
 	{
 	    class Program
 	    {
 	        static void Main(string[] args)
 	        {
 				// Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-	            var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+	            var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
 	
 	            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 	
@@ -154,7 +157,7 @@ The following code example creates a **CloudMediaContext** instance:
 	
 The following example shows how to create the Azure AD token and the context:
 
-	namespace AADAuthSample
+	namespace AzureADAuthSample
 	{
 	
 	    class Program

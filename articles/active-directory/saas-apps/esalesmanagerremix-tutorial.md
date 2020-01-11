@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with E Sales Manager Remix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and E Sales Manager Remix.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Integrate Azure Active Directory with E Sales Manager Remix
 

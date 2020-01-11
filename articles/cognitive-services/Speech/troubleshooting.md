@@ -1,16 +1,20 @@
 ---
-title: Troubleshooting | Microsoft Docs
-description: How to resolve issues when using Microsoft Speech Service.
+title: Troubleshooting Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: How to resolve issues when using Bing Speech.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
-ms.author: zhouwang
+ms.date: 09/18/2018
+ms.author: nitinme
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Troubleshooting
+# Troubleshooting Bing Speech
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## Error `HTTP 403 Forbidden`
 
@@ -43,7 +47,7 @@ You can run the following command for verification. Note to replace *YOUR_SUBSCR
 > [!NOTE]
 > Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [Powershell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -79,7 +83,7 @@ This step is only needed, if you use authorization token for authentication. Run
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step.
 
-# [Powershell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 

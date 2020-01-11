@@ -1,20 +1,14 @@
 ---
-title: 'Use Databricks CLI from Azure Cloud Shell | Microsoft Docs'
-description: Learn how to use the Databricks CLI from Azure Cloud Shell.
+title: 'Use Databricks CLI from Azure Cloud Shell '
+description: Learn how to use the Databricks CLI from Azure Cloud Shell to perform operations on Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-
+ms.author: mamccrea
 ---
 # Use Databricks CLI from Azure Cloud Shell
 
@@ -24,7 +18,7 @@ Learn how to use the Databricks CLI from Azure Cloud Shell to perform operations
 
 * An Azure Databricks workspace and cluster. For instructions, see [Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
-* Set up a personal access token in Databricks. For instructions, see [Token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Set up a personal access token in Databricks. For instructions, see [Token management](/azure/databricks/dev-tools/api/latest/authentication).
 
 ## Use the Azure Cloud Shell
 
@@ -73,13 +67,13 @@ You can also use the following command to access the Databricks filesystem (DBFS
     databricks fs ls
 
 
-For a complete reference on commands, see [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+For a complete reference on commands, see [Databricks CLI](/azure/databricks/dev-tools/databricks-cli).
 
 
 ## Next steps
 
 * To learn more about Azure CLI, see [Azure CLI overview](../cloud-shell/overview.md)
 * To see a list of commands for Azure CLI, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* To see a list of commands for Databricks CLI, see [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+* To see a list of commands for Databricks CLI, see [Databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
 

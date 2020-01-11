@@ -1,16 +1,16 @@
 ---
-title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
+title: Apply performance recommendations
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: v-daljep
-ms.reviewer: carlrab
-
+author: danimir
+ms.author: danil
+ms.reviewer: jrasnik, carlrab
+ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
 
@@ -71,6 +71,7 @@ You can review and accept recommendations one at a time.
 Selected recommendation are applied on the database.
 
 ### Removing recommendations from the list
+
 If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
 
 1. Select a recommendation in the list of **Recommendations** to open the details.
@@ -98,23 +99,26 @@ You can set the Azure SQL Database to implement recommendations automatically. A
     ![Recommended Indexes](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+> Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints. 
 >
 
 Once you have selected your desired configuration, click Apply.
 
-### Manually run the recommended T-SQL script
+### Manually apply recommendations through T-SQL
+
 Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
 
-*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). In addition, manually applied recommendations will remain active and shown in the list of recommendations for 24-48 hrs. before the system automatically withdraws them. If you would like to remove a recommendation sooner, you can manually discard it.
 
 ### Canceling recommendations
+
 Recommendations that are in a **Pending**, **Validating**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
 
 1. Select a recommendation in the **Tuning History** area to open the **recommendations details** page.
 2. Click **Cancel** to abort the process of applying the recommendation.
 
 ## Monitoring operations
+
 Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation. The following are possible states that an index can be in:
 
 | Status | Description |

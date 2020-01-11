@@ -1,21 +1,24 @@
 ---
-title: Node quickstart for Microsoft Cognitive Services, Project Answer Search | Microsoft Docs
-description: Get started using Project Answer Search, Microsoft Cognitive Services on Azure.
+title: "Quickstart: Project Answer Search, Node"
+description: Get started using Project Answer Search with Node.
 services: cognitive-services
 author: mikedodaro
+manager: nitinme
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.subservice: answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
-# Project Answer Search Node quickstart
+# Quickstart: Project Answer Search with Node
 
 The following Node example creates a query for information about Yosemite National Park.
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 This example uses Node v8.9.4
 
@@ -31,7 +34,7 @@ It is implemented in the following steps:
 
 The complete code for this demo follows:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -45,7 +48,7 @@ let path = '/answerSearch/v7.0/search';
 let mkt = 'en-us';
 let q = 'Yosemite National Park';
 
-let params = '?q=' + encodeURI(q) + '&mkt=en-us';
+let params = '?q=' + encodeURI(q) + '&mkt= + mkt;
 
 let response_handler = function (response) {
     let body = '';
@@ -78,7 +81,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## Next steps
 - [C# example code](c-sharp-quickstart.md)

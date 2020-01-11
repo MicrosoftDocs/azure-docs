@@ -1,10 +1,10 @@
 ---
-title: Azure PowerShell Samples | Microsoft Docs
+title: Azure PowerShell Samples - Networking
 description: Azure PowerShell Samples
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: mtillman
 editor: tysonn
 tags:
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/24/2017
-ms.author: georgewallace
+ms.author: gwallace
 
 ---
 # Azure PowerShell Samples for networking

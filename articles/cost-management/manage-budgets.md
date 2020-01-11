@@ -1,26 +1,28 @@
 ---
-title: Manage budgets in Azure Cost Management | Microsoft Docs
-description: This article helps you create and manage budgets in Cost Management.
+title: Manage Cloudyn budgets in Azure
+description: This article helps you quickly create budgets and start managing them in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
-manager: dougeby
-ms.custom:
+ms.service: cost-management-billing
+manager: vitavor
+ms.custom: seodec18
 ---
 
-# Manage budgets
+# Manage Azure budgets with Cloudyn
 
-Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cost Management.
+Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cloudyn.
 
 When you have an Enterprise or MSP account, you can use your hierarchical cost entity structure to assign monthly budget quotas to different business units, departments, or any other cost entity. When you have a Premium account, you can use the budget management functionality, which is then applied to your entire cloud expenditure. All budgets are manually assigned.
 
 Based on assigned budgets, you can set threshold alerts based on the percentage of your budget that's consumed and define the severity of each threshold.
 
 Budget reports show the assigned budget. Users can view when their spending is over, under, or at par with their consumption over time. When you select **Show/Hide Fields** at the top of a budget report, you can view cost, budget, accumulated cost, or total budget.
+
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information about budgets in Cost Management, see [Create and manage budgets](tutorial-acm-create-budgets.md).
 
 ## Create budgets
 
@@ -33,7 +35,7 @@ To create a budget and assign it to an entity:
 3. In the budget year, select the year where you want to create the budget.
 4. For each month, set a budget value. When you're done, click  **Save**.
 In this example, the monthly budget for June 2018 is set to $135,000. The total budget for the year is $1,615,000.00.
-![Create a budget](./media/manage-budgets/set-budget.png)
+![Create a budget page where you set a budget for each month](./media/manage-budgets/set-budget.png)
 
 
 To import a file for the annual budget:
@@ -57,11 +59,11 @@ In this example, assume the current date is June 22. The cost for June 2018 is $
 
 Another way to view the report is to look at accumulated cost vs your budget. To see accumulated costs, under **Show/Hide Fields**, select **Accumulated Cost** and **Total Budget**. Here's an example showing the accumulated cost since the beginning of the year.
 
-![Accumulated budget](./media/manage-budgets/accumulated-budget.png)
+![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
 
 Sometime in the future your accumulated cost might exceed your budget. You can more easily see that if you change the chart view to the _line_ type.
 
-![Budget shown in line chart](./media/manage-budgets/budget-line.png)
+![Budget shown in a line chart in the Cost by Months report](./media/manage-budgets/budget-line.png)
 
 ## Create budget alerts for a filter
 
@@ -74,9 +76,9 @@ Let's look at an example.
 
 In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. On the Threshold tab, select a threshold metric. For example, **Cost percentage vs budget**. Select an alert type and enter a percentage value of the budget. If you want to get notified only once, select **Number of consecutive alerts** and then type _1_. Click **Save**.
 
-![Budget alert](./media/manage-budgets/budget-alert.png)
+![Creating a budget alert on the Save or Schedule this report box](./media/manage-budgets/budget-alert.png)
 
 ## Next steps
 
-- If you haven't already completed the first tutorial for Cost Management, read it at  [Review usage and costs](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
-- Learn more about the [reports available in Cost Management](use-reports.md).
+- If you haven't already completed the first tutorial for Cloudyn, read it at  [Review usage and costs](tutorial-review-usage.md).
+- Learn more about the [reports available in Cloudyn](use-reports.md).

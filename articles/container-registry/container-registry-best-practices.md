@@ -1,19 +1,15 @@
 ---
-title: Best practices in Azure Container Registry
+title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
-services: container-registry
-author: mmacy
-manager: jeconnoc
-
-ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: marsma
+ms.topic: article
+ms.date: 09/27/2018
 ---
 
 # Best practices for Azure Container Registry
 
 By following these best practices, you can help maximize the performance and cost-effective use of your private Docker registry in Azure.
+
+See also [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md) for strategies to tag and version images in your registry. 
 
 ## Network-close deployment
 
@@ -32,7 +28,7 @@ To learn how to use geo-replication, see the three-part tutorial, [Geo-replicati
 
 By leveraging repository namespaces, you can allow sharing a single registry across multiple groups within your organization. Registries can be shared across deployments and teams. Azure Container Registry supports nested namespaces, enabling group isolation.
 
-For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Production and Marketing groups each use their own namespaces.
+For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Products and Marketing groups each use their own namespaces.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0
@@ -43,7 +39,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## Dedicated resource group
 
-Because container registries are resources that are used across multiple container hosts, a registry should reside its own resource group.
+Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.
 
 Although you might experiment with a specific host type, such as Azure Container Instances, you'll likely want to delete the container instance when you're done. However, you might also want to keep the collection of images you pushed to Azure Container Registry. By placing your registry in its own resource group, you minimize the risk of accidentally deleting the collection of images in the registry when you delete the container instance resource group.
 
@@ -62,31 +58,25 @@ For in-depth information about Azure Container Registry authentication, see [Aut
 
 The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
 
-You can find the current usage of a registry in the container registry **Overview** in the Azure portal:
+Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+You can also find the current storage used in the **Overview** of your registry in the Azure portal:
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
 
-You can manage the size of your registry by using the [Azure CLI][azure-cli] or the [Azure portal][azure-portal]. Only the managed SKUs (Basic, Standard, Premium) support repository and image deletion--you cannot delete repositories, images, or tags in a Classic registry.
+### Delete image data
 
-### Delete in Azure CLI
+Azure Container Registry supports several methods for deleting image data from your container registry. You can delete images by tag or manifest digest, or delete a whole repository.
 
-Use the [az acr repository delete][az-acr-repository-delete] command to delete a repository, or content within a repository.
-
-To delete a repository, including all tags and image layer data within the repository, specify only the repository name when you execute [az acr repository delete][az-acr-repository-delete]. In the following example, we delete the *myapplication* repository, and all tags and image layer data within the repository:
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-You can also delete image data from a repository by using the `--tag` and `--manifest` arguments. For details on these arguments, see the [az acr repository delete command reference][az-acr-repository-delete].
-
-### Delete in Azure portal
-
-To delete a repository from a registry in the Azure portal, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
-
-![Delete a repository in the Azure portal][delete-repository-portal]
-
-In a similar manner, you can also delete tags from a repository. Navigate to the repository, right-click on the tag you wish to delete under **TAGS**, and select **Delete**.
+For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
 ## Next steps
 
@@ -98,6 +88,7 @@ Azure Container Registry is available in several tiers, called SKUs, that each p
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

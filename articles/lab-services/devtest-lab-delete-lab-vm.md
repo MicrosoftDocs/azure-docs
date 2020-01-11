@@ -30,16 +30,16 @@ To delete a lab, do the following actions:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resource** from menu on the left, select **DevTest Labs** for the type of service, and select the lab.
 
-    ![Select your lab](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Select your lab](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. On the **DevTest Lab** page, click **Delete** on the toolbar. 
 
-    ![Delete button](media\devtest-lab-delete-lab-vm\delete-button.png)
+    ![Delete button](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. On the **Confirmation** page, enter the **name** of your lab, and select **Delete**. 
 
-    ![Confirm](media\devtest-lab-delete-lab-vm\confirm-delete.png)
+    ![Confirm](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. To see the status of the operation, select **Notifications** icon (Bell). 
 
-    ![Notifications](media\devtest-lab-delete-lab-vm\delete-status.png)
+    ![Notifications](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## Delete a VM in a lab
@@ -55,16 +55,16 @@ To delete a VM in a lab, do the following actions:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resource** from menu on the left, select **DevTest Labs** for the type of service, and select the lab.
 
-    ![Select your lab](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Select your lab](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Select **... (ellipsis)** for the VM in the list of VMs, and select **Delete**. 
 
-    ![Delete VM in menu](media\devtest-lab-delete-lab-vm\delete-vm-menu-in-list.png)
+    ![Delete VM in menu](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 4. On the **confirmation** dialog box, select **Ok**. 
 5. To see the status of the operation, select **Notifications** icon (Bell). 
 
 To delete a VM from the **Virtual Machine page**, select **Delete** from the toolbar as shown in the following image:
 
-![Delete VM from VM page](media\devtest-lab-delete-lab-vm\delete-from-vm-page.png) 
+![Delete VM from VM page](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
 ## Next steps

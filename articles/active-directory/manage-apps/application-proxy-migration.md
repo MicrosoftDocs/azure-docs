@@ -3,19 +3,20 @@ title: Upgrade to Azure AD Application Proxy | Microsoft Docs
 description: Choose which proxy solution is best if you're upgrading from Microsoft Forefront or Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2017
-ms.author: barbkess
+ms.date: 05/17/2019
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 # Compare remote access solutions
 
@@ -40,18 +41,18 @@ Use this table to understand how Threat Management Gateway (TMG), Unified Access
 | Response body link translation | Yes | Yes | - | Yes | 
 | Authentication with headers | - | Yes | - | Yes, with PingAccess | 
 | Cloud-scale security | - | - | - | Yes | 
-| Conditional access | - | Yes | - | Yes |
+| Conditional Access | - | Yes | - | Yes |
 | No components in the demilitarized zone (DMZ) | - | - | - | Yes |
 | No inbound connections | - | - | - | Yes |
 
-For most scenarios, we recommend Azure AD Application as the modern solution. Web Application Proxy is only preferred in scenarios that require a proxy server for AD FS, and you can't use custom domains in Azure Active Directory. 
+For most scenarios, we recommend Azure AD Application Proxy as the modern solution. Web Application Proxy is only preferred in scenarios that require a proxy server for AD FS, and you can't use custom domains in Azure Active Directory. 
 
 Azure AD Application Proxy offers unique benefits when compared to similar products, including:
 
 - Extending Azure AD to on-premises resources
    - Cloud-scale security and protection
-   - Features like conditional access and Multi-Factor Authentication are easy to enable
-- No componenet in the demilitarized zone
+   - Features like Conditional Access and Multi-Factor Authentication are easy to enable
+- No components in the demilitarized zone
 - No inbound connections required
 - One access panel that your users can go to for all their applications, including O365, Azure AD integrated SaaS apps, and your on-premises web apps. 
 
@@ -59,4 +60,3 @@ Azure AD Application Proxy offers unique benefits when compared to similar produ
 ## Next steps
 
 - [Use Azure AD Application to provide secure remote access to on-premises applications](application-proxy.md)
-- [Transition from Forefront TMG and UAG to Application Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

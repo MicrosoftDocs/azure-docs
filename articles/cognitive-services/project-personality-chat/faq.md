@@ -1,20 +1,24 @@
 ---
-title: FAQs on Personality Chat - Azure Cognitive Services | Microsoft Docs
+title: Frequently Asked Questions - Personality Chat
+titlesuffix: Azure Cognitive Services
 description: FAQs on Personality Chat
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: nitinme
+
 ms.service: cognitive-services
-ms.topic: faq
+ms.subservice: personality-chat
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolachar
+ms.author: nitinme
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
+ROBOTS: NOINDEX
 ---
 # Frequently Asked Questions
 
 ## Why doesn't this answer every question I ask it, like other chat bots?
 
-Project Personality chat will enhance a bot with common small talk that showcases personality and creates a more complete user experience. It's not designed to carry on long conversations about topics that aren't relevant to the bot's primary function. While it could respond to all conversations, it's restricted—in the beta version—to common small talk domains.
+Project Personality chat will enhance a bot with common small talk that showcases personality and creates a more complete user experience. It's not designed to carry on long conversations about topics that aren't relevant to the bot's primary function. While it could respond to all conversations, it's restricted, in the beta version, to common small talk domains.
 
 ## How can I customize the personality to suit my brand?
 

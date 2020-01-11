@@ -1,232 +1,214 @@
-﻿---
-title: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
-description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C.
+---
+title: Set up sign-in for multi-tenant Azure AD by custom policies
+titleSuffix: Azure AD B2C
+description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/14/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 09/13/2019
+ms.author: marsma
+ms.subservice: B2C
 ---
 
-# Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies
+# Set up sign-in for multi-tenant Azure Active Directory using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD) through the use of [custom policies](active-directory-b2c-overview-custom.md). This allows users from multiple Azure AD tenants to sign into Azure AD B2C without configuring a technical provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you will have to [individually configure each tenant](active-directory-b2c-setup-aad-custom.md).
-
->[!NOTE]
-> We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
+This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD) by using [custom policies](active-directory-b2c-overview-custom.md) in Azure AD B2C. This allows users from multiple Azure AD tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](active-directory-b2c-setup-aad-custom.md).
 
 ## Prerequisites
 
-Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
+Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-These steps include:
- 	 
-1. Creating an Azure Active Directory B2C (Azure AD B2C) tenant.
-1. Creating an Azure AD B2C application.	
-1. Registering two policy-engine applications.	
-1. Setting up keys.	
-1. Setting up the starter pack.
+## Register an application
 
-## Step 1. Create a multi-tenant Azure AD app
-
-To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in one of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
+To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant to register the Azure AD application (fabrikamb2c.onmicrosoft.com).
-1. Select **More services** in the left pane, and search for "App registrations."
-1. Select **New application registration**.
-1. Enter a name for your application (for example, `Azure AD B2C App`).
-1. Select **Web app / API** for the application type.
-1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
-
-    >[!NOTE]
-    >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
+1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Select **New registration**.
+1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
+1. Select **Accounts in any organizational directory** for this application.
+1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
-    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Save the application ID.
-1. Select the newly created application.
-1. Under the **Settings** blade, select **Properties**.
-1. Set **Multi-tenanted** to **Yes**.
-1. Under the **Settings** blade, select **Keys**.
-1. Create a new key, and save it. You will use it in the steps in the next section.
+    For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
-## Step 2. Add the Azure AD key to Azure AD B2C
+1. Select **Register**. Record the **Application (client) ID** for use in a later step.
+1. Select **Certificates & secrets**, and then select **New client secret**.
+1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
-You need to register the application key in the Azure AD B2C settings. To do this:
+## Create a policy key
 
-1. Go to the settings menu for Azure AD B2C
-1. Click on **Identity Experience Framework** > **Policy Keys**.
-1. Select **+Add**.
-1. Select or enter these options:
-   * Select **Manual**.
-   * For **Name**, choose a name that matches your Azure AD tenant name (for example, `AADAppSecret`).  The prefix `B2C_1A_` is added automatically to the name of your key.
-   * Paste your application key in the **Secret** box.
-   * Select **Signature**.
+You need to store the application key that you created in your Azure AD B2C tenant.
+
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Under **Policies**, select **Identity Experience Framework**.
+1. Select **Policy keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. Enter a **Name** for the policy key. For example, `AADAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key when it's created, so its reference in the XML in following section is to *B2C_1A_AADAppSecret*.
+1. In **Secret**, enter your client secret that you recorded earlier.
+1. For **Key usage**, select `Signature`.
 1. Select **Create**.
-1. Confirm that you've created the key `B2C_1A_AADAppSecret`.
 
-## Step 3. Add a claims provider in your base policy
+## Add a claims provider
 
-If you want users to sign in by using Azure AD, you need to define Azure AD as a claims provider. In other words, you need to specify an endpoint that Azure AD B2C will communicate with. The endpoint will provide a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
+If you want users to sign in by using Azure AD, you need to define Azure AD as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsProvider>` node in the extension file of your policy:
+You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
-1. Open the extension file (TrustFrameworkExtensions.xml) from your working directory.
-1. Find the `<ClaimsProviders>` section. If it does not exist, add it under the root node.
-1. Add a new `<ClaimsProvider>` node as follows:
+1. Open the *TrustFrameworkExtensions.xml* file.
+1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
+1. Add a new **ClaimsProvider** as follows:
 
-```XML
-<ClaimsProvider>
-  <Domain>commonaad</Domain>
-  <DisplayName>Common AAD</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="Common-AAD">
-      <DisplayName>Multi-Tenant AAD</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <Metadata>
-        <!-- Update the Client ID below to the Application ID -->
-        <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
-        <Item Key="UsePolicyInRedirectUri">0</Item>
-        <Item Key="METADATA">https://login.microsoftonline.com/common/.well-known/openid-configuration</Item>
-        <Item Key="response_types">code</Item>
-        <Item Key="scope">openid</Item>
-        <Item Key="response_mode">form_post</Item>
-        <Item Key="HttpBinding">POST</Item>
-        <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
-        
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+    ```XML
+    <ClaimsProvider>
+      <Domain>commonaad</Domain>
+      <DisplayName>Common AAD</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Common-AAD">
+          <DisplayName>Multi-Tenant AAD</DisplayName>
+          <Description>Login with your Contoso account</Description>
+          <Protocol Name="OpenIdConnect"/>
+          <Metadata>
+            <Item Key="METADATA">https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
+            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="response_types">code</Item>
+            <Item Key="scope">openid profile</Item>
+            <Item Key="response_mode">form_post</Item>
+            <Item Key="HttpBinding">POST</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
+            <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
+            <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+            <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>
+            <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+            <!-- <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item> -->
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret"/>
+          </CryptographicKeys>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid"/>
+            <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin"/>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+1. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
+1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Contoso Employee`. This value is displayed on the sign-in button on your sign-in page.
+1. Set **client_id** to the application ID of the Azure AD multi-tenant application that you registered earlier.
+1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_AADAppSecret`.
 
-      </Metadata>
-      <CryptographicKeys>
-      <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
-        <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret" />
-      </CryptographicKeys>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-        <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
-        <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
-        <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-        <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-        <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-      </OutputClaims>
-      <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-        <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-        <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-        <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-      </OutputClaimsTransformations>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
-```
-
-1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to a unique value that can be used to distinguish it from other identity providers.
-1. Under the `<TechnicalProfile>` node, update the value for `<DisplayName>`. This value will be displayed on the sign-in button on your sign-in screen.
-1. Update the value for `<Description>`.
-1. Set `<Item Key="client_id">` to the application ID from the Azure AD mulity-tenant app registration.
-
-### Step 3.1 Restrict access to a specific list of Azure AD tenants
+### Restrict access
 
 > [!NOTE]
-> Using `https://sts.windows.net` as the value for **ValidTokenIssuerPrefixes** will allow ALL Azure AD users to sign into your app.
+> Using `https://login.microsoftonline.com/` as the value for **ValidTokenIssuerPrefixes** allows all Azure AD users to sign in to your application.
 
-You need to update the list of valid token issuers and restrict access to specific list of Azure AD tenants users can sign-in. To obtain the values, you will need to look at the metadata for each of the specific Azure AD tenants that you would like to have users sign in from. The format of the data looks like the following: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com or any other Azure AD tenant).
-1. Open your browser and go to the metadata URL.
-1. In the browser, look for the 'issuer' object and copy its value. It should look like the following: `https://sts.windows.net/{tenantId}/`.
-1. Paste the value for the `ValidTokenIssuerPrefixes` key. You can add multiple by separating them using a comma. An example of this is commented in the sample XML above.
+You need to update the list of valid token issuers and restrict access to a specific list of Azure AD tenant users who can sign in.
 
-## Step 4. Register the Azure AD account claims provider
+To obtain the values, look at the OpenID Connect discovery metadata for each of the Azure AD tenants that you would like to have users sign in from. The format of the metadata URL is similar to `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name. For example:
 
-### Step 4.1 Make a copy of the user journey
+`https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
-You now need to add the Azure AD identity provider to one of your user journeys. At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens.
+Perform these steps for each Azure AD tenant that should be used to sign in:
 
-To make it available, we will create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
+1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the **issuer** object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
+1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
 
-1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
-1. Find the `<UserJourneys>` element and copy the entire `<UserJourney>` node that includes `Id="SignUpOrSignIn"`.
-1. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
-1. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
-1. Rename the ID of the new user journey (for example, rename as `SignUpOrSignUsingAzureAD`). 
+### Upload the extension file for verification
 
-### Step 4.2 Display the "button"
+By now, you have configured your policy so that Azure AD B2C knows how to communicate with your Azure AD directories. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
 
-The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a `<ClaimsProviderSelection>` element for Azure AD, a new button shows up when a user lands on the page. To add this element:
+1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
+2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
+3. Select **Upload**.
 
-1. Find the `<OrchestrationStep>` node that includes `Order="1"` in the user journey that you created.
-1. Add the following:
+## Register the claims provider
+
+At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
+
+1. Open the *TrustFrameworkBase.xml* file from the starter pack.
+2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
+3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
+4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
+5. Rename the ID of the user journey. For example, `SignUpSignInContoso`.
+
+### Display the button
+
+The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
+
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
+1. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `AzureADExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
     ```
 
-1. Set `TargetClaimsExchangeId` to an appropriate value. We recommend following the same convention as others: *\[ClaimProviderName\]Exchange*.
+### Link the button to an action
 
-### Step 4.3 Link the button to an action
+Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Azure AD to receive a token. Link the button to an action by linking the technical profile for your Azure AD claims provider.
 
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Azure AD to receive a token. Link the button to an action by linking the technical profile for your Azure AD claims provider:
-
-1. Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
-1. Add the following:
+1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
+2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 
-1. Update `Id` to the same value as that of `TargetClaimsExchangeId` in the preceding section.
-1. Update `TechnicalProfileReferenceId` to the ID of the technical profile you created earlier (Common-AAD).
+    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `Common-AAD`.
 
-## Step 5: Create a new RP policy
+3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
-You now need to update the relying party (RP) file that will initiate the user journey that you just created:
- 
-1. Make a copy of SignUpOrSignIn.xml in your working directory, and rename it (for example, rename it to SignUpOrSignInWithAAD.xml).  
-1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with a unique value (for example, SignUpOrSignInWithAAD). This will be the name of your policy (for example, B2C\_1A\_SignUpOrSignInWithAAD). 
-1. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the ID of the new user journey that you created (SignUpOrSignUsingAzureAD). 
-1. Save your changes, and upload the file. 
+## Create an Azure AD B2C application
 
-## Step 6: Upload the policy to your tenant
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
-1. Select **Identity Experience Framework**.
-1. Select **All Policies**.
-1. Select **Upload Policy**.
-1. Select the **Overwrite the policy if it exists** check box.
-1. Upload the `TrustFrameworkExtensions.xml` file and the RP file (e.g. `SignUpOrSignInWithAAD.xml`) and ensure they pass validation.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
-## Step 7: Test the custom policy by using Run Now
+## Update and test the relying party file
 
-1. Select **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
-    > [!NOTE]
-    > Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
+Update the relying party (RP) file that initiates the user journey that you created:
 
-1. Open the relying party (RP) custom policy that you uploaded (*B2C\_1A\_SignUpOrSignInWithAAD*), and then select **Run now**.
-1. You should now be able to sign in by using the Azure AD account.
+1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignContoso.xml*.
+1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
+1. Update the value of **PublicPolicyUri** with the URI for the policy. For example, `http://contoso.com/B2C_1A_signup_signin_contoso`.
+1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier. For example, *SignUpSignInContoso*.
+1. Save your changes and upload the file.
+1. Under **Custom policies**, select the new policy in the list.
+1. In the **Select application** drop-down, select the Azure AD B2C application that you created earlier. For example, *testapp1*.
+1. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Azure AD credentials.
+1. Select the Azure AD sign in button, for example, *Contoso Employee*, and then enter the credentials for a user in one of your Azure AD organizational tenants. You're asked to authorize the application, and then enter information for your profile.
 
-## (Optional) Step 8: Register the Azure AD account claims provider to the Profile-Edit user journey
+If the sign in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
-You might also want to add the Azure AD account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat Steps 4 through 6. This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
-
-## Troubleshooting
-
-To diagnose problems, read about [troubleshooting](active-directory-b2c-troubleshoot-custom.md).
+To test the multi-tenant sign-in capability, perform the last two steps using the credentials for a user that exists another Azure AD tenant.
 
 ## Next steps
 
-Provide feedback to [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
+When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development.
+
+To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](active-directory-b2c-troubleshoot-custom.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Implement X-CSRF pattern | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to implement X-CSRF pattern used by many APIs. This example is specific to SAP Gateway.
+title: Azure API management policy sample - Implement X-CSRF pattern | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to implement X-CSRF pattern used by many APIs. This example is specific to SAP Gateway.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
