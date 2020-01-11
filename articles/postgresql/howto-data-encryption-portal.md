@@ -10,7 +10,7 @@ ms.date: 01/10/2020
 
 # Data Encryption for Azure Database for PostgreSQL Single server using Portal
 
-In this article, you will learn how to set up and manage to use the Azure portal to setup Data encryption for your Azure Database for PostgreSQL Single server.
+In this article, you will learn how to set up and manage to use the Azure portal to set up Data encryption for your Azure Database for PostgreSQL Single server.
 
 ## Prerequisites for PowerShell
 
@@ -49,7 +49,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 ## Setting Data encryption for Azure Database for PostgreSQL Single server
 
-1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key setup.
+1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key set up.
 
 ![Setting Data encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
@@ -59,9 +59,11 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 3. **Save** the settings.
 
+4. To ensure all files (including temp files) are full encrypted, a server restart is required.
+
 ## Restoring or creating replica of the server which has data encryption enabled
 
-Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted PostgreSQL server, you can follow the steps below to create an encrypted restored server.
+Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for an encrypted PostgreSQL server, you can follow the steps below to create an encrypted restored server.
 
 1. On the Azure portal, select the **Restore** button to trigger the restore operation.
 

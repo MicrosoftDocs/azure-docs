@@ -59,6 +59,8 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 3. **Save** the settings.
 
+4. To ensure all files (including temp files) are full encrypted, a server restart is required.
+
 ## Restoring or creating replica of the server which has data encryption enabled
 
 Once a Azure Database for MySQL is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted MySQL server, you can follow the steps below to create an encrypted restored server.
