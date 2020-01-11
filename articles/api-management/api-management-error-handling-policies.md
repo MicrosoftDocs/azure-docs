@@ -124,7 +124,7 @@ The following errors are predefined for error conditions that can occur during p
 | validate-jwt | Required claims are missing from token                          | TokenClaimNotFound        | JWT token is missing the following claims: <c1\>, <c2\>, … Access denied.                                                            |
 | validate-jwt | Claim values mismatch                                           | TokenClaimValueNotAllowed | Claim {claim-name} value of {claim-value} is not allowed. Access denied.                                                             |
 | validate-jwt | Other validation failures                                       | JwtInvalid                | <message from jwt library\>                                                                                                          |
-| forward-request or send-request | HTTP response status code and headers were not received from the backend within the configured timeout | Timout | multiple |
+| forward-request or send-request | HTTP response status code and headers were not received from the backend within the configured timeout | Timeout | multiple |
 
 ## Example
 
