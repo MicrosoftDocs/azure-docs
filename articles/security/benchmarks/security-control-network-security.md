@@ -96,11 +96,11 @@ Understand Azure Security Center Integrated Threat Intelligence:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Understand Azure Security Center Adaptive Network Hardening
+Understand Azure Security Center Adaptive Network Hardening:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Understand Azure Security Center Just In Time Network Access Control
+Understand Azure Security Center Just In Time Network Access Control:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -174,7 +174,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 Define and implement standard security configurations for network resources with Azure Policy.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
 How to configure and manage Azure Policy:
 
