@@ -36,7 +36,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                   .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
         })
         .UseStartup<Startup>();
-    }
+    
 ```
 
 #### [.NET Core 3.x](#tab/core3x)
@@ -51,7 +51,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
                 config.AddAzureAppConfiguration(settings["ConnectionString_SecondaryStore"], optional: true)
                     .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
             })
-        .UseStartup<Startup>());
+            .UseStartup<Startup>());
 ```
 ---
 

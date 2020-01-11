@@ -151,6 +151,13 @@ Before you continue, finish [Create an ASP.NET Core app with App Configuration](
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
         app.UseAzureAppConfiguration();
+
+        services.Configure<CookiePolicyOptions>(options =>
+        {
+            options.CheckConsentNeeded = context => true;
+            options.MinimumSameSitePolicy = SameSiteMode.None;
+        });
+
         app.UseMvc();
     }
     ```
