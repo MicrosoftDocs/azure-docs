@@ -27,9 +27,11 @@ You can create a storage account that relies on the account encryption key for Q
 - South Central US
 - West US 2  
 
-To create a storage account that relies on the account encryption key for Queue and Table storage, you must first register to use this feature with Azure. To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
+To create a storage account that relies on the account encryption key for Queue and Table storage, you must first register to use this feature with Azure. Due to limited capacity, be aware that it may take several months before requests for access are approved.
 
 ### Register to use the account encryption key
+
+To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
 
 To register to use the account encryption key with Queue storage:
 

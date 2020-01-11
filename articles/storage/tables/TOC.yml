@@ -99,7 +99,7 @@
     - name: Manage Azure Storage encryption
       items:
       - name: Create an account that supports customer-managed keys
-        href: ../common/account-create-customer-managed-keys.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Configure customer-managed keys
         items:  
         - name: Portal
