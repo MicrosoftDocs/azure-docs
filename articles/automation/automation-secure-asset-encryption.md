@@ -40,7 +40,8 @@ When you modify the key being used for Azure Automation secure asset encryption 
 
 The following three sections describe the mechanics of enabling customer-managed keys for an Automation account. 
 
-[!NOTE] To enable customer-managed keys, you will currently need to make Azure Automation REST APIs using api version 2020-01-13-preview
+> [!NOTE] 
+> To enable customer-managed keys, you will currently need to make Azure Automation REST APIs using api version 2020-01-13-preview
 
 ### Pre-requisites for using Customer-managed keys in Azure Automation
 
@@ -57,36 +58,34 @@ To use customer-managed keys with an automation account, your automation account
 
 Configure a system assigned managed identity to the automation account using the following REST API call
 
-    ``http
-    PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
-    ``
-
-    Request body
-    ``json
-    { 
-        identity : 
-        { 
-            type: 'SystemAssigned' 
-        } 
-    }
-    ``
-
+```http
+PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
+```
+Request body
+```json
+{ 
+ "identity": 
+ { 
+  "type": "SystemAssigned" 
+  } 
+}
+```    
 
 System assigned identity for the automation account is returned in the response
 
-    ``json
-    {
-    "name": "automation-account-name",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
-    ..
-    "identity": {
-        "type": "SystemAssigned",
-        "principalId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-        "tenantId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
-    },
-    ..
-    }
-    ``
+```json
+{
+ "name": "automation-account-name",
+ "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
+ ..
+ "identity": {
+    "type": "SystemAssigned",
+    "principalId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "tenantId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+ },
+..
+}
+```
 
 ### Configure the Key Vault access policy
 
@@ -94,12 +93,12 @@ Once a managed identity is assigned to the Automation account, you configure acc
 
 Such an access policy can be set using the following REST API call.
 
-``http
+```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
-``
+```
 Request body
 
-``json
+```json
 {
   "properties": {
     "accessPolicies": [
@@ -120,21 +119,21 @@ Request body
     ]
   }
 }
-``
+```
 
-[!NOTE] 
-The tenantId and objectId fields must be provided with values of identity.tenantId and identity.principalId from the response of managed identity for the automation account.
+> [!NOTE] 
+> The tenantId and objectId fields must be provided with values of identity.tenantId and identity.principalId from the response of managed identity for the automation account.
 
 ### Change the configuration of automation account to use customer managed key
 
 Finally, you can switch your automation account from Microsft-managed keys to customer-managed keys, using the following REST API call.
 
-``http
+```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
-``
+```
 Request body
 
-``json
+```json
  {
     "properties": {
       "encryption": {
@@ -147,10 +146,10 @@ Request body
       }
     }
   }
-``
+```
 Sample response
 
-``json
+```json
 {
   "name": "automation-account-name",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
@@ -168,7 +167,7 @@ Sample response
     ..
   }
 }
-
+```
 
 ## Manage customer-managed keys lifecycle
 
