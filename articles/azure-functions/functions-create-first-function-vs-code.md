@@ -19,9 +19,9 @@ The [Azure Functions extension for Visual Studio Code] currently supports C#, Ja
 
 The steps in this article and the article that follows support the following languages:
 
-+ C#
-+ JavaScript
-+ Python
++ [C#](/azure/azure-functions/functions-create-first-function-vs-code?tabs=csharp)
++ [JavaScript](/azure/azure-functions/functions-create-first-function-vs-code?tabs=nodejs)
++ [Python](/azure/azure-functions/functions-create-first-function-vs-code?tabs=python)
 
 To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
 
