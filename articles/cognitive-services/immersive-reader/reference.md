@@ -119,7 +119,7 @@ enum CookiePolicy { Disable, Enable }
 | --------- | ----------- |
 | text/plain | Plain text. |
 | text/html | HTML content. [Learn more](#html-support)|
-| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
 ### HTML Support
