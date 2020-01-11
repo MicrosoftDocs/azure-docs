@@ -78,8 +78,8 @@ When the Kubernetes load balancer service is created for the NGINX ingress contr
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none>         80/TCP                       3m
+nginx-ingress-controller                    LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
+nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none>         80/TCP                       3m
 ```
 
 No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the public IP address. Ingress rules are configured in the following steps.
@@ -211,7 +211,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
-  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-staging
@@ -235,10 +234,10 @@ spec:
         path: /hello-world-two(/|$)(.*)
 ```
 
-Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
+Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic` command.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 ingress.extensions/hello-world-ingress created
 ```
@@ -370,12 +369,6 @@ Next, remove the Helm repo for the AKS hello world app:
 
 ```console
 helm repo remove azure-samples
-```
-
-Remove the ingress route that directed traffic to the sample apps:
-
-```console
-kubectl delete -f hello-world-ingress.yaml
 ```
 
 Delete the itself namespace. Use the `kubectl delete` command and specify your namespace name:
