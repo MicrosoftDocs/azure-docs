@@ -1,6 +1,6 @@
 ---
 title: Data Encryption for Azure Database for PostgreSQL Single server using Portal
-description: Data Encryption for Azure Database for PostgreSQL Single server using Portal
+description: Learn how to set up and manage Data encryption for your Azure Database for PostgreSQL Single server using Azure portal
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
@@ -39,11 +39,11 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 1. On the Azure Key Vault, select the **Access Policies** and, **Add Access Policy** 
 
-![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
+   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
 2. Under the **Key Permissions** select **Get**, **Wrap**, **Unwrap** and the **Principal** which is the name of the PostgreSQL server.
 
-![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
+   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
 
 3. **Save** the settings.
 
@@ -51,11 +51,11 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key set up.
 
-![Setting Data encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
+   ![Setting Data encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
 2. You can either select a **Key Vault** and **Key** pair or pass a **Key identifier**.
 
-![Setting Key Vault](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+   ![Setting Key Vault](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
 3. **Save** the settings.
 
@@ -65,28 +65,28 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for an encrypted PostgreSQL server, you can follow the steps below to create an encrypted restored server.
 
-1. On the Azure portal, select the **Restore** button to trigger the restore operation.
+1. On your server, select **Overview**, then select **Restore**.
 
-![Initiate-restore](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+   ![Initiate-restore](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-or
+   Or for a replication enabled server, under the **Settings** heading, select **Replication**
 
-![Initiate-replica](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
+   ![Initiate-replica](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
 
 2. Once the restore operation is complete, the new server created is data encrypted with the primary server's key. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This is to prevent any data manipulation since the new server's identity has still been not given permission to access the key vault.
 
-![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+   ![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
 
 3. To fix Inaccessible state, you need to revalidate the key on the restored server.
 
-![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+   ![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
 You will have to give access to the new server to the key Vault. 
 
 4. Once you revalidate the key, the server resumes its normal functionality.
 
-![Normal server restored](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+   ![Normal server restored](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
 
 ## Next steps

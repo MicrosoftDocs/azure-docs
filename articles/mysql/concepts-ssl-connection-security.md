@@ -19,7 +19,7 @@ When provisioning a new Azure Database for MySQL server through the Azure portal
 Connection strings for various programming languages are shown in the Azure portal. Those connection strings include the required SSL parameters to connect to your database. In the Azure portal, select your server. Under the **Settings** heading, select the **Connection strings**. The SSL parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
 
 > [!NOTE]
-> Currently the TLS version supported on our platform are TLS 1.0, TLS 1.1, TLS 1.2
+> Currently the TLS version supported for Azure Database for MySQL are TLS 1.0, TLS 1.1, TLS 1.2
 
 To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](howto-configure-ssl.md). 
 
