@@ -127,6 +127,8 @@ To create a general-purpose v2 storage account with customer-managed keys for qu
 ],
 ```
 
+---
+
 ## Assign an identity to the storage account
 
 To enable customer-managed keys for your storage account, first assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the key vault.
