@@ -110,9 +110,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Location $accountLocation -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-#### Using ARM templates
+#### Using Azure Resource Manager templates
 
-When creating a new Azure Cosmos DB account through an ARM template:
+When creating a new Azure Cosmos DB account through an Azure Resource Manager template:
 - pass the URI of the Azure Key Vault key copied from step 4 under the "keyVaultKeyUri" property in the "properties" object
 - make sure to use "2019-12-12" as the API version
 
