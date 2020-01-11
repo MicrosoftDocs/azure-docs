@@ -207,7 +207,7 @@ New-AzManagedApplicationDefinition `
 You can choose to store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs.
 
 > [!NOTE]
-      > Bring your own storage is only supported with ARM Template or REST API deployments of the managed application definition.
+> Bring your own storage is only supported with ARM Template or REST API deployments of the managed application definition.
 
 ### Select your storage account
 You must [create a storage account](../../storage/common/storage-account-create.md) to contain your managed application definition for use with Service Catalog.
@@ -303,7 +303,7 @@ We have added a new property named **storageAccountId** to your applicationDefin
 You can verify that the application definition files are saved in your provided storage account in a container titled **applicationdefinitions**.
 
 > [!NOTE]
-      > For added security, you can create a managed applications definition store it in an [Azure storage account blob where encryption is enabled](../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in Service Catalog.
+> For added security, you can create a managed applications definition store it in an [Azure storage account blob where encryption is enabled](../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in Service Catalog.
 
 ### Make sure users can see your definition
 
