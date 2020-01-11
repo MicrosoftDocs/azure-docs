@@ -1,16 +1,16 @@
 ---
-title: Data Encryption for Azure Database for PostgreSQL Single server using Portal
-description: Data Encryption for Azure Database for PostgreSQL Single server using Portal
+title: Data Encryption for Azure Database for MySQL using Portal
+description: Data Encryption for Azure Database for MySQL using Portal
 author: kummanish
 ms.author: manishku
-ms.service: postgresql
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2020
 ---
 
-# Data Encryption for Azure Database for PostgreSQL Single server using Portal
+# Data Encryption for Azure Database for MySQL server using Portal
 
-In this article, you will learn how to setup and manage use the Azure portal to setup Data encryption for your Azure Database for PostgreSQL Single server.
+In this article, you will learn how to setup and manage use the Azure portal to setup Data encryption for your Azure Database for MySQL.
 
 ## Prerequisites for PowerShell
 
@@ -19,13 +19,13 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 * Create an Azure Key Vault and Key to use for customer managed key.
     * Instruction for using a hardware security model (HSM) and Key Vault 
 * The Key vault must have the following property to used as a customers managed key
-    * [Soft Delete](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete)
+    * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
         ```azurecli-interactive
             az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
         ```
     
-    * [Purge protected](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
+    * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
 
         ```azurecli-interactive
         az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -41,15 +41,15 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 
 ![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Select the **Key Permissions** (**Get**, **Wrap**, **Unwrap**) and the **Pincipal** which is the name of the PostgreSQL server.
+2. Select the **Key Permissions** (**Get**, **Wrap**, **Unwrap**) and the **Pincipal** which is the name of the MySQL server.
 
 ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
 
 3. **Save** the settings.
 
-## Setting Data encryption for Azure Database for PostgreSQL Single server
+## Setting Data encryption for Azure Database for MySQL
 
-1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer managed key setup.
+1. On the **Azure Database for MySQL**, select the **Data Encryption** to set the customer managed key setup.
 
 ![Setting Data encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
@@ -61,7 +61,7 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 
 ## Restoring or creating replica of the server which has data encryption enabled
 
-Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted PostgreSQL server, you can follow the steps below to create a encrypted restored server.
+Once a Azure Database for MySQL is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted MySQL server, you can follow the steps below to create a encrypted restored server.
 
 1. On the Azure portal select the **Restore** button to trigger the restore operation.
 
@@ -89,5 +89,5 @@ You will have to give access to the new server to the key Vault.
 
 ## Next steps
 
- To learn more about Data Encryption, see [what is Azure data encryption](concepts-data-encryption-postgresql.md).
+ To learn more about Data Encryption, see [what is Azure data encryption](concepts-data-encryption-mysql.md).
 

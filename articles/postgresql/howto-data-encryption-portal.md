@@ -19,13 +19,13 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 * Create an Azure Key Vault and Key to use for customer managed key.
     * Instruction for using a hardware security model (HSM) and Key Vault 
 * The Key vault must have the following property to used as a customers managed key
-    * [Soft Delete](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete)
+    * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
         ```azurecli-interactive
             az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
         ```
     
-    * [Purge protected](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
+    * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
 
         ```azurecli-interactive
         az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -58,7 +58,6 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 ![Setting Key Vault](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
 3. **Save** the settings.
-
 
 ## Restoring or creating replica of the server which has data encryption enabled
 
