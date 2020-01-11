@@ -58,3 +58,36 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 ![Setting Key Vault](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
 3. **Save** the settings.
+
+## Restoring or creating replica of the server which has data encryption enabled
+
+Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted PostgreSQL server, you can follow the steps below to create a encrypted restored server.
+
+1. On the Azure portal select the **Restore** button to trigger the restore operation.
+
+![Initiate-restore](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+
+or
+
+![Initiate-replica](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
+
+2. Once the restore operation is complete, the new server created is data encrypted with the primary server's key. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This is to prevent any data manipulation since the new server's identity has still been not given permission to access the key vault.
+
+![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+
+
+3. To fix Inaccessible state, you need to re-validate the key on the restored server.
+
+![re-validate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+
+You will have to give access to the new server to the key Vault. 
+
+4. Once you re-validate the key, the server resumes its normal functionality.
+
+![Normal server restored](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+
+
+## Next steps
+
+ To learn more about Data Encryption, see [what is Azure data encryption](concepts-data-encryption-postgresql.md).
+
