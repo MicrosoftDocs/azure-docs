@@ -22,12 +22,13 @@ There are a few important things to consider before starting your multi- camera 
 - Do not let the IR lasers from depth camera’s all fire at the same time.
 - Do use depth_delay_off_color_usec or subordinate_delay_off_master_usec to give each laser its own 160us window.
 - Do ensure you are using the most recent firmware version.
-- Do not repeatedly set the same exposure setting in the image capture loop. Do set the exposure when needed, just call the API once.
+- Do not repeatedly set the same exposure setting in the image capture loop. 
+- Do set the exposure when needed, just call the API once.
 
 
 ## Why to use multiple Azure Kinect DK devices?
 
-There are many reasons to use multiple Azure Kinect DK devices like 
+There are many reasons to use multiple Azure Kinect DK devices. Some examples are
 - Fill in occlusions
 - 3D object scanning 
 - Multiple 4K color images capture of the same scene, all aligned at the start of exposure within 100 us
@@ -53,7 +54,7 @@ Make sure to review [the multi- camera hardware setup article](https://support.m
 
 ### Synchronization cables
 
-Azure Kinect DK includes 3.5-mm synchronization jacks that can be used to link multiple units together. When linked, cameras can coordinate the timing of Depth and RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable isn't included in box and must be purchased separately.
+Azure Kinect DK includes 3.5-mm synchronization ports that can be used to link multiple units together. When linked, cameras can coordinate the timing of Depth and RGB camera triggering. There are specific sync-in and sync-out ports on the device, enabling easy daisy chaining. A compatible cable isn't included in box and must be purchased separately.
 
 Cable requirements:
 
@@ -63,18 +64,18 @@ Cable requirements:
 
 When using multiple depth cameras in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
 
-### Cross- Device Calibration
+### Cross-device calibration
 
 In a single device depth and RGB cameras factory calibrated. However, when multiple devices are used, the calibration needs to be considered to determine how to transform an image from the domain of the camera it was captured into the domain of the camera you want to process images in.
-
-There are different ways to do so, but in our [GitHub green screen code sample](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/green_screen) we are using OpenCV to do it.
+There are multiple options for cross-calibrating devices, but in the GitHub green screen code sample we are using OpenCV methods
+There are multiple options for cross-calibrating devices, but in the [GitHub green screen code sample](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/green_screen) we are using OpenCV method.
 
 ### Verify two Azure Kinect DK devices synchronization
 
 After setting up the hardware and connecting the sync out jack of the master to sync in of the subordinate, we can use the [Azure Kinect Viewer](azure-kinect-viewer.md) to validate the devices setup. It also can be done for more than two devices.
 
 > [!NOTE]
-> Subordinate device is the one that connected to "Sync In" ping
+> Subordinate device is the one that connected to "Sync In" pin
 > Master is "Synch Out"
 
 1. Open two instances of [Azure Kinect Viewer](azure-kinect-viewer.md)
@@ -112,7 +113,7 @@ WFOV Unbinned                                            | 9 | 125 us | 8 | 2390
 
 The table above is the raw timing of the sensor and should match up with your scope measurements. As you can tell, the IR on time is ~125 us. Due to variations in timing for the firmware, and it minimum timing resolution of 11us, we recommend being no closer than 160us. The idle time between each IR pulse for NFOV is ~1450us. This idle time gives us enough laser off time to interleave nine more sensors allowing us a total of 10 depth cameras linked together all being 160us of phase off each other. 
 
-It leaves you with 20.5 ms to get your mocap system running without interfering with the depth cameras.
+It leaves you with 20.5 ms to get your system running without interfering with the depth cameras.
 
 ## Trigger Azure Kinect DK devices externally using 3.5 mm audio cable
 
