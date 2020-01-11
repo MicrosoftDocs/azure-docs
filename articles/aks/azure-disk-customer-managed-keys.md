@@ -31,15 +31,6 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 > * [AKS Support Policies](support-policies.md)
 > * [Azure Support FAQ](faq.md)
 
-
-## Current supported regions
-
-* Australia East, East Asia, South East Asia
-* Canada Central, Canada East
-* Central US, East US, East US 2, North Central US, South Central US
-* West Central US, West US, West US 2
-* France, North Europe, UK South, West Europe
-
 ## Install latest AKS CLI preview extension
 
 To use customer-managed keys, you need the *aks-preview* CLI extension version 0.4.26 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
@@ -148,10 +139,6 @@ Next, run this deployment in your AKS cluster:
 ```azurecli-interactive
 kubectl apply -f byok-azure-disk.yaml
 ```
-
-## Verify your key is working
-
-TODO
 
 ## Limitations
 
