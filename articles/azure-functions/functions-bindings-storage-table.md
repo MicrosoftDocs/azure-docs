@@ -349,7 +349,52 @@ module.exports = function (context, myQueueItem) {
 
 # [Python](#tab/python)
 
-**TODO**
+Single table row 
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "messageJSON",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "rowKey": "{id}",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "messages/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```python
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
+
+    message = json.loads(messageJSON)
+    return func.HttpResponse(f"Table row: {messageJSON}")
+```
 
 # [Java](#tab/java)
 
@@ -622,6 +667,59 @@ module.exports = function (context) {
 # [Python](#tab/python)
 
 **TODO**
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "message",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+```python
+import logging
+import uuid
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
+
+    rowKey = str(uuid.uuid4())
+
+    data = {
+        "Name": "Output binding message",
+        "PartitionKey": "message",
+        "RowKey": rowKey
+    }
+
+    message.set(json.dumps(data))
+
+    return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
+```
 
 # [Java](#tab/java)
 
