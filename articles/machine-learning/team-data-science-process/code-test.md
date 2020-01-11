@@ -3,12 +3,12 @@ title: Test data science code with Azure DevOps Services - Team Data Science Pro
 description: Data science code testing on Azure with the UCI adult income prediction dataset with the Team Data Science Process and Azure DevOps Services
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ---
@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 This article gives preliminary guidelines for testing code in a data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. We use a Team Data Science Process (TDSP) [project that uses the UCI Adult Income dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that we published earlier to show how code testing can be done. 
 
 ## Introduction on code testing
-"Unit testing" is a longstanding practice for software development. But for data science, it's often not clear what that means and how you should test code for different stages of a data science lifecycle, such as:
+"Unit testing" is a longstanding practice for software development. But for data science, it's often not clear what "unit testing" means and how you should test code for different stages of a data science lifecycle, such as:
 
 * Data preparation
 * Data quality examination
@@ -118,11 +118,11 @@ Use the following steps to set up and run code testing and an automated build by
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
 	
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
-	e. Select **+** in the left pane, to add a task for this build phase. Because we're going to run the Python script **test1.py** to finish all the checks, this task is using a PowerShell command to run Python code.
+	e. Select **+** in the left pane, to add a task for this build phase. Because we're going to run the Python script **test1.py** to complete all the checks, this task is using a PowerShell command to run Python code.
 	
        !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
@@ -132,7 +132,7 @@ Use the following steps to set up and run code testing and an automated build by
 	
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-	g. Select **Save & queue** to finish the build pipeline process.
+	g. Select **Save & queue** to complete the build pipeline process.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
