@@ -18,11 +18,11 @@
   - name: Create function - Java
     href: functions-create-first-java-maven.md
   - name: Create function - JavaScript
-    href: functions-create-first-function-vs-code.md
+    href: functions-create-first-function-vs-code.md#tab/nodejs
   - name: Create function - PowerShell
     href: functions-create-first-function-powershell.md
   - name: Create function - Python
-    href: functions-create-first-function-python.md
+    href: functions-create-first-function-vs-code.md#tab/python
   - name: Connect to services
     items:
     - name: Storage - C#

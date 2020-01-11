@@ -19,9 +19,9 @@ The [Azure Functions extension for Visual Studio Code] currently supports C#, Ja
 
 The steps in this article and the article that follows support the following languages:
 
-+ [C#](/azure/azure-functions/functions-create-first-function-vs-code?tabs=csharp)
-+ [JavaScript](/azure/azure-functions/functions-create-first-function-vs-code?tabs=nodejs)
-+ [Python](/azure/azure-functions/functions-create-first-function-vs-code?tabs=python)
++ [C#](#tab/csharp)
++ [JavaScript](#tab/nodejs)
++ [Python](#tab/python)
 
 To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
 
@@ -29,11 +29,12 @@ To learn how to use Visual Studio Code to create and publish PowerShell function
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later. To verify your version of Azure Functions Core Tools, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func --version`. 
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later.  
+To verify your version of Azure Functions Core Tools, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func --version`. 
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
 
-* Language-specific requirements:
++ Language-specific requirements:
 
     # [C\#](#tab/csharp)
 
@@ -51,7 +52,7 @@ To learn how to use Visual Studio Code to create and publish PowerShell function
 
     ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
++ An [Azure account](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
