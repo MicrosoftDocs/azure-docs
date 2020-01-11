@@ -234,8 +234,8 @@
       href: howto-configure-privatelink-portal.md
     - name: Azure CLI
       href: howto-configure-privatelink-cli.md
-    - name: Data Encryption
-      items:
+  - name: Data Encryption
+    items:
     - name: Azure portal
       href: howto-data-encryption-portal.md
   - name: Restart server
