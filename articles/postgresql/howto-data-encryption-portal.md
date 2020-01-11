@@ -10,15 +10,15 @@ ms.date: 01/10/2020
 
 # Data Encryption for Azure Database for PostgreSQL Single server using Portal
 
-In this article, you will learn how to setup and manage use the Azure portal to setup Data encryption for your Azure Database for PostgreSQL Single server.
+In this article, you will learn how to set up and manage to use the Azure portal to setup Data encryption for your Azure Database for PostgreSQL Single server.
 
 ## Prerequisites for PowerShell
 
 * You must have an Azure subscription and be an administrator on that subscription.
 * You must have Azure PowerShell installed and running.
-* Create an Azure Key Vault and Key to use for customer managed key.
+* Create an Azure Key Vault and Key to use for customer-managed key.
     * Instruction for using a hardware security model (HSM) and Key Vault 
-* The Key vault must have the following property to used as a customers managed key
+* The Key vault must have the following property to use as a customer-managed key
     * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
         ```azurecli-interactive
@@ -30,7 +30,7 @@ In this article, you will learn how to setup and manage use the Azure portal to 
         ```azurecli-interactive
         az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
         ```
-* The key must have the following attributes to be used for customer managed key.
+* The key must have the following attributes to be used for customer-managed key.
     * No expiration date
     * Not disabled
     * Able to perform get, wrap key, unwrap key operations
@@ -49,7 +49,7 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 
 ## Setting Data encryption for Azure Database for PostgreSQL Single server
 
-1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer managed key setup.
+1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key setup.
 
 ![Setting Data encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
@@ -61,9 +61,9 @@ In this article, you will learn how to setup and manage use the Azure portal to 
 
 ## Restoring or creating replica of the server which has data encryption enabled
 
-Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted PostgreSQL server, you can follow the steps below to create a encrypted restored server.
+Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for a encrypted PostgreSQL server, you can follow the steps below to create an encrypted restored server.
 
-1. On the Azure portal select the **Restore** button to trigger the restore operation.
+1. On the Azure portal, select the **Restore** button to trigger the restore operation.
 
 ![Initiate-restore](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -76,13 +76,13 @@ or
 ![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
 
-3. To fix Inaccessible state, you need to re-validate the key on the restored server.
+3. To fix Inaccessible state, you need to revalidate the key on the restored server.
 
-![re-validate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
 You will have to give access to the new server to the key Vault. 
 
-4. Once you re-validate the key, the server resumes its normal functionality.
+4. Once you revalidate the key, the server resumes its normal functionality.
 
 ![Normal server restored](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
