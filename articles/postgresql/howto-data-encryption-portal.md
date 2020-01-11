@@ -1,6 +1,6 @@
 ---
-title: Data Encryption for Azure Database for PostgreSQL Single server using Portal
-description: Learn how to set up and manage Data encryption for your Azure Database for PostgreSQL Single server using Azure portal
+title: Data Encryption for Azure Database for PostgreSQL Single server using portal
+description: Learn how to set up and manage Data Encryption for your Azure Database for PostgreSQL Single server using Azure portal
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ---
 
-# Data Encryption for Azure Database for PostgreSQL Single server using Portal
+# Data Encryption for Azure Database for PostgreSQL Single server using portal
 
-In this article, you will learn how to set up and manage to use the Azure portal to set up Data encryption for your Azure Database for PostgreSQL Single server.
+In this article, you will learn how to set up and manage to use the Azure portal to set up Data Encryption for your Azure Database for PostgreSQL Single server.
 
 ## Prerequisites for PowerShell
 
@@ -22,7 +22,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
     * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
         ```azurecli-interactive
-            az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+        az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
         ```
     
     * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
@@ -30,6 +30,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
         ```azurecli-interactive
         az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
         ```
+
 * The key must have the following attributes to be used for customer-managed key.
     * No expiration date
     * Not disabled
@@ -47,11 +48,11 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 3. **Save** the settings.
 
-## Setting Data encryption for Azure Database for PostgreSQL Single server
+## Setting Data Encryption for Azure Database for PostgreSQL Single server
 
 1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key set up.
 
-   ![Setting Data encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
+   ![Setting Data Encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
 2. You can either select a **Key Vault** and **Key** pair or pass a **Key identifier**.
 
@@ -63,7 +64,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 ## Restoring or creating replica of the server which has data encryption enabled
 
-Once a Azure Database for PostgreSQL Single server is encrypted with customers managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for an encrypted PostgreSQL server, you can follow the steps below to create an encrypted restored server.
+Once an Azure Database for PostgreSQL Single server is encrypted with customer's managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for an encrypted PostgreSQL server, you can follow the steps below to create an encrypted restored server.
 
 1. On your server, select **Overview**, then select **Restore**.
 
@@ -73,7 +74,7 @@ Once a Azure Database for PostgreSQL Single server is encrypted with customers m
 
    ![Initiate-replica](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
 
-2. Once the restore operation is complete, the new server created is data encrypted with the primary server's key. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This is to prevent any data manipulation since the new server's identity has still been not given permission to access the key vault.
+2. Once the restore operation is complete, the new server created is data encrypted with the primary server's key. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This is to prevent any data manipulation since the new server's identity has still been not given permission to access the Key Vault.
 
    ![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
@@ -82,7 +83,7 @@ Once a Azure Database for PostgreSQL Single server is encrypted with customers m
 
    ![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-You will have to give access to the new server to the key Vault. 
+   You will have to give access to the new server to the Key Vault. 
 
 4. Once you revalidate the key, the server resumes its normal functionality.
 
