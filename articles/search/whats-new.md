@@ -26,11 +26,15 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 ### January 2020
 
-+ *Restricted IP access and private endpoint (preview)* on a search service endpoint is now available in **api-version=2019-10-01-Preview**. You can set up a secure endpoint using the new **IpRule** and **NetworkRuleSet** properties in the [Create or Update](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) Management REST API. For more information about API versions, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) is now generally available. If you are using REST, you can access the feature using `api-version=2019-05-06`. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. 
+
++ *Restricted IP access and private endpoint (preview)* on a search service endpoint is now available in **api-version=2019-10-01-Preview**. You can set up a secure endpoint using the new **IpRule** and **NetworkRuleSet** properties in the [Create or Update](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) Management REST API. For more information about API versions and regional availability, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ### December 2019
 
 + [Create app (preview)](search-create-app-portal.md) is a new wizard in the portal that generates a downloadable HTML file. The file comes with embedded script that renders an operational "localhost"-style web app, bound to an index on your search service. Pages are configurable in the wizard and can contain a search bar, results area, sidebar navigation, and typeahead query support. You can modify the HTML offline to extend or customize the workflow or appearance.
+
++ [Create a private endpoint for secure connections (preview)](service-create-private-endpoint.md) explains how to set up a Private Link for secure connections to your search service. This preview feature is available upon request and uses [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution.
 
 ### November 2019 - Ignite Conference
 

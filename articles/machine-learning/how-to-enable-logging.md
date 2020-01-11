@@ -78,22 +78,6 @@ compute_target = ComputeTarget.attach(
 compute.wait_for_completion(show_output=True)
 ```
 
-## Logging during image creation
-
-Enabling logging during image creation will allow you to see any errors during the build process. Set the `show_output` param on the `wait_for_deployment()` function.
-
-```python
-from azureml.core.webservice import Webservice
-
-service = Webservice.deploy_from_image(deployment_config=your_config,
-                                       image=image,
-                                       name="example-image",
-                                       workspace=ws
-                                       )
-
-service.wait_for_deployment(show_output=True)
-```
-
 ## Logging for deployed models
 
 To retrieve logs from a previously deployed web service, load the service and use the `get_logs()` function. The logs may contain detailed information about any errors that occurred during deployment.

@@ -337,6 +337,12 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
 
+## Troubleshooting
+
+### Resource provider errors
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
 ## Next steps
 
 For more information on the Azure CLI extension for machine learning, see the [az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest) documentation.
