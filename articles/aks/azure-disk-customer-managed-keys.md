@@ -33,7 +33,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Install latest AKS CLI preview extension
 
-To use customer-managed keys, you need the *aks-preview* CLI extension version 0.4.26 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To use customer-managed keys, you need the *aks-preview* CLI extension version 0.4.26 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -145,7 +145,7 @@ kubectl apply -f byok-azure-disk.yaml
 * OS Disk Encryption supported with Kubernetes version 1.17 and above   
 * Available only in regions where BYOK is supported
 * This is currently for new AKS clusters only, existing clusters cannot be upgraded
-* AKS cluster using Virtual Machine Scale Sets are required, no support for Virtual Machine Availablity Sets
+* AKS cluster using Virtual Machine Scale Sets are required, no support for Virtual Machine Availability Sets
 
 
 ## Next steps
