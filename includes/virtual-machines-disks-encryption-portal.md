@@ -77,7 +77,7 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 ![sse-create-a-vm-region.png](media/virtual-machines-disk-encryption-portal/sse-create-a-vm-region.png)
 
-1. On the **Disks** tab, select **Encryption at rest with customer-managed key**.
+1. On the **Disks** tab, select **Encryption at rest with a customer-managed key**.
 1. Select your disk encryption set in the **Disk encryption set** drop-down.
 1. Make the remaining selections as you like.
 
