@@ -207,19 +207,15 @@ $VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize
 $VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -VirtualMachineScaleSet $VMSS -Primary $true -IpConfiguration $ipConfig
 
 $diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
-```
 
-##### Enable encryption at rest with customer managed keys for OS disk by setting DiskEncryptionSetId property 
+# Enable encryption at rest with customer managed keys for OS disk by setting DiskEncryptionSetId property 
 
-```PowerShell
 $VMSS = Set-AzVmssStorageProfile $VMSS -OsDiskCreateOption "FromImage" -DiskEncryptionSetId $diskEncryptionSet.Id -ImageReferenceOffer 'WindowsServer' -ImageReferenceSku '2012-R2-Datacenter' -ImageReferenceVersion latest -ImageReferencePublisher 'MicrosoftWindowsServer'
 
 $VMSS = Set-AzVmssOsProfile $VMSS -ComputerNamePrefix $ComputerNamePrefix -AdminUsername $VMLocalAdminUser -AdminPassword $VMLocalAdminSecurePassword
-```
 
-##### Add a data disk encrypted at rest with customer managed keys by setting DiskEncryptionSetId property 
+# Add a data disk encrypted at rest with customer managed keys by setting DiskEncryptionSetId property 
 
-```PowerShell
 $VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lun 1 -DiskSizeGB 128 -StorageAccountType Premium_LRS -DiskEncryptionSetId $diskEncryptionSet.Id
 
 $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
