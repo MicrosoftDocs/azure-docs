@@ -61,7 +61,7 @@ For more information, see [Configure trusted roots and disallowed certificates](
 
 Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate-revocation list on the VM.
 
-Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
+Because SUSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
 
 1. Sign in as a root user.
 
