@@ -1,6 +1,6 @@
 ---
 title: Designing tables
-description: Introduction to designing tables in SQL Analytics. 
+description: Introduction to designing tables using SQL Analytics. 
 services: synapse analytics
 author: filippopovic
 manager: craigg
@@ -178,7 +178,7 @@ For a list of columnstore features, see [What's new for columnstore indexes](/sq
 The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. However, updating statistics does not happen automatically. You should update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](development-tables-statistics.md).
 
 ## Primary key and unique key
-PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  Check [SQL Analytics pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md).
+PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  Check the [SQL Analytics pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md) article.
 
 ## Commands for creating tables
 You can create a table as a new empty table. You can also create and populate a table with the results of a select statement. The following are the T-SQL commands for creating a table.
