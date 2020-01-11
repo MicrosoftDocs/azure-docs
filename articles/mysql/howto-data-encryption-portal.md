@@ -17,7 +17,6 @@ In this article, you will learn how to set up and manage to use the Azure portal
 * You must have an Azure subscription and be an administrator on that subscription.
 * You must have Azure PowerShell installed and running.
 * Create an Azure Key Vault and Key to use for customer-managed key.
-    * Instruction for using a hardware security model (HSM) and Key Vault 
 * The Key Vault must have the following property to use as a customer-managed key
     * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
