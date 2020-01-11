@@ -62,7 +62,7 @@ To create and configure disk encryption sets, you must use the following link: h
 
 ![sse-disk-enc-alert-fix.png](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
 
-Two notifications should pop up and succeed. Doing this will allow you to use the set with your key vault.
+Two notifications should pop up and succeed. Doing this will allow you to use the disk encryption set with your key vault.
 
 ![disk-enc-notification-success.png](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
 
