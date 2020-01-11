@@ -73,9 +73,11 @@ You must configure customer-managed keys for queues and tables at the time that 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a general-purpose v2 storage account with customer-managed keys for queues and tables using Azure CLI, call the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. Include the `--encryption-key-type-for-queue` option and set its value to `Account` to create the storage account with customer-managed keys for Queue storage. Include the `--encryption-key-type-for-table` option and set its value to `Account` to create the storage account with customer-managed keys for Table storage. You can enable customer-managed keys for either or both services.
+To use Azure CLI to create a storage account with customer-managed keys for queues and tables, make sure you have installed Azure CLI version 2.0.80 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-The following example shows how to create a storage account and enable customer-managed keys for both Queue and Table storage. Remember to replace the placeholder values in brackets with your own values:
+Next, create a general-purpose v2 storage account with customer-managed keys for queues and tables by calling the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. Include the `--encryption-key-type-for-queue` option and set its value to `Account` to create the storage account with customer-managed keys for Queue storage. Include the `--encryption-key-type-for-table` option and set its value to `Account` to create the storage account with customer-managed keys for Table storage. You can enable customer-managed keys for either or both services.
+
+The following example shows how to create a general-purpose v2 storage account configured for LRS and enable customer-managed keys for both Queue and Table storage. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage account create \
