@@ -2,11 +2,11 @@
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
 description: A quickstart for using Azure App Configuration with .NET Core apps
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: yegu
+ms.date: 1/9/2019
+ms.author: lcozzens
 
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
 ---
@@ -48,7 +48,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-010550001-251
     ```
 
 2. Run the following command to restore packages for your project:
