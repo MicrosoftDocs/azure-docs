@@ -6,24 +6,24 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/07/2020
+ms.date: 01/11/2020
 
 ---
 # Azure Monitor customer-managed key configuration 
 
-This article provides background information and steps to configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
+This article provides background information and steps to configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key.
 
 We recommend you review [Limitations and constraints](#Limitations and constraints) below before configuration.
 
 ## Disclaimers
 
-- Azure Monitor CMK is an early access feature and enabled for registered subscriptions
+- Azure Monitor CMK is an early access feature and enabled for registered subscriptions.
 
 - The CMK deployment described in this article is delivered in production quality and supported as such although it's an early access feature.
 
-- The CMK capability is delivered on a dedicated data-store-cluster, which an Azure Data Explorer (ADX) cluster and suitable for customers sending 1TB per day or more. 
+- The CMK capability is delivered on a dedicated data-store-cluster, which is an Azure Data Explorer (ADX) cluster and suitable for customers sending 1TB per day or more. 
 
-- The CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated data-store-cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
+- The CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated ADX cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
 
 - This article describes the CMK configuration for Log Analytics workspaces. CMK for Application Insights components is also supported using this article while differences are listed in the Appendix.
 
@@ -52,12 +52,14 @@ The frequency that Azure Monitor Storage accesses Key Vault for wrap and
 unwrap operations is between 6 to 60 seconds. Azure Monitor Storage  
 always respects changes in key permissions within an hour.
 
+Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but we are working to have the SSD encrypted with CMK early 2020.
+
 ## How CMK works in Azure Monitor
 
 Azure Monitor leverages system-assigned managed identity to grant access
 to your Azure Key Vault. System-assigned managed identity can only be
-associated with a single Azure resource. The Azure Monitor data-store
-(ADX cluster) identity is supported at the cluster level and this
+associated with a single Azure resource. The identity of Azure Monitor data-store
+(ADX cluster) is supported at the cluster level and this
 dictates that the CMK capability is delivered on a dedicated ADX
 cluster. To support CMK on multiple workspaces, a new Log Analytics
 resource (*Cluster*) performs as an intermediate identity connection
@@ -70,6 +72,10 @@ managed identity that\'s associated with the *Cluster* resource to
 authenticate and access your Azure Key Vault via Azure Active Directory.
 
 ![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
+1.	Customer’s Key Vault.
+2.	Customer’s Log Analytics Cluster resource having managed identity with permissions to Key Vault – The identity is supported at the data-store (ADX cluster) level.
+3.	Azure Monitor dedicated ADX cluster.
+4.	Customer’s workspaces associated to Cluster resource for CMK encryption.
 
 ## Encryption keys management
 
@@ -81,7 +87,7 @@ There are 3 types of keys involved in Storage data encryption:
 
 The following rules apply:
 
-- The ADX storage account generates a unique encryption key for every storage account, which is known as the AEK
+- The ADX storage account generates a unique encryption key for every storage account, which is known as the AEK.
 
 - The AEK is used to derive DEKs, which are the keys that are used to
     encrypt each block of data written to disk.
@@ -110,7 +116,7 @@ The provisioning process includes these steps:
 2. Creating Azure Key Vault and storing key
 3. Create a *Cluster* resource
 4. Grant permissions to your Key Vault
-5. Azure Monitor data-store (ADX) provisioning
+5. Azure Monitor data-store (ADX cluster) provisioning
 6. Log Analytics workspaces association
 
 The procedure is not supported in the UI currently and the provisioning process is performed via REST API.
@@ -123,10 +129,10 @@ For example:
 ```rst
 GET
 https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2015-11-01-preview]
-  authorization: Bearer eyJ0eXAiO....
+Authorization: Bearer eyJ0eXAiO....
 ```
 
-where *eyJ0eXAiO....* represents the full authorization token. 
+where *eyJ0eXAiO....* represents the full Authorization token. 
 
 You can acquire the token using one of these methods:
 
@@ -181,7 +187,7 @@ Content-type: application/json
 
 **Response**
 
-Identity is assigned to the *Cluster* at creation time.
+Identity is assigned to the *Cluster* resource at creation time.
 
 ```json
 {
@@ -346,10 +352,10 @@ Authorization: Bearer <token>
 > fulfilled. If you associate workspaces and ingest data prior to this
 > **provisioning**, the data will be dropped and won't be recoverable.
 
-**Associate a workspace to a *Cluster* resource**
+**Associate a workspace to a *Cluster* resource using [Workspaces - Create Or Update](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) API**
 
 ```json
-PUT https://management.azure.com.resources.windows-int.net/Customer.svc/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.operationalinsights/workspaces/{workspace-name} 
+PUT https://management.azure.com/https://management.azure.com.resources.windows-int.net/Customer.svc/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.operationalinsights/workspaces/{workspace-name}?api-version=2015-11-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -370,7 +376,7 @@ Content-type: application/json
 
 **Response**
 
-```
+```json
 {
   "properties": {
     "source": "Azure",
@@ -392,7 +398,6 @@ Content-type: application/json
   "type": "Microsoft.OperationalInsights/workspaces",
   "location": "region-name"
 }
-
 ```
 
 After the association, data that is sent to your workspaces is stored
@@ -482,7 +487,7 @@ with Key Identifier details" step.
             -   **Ingestion** -- data is cached for several hours using
                 Microsoft key to avoid data loss. When access to Key Vault
                 is restored, query becomes available and the temporary
-                cached data is ingested to data-store and encrypted with
+                cached data is ingested to the data-store and encrypted with
                 CMK.
 
 - If you create a *Cluster* resource and specify the KeyVaultProperties immediately, the operation may fail since the
@@ -492,64 +497,67 @@ with Key Identifier details" step.
 
 - If you try to delete a *Cluster* resource that is associated to a workspace, the delete operation will fail.
 
-- Get all clusters for a resource group:
+- Get all *Cluster* resources for a resource group:
 
-    ```
-    GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
-    ```
+  ```
+  GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  Authorization: Bearer <token>
+  ```
     
-    *Response*
+**Response**
 
-    ```json
+```json
+{
+  "value": [
     {
-      "value": [
-        {
-          "identity": {
-            "type": "SystemAssigned",
-            "tenantId": "tenant-id",
-            "principalId": "principal-Id"
-          },
-          "properties": {
-             "KeyVaultProperties": { // Key Vault key identifier
-                KeyVaultUri: "https://{key-vault-name}.vault.azure.net,
-                KeyName: {key-name},
-                KeyVersion: {current-version}
-                },
-            "provisioningState": "Succeeded",
-            "clusterType": "LogAnalytics", 
-            "clusterId": "cluster-id"
-          },
-          "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.operationalinsights/workspaces/{workspace-name}",
-          "name": "cluster-name",
-          "type": "Microsoft.OperationalInsights/clusters",
-          "location": "region-name"
-        }
-      ]
+      "identity": {
+        "type": "SystemAssigned",
+        "tenantId": "tenant-id",
+        "principalId": "principal-Id"
+      },
+      "properties": {
+         "KeyVaultProperties": { // Key Vault key identifier
+            KeyVaultUri: "https://{key-vault-name}.vault.azure.net,
+            KeyName: {key-name},
+            KeyVersion: {current-version}
+            },
+        "provisioningState": "Succeeded",
+        "clusterType": "LogAnalytics", 
+        "clusterId": "cluster-id"
+      },
+      "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.operationalinsights/workspaces/{workspace-name}",
+      "name": "cluster-name",
+      "type": "Microsoft.OperationalInsights/clusters",
+      "location": "region-name"
     }
-    ```
+  ]
+}
+```
 
-- To get all clusters for a subscription
+- Get all *Cluster* resources for a subscription
 
-    ```
-    GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
-    ```
+  ```
+  GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  Authorization: Bearer <token>
+  ```
     
-    *Response*
+**Response**
     
-    The same as response from for 'all clusters for a resource group', but in subscription scope.
+The same as response as for '*Cluster* resources for a resource group', but in subscription scope.
     
-- Delete a *Cluster* resource:
+- Delete a *Cluster* resource -- You need to delete all the associated workspaces before you can delete
+your *Cluster* resource:
 
-> You need to delete all the associated workspaces before you can delete
-> your *Cluster* resource:
->
-> DELETE
-> https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
->
+  ```
+  DELETE
+  https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
+  Authorization: Bearer <token>
+  ```
 
-Response
+**Response**
 
 200 OK
+
 
 ## Appendix
 
@@ -567,17 +575,13 @@ possible while the configuration of CMK on your workspace, will also
 apply to your Application Insights data.
 
 > [!NOTE]
-> If you don't have to deploy CMK on your Application Insight data
-    before the second quarter of CY 2020, we recommend waiting for the
-    consolidation completion since such deployments will be disrupted by
-    the consolidation and you will have to re-configure CMK on your
-    workspace after the it.
+> If you don’t have to deploy CMK for your Application Insight data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1 TB per day minimum applies at the cluster level, and until the consolidation completes during second quarter Application Insights and Log Analytics require separate clusters.
 
 ## Application Insights CMK configuration
 
 The configuration of Application Insights CMK is identical to the process illustrated in this article, including constraints and troubleshooting except these steps:
 
-- Create *Cluster* resource
+- Create a *Cluster* resource
 
 - Associate a component to a *Cluster* resource
 
@@ -588,7 +592,7 @@ of the ones listed above.
 
 This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics Cluster resource at the region where your components are located. The type of the Cluster resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. It should be *ApplicationInsights* for Application Insights CMK. The *clusterType* setting can’t be altered after the configuration.
 
-Create:
+**Create**
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
@@ -606,9 +610,9 @@ Content-type: application/json
 }
 ```
 
-Response:
+**Response**
 
-Identity is assigned to the Cluster at creation time.
+Identity is assigned to the *Cluster* resource at creation time.
 
 ```json
 
@@ -630,7 +634,7 @@ Identity is assigned to the Cluster at creation time.
 }
 ```
 
-### Associate a component to a Cluster resource
+### Associate a component to a *Cluster* resource
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Insights/components/{component-name}?api-version=2015-05-01
@@ -646,7 +650,7 @@ Content-type: application/json
 }
 ```
 
-Response
+**Response**
 
 ```json
 {
