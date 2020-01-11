@@ -3,7 +3,7 @@ title: Encryption of secure assets in automation
 description: Azure automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
 services: automation
 ms.service: automation
-ms.component: automation
+ms.subservice: process-automation
 author: snehithm
 ms.author: snmuvva
 ms.date: 01/11/2020
@@ -53,7 +53,7 @@ Before enabling customer-managed keys for an Automation account, you must ensure
 
 ### Assign an identity to the automation account
 
-To use customer-managed keys with an automation account, your automation account needs to authenticate against the keyvault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Key Vault. For more information about managed identities, see [What is managed identities for Azure resources?](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
+To use customer-managed keys with an automation account, your automation account needs to authenticate against the keyvault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Key Vault. For more information about managed identities, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 Configure a system assigned managed identity to the automation account using the following REST API call
 
@@ -180,7 +180,7 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 
 ## Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.keyvault/) or [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
 ## Next steps
 
