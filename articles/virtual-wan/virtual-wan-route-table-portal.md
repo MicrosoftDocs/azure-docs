@@ -63,7 +63,7 @@ Create the hub. For the purposes of this exercise, you can use the following val
 
 Update the hub with a hub route table. For the purposes of this exercise, you can use the following values:
 
-* **Indirect spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
+* **Spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
 * **DMZ NVA network interface private IP address:** 10.0.4.5
 
 1. Navigate to your virtual WAN.

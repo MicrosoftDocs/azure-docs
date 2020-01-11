@@ -41,7 +41,7 @@ Some key practices to safely secure an IoT space include:
 > [!div class="checklist"]
 > * Encrypt saved, stored, or persistent data.
 > * Require passwords or keys to be periodically changed or refreshed.
-> * Carefully restrict access and permissions by role. See the section [Role-based access control best practices](#role-based-access-control-best-practices) below.
+> * Carefully restrict access and permissions by role. Read the section [Role-based access control best practices](#role-based-access-control-best-practices) below.
 > * Consider a divided network topology so that devices on each network are isolated from the others.
 > * Use powerful encryption. Require long passwords, use secure protocols, and [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -51,7 +51,7 @@ Some key practices to safely secure an IoT space include:
 > Read Azure [IoT security best practices](../iot-fundamentals/iot-security-best-practices.md) to begin a comprehensive IoT security strategy.
 
 > [!NOTE]
-> For more information on event processing and monitoring, see [Route events and messages with Azure Digital Twins](./concepts-events-routing.md).
+> For more information on event processing and monitoring, read [Route events and messages with Azure Digital Twins](./concepts-events-routing.md).
 
 ## Azure Active Directory best practices
 

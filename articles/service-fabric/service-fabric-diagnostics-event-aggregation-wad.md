@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Event Aggregation with Windows Azure Diagnostics 
+title: Event Aggregation with Windows Azure Diagnostics
 description: Learn about aggregating and collecting events using WAD for monitoring and diagnostics of Azure Service Fabric clusters.
 author: srrengar
 
@@ -25,7 +25,7 @@ One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD)
 ## Prerequisites
 The following tools are used in this article:
 
-* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

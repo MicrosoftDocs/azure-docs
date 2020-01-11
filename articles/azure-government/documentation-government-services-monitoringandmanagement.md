@@ -464,7 +464,7 @@ For information on this service and how to use it, see [Azure Scheduler Document
 The Azure Government portal can be accessed [here](https://portal.azure.us).
 
 ## Azure Resource Manager
-For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md).
+For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/management/overview.md).
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

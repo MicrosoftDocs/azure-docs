@@ -23,11 +23,7 @@ By doing so, ADF will scan all the files from the source store, apply the file f
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-<<<<<<< HEAD
-In this tutorial, you'll perform the following steps:
-=======
 In this tutorial, you will perform the following tasks:
->>>>>>> 146ab4a790ff3afe18a28e6105b5315222e8b8c2
 
 > [!div class="checklist"]
 > * Create a data factory.
@@ -67,7 +63,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     * Select **Create new** and enter the name of a resource group. 
          
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 5. Under **version**, select **V2**.
 6. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that your data factory uses can be in other locations and regions.

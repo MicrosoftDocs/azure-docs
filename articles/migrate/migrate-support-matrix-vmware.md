@@ -1,12 +1,8 @@
 ---
-title: Support for VMware assessment and migration in Azure Migrate
-description: Learn about support for VMware VM assessment/migration in Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: VMware support in Azure Migrate
+description: Learn about VMware assessment/migration support in Azure Migrate.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 01/02/2020
 ---
 
 # Support matrix for VMware assessment and migration
@@ -75,11 +71,10 @@ This table summarizes assessment support and limitations for VMware virtualizati
 
 Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration.
 
-- If you plan to discover applications or visualize dependency in an agentless manner, create a vCenter Server account with read-only access along with privileges enabled for **Virtual machines** > **Guest Operations**.
-
-  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
-
-- If you are not planning to do application discovery and agentless dependency visualization, set up a read-only account for the vCenter Server.
+**Task** | **Permissions needed**
+--- | ---
+Assessment only | vCenter Server read-only account.
+Assessment with [App-discovery](how-to-discover-applications.md) or [Agentless dependency visualization](how-to-create-group-machine-dependencies-agentless.md) | vCenter Server account with read-only access, and privileges enabled for **Virtual machines** > **Guest Operations**.
 
 ## Assessment-appliance requirements
 
@@ -87,7 +82,7 @@ Azure Migrate runs a lightweight appliance to discover VMware VMs, and send VM m
 
 **Support** | **Details**
 --- | ---
-**Appliance deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later.
+**Appliance deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later.
 **Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
 **Discovery** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
 **Assessment group** | You can add up to 35,000 machines in a single group.
@@ -133,8 +128,8 @@ Dependency visualization helps you to visualize dependencies across machines tha
         - Names of installed applications that run the above processes
         - No. of connections detected at every polling interval
 - **Agent-based dependency visualization**: To use agent-based dependency visualization, you need to download and install the following agents on each on-premises machine that you want to analyze.
-    - Microsoft Monitoring agent (MMA) needs to be installed on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-mma) about how to install the MMA agent.
-    - The Dependency agent needs to be installed on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) about how to install the dependency agent.
+    - Install Microsoft Monitoring agent (MMA) on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-mma) about how to install the MMA agent.
+    - Install the Dependency agent on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) about how to install the dependency agent.
     - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
 ## Migration - limitations
@@ -171,7 +166,7 @@ Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during mi
 **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The relevant articles contain instructions about how to do this.
 **Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
 **UEFI boot** | VMs with UEFI boot aren't supported for migration.
-**Disk size** | 2 TB OS disk; 4 TB for data disks.
+**Disk size** | 2-TB OS disk; 4 TB for data disks.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -317,7 +312,7 @@ Download and install in Azure Migrate | When you install the appliance and are p
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk; 8 TB for data disks.
+**Disk size** | 2-TB OS disk; 8 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.

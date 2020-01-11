@@ -17,6 +17,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Create clusters with Runbooks
+        href: ./manage-clusters-runbooks.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
@@ -80,15 +82,6 @@
         abstract: 
         achievement: 
         iconUrl: 
-        levels:
-          - 
-        roles:
-          - 
-        products:
-          - 
-        units:
-          - 
-        
     - name: Use cluster storage
       items:
       - name: Using Azure Storage
@@ -727,6 +720,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
       - name: Slow reducer
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+      - name: Apache Hive gateway timeout
+        href: ./interactive-query/troubleshoot-gateway-timeout.md
       - name: Apache Hive View time out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table
@@ -853,6 +848,8 @@
       href: ./hdinsight-management-ip-addresses.md
     - name: Service tags for Azure firewall
       href: ./hdinsight-service-tags.md
+    - name: Customer-managed key disk encryption
+      href: ./disk-encryption.md
   - name: How to
     items:
     - name: Use ID Broker for credential management
