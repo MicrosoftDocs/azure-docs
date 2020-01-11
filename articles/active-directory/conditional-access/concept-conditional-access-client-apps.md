@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -97,7 +97,7 @@ The Microsoft Azure Management application includes multiple underlying services
 
    - Azure portal
    - Azure Resource Manager provider
-   - Classic Service Management APIs
+   - Classic deployment model APIs
    - Azure PowerShell
    - Visual Studio subscriptions administrator portal
    - Azure DevOps
