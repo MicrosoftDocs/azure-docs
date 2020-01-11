@@ -22,11 +22,11 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) enabled. This identity helps the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your own credentials.
+* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) enabled. This identity lets the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your credentials.
 
-* Currently, the only way to create an ISE that supports a customer-managed key and has its system-assigned identity enabled is by calling the Logic Apps REST API with an HTTPS PUT request.
+* Currently, to create an ISE that supports customer-managed keys and has its system-assigned identity enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
 
-* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [grant access to your key vault for your ISE's system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
 ## Prerequisites
 
@@ -183,7 +183,9 @@ This example request body shows the sample values:
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must grant access to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. For this task, add an access policy to your key vault for your ISE's system-assigned identity. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
+Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must add an access policy to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. 
+
+For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
