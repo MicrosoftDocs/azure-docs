@@ -23,7 +23,7 @@ The sku property can have one of the following values:
 * Standard - the standard ACI deployment choice, which still guarantees hypervisor-level security 
 * Dedicated - used for workload level isolation with dedicated physical hosts for the container group
 
-### Modify your JSON deployment template
+## Modify your JSON deployment template
 
 In your deployment template, where the container group resource is specified, ensure that the `"apiVersion": "2019-12-01",`. In the properties section of the container group resource, set `"sku": "Dedicated",`.
 
@@ -95,7 +95,7 @@ Here is an example snippet for the resources section of a container group deploy
 }
 ```
 
-### Deploy your resources
+## Deploy your container group
 
 If you created and edited the deployment template file on your desktop, you can upload it to your Cloud Shell directory by dragging the file into it. 
 
