@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -14,10 +14,10 @@ ms.reviewer: assafi
 <a name="HOLTop"></a>
 
 <!-- these links are for v2. Make sure to update them to the correct v3 content on the same site where appropriate.-->
-[Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [Package (NuGet)]() | [Samples]()
+[Reference documentation](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics .NET SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [AnalyzeSentimentAsync()]() instead of [AnalyzeSentiment()]().
+> The code in this article uses the synchronous methods of the Text Analytics .NET SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling `AnalyzeSentimentAsync()` instead of `AnalyzeSentiment()`.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ static void Main(string[] args)
 ## Object model
 
 <!-- TODO: Update client docs link -->
-The Text Analytics client is a [TextAnalyticsClient]() object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. An optional, `TextAnalyticsClientOptions` instance can be used to initialize the client with various default settings (e.g. default language or country hint).
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. An optional, `TextAnalyticsClientOptions` instance can be used to initialize the client with various default settings (e.g. default language or country hint).
 
 <!-- TODO: Update samples link to deeper v3 link -->
 Additional examples, including AAD authentication and the use of client default settings can be found [here](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples).
@@ -93,7 +93,7 @@ In your program's `main()` method, call the authentication method to instantiate
 ## Sentiment analysis
 
 <!-- TODO: Update client docs links -->
-Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [AnalyzeSentiment()]() function. The returned [Response\<AnalyzeSentimentResult\>]() object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
+Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<AnalyzeSentimentResult>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
 
 ```csharp
 static void SentimentAnalysisExample(TextAnalyticsClient client)
@@ -132,7 +132,7 @@ Document sentiment: Positive
 ## Language detection
 
 <!-- TODO: Update client docs links -->
-Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()]() function. The returned [Response\<DetectLanguageResult>]() object will contain the detected language in `Value.PrimaryLanguage` if successful, and a `Value.ErrorMessage` if not.
+Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectLanguageResult>` object will contain the detected language in `Value.PrimaryLanguage` if successful, and a `Value.ErrorMessage` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -157,7 +157,7 @@ Language:
 ## Entity recognition
 
 <!-- TODO: Update client docs link -->
-Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its [RecognizeEntities()]() function and iterate through the results. The returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
+Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```csharp
 static void EntityRecognitionExample(TextAnalyticsClient client)
@@ -186,7 +186,7 @@ Named Entities:
 ## Personal information entity recognition
 
 <!-- TODO: Update client docs link -->
-Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its [RecognizePiiEntities()]() function and iterate through the results. Similar to the previous function the returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
+Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 
 ```csharp
 static void EntityPIIExample(TextAnalyticsClient client)
@@ -212,7 +212,7 @@ Personally Identifiable Information Entities:
 ## Entity Linking
 
 <!-- TODO: Update client docs link -->
-Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its [RecognizeLinkedEntities()]() function and iterate through the results. The returned [Response\<RecognizeLinkedEntitiesResult\>]() object will contain the list of detected entities in `Value.LinkedEntities` if successful, and a `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<RecognizeLinkedEntitiesResult>` object will contain the list of detected entities in `Value.LinkedEntities` if successful, and a `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```csharp
 static void EntityLinkingExample(TextAnalyticsClient client)
@@ -281,7 +281,7 @@ Linked Entities:
 ## Key phrase extraction
 
 <!-- TODO: Update client docs link -->
-Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its [ExtractKeyPhrases()]() function. The result will contain the list of detected key phrases in `Value.KeyPhrases` if successful, and a `Value.ErrorMessage` if not. Print any detected key phrases.
+Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its `ExtractKeyPhrases()` function. The result will contain the list of detected key phrases in `Value.KeyPhrases` if successful, and a `Value.ErrorMessage` if not. Print any detected key phrases.
 
 ```csharp
 static void KeyPhraseExtractionExample(TextAnalyticsClient client)
