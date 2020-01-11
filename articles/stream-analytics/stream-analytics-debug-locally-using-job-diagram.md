@@ -22,7 +22,7 @@ An Azure Stream Analytics script represents the logic of transforming input data
 
 ### Start local testing
 
-Use this [Quickstart](stream-analytics-quick-create-vs.md) to learn how to create a Stream Analytics job using Visual Studio or [export an existing job to a local project](stream-analytics-vs-tools#export-jobs-to-a-project). If you want to test the query with local input data, follow this [instruction](stream-analytics-live-data-local-testing.md). Or if you want to test with live input, you can move to the next step.
+Use this [Quickstart](stream-analytics-quick-create-vs.md) to learn how to create a Stream Analytics job using Visual Studio or [export an existing job to a local project](stream-analytics-vs-tools.md#export-jobs-to-a-project). If you want to test the query with local input data, follow this [instruction](stream-analytics-live-data-local-testing.md). Or if you want to test with live input, you can move to the next step.
 
 > [!NOTE]
 > If you export a job to local project and want to test against live input stream, you need to specify the credentials for all inputs again.  
