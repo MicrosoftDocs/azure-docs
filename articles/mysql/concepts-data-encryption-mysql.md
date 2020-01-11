@@ -11,7 +11,7 @@ ms.date: 01/10/2020
 # Azure Database for MySQL Data Encryption with customer-managed key
 
 > [!NOTE]
-> At this time, you must request access to use this capability. To do so, please contact orcaspm@microsoft.com.
+> At this time, you must request access to use this capability. To do so, please contact AskAzureDBforMySQL@service.microsoft.com.
 
 Azure Database for MySQL Data Encryption with customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest, and allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for and in a full control of a key's lifecycle (key creation, upload, rotation, deletion), key usage permissions, and auditing of operations on keys.
 
@@ -67,7 +67,7 @@ When the server is configured to use the customer-managed key that is stored in 
 * The key activation date (if set) must be a date and time in the past. Expiration date (if set) must be a future date and time.
 * The key must be in the *Enabled* state. </br>
 
-* If you are importing existing key into the key Vault, make sure to provide it in the supported file formats (.pfx, .byok, or .backup).
+* If you are importing existing key into the key Vault, make sure to provide it in the supported file formats (.pfx, .byok, .backup).
 
 ## Recommendations when using Data Encryption using customer-managed key
 
@@ -125,6 +125,4 @@ To avoid issues while establishing setting up customer-managed data encryption d
 
 ## Next steps
 
-<Blurb>
-
-Learn how to setup data encryption with customer-managed key for your Azure database for MySQL using Azure Portal.
+Learn how to setup data encryption with customer-managed key for your Azure database for MySQL using Azure portal.
