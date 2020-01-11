@@ -178,7 +178,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. In the **To** box, enter your email ID to receive notifications. In **Subject**, enter the text **Digital Twins notification for poor air quality in space**. Then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
 
-   d. Under **Body** in the same window, enter text similar to this: **Poor air quality detected in a room, and temperature needs to be adjusted**. Feel free to elaborate by using elements from the **Dynamic content** list.
+   d. Under **Body** in the same window, enter text similar to the following: **Poor air quality detected in a room, and temperature needs to be adjusted**. Feel free to elaborate by using elements from the **Dynamic content** list.
 
    [![Logic Apps "Send an email" selections](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 

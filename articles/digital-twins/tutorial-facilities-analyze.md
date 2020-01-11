@@ -147,7 +147,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. In the **Review + Create** pane, review the information you entered, and select **Create**.
 
-1. In the deployment pane, select the Time Series Insights resource you just created. It opens the **Overview** pane for your Time Series Insights environment.
+1. In the deployment pane, select the Time Series Insights resource you created. It opens the **Overview** pane for your Time Series Insights environment.
 
 1. Select the **Go to Environment** button at the top. If you get a data access warning, open the **Data Access Policies** pane for your Time Series Insights instance, select **Add**, select **Contributor** as the role, and select the appropriate user.
 
