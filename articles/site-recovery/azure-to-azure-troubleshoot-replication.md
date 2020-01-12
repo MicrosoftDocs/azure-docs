@@ -1,16 +1,14 @@
 ---
-title: Troubleshoot ongoing replication of Azrue VMs with Azure Site Recovery 
-description: Troubleshooting errors and problems when replicating Azure virtual machines for disaster recovery
-services: site-recovery
-author: asgang
+title: Troubleshoot replication of Azure VMs with Azure Site Recovery 
+description: Troubleshooting replication during Azure VM disaster recovery with Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
+ms.author: sideeksh
 
 ---
-# Troubleshoot ongoing problems in Azure-to-Azure VM replication
+# Troubleshoot replication in Azure VM disaster recovery
 
 This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines from one region to another region. It also explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 

@@ -1,15 +1,14 @@
 ---
-title: Troubleshoot issues with Azure Site Recovery agents | Microsoft Docs'
-description: Provides information about symptoms, causes, and resolutions of Azure Site Recovery agent failures.
-author: asgang
+title: Troubleshoot the Azure VM extension for disaster recovery with Azure Site Recovery
+description: Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: asgang
+ms.author: sideeksh
 ---
 
-# Troubleshoot issues with the Azure Site Recovery agent
+# Troubleshoot Azure VM extension issues
 
 This article provides troubleshooting steps that can help you resolve Azure Site Recovery  errors related to VM agent and extension.
 

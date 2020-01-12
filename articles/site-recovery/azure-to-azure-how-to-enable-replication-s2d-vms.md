@@ -1,13 +1,11 @@
 ---
-title: Replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery 
-description: This article describes how to replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery.
-services: site-recovery
-author: asgang
+title: Replicate Azure VMs running Storage Spaces Direct with Azure Site Recovery 
+description: Learn how to replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.author: asgang
+ms.author: sideeksh
 
 ---
 
