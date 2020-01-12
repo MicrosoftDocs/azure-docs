@@ -6,14 +6,14 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/12/2020
 ---
 
 # Ingest json formatted sample data into Azure Data Explorer
 
-This article shows you how to ingest json formatted data into an Azure Data Explorer database. This article will start with a simple example of a flattened json and build up to more complex json schemas containing arrays and dictionaries. In the following examples, Use Kusto query language for testing purposes only. For production scenarios, use client libraries or data connections. Read [Ingest data using the Azure Data Explorer Python library](/azure/data-explorer/python-ingest-data) and [Ingest data using the Azure Data Explorer .NET Standard SDK](https://docs.microsoft.com/en-us/azure/data-explorer/net-standard-ingest-data) for a walk-through regarding ingesting data with these client libraries.
+This article shows you how to ingest json formatted data into an Azure Data Explorer database. You will start with a simple example of a flattened json and continue with more complex json schemas containing arrays and dictionaries. In the following examples, use Kusto query language for testing purposes only. For production scenarios, use client libraries or data connections. Read [Ingest data using the Azure Data Explorer Python library](/azure/data-explorer/python-ingest-data) and [Ingest data using the Azure Data Explorer .NET Standard SDK](https://docs.microsoft.com/en-us/azure/data-explorer/net-standard-ingest-data) for a walk-through regarding ingesting data with these client libraries.
 
-In this situations the data management service aggregates data, according to the [batching policy](/azure/kusto/concepts/batchingpolicy), resulting in a latency of a few minutes.
+\\\\In this situations the data management service aggregates data, according to the [batching policy](/azure/kusto/concepts/batchingpolicy), resulting in a latency of a few minutes.
 \\TODO\\ Target service is the Data Management service which is ingest-YourService (The ingest process executed against the Data Management endpoint: https://ingest-[YourClusterName].[region].kusto.windows.net. The command requires [database or ingestor admin permissions](/azure/kusto/management/access-control/role-based-authorization) on the relevant database.\\
 
 ## Prerequisites
@@ -26,20 +26,17 @@ ADX supports two json file formats:
 * `json`: Line separated json. Each line in the input data has exactly one json record.
 * `multijson`: Multi-lined json. The parser ignores the line separators and reads a record from the previous position to the end of a valid json.
 
-\\TODO: Json vs multojson - if we have new lines or not
+\\\\TODO: Json vs multojson - if we have new lines or not
 Flatten vs multi level vs array vs dictionary - json structure\\
 
+### Ingest and map json formatted data
 
 Ingestion of json formatted data requires you to specify the *format* [ingestion property](/azure/kusto/management/data-ingestion/index#ingestion-properties). The ingest command default is the `csv` format.
+\\Example\\
+Ingestion of json data requires mapping, which maps a json source entry to its target column. [Mapping](/azure/kusto/management/mappings) can be pre-defined on a table using the `jsonMappingReference` ingestion property or specified by the `jsonMapping`ingestion property. This article will use the `jsonMappingReference` ingestion property which is pre-defined on the table used for ingestion. In the examples below, we'll start by ingesting json records as raw data to a single column table. Later we'll use the mapping to ingest each property to its mapped column. 
 
-## Ingestion mapping
-
-Ingestion of json data requires mapping, which maps a json source entry to its target column. 
-[Mapping](/azure/kusto/management/mappings) can be pre-defined on a table using the `jsonMappingReference` ingestion property or specified by the `jsonMapping`ingestion property.
-
-This article will use the *jsonMappingReference* ingestion property which is pre-defined on the table used for ingestion.
-
-## Source data
+\\ 
+### Simple json example
 
 The following example is a simple json, with a flat structure. The data has temperature and humidity information, collected by several devices. Each record is marked with an ID and timestamp.
 
@@ -53,17 +50,13 @@ The following example is a simple json, with a flat structure. The data has temp
 }
 ```
 
-We'll start by ingesting json records as raw data to a single column table. Later we'll use the mapping to ingest each property to its mapped column. 
-
-
-
 ## Ingest json raw records 
 
-In this example the data manipulation, using queries and update policy, is done after the data is ingested.
+In this example, you ingest json records as raw data to a single column table. The data manipulation, using queries, and update policy is done after the data is ingested.
 
 # [KQL](#tab/kusto-query-language)
 
-Use Kusto query language to ingest data in raw json format.
+Use Kusto query language to ingest data in a raw json format.
 
 1. Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
@@ -90,13 +83,14 @@ Use Kusto query language to ingest data in raw json format.
 1. Ingest data into the `RawEvents` table.
 
     > [!NOTE]
-    > For KQL This article shows the control commands executed directly to the engine endpoint. In production scenarios, ingestion is executed to the Data Management service using the \\[Kusto Client Library](../api/netfx/about-kusto-data.md) NuGet package.
+    > \\For KQL\\, this article shows the control commands executed directly to the engine endpoint. In production scenarios, ingestion is executed to the Data Management service using the \\[Kusto Client Library](../api/netfx/about-kusto-data.md) NuGet package.
 
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
 # [C#](#tab/c-sharp)
+
 Use C# to ingest data in raw json format.
 
 1. Create the `RawEvents` table.
@@ -126,7 +120,7 @@ Use C# to ingest data in raw json format.
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Create the json mapping
+1. Create the json mapping.
     
     ```C#
     var tableMapping = "RawEventMapping";
@@ -143,7 +137,7 @@ Use C# to ingest data in raw json format.
     ```
     This command creates a mapping, and maps the json root path `$` to the `Event` column.
 
-1. Ingest data into the `RawEvents` table
+1. Ingest data into the `RawEvents` table.
 
     ```C#
     var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -170,6 +164,7 @@ Use C# to ingest data in raw json format.
     ```
 
 # [Python](#tab/python)
+
 Use Python to ingest data in raw json format.
 
 1. Create the `RawEvents` table.
@@ -185,7 +180,7 @@ Use Python to ingest data in raw json format.
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Create the json mapping
+1. Create the json mapping.
 
     ```Python
     MAPPING = "RawEventMapping"
@@ -212,19 +207,20 @@ Use Python to ingest data in raw json format.
 ## Ingest flattened json records
 
 # [KQL](#tab/kusto-query-language)
-1. Create a new table, with the schema similar to the json input data. We will use this table for all the following ingest commands. 
+
+1. Create a new table, with a similar schema to the json input data. We'll use this table for all the following examples and ingest commands. 
 
     ```Kusto
     .create table Events (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)
     ```
 
-1. Create the json mapping
+1. Create the json mapping.
 
     ```Kusto
     .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'
     ```
 
-    In this mapping, the `timestamp` entries will be ingested to the column `Time`, and will be ingested as `datetime` data type, as defined by the table schema.
+    In this mapping, as defined by the table schema, the `timestamp` entries will be ingested to the column `Time` as `datetime` data types.
 
 1. Ingest data into the table `Events`.
 
@@ -232,10 +228,11 @@ Use Python to ingest data in raw json format.
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
     ```
 
-    The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
+    The file 'simple.json' has a few line-separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
 
 # [C#](#tab/c-sharp)
-1. Create a new table, with the schema similar to the json input data. We will use this table for all the following ingest commands. 
+
+1. Create a new table, with a similar schema to the json input data. We'll use this table for all the following examples and ingest commands. 
 
     ```C#
     var table = "Events";
@@ -254,7 +251,7 @@ Use Python to ingest data in raw json format.
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Create the json mapping
+1. Create the json mapping.
 
     ```C#
     var tableMapping = "FlatEventMapping";
@@ -274,7 +271,7 @@ Use Python to ingest data in raw json format.
     kustoClient.ExecuteControlCommand(command);
     ```
 
-    In this mapping, the `timestamp` entries will be ingested to the column `Time`, and will be ingested as `datetime` data type, as defined by the table schema.        
+    In this mapping, as defined by the table schema, the `timestamp` entries will be ingested to the column `Time` as `datetime` data types.    
 
 1. Ingest data into the table `Events`.
 
@@ -290,10 +287,11 @@ Use Python to ingest data in raw json format.
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-    The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
+    The file 'simple.json' has a few line-separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
 
 # [Python](#tab/python)
-1. Create a new table, with the schema similar to the json input data. We will use this table for all the following ingest commands. 
+
+1. Create a new table, with a similar schema to the json input data. We'll use this table for all the following examples and ingest commands. 
 
     ```Python
     TABLE = "RawEvents"
@@ -328,15 +326,17 @@ Use Python to ingest data in raw json format.
 ## Ingest multi-lined json records
 
 # [KQL](#tab/kusto-query-language)
+
 1. Ingest data into the table `Events`.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
     ```
 
-    The file 'multilined.json' has a few indented json records. The format `multijson` tells the engine to read records by the json structure.
+    The file 'multilined.json' has a few indented json records. The format `multijson` tells the engine to read records \\by the json structure\\.
 
 # [C#](#tab/c-sharp)
+
 1. Ingest data into the table `Events`.
 
    ```C#
@@ -355,6 +355,7 @@ Use Python to ingest data in raw json format.
     The file 'multilined.json' has a few indented json records. The format `multijson` tells the engine to read records by the json structure.
 
 # [Python](#tab/python)
+
 1. Ingest data into the table `Events`.
 
     ```Python
@@ -371,7 +372,7 @@ Use Python to ingest data in raw json format.
 
 ## Ingest json records containing arrays
 
-Ingestion of a json array is usually done by an [update policy](/azure/kusto/management/update-policy). The json is ingested as-is to an intermediate table, and an update policy run a pre-defined function on tha source raw table, re-ingesting the results to the target table. We will ingest data with the following structure:
+Ingestion of a json array is done by an [update policy](/azure/kusto/management/update-policy). The json is ingested as-is to an intermediate table. An update policy runs a pre-defined function on tha \\raw source\\ table, re-ingesting the results to the target table. We will ingest data with the following structure:
 
 ```json
 {
@@ -396,7 +397,8 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
 ```
 
 # [KQL](#tab/kusto-query-language)
-1. Create an update function that expands the collection of `records` so that each value in the collection receives a separate row, using the mv-expand operator. We will use table `RawEvents` as a source table and `Events` as a target table.
+
+1. Create an `update policy` function that expands the collection of `records` so that each value in the collection receives a separate row, using the `mv-expand` operator. We'll use table `RawEvents` as a source table and `Events` as a target table.
 
     ```Kusto
     .create function EventRecordsExpand() {
@@ -411,13 +413,14 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     }
     ```
 
-    Notice the schema received by the function has to match the schema of the target table. Use `getschema` operator to review the schema:
+    > [!NOTE]
+    > The schema received by the function must match the schema of the target table. Use `getschema` operator to review the schema.
+    > 
+    >     ```Kusto
+    >     EventRecordsExpand() | getschema
+    >     ```
 
-    ```Kusto
-    EventRecordsExpand() | getschema
-    ```
-
-1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest its results into the Events table. Define a zero-retention policy to avoid persisting the intermediate table.
+1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest the results into the `Events` table. Define a zero-retention policy to avoid persisting the intermediate table.
 
     ```Kusto
     .alter table Events policy update @'[{"Source": "RawEvents", "Query": "EventRecordsExpand()", "IsEnabled": "True"}]'
@@ -429,14 +432,15 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
-1. Review data in table `Events`
+1. Review data in table `Events`.
 
     ```Kusto
     Events
     ```
 
 # [C#](#tab/c-sharp)
-1. Create an update function that expands the collection of `records` so that each value in the collection receives a separate row, using the mv-expand operator. We will use table `RawEvents` as a source table and `Events` as a target table.   
+
+1. Create an update function that expands the collection of `records` so that each value in the collection receives a separate row, using the `mv-expand` operator. We'll use table `RawEvents` as a source table and `Events` as a target table.   
 
     ```C#
     var command =
@@ -458,9 +462,10 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     kustoClient.ExecuteControlCommand(command);
     ```
 
-    Notice the schema received by the function has to match the schema of the target table.
+    > [!NOTE]
+    > The schema received by the function must match the schema of the target table.
 
-1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest its results into the Events table. Define a zero-retention policy to avoid persisting the intermediate table.
+1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest its results into the `Events` table. Define a zero-retention policy to avoid persisting the intermediate table.
 
     ```C#
     var command =
@@ -485,10 +490,11 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
     
-1. Review data in table `Events`
+1. Review data in table `Events`.
 
 # [Python](#tab/python)
-1. Create an update function that expands the collection of `records` so that each value in the collection receives a separate row, using the mv-expand operator. We will use table `RawEvents` as a source table and `Events` as a target table.   
+
+1. Create an update function that expands the collection of `records` so that each value in the collection receives a separate row, using the `mv-expand` operator. We'll use table `RawEvents` as a source table and `Events` as a target table.   
 
     ```Python
     CREATE_FUNCTION_COMMAND = 
@@ -506,9 +512,10 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-    Notice the schema received by the function has to match the schema of the target table.
+    > [!NOTE]
+    > The schema received by the function has to match the schema of the target table.
 
-1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest its results into the Events table. Define a zero-retention policy to avoid persisting the intermediate table.
+1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest its results into the `Events` table. Define a zero-retention policy to avoid persisting the intermediate table.
 
     ```Python
     CREATE_UPDATE_POLICY_COMMAND = 
@@ -529,12 +536,13 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-1. Review data in table `Events`
+1. Review data in table `Events`.
 
 ---    
 
 ## Ingest json records containing dictionaries
 
+\\More info\\
 Referring key value pairs in a json record can be done by ingestion mapping. You can ingest data with the following structure:
 
 ```json
@@ -566,13 +574,14 @@ Referring key value pairs in a json record can be done by ingestion mapping. You
 ```
 
 # [KQL](#tab/kusto-query-language)
-1. Create a json mapping
+
+1. Create a json mapping.
 
     ```Kusto
     .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"Time","path":"$.event[?(@.Key == 'timestamp')]"},{"column":"Device","path":"$.event[?(@.Key == 'deviceId')]"},{"column":"MessageId","path":"$.event[?(@.Key == 'messageId')]"},{"column":"Temperature","path":"$.event[?(@.Key == 'temperature')]"},{"column":"Humidity","path":"$.event[?(@.Key == 'humidity')]"}]'
     ```
 
-    Ingestion mapping is referring a key-value pair by the key. The json path in the mapping has a conditional statement.  
+    \\Ingestion mapping is referring a key-value pair by the key. The json path in the mapping has a conditional statement.  
 
 1. Ingest data into the table `Events`.
 
@@ -581,7 +590,8 @@ Referring key value pairs in a json record can be done by ingestion mapping. You
     ```
 
 # [C#](#tab/c-sharp)
-1. Create a json mapping
+
+1. Create a json mapping.
 
     ```C#
     var tableName = "Events";
@@ -620,7 +630,8 @@ Referring key value pairs in a json record can be done by ingestion mapping. You
     ```
 
 # [Python](#tab/python)
-1. Create a json mapping
+
+1. Create a json mapping.
 
     ```Python
     MAPPING = "KeyValueEventMapping"
