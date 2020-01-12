@@ -63,13 +63,14 @@ For now, only the following scenarios are supported:
 
 For now, we also have the following restrictions:
 
-- **Only available in West Central US, South Central US, East US 2, East US, West US 2, Central Canada, and North Europe.**
+- Available as a GA offering in East US, West US 2, and South Central US.
+- Available as a public preview in West Central US, East US 2, Canada Central, and North Europe.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
-- If you use the Azure Portal to create your disk encryption set, you cannot use snapshots for now.
+- If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
 
 ### CLI
 #### Setting up your Azure Key Vault and DiskEncryptionSet
@@ -132,8 +133,20 @@ diskEncryptionSetName=yourDiskencryptionSetName
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 
 az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+```
 
+#### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
+```azurecli
+rgName=ssecmktesting
+vmssName=ssecmktestvmss5
+location=WestCentralUS
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+diskEncryptionSetName=diskencryptionset786
+
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
 #### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
