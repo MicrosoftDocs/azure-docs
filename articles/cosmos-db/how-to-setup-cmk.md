@@ -4,8 +4,9 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/11/2020
 ms.author: thweiss
+ROBOTS: noindex, nofollow
 ---
 
 # Configure customer-managed keys for your Azure Cosmos DB account
@@ -25,13 +26,13 @@ Currently, customer-managed keys are only available for new accounts and need to
 
 ### 1. Make sure the Azure Cosmos DB resource provider is registered for your Azure subscription
 
-From the Azure portal, go to your Azure subscription and select "Resource providers" from the left menu:
+From the Azure portal, go to your Azure subscription and select **Resource providers** from the left menu:
 
 !["Resource providers" entry from the left menu](./media/how-to-setup-cmk/portal-rp.png)
 
-Search for the "Microsoft.DocumentDB" resource provider.
+Search for the **Microsoft.DocumentDB** resource provider.
 - If the resource provider is already marked as registered, nothing needs to be done.
-- If not, select it and click on "Register":
+- If not, select it and click on **Register**":
 
     ![Registering the Microsoft.DocumentDB resource provider](./media/how-to-setup-cmk/portal-rp-register.png)
 
@@ -45,34 +46,34 @@ To learn how to enable these properties on an existing Azure Key Vault instance,
 
 ### 3. Add an access policy to your Azure Key Vault instance
 
-From the Azure portal, go to the Azure Key Vault instance you plan to use to host your encryption keys. Then, select "Access Policies" from the left menu:
+From the Azure portal, go to the Azure Key Vault instance you plan to use to host your encryption keys. Then, select **Access Policies** from the left menu:
 
 !["Access policies" from the left menu](./media/how-to-setup-cmk/portal-akv-ap.png)
 
-- Click on "+ Add Access Policy"
-- Under the "Key permissions" dropdown menu, select "Get", "Unwrap Key" and "Wrap Key":
+- Select **+ Add Access Policy**
+- Under the **Key permissions** dropdown menu, select **Get**, **Unwrap Key** and **Wrap Key**:
 
     ![Selecting the right permissions](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-- Under "Select principal", click on "None selected", search for and select the "Azure Cosmos DB" principal, then click "Select" at the bottom (if the "Azure Cosmos DB" principal can't be found, you may need to re-register the "Microsoft.DocumentDB" resource provider at step 2):
+- Under **Select principal**, select **None selected**, search for and select the **Azure Cosmos DB** principal, then click **Select** at the bottom (if the **Azure Cosmos DB** principal can't be found, you may need to re-register the **Microsoft.DocumentDB** resource provider at step 1):
 
     ![Selecting the Azure Cosmos DB principal](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
-- Click "Add" to add the new access policy
+- Select **Add** to add the new access policy
 
 ### 4. Generate a key in Azure Key Vault
 
-From the Azure portal, go the Azure Key Vault instance you plan to use to host your encryption keys. Then, select "Keys" from the left menu:
+From the Azure portal, go the Azure Key Vault instance you plan to use to host your encryption keys. Then, select **Keys** from the left menu:
 
 !["Keys" entry from the left menu](./media/how-to-setup-cmk/portal-akv-keys.png)
 
-- Click on "Generate/Import"
-- Provide a name for the new key, select an RSA key size (a minimum of 3072 is recommended for best security) and click "Create":
+- Select **Generate/Import**
+- Provide a name for the new key, select an RSA key size (a minimum of 3072 is recommended for best security) and select **Create**:
 
     ![Creating a new key](./media/how-to-setup-cmk/portal-akv-gen.png)
 
 - Once the key is created, click on the newly created key, then on its current version
-- Copy the key’s "Key Identifier" except the part after the last forward slash:
+- Copy the key’s **Key Identifier** except the part after the last forward slash:
 
     ![Copying the key's key identifier](./media/how-to-setup-cmk/portal-akv-keyid.png)
 
@@ -80,14 +81,14 @@ From the Azure portal, go the Azure Key Vault instance you plan to use to host y
 
 #### Using the Azure portal
 
-When creating a new Azure Cosmos DB account from the Azure portal, choose "Customer-managed key" at the "Encryption" step. In the "Key URI" field, pass the URI of the Azure Key Vault key copied from step 4:
+When creating a new Azure Cosmos DB account from the Azure portal, choose **Customer-managed key** at the **Encryption** step. In the **Key URI** field, pass the URI of the Azure Key Vault key copied from step 4:
 
 ![Setting CMK parameters in the Azure portal](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
 #### Using PowerShell
 
 When creating a new Azure Cosmos DB account with PowerShell,
-- pass the URI of the Azure Key Vault key copied from step 4 under the "keyVaultKeyUri" property in the "PropertyObject",
+- pass the URI of the Azure Key Vault key copied from step 4 under the **keyVaultKeyUri** property in the **PropertyObject**,
 - make sure to use "2019-12-12" as the API version.
 
 ```powershell
@@ -113,10 +114,10 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 #### Using Azure Resource Manager templates
 
 When creating a new Azure Cosmos DB account through an Azure Resource Manager template:
-- pass the URI of the Azure Key Vault key copied from step 4 under the "keyVaultKeyUri" property in the "properties" object
+- pass the URI of the Azure Key Vault key copied from step 4 under the **keyVaultKeyUri** property in the **properties** object
 - make sure to use "2019-12-12" as the API version
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
