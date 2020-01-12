@@ -132,7 +132,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{reso
 Authorization: Bearer eyJ0eXAiO....
 ```
 
-where *eyJ0eXAiO....* represents the full Authorization token. 
+Where *eyJ0eXAiO....* represents the full Authorization token. 
 
 You can acquire the token using one of these methods:
 
@@ -158,18 +158,18 @@ Create an Azure Key Vault resource, then generate or import a key to be used for
 
 The Azure Key Vault must be configured as recoverable to protect your key and the access to your Azure Monitor data.
 
-To [Turn on recovery options](https://docs.microsoft.com/azure/key-vault/key-vault-best-practices#turn-on-recovery-options):
+These settings are available via CLI and PowerSell:
 - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
     must be turned on
-- Purge protection should be turned on to guard against force deletion of the secret / vault even after soft delete
+- [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete
 
 ### Create *Cluster* resource
 
-This resource is used as intermediate identity connection between your Key Vault and your workspaces. Only after you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located.
+This resource is used as intermediate identity connection between your Key Vault and your workspaces. Only after you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located. Application Insights and Log Analytics require separate Cluster resources. The type of the Cluster resource is defined at creation time by setting the “clusterType” property to either ‘LogAnalytics’, or ‘ApplicationInsights’. The Cluster resource type can’t be altered.
 
 **Create**
 
-```json
+```rst
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
@@ -177,7 +177,7 @@ Content-type: application/json
 {
   "location": "region-name",
    "properties": {
-      "clusterType": "LogAnalytics"
+      "clusterType": "LogAnalytics" //Should be "ApplicationInsights" for Application Insights CMK
     },
    "identity": {
       "type": "systemAssigned"
@@ -211,7 +211,7 @@ Identity is assigned to the *Cluster* resource at creation time.
 
 If you what to delete the *Cluster* resource for any reason (for example, create it with a different name) use this API call:
 
-```
+```rst
 DELETE
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 ```
@@ -248,7 +248,7 @@ details.
 
 **Update**
 
-```json
+```rst
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
@@ -303,17 +303,11 @@ following details:
 
 1. Confirmation that the steps above where completed
 
-2. The *Cluster* resource ID that you got in the response looks like this:
-
-```
-"id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name"
-```
-
-The *Cluster* resource ID can be retrieved at any time by using a Get API call.
+2. The Cluster resource API response. it can be retrieved at any time by using a Get API call.
 
 **Read the *Cluster* resource ID**
 
-```
+```rst
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 Authorization: Bearer <token>
 ```
@@ -354,7 +348,7 @@ Authorization: Bearer <token>
 
 **Associate a workspace to a *Cluster* resource using [Workspaces - Create Or Update](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) API**
 
-```json
+```rst
 PUT https://management.azure.com/https://management.azure.com.resources.windows-int.net/Customer.svc/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.operationalinsights/workspaces/{workspace-name}?api-version=2015-11-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
@@ -462,6 +456,8 @@ with Key Identifier details" step.
   - 'Do Not Purge' is turned on to guard against force deletion of
         the secret / vault even after soft delete
 
+- Application Insights and Log Analytics require separate *Cluster* resources. The type of the *Cluster* resource is defined at creation time by setting the “clusterType” property to either ‘LogAnalytics’, or ‘ApplicationInsights’. The *Cluster* resource type can’t be altered.
+
 - *Cluster* resource move to another resource group or subscription
     isn't supported currently.
 
@@ -536,7 +532,7 @@ with Key Identifier details" step.
 
 - Get all *Cluster* resources for a subscription
 
-  ```
+  ```rst
   GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
   Authorization: Bearer <token>
   ```
@@ -548,7 +544,7 @@ The same as response as for '*Cluster* resources for a resource group', but in s
 - Delete a *Cluster* resource -- You need to delete all the associated workspaces before you can delete
 your *Cluster* resource:
 
-  ```
+  ```rst
   DELETE
   https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
   Authorization: Bearer <token>
@@ -594,7 +590,7 @@ This resource is used as intermediate identity connection between your Key Vault
 
 **Create**
 
-```json
+```rst
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
@@ -636,7 +632,7 @@ Identity is assigned to the *Cluster* resource at creation time.
 
 ### Associate a component to a *Cluster* resource
 
-```json
+```rst
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Insights/components/{component-name}?api-version=2015-05-01
 Authorization: Bearer <token>
 Content-type: application/json
