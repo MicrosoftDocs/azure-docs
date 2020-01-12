@@ -29,6 +29,8 @@
     href: how-to-launch-with-html.md
   - name: Customize Immersive Reader button
     href: how-to-customize-launch-button.md
+  - name: Cache the authentication token
+    href: how-to-cache-token.md
 - name: Reference
   items:
   - name: SDK Reference

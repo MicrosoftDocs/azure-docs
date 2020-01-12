@@ -54,6 +54,8 @@ landingContent:
             url: how-to-launch-with-html.md
           - text: Customize Immersive Reader button
             url: how-to-customize-launch-button.md
+          - text: Cache the authentication token
+            url: how-to-cache-token.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
