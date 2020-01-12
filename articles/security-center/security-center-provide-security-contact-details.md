@@ -45,7 +45,7 @@ For example, if an email message was already sent to alert you about an RDP atta
    * Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.
    * Enter one security contact international phone number.
    * To receive emails about high severity alerts, turn on the option **Send me emails about alerts**.
-   * In the future, you will have the option to send email notifications to subscription owners. This option is currently grayed out.
+   * You have the option to send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
    * Select **Save** to apply the security contact information to your subscription.
 
 ## See also
