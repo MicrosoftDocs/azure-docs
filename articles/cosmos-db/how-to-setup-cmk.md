@@ -91,6 +91,9 @@ When creating a new Azure Cosmos DB account with PowerShell,
 - pass the URI of the Azure Key Vault key copied from step 4 under the **keyVaultKeyUri** property in the **PropertyObject**,
 - make sure to use "2019-12-12" as the API version.
 
+> [!IMPORTANT]
+> The `Location` parameter has to be set explicitly for the account to be successfully created with CMK.
+
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $accountLocation = "West US 2"
@@ -116,6 +119,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 When creating a new Azure Cosmos DB account through an Azure Resource Manager template:
 - pass the URI of the Azure Key Vault key copied from step 4 under the **keyVaultKeyUri** property in the **properties** object
 - make sure to use "2019-12-12" as the API version
+
+> [!IMPORTANT]
+> The `location` parameter has to be set explicitly for the account to be successfully created with CMK.
 
 ```json
 {
