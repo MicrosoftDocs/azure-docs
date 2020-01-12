@@ -32,7 +32,7 @@ From the Azure portal, go to your Azure subscription and select **Resource provi
 
 Search for the **Microsoft.DocumentDB** resource provider.
 - If the resource provider is already marked as registered, nothing needs to be done.
-- If not, select it and click on **Register**":
+- If not, select it and click on **Register**:
 
     ![Registering the Microsoft.DocumentDB resource provider](./media/how-to-setup-cmk/portal-rp-register.png)
 
@@ -55,7 +55,7 @@ From the Azure portal, go to the Azure Key Vault instance you plan to use to hos
 
     ![Selecting the right permissions](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-- Under **Select principal**, select **None selected**, search for and select the **Azure Cosmos DB** principal, then click **Select** at the bottom (if the **Azure Cosmos DB** principal can't be found, you may need to re-register the **Microsoft.DocumentDB** resource provider at step 1):
+- Under **Select principal**, select **None selected**. Then, search for and select the **Azure Cosmos DB** principal. Finally, click **Select** at the bottom (if the **Azure Cosmos DB** principal can't be found, you may need to re-register the **Microsoft.DocumentDB** resource provider at step 1):
 
     ![Selecting the Azure Cosmos DB principal](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
