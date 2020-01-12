@@ -179,7 +179,7 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 ```
 
-#### Create a VMSS using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+#### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```PowerShell
 $VMLocalAdminUser = "yourLocalAdminUser"

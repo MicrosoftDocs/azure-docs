@@ -135,7 +135,7 @@ diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $
 az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### Create a VMSS using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+#### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
 rgName=ssecmktesting
