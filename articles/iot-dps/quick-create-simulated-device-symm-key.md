@@ -135,6 +135,8 @@ In this section, update the sample code to send the device's boot sequence to yo
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
+    If the file was not generated in your cmake directory, make sure you used a recent version of the CMake build system.
+
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
 4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier. 
