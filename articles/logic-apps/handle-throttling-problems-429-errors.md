@@ -56,10 +56,21 @@ To handle throttling at this level, you have these options:
 
 ## Destination service or system throttling
 
-The destination service or system that a connector calls might have its own throttling limits. For example, the Office 365 Outlook connector has a higher throttling limit than some Microsoft Exchange Server APIS.
+While a connector has its own throttling limits, the destination service or system that's called by the connector might also have throttling limits. For example, some APIs in Microsoft Exchange Server have stricter throttling limits than the Office 365 Outlook connector.
+
+By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, the destination service or system requires that those calls happen in a specific order.
+
+For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and set that loop's concurrency to 20 iterations in parallel. Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second.
+
+This table shows the timeline for what happens in the loop when the action's retry interval is 1 second:
+
+| Point in time | Number of actions that run | Number of actions that fail | Number of retries waiting |
+|---------------|----------------------------|-----------------------------|---------------------------|
+| T + 0 seconds | 20 inserts | 5 fail, due to SQL limit | 5 retries |
+| T + 0.5 second | 15 inserts, due to previous 5 retries waiting | All 15 fail, due to previous SQL limit still in effect for 0.5 more seconds | 20 retries <br>(previous 5 + 15 new) |
+| T + 1 second | 20 inserts | 5 fail plus previous 20 retries, due to SQL limit | 25 retries (previous 20 + 5 new)
+|||||
+
 
 
 ## Next steps
-
-
-
