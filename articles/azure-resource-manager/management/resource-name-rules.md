@@ -663,7 +663,7 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Must start and end with letter or number. | Alphanumerics and hyphens<br><br>Start and end with letter or number. |
+> | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start and end with letter or number. |
 > | namespaces / AuthorizationRules | Namespace |  |  |
 > | namespaces / notificationHubs | Namespace | 1-260 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / notificationHubs / AuthorizationRules | Notification hub |  |  |
@@ -703,14 +703,14 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /workspaceCollections | resource group | Not specified |  |
+> | workspaceCollections | region | 3-63 | name must consist only of numbers, letters, and hypens. Hypens may not appear consecutively or at the beginning of the name" |
 
 ## Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /capacities | resource group | 3-63 | Must start with a lower case letter and contain only lower case letters or numbers<br>`^[a-z][a-z0-9]*$` |
+> | capacities | region | 3-63 | Lowercase letters or numbers<br><br>Start with lowercase letter. |
 
 ## Microsoft.RecoveryServices
 
@@ -742,12 +742,12 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /namespaces | resource group | 6-50 |  |
-> | /namespaces / AuthorizationRules | namespaces | 1-50 |  |
-> | /namespaces / HybridConnections | namespaces | 1-50 |  |
-> | /namespaces / HybridConnections/authorizationRules | HybridConnections | 1-50 |  |
-> | /namespaces / WcfRelays | namespaces | 1-50 |  |
-> | /namespaces / WcfRelays / authorizationRules | WcfRelays | 1-50 |  |
+> | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with a letter. End with a letter or number. |
+> | namespaces / AuthorizationRules | namespace | 1-50 |  Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with alphanumeric. |
+> | namespaces / HybridConnections | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes.<br><br>Start and end with alphanumeric. |
+> | namespaces / HybridConnections/authorizationRules | hybrid connection | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with alphanumeric. |
+> | namespaces / WcfRelays | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes.<br><br>Start and end with alphanumeric. |
+> | namespaces / WcfRelays / authorizationRules | Wcf relay | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with alphanumeric. |
 
 ## Microsoft.Resources
 
@@ -756,14 +756,6 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | --- | --- | --- | --- |
 > | /deployments | resource group | Not specified |  |
 > | /deploymentScripts | resource group | 1-90 |  |
-
-## Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /jobCollections | resource group | Not specified |  |
-> | /jobCollections / jobs | jobCollections | Not specified |  |
 
 ## Microsoft.Search
 
@@ -796,48 +788,30 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /namespaces | resource group | Not specified |  |
-> | /namespaces / AuthorizationRules | namespaces | 1-50 |  |
-> | /namespaces / disasterRecoveryConfigs | namespaces | 1-50 |  |
-> | /namespaces / ipfilterrules | namespaces | 1- |  |
-> | /namespaces / migrationConfigurations | namespaces | Not specified |  |
-> | /namespaces / queues | namespaces | 1-50 |  |
-> | /namespaces / queues / authorizationRules | queues | 1-50 |  |
-> | /namespaces / topics | namespaces | 1-50 |  |
-> | /namespaces / topics / authorizationRules | topics | 1-50 |  |
-> | /namespaces / topics / subscriptions | topics | 1-50 |  |
-> | /namespaces / topics / subscriptions / rules | subscriptions | 1-50 |  |
-> | /namespaces / virtualnetworkrules | namespaces | 1- |  |
+> | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with a letter. End with a letter or number. |
+> | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
+> | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
+> | namespaces / migrationConfigurations | namespace |  | Should always be **$default**. |
+> | namespaces / queues | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes.<br><br>Start and end with alphanumeric. |
+> | namespaces / queues / authorizationRules | queue | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
+> | namespaces / topics | namespace | 1-260 | Alphanumerics, periods, hyphens, underscores, and slashes.<br><br>Start and end with alphanumeric. |
+> | namespaces / topics / authorizationRules | topic | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
+> | namespaces / topics / subscriptions | topic | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
+> | namespaces / topics / subscriptions / rules | subscription | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
 
 ## Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /clusters | resource group | Not specified |  |
-> | /clusters / applications | clusters | Not specified |  |
-> | /clusters / applications / services | applications | Not specified |  |
-> | /clusters / applicationTypes | clusters | Not specified |  |
-> | /clusters / applicationTypes / versions | applicationTypes | Not specified |  |
-
-## Microsoft.ServiceFabricMesh
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /applications | resource group | Not specified |  |
-> | /gateways | resource group | Not specified |  |
-> | /networks | resource group | Not specified |  |
-> | /secrets | resource group | Not specified |  |
-> | /secrets / values | secrets | Not specified |  |
-> | /volumes | resource group | Not specified |  |
+> | clusters | region | 4-23 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter. End with lowercase letter or number. |
 
 ## Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /signalR | resource group | Not specified |  |
+> | signalR | global | 3-63 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number.  |
 
 ## Microsoft.Sql
 
@@ -936,11 +910,8 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /storageSyncServices | resource group | Not specified |  |
-> | /storageSyncServices / registeredServers | storageSyncServices | Not specified |  |
-> | /storageSyncServices / syncGroups | storageSyncServices | Not specified |  |
-> | /storageSyncServices / syncGroups / cloudEndpoints | syncGroups | Not specified |  |
-> | /storageSyncServices / syncGroups / serverEndpoints | syncGroups | Not specified |  |
+> | storageSyncServices | resource group | 1-260 | Alphanumerics, spaces, periods, hyphens, and underscores.<br><br>Can't end with period or space. |
+> | storageSyncServices / syncGroups | storage sync service | 1-260 | Alphanumerics, spaces, periods, hyphens, and underscores.<br><br>Can't end with period or space. |
 
 ## Microsoft.StorSimple
 
