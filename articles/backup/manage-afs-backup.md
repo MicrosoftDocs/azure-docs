@@ -79,7 +79,7 @@ There are two ways to stop protecting Azure file shares:
 * Stop all future backup jobs and *delete all recovery points*
 * Stop all future backup jobs but *leave the recovery points*
 
-There may be a cost associated with leaving the recovery points in storage, as the underlying snapshots created by Azure Backup will be retained. However, the benefit of leaving the recovery points is you can restore the File share later, if desired. For information about the cost of leaving the recovery points, see the [pricing details](). If you choose to delete all recovery points, you can't restore the File share.
+There may be a cost associated with leaving the recovery points in storage, as the underlying snapshots created by Azure Backup will be retained. However, the benefit of leaving the recovery points is you can restore the File share later, if desired. For information about the cost of leaving the recovery points, see the [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you can't restore the File share.
 
 To stop protection for an Azure file share:
 
