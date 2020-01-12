@@ -160,13 +160,11 @@ When you open the **Containers** tab, depending on your environment, you might s
 
 ![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes Service (AKS) clusters
 
-![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries
+![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries - Shown only when you're on the standard pricing tier and when you have the Azure Container Registry bundle enabled.
 
-These resources are only shown when you're on the standard pricing tier and when you have the relevant container security bundles enabled:
+Benefits of the Azure Container Registry bundle are explained [here](azure-container-registry-integration.md)
 
-* Benefits of the Azure Container Registry bundle are explained [here](azure-container-registry-integration.md)
-
-* Benefits of the Kubernetes Services bundle are explained [here](azure-kubernetes-service-integration.md)
+Benefits of the Kubernetes Services bundle are explained [here](azure-kubernetes-service-integration.md)
 
 [![Containers tab](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
