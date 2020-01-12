@@ -30,9 +30,13 @@ To find throttling errors at this level, check your logic app's **Metrics** pane
 
 To handle throttling at this level, you have these options:
 
-* Your logic app has a default limit on the number of actions that can run in a 5-minute rolling interval. To raise this limit to the maximum number of actions, enable [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
+* Enable high throughput mode
 
-* Consider whether you can break down your logic app into smaller logic apps, each running a number of actions below either the default or maximum limit.
+  Your logic app has a default limit on the number of actions that can run in a 5-minute rolling interval. To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
+
+* Refactor actions into multiple logic apps
+
+  Consider whether you can break down your logic app's actions into smaller logic apps so that each logic app runs a number of actions below the limit.
 
 <a name="connector-throttling"></a>
 
@@ -46,11 +50,15 @@ For logic apps that run in the public, multi-tenant Azure Logic Apps service, ve
 
 To handle throttling at this level, you have these options:
 
-* Consider whether you can spread the workload across different connections, even if those connections communicate with same service or system, but still use the same credentials.
+* Distribute the work
+
+  Consider whether you can spread the workload across different connections, even if those connections communicate with same service or system, but still use the same credentials.
 
   For example, suppose your logic app gets a row from a SQL Server database, processes the data from that row, and then updates that row with the results. You can use separate connections so that one connection gets the row, while the other connection updates the row.
 
-* Your logic app can have multiple connections for a single action and then choose the connection to actually use at run time.
+* Set up multiple connections per action
+
+  You can create more than one connection for a single action and then choose the connection to actually use at run time.
 
 <a name="destination-throttling"></a>
 
@@ -60,17 +68,21 @@ While a connector has its own throttling limits, the destination service or syst
 
 By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, the destination service or system requires that those calls happen in a specific order.
 
-For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and set that loop's concurrency to 20 iterations in parallel. Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second.
+For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and set that loop's [concurrency](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits) to 20 iterations in parallel. Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second.
 
 This table shows the timeline for what happens in the loop when the action's retry interval is 1 second:
 
 | Point in time | Number of actions that run | Number of actions that fail | Number of retries waiting |
 |---------------|----------------------------|-----------------------------|---------------------------|
 | T + 0 seconds | 20 inserts | 5 fail, due to SQL limit | 5 retries |
-| T + 0.5 second | 15 inserts, due to previous 5 retries waiting | All 15 fail, due to previous SQL limit still in effect for 0.5 more seconds | 20 retries <br>(previous 5 + 15 new) |
+| T + 0.5 seconds | 15 inserts, due to previous 5 retries waiting | All 15 fail, due to previous SQL limit still in effect for 0.5 more seconds | 20 retries <br>(previous 5 + 15 new) |
 | T + 1 second | 20 inserts | 5 fail plus previous 20 retries, due to SQL limit | 25 retries (previous 20 + 5 new)
 |||||
 
+To handle throttling at this level, you have these options:
 
+* Queue up array items
+
+  
 
 ## Next steps
