@@ -118,7 +118,7 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 1. You can view the messages being sent to the hub by right-clicking on any device and selecting **Start Monitoring Built-in Event Endpoint**. The messages will show in the output pane in Visual Studio Code.
 
-1. Stop monitoring by clicking in the **Azure IoT Hub Toolkit** output pane and choose **Stop Monitoring Built-in Event Endpoint**.
+1. Stop monitoring by clicking in the **Azure IoT Hub** output pane and choose **Stop Monitoring Built-in Event Endpoint**.
 
 1. Let the application run to completion, which takes a few minutes.
 
