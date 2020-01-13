@@ -24,7 +24,7 @@ Error code: "151076"
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The Site Recovery extension fails to update or load](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-Error message: "Previous site recovery extension operation is taking more time than expected."<br>
+Error message: "Previous Site Recovery extension operation is taking more time than expected."<br>
 Error code: "150066"<br>
 
 **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
