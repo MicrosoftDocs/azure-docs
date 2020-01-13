@@ -89,7 +89,7 @@ To create a compute target:
     ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Select **Azure Machine Learning Compute (AmlCompute)**. Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute that can be used with other users in your workspace.
-1. Choose a VM size. In the command palette prompt, select **Standard_F2s_v2**. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes).
+1. Choose a VM size. In the command palette prompt, select **Standard_F2s_v2**. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 1. In the command palette prompt, name your compute "TeamWkspc-com" and press **Enter** to create your compute.
 
 After a few minutes, the new compute target appears in the *Compute* node of your workspace.
