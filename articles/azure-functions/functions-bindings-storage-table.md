@@ -850,7 +850,9 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) annotation on parameters to write values into table storage.
+
+See the [example for more detail](#output).
 
 ---
 
