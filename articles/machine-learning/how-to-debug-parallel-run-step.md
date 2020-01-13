@@ -44,10 +44,10 @@ When you need a full understanding of how each node executed the score script, l
     - The start and end time in wall-clock times (`start1` and `end1`). 
     - The start and end time in processor time spent (`start2` and `end2`). 
 
-You can also find information on the resource usage of the processes for each worker. This information is in CSV format, and is located at `~/logs/sys/performance/<ip_address>/`. For example, when checking for resource utilization, look at the following files:
+You can also find information on the resource usage of the processes for each worker. This information is in CSV format, and is located at `~/logs/sys/perf/<ip_address>/`. For example, when checking for resource utilization, look at the following files:
 
-- `process_resource_monitor_<ip>_<pid>.csv`: Per worker process resource usage. 
-- `sys_resource_monitor_<ip>.csv`: Per node log.
+- `Process-*.csv`: Per worker process resource usage. 
+- `sys.csv`: Per node log.
 
 ### How do I log from my user script from a remote context?
 You can get a logger from EntryScript as shown in below sample code to make the logs show up in **logs/user** folder in the portal.
