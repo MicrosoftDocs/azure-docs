@@ -25,6 +25,8 @@
   items:
   - name: Delegate Azure AD admin roles
     href: roles-concept-delegation.md
+  - name: Use groups to assign roles
+    href: roles-groups-concept.md
   - name: Compare default user permissions    
     href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Compare Azure and Azure AD roles    

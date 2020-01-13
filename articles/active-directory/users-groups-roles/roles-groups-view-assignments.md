@@ -29,10 +29,12 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 ## Using PowerShell
 
-### Get object id of the group 
+### Get object id of the group
+
 Get-AzureADMSGroup -SearchString “Contoso_Helpdesk_Administrators”
 
-### View role assignment to a group 
+### View role assignment to a group
+
 Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>" 
 
 ## Using Microsoft Graph API
