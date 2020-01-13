@@ -387,7 +387,7 @@
     - name: Host a static website
       href: storage-blob-static-website-how-to.md
     - name: Custom domains
-    - items:
+      items:
       - name: Use a custom domain name
         href: storage-custom-domain-name.md
       - name: Enable HTTPS access
