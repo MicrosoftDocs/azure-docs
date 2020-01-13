@@ -7,7 +7,7 @@ ms.topic: quickstart
 
 # Add an Azure Storage queue binding to your Python function
 
-In this article, you integrate an Azure Storage queue with the function and storage account you created in [Create an HTTP triggered Python function](functions-create-first-function-python.md). You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue.
+In this article, you integrate an Azure Storage queue with the function and storage account you created in [Create an HTTP triggered Python function](functions-create-first-function-python.md). You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart.
 
 ## Prerequisites
 

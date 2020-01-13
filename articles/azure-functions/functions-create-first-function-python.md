@@ -8,7 +8,7 @@ ms.custom: mvc
 
 # Quickstart: Create an HTTP triggered Python function in Azure
 
-In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents in your Azure account.
+In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-code-serverless-python-01) of this article.
 
@@ -102,7 +102,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-# [\_\_init\_\_.py](#tab/initpy)
+### \_\_init\_\_.py]
 
 *\_\_init\_\_.py* contains a `main()` Python function that's triggered according to the configuration in *function.json*.
 
@@ -135,7 +135,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). The return object, defined as `$return` in *function.json*, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
 
-# [function.json](#tab/functionjson)
+### function.json
 
 *function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. You can change `scriptFile` to invoke a different Python file if desired.
 
@@ -164,7 +164,6 @@ For HTTP trigger, the function receives request data in the variable `req` as de
 
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
 
----
 
 ## Run the function locally
 
