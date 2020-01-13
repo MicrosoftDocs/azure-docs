@@ -105,7 +105,7 @@ For more information, see [How to run experiments and inference in a virtual net
 ### Encryption at rest
 
 > [!IMPORTANT]
-> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. This controls the amount of data Microsoft collects for diagnostic purposes and enables encryption in Microsoft managed environments.
+> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. This controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments.
 
 
 #### Azure Blob storage
@@ -130,6 +130,8 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
 * Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+
+* Register the Azure Machine Learning and Azure Cosmos DB resource providers in your subscription, if not done already.
 
 * Authorize the Machine Learning App (in Identity and Access Management) with contributor permissions on your subscription.
 
