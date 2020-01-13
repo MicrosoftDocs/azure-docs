@@ -13,9 +13,9 @@ ms.author: dapine
 
 You'll need to replace the following values:
 
- - `YourSubscriptionKey`: found in the the **Keys** page of the Azure Portal for the Speech resource
- - `YourServiceRegion`: found in the the **Overview** page of the Azure Portal for the Speech resource
- - `YourFileUrl`: found in under the **Blob service / Containers** page of the Azure Portal for the Storage account resource
+ - `YourSubscriptionKey`: found in the the **Keys** page of the Azure portal for the Speech resource
+ - `YourServiceRegion`: found in the the **Overview** page of the Azure portal for the Speech resource
+ - `YourFileUrl`: found in under the **Blob service / Containers** page of the Azure portal for the Storage account resource
      - Select the appropriate container
      - Select the desired blob
      - Copy the **URL** under the **Properties** page
