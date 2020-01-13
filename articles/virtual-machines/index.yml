@@ -30,7 +30,12 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/virtual-machines/linux
-    - title: Troubleshoot Virtual Machines
+    - title: Troubleshoot Windows Virtual Machines
+      href: /azure/virtual-machines/troubleshooting
+      image: 
+        src:  media/index/virtual-machines.svg
+        href: /azure/virtual-machines/troubleshooting
+    - title: Troubleshoot Linux Virtual Machines
       href: /azure/virtual-machines/troubleshooting
       image: 
         src:  media/index/virtual-machines.svg

@@ -21,7 +21,7 @@ landingContent:
   # Card (optional)
   - title: Troubleshoot Deployment Failures
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
           - text: Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
             url: allocation-failure.md
@@ -31,11 +31,13 @@ landingContent:
             url: troubleshoot-deployment-new-vm-windows.md
           - text: Resolve errors for invalid template
             url: ../../azure-resource-manager/templates/error-invalid-template.md
+          - text: Resolve errors for SKU not available
+            url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
 
   # Card (optional)
   - title: VM Deployment Guidance
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
           - text: Prepare a Windows VHD or VHDX to upload to Azure
             url: https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image
@@ -46,7 +48,7 @@ landingContent:
   # Card
   - title: Cannot connect to my VM
     linkLists:
-      - linkListType: tutorial
+      - linkListType: learn
         links:
           - text: Quick steps to address common RDP connection issues
             url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-rdp-connection
@@ -58,9 +60,17 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-internal-error
           - text: Remote Desktop disconnects frequently in Azure VM
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-intermittent-connectivity
-          - text: Troubleshoot a general RDP error in an Azure VM
-            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-general-error
-
+          - text: Reset Remote Access to address remote server issues using PowerShell or CLI
+            url: http://aka.ms/resetsarmwinremoteaccess
+          - text: Unable to RDP due to VM booting into Safe Mode
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-safe-mode
+          - text: VM guest network card has DHCP disabled
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-dhcp-disabled
+          - text: VM guest network card is disabled
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled
+          - text: VM guest network card has a static IP assigned
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-static-ip
+          
   # Card
   - title: Help with VM Password Reset
     linkLists:
