@@ -196,7 +196,7 @@
           href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       # - name: Securing meta data objects
       #   href: article-template.md
-  - name: Integration and Orchestration
+  - name: Integration and orchestration
     items:      
     - name: Pipeline and activity
       href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
