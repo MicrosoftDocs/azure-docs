@@ -733,6 +733,7 @@ Instance Metadata Service can provide details about the storage disks associated
 The storage profile of a VM is divided into three categories - image reference, OS disk, and data disks.
 
 The image reference object contains the following information about the OS image:
+
 Data   | Description
 --------------------------
 id     | This is the resource ID
@@ -742,6 +743,7 @@ sku     | This is the image sku
 version | This is the version of the platform or marketplace image
 
 The OS disk object contains the following information about the OS disk used by the VM:
+
 Data    | Description
 --------------------------
 caching | This is the caching requirements
@@ -756,6 +758,7 @@ vhd     | This is the virtual hard disk
 writeAcceleratorEnabled | This specifies whether or not writeAccelerator is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following image:
+
 Data    | Description
 --------------------------
 caching | This is the caching requirements
