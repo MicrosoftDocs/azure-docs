@@ -224,7 +224,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
 ```html
 @section Scripts
 {
-    <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.3.js"></script>
+    <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js"></script>
     <script>
         function getTokenAndSubdomainAsync() {
             return new Promise(function (resolve, reject) {
