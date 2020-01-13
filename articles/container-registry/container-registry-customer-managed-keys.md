@@ -10,7 +10,7 @@ ms.custom:
 
 When you use an Azure container registry to store image data and other artifacts, the Azure Container Registry service automatically encrypts this data at rest. By default, data is encrypted with Microsoft-managed keys.
 
-For additional control over encryption keys, you can supply a customer-managed keys to encrypt the data in a registry. This article shows you how to create and store a key in Azure Key Vault, and then create a registry enabled to encrypt data using this key.
+For additional control over encryption keys, you can supply a customer-managed key to encrypt the data in a registry. This article shows you how to create and store a key in Azure Key Vault, and then create a registry enabled to encrypt data using this key.
 
 > [!IMPORTANT]
 > At this time, you must [request access](#register-the-provider) to use this capability. We recommend you review current [limitations and constraints](#limitations-and-constraints) before enabling this feature.    
@@ -198,15 +198,17 @@ az group deployment create \
 
 Verify the encryption settings on the registry by running the following commands.
 
-Run the [az acr show][az-acr-show] command to get the resource ID of the registry you created, and store it in the ACR_ID variable:
+Run [az acr show][az-acr-show] to get the resource ID of the registry you created, and store it in the ACR_ID variable:
 
 ```azurecli
-ACR_ID=$(az acr show -n <registry-name> --query id --output tsv)
+ACR_ID=$(az acr show --name <registry-name> --query id --output tsv)
 ```
 Then run the [az resource show][az-resource-show] command:
 
 ```azurecli
-az resource show --id $ACR_ID --query properties.encryption --api-version 2019-12-01-preview
+az resource show --id $ACR_ID \
+  --query properties.encryption \
+  --api-version 2019-12-01-preview
 ```
 
 Output under `keyVaultProperties` indicates that the encryption status is `enabled`.
