@@ -58,7 +58,7 @@ For management group deployments, there are some important considerations when u
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
-* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at management group level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. It returns the resource ID in the format `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
+* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at management group level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. It returns the resource ID in the format `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
 
 ## Create policies
