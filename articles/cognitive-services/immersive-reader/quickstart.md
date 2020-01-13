@@ -41,7 +41,7 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 ### Configure authentication values
 
-Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying your custom property values from the Azure AD authentication configuration prerequisite step above. 
+Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
 
 ```json
 {
@@ -215,7 +215,7 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
 
 Notice that all of the text has a **lang** attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
 
-## Add Javascript to handle launching the Immersive Reader
+## Add JavaScript to handle launching the Immersive Reader
 
 The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 

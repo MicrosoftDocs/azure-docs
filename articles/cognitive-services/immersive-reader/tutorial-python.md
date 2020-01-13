@@ -37,20 +37,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * [requests module](https://pypi.org/project/requests/2.7.0/)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
-## Acquire an Azure AD authentication token
+## Configure authentication credentials
 
-Write a backend API to retrieve an Azure AD authentication token.
-
-You need some values from the Azure AD auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Once you have these values, create a new file called _.env_, and paste the following code into it, supplying your custom property values from above. Replace the _.env._ file in the sample app with the newly created file.
+Create a new file called _.env_, and paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

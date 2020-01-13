@@ -48,7 +48,8 @@ yarn add dotenv
 ## Set up authentication
 
 ### Configure authentication values
-Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying your custom property values from the Azure AD authentication configuration prerequisite step above.
+
+Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 Do not include quotation marks or the "{" and "}" characters.
 
 ```text
