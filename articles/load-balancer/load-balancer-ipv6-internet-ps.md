@@ -51,13 +51,13 @@ The following steps show how to create an Internet facing load balancer using Az
 
 To deploy a load balancer, you create and configure the following objects:
 
-* Front-end IP configuration - contains public IP addresses for incoming network traffic.
-* Back-end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
+* Frontend IP configuration - contains public IP addresses for incoming network traffic.
+* Backend address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
 * Load balancing rules - contains rules mapping a public port on the load balancer to port in the back-end address pool.
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+For more information, see [Azure Load Balancer components](load-balancer-overview.md#load-balancer-components).
 
 ## Set up PowerShell to use Resource Manager
 

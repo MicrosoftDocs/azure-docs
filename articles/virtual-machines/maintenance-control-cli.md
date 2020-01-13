@@ -91,7 +91,7 @@ az maintenance assignment create \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
-   --maintenance-configuration-id '/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig'
+   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
 ```
 
 ### Dedicated host

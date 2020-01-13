@@ -2,11 +2,6 @@
  title: include file
  description: include file
  services: cosmos-db
- author: markjbrown
- ms.service: cosmos-db
- ms.topic: include
- ms.date: 01/06/2020
- ms.author: mjbrown
  ms.custom: include file
 ---
 

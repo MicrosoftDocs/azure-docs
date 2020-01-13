@@ -9,7 +9,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 01/06/2020
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -29,31 +29,12 @@ The examples in this article show how to:
 * Use environment for training
 * Use environment for web service  deployment
 
-## What are environments
-
-Environments specify the Python packages, environment variables, and software settings around your training and scoring scripts, and run times (Python, Spark, or Docker). They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
-
-You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment.
-
-The following illustrates that the same environment object can be used in both your run configuration for training and in your inference and deployment configuration for web service deployments.
-
-![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.png)
-
-### Types of environments
-
-Environments can broadly be divided into three categories: **curated**, **user-managed** and **system-managed**.
-
-Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They contain collections of Python packages and settings to help you get started different machine learning frameworks. 
-
-For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. Please note that if you are defining your own environment, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
-
-System-managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
+See the [conceptual article](concept-environments.md) for a high-level overview of how environments work in Azure Machine Learning.
 
 ## Prerequisites
 
 * The Azure Machine Learning SDK for Python [installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
-
 
 ## Create an environment
 
@@ -362,6 +343,34 @@ service = Model.deploy(
 ## Example notebooks
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
+
+## Create and manage environments with the CLI
+
+The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors the majority of the functionality of the Python SDK, and can be used for environment creation and management. The following commands demonstrate basic functionality.
+
+The following command scaffolds the files for a default environment definition in the specified directory. These files are JSON files that are similar in function to the corresponding class in the SDK, and can be used to create new environments with custom settings. 
+
+```azurecli-interactive
+az ml environment scaffold -n myenv -d myenvdir
+```
+
+Run the following command to register an environment from a specified directory.
+
+```azurecli-interactive
+az ml environment register -d myenvdir
+```
+
+Running the following command will list all registered environments.
+
+```azurecli-interactive
+az ml environment list
+```
+
+Download a registered environment with the following command.
+
+```azurecli-interactive
+az ml environment download -n myenv -d downloaddir
+```
 
 ## Next steps
 
