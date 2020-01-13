@@ -21,12 +21,6 @@ After you present the content item to your user, your system monitors user behav
 
 **Content** can be any unit of information such as text, images, urls, or emails that you want to select from to show to your user.
 
-Personalizer **is** a service:
-
-* that doesn't require cleaned and labeled content
-* that doesn't persist and manage user profile information
-* that doesn't log individual users' preferences or history
-
 ## How does Personalizer select the best content item?
 
 Personalizer uses reinforcement learning to select from your content (_actions_). Actions are the content items, such as news articles, specific movies, or products to choose from.
@@ -34,22 +28,18 @@ Personalizer uses reinforcement learning to select from your content (_actions_)
 The **Rank** call takes the action item, along with features of the action, and context features to select the top action item:
 
 * **Actions with features** - content items with features specific to each item
-* **Context features** - features of your users, their context or their environment when using your app -
+* **Context features** - features of your users, their context or their environment when using your app
 
 The Rank call returns the ID of which content item, __action__, to show to the user, in the **Reward Action ID** field.
 
 Several example scenarios are:
 
-|Content type|**Actions (with features)**|**Context features**|Returned Returned Action ID|
+|Content type|**Actions (with features)**|**Context features**|Returned Reward Action ID|
 |--|--|--|--|
-|News list|a. `The president...` (national, politics, [text])<br>b. `Premier league ...` (global, sports, [text, image, video])<br> c. `Hurricane in the ...` (regional, weather, [text,image]|Device news is read from<br>Month, or season<br>|a `The president...`|
-|Movies list|1. `Star wars` (1977, [action, adventure, fantasy], George Lucas)<br>2. `Hoop dreams` (1994, [documentary, sports], Steve James<br>3. `Casablanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Type of user<br>|3. `Casablanca`|
+|News list|a. `The president...` (national, politics, [text])<br>b. `Premier League ...` (global, sports, [text, image, video])<br> c. `Hurricane in the ...` (regional, weather, [text,image]|Device news is read from<br>Month, or season<br>|a `The president...`|
+|Movies list|1. `Star Wars` (1977, [action, adventure, fantasy], George Lucas)<br>2. `Hoop Dreams` (1994, [documentary, sports], Steve James<br>3. `Casablanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Type of user<br>|3. `Casablanca`|
 |Products list|i. `Product A` (3 kg, $$$$, deliver in 24 hours)<br>ii. `Product B` (20 kg, $$, 2 week shipping with customs)<br>iii. `Product C` (3 kg, $$$, delivery in 48 hours)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|ii. `Product B`|
 
-
-## Personalizer can rank content from a recommendation engine
-
-Personalizer can be used _with_ your existing recommendation engine as a last-step ranker, selecting the _top_ choice of content, from the list of choices provided by the recommendation engine. Learn how to [use Personalizer with recommendation engines](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines).
 
 ## When to call Personalizer
 
@@ -60,19 +50,25 @@ Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs
 
 ## Personalizer content requirements
 
-* You have a limited set of content (30 to 50 items) to select a single content item from. If you have a larger list, use a recommendation engine to reduce the list down to 30 to 50 items.
-* You have information describing the content you want ranked: _actions_ and _context_ - explained below.
+Personalizer does....
+* You have a limited set of content (30 to 50 items) to select a single content item from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 30 to 50 items.
+* You have information describing the content you want ranked: _actions_ and _context_.
 * Your scenario has enough real-time events (~4K/day) which need a selection from Personalizer.
+
+Personalizer doesn't:
+* require cleaned and labeled content
+* persist and manage user profile information
+* log individual users' preferences or history
 
 ## How do you get started?
 
 1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each Personalizer Resource you create is considered 1 Learning Loop. The loop is the combination of both the Rank and Reward calls for that content.
 1. Add Personalizer to your website or content system:
-    1. Add a **Rank** call to Personalizer in your application, website, or system to determine the ranking of content before the content is shown to the user.
-    1. Display ranked content to user.
-    1. Collect information about how the user behaved when presented with the ranked content, such as:
-        * Immediately selected top-ranked content
+    1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
+    1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
+    1. Collect information about how the user behaved when presented with the content, such as:
+        * Best, single _content_ item, which is the returned _reward action ID_
         * Or selected other content
         * Or paused, scrolling around indecisively, before selecting  content
     1. Add a **Reward** call
