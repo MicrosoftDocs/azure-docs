@@ -2,12 +2,12 @@
 title: Troubleshoot connectivity for Azure to Azure disaster recovery with Azure Site Recovery 
 description: Troubleshoot errors and issues when you replicate Azure virtual machines for disaster recovery
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
-ms.author: asgang
+ms.author: carmonm
 
 ---
 # Troubleshoot Azure-to-Azure VM network connectivity issues
