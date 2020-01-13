@@ -66,7 +66,7 @@ Run the following command to apply the change to Kubernetes clusters other than 
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
-This opens your default text editor. After setting the variable, save the the file in the editor.
+This opens your default text editor. After setting the variable, save the file in the editor.
 
 To verify the configuration change took effect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.
 
