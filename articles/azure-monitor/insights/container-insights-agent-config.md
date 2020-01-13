@@ -56,7 +56,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
 
-3. For clusters other than Azure Red Hat OpenShift, create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>` on clusters other than Azure Red Hat Openshift. 
+3. For clusters other than Azure Red Hat OpenShift, create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>` on clusters other than Azure Red Hat OpenShift. 
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
