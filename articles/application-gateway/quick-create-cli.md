@@ -1,15 +1,16 @@
 ---
-title: Quickstart - Direct web traffic with Azure Application Gateway - Azure CLI | Microsoft Docs
+title: 'Quickstart: Direct web traffic using CLI'
+titleSuffix: Azure Application Gateway
 description: Learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-
 ---
+
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
 
 This quickstart shows you how to use Azure CLI to create an application gateway.  After creating the application gateway, you test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool. This article uses a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, two virtual machines used for the backend pool, and a basic request routing rule.

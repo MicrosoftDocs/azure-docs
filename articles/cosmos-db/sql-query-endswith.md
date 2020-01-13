@@ -1,6 +1,6 @@
 ---
 title: ENDSWITH in Azure Cosmos DB query language
-description: Learn about SQL system function ENDSWITH in Azure Cosmos DB.
+description: Learn about the ENDSWITH SQL system function in Azure Cosmos DB to return a Boolean indicating whether the first string expression ends with the second
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

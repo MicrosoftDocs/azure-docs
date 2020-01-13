@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Synthesize speech into audio file, C# (.NET) - Speech Service"
+title: "Quickstart: Synthesize speech into audio file, C# (.NET) - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ---
@@ -86,7 +86,7 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## Synthesize text using SpeakTextAsync
 
-From the `SpeechSynthesizer` object, you're going to call the `SpeakTextAsync()` method. This method sends your text to the Speech Service which converts it to audio. The `SpeechSynthesizer` will use the default voice if `config.VoiceName` isn't explicitly specified.
+From the `SpeechSynthesizer` object, you're going to call the `SpeakTextAsync()` method. This method sends your text to the Speech service which converts it to audio. The `SpeechSynthesizer` will use the default voice if `config.VoiceName` isn't explicitly specified.
 
 Inside the using statement, add this code:
 ````C#

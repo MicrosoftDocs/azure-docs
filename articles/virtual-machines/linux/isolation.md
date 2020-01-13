@@ -1,5 +1,5 @@
 ---
-title: Isolation for Linux VMs in Azure | Microsoft Docs
+title: Isolation for Linux VMs in Azure 
 description: Learn about VM isolation works in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -21,7 +21,3 @@ ms.author: ayshak
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation-migration.md)]
-
-## Next steps
-
-- You can deploy a dedicated host using the [Azure CLI](dedicated-hosts-cli.md), the [portal](dedicated-hosts-portal.md), and [Azure PowerShell](../windows/dedicated-hosts-powershell.md). For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.

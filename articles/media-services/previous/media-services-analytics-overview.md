@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ---
@@ -28,11 +28,7 @@ ms.reviewer: milanga; johndeu
 |---|---|
 |[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| January 1 of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).|
 |[Azure Media Indexer](media-services-index-content.md)|October 1st of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md)
-|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
-|[Azure Media Motion Detector](media-services-motion-detection.md)|February 1, 2020|This Media Analytics Preview processor  will be retired and will not be moved to general availability. We will be evaluating its scenarios and use-cases with customers for future investments.|
-|[Azure Media OCR](media-services-video-optical-character-recognition.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](../latest/analyzing-video-audio-files-concept.md).|
-|[Azure Media Video Thumbnails](media-services-video-summarization.md)|February 1, 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) and the [Azure Media Services v3 API Video Analyzer Preset](../latest/analyzing-video-audio-files-concept.md).|
-
+ 
 ## Overview
 
 More organizations are using video as the preferred medium to train their employees, engage their customers, and document business functions. Cloud computing provides a way to store, stream, and access these large media files. But as a company's library of video content grows, it needs an equally effective means of extracting insights from the content. 

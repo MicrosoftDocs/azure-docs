@@ -1,11 +1,11 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agent-based Azure Migrate Server Migration  | Microsoft Docs
-description: This article describes how to perform an agent-based migration of on-premises machines to Azure with Azure Migrate Server Migration
+title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
 ---

@@ -1,10 +1,9 @@
 ---
-title: Manage costs effectively for SQL Server on Azure virtual machines | Microsoft Docs
+title: Price guidance & managing costs
 description: Provides best practices for choosing the right SQL Server virtual machine pricing model.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: 
@@ -16,8 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 ---
-# Pricing guidance for SQL Server Azure VMs
+# Pricing guidance for Azure SQL Server VMs
 
 This article provides pricing guidance for [SQL Server virtual machines](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
 

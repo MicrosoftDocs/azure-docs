@@ -30,6 +30,13 @@ Check the Network Security Group has the correct **Inbound security rules** that
 
    ![NSG Inbound security rule](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG Inbound security rule")
 
+> [!NOTE]
+> You can choose to be more restrictive in the inbound access to your managed SQL instance by replacing the current rule (`public_endpoint_inbound`) with 2 rules:
+>
+> * Allowing inbound access from the `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`)
+>
+> * Allowing inbound access from the IP address of the search service, which can be obtained by pinging its fully qualified domain name (eg., `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`)
+
 ## Get public endpoint connection string
 Make sure you use the connection string for the **public endpoint** (port 3342, not port 1433).
 

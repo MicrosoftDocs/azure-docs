@@ -2,8 +2,7 @@
 documentType: LandingData
 title: Azure Spatial Anchors Documentation
 metadata:
-  document_id: 8ba93ac8-1984-48d5-8944-329e6653e39d
-  title: Azure Spatial Anchors Documentation - Tutorials, API Reference
+  title: Azure Spatial Anchors Documentation
   meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
   services: azure-spatial-anchors
   author: craigktreasure
@@ -27,6 +26,7 @@ sections:
       - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Anchor relationships and way-finding.</a>
       - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Experience guidelines.</a>
       - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Logging and diagnostics.</a>
+      - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Coarse relocalization.</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

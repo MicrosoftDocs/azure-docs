@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Linux - Speech Service"
+title: "Quickstart: Run the Speech Devices SDK on Linux - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Linux Speech Devices SDK.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
 ---
 
@@ -19,7 +19,7 @@ In this quickstart, you'll learn how to use the Speech Devices SDK for Linux to 
 
 The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). It runs on a 64-bit Java 8 runtime environment (JRE).
 
-This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -31,7 +31,7 @@ This quickstart requires:
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech service. [Get one for free](get-started.md).
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
    > [!NOTE]
    > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to /home/wcaltest/JRE-Sample-Release
@@ -76,11 +76,34 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Screenshot of Package explorer](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Open the pom.xml file and edit it.
+
+    At the end of the file, before the closing tag `</project>`, create `repositories` and `dependencies` elements, as shown here, and ensure the `version` matches your current version:
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. In the **Package explorer**, right-click your project. Choose **Properties**,  then **Run/Debug Settings** > **New…** > **Java Application**. 
 
 1. The **Edit Configuration** window appears. In the **Name** field enter **Main**, and use **Search** for the **Main Class** to find and select **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
    ![Screenshot of Edit Launch Configuration](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. Copy the audio binaries for your target architecture, from either **Linux-arm** or **Linux-x64**, to the Java Project location, eg **/home/wcaltest/JRE-Sample-Release**
 
 1. Also from the **Edit Configuration** window select the **Environment** page and **New**. The **New Environment Variable** window appears. In the **Name** field enter **LD_LIBRARY_PATH** and in the **value** field enter the folder containing the *.so files, for example **/home/wcaltest/JRE-Sample-Release**
 
@@ -114,15 +137,14 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
    > [!TIP]
    > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
 
-    To use a new keyword, update the following two lines in `FunctionsList.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package `kws-machine.zip`:
+    To use a new keyword, update the following line in `FunctionsList.java`, and copy the keyword to your app. For example, to use the keyword 'Machine' from the keyword package `machine.zip`:
 
-   * Copy the keyword package into the project folder **target/classes**.
+   * Copy the `kws.table` file from the zip package into the project folder **target/classes**.
 
-   * Update the `FunctionsList.java` with the keyword and the package name:
+   * Update the `FunctionsList.java` with the keyword name:
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## Run the sample application from Eclipse

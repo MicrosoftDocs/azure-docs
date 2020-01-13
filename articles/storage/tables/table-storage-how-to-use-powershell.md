@@ -1,6 +1,6 @@
 ---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
-description: Perform Azure Table storage operations with PowerShell.
+description: Learn how to run common tasks such as creating, querying, deleting data from Azure Table storage account by using PowerShell.
 services: cosmos-db
 author: roygara
 

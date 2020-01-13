@@ -1,6 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Configure a custom domain name for your Azure API Management instance | Microsoft Docs
+title: Configure custom domain name for Azure API Management instance
+titleSuffix: Azure API Management
 description: This topic describes how to configure a custom domain name for your Azure API Management instance.
 services: api-management
 documentationcenter: ''

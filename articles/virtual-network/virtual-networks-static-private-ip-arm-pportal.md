@@ -1,5 +1,5 @@
 ---
-title: Configure private IP addresses for VMs - Azure portal | Microsoft Docs
+title: Configure private IP addresses for VMs - Azure portal
 description: Learn how to configure private IP addresses for virtual machines using the Azure portal.
 services: virtual-network
 documentationcenter: na

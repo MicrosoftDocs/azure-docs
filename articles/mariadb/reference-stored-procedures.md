@@ -1,11 +1,11 @@
 ---
-title: Azure Database for MariaDB management stored procedures
-description: Learn which stored procedures in Azure Database for MySQL are useful to help you configure data-in replication, set the timezone, and kill queries.
+title: Management stored procedures - Azure Database for MariaDB
+description: Learn which stored procedures in Azure Database for MariaDB are useful to help you configure data-in replication, set the timezone, and kill queries.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/02/2019
 ---
 
 # Azure Database for MariaDB management stored procedures

@@ -1,39 +1,39 @@
 ---
-title: Understand the Linux agent check results in Azure Update Management
-description: Learn how to troubleshoot issues with the Update Management agent.
+title: Diagnose Linux Hybrid Runbook Worker - Azure Update Management
+description: Learn how to troubleshoot and resolve issues with the Azure Automation Hybrid Runbook Worker on Linux that supports Update Management.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ---
 
-# Understand the Linux agent check results in Update Management
+# Understand and resolve Linux Hybrid Runbook Worker health for Update Management
 
-There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 The following list are the three readiness states a machine can be in:
 
-* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
-* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
-* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+* **Ready** - The Hybrid Runbook Worker is deployed and was last seen less than 1 hour ago.
+* **Disconnected** -  The Hybrid Runbook Worker is deployed and was last seen over 1 hour ago.
+* **Not configured** -  The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
 > There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > The checks require the VM to be running. If the VM is not running you are presented with a button to **Start the VM**.
 
-On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies that the agent has. When the troubleshooter is complete, it returns the result of the checks.
+On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is complete, it returns the result of the checks.
 
 ![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -45,7 +45,7 @@ When complete, the results are returned in the window. The check sections provid
 
 ### Operating system
 
-The OS check, verifies if the Hybrid Runbook Worker is running one of the following Operating Systems:
+The operating system check verifies if the Hybrid Runbook Worker is running one of the following Operating Systems:
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -56,14 +56,14 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 ## Monitoring agent service health checks
 
-### OMS agent
+### Log Analytics agent
 
-This check ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
-### OMS Agent status
+### Log Analytics agent status
 
-This check ensures that the OMS Agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
+This check ensures that the Log Analytics agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -75,7 +75,7 @@ This check determines if the agent is reporting to multiple workspaces. Multi-ho
 
 ### Hybrid Runbook Worker
 
-This check verifies if the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
+This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
 
 ### Hybrid Runbook Worker status
 
@@ -95,7 +95,7 @@ This check makes sure that the machine has access to the internet.
 
 ### Registration endpoint
 
-This check determines if the agent can properly communicate with the agent service.
+This check determines if the Hybrid Runbook Worker can properly communicate with Azure Automation the Log Analytics workspace.
 
 Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
@@ -174,5 +174,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## Next steps
 
-To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
-
+To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md).

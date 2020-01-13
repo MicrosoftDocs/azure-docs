@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Samples for Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure CLI Samples
 services: load-balancer
 documentationcenter: load-balancer

@@ -4,8 +4,8 @@ description: Answers to frequently asked questions about the Azure Monitor Logs 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/01/2019
 
 ---
@@ -48,7 +48,7 @@ A: Click ‘Filters’ on the left pane to see a preview of the new Filters impl
 
 ### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
 
-A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) for more information.
+A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
 
 ### Q. Why am I am getting no access error message when accessing Logs from a VM page? 
 
@@ -73,11 +73,6 @@ A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on th
 ### Q. How can I see my views and solutions in Azure portal? 
 
 A: The list of views and installed solutions are available in Azure portal. Click **All services**. In the list of resources, select **Monitor**, then click **...More**. The last used workspace is selected, but you can select any other workspace. 
-
-### Q. Why I can’t create workspaces in West Central US region? 
-
-A: This region is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019.
-
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 

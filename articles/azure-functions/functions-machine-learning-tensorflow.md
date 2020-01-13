@@ -1,12 +1,8 @@
 ---
-title: "Tutorial: Use Python and TensorFlow in Azure Functions to make machine learning inferences | Microsoft Docs"
+title: Use Python and TensorFlow for machine learning in Azure 
 description: This tutorial demonstrates how to apply TensorFlow machine learning models in Azure Functions
-services: functions
 author: anthonychu
-manager: gwallace
 
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
@@ -96,7 +92,7 @@ A function app can contain one or more Azure Functions. Open the *start* folder 
 
 - [*local.settings.json*](functions-run-local.md#local-settings-file): Contains application settings used for local development
 - [*host.json*](functions-host-json.md): Contains settings for the Azure Functions host and extensions
-- [*requirements.txt*](functions-reference-python.md#python-version-and-package-management): Contains Python packages required by this application
+- [*requirements.txt*](functions-reference-python.md#package-management): Contains Python packages required by this application
 
 ## Create an HTTP function
 

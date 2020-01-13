@@ -1,14 +1,9 @@
 ---
 title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
-services: functions
-author: ggailey777
-manager: jeconnoc
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: glenga
 ---
 
 # How to target Azure Functions runtime versions
@@ -30,9 +25,9 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 
 | Major version | `FUNCTIONS_EXTENSION_VERSION` value |
 | ------------- | ----------------------------------- |
-| 3.x (preview) | `~3` |
+| 3.x  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 A change to the runtime version causes a function app to restart.
 

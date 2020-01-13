@@ -4,15 +4,13 @@ description: Learn about the Copy activity in Azure Data Factory. You can use it
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 01/08/2020
 ms.author: jingwang
 
 ---
@@ -47,28 +45,13 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 ### Supported file formats
 
-You can use the Copy activity to copy files as is between two file-based data stores. In this case, the data is copied efficiently without any serialization or deserialization.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-The Copy activity can also read from and write to files in these formats:
-- Text
-- JSON
-- Avro
-- ORC
-- Parquet
+You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 
-The Copy activity can compress and decompress files with these codecs: 
-- Gzip
-- Deflate
-- Bzip2
-- ZipDeflate
-
-For more information, see [Supported file and compression formats](supported-file-formats-and-compression-codecs.md).
-
-For example, you can perform the following copy activities:
-
-* Copy data from an on-premises SQL Server database and write the data to Azure Data Lake Storage Gen2 in Parquet format.
+* Copy data from an on-premises SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
-* Copy zipped files from an on-premises file system, decompress them, and write them to Azure Data Lake Storage Gen2.
+* Copy zipped files from an on-premises file system, decompress them on-the-fly, and write extracted files to Azure Data Lake Storage Gen2.
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
 * Many more activities that require serialization/deserialization or compression/decompression.
 
@@ -142,13 +125,14 @@ The following template of a Copy activity contains a complete list of supported 
 | inputs | Specify the dataset that you created that points to the source data. The Copy activity supports only a single input. | Yes |
 | outputs | Specify the dataset that you created that points to the sink data. The Copy activity supports only a single output. | Yes |
 | typeProperties | Specify properties to configure the Copy activity. | Yes |
-| source | Specify the copy source type and the corresponding properties for retrieving data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
-| sink | Specify the copy sink type and the corresponding properties for writing data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
-| translator | Specify explicit column mappings from source to sink. This property applies when the default copy behavior doesn't meet your needs.<br/><br/>For more information, see [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md). | No |
-| dataIntegrationUnits | Specify a measure that represents the amount of power that the [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/><br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
-| parallelCopies | Specify the parallelism that you want the Copy activity to use when reading data from the source and writing data to the sink.<br/><br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
-| enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/><br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance.md#staged-copy). | No |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when you copy data from source to sink.<br/><br/>For more information, see [Fault tolerance](copy-activity-fault-tolerance.md). | No |
+| source | Specify the copy source type and the corresponding properties for retrieving data.<br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
+| sink | Specify the copy sink type and the corresponding properties for writing data.<br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
+| translator | Specify explicit column mappings from source to sink. This property applies when the default copy behavior doesn't meet your needs.<br/>For more information, see [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md). | No |
+| dataIntegrationUnits | Specify a measure that represents the amount of power that the [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
+| parallelCopies | Specify the parallelism that you want the Copy activity to use when reading data from the source and writing data to the sink.<br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
+| preserve | Specify whether to preserve metadata/ACLs during data copy. <br/>For more information, see [Preserve metadata](copy-activity-preserve-metadata.md). |No |
+| enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance.md#staged-copy). | No |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when you copy data from source to sink.<br/>For more information, see [Fault tolerance](copy-activity-fault-tolerance.md). | No |
 
 ## Monitoring
 
@@ -249,13 +233,9 @@ Copy activity execution details and performance characteristics are also returne
 }
 ```
 
-## Schema and data type mapping
+## Incremental copy
 
-See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the Copy activity maps your source data to your sink.
-
-## Fault tolerance
-
-By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
+Data Factory enables you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
 
 ## Performance and tuning
 
@@ -269,8 +249,36 @@ In this sample, during a copy run, Data Factory tracks a high DTU utilization in
 
 ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## Incremental copy
-Data Factory enables you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
+## Resume from last failed run
+
+Copy activity supports resume from last failed run when you copy large size of files as-is with binary format between file-based stores and choose to preserve the folder/file hierarchy from source to sink, e.g. to migrate data from Amazon S3 to Azure Data Lake Storage Gen2. It applies to the following file-based connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), and [SFTP](connector-sftp.md).
+
+You can leverage the copy activity resume in the following two ways:
+
+- **Activity level retry:** You can set retry count on copy activity. During the pipeline execution, if this copy activity run fails, the next automatic retry will start from last trial's failure point.
+- **Rerun from failed activity:** After pipeline execution completion, you can also trigger a rerun from the failed activity in the ADF UI monitoring view or programmatically. If the failed activity is a copy activity, the pipeline will not only rerun from this activity, but also resume from the previous run's failure point.
+
+    ![Copy resume](media/copy-activity-overview/resume-copy.png)
+
+Few points to note:
+
+- Resume happens at file level. If copy activity fails when copying a file, in next run, this specific file will be re-copied.
+- For resume to work properly, do not change the copy activity settings between the reruns.
+- When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 and Google Cloud Storage, copy activity can resume from arbitrary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be re-copied during reruns.
+
+For other scenarios than binary file copy, copy activity rerun starts from the beginning.
+
+## Preserve metadata along with data
+
+While copying data from source to sink, in scenarios like data lake migration, you can also choose to preserve the metadata and ACLs along with data using copy activity. See [Preserve metadata](copy-activity-preserve-metadata.md) for details.
+
+## Schema and data type mapping
+
+See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the Copy activity maps your source data to your sink.
+
+## Fault tolerance
+
+By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

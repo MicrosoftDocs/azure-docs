@@ -1,5 +1,5 @@
 ---
-title: Move a Windows AWS VMs to Azure | Microsoft Docs
+title: Move a Windows AWS VMs to Azure 
 description: Move an Amazon Web Services (AWS) EC2 Windows instance to an Azure virtual machine. 
 services: virtual-machines-windows
 documentationcenter: ''

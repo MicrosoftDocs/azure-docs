@@ -1,6 +1,6 @@
 ---
-title: Perform an access review from the My Apps portal - Azure AD
-description: Learn how to view and manage security access for your organization's apps and groups.
+title: Manage your organization's access to apps & groups - Azure AD
+description: Learn how to perform an access review to manage security access for your organization's apps and groups from the My Apps portal.
 services: active-directory
 author: eross-msft
 manager: daveba

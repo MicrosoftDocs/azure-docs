@@ -206,7 +206,7 @@ In order to enable Azure AD users to log into Mindflash, they must be provisione
     b. Click **Add**.
 
 >[!NOTE]
->You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts. 
+>You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision Azure AD user accounts. 
 > 
 
 ### Test single sign-on 

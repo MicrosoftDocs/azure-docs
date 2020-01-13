@@ -1,20 +1,13 @@
 ---
-title: Best practices and troubleshooting for Node.js - Azure App Service
-description: Learn the best practices and troubleshooting steps for node applications on Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
-author: ranjithr
-manager: wadeh
-editor: ''
+title: Node.js best practices and troubleshooting
+description: Learn the best practices and troubleshooting steps for Node.js applications running in Azure App Service.
+author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows

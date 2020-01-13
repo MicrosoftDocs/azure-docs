@@ -54,13 +54,13 @@ or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines
 to pull configurations.
 
 To try out PowerSTIG, visit the
-[PowerShell Gallery](http://www.powershellgallery.com)
+[PowerShell Gallery](https://www.powershellgallery.com)
 and download the solution or click "Project Site"
 to view the
 [documentation](https://github.com/microsoft/powerstig).
 
 ## Next steps
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview)
-- [DSC Resources](/powershell/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
+- [DSC Resources](/powershell/scripting/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

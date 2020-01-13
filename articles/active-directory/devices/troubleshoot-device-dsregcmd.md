@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting devices using the dsregcmd command - Azure Active Directory
+title: Troubleshoot using the dsregcmd command - Azure Active Directory
 description: Using the output from dsregcmd to understand the state of devices in Azure AD 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -81,6 +81,9 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 ## Tenant details
 
 Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists the common tenant details when a device is joined to Azure AD.
+
+> [!NOTE]
+> If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
 
 > [!NOTE]
 > Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
@@ -291,10 +294,22 @@ This section displays the output of sanity checks performed on a device joined t
 
 ## NGC prerequisite check
 
-This section performs the perquisite checks for the provisioning of an NGC key. 
+This section performs the perquisite checks for the provisioning of Windows Hello for Business (WHFB). 
 
 > [!NOTE]
-> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured NGC credentials.
+> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured WHFB.
+
+- **IsDeviceJoined:** - Set to “YES” if the device is joined to Azure AD.
+- **IsUserAzureAD:** - Set to “YES” if the logged in user is present in Azure AD .
+- **PolicyEnabled:** - Set to "YES" if the WHFB policy is enabled on the device.
+- **PostLogonEnabled:** - Set to "YES" if WHFB enrollment is triggered natively by the platform. If it's set to "NO", it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism
+- **DeviceEligible:** - Set to “YES” if the device meets the hardware requirement for enrolling with WHFB.
+- **SessionIsNotRemote:** - Set to “YES” if the current user is logged in directly to the device and not remotely.
+- **CertEnrollment:** - Specific to WHFB Certificate Trust deployment, indicating the certificate enrollment authority for WHFB. Set to “enrollment authority” if source of WHFB policy is Group Policy, “mobile device management” if source is MDM. “none” otherwise
+- **AdfsRefreshToken:** - Specific to WHFB Certificate Trust deployment. Only present if CertEnrollment is “enrollment authority”. Indicates if the device has an enterprise PRT for the user.
+- **AdfsRaIsReady:** - Specific to WHFB Certificate Trust deployment.  Only present if CertEnrollment is “enrollment authority”. Set to “YES” if ADFS indicated in discovery metadata that it supports WHFB *and* if logon certificate template is available.
+- **LogonCertTemplateReady:** - Specific to WHFB Certificate Trust deployment. Only present if CertEnrollment is “enrollment authority”. Set to “YES” if state of logon certificate template is valid and helps troubleshoot ADFS RA.
+- **PreReqResult:** - Provides result of all WHFB prerequisite evaluation. Set to “Will Provision” if WHFB enrollment would be launched as a post-logon task when user signs in next time.
 
 ### Sample NGC prerequisite check output
 

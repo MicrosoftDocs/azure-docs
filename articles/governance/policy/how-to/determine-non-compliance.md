@@ -2,7 +2,7 @@
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Determine causes of non-compliance
 
@@ -253,6 +253,6 @@ query this information outside of the Azure portal, see [Get resource changes](.
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
