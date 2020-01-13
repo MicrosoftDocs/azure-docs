@@ -46,15 +46,24 @@
     expanded: false
     items:
     - name: Register applications for Azure API for FHIR overview
-      href: tutorial-1-decision-flow.md
-    - name: Register a resource application
+      href: reg-app-overview.md
+    - name: Resource application
       href: register-resource-azure-ad-client-app.md
-    - name: Register a confidential client application
+    - name: Confidential client application
       href: register-confidential-azure-ad-client-app.md
-    - name: Register a public client application
+    - name: Pblic client application
       href: register-public-azure-ad-client-app.md
-    - name: Register a service client application
+    - name: Service client application
       href: register-service-azure-ad-client-app.md
+  - name: Configure settings
+    expanded: false
+    items:
+    - name: Configure additional Azure API for FHIR settings
+      href: azure-api-for-fhir-additional-settings.md 
+    - name: Configure database settings
+      href: configure-database.md
+    - name: Configure CORS
+      href: configure-cross-origin-resource-sharing.md
   - name: Access token validation
     href: azure-ad-hcapi-token-validation.md
   - name: Find identity object IDs
@@ -66,16 +75,10 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Configure additional Azure API for FHIR settings
-    href: azure-api-for-fhir-additional-settings.md 
   - name: Azure AD and Azure API for FHIR Overview
     href: azure-ad-hcapi.md  
-  - name: Configure database settings
-    href: configure-database.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
-  - name: Configure CORS
-    href: configure-cross-origin-resource-sharing.md
 - name: Resources
   items:
   - name: FAQ

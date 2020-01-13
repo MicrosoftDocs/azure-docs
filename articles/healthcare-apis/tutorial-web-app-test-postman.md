@@ -17,7 +17,7 @@ In the previous two steps, you deployed the Azure API for FHIR and registered yo
 ## Retrieve capability statement
 First we will get the capability statement for your Azure API for FHIR. 
 1. Open Postman
-1. Retrieve the capability statement by doing GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata
+1. Retrieve the capability statement by doing GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. In the image below, the name of the FHIR server is **fhirserver**
 
 ![Capability Statement](media/tutorial-web-app/postman-capability-statement.png)
 

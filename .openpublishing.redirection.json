@@ -43748,6 +43748,9 @@
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cli.md",
       "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/translator/how-to-install-containers.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-info-overview",
       "redirect_document_id": false
@@ -43765,6 +43768,11 @@
     {
       "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-1-decision-flow.md",
+      "redirect_url": "/azure/healthcare-apis/reg-app-overview",
       "redirect_document_id": false
     }
   ]
