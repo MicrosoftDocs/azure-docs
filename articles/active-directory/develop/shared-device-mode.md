@@ -32,11 +32,11 @@ Shared device mode also provides Microsoft identity backed management of the dev
 
 To create a shared device mode app, developers and cloud device admins work together:
 
-- Developers write a single-account app (multiple-account apps are not supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like global sign-out.
+- Developers write a single-account app (multiple-account apps are not supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
 - Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://www.microsoft.com/account/authenticator). You can configure the membership of your organizational roles in the Azure Portal via:
 **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
 
- This article focuses primarily on issues developers should think about.
+ This article focuses primarily what developers should think about.
 
 ## Single vs multiple-account applications
 
@@ -48,9 +48,9 @@ Applications written using the Microsoft Authentication Library SDK (MSAL) can m
 >
 > Apps written before the MSAL SDK was released run in multiple-account mode and must be updated to support single-account mode before they can run on a shared mode device.
 
-**Supporting both single-account and multiple-account mode**
+**Supporting both single-account and multiple-accounts**
 
-Your app can be built to support running on both personal devices and shared devices. If your app supports multiple accounts, you can also add support for single account mode so that you can use shared device mode.
+Your app can be built to support running on both personal devices and shared devices. If your app currently supports multiple accounts and you want to support shared device mode, add support for single account mode.
 
 You may also want your app to change its behavior depending on the type of device it is running on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode.
 
@@ -60,15 +60,17 @@ The following object model illustrates the type of object you may receive and wh
 
 ![public client application inheritance model](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-You'll need to perform a type check and cast to the appropriate interface when you get your public client application object, like this:
+You'll need to perform a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account mode or single account mode, and casts the application object appropriately:
 
 ```java
 private IPublicClientApplication mApplication;
 
+        // Running in personal-device mode?
         if (mApplication instanceOf IMultipleAccountPublicClientApplication) {
           IMultipleAccountPublicClientApplication multipleAccountApplication = (IMultipleAccountPublicClientApplication) mApplication;
           ...
-        } else if (mApplication instanceOf    ISingleAccountPublicClientApplication) {
+        // Running in shared-device mode?
+        } else if (mApplication instanceOf ISingleAccountPublicClientApplication) {
            ISingleAccountPublicClientApplication singleAccountApplication = (ISingleAccountPublicClientApplication) mApplication;
             ...
         }
@@ -78,7 +80,7 @@ The following differences apply depending on whether your app is running on a sh
 
 |  | Shared mode device  | Personal device |
 |---------|---------|---------|
-| **Accounts**     | Only one account | Multiple accounts |
+| **Accounts**     | Single account | Multiple accounts |
 | **Sign-in** | Global | Global |
 | **Sign-out** | Global | Each application can control if the sign-out is local to the app or for the family of applications. |
 | **Supported account types** | Work accounts only | Personal and work accounts supported  |
@@ -91,9 +93,9 @@ If you are writing an app that will only be used for firstline workers using a s
 
 If your application is running in multiple-account mode, and an administrator puts the device in shared device mode, all of the accounts on the device are cleared from the application and the application transitions to single-account mode.
 
-## Global sign out and the overall app lifecycle
+## Shared device sign out and the overall app lifecycle
 
-When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out that previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
+When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
@@ -101,6 +103,6 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ![Shared device app lifecycle](media/v2-shared-device-mode/lifecycle.png)
 
- # Next steps
+## Next steps
 
-See the [global sign out sample](https://github.com/brandwe/GlobalSignoutSample) for example shared device mode app code that shows how to write a firstline worker app that runs on a shared mode Android device.
+See the [shared device sign out sample](https://github.com/brandwe/GlobalSignoutSample) for example shared device mode app code that shows how to write a firstline worker app that runs on a shared mode Android device.
