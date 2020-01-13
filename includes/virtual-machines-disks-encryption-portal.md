@@ -87,6 +87,9 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 To manage and configure disk encryption on your existing disks, you must use the following link: https://aka.ms/diskencryptionsets. Enabling customer-managed keys on existing disks is not yet available in the global Azure portal.
 
+> [!CAUTION]
+> Enabling disk encryption on any disks attached to a VM will require that you stop the VM.
+
 1. Navigate to a VM which is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.
 
