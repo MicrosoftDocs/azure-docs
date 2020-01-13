@@ -194,15 +194,3 @@ landingContent:
         links:
           - text:  Troubleshooting shared image galleries-replication is slow
             url: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/troubleshooting-shared-images#replication-is-slow
-                    
-   # Card
-  - title: Windows Activation issues
-    linkLists:
-      - linkListType: learn
-        links:
-          - text:  General troubleshooting steps for extensions
-            url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
-          - text:  Installing the extension in your VM
-            url: https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#installing-the-extension-in-your-vm
-          - text:  Custom Script Extension for Windows
-            url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
