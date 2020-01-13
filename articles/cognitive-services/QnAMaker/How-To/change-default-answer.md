@@ -27,4 +27,4 @@ The default answer is returned when there is no match to the question. You may w
 
 ## Next steps
 
-* [Create a bot with QnA Maker and LUIS](../tutorials/integrate-qnamaker-luis)
+* [Create a bot with QnA Maker and LUIS](../tutorials/integrate-qnamaker-luis.md)
