@@ -31,17 +31,17 @@ For a nine-minute introduction to this feature and a demonstration, watch this v
 
 ## Continuous integration and delivery lifecycle
 
-Following is a sample overview of the continuous integration and delivery lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
+Below is a sample overview of the continuous integration and delivery lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
 
-1.  A development data factory is created and configured with Azure Repos Git. All developers have permission to author Data Factory resources like pipelines and datasets.
+1.  A development data factory is created and configured with Azure Repos Git. All developers should have permission to author Data Factory resources like pipelines and datasets.
 
 1.  As the developers make changes in their feature branches, they debug their pipeline runs with their most recent changes. For more information on how to debug a pipeline run, see [Iterative development and debugging with Azure Data Factory](iterative-development-debugging.md).
 
 1.  After the developers are satisfied with their changes, they create a pull request from their feature branch to the master or collaboration branch to get their changes reviewed by peers.
 
-1.  After a pull request is approved and changes are merged in the master branch, they can be published to the development factory.
+1.  After a pull request is approved and changes are merged in the master branch, the changes can be published to the development factory.
 
-1.  When team members are ready to deploy the changes to the test factory and then to the production factory, they export the Resource Manager template from the master branch.
+1.  When the team is ready to deploy the changes to the test factory and then to the production factory, the team exports the Resource Manager template from the master branch.
 
 1.  The exported Resource Manager template is deployed with different parameter files to the test factory and the production factory.
 
@@ -77,7 +77,7 @@ Following is a guide for setting up an Azure Pipelines release, which automates 
 
 ### Requirements
 
--   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that use the [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   A data factory configured with Azure Repos Git integration.
 
