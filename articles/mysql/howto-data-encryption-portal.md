@@ -16,7 +16,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 * You must have an Azure subscription and be an administrator on that subscription.
 * Create an Azure Key Vault and Key to use for customer-managed key.
-* The Key Vault must have the following property to use as a customer-managed key
+* The Key Vault must have the following property to use as a customer-managed key:
   * [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
