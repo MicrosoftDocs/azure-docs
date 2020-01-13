@@ -25,9 +25,10 @@ Below is the code that you can input into **index**. You will need to update the
 * **clientId** - Update with your client application ID. This ID will be the same ID you pulled when retrieving your token
 * **authority** - Update with your Azure AD tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
+* **Scopes** - Update the Scopes with your FHIR Server name
 
 
-``` javascript
+``` HTML
 
 <!DOCTYPE html>
 <html>
@@ -59,10 +60,10 @@ Below is the code that you can input into **index**. You will need to update the
         }
 
         var FHIRConfig = {
-            FHIRendpoint: "https://<FHIR-SERVICE-NAME>.azurehealthcareapis.com"
+            FHIRendpoint: "https://<FHIR-SERVER-NAME>.azurehealthcareapis.com"
         }
         var requestObj = {
-            scopes: ["https://azurehealthcareapis.com/user_impersonation"]
+            scopes: ["https://<FHIR-SERVER-NAME>azurehealthcareapis.com/user_impersonation"]
         }
 
         function authRedirectCallBack(error, response) {

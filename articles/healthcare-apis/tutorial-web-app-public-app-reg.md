@@ -26,7 +26,7 @@ Once your client application is registered, copy the Application (client) ID fro
 
 ![Copy App ID](media/tutorial-web-app/app-id.png)
 
-Next, set the correct authentication options. Select **Authentication** from the left-hand side. Check the **Access Token** and **ID token** boxes.
+Next, set the correct authentication options. Select **Authentication** from the left-hand side. Check the **Access Token** and **ID token** boxes. You should also add another redirect URI that is the URI of your FHIR server (https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com).
 
 ![App authentication settings](media/tutorial-web-app/app-authentication.png)
 
