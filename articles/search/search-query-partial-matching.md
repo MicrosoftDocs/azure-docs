@@ -23,10 +23,10 @@ When you need to search on partial strings or special characters, you can overri
 + Assign the analyzer to the field
 + Build the index and test
 
-This article walks you through each step. The approach described here can be used in other scenarios. Wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
+This article walks you through these tasks. The approach described here can be used in other scenarios: wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
 > [!TIP]
-> Evaluating analyers requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index), and [Load Documents](https://docs.microsoft.com/rest/api/searchservice//addupdate-or-delete-documents) where the request body provides a small representative data set that you want to test.
+> Evaluating analyers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
 
 ## Choosing an analyzer
 
@@ -36,9 +36,9 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 |----------|-----------|
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Content of the entire field is tokenized as a single term. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
-| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. A recommended combination is the keyword tokenizer with a lower-case token filter. By itself, the built-in [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
+| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the keyword tokenizer with a lower-case token filter. By itself, the built-in [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
-The best way to evaluate analyzer is to use a web API test tool like Postman and the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
+If you are using a web API test tool like Postman, you can add the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to inspect tokenized output. Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
 
 1. Check the Standard analyzer to see how terms are tokenized by default.
 
@@ -101,7 +101,7 @@ The best way to evaluate analyzer is to use a web API test tool like Postman and
     }
     ```
 > [!Important]
-> Be aware that query parsers often lower-case terms in a search expression when building the query tree. If you are using an analyzer that does not lower-case text inputs, and you are not getting expected results, this could be the reason.
+> Be aware that query parsers often lower-case terms in a search expression when building the query tree. If you are using an analyzer that does not lower-case text inputs, and you are not getting expected results, this could be the reason. The solution is to add a lwower-case token filter.
 
 ## Analyzer definitions
  
