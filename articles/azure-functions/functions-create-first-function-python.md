@@ -47,7 +47,7 @@ If Python didn't install the venv package on your Linux distribution, run the fo
 sudo apt-get install python3-venv
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv

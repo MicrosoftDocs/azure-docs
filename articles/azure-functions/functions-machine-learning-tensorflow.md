@@ -11,13 +11,13 @@ ms.custom: mvc
 
 # Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow
 
-In this article, you learn how to use Python, TensorFlow, and Azure Functions with a machine learning model to classify an image based on its contents. You create no Azure resources in the cloud, so there are no costs involved.
+In this article, you learn how to use Python, TensorFlow, and Azure Functions with a machine learning model to classify an image based on its contents. Because you do all work locally and create no Azure resources in the cloud, there is no cost to complete this tutorial.
 
 > [!div class="checklist"]
-> * Initialize a local environment for developing Azure Functions in Python
-> * Import a custom TensorFlow machine learning model into a function app
-> * Build a serverless HTTP API for predicting whether a photo contains a dog or a cat
-> * Consume the API from a web application
+> * Initialize a local environment for developing Azure Functions in Python.
+> * Import a custom TensorFlow machine learning model into a function app.
+> * Build a serverless HTTP API for classifying an image as containing a dog or a cat.
+> * Consume the API from a web app.
 
 ## Prerequisites 
 
@@ -76,7 +76,7 @@ If Python didn't install the venv package on your Linux distribution, run the fo
 sudo apt-get install python3-venv
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 cd start
