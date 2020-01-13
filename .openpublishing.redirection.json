@@ -28223,7 +28223,7 @@
     {
       "source_path": "articles/hdinsight/hdinsight-deep-learning-caffe-spark.md",
       "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/spark/apache-spark-deep-learning-caffe.md",
