@@ -114,3 +114,6 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 	
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 **A** : B1ls only supports Linux images and if you deploy any another OS image you might not get the best customer experience.
+
+### Q: What happens if I run out of credits?
+**A** : If the VM spends all the available credits, then its allowed to use only the Baseline CPU and will not be able to burst above that baseline. 
