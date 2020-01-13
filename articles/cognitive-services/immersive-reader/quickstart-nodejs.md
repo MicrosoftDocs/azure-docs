@@ -48,7 +48,8 @@ yarn add dotenv
 ## Set up authentication
 
 ### Configure authentication values
-Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying your custom property values from the Azure AD authentication configuration prerequisite step above.
+
+Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 Do not include quotation marks or the "{" and "}" characters.
 
 ```text
@@ -138,7 +139,7 @@ html
       // A polyfill for Promise is needed for IE11 support.
       script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
 
-      script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.3.js')
+      script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
       script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 
       style(type="text/css").
