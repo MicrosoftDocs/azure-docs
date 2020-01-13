@@ -848,6 +848,8 @@
       href: ./hdinsight-management-ip-addresses.md
     - name: Service tags for Azure firewall
       href: ./hdinsight-service-tags.md
+    - name: Customer-managed key disk encryption
+      href: ./disk-encryption.md
   - name: How to
     items:
     - name: Use ID Broker for credential management

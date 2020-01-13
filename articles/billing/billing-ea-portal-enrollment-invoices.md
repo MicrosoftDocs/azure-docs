@@ -640,7 +640,7 @@ For issue with Power BI, please log a technical ticket with Power BI team at [ht
 
 ### My resource tags aren't showing up on my reports
 
-Resource tags are managed on Azure portal. You can contact the Azure Subscription team at [https://portal.azure.com](https://portal.azure.com). Please follow the steps at [this link](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) on how to raise a support request.
+Resource tags are managed on Azure portal. You can contact the Azure Subscription team at [https://portal.azure.com](https://portal.azure.com). Please follow the steps at [this link](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) on how to raise a support request.
 
 ### Why does my resource rate change every day?
 

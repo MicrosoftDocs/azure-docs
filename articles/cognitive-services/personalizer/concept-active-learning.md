@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 01/09/2019
 ms.author: diberry
 ---
 
@@ -20,10 +20,10 @@ In some scenarios, the application might need to call Rank before it even knows 
 
 Typically, these scenarios happen when:
 
-* You're prerendering UI that the user might or might not get to see. 
-* Your application is doing predictive personalization in which Rank calls are made with little real-time context and the application might or might not use the output. 
+* You're prerendering UI that the user might or might not get to see.
+* Your application is doing predictive personalization in which Rank calls are made with little real-time context and the application might or might not use the output.
 
-In these cases, use Personalizer to call Rank, requesting the event to be _inactive_. Personalizer won't expect a reward for this event, and it won't apply a default reward. 
+In these cases, use Personalizer to call Rank, requesting the event to be _inactive_. Personalizer won't expect a reward for this event, and it won't apply a default reward.
 Later in your business logic, if the application uses the information from the Rank call, just _activate_ the event. As soon as the event is active, Personalizer expects an event reward. If no explicit call is made to the Reward API, Personalizer applies a default reward.
 
 ## Inactive events
@@ -38,15 +38,28 @@ Learning settings determine the *hyperparameters* of the model training. Two mod
 
 You can import and export learning-policy files from the Azure portal. Use this method to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
+Learn [how to](how-to-learning-policy.md) import and export a learning policy.
+
 ### Understand learning policy settings
 
 The settings in the learning policy aren't intended to be changed. Change settings only if you understand how they affect Personalizer. Without this knowledge, you could cause problems, including invalidating Personalizer models.
+
+Personalizer uses [vowpalwabbit](https://github.com/VowpalWabbit) to train and score the events. Refer to the [vowpalwabbit documentation](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) on how to edit the learning settings using vowpalwabbit. Once you have the correct command line arguments, save the command to a file with the following format (replace the arguments property value with the desired command) and upload the file to import learning settings in the **Model and Learning Settings** pane in the Azure portal for your Personalizer resource.
+
+The following `.json` is an example of a learning policy.
+
+```json
+{
+  "name": "new learning settings",
+  "arguments": " --cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
+}
+```
 
 ### Compare learning policies
 
 You can compare how different learning policies perform against past data in Personalizer logs by doing [offline evaluations](concepts-offline-evaluation.md).
 
-[Upload your own learning policies](how-to-offline-evaluation.md) to compare them with the current learning policy.
+[Upload your own learning policies](how-to-learning-policy.md) to compare them with the current learning policy.
 
 ### Optimize learning policies
 

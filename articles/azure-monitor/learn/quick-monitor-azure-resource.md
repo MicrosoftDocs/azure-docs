@@ -1,6 +1,6 @@
 ---
-title: Collect data from an Azure virtual machine with Azure Monitor | Microsoft Docs
-description: Learn how to enable the Log Analytics agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
+title: Monitor an Azure resource with Azure Monitor
+description: Learn how to collect and analyze data for an Azure resource in Azure Monitor.
 ms.service:  azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
