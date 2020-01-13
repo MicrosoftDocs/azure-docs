@@ -55,6 +55,6 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 * See a list of algorithms and modules in the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
 
-* [Tutorial: Build a prediction model in Azure Machine Learning designer](service/ui-tutorial-automobile-price-train-score.md).
+* [Tutorial: Build a prediction model in Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 
 * [Learn about deep learning vs. machine learning](concept-deep-learning-vs-machine-learning.md).

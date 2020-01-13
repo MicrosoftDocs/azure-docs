@@ -1,14 +1,12 @@
 ---
 title: Deploy blob storage on module to your device - Azure IoT Edge
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
-author: arduppal
-ms.author: arduppal
+author: kgremban
+ms.author: kgremban
 ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-manager: brymat
-
 ---
 
 # Deploy the Azure Blob Storage on IoT Edge module to your device
@@ -86,10 +84,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - Replace `<storage mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.
 
      - For Linux containers, the format is *\<storage path or volume>:/blobroot*. For example
-         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:/blobroot** 
+         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:/blobroot**
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - For Windows containers, the format is *\<storage path or volume>:C:/BlobRoot*. For example
-         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:C:/blobroot**. 
+         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:C:/blobroot**.
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData:C:/BlobRoot**.
          - Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
@@ -104,26 +102,23 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    ```json
    {
-     "properties.desired": {
-       "deviceAutoDeleteProperties": {
-         "deleteOn": <true, false>,
-         "deleteAfterMinutes": <timeToLiveInMinutes>,
-         "retainWhileUploading":<true,false>
+     "deviceAutoDeleteProperties": {
+       "deleteOn": <true, false>,
+       "deleteAfterMinutes": <timeToLiveInMinutes>,
+       "retainWhileUploading": <true,false>
+     },
+     "deviceToCloudUploadProperties": {
+       "uploadOn": <true, false>,
+       "uploadOrder": "<NewestFirst, OldestFirst>",
+       "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+       "storageContainersForUpload": {
+         "<source container name1>": {
+           "target": "<target container name1>"
+         }
        },
-       "deviceToCloudUploadProperties": {
-         "uploadOn": <true, false>,
-         "uploadOrder": "<NewestFirst, OldestFirst>",
-         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "storageContainersForUpload": {
-           "<source container name1>": {
-             "target": "<target container name1>"
-           }
-         },
-         "deleteAfterUpload":<true,false>
-       }
+       "deleteAfterUpload": <true,false>
      }
    }
-
    ```
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
@@ -168,7 +163,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
    | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **Existing Module (Enter full image URL)**. |
-   | Provide a module name | Enter an all-lowercase name for your module, like **azureblobstorageoniotedge**.<br /><br />It's important to use a lowercase name for the Azure Blob Storage on IoT Edge module. IoT Edge is case-sensitive when referring to modules, and the Storage SDK defaults to lowercase. |
+   | Provide a module name | Enter an all-lowercase name for your module, like **azureblobstorageoniotedge**.<br/><br/>It's important to use a lowercase name for the Azure Blob Storage on IoT Edge module. IoT Edge is case-sensitive when referring to modules, and the Storage SDK defaults to lowercase. |
    | Provide Docker image for the module | Provide the image URI: **mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window. The solution template creates a deployment manifest template that includes your blob storage module image, but you need to configure the module's create options.
@@ -201,10 +196,10 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 1. Replace `<storage mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.  
 
      - For Linux containers, the format is *\<storage path or volume>:/blobroot*. For example
-         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:/blobroot** 
+         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:/blobroot**
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - For Windows containers, the format is *\<storage path or volume>:C:/BlobRoot*. For example
-         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:C:/blobroot**. 
+         - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:C:/blobroot**.
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData:C:/BlobRoot**.
          - Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 

@@ -149,7 +149,7 @@
     href: billing-understand-mca-roles.md
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
-  - name: Organize costs with invoice sections
+  - name: Organize costs by customizing your billing account - Microsoft Customer Agreement 
     href: billing-mca-section-invoice.md
   - name: EA tasks in Microsoft Customer Agreement
     href: billing-mca-enterprise-operations.md
@@ -232,7 +232,7 @@
   - name: Enterprise cost view disabled
     href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
   - name: Contact support
-    href: ../azure-supportability/how-to-create-azure-support-request.md
+    href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Samples
   items:
   - name: REST API

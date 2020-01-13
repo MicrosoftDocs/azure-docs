@@ -91,7 +91,7 @@ Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors th
 
 [![Azure Digital Twins is a service built on top of Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-For more information about IoT, see [Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).
+For more information about IoT, read [Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## Next steps
 
