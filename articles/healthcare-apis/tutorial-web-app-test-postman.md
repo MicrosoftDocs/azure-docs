@@ -43,6 +43,7 @@ In order to gain access, you need an access token.
 |Scope                |\<BLANK>                                                            |
 |State                |1234                                                                |
 |Client Authentication|Send client credentials in body                                     |
+
 4. Sign in with your credentials and select **Accept**
 1. Scroll down on the result and select **Use Token**
 1. Select **Send** again at the top and this time you should get a result
