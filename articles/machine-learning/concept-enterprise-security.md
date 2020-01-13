@@ -131,8 +131,6 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
 
 * Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
 
-    For more information, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
-
 * Authorize the Machine Learning App (in Identity and Access Management) with contributor permissions on your subscription.
 
     ![Authorize the 'Azure Machine Learning App' in Identity and Access Management in the portal](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
@@ -152,7 +150,7 @@ This Cosmos DB instance is created in a Microsoft-managed resource group in your
 > * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 
 > * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported. 
 
-For more details on encryption of a Cosmos DB instance using customer-managed keys, read LINK TBD.
+For more details on encryption of a Cosmos DB instance using customer-managed keys, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
 
 #### Azure Container Registry
 
