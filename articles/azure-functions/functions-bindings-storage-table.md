@@ -666,7 +666,7 @@ module.exports = function (context) {
 
 # [Python](#tab/python)
 
-**TODO**
+The following example demonstrates how to use the Table storage output binding. The `table` binding is configured in the *function.json* by assigining values to `name`, `tableName`, `partitionKey` and `connection`:
 
 ```json
 {
@@ -699,6 +699,8 @@ module.exports = function (context) {
 }
 ```
 
+The following function generates an unique UUI for the `rowKey` value and persists the message into Table storage.
+
 ```python
 import logging
 import uuid
@@ -722,7 +724,6 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 ```
 
 # [Java](#tab/java)
-
 
 The following example shows a Java function that uses an HTTP trigger to write a single table row.
 
