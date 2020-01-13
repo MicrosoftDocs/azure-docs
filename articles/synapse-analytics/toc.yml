@@ -38,6 +38,8 @@
     #   href: article-template.md
     - name: SQL on-demand
       href: ./sql-analytics/quickstart-sql-on-demand.md
+- name: Tutorials
+  items:
   - name: Power BI Professional
     href: ./sql-analytics/tutorial-power-bi-professional.md
   - name: Data Scientist
