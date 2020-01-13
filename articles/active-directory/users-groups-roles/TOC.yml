@@ -155,7 +155,7 @@
       - name: Create a role-eligible group
         href: roles-groups-create-eligible.md
       - name: Assign roles to a group
-       href: roles-groups-assign-role.md
+        href: roles-groups-assign-role.md
       - name: Remove roles from a group
         href: roles-groups-remove-assignment.md
       - name: View role assignments for a group

@@ -31,7 +31,7 @@ This preview adds a group attribute that makes a group eligible to be assigned t
 
 1. Switch on the Eligible for role assignment toggle.
 
-Note that this toggle switch will be visible only to Privileged Role Administrators and Global Administrator since these are only two roles that can create such groups.
+    Note that this toggle switch will be visible only to Privileged Role Administrators and Global Administrator since these are only two roles that can create such groups.
 
 
 
