@@ -36,7 +36,7 @@ sections:
         src:  media/index/virtual-machines.svg
         href: /azure/virtual-machines/troubleshooting
     - title: Troubleshoot Linux Virtual Machines
-      href: /azure/virtual-machines/troubleshooting/linux-index.yml
+      href: /azure/virtual-machines/troubleshooting/linux-index
       image: 
         src:  media/index/virtual-machines.svg
         href: /azure/virtual-machines/troubleshooting
