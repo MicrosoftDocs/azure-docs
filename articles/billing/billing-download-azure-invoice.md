@@ -82,22 +82,51 @@ To opt out of getting your invoice by email, follow the preceding steps and clic
 <!-- Does following section apply to MPA too? -->
 ## Get your Microsoft Customer Agreement invoices in email
 
-If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
+If you have a billing account for Microsoft Customer Agreement, you can opt in to get your invoice in an email. All users with an owner, contributor, reader, or invoice manager role on a billing profile will get its invoice in email. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Search for **Cost Management + Billing**.
-1. Select a billing profile. Depending on your access, you might need to select a billing account first.
-1. Under **Settings**, select **Properties**.
-1. Under **Email Invoice**, select **Update email invoice preference**.
 
-    ![Screenshot that shows email invoice properties](./media/billing-download-azure-invoice/billingprofile-email.png)
+   ![Screenshot that shows search in portal for subscription](./media/billing-download-azure-invoice/search-cmb.png)
 
-1. Select **Opt in**.
-1. Click **Update**.
+1. Select **Billing profiles** from the left-hand side. From the billing profiles list, select a billing profile to get its invoices in email.
+
+   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-select-profile.png)](./media/billing-download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+
+1. Select **Properties** from the left-hand side and then select **Update email invoice preference**.
+
+   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-select-update-email-preferences.png)](./media/billing-download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
+
+1. Select **Opt in** and then click **Update**.
+
+   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-select-email-opt-in.png)](./media/billing-download-azure-invoice/mca-select-email-opt-in.png#lightbox)
 
 ## Opt out of getting your Microsoft Customer Agreement invoices in email
 
-To opt out of getting your invoice by email, follow the preceding steps and click **Opt out**. All Owners, Contributors, Readers, and Invoice managers are opted out of getting the invoice by email, too. If you're a Reader, you can't change the email invoice preference.
+To opt out of getting your invoice by email, follow the preceding steps and click **Opt out**. All users with an owner, contributor, reader, or invoice manager role are opted out of getting the invoice in email. 
+
+## Give others access to your Microsoft Customer Agreement invoices
+
+You can give others access to view, download, and pay invoices by assigning them invoice manager role for a billing profile. If you have opted in for getting your invoice in email, these users also get the invoices in email. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for **Cost Management + Billing**.
+
+   ![Screenshot that shows search in portal for subscription](./media/billing-download-azure-invoice/search-cmb.png)
+
+1. Select **Billing profiles** from the left-hand side. From the billing profiles list, select a billing profile for which you want to assign an invoice manager role.
+
+   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-select-profile.png)](./media/billing-download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+
+1. Select **Access Control (IAM)** from the left-hand side and then select **Add** from the top of the page.
+
+   [![Screenshot that shows access control page](./media/billing-download-azure-invoice/mca-select-access-control.png)](./media/billing-download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
+
+1. In the Role drop-down list, select **Invoice Manager**. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
+
+   [![Screenshot that shows adding a user as an invoice manager](./media/billing-download-azure-invoice/mca-added-invoice-manager.png)](./media/billing-download-azure-invoice/mca-added-invoice-manager.png#lightbox)
 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
