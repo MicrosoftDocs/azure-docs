@@ -12677,7 +12677,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk",
+      "redirect_url": "https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md",
+      "redirect_url": "https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
     },
     {
