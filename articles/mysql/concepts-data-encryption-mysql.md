@@ -82,7 +82,7 @@ When the server is configured to use the customer-managed key that is stored in 
 
 * Keep a copy of the customer-managed key (KEK) on a secure place or escrow it to the escrow service.
 
-* If the key is generated in the Key Vault, create a key backup before using the key in AKV for the first time. Backup can be restored to an Azure Key Vault only. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) command. 
+* If the key is generated in the Key Vault, create a key backup before using the key in AKV for the first time. Backup can be restored to an Azure Key Vault only. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) command.
 
 ## Inaccessible customer-managed key condition
 

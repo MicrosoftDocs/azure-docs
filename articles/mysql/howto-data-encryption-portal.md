@@ -42,7 +42,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 2. Select the **Key Permissions**, and select **Get**, **Wrap**, **Unwrap** and the **Principal**, which is the name of the MySQL server. If your server principal can't be found in the list of existing principals, you will need to register it by attempting to set up Data Encryption for the first time, which will fail.
 
-   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-wrp-unwrap.png)
+   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
 3. **Save** the settings.
 
