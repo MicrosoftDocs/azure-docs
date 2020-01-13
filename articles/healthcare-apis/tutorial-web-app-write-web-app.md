@@ -26,7 +26,6 @@ Below is the code that you can input into **index**. You will need to update the
 * **authority** - Update with your Azure AD tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
 
-
 ``` HTML
 
 <!DOCTYPE html>
