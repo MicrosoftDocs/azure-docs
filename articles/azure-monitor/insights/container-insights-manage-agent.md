@@ -60,7 +60,13 @@ To disable collection of environmental variables on a new or existing container,
   value: "False"  
 ```  
 
-Run the following command to apply the change to Kubernetes clusters other than Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. To edit and apply to Azure Red Hat OpenShift, follow the steps [here](container-insights-prometheus-integration.md#configure-and-deploy-configmaps).
+Run the following command to apply the change to Kubernetes clusters other than Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. To edit ConfigMap and apply this change for Azure Red Hat OpenShift clusters, run the command:
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
+
+This opens your default text editor. After setting the variable, save the the file in the editor.
 
 To verify the configuration change took effect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.
 

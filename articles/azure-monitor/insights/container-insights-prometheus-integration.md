@@ -175,7 +175,7 @@ Perform the following steps to configure your ConfigMap configuration file for K
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-You can view the updated ConfigMap by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
+You can view the updated ConfigMap for Azure Red Hat OpenShift by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
 
 ## Applying updated ConfigMap
 
