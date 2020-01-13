@@ -203,15 +203,15 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 1. (Optional) Change the sampling rate to a different value, and observe the change in frequency that messages include `tracestate` in the application properties.
 
-### Update using Azure IoT Hub Toolkit for VS Code
+### Update using Azure IoT Hub for VS Code
 
-1. Install VS Code, then install the latest version of Azure IoT Hub Toolkit for VS Code from [here](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Install VS Code, then install the latest version of Azure IoT Hub for VS Code from [here](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 1. Open VS Code and [set up IoT Hub connection string](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Expand the device and look for **Distributed Tracing Setting (Preview)**. Under it, click **Update Distributed Tracing Setting (Preview)** of sub node.
 
-    ![Enable distributed tracing in Azure IoT Hub Toolkit](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Enable distributed tracing in Azure IoT Hub extension](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. In the popup window, select **Enable**, then press Enter to confirm 100 as sampling rate.
 

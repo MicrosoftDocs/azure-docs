@@ -49,8 +49,6 @@
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Azure Active Directory architecture
       href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
-    - name: Implement least-privilege administrative models
-      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: How to
   items:
     - name: Configure common settings
