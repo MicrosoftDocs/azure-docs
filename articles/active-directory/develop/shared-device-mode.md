@@ -1,6 +1,6 @@
 ---
 title: Shared device mode for Android devices | Azure
-description: Learn about shared device mode which allows firstline workers to share an Android device 
+description: Learn about shared device mode, which allows firstline workers to share an Android device 
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -33,7 +33,7 @@ Shared device mode also provides Microsoft identity backed management of the dev
 To create a shared device mode app, developers and cloud device admins work together:
 
 - Developers write a single-account app (multiple-account apps are not supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
-- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://www.microsoft.com/account/authenticator). You can configure the membership of your organizational roles in the Azure Portal via:
+- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://www.microsoft.com/account/authenticator). You can configure the membership of your organizational roles in the Azure portal via:
 **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
 
  This article focuses primarily what developers should think about.
@@ -94,7 +94,7 @@ If you are writing an app that will only be used for firstline workers using a s
 
 If your application is running in multiple-account mode, and an administrator puts the device in shared device mode, all of the accounts on the device are cleared from the application and the application transitions to single-account mode.
 
-## Shared device sign out and the overall app lifecycle
+## Shared device sign-out and the overall app lifecycle
 
 When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
 
@@ -106,4 +106,4 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ## Next steps
 
-See the [shared device sign out sample](https://github.com/brandwe/GlobalSignoutSample) for example shared device mode app code that shows how to write a firstline worker app that runs on a shared mode Android device.
+See the [shared device sign-out sample](https://github.com/brandwe/GlobalSignoutSample) for example shared device mode app code that shows how to write a firstline worker app that runs on a shared mode Android device.
