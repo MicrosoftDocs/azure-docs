@@ -1,16 +1,9 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, C# - Speech service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/13/2020
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+ms.author: dapine
 ---
 
 ## Prerequisites
@@ -38,7 +31,7 @@ Follow these steps for the installation:
 1. Install the extracted python-client module in your Python environment using pip: `pip install path/to/package/python-client`.
 1. The installed package has the name `swagger_client`. You can check that the installation worked using the command `python -c "import swagger_client"`.
 
-> **Note:**
+> [!NOTE]
 > Due to a [known bug in the Swagger autogeneration](https://github.com/swagger-api/swagger-codegen/issues/7541), you might encounter errors on importing the `swagger_client` package.
 > These can be fixed by deleting the line with the content
 > ```py

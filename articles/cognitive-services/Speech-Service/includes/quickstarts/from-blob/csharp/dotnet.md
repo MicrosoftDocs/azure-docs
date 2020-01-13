@@ -1,16 +1,9 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, C# - Speech service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/13/2020
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+ms.author: dapine
 ---
 
 ## Prerequisites
