@@ -17,31 +17,32 @@ In this article, you will learn how to set up and manage to use the Azure portal
 * You must have an Azure subscription and be an administrator on that subscription.
 * Create an Azure Key Vault and Key to use for customer-managed key.
 * The Key Vault must have the following property to use as a customer-managed key
-    * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+  * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
-        ```azurecli-interactive
-        az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-        ```
-    
-    * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
+    ```azurecli-interactive
+    az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+    ```
 
-        ```azurecli-interactive
-        az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
-        ```
+  * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
+
+    ```azurecli-interactive
+    az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
+    ```
+
 * The key must have the following attributes to be used for customer-managed key.
-    * No expiration date
-    * Not disabled
-    * Able to perform get, wrap key, unwrap key operations
+  * No expiration date
+  * Not disabled
+  * Able to perform _get_, _wrap key_, _unwrap key_ operations
 
 ## Setting the right permissions for key operations
 
-1. On the Azure Key Vault, select the **Access Policies** and, **Add Access Policy** 
+1. On the Azure Key Vault, select the **Access Policies**, then **Add Access Policy**:
 
    ![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
 2. Select the **Key Permissions** select **Get**, **Wrap**, **Unwrap** and the **Principal**, which is the name of the MySQL server. If your server principal can't be found in the list of existing principals, you will need to register it by attempting to set up Data Encryption for the first time, which will fail.
 
-   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
+   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-wrp-unwrap.png)
 
 3. **Save** the settings.
 
@@ -67,11 +68,11 @@ Once an Azure Database for MySQL is encrypted with customer's managed key stored
 
    ![Initiate-restore](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-   Or for a replication enabled server, under the **Settings** heading, select **Replication**
+   Or for a replication-enabled server, under the **Settings** heading, select **Replication**, as shown here:
 
    ![Initiate-replica](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
 
-2. Once the restore operation is complete, the new server created is encrypted with the key used to encrypt the primary server. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This is to prevent any data manipulation since the new server's identity has still been not given permission to access the Key Vault.
+2. Once the restore operation is complete, the new server created is encrypted with the key used to encrypt the primary server. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This behavior is designed to prevent any data manipulation, since the new server's identity has still been not given permission to access the Key Vault.
 
    ![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
@@ -82,7 +83,7 @@ Once an Azure Database for MySQL is encrypted with customer's managed key stored
 
    ![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-   You will have to give access to the new server to the Key Vault. 
+   You will have to give access to the new server to the Key Vault.
 
 4. After registering the service principal, you will need to revalidate the key again and the server resumes its normal functionality.
 
@@ -91,4 +92,3 @@ Once an Azure Database for MySQL is encrypted with customer's managed key stored
 ## Next steps
 
  To learn more about Data Encryption, see [what is Azure data encryption](concepts-data-encryption-mysql.md).
-

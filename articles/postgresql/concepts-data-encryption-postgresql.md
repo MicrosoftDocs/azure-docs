@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ---
 
 # Azure Database for PostgreSQL Single server Data Encryption with customer-managed key
@@ -23,6 +23,7 @@ For Azure Database for PostgreSQL Single server, the Data Encryption is set at t
 ## Benefits
 
 Data Encryption for Azure Database for PostgreSQL Single server provides the following benefits:
+
 * Increased transparency and granular control and management for the encryption key 
 * Central management and organization of keys by hosting them in Azure Key Vault. 
 * Ability to implement separation of duties in the management of keys and data within the organization
@@ -42,6 +43,7 @@ The Data Encryption Keys, encrypted with the Key Encryption Keys are stored sepa
 ![Bring your own key overview](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
 
 For a PostgreSQL server to be able to use customer-managed keys stored in AKV for encryption of the DEK, a Key Vault administrator needs to give the following access rights to the server using its unique identity:
+
 * **get** - for retrieving the public part and properties of the key in the Key Vault
 * **wrapKey** - to be able to protect (encrypt) DEK
 * **unwrapKey** - to be able to unprotect (decrypt) DEK
@@ -61,10 +63,10 @@ When the server is configured to use the customer-managed key that is stored in 
 * When using firewall with AKV, you must enable option *Allow trusted Microsoft services to bypass the firewall*.
 
 ### Requirements for configuring customer-managed key
+
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2028.
 * The key activation date (if set) must be a date and time in the past. Expiration date (if set) must be a future date and time.
 * The key must be in the *Enabled* state.
-
 * If you are importing existing key into the Key Vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations when using Data Encryption using customer-managed key
@@ -74,13 +76,13 @@ When the server is configured to use the customer-managed key that is stored in 
 * Set a resource lock on the Key Vault to control who can delete this critical resource and prevent accidental or unauthorized deletion. Learn more about resource locks.
 * Enable auditing and reporting on all encryption keys: Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that is already integrated.
 
-* Ensure that the Key Vault and the Azure Database for PostgreSQL Single server reside in the same region to ensure a faster access for DEK wrap/unwrap operations. 
+* Ensure that the Key Vault and the Azure Database for PostgreSQL Single server reside in the same region to ensure a faster access for DEK wrap/unwrap operations.
 
 ### Recommendation for configuring customer-managed key
 
 * Keep a copy of the customer-managed key (KEK) on a secure place or escrow it to the escrow service.
 
-* If the key is generated in the Key Vault, create a key backup before using the key in AKV for the first time. Backup can be restored to an Azure Key Vault only. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) command. 
+* If the key is generated in the Key Vault, create a key backup before using the key in AKV for the first time. Backup can be restored to an Azure Key Vault only. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) command.
 
 ## Inaccessible customer-managed key condition
 
@@ -89,6 +91,7 @@ When data encryption is configured with customer-managed key in the Azure Key Va
 ### Accidental key access revocation from the Azure Key Vault (AKV)
 
 It may happen that someone with sufficient access rights to the Key Vault accidentally disables server access to the key by:
+
 * revoking Key Vault's get, wrapKey, unwrapKey permissions from the server
 * deleting the key
 * deleting the Key Vault
@@ -119,4 +122,4 @@ To avoid issues while establishing setting up customer-managed data encryption d
 
 ## Next steps
 
-Learn how to set up data encryption with customer-managed key for your Azure database for PostgreSQL Single server using [Azure portal](howto-data-encryption-portal.md).
+Learn how to [set up data encryption with customer-managed key for your Azure database for PostgreSQL Single server using the Azure portal](howto-data-encryption-portal.md).
