@@ -259,6 +259,8 @@ print(service.state)
 
 For more information on deployment, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
+
 ### Use an image with the Machine Learning CLI
 
 > [!IMPORTANT]
