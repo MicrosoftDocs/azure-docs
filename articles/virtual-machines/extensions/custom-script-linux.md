@@ -117,6 +117,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### Property value details
+* `apiVersion`: The most up to date apiVersion can be found using [Resource Explorer](https://resources.azure.com/) or from Azure CLI using the following command `az provider list -o json`
 * `skipDos2Unix`: (optional, boolean) skip dos2unix conversion of script-based file URLs or script.
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
