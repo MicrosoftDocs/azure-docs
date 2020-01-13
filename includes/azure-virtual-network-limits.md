@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 12/09/2019
+ ms.date: 01/13/2020
  ms.author: anavin
  ms.custom: include file
 
@@ -63,7 +63,8 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per NIC (across all IPs on a NIC) | 300                           |
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
-| High-availability ports                 | 1 per internal frontend      |
+| High-availability ports                 | 1 per internal frontend       |
+| Outboud rules per Load Balancer         | 20                            |
 
 
 **Basic Load Balancer**
