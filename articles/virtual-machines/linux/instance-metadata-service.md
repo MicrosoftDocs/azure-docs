@@ -734,44 +734,44 @@ The storage profile of a VM is divided into three categories - image reference, 
 
 The image reference object contains the following information about the OS image:
 
-Data   | Description
--------|------------------
-id     | This is the resource ID
-offer  | This is the offer of the platform or marketplace image
-publisher| This is the image publisher
-sku     | This is the image sku
-version | This is the version of the platform or marketplace image
+Data    | Description
+--------|-----------------
+id      | This parameter is the resource ID
+offer   | This parameter is the offer of the platform or marketplace image
+publisher | This parameter is the image publisher
+sku     | This parameter is the image sku
+version | This parameter is the version of the platform or marketplace image
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
 Data    | Description
 --------|-----------------
-caching | This is the caching requirements
-createOption | This is information about how the VM was created
-diffDiskSettings | This is the ephemeral disk settings
-diskSizeGB | This is the size of the disk in GB
-image   | This is the source user image virtual hard disk
-lun     | This is the logical unit number of the disk
-managedDisk | This is the managed disk parameters
-name    | This is the disk name
-vhd     | This is the virtual hard disk
+caching | This parameter is the caching requirements
+createOption | This parameter is information about how the VM was created
+diffDiskSettings | This parameter is the ephemeral disk settings
+diskSizeGB | This parameter is the size of the disk in GB
+image   | This parameter is the source user image virtual hard disk
+lun     | This parameter is the logical unit number of the disk
+managedDisk | This parameter is the managed disk parameters
+name    | This parameter is the disk name
+vhd     | This parameter is the virtual hard disk
 writeAcceleratorEnabled | This specifies whether or not writeAccelerator is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following image:
 
 Data    | Description
 --------|-----------------
-caching | This is the caching requirements
-createOption | This is information about how the VM was created
-diffDiskSettings | This is the ephemeral disk settings
-diskSizeGB | This is the size of the disk in GB
-encryptionSettings | This is the encryption settings for the disk
-image   | This is the source user image virtual hard disk
-managedDisk | This is the managed disk parameters
-name    | This is the disk name
-osType  | This is the type of OS included in the disk
-vhd     | This is the virtual hard disk
-writeAcceleratorEnabled | This specifies whether or not writeAccelerator is enabled on the disk
+caching | This parameter is the caching requirements
+createOption | This parameter is information about how the VM was created
+diffDiskSettings | This parameter is the ephemeral disk settings
+diskSizeGB | This parameter is the size of the disk in GB
+encryptionSettings | This parameter is the encryption settings for the disk
+image   | This parameter is the source user image virtual hard disk
+managedDisk | This parameter is the managed disk parameters
+name    | This parameter is the disk name
+osType  | This parameter s the type of OS included in the disk
+vhd     | This parameter is the virtual hard disk
+writeAcceleratorEnabled | This parameter specifies whether or not writeAccelerator is enabled on the disk
 
 The following is an example of how to query the VM's storage information.
 
