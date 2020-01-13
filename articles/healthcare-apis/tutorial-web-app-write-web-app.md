@@ -25,7 +25,6 @@ Below is the code that you can input into **index**. You will need to update the
 * **clientId** - Update with your client application ID. This ID will be the same ID you pulled when retrieving your token
 * **authority** - Update with your Azure AD tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
-* **Scopes** - Update the Scopes with your FHIR Server name
 
 
 ``` HTML
@@ -51,7 +50,7 @@ Below is the code that you can input into **index**. You will need to update the
         var msalConfig = {
             auth: {
                 clientId: '<CLIENT-ID>',
-                authority: "https://login.microsoftonline.com/<TENANT-ID>"
+                authority: "https://login.microsoftonline.com/<AZURE-AD-TENANT-ID>"
             },
             cache: {
                 cacheLocation: "localStorage",
@@ -63,7 +62,7 @@ Below is the code that you can input into **index**. You will need to update the
             FHIRendpoint: "https://<FHIR-SERVER-NAME>.azurehealthcareapis.com"
         }
         var requestObj = {
-            scopes: ["https://<FHIR-SERVER-NAME>azurehealthcareapis.com/user_impersonation"]
+            scopes: ["https://azurehealthcareapis.com/user_impersonation"]
         }
 
         function authRedirectCallBack(error, response) {
