@@ -10,7 +10,7 @@ ms.custom:
 
 When you use an Azure container registry to store image data and other artifacts, the Azure Container Registry service automatically encrypts this data at rest. By default, data is encrypted with Microsoft-managed keys.
 
-For additional control over encryption keys, you can supply a customer-managed key to encrypt the data in a registry. This article shows you how to create and store a key in Azure Key Vault, and then create a registry enabled to encrypt data using this key.
+For additional control over encryption keys, you can supply a customer-managed key to encrypt the data in a registry. The key must be stored in an Azure key vault. This article shows you how to create and store a key in an Azure key vault, and then create a registry enabled to encrypt data using this key.
 
 > [!IMPORTANT]
 > At this time, you must [request access](#register-the-provider) to use this capability. We recommend you review current [limitations and constraints](#limitations-and-constraints) before enabling this feature.    
@@ -25,7 +25,7 @@ For additional control over encryption keys, you can supply a customer-managed k
 
 ## Register the provider
 
-In order to use this feature, you will need to request access using the following [az feature register][az-feature-register] command. Substitute your own Azure subscription ID in the command.
+In order to use this feature, you need to request access using the following [az feature register][az-feature-register] command. Substitute your own Azure subscription ID in the command.
 
 ```azurecli
 az feature register --name PrivatePreview \
