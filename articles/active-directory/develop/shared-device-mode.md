@@ -44,7 +44,8 @@ Applications written using the Microsoft Authentication Library SDK (MSAL) can m
 
 **Shared device mode apps only work in single-account mode**.
 
-> [!IMPORTANT] Applications that only support multiple-account mode can't run on a shared device. If an employee loads an app that doesn't support single-account mode, it won't run on the shared device.
+> [!IMPORTANT]
+> Applications that only support multiple-account mode can't run on a shared device. If an employee loads an app that doesn't support single-account mode, it won't run on the shared device.
 >
 > Apps written before the MSAL SDK was released run in multiple-account mode and must be updated to support single-account mode before they can run on a shared mode device.
 
