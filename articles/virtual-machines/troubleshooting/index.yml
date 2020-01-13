@@ -4,7 +4,7 @@ title: Troubleshoot Windows virtual machines in Azure # < 60 chars
 summary: Documentation for troubleshooting virtual machines in Azure. # < 160 chars
 
 metadata:
-  title: Troubleshoot virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Troubleshoot Windows virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Documentation for troubleshooting and managing Windows virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: virtual-machines-windows
   ms.service: virtual-machines-windows #Required; service per approved list. service slug assigned to your service by ACOM.

@@ -4,7 +4,7 @@ title: Troubleshoot Linux virtual machines in Azure # < 60 chars
 summary: Documentation for troubleshooting Linux virtual machines in Azure. # < 160 chars
 
 metadata:
-  title: Troubleshoot virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Troubleshoot Linux virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Documentation for troubleshooting and managing Linux virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: virtual-machines-linux
   ms.service: virtual-machines-linux #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -96,8 +96,6 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
           - text:  Classic Deployments Troubleshoot allocation failures
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
-          - text:  Learn about the Virtual Machine lifecycle and states
-            url: https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle
 
   # Card
   - title: Unexpected VM Restart
@@ -106,8 +104,7 @@ landingContent:
         links:
           - text:  How to view VM reboot logs to identify the cause of reboot
             url: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
-          - text:  Understand planned maintenance for virtual machines in Azure
-            url: https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates
+
 
   # Card
   - title: Virtual Disk Management Issues
@@ -146,8 +143,7 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows
           - text:  Performance diagnostics for Azure virtual machines
             url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics
-
-                    
+             
    # Card
   - title: VM Extension Issues
     linkLists:
