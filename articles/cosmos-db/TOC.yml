@@ -867,7 +867,7 @@
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
-      - name: Scale up-down using Azure Functions Timer
+      - name: Scale using Azure Functions timer
         displayName: request units, RUs, RU, timer
         href: scale-on-schedule.md
     - name: Work with containers and items
