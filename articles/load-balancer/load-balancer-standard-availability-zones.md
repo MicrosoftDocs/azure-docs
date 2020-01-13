@@ -205,10 +205,6 @@ Zonal can provide an explicit guarantee to a zone, explicitly sharing fate with 
 
 There's no general guidance that one is a better choice than the other without knowing the service architecture.  Review [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
 
-## Limitations
-
-- While data plane is fully zone-redundant (unless zonal guarantee was specified), control plane operations aren't fully zone-redundant.
-
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
