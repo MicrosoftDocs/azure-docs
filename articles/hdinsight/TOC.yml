@@ -102,8 +102,6 @@
         href: hdinsight-hadoop-script-actions-linux.md
       - name: Add Apache Hive libraries
         href: hdinsight-hadoop-add-hive-libraries.md
-      - name: Use Apache Giraph
-        href: hdinsight-hadoop-giraph-install-linux.md
       - name: Use Hue
         href: hdinsight-hadoop-hue-linux.md
       - name: Build HDInsight applications
