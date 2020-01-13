@@ -43767,10 +43767,5 @@
       "redirect_url": "/azure/healthcare-apis/configure-database",
       "redirect_document_id": false
     }
-    {
-      "source_path": "articles/healthcare-apis/tutorial-1-decision-flow.md",
-      "redirect_url": "/azure/healthcare-apis/reg-app-overview",
-      "redirect_document_id": false
-    }
   ]
 }

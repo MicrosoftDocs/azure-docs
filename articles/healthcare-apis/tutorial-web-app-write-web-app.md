@@ -27,7 +27,7 @@ Below is the code that you can input into **index**. You will need to update the
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
 
 
-``` HTML
+``` javascript
 
 <!DOCTYPE html>
 <html>

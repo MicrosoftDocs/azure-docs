@@ -3,7 +3,7 @@ title: Additional Settings for Azure API for FHIR
 description: Overview of the additional settings you can set for Azure API for FHIR
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: tutorial
+ms.topic: conceptual
 ms.reviewer: mihansen
 ms.author: cavoeg
 author: CaitlinV39
@@ -12,7 +12,7 @@ ms.date: 11/22/2019
 
 # Additional settings for Azure API for FHIR
 
-In this tutorial, we will review the additional settings you may want to set in your Azure API for FHIR. There are additional pages that drill into even more details.
+In this how-to guide, we will review the additional settings you may want to set in your Azure API for FHIR. There are additional pages that drill into even more details.
 
 ## Configure Database settings
 
@@ -44,7 +44,7 @@ To add this data to your audit logs, see the [Use Custom HTTP headers to add dat
 
 ## Next steps
 
-In this tutorial, you set up additional settings for the Azure API for FHIR.
+In this how-to guide, you set up additional settings for the Azure API for FHIR.
 
 Next check out the series of tutorials to create a web application that reads FHIR data.
 

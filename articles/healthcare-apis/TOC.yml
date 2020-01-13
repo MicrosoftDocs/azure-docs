@@ -35,15 +35,6 @@
       href: tutorial-web-app-test-postman.md
     - name: 4. Write web application
       href: tutorial-web-app-write-web-app.md
-  - name: Configure settings tutorials
-    expanded: false
-    items:
-    - name: Configure additional Azure API for FHIR settings
-      href: azure-api-for-fhir-additional-settings.md
-    - name: Configure database settings
-      href: configure-database.md
-    - name: Configure CORS
-      href: configure-cross-origin-resource-sharing.md
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy
@@ -56,14 +47,16 @@
     items:
     - name: Register applications for Azure API for FHIR overview
       href: tutorial-1-decision-flow.md
-    - name: Resource application
+    - name: Register a resource application
       href: register-resource-azure-ad-client-app.md
-    - name: Confidential client application
+    - name: Register a confidential client application
       href: register-confidential-azure-ad-client-app.md
-    - name: Public client application
+    - name: Register a public client application
       href: register-public-azure-ad-client-app.md
-    - name: Service client application
+    - name: Register a service client application
       href: register-service-azure-ad-client-app.md
+  - name: Access token validation
+    href: azure-ad-hcapi-token-validation.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®
@@ -73,12 +66,16 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Configure additional Azure API for FHIR settings
+    href: azure-api-for-fhir-additional-settings.md 
   - name: Azure AD and Azure API for FHIR Overview
     href: azure-ad-hcapi.md  
-  - name: Access token validation
-    href: azure-ad-hcapi-token-validation.md
+  - name: Configure database settings
+    href: configure-database.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
+  - name: Configure CORS
+    href: configure-cross-origin-resource-sharing.md
 - name: Resources
   items:
   - name: FAQ
