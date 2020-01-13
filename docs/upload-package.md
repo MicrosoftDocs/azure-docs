@@ -1,11 +1,11 @@
 ---
-title: Upload your package to AppSource
+title: Upload your package to Microsoft AppSource
 description: Upload the manifest for your Office Add-in, SharePoint Add-in, Microsoft Teams app, or Power BI custom visual.
 ms.date: 1/11/2018
 localization_priority: Normal
 ---
 
-# Upload your package to AppSource
+# Upload your package to Microsoft AppSource
 
 On the **Packages** page in Partner Center, drag or select your manifest file or app package to upload it.
 

@@ -1,14 +1,14 @@
 ---
-title: Craft effective AppSource store images
+title: Craft effective Microsoft AppSource store images
 description: Make sure that the images submitted for your app are legible, focused, and demonstrate value. 
 ms.date: 02/08/2018
 
 localization_priority: Normal
 ---
 
-# Craft effective AppSource store images
+# Craft effective Microsoft AppSource store images
 
-Each AppSource listing contains images that inform the user and promote the add-in. AppSource images provide users with a quick overview of features and enhance their understanding of the add-in’s value. To create the best images for your AppSource listing, we recommend that you apply the following the guidelines.
+Each Microsoft AppSource listing contains images that inform the user and promote the add-in. Images provide users with a quick overview of features and enhance their understanding of the add-in’s value. To create the best images for your listing, we recommend that you apply the following the guidelines.
 
 ## Make images legible
 
@@ -52,5 +52,5 @@ The images should clearly communicate value of your solution and its main featur
 ![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](images/value-add-do-dont-3.png)
 
 ## See also
-* [AppSource validation policies](validation-policies.md)
-* [Create effective AppSource listings](create-effective-office-store-listings.md)
+* [Validation policies](validation-policies.md)
+* [Create effective Microsoft AppSource listings](create-effective-office-store-listings.md)

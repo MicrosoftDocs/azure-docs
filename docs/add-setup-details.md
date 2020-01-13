@@ -49,14 +49,14 @@ To get information about users who acquire your add-in, you can submit lead conf
 
 You can use leads to follow up with customers directly to ensure that they have a successful experience with your solution. 
 
-For customers who acquire your add-in via AppSource, the following details are sent to your lead management system:
+For customers who acquire your add-in via Microsoft AppSource, the following details are sent to your lead management system:
 
 - First Name
 - Last Name
 - Email Address
 
 > [!NOTE]
-> Leads are currently supported for acquisitions made via AppSource, as well as Word, Excel, and PowerPoint stores.
+> Leads are currently supported for acquisitions made via Microsoft AppSource, as well as Word, Excel, and PowerPoint stores.
 
 ### Add lead management information
 
@@ -121,7 +121,7 @@ For Microsoft Dynamics CRM systems, you need to provide the following informatio
 - Authentication:
     - Choose **Office 365**, and provide a **User name** and **Password**. You must update your username and password every 90 days.
 
-For information about setting up a new Dynamics service for leads, see the [Appsource Dynamics documentation](https://aka.ms/leadsettingfordynamicscrm).
+For information about setting up a new Dynamics service for leads, see the [Microsoft Appsource Dynamics documentation](https://aka.ms/leadsettingfordynamicscrm).
 
 > [!NOTE]
 > To configure Dynamics CRM for leads, some services require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
@@ -184,7 +184,7 @@ After you have enter the connection details in Partner Center, select **Save**.
 If you get an error message, make sure that your details are correct or try again later. 
 
 > [!NOTE]
-> If your add-in is already in AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
+> If your add-in is already in Microsoft AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
 
 To edit your lead management details, on **Add-in setup** page, choose **Edit**.
 
@@ -194,5 +194,5 @@ Make sure that any correspondence you send to customers includes an option to un
 
 ## See also
 
-- [Create your AppSource listing](office-store-listing.md)
-- [AppSource submission FAQ](office-store-submission-faq.md)
+- [Create your Microsoft AppSource listing](office-store-listing.md)
+- [Microsoft AppSource submission FAQ](office-store-submission-faq.md)

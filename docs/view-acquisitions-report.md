@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # View the Acquisitions report in the dashboard
 
-The [Acquisitions report](https://partner.microsoft.com/dashboard/analytics/office/acquisitions) in the Dev Center dashboard lets you see who has acquired and installed your add-in, app or visual, and shows info about how customers have arrived at your AppSource listing. 
+The [Acquisitions report](https://partner.microsoft.com/dashboard/analytics/office/acquisitions) in the Dev Center dashboard lets you see who has acquired and installed your add-in, app or visual, and shows info about how customers have arrived at your Microsoft AppSource listing. 
 
 In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
 
@@ -33,7 +33,7 @@ You can also see the lifetime number of acquisitions for your app by selecting A
 
 The values supported within the Acquisitions chart include:
 
-- Free - Webstore: Free acquisitions generated in web surfaces such as AppSource.
+- Free - Webstore: Free acquisitions generated in web surfaces such as Microsoft AppSource.
 
 - Free - Client: Free acquisitions generated in store surfaces within the Office Apps. This includes Windows, Mac, and the web client.
 
@@ -56,23 +56,23 @@ You can view this data in a visual Map form, or toggle the setting to view it in
 
 ## App page views and conversions by channel
 
-The Acquisition funnel shows you how many customers completed each step of the funnel, from viewing the AppSource page to using the add-in or app, along with the conversion rate. This data can help you identify areas where you might want to invest more to increase your page views, acquisitions, or activations.
+The Acquisition funnel shows you how many customers completed each step of the funnel, from viewing the Microsoft AppSource page to using the add-in or app, along with the conversion rate. This data can help you identify areas where you might want to invest more to increase your page views, acquisitions, or activations.
 
 > [!NOTE]
-> Client surfaces do not generate funnel information, and provided data only covers AppSource acquisitions.
+> Client surfaces do not generate funnel information, and provided data only covers Microsoft AppSource acquisitions.
 
-In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching on AppSource, a link from an external website, a link from one of your custom campaigns, and so on). The following channel types are included:
+In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching on Microsoft AppSource, a link from an external website, a link from one of your custom campaigns, and so on). The following channel types are included:
 
-- Store traffic - The customer was browsing or searching within AppSource when they viewed your app's listing.
+- Store traffic - The customer was browsing or searching within Microsoft AppSource when they viewed your app's listing.
 
 - Custom campaign - The customer followed a link that used a [custom campaign ID](promote-your-office-store-solution.md).
 
 - Other - The customer followed an external link (without any custom campaign ID) from a website to your app's listing or the customer followed a link from a search engine to your app's listing.
 	
-A page view means that a customer viewed your solutions's AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
+A page view means that a customer viewed your solutions's Microsoft AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
 
 > [!NOTE] 
-> Customers can arrive at your app's listing by clicking a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first landed on AppSource. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you might see a higher number of total conversions than the total conversions for your campaign IDs, and you might have conversions or add-on conversions that have zero page views.
+> Customers can arrive at your app's listing by clicking a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first landed on Microsoft AppSource. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you might see a higher number of total conversions than the total conversions for your campaign IDs, and you might have conversions or add-on conversions that have zero page views.
 
 ## App page views and conversions by campaign ID
 
@@ -88,5 +88,5 @@ The Total campaign conversions chart shows the total number of app and add-on 
 
 ## See also
 
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
-- [Promote your AppSource solution](promote-your-office-store-solution.md)
+- [Make your solutions available in Microsoft AppSource and within Office](submit-to-the-office-store.md)
+- [Promote your solution](promote-your-office-store-solution.md)
