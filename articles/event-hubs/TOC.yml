@@ -114,22 +114,22 @@
       href: event-hubs-get-connection-string.md
     - name: Exchange events between applications using different protocols
       href: event-hubs-exchange-events-different-protocols.md
-    - name: .NET programming guide
-      href: event-hubs-programming-guide.md
+    - name: Programming guides
+      items:
+      - name: Python
+        href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
+      - name: JavaScript
+        href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
+      - name: .NET programming guide
+        href: event-hubs-programming-guide.md
     - name: Read captured data using Python (legacy)
       href: event-hubs-capture-python.md
     - name: Send and receive events (legacy)
       items:
-      - name: .NET Core (legacy)
-        href: event-hubs-dotnet-standard-getstarted-send.md
-      - name: Java (legacy)
-        href: event-hubs-java-get-started-send.md
       - name: Python (legacy)
         href: event-hubs-python-get-started-send.md
       - name: Node.js (legacy)    
         href: event-hubs-node-get-started-send.md
-      - name: .NET Framework (legacy)
-        href: event-hubs-dotnet-framework-getstarted-send.md      
   - name: Process data
     items:
     - name: Process data using Azure Stream Analytics 
@@ -205,7 +205,15 @@
     - name: Microsoft.Azure.Management.EventHub
       href: /dotnet/api/microsoft.azure.management.eventhub
   - name: Node.js
-    href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+    items: 
+    - name: Migrate from version 2 to version 5
+      href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md
+    - name: API reference
+      href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+  - name: Python
+    items:
+    - name: Migrate from version 1 to version 5
+      href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md
   - name: REST
     href: /rest/api/eventhub
   - name: Resource Manager template
