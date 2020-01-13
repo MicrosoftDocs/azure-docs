@@ -82,3 +82,21 @@ The VM deployment process is similar to the standard deployment process, the onl
 1. Make the remaining selections as you like.
 
     ![sse-create-vm-select-cmk-encryption-set.png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+
+#### Enable on an existing disk
+
+To manage and configure disk encryption on your existing disks, you must use the following link: https://aka.ms/diskencryptionsets. Enabling customer-managed keys on existing disks is not yet available in the global Azure portal.
+
+1. Navigate to a VM which is in the same region as one of your disk encryption sets.
+1. Open the VM and select **Stop**.
+
+    ![sse-stop-VM-to-encrypt-disk.png](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+
+1. After the VM has finished stopping, select **Disks** and then select the disk you want to encrypt.
+
+    ![sse-existing-disk-select.png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+
+1. Select **Encryption** and select *customer* and then select your disk encryption set in the drop down.
+1. Select **Save**.
+
+![sse-encrypt-existing-disk-customer-managed-key.png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
