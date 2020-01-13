@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/07/2019
-ms.author: aahi
+ms.date: 01/13/2019
+ms.author: sumeh
 ms.reviewer: sumeh, assafi
 ---
 
 <a name="HOLTop"></a>
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Client Authentication
 
-Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with your key and endpoint as parameters.
+Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
 ```javascript
 const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredential(key));
@@ -94,7 +94,7 @@ const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredentia
 
 ## Sentiment analysis
 
-Create a string containing the document you want to analyze. Call the client's [analyzeSentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult) object. Iterate through the list of results, and print each document's ID and confidence scores.
+Create a string containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length and confidence scores.
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -143,7 +143,7 @@ ID: 0
 
 ## Language detection
 
-Create a dictionary object to contain your document. Call the client's [detectLanguages()]() method and get the returned [LanguageBatchResult](). Then iterate through the results, and print each document's ID, and language.
+Create a dictionary object to contain your document. Call the client's `detectLanguages()` method and get the returned `LanguageBatchResult`. Then iterate through the results, and print each document's ID, with respective primary and detected language.
 
 ```javascript
 async function languageDetection(client) {
@@ -177,7 +177,7 @@ ID: 0
 
 ## Entity Recognition
 
-Create a dictionary object containing your document. Call the client's [recognizeEntities()]() method and get the [recognizeEntities]() object. Iterate through the list of results, and print the entity names, types, and scores.
+Create a dictionary object containing your document. Call the client's `recognizeEntities()` method and get the `recognizeEntities` object. Iterate through the list of results, and print the entity names, types, subtypes, offsets, length and scores.
 
 ```javascript
 async function entityRecognition(client){
@@ -227,7 +227,7 @@ Document ID: 1
 
 ## Personal information entity recognition
 
-Create a dictionary object containing your document. Call the client's [recognizePiiEntities()]() method and get the [EntitiesBatchResult]() object. Iterate through the list of results, and print the entity names, types, and scores.
+Create a dictionary object containing your document. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity names, types, sub-types, offsets, length and scores.
 
 
 ```javascript
@@ -261,7 +261,7 @@ Document ID: 0
 
 ## Entity Linking
 
-Create a dictionary object containing your document. Call the client's [recognizeLinkedEntities()]() method and get the [EntitiesBatchResult]() object. Iterate through the list of results, and print the entity names, IDs, and scores.
+Create a dictionary object containing your document. Call the client's `recognizeLinkedEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity names, IDs, data sources, urls offsets, length and scores.
 
 ```javascript
 async function linkedEntityRecognition(client){
@@ -324,7 +324,7 @@ Document ID: 0
 
 ## Key phrase extraction
 
-Create a list of objects, containing your documents. Call the client's [extractKeyPhrases()]() method and get the returned     [KeyPhraseBatchResult]() object. Iterate through the results and print each document's ID, and any detected key phrases.
+Create a list of objects, containing your documents. Call the client's `extractKeyPhrases()` method and get the returned `KeyPhraseBatchResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 
 ```javascript
 async function keyPhraseExtraction(client){
