@@ -64,7 +64,7 @@ The following limits apply only for networking resources managed through Azure R
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
 | High-availability ports                 | 1 per internal frontend       |
-| Outboud rules per Load Balancer         | 20                            |
+| Outbound rules per Load Balancer         | 20                            |
 
 
 **Basic Load Balancer**
