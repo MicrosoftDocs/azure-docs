@@ -209,7 +209,7 @@ Errors related to applying configuration changes are also available for review. 
     >This command is not applicable to Azure Red Hat OpenShift cluster.
     > 
 
-- From Live logs. Live logs show errors similar to the following:
+- From Live Data (preview). Live Data (preview) logs show errors similar to the following:
 
     ```
     2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
