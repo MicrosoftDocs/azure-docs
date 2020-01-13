@@ -76,7 +76,7 @@ Only time-based retention policies have an `allowProtectedAppendWrites` setting 
 
 As this setting is part of a time-based retention policy, the append blobs still stay in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with `allowProtectedAppendWrites` enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days; so, the effective retention period for the _logblob1_ is 100 days from today (the time of its last modification/append).
+For example, suppose that a user creates a time-based retention policy with `allowProtectedAppendWrites` enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days; so, the effective retention period for the _logblob1_ is 100 days from today (the time of its last append + 90 days).
 
 Unlocked time-based retention policies allow the `allowProtectedAppendWrites` setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the `allowProtectedAppendWrites` setting cannot be changed.
 
