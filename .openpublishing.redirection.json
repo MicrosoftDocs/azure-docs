@@ -40800,6 +40800,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-databricks/vnet-injection.md",
+      "redirect_url": "/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/blueprints/gdpr-analytics-overview.md",
       "redirect_url": "https://aka.ms/azureblueprint",
       "redirect_document_id": false
