@@ -64,7 +64,7 @@ How to collect platform logs and metrics with Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings
 
-Understanding logging and different log types in Azure:
+Understand logging and different log types in Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
@@ -77,9 +77,11 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
 
 How to collect Azure Virtual Machine internal host logs with Azure Monitor:
+
 https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
 
-Understanding Azure Security Center data collection:
+Understand Azure Security Center data collection:
+
 https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
 ## 2.5: Configure security log storage retention
@@ -91,6 +93,7 @@ https://docs.microsoft.com/azure/security-center/security-center-enable-data-col
 Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
 How to set log retention parameters for Log Analytics Workspaces:
+
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 ## 2.6: Monitor and review Logs
@@ -107,7 +110,7 @@ How to onboard Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Understanding Log Analytics Workspace:
+Understand Log Analytics Workspace:
 
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
@@ -153,7 +156,7 @@ How to configure Microsoft Antimalware for Cloud Services:
 
 https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0
 
-Understanding Microsoft Antimalware:
+Understand Microsoft Antimalware:
 
 https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
