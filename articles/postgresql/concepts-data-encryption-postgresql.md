@@ -31,11 +31,11 @@ Data Encryption for Azure Database for PostgreSQL Single server provides the fol
 
 ## Terminology and description
 
-**Data Encryption Key (DEK)** – A symmetric AES256 key used to encrypt a partition or block of data. Encrypting each block of data with a different key makes crypto analysis attacks more difficult. Access to DEKs is needed by the resource provider or application instance that is encrypting and decrypting a specific block. When a DEK is replaced with a new key only the data in its associated block must be re-encrypted with the new key.
+**Data Encryption Key (DEK)** – A symmetric AES256 key used to encrypt a partition or block of data. Encrypting each block of data with a different key makes crypto analysis attacks more difficult. Access to DEKs is needed by the resource provider or application instance that is encrypting and decrypting a specific block. When a DEK is replaced with a new key, only the data in its associated block must be re-encrypted with the new key.
 
 **Key Encryption Key (KEK)** - An encryption key used to encrypt the Data Encryption Keys. Use of a Key Encryption Key that never leaves Key Vault, allows the data encryption keys themselves to be encrypted and controlled. The entity that has access to the KEK may be different than the entity that requires the DEK. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEKs can be effectively deleted by deletion of the KEK.
 
-The Data Encryption Keys, encrypted with the Key Encryption Keys are stored separately and only an entity with access to the Key Encryption Key can decrypt these Data Encryption Keys. For details please refer to [security in encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
+The Data Encryption Keys, encrypted with the Key Encryption Keys are stored separately and only an entity with access to the Key Encryption Key can decrypt these Data Encryption Keys. For more information, see [security in encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
 
 ## How Data Encryption with customer-managed key works
 
@@ -103,20 +103,20 @@ To monitor database state and to enable alerting for loss of TDE protector acces
 * [Azure Resource Health](../service-health/resource-health-overview.md) - An inaccessible database that has lost access to the customer key will show as "Inaccessible" after the first connection to the database has been denied.
 * [Activity Log](../service-health/alerts-activity-log-service-notifications.md) - When access to the customer key in the customer-managed Key Vault fails, entries are added to the activity log. Creating alerts for these events will enable you to reinstate access as soon as possible.
 
-* [Action groups](../azure-monitor/platform/action-groups.md) can be defined to send you notifications and alerts based on your preferences, e.g. Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
+* [Action groups](../azure-monitor/platform/action-groups.md) can be defined to send you notifications and alerts based on your preferences, for example Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
 ## Restore and replica with customer's managed key in the Key Vault
 
-Once an Azure Database for PostgreSQL Single server is encrypted with customer's managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or through read replicas is also encrypted with the same customer's managed key. However, they can be changed to reflect new customer's managed key for encryption. When the customer-managed key is changed, old backups of the server will start using the latest key.
+Once an Azure Database for PostgreSQL Single server is encrypted with customer's managed key stored in the Key Vault, any newly created copy of the server (either though local or geo-restore operation or through read replicas) is also encrypted with the same customer's managed key. However, they can be changed to reflect new customer's managed key for encryption. When the customer-managed key is changed, old backups of the server will start using the latest key.
 
-To avoid issues while establishing setting up customer-managed data encryption during restore or read replica creation it is important to follow these steps on the master and restores/replica server:
+To avoid issues while establishing setting up customer-managed data encryption during restore or read replica creation, it is important to follow these steps on the master and restores/replica server:
 
 * Initiate the restore or read replica creation process from the master Azure Database for PostgreSQL Single server.
 * The newly created server (restored/replica) is kept an Inaccessible state since its unique identity has not yet been given permissions to the Azure Key Vault (AKV)
-* On the restored/replica server, re-validate the customer-managed key in the data encryption settings to ensure that the newly created server is given wrap/unwrap permissions to the key stored in AKV.
+* On the restored/replica server, revalidate the customer-managed key in the data encryption settings to ensure that the newly created server is given wrap/unwrap permissions to the key stored in AKV.
 
 * Both the steps above must be done to ensure that the data encryption is preserved on the master as well as the restored/replica server.
 
 ## Next steps
 
-Learn how to setup data encryption with customer-managed key for your Azure database for PostgreSQL Single server using [Azure portal](howto-data-encryption-portal.md).
+Learn how to set up data encryption with customer-managed key for your Azure database for PostgreSQL Single server using [Azure portal](howto-data-encryption-portal.md).
