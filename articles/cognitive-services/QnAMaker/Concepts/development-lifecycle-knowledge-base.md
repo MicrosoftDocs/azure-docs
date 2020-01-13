@@ -26,7 +26,7 @@ QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user qu
 The knowledge base is ready for testing once it is populated with content, either editorially or through automatic extraction. Interactive testing can be done in the QnA Maker portal through the **Test** panel by entering common user queries and verifying that the responses returned with the correct response and sufficient confidence score.
 
 * **To fix low confidence scores**: add alternate questions.
-* **When a query incorrectly returns the [default response](confidence-score.md#change-default-answer)**: add new answers to the correct question.
+* **When a query incorrectly returns the [default response](../How-to/change-default-answer.md)**: add new answers to the correct question.
 
 This tight loop of test-update continues until you are satisfied with the results. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 

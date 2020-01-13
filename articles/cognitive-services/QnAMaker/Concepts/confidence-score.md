@@ -81,24 +81,7 @@ If you have a knowledge base in different regions, each region uses its own Azur
 
 
 ## No match found
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this [default response](#change-default-answer) in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
-
-## Change Default Answer
-
-1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
-
-2. Click to open the **App Service**.
-
-    ![In the Azure portal, access App service for QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
-
-3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Click **Save**.
-
-    ![Select Application Settings and then edit DefaultAnswer for QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
-
-4. Restart your App service
-
-    ![After you change the DefaultAnswer, restart the QnA Maker appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
-
+When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this [default response](../How-To/metadata-generateanswer-usage.md) in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
 
 ## Next steps
 > [!div class="nextstepaction"]
