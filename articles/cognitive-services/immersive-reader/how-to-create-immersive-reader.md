@@ -33,12 +33,12 @@ The script is designed to be flexible. It will first look for existing Immersive
     function Create-ImmersiveReaderResource(
         [Parameter(Mandatory=$true, Position=0)] [String] $SubscriptionName,
         [Parameter(Mandatory=$true)] [String] $ResourceName,
-        [Parameter(Mandatory=$false)] [String] $ResourceSubdomain,
-        [Parameter(Mandatory=$false)] [String] $ResourceSKU,
-        [Parameter(Mandatory=$false)] [String] $ResourceLocation,
+        [Parameter(Mandatory=$true)] [String] $ResourceSubdomain,
+        [Parameter(Mandatory=$true)] [String] $ResourceSKU,
+        [Parameter(Mandatory=$true)] [String] $ResourceLocation,
         [Parameter(Mandatory=$true)] [String] $ResourceGroupName,
-        [Parameter(Mandatory=$false)] [String] $ResourceGroupLocation,
-        [Parameter(Mandatory=$false)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
+        [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
+        [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
         [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
     )
@@ -152,7 +152,7 @@ The script is designed to be flexible. It will first look for existing Immersive
     | ResourceSKU |Options: `S0` or `S1`. Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
     | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. This parameter is optional if the resource already exists. |
     | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group does not already exist, a new one with this name will be created. |
-    | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. This parameter is optional if your resource group already exists. |
+    | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
     | AADAppIdentifierUri |The URI for the Azure AD app. If an existing Azure AD app is not found, a new one with this URI will be created. For example, `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. |
