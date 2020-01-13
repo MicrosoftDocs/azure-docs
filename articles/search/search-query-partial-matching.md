@@ -23,7 +23,7 @@ When you need to search on partial strings or special characters, you can overri
 + Assign the analyzer to the field
 + Build the index and test
 
-This article walks you through each step. The approach described here can be used in other scenarios. In particular, wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
+This article walks you through each step. The approach described here can be used in other scenarios. Wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
 ## Choosing an analyzer
 
@@ -208,9 +208,9 @@ A token filter adds additional processing over existing tokens in your index. Th
 
 ## Build and test the index
 
-Once the index definition with analyzer configuration is done, your next step is to run [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) on the service, and then import data. Index names must be unique. If the index already exists, you can either rename the index or delete and recreate it.
+Once the index definition and analyzer configuration work is done, your next step is to run [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) on the service, and then import data. Index names must be unique. If the index already exists, you can either rename the index or delete and recreate it.
 
-## Query for patterns
+### Advanced query patterns
 
 Once you have an index that contains terms in the correct format, you can specify patterns to find matching documents.
 
@@ -218,9 +218,13 @@ Once you have an index that contains terms in the correct format, you can specif
 
 1. On the query request, add `querytype=full` to specify the full Lucene query syntax used for wildcard and RegEx queries.
 
-2. In the query string:
+   ```http
+  GET https://<SEARCH-SERVICE>.search.windows.net/indexes/<INDEX>/docs?search=*&query-type=true&api-version=2019-05-06
+   ````
 
-   + For wildcard search, embed `*` or `?` wildcard characters
+2. In the `search=` expression:
+
+   + For wildcard search, combine text with `*` or `?` wildcard characters
    + For RegEx queries, enclose your pattern or term with `/`, such as `fieldCode:/SQL*Java-Ext/`
 
 > [!NOTE]
