@@ -45650,7 +45650,6 @@
       "redirect_document_id": true
     },
     {
-<<<<<<< HEAD
       "source_path": "articles/virtual-machines/workloads/redhat/redhat-byos.md",
       "redirect_url": "/azure/virtual-machines/workloads/redhat/byos",
       "redirect_document_id": false
@@ -45659,11 +45658,11 @@
       "source_path": "articles/virtual-machines/workloads/redhat/redhat-overview.md",
       "redirect_url": "/azure/virtual-machines/workloads/redhat/overview",
       "redirect_document_id": false
-=======
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-arm.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
->>>>>>> upstream/master
     }
   ]
 }
