@@ -53,7 +53,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## Assign an RBAC role to a security principal
 
-To assign an RBAC role to a security principal, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
+To assign an RBAC role to a security principal, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. The format of the command can differ based on the scope of the assignment. In order to run the command, you need to have Owner or Contributor role assigned at the corresponding scope. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
 
 ### Container scope
 

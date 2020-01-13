@@ -61,7 +61,7 @@ The certificate you request or create must meet the following requirements. Your
 
 * **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public CA or an Enterprise CA trusted by these computers.
 * **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
-* **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *aadds.contoso.com*, the certificate's subject name must be **aadds.contoso.com*.
+* **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *aadds.contoso.com*, the certificate's subject name must be **.aadds.contoso.com*.
     * The DNS name or subject alternate name of the certificate must be a wildcard certificate to ensure the secure LDAP works properly with the Azure AD Domain Services. Domain Controllers use random names and can be removed or added to ensure the service remains available.
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
 * **Certificate purpose** - The certificate must be valid for SSL server authentication.

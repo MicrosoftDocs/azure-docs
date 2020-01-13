@@ -47,8 +47,8 @@ In your code, you first retrieve the key values without any labels, and then you
 // Pull the connection string from an environment variable
 configBuilder.AddAzureAppConfiguration(options => {
     options.Connect(configuration["connection_string"])
-           .Use(KeyFilter.Any, LabelFilter.Null)
-           .Use(KeyFilter.Any, "Development");
+           .Select(KeyFilter.Any, LabelFilter.Null)
+           .Select(KeyFilter.Any, "Development");
 });
 ```
 

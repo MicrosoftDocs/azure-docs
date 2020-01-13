@@ -37,7 +37,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 - Can I use a reserved IP for all Azure services?
     No. Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
 - How many reserved IPs can I have?
-    For details, see the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+    For details, see the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) article.
 - Is there a charge for reserved IPs?
     Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](https://go.microsoft.com/fwlink/?LinkID=398482) page.
 - How do I reserve an IP address?

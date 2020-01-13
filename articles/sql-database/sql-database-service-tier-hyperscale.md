@@ -1,5 +1,5 @@
 ---
-title: Hyperscale Overview
+title: Azure SQL Database Hyperscale Overview | Microsoft Docs
 description: This article describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: dimitri-furman
-ms.author: dfurman
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
 ms.date: 10/01/2019
 ---
@@ -33,7 +33,7 @@ The Hyperscale service tier in Azure SQL Database provides the following additio
 
 - Support for up to 100 TB of database size
 - Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on compute resources  
-- Fast database point-in-time restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
+- Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
 - Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
 - Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads as and when needed, and then scale the compute resources back down when not needed.
@@ -77,7 +77,7 @@ Unlike traditional database engines that have centralized all of the data manage
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
-![architecture](./media/sql-database-hyperscale/hyperscale-architecture2.png)
+![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
 A Hyperscale database contains the following different types of components:
 
@@ -99,7 +99,7 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 ## Backup and restore
 
-Backups are file-snapshot based and hence they are nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup does not impact performance of the primary compute node; similarly, restores are done by reverting to file snapshots, and as such are not a size of data operation. Restore is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies within the same logical server for development or testing purposes, even of terabyte sized databases, is doable in minutes.
+Backups are file-snapshot based and hence they are nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup does not impact performance of the primary compute node; similarly, restores are done by reverting to file snapshots, and as such are not a size of data operation. Restore is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of terabyte sized databases, is doable in minutes.
 
 ## Scale and performance advantages
 
@@ -109,7 +109,7 @@ With the ability to rapidly spin up/down additional read-only compute nodes, the
 
 A HyperScale database can be created using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). HyperScale databases are available only using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-The following T-SQL command creates a Hyperscale database. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) for a list of valid service objectives.
+The following T-SQL command creates a Hyperscale database. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
 
 ```sql
 -- Create a HyperScale Database
@@ -191,25 +191,25 @@ If you want to create Hyperscale database in a region that is not listed as supp
 
 To request the ability to create Hyperscale databases in regions not listed:
 
-1. From the Azure portal menu, select **Help + support**, or search for and select **Help + support** from any page.
+1. Navigate to [Azure Help and Support Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-2. In [Azure Help and Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), select [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-3. For **Issue Type**, select **Service and subscription limits (quotas)**.
+    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
-4. Choose the subscription you would use to create the database(s).
+3. For **Issue Type**, select **Service and subscription limits (quotas)**
 
-5. For **Quota Type**, select **SQL database**.
+4. Choose the subscription you would use to create the database(s)
 
-    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
+5. For **Quota Type**, select **SQL database**
 
-6. Click **Next: Solutions**.
+6. Click **Next: Solutions**
 
-7. Click **Provide Details**.
+1. Click **Provide Details**
 
     ![Problem details](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Choose **SQL Database quota type**: **Other quota request**.
+8. Choose **SQL Database quota type**: **Other quota request**
 
 9. Fill in the following template:
 
@@ -223,11 +223,11 @@ To request the ability to create Hyperscale databases in regions not listed:
     > Number of TB estimated 
     >
 
-10. Choose **Severity C**.
+10. Choose **Severity C**
 
 11. Choose the appropriate contact method and fill in details.
 
-12. Click **Save** and **Continue**.
+12. Click **Save** and **Continue**
 
 ## Known limitations
 These are the current limitations to the Hyperscale service tier as of GA.  We are actively working to remove as many of these limitations as possible.

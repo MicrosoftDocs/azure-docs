@@ -4,8 +4,8 @@ description: This article describes how to connect Windows computers hosted in o
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
 
 ---
@@ -34,7 +34,7 @@ To understand the supported configuration, review [supported Windows operating s
 ## Obtain workspace ID and key
 Before installing the Log Analytics agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Azure Monitor in Azure commercial and US Government cloud. 
 
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, search for and select **Log Analytics workspaces**.
 2. In your list of Log Analytics workspaces, select the workspace you intend on configuring the agent to report to.
 3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Select **Connected Sources**, and then select **Windows Servers**.   
@@ -184,9 +184,9 @@ From the computer in **Control Panel**, find the item **Microsoft Monitoring Age
 
 You can also perform a simple log query in the Azure portal.  
 
-1. In the Azure portal, click **All services**. In the list of resources, type **Azure Monitor**. As you begin typing, the list filters based on your input. Select **Azure Monitor**.  
-2. Select **Logs** in the menu. 
-2. On the Logs pane, in the query field type:  
+1. In the Azure portal, search for and select **Monitor**.
+1. Select **Logs** in the menu.
+1. On the **Logs** pane, in the query field type:  
 
     ```
     Heartbeat 

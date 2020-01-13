@@ -551,6 +551,10 @@ The following functionality was new in the November release of the SDK:
   
     * Asynchronous support was added to all methods.
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

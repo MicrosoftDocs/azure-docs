@@ -16,7 +16,7 @@ ms.author: aahi
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
 ## Setting up
 
@@ -26,49 +26,26 @@ ms.author: aahi
 
 ### Create a new .NET Core application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `text-analytics quickstart`. This command creates a simple "Hello World" project with a single C# source file: *program.cs*. 
+Using the Visual Studio IDE, create a new .NET Core console app. This will create a simple "Hello World" project with a single C# source file: *program.cs*.
 
-```console
-dotnet new console -n text-analytics-quickstart
-```
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens, select **Browse** and search for `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
-Change your directory to the newly created app folder. You can build the application with:
-
-```console
-dotnet build
-```
-
-The build output should contain no warnings or errors. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-From the project directory, open the *program.cs* file and add the following `using` directives:
+Open the *program.cs* file and add the following `using` directives:
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
-In the application's `Program` class, create variables for your resource's key and endpoint from the environment variables you created earlier. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
+In the application's `Program` class, create variables for your resource's key and endpoint. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
+```csharp
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+```
 
 Replace the application's `Main` method. You will define the methods called here later.
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
-
-### Install the client library
-
-Within the application directory, install the Text Analytics client library for .NET with the following command:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
-```
 
 ## Object model
 

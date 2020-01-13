@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 04/22/2019
+ms.date: 12/11/2019
 ms.author: gsacavdm
 
 ---
@@ -143,6 +143,7 @@ The resources currently supported in the second generation alerts experience are
 - Microsoft.DBforMySQL/servers
 - Microsoft.DBforPostgreSQL/servers
 - Microsoft.DBforMariaDB/servers
+- Microsoft.Devices/IotHubs
 - Microsoft.EventGrid/topics
 - Microsoft.EventGrid/domains
 - Microsoft.EventHub/clusters
@@ -463,7 +464,7 @@ For information on this service and how to use it, see [Azure Scheduler Document
 The Azure Government portal can be accessed [here](https://portal.azure.us).
 
 ## Azure Resource Manager
-For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md).
+For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/management/overview.md).
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

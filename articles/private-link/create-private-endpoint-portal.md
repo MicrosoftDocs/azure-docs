@@ -3,7 +3,7 @@
 title: 'Quickstart - Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal in this Quickstart
 services: private-link
-author: asudbring
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can prvately connect to it.
 ms.service: private-link
 ms.topic: quickstart
@@ -19,9 +19,6 @@ In this Quickstart, you will learn how to create a VM on an Azure Virtual Networ
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
-> [!NOTE]
-> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
 
 ## Sign in to Azure
 

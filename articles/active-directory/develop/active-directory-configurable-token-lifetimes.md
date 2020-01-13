@@ -1,5 +1,5 @@
 ---
-title: Configurable token lifetimes in Azure Active Directory 
+title: Configurable Azure AD token lifetimes
 titleSuffix: Microsoft identity platform
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory

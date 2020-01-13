@@ -1,6 +1,7 @@
 ---
-title: Pass an access token through a custom policy to your application in Azure Active Directory B2C
-description: Learn how you can pass an access token for OAuth2.0 identity providers as a claim through a custom policy to your application in Azure Active Directory B2C.
+title: Pass an access token through a custom policy to your app
+titleSuffix: Azure AD B2C
+description: Learn how you can pass an access token for OAuth 2.0 identity providers as a claim through a custom policy to your application in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

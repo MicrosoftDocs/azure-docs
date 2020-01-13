@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
@@ -37,7 +37,7 @@ The only way to target specific notification registrations is to associate tags 
 
 A tag can be any string, up to 120 characters, containing alphanumeric and the following non-alphanumeric characters: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. The following example shows an application from which you can receive toast notifications about specific music groups. In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following picture:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![Tags overview](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 In this picture, the message tagged **Beatles** reaches only the tablet that registered with the tag **Beatles**.
 
@@ -61,7 +61,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 Tags do not have to be pre-provisioned and can refer to multiple app-specific concepts. For example, users of this example application can comment on bands and want to receive toasts, not only for the comments on their favorite bands, but also for all comments from their friends, regardless of the band on which they are commenting. The following picture shows an example of this scenario:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![Tags friends](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 In this picture, Alice is interested in updates for the Beatles, and Bob is interested in updates for the Wailers. Bob is also interested in Charlie’s comments, and Charlie is in interested in the Wailers. When a notification is sent for Charlie’s comment on the Beatles, both Alice and Bob receive it.
 
@@ -76,7 +76,7 @@ For a full step-by-step tutorial on how to use tags for sending to interest grou
 
 Another way to use tags is to identify all the devices of a particular user. Registrations can be tagged with a tag that contains a user ID, as in the following picture:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![Tag users](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
 In this picture, the message tagged uid: Alice reaches all registrations tagged "uid:Alice"; hence, all of Alice’s devices.
 
@@ -90,7 +90,7 @@ Consider a sports application that sends a reminder to everyone in Boston about 
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![Tag expressions](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), and NOT (!). They can also contain parentheses. Tag expressions are limited to 20 tags if they contain only ORs; otherwise they are limited to 6 tags.
 

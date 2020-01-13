@@ -27,10 +27,10 @@ ms.subservice: B2C
 
 ## Add signing and encryption keys
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. On the Overview page, select **Identity Experience Framework** from the **Policies** pane.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 
 ### Create the signing key
 
@@ -73,10 +73,9 @@ To register an application in your Azure AD B2C tenant, you can use the current 
 
 #### [Applications](#tab/applications/)
 
-1. Select **All services** in the top-left corner of the Azure portal.
-1. In the search box, enter `Azure Active Directory`.
-1. Select **Azure Active Directory** in the search results.
-1. Under **Manage** in the left-hand menu, select **App registrations (Legacy)**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the **Azure Active Directory** overview menu, under **Manage**, select **App registrations (Legacy)**.
 1. Select **New application registration**.
 1. For **Name**, enter `IdentityExperienceFramework`.
 1. For **Application type**, choose **Web app/API**.

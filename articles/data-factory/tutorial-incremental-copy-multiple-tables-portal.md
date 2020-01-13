@@ -1,8 +1,7 @@
 ---
-title: Incrementally copy multiple tables
+title: Incrementally copy multiple tables using Azure portal
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
 services: data-factory
-documentationcenter: ''
 ms.author: yexu
 author: dearandyxu
 manager: shwang
@@ -10,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
 ---
 
@@ -243,7 +242,7 @@ END
      
     - Select **Use existing**, and select an existing resource group from the drop-down list. 
     - Select **Create new**, and enter the name of a resource group.   
-    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 6. Select **V2** for the **version**.
 7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 8. Click **Create**.      

@@ -1,24 +1,18 @@
 ---
-title: Move data from MongoDB using Data Factory 
+title: Move data from MongoDB
 description: Learn about how to move data from MongoDB database using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
+ms.author: jingwang
 manager: shwang
-
-
-ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: jingwang
-
-robots: noindex
 ---
+
 # Move data From MongoDB using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-on-premises-mongodb-connector.md)
 > * [Version 2 (current version)](../connector-mongodb.md)

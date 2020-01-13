@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -46,9 +46,15 @@ The following steps will help create a Conditional Access policy to require devi
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
+### Known behavior
+
+On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser the user is prompted to select the certificate. The end user must select this certificate before they can continue to use the browser.
+
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 

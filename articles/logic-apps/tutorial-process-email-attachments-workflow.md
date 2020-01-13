@@ -52,7 +52,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
    | Setting | Value | Description |
    |---------|-------|-------------|
    | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription |  
-   | **Resource group** | <*Azure-resource-group*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. This example uses "LA-Tutorial-RG". <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
+   | **Resource group** | <*Azure-resource-group*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize and manage related resources. This example uses "LA-Tutorial-RG". <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
    | **Storage account name** | <*Azure-storage-account-name*> | Your storage account name, which must have 3-24 characters and can contain only lowercase letters and numbers. This example uses "attachmentstorageacct". |
    | **Location** | <*Azure-region*> | The region where to store information about your storage account. This example uses "West US". |
    | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -174,7 +174,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
 1. After the editor opens, replace the template code with this sample code, which removes the HTML and returns results to the caller:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;

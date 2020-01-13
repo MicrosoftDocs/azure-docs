@@ -32,7 +32,7 @@ Video Indexer determines when a shot changes in the video based on visual cues, 
 
 ## Keyframe detection
 
-Selects the frame(s) that best represent the shot. Keyframes are the representative frames selected from the entire video based on aesthetic properties (for example, contrast and stableness). Video Indexer retrieves a list of keyframe IDs as part of the shot's metadata, based on which customers can extract the keyframe thumbnail. 
+Video Indexer selects the frame(s) that best represent each shot. Keyframes are the representative frames selected from the entire video based on aesthetic properties (for example, contrast and stableness). Video Indexer retrieves a list of keyframe IDs as part of the shot's metadata, based on which customers can extract the keyframe as a high resolution image.  
 
 ### Extracting Keyframes
 

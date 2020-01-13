@@ -412,7 +412,7 @@ If you are experiencing a delay between the time an application adds a message t
 * Examine the Storage Logging logs for any queue operations that have higher than expected **E2ELatency** and **ServerLatency** values over a longer period of time than usual.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metrics show an increase in PercentThrottlingError
-Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
+Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
 
 If the **PercentThrottlingError** metric show an increase in the percentage of requests that are failing with a throttling error, you need to investigate one of two scenarios:
 

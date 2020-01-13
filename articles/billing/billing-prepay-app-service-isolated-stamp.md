@@ -1,5 +1,5 @@
 ---
-title: Save costs for Azure App Service Isolated Stamp Fee with reserved capacity
+title: Save for Azure App Service with reserved capacity
 description: Learn how you can save costs for Azure App Service Isolated Stamp Fee with reserved capacity.
 services: billing
 author: yashesvi

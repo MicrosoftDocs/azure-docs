@@ -286,9 +286,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     }
     catch (StorageException e)
     {
-        telemetry.Properties.Add("AzureServiceRequestID", e.RequestInformation.ServiceRequestID);
-        telemetry.Success = false;
-        telemetry.ResultCode = e.RequestInformation.HttpStatusCode.ToString();
+        operation.telemetry.Properties.Add("AzureServiceRequestID", e.RequestInformation.ServiceRequestID);
+        operation.telemetry.Success = false;
+        operation.telemetry.ResultCode = e.RequestInformation.HttpStatusCode.ToString();
         telemetryClient.TrackException(e);
     }
     finally

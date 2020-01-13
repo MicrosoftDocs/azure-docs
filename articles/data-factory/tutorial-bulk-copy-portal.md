@@ -1,6 +1,6 @@
 ---
-title: Copy data in bulk
-description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
+title: Copy data in bulk using Azure portal
+description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -9,11 +9,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory
+
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
@@ -80,7 +81,7 @@ To verify and turn on this setting, go to your Azure SQL server > Security > Fir
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 1. Select **V2** for the **version**.
 1. Select the **location** for the data factory. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 1. Click **Create**.
