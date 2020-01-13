@@ -68,8 +68,8 @@ landingContent:
             url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
           - text: "Quickstart: Using REST and C#"
             url: quickstarts/get-answer-from-knowledge-base-csharp.md
-          - text: "Quickstart: Using NuGet and C#"
-            url: quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base
+          - text: "Quickstart: Using SDK"
+            url: quickstarts/quickstart-sdk.md
       - linkListType: how-to-guide
         links:
           - text: Get an answer with metadata
