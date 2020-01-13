@@ -99,7 +99,7 @@ To manage and configure disk encryption on your existing disks, you must use the
 
     ![sse-existing-disk-select.png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
 
-1. Select **Encryption** and select *customer* and then select your disk encryption set in the drop down.
+1. Select **Encryption** and select **Encryption at rest with a customer-managed key** and then select your disk encryption set in the drop-down list.
 1. Select **Save**.
 
 ![sse-encrypt-existing-disk-customer-managed-key.png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
