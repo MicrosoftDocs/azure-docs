@@ -4,7 +4,7 @@ description: Learn how to configure a custom domain for static website hosting.
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 01/10/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ---
@@ -13,7 +13,7 @@ ms.reviewer: dineshm
 
 This tutorial is part two of a series. In it, you learn to enable a custom domain endpoint with SSL for your static website. 
 
-The tutorial shows how to use [Azure CDN](../../cdn/cdn-overview.md) to configure the custom domain endpoint for your static website. With Azure CDN, you can provision custom SSL certificates, use a custom domain, and configure custom rewrite rules all at the same time. Configuring Azure CDN results in additional charges, but provides consistent low latencies to your website from anywhere in the world. Azure CDN also provides SSL encryption with your own certificate. For information on Azure CDN pricing, see [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/).
+The tutorial shows how to use [Azure content delivery network (Azure CDN)](../../cdn/cdn-overview.md) to configure the custom domain endpoint for your static website. With Azure CDN, you can provision custom SSL certificates, use a custom domain, and configure custom rewrite rules all at the same time. Configuring Azure CDN results in additional charges, but provides consistent low latencies to your website from anywhere in the world. Azure CDN also provides SSL encryption with your own certificate. For information on Azure CDN pricing, see [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 In part two of the series, you learn how to:
 
@@ -32,15 +32,25 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 ## Create a CDN endpoint on the static website endpoint
 
 1. Locate your storage account in the Azure portal and display the account overview.
-1. Select **Azure CDN** under the **Blob Service** menu to configure Azure CDN.
-1. In the **CDN profile** section, specify a new or existing CDN profile. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](../../cdn/cdn-create-new-endpoint.md).
-1. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a few minutes. Other pricing tiers may take longer to propagate, but may also offer other advantages. For more information, see [Compare Azure CDN product features](../../cdn/cdn-features.md).
-1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure.
-1. Specify your the static website endpoint in the **Origin hostname** field. To find your static website endpoint, navigate to the **Static website** settings for your storage account. Copy the primary endpoint and paste it into the CDN configuration, removing the protocol identifier (*e.g.*, HTTPS).
 
-    The following image shows an example endpoint configuration:
+2. Select **Azure CDN** under the **Blob Service** menu to configure Azure CDN.
 
-    ![Screenshot showing sample CDN endpoint configuration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+3. In the **CDN profile** section, specify a new or existing CDN profile. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](../../cdn/cdn-create-new-endpoint.md).
+4. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a few minutes. Other pricing tiers may take longer to propagate, but may also offer other advantages. For more information, see [Compare Azure CDN product features](../../cdn/cdn-features.md).
+
+5. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure.
+
+6. Specify your the static website endpoint in the **Origin hostname** field. 
+
+   To find your static website endpoint, navigate to the **Static website** settings for your storage account.  Copy the primary endpoint and paste it into the CDN configuration.
+
+   > [!IMPORTANT]
+   > Make sure to remove the protocol identifier (*e.g.*, HTTPS) and the trailing slash in the URL. For example, if the static website endpoint is
+   > `https://mystorageaccount.z5.web.core.windows.net/`, then you would specify `mystorageaccount.z5.web.core.windows.net` in the **Origin hostname** field.
+
+   The following image shows an example endpoint configuration:
+
+   ![Screenshot showing sample CDN endpoint configuration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
 1. Create the CDN endpoint and wait for it to propagate.
 1. To verify that the CDN endpoint is configured correctly, click on the endpoint to navigate to its settings. From the CDN overview for your storage account, locate the endpoint hostname, and navigate to the endpoint, as shown in the following image. The format of your CDN endpoint will be similar to `https://staticwebsitesamples.azureedge.net`.

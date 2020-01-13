@@ -42,7 +42,7 @@ You can point your custom domain prefixed with a subdomain (e.g. www\.contoso.co
 * Use direct CNAME mapping.
 * Use the *asverify* intermediary subdomain.
 
-### Direct CNAME mapping
+### Directly map a custom domain to a blob endpoint
 
 The first, and simplest, method is to create a canonical name (CNAME) record that maps your custom domain and subdomain directly to the blob endpoint. A CNAME record is a domain name system (DNS) feature that maps a source domain to a destination domain. In our example, the source domain is your own custom domain and subdomain (*www\.contoso.com*, for example). The destination domain is your blob service endpoint (*mystorageaccount.blob.core.windows.net*, for example).
 

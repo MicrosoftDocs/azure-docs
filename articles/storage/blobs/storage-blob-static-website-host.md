@@ -5,7 +5,7 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 1/10/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ---
