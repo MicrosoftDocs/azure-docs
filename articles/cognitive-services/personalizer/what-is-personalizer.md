@@ -50,10 +50,11 @@ Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs
 
 ## Personalizer content requirements
 
-Personalizer does....
-* You have a limited set of content (30 to 50 items) to select a single content item from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 30 to 50 items.
-* You have information describing the content you want ranked: _actions_ and _context_.
-* Your scenario has enough real-time events (~4K/day) which need a selection from Personalizer.
+Use Personalizer when your content:
+
+* Has a limited set of items (~30 to 50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 30 to 50 items.
+* Has information describing the content you want ranked: _actions with features_ and _context features_.
+* Has a minimum of ~4k/day content-related events for Personalizer to be effective.
 
 Personalizer doesn't:
 * require cleaned and labeled content
