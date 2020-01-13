@@ -33,8 +33,7 @@ Private endpoints for your search service enables you to:
 > * Available in the West US 2, West Central US, East US, South Central US, Australia East, and Australia Southeast regions.
 > * When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 > * When the service endpoint is private, you must use the search API to upload documents to the index.
-> * You must use the following link to see the private endpoint support option in the Azure Portal: https://portal.azure.com/?feature.enablePrivateEndpoints=true
-> We plan to address all of these limitations in a future update to the service.
+> * You must use the following link to see the private endpoint support option in the Azure portal: https://portal.azure.com/?feature.enablePrivateEndpoints=true
 
 In this article, you'll learn how to use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address, configure an Azure virtual machine in the same virtual network, and use it to access the search service via a private endpoint.
 
