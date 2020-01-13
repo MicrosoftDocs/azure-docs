@@ -580,6 +580,8 @@ Specific Azure Marketplace offers can use monetary commitment funds. See [third-
 
 ## Power BI reporting
 
+Power BI reporting is available for EA direct, partner, and indirect customers who have access to view billing information.
+
 ### Power BI Pro
 
 Power BI Pro is available for EA customers. With Power BI Pro, you can generate and share reports to effectively manage your cost data. It also has additional collaboration and data refresh features. Power BI Pro offers higher data capacity and data streaming limits. New cost management features for Azure Enterprise customers are coming soon.
@@ -604,68 +606,71 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
   - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
   -->
 
-### To access the Microsoft Azure Consumption Insights content pack:
+### To access Microsoft Azure Consumption Insights:
 
 1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
 1. Select **Get It Now**.
 1. Provide an enrollment number and the number of months, and then select **Next**.
-1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Select **Sign In**.
-1. The import process will begin automatically. When complete, a new dashboard, report, and model will appear in the navigation pane. Select the dashboard to view your imported data.
+1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Select **Sign In** to automatically start the import process.
+1. When complete, a new dashboard, report, and model appears in the navigation pane. Select the dashboard to view your imported data.
 
-For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information on the new content pack, please download the [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) document.
+> [!TIP]
+> 
+> - To learn how to generate the API key for your enrollment, see the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+> - For more information about connecting Power BI to  to your Azure consumption, see [Microsoft Azure Consumption Insights](https://docs.microsoft.com/en-us/power-bi/desktop-connect-azure-consumption-insights).
 
 ### To access the legacy Power BI EA content pack:
 
- 1. Navigate to the [Power BI Website](https://app.powerbi.com/getdata/services/azure-enterprise).
- 1. Sign in with a valid work or school account.
-    - The work or school account can be the same or different than what is used to access the enrollment through the Azure Enterprise portal.
- 1. On the dashboard of services, select **Microsoft Azure Enterprise** and select **Connect**.
- 1. On the "Connect to Azure Enterprise" screen, choose:
-    - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com/).
-    - Number of Months: choose between 1 and 36.
-    - Enrollment Number: enter the enrollment number.
-    - Select **Next**.
- 1. On Authentication Key Box, enter the API Key. You can get the API key here in the Azure Enterprise portal, under "Download Usage" tab above, select "API Access Key"
-    - Copy and Paste the Key into the box for "Account Key"
- 1. Data will take approximately 5 minutes -30 minutes to load in Power BI depending on the size of the datasets.
+1. Go to the [Power BI website](https://app.powerbi.com/getdata/services/azure-enterprise).
+1. Sign in with a valid work or school account.
 
-Power BI reporting is available for EA direct, partner, and indirect customers who have access to view billing information.
+   The work or school account can be the same or different than what you use to access the enrollment through the Azure Enterprise portal.
+1. On the dashboard of services, select **Microsoft Azure Enterprise** and select **Connect**.
+1. On the **Connect to Azure Enterprise** screen, fill in the fields:
+    - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com/)
+    - Number of Months: from 1 to 36
+    - Enrollment Number: your enrollment number
+1. Select **Next**.
+1. In **Authentication Key Box**, enter the API Key.
+
+    You can get the API key in the Azure Enterprise portal under the **Download Usage** tab above. Select **API Access Key**, and then paste the key into the **Account Key** box.
+1. Data takes approximately 5 - 30 minutes to load in Power BI depending on the size of the data sets.
 
 ## Reports FAQ
 
-This section answers common questions about reports.
+This section addresses common questions about reports.
 
 ### Why is my cost showing as $0?
 
-**Direct enrollment**
-If you're an account owner or department admin, please contact your Enterprise administrator to enable pricing feature:
+For **direct enrollment** customers, Enterprise administrators can provide account owners and department administrators with access to cost/pricing information on the usage reports. Follow these steps:
 
-1. Select **Manage** on the left navigation.
+1. In the Azure Enterprise portal, select **Manage** on the left navigation.
 1. Select the blue pencil next to DA (department administrator) view charges.
 1. Select **Enabled** and save.
 1. Select the blue pencil next to AO (account owner) view charges.
 1. Select **Enabled** and save.
 
-This action will provide account owners and department administrators with access to cost/pricing information on the usage reports.
+> [!NOTE]
+> If you're an account owner or department admin, contact your Enterprise administrator to enable the pricing feature.
 
-**Indirect enrollment**
-Please check with your partner that they've enabled the pricing feature for you. This can only be done by the partner and once they've turned on the feature, you can view the cost and pricing on your enrollment as an Enterprise administrator.
+For **indirect enrollment** customers, contact your partner to check that they've enabled the pricing feature for you. This can only be done by the partner. After you're enabled, you can view the cost and pricing on your enrollment as an Enterprise administrator.
 
-If you wish to enable the view charges feature for your account owners and department admin, please follow the steps above listed under **Direct Enrollment** above.
+Partners, if you wish to enable the view charges feature for your an account owner or a department administrator, follow the steps under **direct enrollment**.
 
-### There is no SKU information on the usage detail report
+### Why is there no SKU information on my usage detail report?
 
-The usage detail report does not have SKU information; however, you'll be able to view the service information utilized in the report. You can then download the price sheet report to obtain the SKU information.
+The usage detail report does not contain SKU information. The report does, however, contain usage information so you can download the price sheet report to obtain the SKU information.
 
-### The total amount on Marketplace does not match on usage summary and CSV report
+### Why doesn't the total amount on Marketplace match the reports for usage summary and detail?
 
-Azure Marketplace charges report shows only the usage-based charges. One time fees aren't shown. You can refer to the usage summary page for the most up-to-date usages on both usage-based charges and one-time fees.
+The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. You can refer to the usage summary page for the most up-to-date usage for both usage-based charges and one-time fees.
 
-### There is no information on my API report
+### Why is there no information on my API report?
 
-API keys expire every six months. Please generate a new API key if you're facing an issue. It's also important to request your Enterprise administrator to generate the new API Keys and follow the steps on the API Report FAQ.
+API keys expire every six months. If you're having an issue, Enterprise administrators should generate a new API keys. Remember to follow the steps on the API Report FAQ.
 
-### My Power BI report isn't working
+### Why isn't my Power BI report working?
 
 For issue with Power BI, please log a technical ticket with Power BI team at [https://support.powerbi.com](https://support.powerbi.com)so that team can assist you.
 
