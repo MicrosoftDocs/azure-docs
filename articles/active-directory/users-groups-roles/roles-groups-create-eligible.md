@@ -49,11 +49,11 @@ The group will be created with role assigned to it. You can also choose not to a
 
 Note: Creating a group eligible for role assignment via PowerShell will not work now. We are working on fixing this issue. Use Azure portal to create groups that are eligible for role assignments. #First, you must download the Azure AD Preview PowerShell module. To install the Azure AD #PowerShell module, use the following commands: 
 
-
 install-module azureadpreview 
 import-module azureadpreview 
 
-#To verify that the module is ready to use, use the following command: 
+### To verify that the module is ready to use, use the following command: 
+
 get-module azureadpreview 
 
 ### Create a group that can be assigned to role 
