@@ -666,7 +666,7 @@ module.exports = function (context) {
 
 # [Python](#tab/python)
 
-The following example demonstrates how to use the Table storage output binding. The `table` binding is configured in the *function.json* by assigining values to `name`, `tableName`, `partitionKey` and `connection`:
+The following example demonstrates how to use the Table storage output binding. The `table` binding is configured in the *function.json* by assigning values to `name`, `tableName`, `partitionKey` and `connection`:
 
 ```json
 {
@@ -699,7 +699,7 @@ The following example demonstrates how to use the Table storage output binding. 
 }
 ```
 
-The following function generates an unique UUI for the `rowKey` value and persists the message into Table storage.
+The following function generates a unique UUI for the `rowKey` value and persists the message into Table storage.
 
 ```python
 import logging
@@ -807,7 +807,7 @@ public class AddPersons {
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
-The attribute's constructor takes the table name. It can be used on an `out` parameter or on the return value of the function, as shown in the following example:
+The attribute's constructor takes the table name. The attribute can be used on an `out` parameter or on the return value of the function, as shown in the following example:
 
 ```csharp
 [FunctionName("TableOutput")]
