@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/13/2020
 ---
 
 # Configure scraping of Prometheus metrics with Azure Monitor for containers

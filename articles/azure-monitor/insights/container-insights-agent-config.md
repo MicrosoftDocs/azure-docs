@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ---
 
 # Configure agent data collection for Azure Monitor for containers
@@ -12,7 +12,7 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
 >[!NOTE]
->For Azure Red Hat OpenShift, a template ConfigMap file is created in the *openshift-azure-logging* namespace. It is not configured to actively collect data from the agent.
+>For Azure Red Hat OpenShift, a template ConfigMap file is created in the *openshift-azure-logging* namespace. 
 >
 
 ## ConfigMap file settings overview
@@ -89,7 +89,7 @@ Errors related to applying configuration changes are also available for review. 
 
 - From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence and count in the last hour.
 
-- For Azure Red Hat OpenShift, check the omsagent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
+- With Azure Red Hat OpenShift, check the omsagent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
 
 After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift, edit and save the updated ConfigMaps by running the command:
 
