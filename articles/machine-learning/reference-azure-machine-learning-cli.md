@@ -305,7 +305,7 @@ If you used the `az ml environment scaffold` command, it generates a template `a
 }
 ```
 
-The following table details each top-level field in the JSON file, it's type, and a description. If an object type is linked to a class from the Python SDK, there is a loose 1:1 match between each JSON field and the public variable name in the Python class. For example, the `environmentVariables` field maps to the `environment_variables` variable in the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) class.
+The following table details each top-level field in the JSON file, it's type, and a description. If an object type is linked to a class from the Python SDK, there is a loose 1:1 match between each JSON field and the public variable name in the Python class. In some cases the field may map to a constructor argument rather than a class variable. For example, the `environmentVariables` field maps to the `environment_variables` variable in the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) class.
 
 | JSON field | Type | Description |
 |---|---|---|
