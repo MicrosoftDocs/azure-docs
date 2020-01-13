@@ -1,5 +1,5 @@
 ---
-title: Designing tables using the SQL Analytics resources | Microsoft Docs
+title: Design tables using SQL Analytics | Microsoft Docs
 description: Introduction to designing tables in SQL Analytics. 
 services: synapse analytics
 author: filippopovic
@@ -12,13 +12,13 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Designing tables using the SQL Analytics resources
+# Designing tables using SQL Analytics
 
-This document includes key concepts for designing tables in the SQL pools and SQL on-demand resources within SQL Analytics. 
+This document includes key concepts for designing tables with SQL pool and SQL on-demand.  
 
-[SQL on-demand](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. Some topics described below don't apply to SQL on-demand. 
+[SQL on-demand](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
-The table below lists the topics that are relevant to SQL pools vs. SQL on-demand:
+The following table lists the topics that are relevant to SQL pool vs. SQL on-demand:
 
 | Topic                                                        | SQL pool | SQL on-demand |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
@@ -55,6 +55,7 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 - **Integration tables** provide a place for integrating or staging data. You can create an integration table as a regular table, an external table, or a temporary table. For example, you can load data to a staging table, perform transformations on the data in staging, and then insert the data into a production table.
 
 ## Schema names
+
 Schemas are a good way to group together objects that are used in a similar fashion. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
 
 ```sql
@@ -63,9 +64,9 @@ CREATE SCHEMA wwi;
 
 ## Table names
 
-If you're migrating multiple databases from an on-prem solution to SQL pools, the best practice is to migrate all of the fact, dimension, and integration tables to one SQL pool schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. 
+If you're migrating multiple databases from an on-prem solution to SQL pool, the best practice is to migrate all of the fact, dimension, and integration tables to one SQL pool schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. 
 
-To show the organization of the tables in SQL pools, you could use fact, dim, and int as prefixes to the table names. The table below shows some of the schema and table names for WideWorldImportersDW.  
+To show the organization of the tables in SQL pool, you could use fact, dim, and int as prefixes to the table names. The table below shows some of the schema and table names for WideWorldImportersDW.  
 
 | WideWorldImportersDW table  | Table type | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
@@ -86,40 +87,47 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### Temporary table
-A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results. Using temporary tables also reduces the need for cleanup.  Temporary tables utilize local storage and, in SQL pools, can offer faster performance.  
+
+A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results. Using temporary tables also reduces the need for cleanup.  Temporary tables utilize local storage and, in SQL pool, can offer faster performance.  
 
 SQL on-demand supports temporary tables. But, its usage is limited since you can select from temporary table but cannot join it with files in storage. 
 
 For more information, see  [Temporary tables](development-tables-temporary.md).
 
 ### External table
-[External tables](development-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Store. 
 
-In the SQL pools resource, when used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL pools. As such, external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+[External tables](development-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Storage. 
+
+In the SQL pool resource, when used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL pool. As such, external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 For SQL on-demand, you can use [CETAS](development-tables-cetas.md) to save the query result to an external table in Azure Storage.
 
 ## Data types
-SQL pools support the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](development-tables-data-types.md).
+
+SQL pool support the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
-A fundamental feature of SQL pools is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL pools support three methods for distributing data: 
+
+A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL pool supports three methods for distributing data: 
 
 - Round-robin (default)
 - Hash
 - Replicated
 
 ### Hash-distributed tables
+
 A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 
 
 For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 ### Replicated tables
+
 A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables because joins on replicated tables don't require data movement. Replication requires extra storage, though, and isn't practical for large tables. 
 
 For more information, see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md).
 
 ### Round-robin tables
+
 A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  But, queries can require more data movement than the other distribution methods. 
 
 For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
@@ -134,9 +142,10 @@ The table category often determines the optimal option for table distribution.
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
 ## Partitions
-In SQL pools, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. 
 
-You can also maintain the data through partition switching. Since the data in SQL pools is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).  
+In SQL pool, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. 
+
+You can also maintain the data through partition switching. Since the data in SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).  
 
 > [!TIP]
 > When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. 
@@ -171,7 +180,7 @@ ORDER BY
 
 ## Columnstore indexes
 
-By default, SQL pools store a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  
+By default, SQL pool stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  
 
 > [!TIP]
 > A heap table can be especially useful for loading transient data, such as a staging table, which is transformed into a final table.
@@ -179,22 +188,25 @@ By default, SQL pools store a table as a clustered columnstore index. This form 
 For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-load-columnstore-compression.md).
 
 ## Statistics
+
 The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. 
 
 Statistical updating doesn't happen automatically. Update statistics after a significant number of rows are added or changed. For instance, update statistics after a load. Additional information is provided in the [Statistics guidance](development-tables-statistics.md) article.
 
 ## Primary key and unique key
-PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [SQL pools Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md)article.
+
+PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [SQL pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md) article.
 
 ## Commands for creating tables
+
 You can create a table as a new empty table. You can also create and populate a table with the results of a select statement. The following are the T-SQL commands for creating a table.
 
 | T-SQL Statement | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Creates an empty table by defining all the table columns and options. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Creates an external table. The definition of the table is stored in SQL Data Warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Creates an external table. The definition of the table is stored in SQL Data Warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
-| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
 
 ## Aligning source data with the data warehouse
 
@@ -203,10 +215,10 @@ Data warehouse tables are populated by loading data from another data source. To
 > [!NOTE]
 > Getting the data to align might be the hardest part of designing your tables. 
 
-If data is coming from multiple data stores, you can port the data into the data warehouse and store it in an integration table. Once data is in the integration table, you can use the power of SQL pools to implement transformation operations. Once the data is prepared, you can insert it into production tables.
+If data is coming from multiple data stores, you can port the data into the data warehouse and store it in an integration table. Once data is in the integration table, you can use the power of SQL pool to implement transformation operations. Once the data is prepared, you can insert it into production tables.
 
 ## Unsupported table features
-SQL pools support many, but not all, of the table features offered by other databases.  The following list shows some of the table features that aren't supported in SQL pools.
+SQL pool supports many, but not all, of the table features offered by other databases.  The following list shows some of the table features that aren't supported in SQL pool.
 
 - Foreign key, check [Table Constraints](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Computed Columns](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
@@ -419,4 +431,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pools](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-your-data-warehouse).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-your-data-warehouse).
