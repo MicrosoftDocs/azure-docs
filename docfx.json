@@ -293,7 +293,7 @@
         "articles/application-insights/**/*.md": "https://feedback.azure.com/forums/357324-application-insights",
         "articles/automation/**/*.md": "https://feedback.azure.com/forums/246290-automation",
         "articles/availability-zones/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "article/azure-app-configuration/**/*.md": "https://github.com/Azure/AppConfiguration/issues",
+        "articles/azure-app-configuration/**/*.md": "https://github.com/Azure/AppConfiguration/issues",
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",

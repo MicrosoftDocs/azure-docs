@@ -1,7 +1,7 @@
 ---
 title: REST API version 2019-05-06-Preview
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and customer-managed encryption keys.
+description: Azure Cognitive Search service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and indexer caching for incremental enrichment..
 
 manager: nitinme
 author: brjohnstmsft
@@ -31,8 +31,6 @@ This article describes the `api-version=2019-05-06-Preview` version of Search se
 + [Text Translation (preview)](cognitive-search-skill-text-translation.md) is a cognitive skill used during indexing that evaluates text and, for each record, returns the text translated to the specified target language.
 
 + [Knowledge store](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. The physical data structure exists in Azure Blob storage and Azure Table storage, and it is created and populated when you run an indexer that has an attached cognitive skillset. The definition of a knowledge store itself is specified within a skillset definition. Within the knowledge store definition, you control the physical structures of your data through *projection* elements that determine how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
-
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest is also a new preview feature. In addition to the built-in encryption-at-rest managed by Microsoft, you can apply an additional layer of encryption where you are the sole owner of the keys.
 
 ## Earlier preview features
 
