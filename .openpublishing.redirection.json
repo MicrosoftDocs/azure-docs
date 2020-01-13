@@ -45573,6 +45573,12 @@
       "source_path": "articles/virtual-machines/workloads/redhat/redhat-byos.md",
       "redirect_url": "/azure/virtual-machines/workloads/redhat/byos",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/overview",
+      "redirect_document_id": false
     }
   ]
 }
+
