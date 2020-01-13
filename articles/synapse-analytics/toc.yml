@@ -38,6 +38,8 @@
     #   href: article-template.md
     - name: SQL on-demand
       href: ./sql-analytics/quickstart-sql-on-demand.md
+- name: Tutorials
+  items:
   - name: Power BI Professional
     href: ./sql-analytics/tutorial-power-bi-professional.md
   - name: Data Scientist
@@ -66,52 +68,44 @@
     items:
     # - name: Overview
     #   href: article-template.md
-  - name: Analytics resources
-    items:
-    # - name: SQL pool
-    #   href: article-template.md
-    - name: SQL on-demand
-      href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
-    - name: Spark pools 
-      href: ./spark/apache-spark-overview.md
-  - name: Pipeline and activity
-    href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Execution and trigger
-    href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Linked services
-    href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Integration runtime
-    href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Metadata management
-    items:
-    # - name: Overview
-    #   href: article-template.md
-    - name: Storage objects
+    - name: Analytics resources
       items:
-      # - name: Objects
+      # - name: SQL pool
       #   href: article-template.md
-      # - name: Database
-      #   href: article-template.md
-      # - name: Tables
-      #   href: article-template.md
-      # - name: Views
-      #   href: article-template.md
-    - name: Metadata sync
+      - name: SQL on-demand
+        href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
+      - name: Spark pool 
+        href: ./spark/apache-spark-overview.md
+    - name: Metadata management
       items:
-      # - name: Azure Synapse metadata
+      # - name: Overview
       #   href: article-template.md
-      # - name: Sync with SQL on-demand
-      #   href: article-template.md
-      # - name: Sync with SQL pool metadata
-      #   href: article-template.md
-    - name: Code artifacts
-      items:
-      - name: Apache Spark Notebooks
-        href: ./spark/apache-spark-development-using-notebooks.md
-      # - name: SQL script
-      #   href: article-template.md
-      # - name: Mapping Data Flow
-      #   href: article-template.md
+      - name: Storage objects
+        items:
+        # - name: Objects
+        #   href: article-template.md
+        # - name: Database
+        #   href: article-template.md
+        # - name: Tables
+        #   href: article-template.md
+        # - name: Views
+        #   href: article-template.md
+      - name: Metadata sync
+        items:
+        # - name: Azure Synapse metadata
+        #   href: article-template.md
+        # - name: Sync with SQL on-demand
+        #   href: article-template.md
+        # - name: Sync with SQL pool metadata
+        #   href: article-template.md
+      - name: Code artifacts
+        items:
+        - name: Apache Spark Notebooks
+          href: ./spark/apache-spark-development-using-notebooks.md
+        # - name: SQL script
+        #   href: article-template.md
+        # - name: Mapping Data Flow
+        #   href: article-template.md
     - name: Maintenance schedule
       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Backup and restore  
@@ -202,8 +196,16 @@
           href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       # - name: Securing meta data objects
       #   href: article-template.md
-  # - name: Data integration & orchestration
-  #   href: article-template.md
+  - name: Integration and orchestration
+    items:      
+    - name: Pipeline and activity
+      href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Execution and trigger
+      href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Linked services
+      href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Integration runtime
+      href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Spark
     items:
     - name: Overview
