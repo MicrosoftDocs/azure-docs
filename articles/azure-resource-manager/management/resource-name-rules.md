@@ -2,18 +2,20 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ---
 
 # Naming rules and restrictions for Azure resources
 
-This article summarizes naming rules and restrictions for Azure resources.
+This article summarizes naming rules and restrictions for Azure resources. For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 In general, avoid using a special character, such as a hyphen (-) or underscore (_), as the first or last character in any name. These characters cause most validation rules to fail. Resource names are case-insensitive unless specifically noted in the valid characters column.
 
-In the following tables, the term alphanumerics refers to the letters **a** through **z** (lowercase), **A** through **Z** (uppercase), and digits **0** through **9**.
+In the following tables, the term alphanumerics refers to:
 
-For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+* letters **a** through **z** (lowercase)
+* **A** through **Z** (uppercase)
+* numbers **0** through **9**.
 
 ## Microsoft.AnalysisServices
 
@@ -28,38 +30,38 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | service | global | 1-50 | Alphanumerics.<br><br>Start with letter. |
-> | service / apis | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / issues | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / issues / attachments | issue | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / issues / comments | issue | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / operations | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / operations / tags | operation | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / issues | api | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / issues / attachments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / issues / comments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / operations | api | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / operations / tags | operation | 1-256 | Can't use:<br> `*#&+:<>?` |
 > | service / apis / releases | api | 1-80 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric or underscore. |
-> | service / apis / schemas | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / tagDescriptions | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / apis / tags | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / api-version-sets | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / authorizationServers | service | Not specified | Can't contain these characters: `*#&+:<>?` |
-> | service / backends | service | 1-255 | Can't contain these characters: `*#&+:<>?` |
-> | service / certificates | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / diagnostics | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / groups | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / groups / users | group | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / identityProviders | service |  | Can't contain these characters: `*#&+:<>?` |
-> | service / loggers | service |  | Can't contain these characters: `*#&+:<>?` |
-> | service / notifications | service | | Can't contain these characters: `*#&+:<>?` |
-> | service / notifications / recipientEmails | notification |  | Can't contain these characters: `*#&+:<>?` |
-> | service / openidConnectProviders | service |  | Can't contain these characters: `*#&+:<>?` |
-> | service / policies | service |  | Can't contain these characters: `*#&+:<>?` |
-> | service / products | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / products / apis | product | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / products / groups | product | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / products / tags | product | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / properties | service | | Can't contain these characters: `*#&+:<>?` |
-> | service / subscriptions | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / tags | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
-> | service / templates | service | | Can't contain these characters: `*#&+:<>?` |
-> | service / users | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / schemas | api | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / tagDescriptions | api | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / apis / tags | api | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / api-version-sets | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / authorizationServers | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / backends | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / certificates | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / diagnostics | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / groups | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / groups / users | group | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / identityProviders | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / loggers | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / notifications | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / notifications / recipientEmails | notification | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / openidConnectProviders | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / policies | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / products | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / products / apis | product | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / products / groups | product | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / products / tags | product | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / properties | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / subscriptions | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / tags | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / templates | service | 1-256 | Can't use:<br> `*#&+:<>?` |
+> | service / users | service | 1-256 | Can't use:<br> `*#&+:<>?` |
 
 ## Microsoft.AppConfiguration
 
@@ -73,10 +75,10 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | locks | Scope of assignment | 1-90 | Alphanumerics, periods, underscores, hyphens, and parenthesis.<br><br>Can't end in period. |
-> | policyassignments | Scope of assignment | 1-128 |  |
-> | policydefinitions | Scope of definition | 1-128 |  |
-> | policySetDefinitions | Scope of definition | 1-128 |  |
+> | locks | scope of assignment | 1-90 | Alphanumerics, periods, underscores, hyphens, and parenthesis.<br><br>Can't end in period. |
+> | policyassignments | scope of assignment | 1-128 display name<br><br>1-260 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
+> | policydefinitions | scope of definition | 1-128 display name<br><br>1-260 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
+> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-260 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space.  |
 
 ## Microsoft.Automation
 
@@ -84,15 +86,14 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | automationAccounts | resource group | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter, and end with alphanumeric. |
-> | automationAccounts / certificates | Automation account | 1-128 | Can't contain these characters: `< > * % & : \ ? . + /` <br><br>Can't end with space.  |
-> | automationAccounts / configurations | Automation account |  | Alphanumerics and underscores.<br><br>Start with letter. End with alphanumeric. |
-> | automationAccounts / connections | Automation account | 1-128 | Can't contain these characters: `< > * % & : \ ? . + /` <br><br>Can't end with space. |
-> | automationAccounts / credentials | Automation account | 1-128 | Can't contain these characters: `< > * % & : \ ? . + /` <br><br>Can't end with space. |
-> | automationAccounts / runbooks | Automation account | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start with letter.  |
-> | automationAccounts / schedules | Automation account | 1-128 | Can't contain these characters: `< > * % & : \ ? . + /` <br><br>Can't end with space. |
-> | automationAccounts / variables | Automation account | 1-128 | Can't contain these characters: `< > * % & : \ ? . + /` <br><br>Can't end with space. |
-> | automationAccounts / watchers | Automation account | 1-63 |  Alphanumerics, underscores, and hyphens.<br><br>Start with letter. |
-> | automationAccounts / webhooks | Automation account | 1-128 | Can't contain these characters: `< > * % & : \ ? . + /` <br><br>Can't end with space. |
+> | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space.  |
+> | automationAccounts / connections | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts / credentials | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts / runbooks | automation account | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start with letter.  |
+> | automationAccounts / schedules | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts / variables | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+> | automationAccounts / watchers | automation account | 1-63 |  Alphanumerics, underscores, and hyphens.<br><br>Start with letter. |
+> | automationAccounts / webhooks | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
 
 ## Microsoft.Batch
 
@@ -100,9 +101,9 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | batchAccounts | Region | 3-24 | Lowercase letters and numbers. |
-> | batchAccounts / applications | Batch account | 1-64 | Alphanumerics, underscores, and hyphens. |
-> | batchAccounts / certificates | Batch account | 5-45 | Alphanumerics, underscores, and hyphens. |
-> | batchAccounts / pools | Batch account | 1-64 | Alphanumerics, underscores, and hyphens. |
+> | batchAccounts / applications | batch account | 1-64 | Alphanumerics, underscores, and hyphens. |
+> | batchAccounts / certificates | batch account | 5-45 | Alphanumerics, underscores, and hyphens. |
+> | batchAccounts / pools | batch account | 1-64 | Alphanumerics, underscores, and hyphens. |
 
 ## Microsoft.Blockchain
 
@@ -117,8 +118,8 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | botServices | global | 2-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
-> | botServices / channels | Bot service |  | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
-> | botServices / Connections | Bot service | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+> | botServices / channels | bot service | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+> | botServices / Connections | bot service | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
 > | enterpriseChannels | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
 
 ## Microsoft.Cache
@@ -127,9 +128,7 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | Redis | global | 1-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. Consecutive hyphens not allowed. |
-> | Redis / firewallRules | Redis | Not specified |  |
-> | Redis / linkedServers | Redis | Not specified |  |
-> | Redis / patchSchedules | Redis | Not specified |  |
+> | Redis / firewallRules | Redis | 1-256 | Alphanumerics |
 
 ## Microsoft.Cdn
 
@@ -161,15 +160,15 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
 > | disks | resource group | 1-80 | Alphanumerics and underscores. |
-> | galleries | 1-80 | Not specified | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
-> | galleries / applications | Gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
-> | galleries / applications/versions | Application | 32-bit integer | Numbers and periods. |
-> | galleries / images | Gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
-> | galleries / images / versions | Image | 32-bit integer | Numbers and periods. |
+> | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
+> | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
+> | galleries / applications/versions | application | 32-bit integer | Numbers and periods. |
+> | galleries / images | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
+> | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows), 1-64 (Linux) | Can't contain these characters: `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows), 1-64 (Linux) | Can't contain these characters: `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows), 1-64 (Linux) | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows), 1-64 (Linux) | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 
 ## Microsoft.ContainerInstance
 
@@ -184,14 +183,13 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | registries | global | 5-50 | Alphanumerics. |
-> | registries / buildTasks | Registry | 5-50 | Alphanumerics. |
-> | registries / buildTasks/steps | Build task | 5-50 | Alphanumerics. |
-> | registries / replications | Registry | 5-50 | Alphanumerics. |
-> | registries / scopeMaps | Registry | 5-50 | Alphanumerics, hyphens, and underscores. |
-> | registries / taskRuns | Registry |  |  |
-> | registries / tasks | Registry | 5-50 | Alphanumerics, hyphens, and underscores. |
-> | registries / tokens | Registry | 5-50 | Alphanumerics, hyphens, and underscores. |
-> | registries / webhooks | Registry | 5-50 | Alphanumerics. |
+> | registries / buildTasks | registry | 5-50 | Alphanumerics. |
+> | registries / buildTasks/steps | build task | 5-50 | Alphanumerics. |
+> | registries / replications | registry | 5-50 | Alphanumerics. |
+> | registries / scopeMaps | registry | 5-50 | Alphanumerics, hyphens, and underscores. |
+> | registries / tasks | registry | 5-50 | Alphanumerics, hyphens, and underscores. |
+> | registries / tokens | registry | 5-50 | Alphanumerics, hyphens, and underscores. |
+> | registries / webhooks | registry | 5-50 | Alphanumerics. |
 
 ## Microsoft.ContainerService
 
@@ -207,26 +205,26 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | hubs | resource group | 1-64 | Alphanumerics.<br><br>Start with letter.  |
-> | hubs / authorizationPolicies | Hub | 1-50 | Alphanumerics, underscores, and periods.<br><br>Start and end with alphanumeric. |
-> | hubs / connectors | Hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / connectors/mappings | Connector | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / interactions | Hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / kpi | Hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / links | Hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / predictions | Hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / profiles | Hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / relationshipLinks | Hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / relationships | Hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / roleAssignments | Hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
-> | hubs / views | Hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / authorizationPolicies | hub | 1-50 | Alphanumerics, underscores, and periods.<br><br>Start and end with alphanumeric. |
+> | hubs / connectors | hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / connectors/mappings | connector | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / interactions | hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / kpi | hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / links | hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / predictions | hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / profiles | hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / relationshipLinks | hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / relationships | hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / roleAssignments | hub | 1-128 | Alphanumerics and underscores.<br><br>Start with letter. |
+> | hubs / views | hub | 1-512 | Alphanumerics and underscores.<br><br>Start with letter. |
 
 ## Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | associations | resource group |  |  |
-> | resourceProviders | resource group | 3-64 |  |
+> | associations | resource group | 1-180 | Can't use:<br>`%&\\?/`<br><br>Can't end with period or space. |
+> | resourceProviders | resource group | 3-64 | Can't use:<br>`%&\\?/`<br><br>Can't end with period or space. |
 
 ## Microsoft.DataBox
 
@@ -247,88 +245,84 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /factories | resource group | 3-63 | Must start with alphanumeric character<br>`^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$` |
-> | /factories / dataflows | factories | 1-260 | `^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$` |
-> | /factories / datasets | factories | 1-260 | `^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$` |
-> | /factories / integrationRuntimes | factories | 3-63 | Must start with alphanumeric character<br>`^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$` |
-> | /factories / linkedservices | factories | 1-260 | `^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$` |
-> | /factories / pipelines | factories | 1-260 | `^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$` |
-> | /factories / triggers | factories | 1-260 | `^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$` |
-> | /factories / triggers / rerunTriggers | triggers | 1-260 | `^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$` |
+> | factories | global | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | factories / dataflows | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / integrationRuntimes | factory | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | factories / linkedservices | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / pipelines | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / triggers | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
+> | factories / triggers / rerunTriggers | trigger | 1-260 | Can't use:<br>`<>*#.%&:\\+?/`<br><br>Start with alphanumeric. |
 
 ## Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /accounts | resource group | Not specified |  |
-> | /accounts / computePolicies | accounts | Not specified |  |
-> | /accounts / dataLakeStoreAccounts | accounts | Not specified |  |
-> | /accounts / firewallRules | accounts | Not specified |  |
-> | /accounts / storageAccounts | accounts | Not specified |  |
+> | accounts | global | 3-24 | Lowercase letters and numbers. |
+> | accounts / computePolicies | account | 3-60 | Alphanumerics, hyphens, and underscores. |
+> | accounts / dataLakeStoreAccounts | account | 3-24 | Lowercase letters and numbers. |
+> | accounts / firewallRules | account | 3-50 | Alphanumerics, hyphens, and underscores. |
+> | accounts / storageAccounts | account | 3-60 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /accounts | resource group | Not specified |  |
-> | /accounts / firewallRules | accounts | Not specified |  |
-> | /accounts / trustedIdProviders | accounts | Not specified |  |
-> | /accounts / virtualNetworkRules | accounts | Not specified |  |
+> | accounts | global | 3-24 | Lowercase letters and numbers. |
+> | accounts / firewallRules | account | 3-50 | Alphanumerics, hyphens, and underscores. |
+> | accounts / virtualNetworkRules | account | 3-50 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /services | resource group | Not specified |  |
-> | /services / projects | services | Not specified |  |
-> | /services / projects / files | projects | Not specified |  |
-> | /services / projects / tasks | projects | Not specified |  |
-> | /services / serviceTasks | services | Not specified |  |
+> | services | resource group | 2-62 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
+> | services / projects | service | 2-57 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
 
 ## Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /servers | resource group | Not specified |  |
+> | /servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
 > | /servers / configurations | servers | Not specified |  |
 > | /servers / databases | servers | Not specified |  |
-> | /servers / firewallRules | servers | Not specified |  |
+> | /servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
 > | /servers / keys | servers | Not specified |  |
 > | /servers / privateEndpointConnections | servers | Not specified |  |
 > | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | Not specified |  |
+> | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /servers | resource group | Not specified |  |
+> | /servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
 > | /servers / configurations | servers | Not specified |  |
 > | /servers / databases | servers | Not specified |  |
-> | /servers / firewallRules | servers | Not specified |  |
+> | /servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
 > | /servers / keys | servers | Not specified |  |
 > | /servers / privateEndpointConnections | servers | Not specified |  |
 > | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | Not specified |  |
+> | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /servers | resource group | Not specified |  |
+> | /servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
 > | /servers / configurations | servers | Not specified |  |
 > | /servers / databases | servers | Not specified |  |
-> | /servers / firewallRules | servers | Not specified |  |
+> | /servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
 > | /servers / keys | servers | Not specified |  |
 > | /servers / privateEndpointConnections | servers | Not specified |  |
 > | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | Not specified |  |
+> | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.DeploymentManager
 
