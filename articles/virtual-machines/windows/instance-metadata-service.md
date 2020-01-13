@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about Windows VM's compute, network, and upcoming maintenance events.
+description: RESTful interface to get information about Windows VMs compute, network, and upcoming maintenance events.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
@@ -411,7 +411,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
-Nonce is an optional 10-digit string which can be used to track the request. If not provided, IMDS returns the current UTC timestamp in its place.
+Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Note that due to IMDS's caching mechanism, a previously cached nonce value
+may be returned.
 
  **Response**
 
@@ -443,7 +444,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api-version is a mandatory field. Refer to the service availability section for supported API versions.
-Nonce is an optional 10-digit string which can be used to track the request. If not provided, IMDS returns the current UTC timestamp in its place.
+Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Note that due to IMDS's caching mechanism, a previously cached nonce value
+may be returned.
 
  **Response**
 
@@ -756,7 +758,7 @@ lun     | This parameter is the logical unit number of the disk
 managedDisk | This parameter is the managed disk parameters
 name    | This parameter is the disk name
 vhd     | This parameter is the virtual hard disk
-writeAcceleratorEnabled | This specifies whether or not writeAccelerator is enabled on the disk
+writeAcceleratorEnabled | This parameter specifies whether or not writeAccelerator is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following image:
 
