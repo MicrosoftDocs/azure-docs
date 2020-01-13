@@ -38,7 +38,7 @@
   - name: Patching, updating, versioning
     href: ledger-versions.md
 - name: How-to guides
-  items: 
+  items:
   - name: Configure Azure AD access
     href: configure-aad.md
   - name: Configure transaction nodes
@@ -49,6 +49,8 @@
     href: manage-consortium-powershell.md
   - name: Use Logic Apps
     href: ethereum-logic-app.md
+  - name: Monitor Azure Blockchain Service
+    href: monitor-azure-blockchain-service.md
 - name: Blockchain Data Manager
   items:
   - name: Data manager overview
@@ -81,4 +83,3 @@
     href: https://azure.microsoft.com/pricing/details/blockchain-service
   - name: Region availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice
-

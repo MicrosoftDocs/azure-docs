@@ -1,6 +1,6 @@
 ---
-title: How to request real-time data in Azure Maps | Microsoft Docs
-description: Request real-time data using the Azure Maps Mobility service.
+title: Request real-time transit data | Microsoft Azure Maps
+description: Request real-time data using the Microsoft Azure Maps Mobility Service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/06/2019

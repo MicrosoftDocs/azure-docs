@@ -61,12 +61,10 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                         |
 | Rules per resource                      | 1,500                         |
 | Rules per NIC (across all IPs on a NIC) | 300                           |
-| Frontend IP configurations             | 600                           |
-| Backend pool size                          | 1,000 instances, single virtual network |
-| Backend resources per load balancer<sup>1<sup>   | 150                 |
+| Frontend IP configurations              | 600                           |
+| Backend pool size                       | 1,000 IP configurations, single virtual network |
 | High-availability ports                 | 1 per internal frontend      |
 
-<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 
 **Basic Load Balancer**
 
@@ -75,8 +73,9 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                        |
 | Rules per resource                      | 250                          |
 | Rules per NIC (across all IPs on a NIC) | 300                          |
-| Frontend IP configurations             | 200                          |
-| Backend pool size                           | 100 instances, single availability set |
+| Frontend IP configurations              | 200                          |
+| Backend pool size                       | 300 IP configurations, single availability set |
+| Availability sets per Load Balancer     | 150                          |
 
 #### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 

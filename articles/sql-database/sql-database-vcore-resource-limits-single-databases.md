@@ -443,7 +443,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 ### M-series compute generation (preview)
 
-|Compute size|GP_M_128|
+|Compute size|BC_M_128|
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|
