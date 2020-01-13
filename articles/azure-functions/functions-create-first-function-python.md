@@ -23,7 +23,7 @@ There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-cod
 
 1. In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
 1. Run `az --version` to check that the Azure CLI version is 2.0.76 or later.
-1. Run `az login` to log into Azure and verify an active subscription.
+1. Run `az login` to sign in to Azure and verify an active subscription.
 1. Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
 
 ## Create and activate a virtual environment
@@ -202,7 +202,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 
-1. If you haven't done so already, log into Azure with the [az login](/cli/azure/group#az-login) command:
+1. If you haven't done so already, sign in to Azure with the [az login](/cli/azure/group#az-login) command:
 
     ```azurecli
     az login
