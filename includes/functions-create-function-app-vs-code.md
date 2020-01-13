@@ -6,7 +6,7 @@ ms.date: 01/11/2020
 ms.author: glenga
 ---
 
-## <a name="create-an-azure-functions-project"></a>Create your Functions project with a function 
+## <a name="create-an-azure-functions-project"></a>Create your local project 
 
 The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
 

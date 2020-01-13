@@ -13,17 +13,15 @@ In this quickstart, you create and test a "hello world" function on your local c
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. 
 
-![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
-
 The [Azure Functions extension for Visual Studio Code] currently supports C#, JavaScript, Java, PowerShell, Python and TypesScript functions. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 The steps in this article and the article that follows support the following languages:
 
-+ [C#](#tab/csharp)
-+ [JavaScript](#tab/nodejs)
-+ [Python](#tab/python)
++ [C#](/azure/azure-functions/functions-create-first-function-vs-code?tabs=csharp)
++ [JavaScript](/azure/azure-functions/functions-create-first-function-vs-code?tabs=nodejs)
++ [Python](/azure/azure-functions/functions-create-first-function-vs-code?tabs=python)
 
-To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
+To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). You can also [create a local Functions project using command line tools](functions-create-first-azure-function-azure-cli.md).
 
 ## Prerequisites
 

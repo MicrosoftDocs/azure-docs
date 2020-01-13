@@ -1,20 +1,16 @@
 ---
-title: include file
-description: include file
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/31/2019
+ms.date: 01/12/2020
 ms.author: glenga
-ms.custom: include file
 ---
 
 ## Run the function locally
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer.
 
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. 
 
