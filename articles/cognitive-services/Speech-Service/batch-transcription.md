@@ -154,6 +154,7 @@ For mono input audio, one transcription result file is being created. For stereo
                   "Duration": number                       'time in milliseconds'
                   "OffsetInSeconds": number                'Real number. Two decimal places'
                   "DurationInSeconds": number              'Real number. Two decimal places'
+                  "Confidence": number                     'between 0 and 1'
                 }
               ]
             }
