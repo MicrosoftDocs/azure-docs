@@ -56,7 +56,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataLake** | Azure Data Lake. | Outbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
 | **AzureFrontDoor** | Azure Front Door. | Both | No | No |
-| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureFrontDoor** tag. | Outbound | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
