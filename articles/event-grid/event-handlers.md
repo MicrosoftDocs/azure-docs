@@ -75,7 +75,7 @@ Use Logic Apps to automate business processes for responding to events.
 
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
-In the Azure portal, while creating an event subscription, select "Service Bus Queue" as endpoint type and then click "select and endpoint" in order to choose a Service Bus queue.
+In the Azure portal, while creating an event subscription, select "Service Bus Queue" as endpoint type and then click "select an endpoint" in order to choose a Service Bus queue.
 
 #### Using CLI to add a Service Bus queue handler
 

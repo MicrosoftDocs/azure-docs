@@ -1,21 +1,14 @@
 ---
-title: Azure CLI Script Sample - Create app with continuous deployment from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Create an app and deploy continuously from GitHub
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Continuous deployment from GitHub'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to create an app with CI/CD from GitHub.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 09/02/2019
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---

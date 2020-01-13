@@ -1,6 +1,7 @@
 ---
-title: Quickstart - Set up sign-in for a single-page app using Azure Active Directory B2C
-description: Run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
+title: "Quickstart: Set up sign-in for a single-page app (SPA)"
+titleSuffix: Azure AD B2C
+description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -25,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 - [Node.js](https://nodejs.org/en/download/)
 - Social account from Facebook, Google, or Microsoft
 - Code sample from GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-    
+
     You can [download the zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the repository:
 
     ```

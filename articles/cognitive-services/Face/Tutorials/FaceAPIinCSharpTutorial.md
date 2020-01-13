@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 #Customer intent: As a developer of image management software, I want to learn how to detect faces and display face data on the UI, so that I can follow a similar process for my specific features and needs.
 ---
 
-# Tutorial: Create a WPF app to display face data in an image
+# Tutorial: Create a Windows Presentation Framework (WPF) app to display face data in an image
 
-In this tutorial, you'll learn how to use the Azure Face API, through the .NET client SDK, to detect faces in an image and then present that data in the UI. You'll create a Windows Presentation Framework (WPF) application that detects faces, draws a frame around each face, and displays a description of the face in the status bar. 
+In this tutorial, you'll learn how to use the Azure Face API, through the .NET client SDK, to detect faces in an image and then present that data in the UI. You'll create a WPF application that detects faces, draws a frame around each face, and displays a description of the face in the status bar. 
 
 This tutorial shows you how to:
 

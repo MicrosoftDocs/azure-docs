@@ -34,7 +34,11 @@ landingContent:
           - text: Compare Azure queues and Service Bus queues
             url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
           - text: Queues, topics, and subscriptions
-            url: service-bus-queues-topics-subscriptions.md            
+            url: service-bus-queues-topics-subscriptions.md   
+      - linkListType: architecture
+        links:
+          - text: Reference architecture for queues and events
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
 
   # Card
   - title: Create a Service Bus queue

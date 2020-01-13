@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Learn about encoders recommended by Azure Media Services | Microsoft Docs 
-description: Learn about encoders recommended by media services
+description: This article lists on premises encoders recommended by Azure Media Services.
 services: media-services
 keywords: encoding;encoders;media
 author: dbgeorge

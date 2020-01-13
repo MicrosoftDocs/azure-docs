@@ -1,18 +1,8 @@
 ---
-title: Deploy code with a ZIP or WAR file - Azure App Service | Microsoft Docs 
+title: Deploy code with a ZIP or WAR file
 description: Learn how to deploy your app to Azure App Service with a ZIP file (or a WAR file for Java developers).
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
 
@@ -94,6 +84,8 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 ## Deploy WAR file
 
 To deploy a WAR file to App Service, send a POST request to `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication.
+
+Always use `/api/wardeploy` when deploying WAR files. This API will expand your WAR file and place it on the shared file drive. using other deployment APIs may result in inconsistent behavior. 
 
 For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](deploy-configure-credentials.md#userscope).
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
+title: PowerShell script to list and get Azure Cosmos DB Cassandra API resources
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
 author: markjbrown
 ms.service: cosmos-db
