@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/workloads.md",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
       "redirect_document_id": false
@@ -28227,8 +28232,13 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-deep-learning-caffe-spark.md",
-      "redirect_url": "/azure/hdinsight/spark/apache-spark-deep-learning-caffe",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-deep-learning-caffe.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md",
