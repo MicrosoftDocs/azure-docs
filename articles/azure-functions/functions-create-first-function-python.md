@@ -170,10 +170,10 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 Start the function by starting the local Azure Functions runtime host in the *LocalFunctionProj* folder:
 
 ```
-func host start
+func start
 ```
 
-The following output should appear. (If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run `func host start` again.)
+The following output should appear. (If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run `func start` again.)
 
 ```output
 Now listening on: http://0.0.0.0:7071
@@ -188,7 +188,7 @@ Copy the URL of your `HttpExample` function from this output to a browser and ap
 
 ![Result of the function run locally in the browser](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-The terminal in which you ran `func host start` also shows log output as you make requests.
+The terminal in which you ran `func start` also shows log output as you make requests.
 
 When you're ready, **Ctrl**+**C** to stop the functions host.
 
