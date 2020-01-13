@@ -25,23 +25,18 @@ Before starting this set of tutorials, you will need the following items:
 1. [Postman](https://www.getpostman.com/) installed
 
 > [!NOTE]
-> For this tutorial, the FHIR service, Azure AD application, and Azure AD users are all in the same Azure subscription. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.
+> For this tutorial, the FHIR service, Azure AD application, and Azure AD users are all in the same Azure AD tenant. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.
 
 ## Deploy Azure API for FHIR
 The first step in the tutorial is to get your Azure API for FHIR setup correctly.
 
 1. Deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md)
+    1. On the Additional Settings tab, set the **Audience** to https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com. You can do this during deployment or [after deployment completes](azure-api-for-fhir-additional-settings.md).
 1. Once you have your Azure API for FHIR deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your Azure API for FHIR and selecting CORS. 
     1. Set **Origins** to *
     1. Set **Headers** to *
     1. Under **Methods**, choose **Select all**
     1. Set the **Max age** to **600**
-
-## Enable diagnostic logging
-Next set up [diagnostic logging](enable-diagnostic-logging.md) for the Azure API for FHIR. Enabling diagnostic logging will allow you to see the types of logs that you can collect while using the Azure API for FHIR.
-1. Create a new **Log Analytics** resource
-1. Navigate back to your Azure API for FHIR resource and select **Diagnostics settings**
-1. Set up your diagnostics settings to send to the Log Analytics workspace that you just created
 
 ## Next Steps
 Now that you have your Azure API for FHIR deployed, you are ready to register a public client application.
