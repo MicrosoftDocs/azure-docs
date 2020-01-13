@@ -148,8 +148,10 @@
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
-    - name: Use groups to assign roles
-      href: roles-groups-concept.md
+    - name: Assign roles to groups
+      items:
+      - name: Use groups to assign roles
+        href: roles-groups-concept.md
       - name: Create a role-eligible group
         href: roles-groups-create-eligible.md
       - name: Assign roles to a group
