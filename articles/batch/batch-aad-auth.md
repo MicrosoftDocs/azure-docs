@@ -13,7 +13,7 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 08/15/2019
+ms.date: 01/13/2020
 ms.author: lahugh
 ---
 
@@ -139,6 +139,54 @@ To authenticate with a service principal, you need to assign RBAC to your applic
 Your application should now appear in your access control settings with an RBAC role assigned.
 
 ![Assign an RBAC role to your application](./media/batch-aad-auth/app-rbac-role.png)
+
+### Assign a custom job submission role
+
+A custom job submission role grants permission for a user to submit jobs and tasks without permission to modify pools. This prevents users from performing operations that affect cost, such as creating pools or modifying nodes.
+
+This is done by adding RBAC operations, to which roles can be granted permissions. The new operations are:
+
+- Pools (read, create/update, delete), including node management
+- Jobs (read, create/update, delete), including task management
+- Job Schedules (read, create/update, delete)
+
+Custom job submission roles are for users authenticated by AAD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using autopool require pool-level permissions.
+
+Here's an example of a custom role definition:
+
+```json
+{
+ "properties":{
+    "roleName":"Azure Batch Custom Job Submitter",
+    "type":"CustomRole",
+    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
+    "assignableScopes":[
+      "/subscriptions/88888888-8888-8888-8888-888888888888"
+    ],
+    "permissions":[
+      {
+        "actions":[
+          "Microsoft.Batch/*/read",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/alertRules/*"
+        ],
+        "notActions":[
+
+        ],
+        "dataActions":[
+          "Microsoft.Batch/batchAccounts/jobs/*",
+          "Microsoft.Batch/batchAccounts/jobSchedules/*"
+        ],
+        "notDataActions":[
+
+        ]
+      }
+    ]
+  }
+}
+```
 
 ### Get the tenant ID for your Azure Active Directory
 
