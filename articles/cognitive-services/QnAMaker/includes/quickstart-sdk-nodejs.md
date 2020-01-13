@@ -30,7 +30,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After getting the key and endpoint from your resource, get the values from the Azure portal, for your new resource, on the Quickstart page.
 
-[Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication), named `QNAMAKER_AUTHORING_KEY` and `QNAMAKER_ENDPOINT`. You can copy the `.env.sample` file to `.env` and use the environment variables in that file.
+[Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication), named `QNAMAKER_AUTHORING_KEY` and `QNAMAKER_ENDPOINT`. You can copy the `[.env.sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/.env.sample)` file to `.env` and use the environment variables in that file.
 
 ### Create a new Node.js application
 
@@ -48,10 +48,10 @@ npm init -y
 
 ### Install the client library
 
-Install the required NPM packages:
+Install the required and optional NPM packages:
 
 ```console
-npm install azure-cognitiveservices--qnamaker ms-rest-azure dotenv
+npm install @azure/cognitiveservices-qnamaker @azure/ms-rest-js dotenv
 ```
 
 Your app's `package.json` file is updated with the dependencies. The `dotenv` is optional and is used to allow you to set the environment variables in a text file. Do not check the `.env` into your source control.
@@ -79,7 +79,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ## Add the dependencies
 
-Create a file named `index.js`. Add the QnA Maker library and the Azure REST library to the file.
+Create a file named `index.js`. Add the QnA Maker library and the dependencies to the file.
 
 [!code-javascript[Require statements](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=dependencies)]
 
@@ -95,7 +95,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 ## Authenticate the client
 
-Next, create a ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#qnamakerclient-serviceclientcredentials--string--msrest-serviceclientoptions-) object. Use the client object to get a [knowledge base](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest) object.
+Next, create a ApiKeyCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#qnamakerclient-serviceclientcredentials--string--msrest-serviceclientoptions-) object. Use the client object to get a [knowledge base client](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest) object.
 
 
 [!code-javascript[Authorization to resource key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=authorization)]
@@ -108,30 +108,34 @@ A knowledge base stores question and answer pairs for the [CreateKbDTO](https://
 * For **files**, use the [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) object.
 * For **URLs**, use a list of strings.
 
-Call the [create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) method then pass the returned operation ID to the [Operations.getDetails](#get-status-of-an-operation) method to poll for status.
+Call the [create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) method with the knowledge base information. The knowledge base information is basically a JSON object.
 
-[!code-javascript[Create a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=createKnowledgeBase&highlight=15)]
+When the create method returns, pass the returned operation ID to the [wait_for_operation](#get-status-of-an-operation) method to poll for status. The wait_for_operation method returns when the operation completes. Parse the `resourceLocation` header value of the returned operation to get the new knowledge base ID.
+
+[!code-javascript[Create a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=createKnowledgeBase&highlight=15,30)]
 
 Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully create a knowledge base.
 
 ## Update a knowledge base
 
-You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest) containing [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update), and [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) DTO objects to the [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-) method. Use the [Operation.getDetail](#get-status-of-an-operation) method to determine if the update succeeded.
+You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest) containing [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update), and [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) DTO objects to the [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-) method. The DTOs are also basically JSON objects. Use the [wait_for_operation](#get-status-of-an-operation) method to determine if the update succeeded.
 
-[!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=updateKnowledgeBase&highlight=19)]
+[!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=updateKnowledgeBase&highlight=28)]
 
 Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully update a knowledge base.
 
 ## Publish a knowledge base
 
-Publish the knowledge base using the [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint.
+Publish the knowledge base using the [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint. Check the HTTP response code to validate publish succeeded.
 
-[!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=2)]
+[!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
+
 
 # Get published endpoint
-Once the knowledge base is published, access the published knowledge via the query prediction runtime' generateAnswer API. In order to do this, you need the runtime's endpoint key. This is different than the authoring key.
 
-[!code-javascript[Get endpoint keys](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=getEndpointKeys&highlight=2)]
+Once the knowledge base is published, access the published knowledge base via the query prediction runtime' generateAnswer API. In order to do this, you need the runtime's endpoint key. This is different than the authoring key.
+
+[!code-javascript[Get endpoint keys](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=getEndpointKeys&highlight=3)]
 
 Two endpoint keys are returned from the call. Only one is necessary to access the runtime endpoint.
 
@@ -139,15 +143,15 @@ Two endpoint keys are returned from the call. Only one is necessary to access th
 
 Delete the knowledge base using the [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) method with a parameter of the knowledge base ID.
 
-[!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=deleteKnowledgeBase&highlight=2)]
+[!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=deleteKnowledgeBase&highlight=3)]
 
 ## Get status of an operation
 
 Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest) is returned. Use the [operation ID](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid) from the operation to poll (with retry logic) to determine the status of the original method.
 
-The _delayTimer_ call in the following code block is used to simulate asynchronous code. Replace this with retry logic.
+The _delayTimer_ call in the following code block is used to simulate the retry logic. Replace this with your own retry logic.
 
-[!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=monitorOperation&highlight=2,17)]
+[!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=monitorOperation&highlight=8,13)]
 
 ## Run the application
 
@@ -157,6 +161,32 @@ All of the code snippets in this article are [available](https://github.com/Azur
 
 ```console
 node index.js
+```
+
+The program prints status to the console:
+
+```console
+qnamaker_quickstart@1.0.0 start C:\samples\cognitive-services-quickstart-code\javascript\QnAMaker\sdk> node index.js
+
+Operation state - Running
+Operation state - Running
+Operation state - Running
+Operation state - Running
+Operation state - Running
+Operation state - Succeeded
+Create operation 200, KB ID 99df758d-f23f-4931-ab83-e738fe978e69
+Operation state - Running
+Operation state - Running
+Operation state - Running
+Operation state - Succeeded
+Update operation state 200 - HTTP status 200
+Publish request succeeded - HTTP status 204
+GetEndpointKeys request succeeded - HTTP status 200 - primary key 8482830b-681e-400e-b8a3-4016278aba64
+QnA Maker FAQ stored in English language with 1 sources, last updated 2020-01-12T16:54:40Z
+New KB name stored in English language with 1 sources, last updated 2020-01-12T17:32:16Z
+New KB name stored in English language with 1 sources, last updated 2020-01-13T00:27:46Z
+Delete operation state succeeded - HTTP status 204
+done
 ```
 
 ## Clean up resources
