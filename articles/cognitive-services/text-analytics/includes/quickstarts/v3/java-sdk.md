@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 01/13/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi
 ---
 
 <a name="HOLTop"></a>
 
-[Reference documentation]() | [Library source code]() | [Package (NuGet)]() | [Samples]()
+[Reference documentation](https://azure.github.io/azure-sdk-for-java/textanalytics.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~com.azure) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 
 > [!NOTE]
@@ -94,7 +94,7 @@ public static void main(String[] args) {
 
 ## Object model
 
-The Text Analytics client is a [TextAnalyticsClient]() object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
 ## Code examples
 
@@ -108,7 +108,7 @@ The Text Analytics client is a [TextAnalyticsClient]() object that authenticates
 
 ## Authenticate the client
 
-Create a method to instantiate the [TextAnalyticsClient]() object with your `KEY` AND `ENDPOINT` created above.
+Create a method to instantiate the `TextAnalyticsClient` object with your `KEY` AND `ENDPOINT` created above.
 
 ```java
 static TextAnalyticsClient authenticateClient(String subscriptionKey, String endpoint) {
@@ -123,7 +123,7 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis
 
-Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its [analyzeSentiment()]() function. The returned [AnalyzeSentimentResult]() object will contain [documentSentiment]() and [sentenceSentiments]() if successful, and an `errorMessage` if not. 
+Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, and an `errorMessage` if not. 
 
 ```java
 static void sentimentAnalysisExample(TextAnalyticsClient client)
@@ -161,7 +161,7 @@ Recognized Sentence TextSentiment: neutral, Positive Score: 0.21, Neutral Score:
 ```
 ## Language detection
 
-Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its [detectLanguage()]() function. The returned [DetectLanguageResult]() object will contains a primary language detected, a list of other languages detected, and an `errorMessage` if not.
+Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its `detectLanguage()` function. The returned `DetectLanguageResult` object will contains a primary language detected, a list of other languages detected, and an `errorMessage` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -188,7 +188,7 @@ Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
 ## Entity recognition
 
-Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its [recognizeEntities()]() function. The returned [RecognizeEntitiesResult]() object will contains a list of [NamedEntity](), and an `errorMessage` if not. 
+Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its `recognizeEntities()` function. The returned `RecognizeEntitiesResult` object will contains a list of `NamedEntity`, and an `errorMessage` if not. 
 
 ```java
 static void recognizeEntitiesExample(TextAnalyticsClient client)
@@ -220,7 +220,7 @@ Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offs
 
 ## Personal information entity recognition
 
-Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()]() function. The returned [RecognizePiiEntitiesResult]() object will contains a list of [NamedEntity](), and an `errorMessage` if not. 
+Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contains a list of `NamedEntity`, and an `errorMessage` if not. 
 
 ```java
 static void recognizePIIEntitiesExample(TextAnalyticsClient client)
@@ -252,7 +252,7 @@ Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset
 
 ## Entity linking
 
-Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()]() function. The returned [RecognizeLinkedEntitiesResult]() object will contains a list of [LinkedEntity](), and an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `RecognizeLinkedEntitiesResult` object will contains a list of `LinkedEntity`, and an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
@@ -312,7 +312,7 @@ Text: BASIC, Offset: 5, Length: 89, Score: 0.05.
 ```
 ## Key phrase extraction
 
-Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its [extractKeyPhrases()]() function. The returned [ExtractKeyPhraseResult]() object will contains a list of key phrases if successful, and an `errorMessage` if not. 
+Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its `extractKeyPhrases()` function. The returned `ExtractKeyPhraseResult` object will contains a list of key phrases if successful, and an `errorMessage` if not. 
 
 ```java
 static void extractKeyPhrasesExample(TextAnalyticsClient client)
