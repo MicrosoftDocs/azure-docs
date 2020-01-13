@@ -61,18 +61,18 @@ Personalizer doesn't:
 * persist and manage user profile information
 * log individual users' preferences or history
 
-## How do you get started?
+## Getting Started
 
-1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
+1. Design and plan for content, **_actions with features_**, and **_context features_**. Determine the reward _algorithm_, based on collected user behavior, for the **_reward_** score.
 1. Each Personalizer Resource you create is considered 1 Learning Loop. The loop is the combination of both the Rank and Reward calls for that content.
 1. Add Personalizer to your website or content system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
-    1. Collect information about how the user behaved when presented with the content, such as:
+    1. Apply _algorithm_ to collected information about how the user behaved, to determine the **reward** score, such as:
         * Best, single _content_ item, which is the returned _reward action ID_
         * Or selected other content
         * Or paused, scrolling around indecisively, before selecting  content
-    1. Add a **Reward** call
+    1. Add a **Reward** call to send reward score
         * Immediately after showing your content
         * Or sometime later in an offline system
 
