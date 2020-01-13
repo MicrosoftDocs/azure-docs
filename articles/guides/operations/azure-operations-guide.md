@@ -323,19 +323,19 @@ You can deploy Azure virtual machines by using the Azure portal, by using automa
 
 Deploying a virtual machine by using the Azure portal requires only an active Azure subscription and access to a web browser. You can select many different operating system images with varying configurations. All storage and networking requirements are configured during the deployment. For more information, see “Create a virtual machine in the Azure portal” for [Windows](../../virtual-machines/windows/quick-create-portal.md) and [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### PowerShell
 
 Deploying an Azure virtual machine by using PowerShell allows for complete deployment automation of all related virtual machine resources, including storage and networking. For more information, see [Create a Windows VM using Resource Manager and PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### Command-line interface (CLI)
 
 As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you’re using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
 
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### Access and security for virtual machines
 
@@ -405,13 +405,13 @@ There are several options for deploying a storage account.
 
 Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-account-create.md).
 
-In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### PowerShell
 
 Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### Command-line interface (CLI)
 
@@ -469,7 +469,7 @@ There are several options for deploying a virtual network.
 - Azure Resource Manager Templates
 
 > **When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
-> 
+>
 > **Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### Access and security for virtual networks

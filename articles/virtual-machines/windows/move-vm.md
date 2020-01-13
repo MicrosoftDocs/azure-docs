@@ -52,5 +52,5 @@ Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
 When you are asked to confirm that you want to move the specified resources, enter **Y** to confirm.
 
 ## Next steps
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to a new resource group or subscription](../../resource-group-move-resources.md).    
+You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to a new resource group or subscription](../../management/move-resource-group-and-subscription.md).    
 

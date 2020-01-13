@@ -153,7 +153,7 @@ The Delete Container operation will fail if at least one blob exists within the 
 
 **What happens if I try to delete a storage account with a container that has a time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one container with a legal hold set or a **locked** time-based policy. A container with an unlocked time-based policy does not protect against storage account deletion. You must remove all legal holds and delete all **locked** containers before you can delete the storage account. For information on container deletion, see the preceding question. You can also apply further delete protections for your storage account with [Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
+The storage account deletion will fail if there is at least one container with a legal hold set or a **locked** time-based policy. A container with an unlocked time-based policy does not protect against storage account deletion. You must remove all legal holds and delete all **locked** containers before you can delete the storage account. For information on container deletion, see the preceding question. You can also apply further delete protections for your storage account with [Azure Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).
 
 **Can I move the data across different blob tiers (hot, cool, archive) when the blob is in the immutable state?**
 
@@ -176,4 +176,4 @@ Yes, if your compliance requirements allow for soft delete to be enabled. [Soft 
 - [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
 - [Set rules to automatically tier and delete blob data with lifecycle management](storage-lifecycle-management-concepts.md)
 - [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)
-- [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
+- [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).

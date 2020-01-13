@@ -96,7 +96,7 @@ To support client certificate authentication in your custom policy, change the t
 
 ## Step 4: Upload the policy to your tenant
 
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](tutorial-create-tenant.md), and then select **Azure AD B2C**.
 
 2. Select **Identity Experience Framework**.
 

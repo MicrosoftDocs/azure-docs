@@ -25,7 +25,7 @@ Your subscription and services are disabled when your credit runs out or expires
 
 ## Usage exceeds the limits of free services
 
-You get a limited quantity of free services each month with your Azure free account. The free quantity expires at the end of the month and doesn't roll over to the next month. For example, you get 5 GB of File storage each month. If in a month, you only use 2 GB, the remaining 3 GB doesn't roll over to the next month. To avoid getting charged, keep your usage within the limits. To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). To check your free service usage, see [Check usage of free services included with Azure free Account](../../articles/cost-management-billing/manage/check-free-service-usage.md).
+You get a limited quantity of free services each month with your Azure free account. The free quantity expires at the end of the month and doesn't roll over to the next month. For example, you get 5 GB of File storage each month. If in a month, you only use 2 GB, the remaining 3 GB doesn't roll over to the next month. To avoid getting charged, keep your usage within the limits. To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). To check your free service usage, see [Check usage of free services included with Azure free Account](check-free-service-usage.md).
 
 ## You used some services that aren't free
 

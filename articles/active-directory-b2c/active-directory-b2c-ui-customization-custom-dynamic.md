@@ -213,7 +213,7 @@ To configure `ContentDefinition`, do the following:
     ![Example XML snippet with LoadUri element highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## Step 6: Upload the policy to your tenant
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](tutorial-create-tenant.md), and then select **Azure AD B2C**.
 
 2. Select **Identity Experience Framework**.
 

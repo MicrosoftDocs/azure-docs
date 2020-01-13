@@ -104,7 +104,7 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 
 ## Encryption
 
-There are two basic kinds of encryption available for the Storage services. For more information about security and encryption, see the [Azure Storage security guide](storage-security-guide.md).
+There are two basic kinds of encryption available for the Storage services. For more information about security and encryption, see the [Azure Storage security guide](../blobs/security-recommendations.md).
 
 ### Encryption at rest
 

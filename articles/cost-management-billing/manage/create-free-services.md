@@ -34,5 +34,5 @@ You can create multiple instances of services for free as long as the sum of usa
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn how to [Check usage of free services included with your Azure free account](../../articles/cost-management-billing/manage/check-free-service-usage.md).
+- Learn how to [Check usage of free services included with your Azure free account](check-free-service-usage.md).
 - Learn how to [Avoid getting charged for your Azure free account](avoid-charges-free-account.md).

@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 
 # Azure classic subscription administrators
 
-Microsoft recommends that you manage access to Azure resources using role-based access control (RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft recommends that you manage access to Azure resources using role-based access control (RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 This article describes how to add or change the Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
 

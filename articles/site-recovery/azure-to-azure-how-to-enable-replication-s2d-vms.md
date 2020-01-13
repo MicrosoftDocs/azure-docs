@@ -1,13 +1,13 @@
 ---
-title: Replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery 
+title: Replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery
 description: This article describes how to replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery.
 services: site-recovery
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: asgang
+ms.author: rochakm
 
 ---
 
@@ -19,7 +19,7 @@ This article describes how to enable disaster recovery of Azure VMs running stor
 >Only crash consistent recovery points are supported for storage spaces direct clusters.
 >
 
-## Introduction 
+## Introduction
 [Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is a software-defined storage, which provides a way to create [guest clusters](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. It allows hosted VM workloads to fail over across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is useful in scenarios where VM hosting a critical application like SQL or Scale out file server etc.
 
 ## Disaster Recovery of Azure Virtual Machines using Storage spaces direct
@@ -29,7 +29,7 @@ Below diagram shows the pictorial representation of two Azure VMs failover clust
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Two Azure virtual machines in a Windows Failover Cluster and each virtual machine have two or more data disks.
 - S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool.
 - The storage pool presents as a cluster shared volume (CSV) to the failover cluster.
@@ -39,7 +39,7 @@ Below diagram shows the pictorial representation of two Azure VMs failover clust
 
 1. When you are setting up [cloud witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) for the cluster, keep witness in the Disaster Recovery region.
 2. If you are going to fail over the virtual machines to the subnet on the DR region which is different from the source region then cluster IP address needs to be change after failover.  To change IP of the cluster you need to use ASR [recovery plan script.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
-[Sample script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) to execute command inside VM using custom script extension 
+[Sample script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) to execute command inside VM using custom script extension
 
 ### Enabling Site Recovery for S2D cluster:
 
@@ -50,7 +50,7 @@ Below diagram shows the pictorial representation of two Azure VMs failover clust
 
    ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Go to replicated items and you can see both the virtual machine status. 
+2. Go to replicated items and you can see both the virtual machine status.
 3. Both the virtual machines are getting protected and are also shown as part of multi-VM consistency group.
 
    ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
@@ -68,8 +68,8 @@ A recovery plan supports the sequencing of various tiers in a multi-tier applica
 For your applications to function correctly, you might need to do some operations on the Azure virtual machines after the failover or during a test failover. You can automate some post-failover operations. For example, here we are attaching loadbalancer and changing cluster IP.
 
 
-### Failover of the virtual machines 
-Both the nodes of the virtual machines needs to be fail over using the [ASR Recovery plan](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
+### Failover of the virtual machines
+Both the nodes of the virtual machines needs to be fail over using the [ASR Recovery plan](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans)
 
 ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
