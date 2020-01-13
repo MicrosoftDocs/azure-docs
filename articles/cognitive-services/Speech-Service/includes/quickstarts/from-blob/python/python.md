@@ -64,7 +64,7 @@ Let's add some code that works as a skeleton for our project.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
 
-[!INCLUDE [placeholder-replacements](../../placeholder-replacements.md)]
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## Create and configure an Http Client
 The first thing we'll need is an Http Client that has a correct base URL and authentication set.

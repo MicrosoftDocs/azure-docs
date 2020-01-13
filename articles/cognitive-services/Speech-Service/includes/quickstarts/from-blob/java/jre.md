@@ -43,7 +43,7 @@ Let's add some code that works as a skeleton for our project.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
 
-[!INCLUDE [placeholder-replacements](../../placeholder-replacements.md)]
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## JSON Wrappers
 

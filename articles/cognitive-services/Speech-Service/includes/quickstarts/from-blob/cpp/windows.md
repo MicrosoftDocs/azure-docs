@@ -51,7 +51,7 @@ Let's add some code that works as a skeleton for our project.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
 
-[!INCLUDE [placeholder-replacements](../../placeholder-replacements.md)]
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## JSON Wrappers
 
