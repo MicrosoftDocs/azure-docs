@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Playback with Azure Media Player - Azure | Microsoft Docs
-description: This topic gives an overview of Azure Media Player.
+description: Azure Media Player is a web video player built to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -48,6 +48,10 @@ You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) 
 ## Set up Azure Media Player in your HTML
 
 Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://aka.ms/ampdocs) for details on how to set up and configure Azure Media Player. 
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

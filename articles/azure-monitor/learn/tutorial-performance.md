@@ -68,7 +68,7 @@ Application Insights collects performance details for the different operations i
 
 	![Performance tip](media/tutorial-performance/6-perf-tip.png)
 
-8.  For further analysis, you can click **Download Trace** to download the trace in to Visual Studio.
+8.   For further analysis, you can click **Download Trace** to download the trace. You can view this data using [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## Use logs data for server
  Logs provides a rich query language that allows you to analyze all data collected by Application Insights. You can use this to perform deep analysis on request and performance data.

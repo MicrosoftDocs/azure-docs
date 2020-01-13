@@ -23,7 +23,6 @@ Before you can back up an Azure file share, ensure that it's present in one of t
 
 Backup for Azure file shares is in preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
 
-* You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 * There is no CLI available for protecting Azure Files using Azure Backup.
 * The maximum number of scheduled backups per day is one.
 * The maximum number of on-demand backups per day is four.

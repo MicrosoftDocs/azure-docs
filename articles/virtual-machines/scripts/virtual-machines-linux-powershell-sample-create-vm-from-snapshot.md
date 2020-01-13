@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Create a VM from a snapshot 
+title: Create a VM from a snapshot - PowerShell Sample
 description: Azure PowerShell Script Sample - Create a VM from a snapshot
 services: virtual-machines-linux
 documentationcenter: virtual-machines

@@ -1,11 +1,7 @@
 ---
 title: Monitor a new Azure Kubernetes Service (AKS) cluster | Microsoft Docs
 description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers subscription.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/25/2019
 
 ---

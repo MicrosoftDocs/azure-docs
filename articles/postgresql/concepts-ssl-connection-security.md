@@ -1,6 +1,6 @@
 ---
-title: Configure SSL connectivity in Azure Database for PostgreSQL - Single Server
-description: Instructions and information to configure Azure Database for PostgreSQL - Single Server and associated applications to properly use SSL connections.
+title: SSL - Azure Database for PostgreSQL - Single Server
+description: Instructions and information on how to configure SSL connectivity for Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -19,6 +19,9 @@ Likewise, connection strings that are pre-defined in the "Connection Strings" se
 
 ## Configure Enforcement of SSL
 You can optionally disable enforcing SSL connectivity. Microsoft Azure recommends to always enable **Enforce SSL connection** setting for enhanced security.
+
+> [!NOTE]
+> Currently the TLS version supported for Azure Database for PostgreSQL are TLS 1.0, TLS 1.1, TLS 1.2.
 
 ### Using the Azure portal
 Visit your Azure Database for PostgreSQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then, click **Save**. 

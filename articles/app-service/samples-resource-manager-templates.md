@@ -28,6 +28,8 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Deploys an App Service app with a custom host name, and gets an app certificate from Key Vault for SSL binding. |
 | [App with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Deploys an App Service app with the Golang site extension. You can then run web applications developed on Golang on Azure. |
 | [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Deploys an App Service app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
+|**Protecting an app**||
+| [App integrated with Azure Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Deploys an App Service app and an Application Gateway, and isolates the traffic using service endpoint and access restrictions. |
 |**Linux app with connected resources**||
 | [App on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Deploys an App Service app on Linux with Azure Database for MySQL. |
 | [App on Linux with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Deploys an App Service app on Linux with Azure Database for PostgreSQL. |
@@ -37,7 +39,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App with a SQL database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Deploys an App Service app and a SQL database at the Basic service level. |
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Deploys an App Service app with an Azure Blob storage connection string. You can then use Blob storage from the app. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Deploys an App Service app with an Azure Cache for Redis. |
-|**App Service Environment for PowerApps**||
+|**App Service Environment**||
 | [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
 | [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Creates an App Service environment v2 in your virtual network with a private internal load balancer address. |
 | [Configure the default SSL certificate for an ILB App Service environment or an ILB App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | Configures the default SSL certificate for an ILB App Service environment or an ILB App Service environment v2. |

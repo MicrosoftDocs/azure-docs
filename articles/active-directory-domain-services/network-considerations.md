@@ -16,7 +16,7 @@ ms.author: iainfou
 ---
 # Virtual network design considerations and configuration options for Azure AD Domain Services
 
-As Azure Active Directory Domain Services (AD DS) provides authentication and management services to other applications and workloads, network connectivity is a key component. Without appropriately configured virtual network resources, applications and workloads can't communicate with and use the features provides by Azure AD DS. If you plan your virtual network correctly, you make sure that Azure AD DS can serve your applications and workloads as needed.
+As Azure Active Directory Domain Services (AD DS) provides authentication and management services to other applications and workloads, network connectivity is a key component. Without appropriately configured virtual network resources, applications and workloads can't communicate with and use the features provided by Azure AD DS. If you plan your virtual network correctly, you make sure that Azure AD DS can serve your applications and workloads as needed.
 
 This article outlines design considerations and requirements for an Azure virtual network that supports Azure AD DS.
 

@@ -1,10 +1,6 @@
 ---
 title: Service Health overview | Microsoft Docs
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
 

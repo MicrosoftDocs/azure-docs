@@ -102,7 +102,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | 16 data disks<br/><br/> Data disk up to 4095 GB
+Azure VM | 16 data disks<br/> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com <br><br> Data disk up to 32 TB
 
 ### How is the data source size determined?
 

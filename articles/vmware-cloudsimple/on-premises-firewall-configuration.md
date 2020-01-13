@@ -1,5 +1,6 @@
 ---
-title: Accessing Azure VMware Solution by CloudSimple from on-premises 
+title: Access Azure VMware Solution by CloudSimple from on-premises 
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Accessing your Azure VMware Solution by CloudSimple from your on-premises network through a firewall
 author: sharaths-cs 
 ms.author: dikamath 
