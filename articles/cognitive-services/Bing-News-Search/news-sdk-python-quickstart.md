@@ -49,7 +49,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
 
 ## Initialize the client and send a request
 
-1. Create an instance of `CognitiveServicesCredentials`. Instantiate the client:
+1. Create an instance of `CognitiveServicesCredentials`.
     
     ```python
     client = NewsSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
