@@ -1,11 +1,11 @@
 ---
 title: Data Encryption for Azure Database for MySQL using portal
-description: Learn how to set up and manage Data Encryption for your Azure Database for MySQL using Azure portal
+description: Learn how to set up and manage Data Encryption for your Azure Database for MySQL using Azure portal.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ---
 
 # Data Encryption for Azure Database for MySQL server using Azure portal
@@ -17,13 +17,13 @@ In this article, you will learn how to set up and manage to use the Azure portal
 * You must have an Azure subscription and be an administrator on that subscription.
 * Create an Azure Key Vault and Key to use for customer-managed key.
 * The Key Vault must have the following property to use as a customer-managed key
-  * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+  * [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
+  * [Purge protected](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -40,7 +40,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
    ![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Select the **Key Permissions** select **Get**, **Wrap**, **Unwrap** and the **Principal**, which is the name of the MySQL server. If your server principal can't be found in the list of existing principals, you will need to register it by attempting to set up Data Encryption for the first time, which will fail.
+2. Select the **Key Permissions**, and select **Get**, **Wrap**, **Unwrap** and the **Principal**, which is the name of the MySQL server. If your server principal can't be found in the list of existing principals, you will need to register it by attempting to set up Data Encryption for the first time, which will fail.
 
    ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-wrp-unwrap.png)
 
@@ -79,7 +79,7 @@ Once an Azure Database for MySQL is encrypted with customer's managed key stored
 3. To fix Inaccessible state, you need to revalidate the key on the restored server. Click on the **Data Encryption** blade and then the **Revalidate key** button.
 
    > [!NOTE]
-   > The first attempt to revalidate will fail since the new server's service principal needs to be given access to the key vault. To generate the service principal click on **Revalidate key**, which will give error but generates the service principal. Thereafter, refer to steps [in section 2](https://docs.microsoft.com/azure/mysql/howto-data-encryption-portal#setting-the-right-permissions-for-key-operations) above.
+   > The first attempt to revalidate will fail since the new server's service principal needs to be given access to the key vault. To generate the service principal click on **Revalidate key**, which will give error but generates the service principal. Thereafter, refer to steps [in section 2](#setting-the-right-permissions-for-key-operations) above.
 
    ![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
