@@ -75,8 +75,8 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per resource                      | 250                          |
 | Rules per NIC (across all IPs on a NIC) | 300                          |
 | Frontend IP configurations              | 200                          |
-| Backend pool size                       | 300 IP configrations, single availability set |
-| Availability sets per LB                | 150                 |
+| Backend pool size                       | 300 IP configurations, single availability set |
+| Availability sets per Load Balancer     | 150                          |
 
 #### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
