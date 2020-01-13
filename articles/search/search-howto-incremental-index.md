@@ -118,7 +118,7 @@ api-key: [YOUR-ADMIN-KEY]
 After the indexer runs, you can find the cache in Azure blob storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
-> A reset and re-run of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be re-run on all documents.
+> A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.
 >
 
 ### Step 6: Modify a skillset and confirm incremental enrichment
@@ -149,15 +149,26 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
 }
 ```
 
-## Cache management
+## Checking for cached output
 
-When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. 
+The cache is created, used, and managed by the indexer, and its contents are not represented in a format that is human readable. The best way to determine whether the cache is used is by running the indexer and compare before-and-after metrics for execution time and document counts. 
 
-While incremental enrichment comes with its own change detection logic for knowing when and what to reprocess, there are situations where you will want to override default behaviors:
+For example, assume a skillset that starts with image analysis and Optical Character Recognition (OCR) of scanned documents, followed by downstream analysis of the resulting text. If you modify a downstream text skill, the indexer can retrieve all of the previously processed image and OCR content from cache, updating and processing just text-related changes indicated by your edits. You can expect to see fewer documents in the document count (for example 8/8 as opposed to 14/14 in the original run), shorter execution times, and fewer charges on your bill.
 
-+ Force a re-evaluation of skillset. You might make internal changes to a custom skillset that the indexer cannot detect. In this case, you can use the [Reset Skills](preview-api-resetskills.md) API to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output.
+## Working with the cache
 
-+ Bypass re-evaluation when making peripheral changes. In some cases, the change detection logic picks up on changes that shouldn't result in reprocessing. For example, changing the endpoint of a custom skill is an update to the `uri` property in a skillset definition, but it shouldn't result in reprocessing of content if the skill itself didn't change. Similarly, updates to a data source connection string, or changing a key, are inline edits that change a data source definition, but shouldn't invalidate the cache. You can set parameters on a request to suppress the change detection logic, while allowing a commit on a definition to go through. For more information about these scenarios, see [Cache management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
+Once the cache is operational, indexers check the cache whenever [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) is called, to see which parts of the existing output can be used. 
+
+The following table summarizes how various APIs relate to the cache:
+
+| API           | Cache impact     |
+|---------------|------------------|
+| [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) | Creates and runs an indexer on first use, including creating a cache if your indexer definition specifies it. |
+| [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Executes an enrichment pipeline on demand. This API reads from the cache if it exists, or creates a cache if you added caching to an updated indexer definition. When you run an indexer that has caching enabled, the indexer omits steps if cached output can be used. |
+| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Clears the indexer of any incremental indexing information. The next indexer run (either on-demand or schedule) is full reprocessing from scratch, including re-running all skills and rebuilding the cache. It is functionally equivalent to deleting the indexer and recreating it. |
+| [Reset Skills](preview-api-resetskills.md) | Specifies which skills to rerun on the next indexer run, even if you haven't modified any skills. The cache is updated accordingly. Outputs, such as a knowledge store or search index, are refreshed using reusable data from the cache plus new content per the updated skill. |
+
+For more information about controlling what happens to the cache, see [Cache management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 
 ## Next steps
 

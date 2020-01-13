@@ -92,11 +92,11 @@ See [Azure Regions](best-practices-availability-paired-regions.md)
 
 ## resource
 An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources, such as databases or virtual machines.   
-See [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
+See [Azure Resource Manager overview](azure-resource-manager/management/overview.md)
 
 ## resource group
 A container in Resource Manager that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.  
-See [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
+See [Azure Resource Manager overview](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>Resource Manager template
 A JSON file that declaratively defines one or more Azure resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.  
@@ -104,7 +104,7 @@ See [Authoring Azure Resource Manager templates](resource-group-authoring-templa
 
 ## resource provider
 A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Resource providers can be accessed through the Azure portal, Azure PowerShell, and several programming SDKs.  
-See [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
+See [Azure Resource Manager overview](azure-resource-manager/management/overview.md)
 
 ## role
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  

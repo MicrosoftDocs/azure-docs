@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* An Azure storage account. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* An Azure storage account. See [Create a storage account](../storage/common/storage-account-create.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 

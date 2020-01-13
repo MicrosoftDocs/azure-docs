@@ -298,7 +298,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 ## Step 5: Upload the policy to your tenant
 
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then open **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](tutorial-create-tenant.md), and then open **Azure AD B2C**.
 
 2. Select **Identity Experience Framework**.
 

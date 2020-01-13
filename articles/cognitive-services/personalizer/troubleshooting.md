@@ -67,6 +67,11 @@ This is typically due to timestamps, user IDs or some other fine grained feature
 
 The offline evaluation uses the trained model data from the events in that time period. If you did not send any data in the time period between start and end time of the evaluation, it will complete without any results. Submit a new offline evaluation by selecting a time range with events you know were sent to Personalizer.
 
+## Learning policy
+
+### How do I import a learning policy?
+
+Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-learning-policy.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
 
 
 ## Security

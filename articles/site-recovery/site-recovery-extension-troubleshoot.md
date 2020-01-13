@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot issues with Azure Site Recovery agents | Microsoft Docs'
 description: Provides information about symptoms, causes, and resolutions of Azure Site Recovery agent failures.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: asgang
+ms.author: rochakm
 ---
 
 # Troubleshoot issues with the Azure Site Recovery agent
@@ -102,8 +102,6 @@ To uninstall the extension:
 4. Select **Site Recovery Extension**.
 5. Select **Uninstall**.
 
-For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the protection. 
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the protection.
 
 Completing these steps causes the extension to be reinstalled during the protection.
-
-

@@ -13,7 +13,7 @@ ms.subservice: logs
 # Export Azure Activity log to storage or Azure Event Hubs
 
 > [!WARNING]
-> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md).
+> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-legacy.md).
 
 The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
@@ -60,7 +60,7 @@ If retention policies are set, but storing logs in a storage account is disabled
 
 
 > [!IMPORTANT]
-> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
+> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md) to register this provider.
 
 
 ### Create log profile using the Azure portal
@@ -162,5 +162,5 @@ If a log profile already exists, you first need to remove the existing log profi
 
 ## Next steps
 
-* [Learn more about the Activity Log](../../azure-resource-manager/resource-group-audit.md)
+* [Learn more about the Activity Log](../../azure-resource-manager/management/view-activity-logs.md)
 * [Collect Activity Log into Azure Monitor Logs](activity-log-collect.md)
