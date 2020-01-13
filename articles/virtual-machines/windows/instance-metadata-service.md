@@ -356,6 +356,7 @@ scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
+customData | This field holds up to 64K of custom data. Note that this feature is currently disabled, but will be enabled soon | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
@@ -648,8 +649,8 @@ Data | Description
 -----|------------
 nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product, and publisher
-timestamp/createdOn | The timestamp at which the first signed document was created
-timestamp/expiresOn | The timestamp at which the signed document expires
+timestamp/createdOn | The UTC timestamp at which the first signed document was created
+timestamp/expiresOn | The UTC timestamp at which the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
