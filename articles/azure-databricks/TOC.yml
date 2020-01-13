@@ -982,6 +982,12 @@
       - name: Secret workflow example
         href: /azure/databricks/security/secrets/example-secret-workflow
         maintainContext: true
+    - name: Encrypt traffic between cluster worker nodes
+      href: /azure/databricks/security/encrypt-otw
+    - name: Enable customer-managed keys for notebooks
+      href: /azure/databricks/security/customer-managed-key-notebook
+    - name: Enable customer-managed keys for DBFS
+      href: /azure/databricks/security/customer-managed-keys-dbfs
   - name: Administration
     items:
     - name: Administration overview
