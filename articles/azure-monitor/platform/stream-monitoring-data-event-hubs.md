@@ -56,7 +56,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 
 ## Next Steps
 * [Archive the Activity log to a storage account](../../azure-monitor/platform/archive-activity-log.md)
-* [Read the overview of the Azure Activity log](../../azure-monitor/platform/activity-logs-overview.md)
+* [Read the overview of the Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md)
 * [Set up an alert based on an Activity log event](../../azure-monitor/platform/alerts-log-webhook.md)
 
 
