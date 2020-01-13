@@ -18,6 +18,10 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 
 This tutorial describes how to create Python applications to send events to or receive events from an event hub. 
 
+> [!IMPORTANT]
+> This quickstart uses version 5 of the Azure Event Hubs Python SDK. For a quick start that uses the old version 1 of the Python SDK, see [this article](event-hubs-python-get-started-send.md). If you are using version 1 of the SDK, we recommend that you migrate your code to the latest version. For details, see the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+
+
 ## Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
@@ -147,10 +151,6 @@ python send.py
 ```
 
 You should see the messages that were sent to the event hub in the receiver window. 
-
-> [!IMPORTANT]
-> This quickstart uses version 5 of the Azure Event Hubs Python SDK. For a quick start that uses the old version 1 of the Python SDK, see [this article](event-hubs-python-get-started-send.md). If you are using version 1 of the SDK, we recommend that you migrate your code to the latest version. For details, see the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
-
 
 
 ## Next steps
