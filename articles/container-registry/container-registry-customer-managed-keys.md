@@ -20,7 +20,7 @@ For additional control over encryption keys, you can supply a customer-managed k
 * This feature can only be enabled on a newly created registry.
 * Disabling encryption for a registry is not supported.
 * This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
-* You must use a Resource Manager template to enable this feature. Azure CLI and Azure portal support for this feature are planned.
+* You can only use a Resource Manager template to enable this feature. Azure CLI and Azure portal support for this feature are planned.
 * Other registry features such as geo-replication, content trust, and virtual network integration are currently unsupported when this feature is enabled but planned for a future release.
 
 ## Register the provider
@@ -54,7 +54,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### Create a key vault
 
-Create a key vault with [az keyvault create][az-keyvault-create] to store customer-managed keys for registry encryption. This key vault should have two key protection settings enabled: Soft Delete and Do Not Purge. This command includes parameters for these settings: 
+Create a key vault with [az keyvault create][az-keyvault-create] to store customer-managed keys for registry encryption. This key vault should have two key protection settings enabled: Soft Delete and Do Not Purge. This following example includes parameters for these settings: 
 
 ```azurecli
 az keyvault create \
@@ -74,9 +74,9 @@ Run the [az keyvault key create][az-keyvault-key-create] command to create a key
 
 ## Create a registry with customer-managed key
 
-Create a registry with a customer-managed encryption key enabled by using a Resource Manager template. A new container registry and a user-assigned managed identity are created by the template.
+Create a registry with a customer-managed encryption key enabled by using the following Resource Manager template. A new container registry and a user-assigned managed identity are created by the template.
 
-Save the following template file using a name such as `CMKtemplate.json`.
+Save the following template using a filename such as `CMKtemplate.json`.
 
 ```JSON
 {
@@ -211,7 +211,7 @@ az resource show --id $ACR_ID \
   --api-version 2019-12-01-preview
 ```
 
-Output under `keyVaultProperties` indicates that the encryption status is `enabled`.
+The encryption properties indicate that the status is `enabled`.
 
 ```console
 {
