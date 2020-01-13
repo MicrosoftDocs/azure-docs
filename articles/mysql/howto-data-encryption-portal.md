@@ -76,10 +76,10 @@ Once an Azure Database for MySQL is encrypted with customer's managed key stored
 
    ![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. To fix Inaccessible state, you need to revalidate the key on the restored server. Click on the **Data Encryption** blade and then the **Revalidate key** button.
+3. To fix Inaccessible state, you need to revalidate the key on the restored server. Select the **Data Encryption** pane, and then the **Revalidate key** button.
 
    > [!NOTE]
-   > The first attempt to revalidate will fail since the new server's service principal needs to be given access to the key vault. To generate the service principal click on **Revalidate key**, which will give error but generates the service principal. Thereafter, refer to steps [in section 2](#setting-the-right-permissions-for-key-operations) above.
+   > The first attempt to revalidate will fail since the new server's service principal needs to be given access to the key vault. To generate the service principal, select **Revalidate key**, which will give error but generates the service principal. Thereafter, refer to steps [in section 2](#setting-the-right-permissions-for-key-operations) above.
 
    ![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
