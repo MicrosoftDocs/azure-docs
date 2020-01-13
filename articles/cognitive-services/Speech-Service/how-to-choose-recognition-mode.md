@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
@@ -203,8 +203,7 @@ For additional languages, see the [Speech SDK reference docs](speech-to-text.md#
 
 ::: zone-end
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [Explore additional Speech SDK samples on GitHub](https://aka.ms/csspeech/samples)
