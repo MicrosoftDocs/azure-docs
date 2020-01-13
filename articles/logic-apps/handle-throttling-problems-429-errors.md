@@ -1,6 +1,6 @@
 ---
-title: Handle throttling problems, or 'Too many requests (429)' errors
-description: How to work around throttling problems, or 'Too many requests (429)' errors, in Azure Logic Apps
+title: Handle throttling problems, or '429 - Too many requests' errors
+description: How to work around throttling problems, or '429 Too many requests' errors, in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,9 +8,11 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ---
 
-# Handle throttling problems ("Too many requests (429)") in Azure Logic Apps
+# Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
 
-When you use Azure Logic Apps, you might experience these kinds of throttling:
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns a ["429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific limit, such as an amount of time. Throttling can create problems such as delaying data processing and reducing performance speed.
+
+Here are some common types of throttling that your logic app might experience:
 
 * [Logic app](#logic-app-throttling)
 * [Connector](#connector-throttling)
@@ -30,11 +32,17 @@ To find throttling errors at this level, check your logic app's **Metrics** pane
 
 To handle throttling at this level, you have these options:
 
-* Enable high throughput mode
+* Limit the number of logic app instances that can run at the same time.
+
+  By default, if your logic app's trigger condition is met more than once at the same time, multiple instances of your logic app run *in parallel* without limit. This behavior means that each trigger instance fires before the preceding workflow instance finishes running.
+  
+  Each trigger has a concurrency setting that helps limit the number of trigger instances that can run at the same time. To control the number of trigger instances that can run in parallel, [turn on the trigger's concurrency control, and select the limit that you want](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency).
+
+* Enable high throughput mode.
 
   Your logic app has a default limit on the number of actions that can run in a 5-minute rolling interval. To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
 
-* Refactor actions into multiple logic apps
+* Refactor actions into multiple logic apps.
 
   Consider whether you can break down your logic app's actions into smaller logic apps so that each logic app runs a number of actions below the limit.
 
@@ -42,7 +50,7 @@ To handle throttling at this level, you have these options:
 
 ## Connector throttling
 
-Each connector has its own throttling limits, which you can find on the connector's technical reference page. For example, the [Azure Service Bus connector](https://docs.microsoft.com/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute.
+Each connector has its own throttling limits, which you can find on the connector's technical reference page. For example, the [Azure Service Bus connector](https://docs.microsoft.com/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the SQL Server connector has [throttling limits that vary based on the operation type](https://docs.microsoft.com/connectors/sql/).
 
 To find throttling errors at this level, check the connector's "retry" history. You might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response details or perform some calculations to identify the source. 
 
@@ -50,15 +58,19 @@ For logic apps that run in the public, multi-tenant Azure Logic Apps service, ve
 
 To handle throttling at this level, you have these options:
 
-* Distribute the work
+* Distribute the work for a single action across different connections.
+
+  Consider whether you can spread the workload for a single action across more than one connection, even when those connections communicate with the same service or system, but use the same credentials, for example:
+
+  For example, suppose your logic app gets the tables from a SQL Server database and for each table, gets the rows from each table. Based on the number of rows that you have to process, you use multiple but separate connections to get those rows. After the first branch reaches the limit, the second branch can continue the work.
+
+  ![Create and use multiple connections for a single action](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
+
+* Distribute work for multiple actions across different connections.
 
   Consider whether you can spread the workload across different connections, even if those connections communicate with same service or system, but still use the same credentials.
 
   For example, suppose your logic app gets a row from a SQL Server database, processes the data from that row, and then updates that row with the results. You can use separate connections so that one connection gets the row, while the other connection updates the row.
-
-* Set up multiple connections per action
-
-  You can create more than one connection for a single action and then choose the connection to actually use at run time.
 
 <a name="destination-throttling"></a>
 
@@ -68,21 +80,27 @@ While a connector has its own throttling limits, the destination service or syst
 
 By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, the destination service or system requires that those calls happen in a specific order.
 
-For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and set that loop's [concurrency](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits) to 20 iterations in parallel. Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second.
+For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20, which is the [default limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries build up and never get to run.
 
-This table shows the timeline for what happens in the loop when the action's retry interval is 1 second:
+This table describes the timeline for what happens in the loop when the action's retry interval is 1 second:
 
 | Point in time | Number of actions that run | Number of actions that fail | Number of retries waiting |
 |---------------|----------------------------|-----------------------------|---------------------------|
 | T + 0 seconds | 20 inserts | 5 fail, due to SQL limit | 5 retries |
-| T + 0.5 seconds | 15 inserts, due to previous 5 retries waiting | All 15 fail, due to previous SQL limit still in effect for 0.5 more seconds | 20 retries <br>(previous 5 + 15 new) |
+| T + 0.5 seconds | 15 inserts, due to previous 5 retries waiting | All 15 fail, due to previous SQL limit still in effect for another 0.5 seconds | 20 retries <br>(previous 5 + 15 new) |
 | T + 1 second | 20 inserts | 5 fail plus previous 20 retries, due to SQL limit | 25 retries (previous 20 + 5 new)
 |||||
 
 To handle throttling at this level, you have these options:
 
-* Queue up array items
+* Set up another logic app "singleton" worker.
 
-  
+  Queue up the array items and use another logic app that just performs the insertion
+
+* Set up and run batch operations.
+
+  If a connector supports batch operations, 
+
+* Set up a webhook subscription.
 
 ## Next steps

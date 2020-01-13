@@ -2675,9 +2675,9 @@ in trigger or action definition.
 
 ### Change trigger concurrency
 
-By default, logic app instances all run at the same time (in parallel) without limit. This behavior means that each trigger instance fires before the preceding workflow instance finishes running. Each trigger has a concurrency setting that helps control the number of calls that backend systems receive. When trigger concurrency is turned on, workflow instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+By default, logic app instances all run at the same time (in parallel) without limit. This behavior means that each trigger instance fires before the preceding workflow instance finishes running. Each trigger has a concurrency setting that helps limit the number of calls that backend systems receive.
 
-To change the default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel. 
+When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel. 
 
 Here are some considerations for when you want to enable concurrency on a trigger:
 
