@@ -145,7 +145,7 @@ In this section, you:
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
-1. At your command prompt, run the following command to install the **azure-iot-service-client** package:
+1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -159,7 +159,7 @@ In this section, you create a Python console app that initiates a remote reboot 
     import sys, time
 
     from azure.iot.hub import IoTHubRegistryManager
-    from azure.iot.hub.protocol.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
+    from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
 4. Add the following variable declarations. Replace the `{IoTHubConnectionString}` placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder value with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
