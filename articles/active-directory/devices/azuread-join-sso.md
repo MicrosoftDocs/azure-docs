@@ -21,6 +21,10 @@ It is probably not a surprise that an Azure Active Directory (Azure AD) joined d
 
 This article explains how this works.
 
+# Prerequisites
+
+ If the AADJ machines are not inside corp network.you need a VPN solution or network infra in place to reach your on-prem DCs.
+
 ## How it works 
 
 Because you need to remember just one single user name and password, SSO simplifies access to your resources and improves the security of your environment. With an Azure AD joined device, your users already have an SSO experience to the cloud apps in your environment. If your environment has an Azure AD and an on-premises AD, you probably want to expand the scope of your SSO experience to your on-premises Line Of Business (LOB) apps, file shares, and printers.  
