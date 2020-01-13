@@ -34,9 +34,9 @@ To handle throttling at this level, you have these options:
 
 * Limit the number of logic app instances that can run at the same time.
 
-  By default, if your logic app's trigger condition is met more than once at the same time, multiple instances of your logic app run *in parallel* without limit. This behavior means that each trigger instance fires before the preceding workflow instance finishes running.
-  
-  Each trigger has a concurrency setting that helps limit the number of trigger instances that can run at the same time. To control the number of trigger instances that can run in parallel, [turn on the trigger's concurrency control, and select the limit that you want](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency).
+  By default, if your logic app's trigger condition is met more than once at the same time, multiple trigger instances for your logic app run concurrently or *in parallel*. This behavior means that each trigger instance fires before the preceding workflow instance finishes running.
+
+  Although the default number of trigger instances that can concurrently run is [unlimited](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits), you can limit this number by [turning on the trigger's concurrency setting](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency).
 
 * Enable high throughput mode.
 
