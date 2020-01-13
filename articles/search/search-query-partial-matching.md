@@ -8,16 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/12/2020
+ms.date: 01/14/2020
 ---
 # Match on patterns and special characters (dashes)
 
-For queries that include special characters (`-, *, (, ), /, \, =`) or query patterns based on partial terms within a larger term, custom analyzers are typically needed to ensure that the index contains the expected content in the right format. 
+For queries that include special characters (`-, *, (, ), /, \, =`),  or for query patterns based on partial terms within a larger term, additional configuration steps are typically needed to ensure that the index contains the expected content, in the right format. 
 
 By default, a phone number like `"+1 (425) 703-6214"` is tokenized as 
-`"1"`, `"425"`, `"703"`, `"6214"`. Searching on `"3-62"`, partial terms that include a dash, will fail because that content doesn't exist like that in the index. 
+`"1"`, `"425"`, `"703"`, `"6214"`. As you can imagine, searching on `"3-62"`, partial terms that include a dash, will fail because that content doesn't exist like that in the index. 
 
-When you need to search on partial strings or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules that keeps terms intact. Taking a step back, the approach looks like this:
+When you need to search on partial strings or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules that preserves whole terms. Taking a step back, the approach looks like this:
 
 + Choose a predefined analyzer or define a custom analyzer that produces the desired output
 + Assign the analyzer to the field
@@ -25,19 +25,22 @@ When you need to search on partial strings or special characters, you can overri
 
 This article walks you through each step. The approach described here can be used in other scenarios. Wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
+> [!TIP]
+> Evaluating analyers requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index), and [Load Documents](https://docs.microsoft.com/rest/api/searchservice//addupdate-or-delete-documents) where the request body provides a small representative data set that you want to test.
+
 ## Choosing an analyzer
 
-Azure Cognitive Search uses the Standard Lucene analyzer by default. You can override this analyzer on a per-field basis to get different output in the index. The following analyzers are commonly used when you want to keep terms intact during indexing:
+When choosing an analyzer that produces whole-term tokens, the following analyzers are common choices:
 
 | Analyzer | Behaviors |
 |----------|-----------|
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Content of the entire field is tokenized as a single term. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
-| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Create a custom analyzer so that you can specify both the tokenizer and token filter. A recommended combination is the keyword tokenizer with a lower-case token filter. When used by itself, the built-in keyword analyzer does not lower-case any upper-case text, which can cause queries to fail. Creating a custom analyzer give you a mechanism for adding the token filter. |
+| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. A recommended combination is the keyword tokenizer with a lower-case token filter. By itself, the built-in [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
-To help you choose an analyzer, test each one to view the tokens it emits. Using a web API test tool like Postman, create a request that calls the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer), passing in the analyzer and term.  An existing service and index is required for this test.
+The best way to evaluate analyzer is to use a web API test tool like Postman and the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
 
-1. Start with the Standard analyzer to understand the default behavior.
+1. Check the Standard analyzer to see how terms are tokenized by default.
 
    ```json
    {
@@ -46,7 +49,7 @@ To help you choose an analyzer, test each one to view the tokens it emits. Using
    }
     ```
 
-1. Evaluate the response to see how the text is tokenized within the index. 
+1. Evaluate the response to see how the text is tokenized within the index. Notice how each term is lower-cased and broken up.
 
     ```json
     {
@@ -81,7 +84,8 @@ To help you choose an analyzer, test each one to view the tokens it emits. Using
     }
     ```
 
-1. Now the response consists of a single token, with dashes preserved as a part of the string. If you need to search on a pattern or a partial term, the query engine now has the basis for finding a match.
+1. Now the response consists of a single token, upper-cased, with dashes preserved as a part of the string. If you need to search on a pattern or a partial term, the query engine now has the basis for finding a match.
+
 
     ```json
     {
@@ -96,19 +100,16 @@ To help you choose an analyzer, test each one to view the tokens it emits. Using
         ]
     }
     ```
+> [!Important]
+> Be aware that query parsers often lower-case terms in a search expression when building the query tree. If you are using an analyzer that does not lower-case text inputs, and you are not getting expected results, this could be the reason.
 
-
-## Set up analyzers
-
-Gaining control over tokenization starts with switching out the default Standard Lucene analyzer for a built-in or  [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical when using advanced wildcard queries), or additional processing that generates more tokens.
+## Analyzer definitions
+ 
+Whether you are evaluating analyzers or moving forward with a specific configuration, you will need to specify the analyzer on the field definition, and possibly configure the analyzer itself if you are not using a built-in analyzer. When swapping analyzers, you typically need to rebuild the index (drop, recreate, and reload). 
 
 ### Use built-in analyzers
 
-If you're using a built-in analyzer, you can reference it by name on an `analyzer` property of a field definition, with no additional configuration required:
-
-+ `keyword`
-+ `whitespace`
-+ `pattern`
+Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required. The following example demonstrates the use of the `whitespace` analyzer.
 
 ```json
     {
@@ -117,14 +118,14 @@ If you're using a built-in analyzer, you can reference it by name on an `analyze
       "key": false,
       "retrievable": true,
       "searchable": true,
-      "analyzer": "keyword"
+      "analyzer": "whitespace"
     }
 ```
 For more information about all available built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ### Use custom analyzers
 
-A custom analyzer is a user-defined combination of tokenizer, tokenfilter, and possible configuration settings, giving you more control over the indexing process. The definition of a custom analyzer is specified in the index, and then referenced on a field definition.
+If you are using a [custom analyzer](index-add-custom-analyzers.md), define it in the index with a user-defined combination of tokenizer, tokenfilter, with possible configuration settings. Next, reference it on a field definition, just as you would a built-in analyzer.
 
 When the objective is whole-term tokenization, a custom analyzer that consists of a **keyword tokenizer** and **lower-case token filter** is recommended.
 
@@ -163,11 +164,16 @@ The following example illustrates a custom analyzer that provides the keyword to
 ```
 
 > [!NOTE]
-> The keyword_v2 tokenizer and lowercase token filter are known to the system and using their default configurations, which is why you can reference them by name without having to define them first.
+> The `keyword_v2` tokenizer and `lowercase` token filter are known to the system and using their default configurations, which is why you can reference them by name without having to define them first.
 
-### Add prefix and suffix token filters to generate partial strings
+## Tips and best practices
 
-A token filter adds additional processing over existing tokens in your index. The following example adds an EdgeNGramTokenFilter to make prefix matches faster. Additional tokens are generated for in 2-25 character combinations: (not only MS, MSF, MSFT, MSFT/, but also embedded/internal partial strings like SQL, SQL., SQL.2)
+
+### Tune query performance
+
+If you implement the recommended configuration that includes the keyword_v2 tokenizer and lower-case token filter, you might notice a decrease in query performance due to the additional token filter processing over existing tokens in your index. 
+
+The following example adds an [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix matches faster. Additional tokens are generated for in 2-25 character combinations: (not only MS, MSF, MSFT, MSFT/, but also embedded/internal partial strings like SQL, SQL., SQL.2)
 
 ```json
 {
@@ -206,34 +212,6 @@ A token filter adds additional processing over existing tokens in your index. Th
 ]
 ```
 
-## Build and test the index
-
-Once the index definition and analyzer configuration work is done, your next step is to run [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) on the service, and then import data. Index names must be unique. If the index already exists, you can either rename the index or delete and recreate it.
-
-### Advanced query patterns
-
-Once you have an index that contains terms in the correct format, you can specify patterns to find matching documents.
-
-[Wildcard](search-query-lucene-examples.md#example-7-wildcard-search) and [Regular expression (RegEx)](search-query-lucene-examples.md#example-6-regex) queries are often used to find patterns on content that is expressed as full tokens in an index. 
-
-1. On the query request, add `querytype=full` to specify the full Lucene query syntax used for wildcard and RegEx queries.
-
-   ```http
-  GET https://<SEARCH-SERVICE>.search.windows.net/indexes/<INDEX>/docs?search=*&query-type=true&api-version=2019-05-06
-   ````
-
-2. In the `search=` expression:
-
-   + For wildcard search, combine text with `*` or `?` wildcard characters
-   + For RegEx queries, enclose your pattern or term with `/`, such as `fieldCode:/SQL*Java-Ext/`
-
-> [!NOTE]
-> You might be inclined to also use `searchFields` as a field constraint, or set `searchMode=all` as an operator contraint, but in most cases you won't need either one. A regular expression query is typically sufficient for finding an exact match.
-
-## Additional customizations
-
-If changing the `analyzer` property doesn't produce expected results, explore these additional mechanisms.
-
 ### Use different analyzers for indexing and query processing
 
 Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
@@ -248,7 +226,7 @@ To specify role-specific analysis, you can set properties on the field for each 
 "searchAnalyzer":"standard",
 ```
 
-### Consider duplicating fields for query optimization
+### Duplicate fields for different scenarios
 
 Another option leverages the per-field analyzer assignment to optimize for different scenarios. Specifically, you might define "featureCode" and "featureCodeRegex" to support regular full text search on the first, and advanced pattern matching on the second.
 
