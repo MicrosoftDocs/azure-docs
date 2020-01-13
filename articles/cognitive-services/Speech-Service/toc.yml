@@ -27,6 +27,8 @@
     items:
     - name: Change speech recognition source language
       href: how-to-specify-source-language.md
+    - name: Choose speech recognition mode
+      href: how-to-choose-recognition-mode.md
     - name: Improve accuracy with Custom Speech
       href: how-to-custom-speech.md
     - name: Improve accuracy with Phrase Lists
