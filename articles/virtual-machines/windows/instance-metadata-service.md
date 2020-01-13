@@ -35,10 +35,10 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-11-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 
 This table is updated when there are service updates and/or new supported versions are available.
 
@@ -356,7 +356,6 @@ scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | See [Custom Data](#custom-data) | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
@@ -371,6 +370,7 @@ publisher | Publisher of the VM image | 2017-04-02
 resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
+storageProfile | See [Storage Profile](#storage-profile) | 2019-06-01
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
 tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
@@ -727,35 +727,117 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form.
+### Storage Profile
 
-Azure custom data can be inserted to the VM through REST APIs, PowerShell Cmdlets, Azure Command Line Interface (CLI), or an ARM template.
+Instance Metadata Service can provide details about the storage disks associated with the VM. This data is can be found at the instance/compute/storageProfile endpoint.
 
-For an Azure Command Line Interface example, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+The storage profile of a VM is divided into three categories - image reference, OS disk, and data disks.
 
-For an ARM template example, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+The image reference object contains the following information about the OS image:
+Data   | Description
+--------------------------
+id     | This is the resource ID
+offer  | This is the offer of the platform or marketplace image
+publisher| This is the image publisher
+sku     | This is the image sku
+version | This is the version of the platform or marketplace image
 
-Custom data is available to all processes running in the VM. It is suggested that customers do not insert secret information into custom data.
+The OS disk object contains the following information about the OS disk used by the VM:
+Data    | Description
+--------------------------
+caching | This is the caching requirements
+createOption | This is information about how the VM was created
+diffDiskSettings | This is the ephemeral disk settings
+diskSizeGB | This is the size of the disk in GB
+image   | This is the source user image virtual hard disk
+lun     | This is the logical unit number of the disk
+managedDisk | This is the managed disk parameters
+name    | This is the disk name
+vhd     | This is the virtual hard disk
+writeAcceleratorEnabled | This specifies whether or not writeAccelerator is enabled on the disk
 
-Currently, custom data is guaranteed to be available during bootstrap of a VM. If updates are made to the VM such as adding disks or resizing the VM, Instance Metadata Service will not provide custom data. Providing custom data persistently through Instance Metadata Service is currently in progress.
+The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following image:
+Data    | Description
+--------------------------
+caching | This is the caching requirements
+createOption | This is information about how the VM was created
+diffDiskSettings | This is the ephemeral disk settings
+diskSizeGB | This is the size of the disk in GB
+encryptionSettings | This is the encryption settings for the disk
+image   | This is the source user image virtual hard disk
+managedDisk | This is the managed disk parameters
+name    | This is the disk name
+osType  | This is the type of OS included in the disk
+vhd     | This is the virtual hard disk
+writeAcceleratorEnabled | This specifies whether or not writeAccelerator is enabled on the disk
 
-#### Retrieving custom data in Virtual Machine
-Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
-
-> [!NOTE]
-> The custom data in this example is interpreted as an ASCII string that reads, "My custom data.".
+The following is an example of how to query the VM's storage information.
 
 **Request**
 
 ```bash
-curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **Response**
 
-```text
-My custom data.
+> [!NOTE]
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+```json
+{
+	"dataDisks": [
+	  {
+		"caching": "None",
+		"createOption": "Empty",
+		"diskSizeGB": "1024",
+		"image": {
+		  "uri": ""
+		},
+		"lun": "0",
+		"managedDisk": {
+		  "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+		  "storageAccountType": "Standard_LRS"
+		},
+		"name": "exampledatadiskname",
+		"vhd": {
+		  "uri": ""
+		},
+		"writeAcceleratorEnabled": "false"
+	  }
+	],
+	"imageReference": {
+	  "id": "",
+	  "offer": "UbuntuServer",
+	  "publisher": "Canonical",
+	  "sku": "16.04.0-LTS",
+	  "version": "latest"
+	},
+	"osDisk": {
+	  "caching": "ReadWrite",
+	  "createOption": "FromImage",
+	  "diskSizeGB": "30",
+	  "diffDiskSettings": {
+		"option": "Local"
+	  },
+	  "encryptionSettings": {
+		"enabled": "false"
+	  },
+	  "image": {
+		"uri": ""
+	  },
+	  "managedDisk": {
+		"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+		"storageAccountType": "Standard_LRS"
+	  },
+	  "name": "exampleosdiskname",
+	  "osType": "Linux",
+	  "vhd": {
+		"uri": ""
+	  },
+	  "writeAcceleratorEnabled": "false"
+	}
+}
 ```
 
 ### Examples of calling metadata service using different languages inside the VM 
