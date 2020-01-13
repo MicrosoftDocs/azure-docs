@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create and manage knowledge base - QnA Maker"
-description:
+title: "Quickstart: Use SDK to create and manage knowledge base - QnA Maker"
+description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
