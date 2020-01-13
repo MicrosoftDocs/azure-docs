@@ -63,7 +63,6 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per NIC (across all IPs on a NIC) | 300                           |
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
-| IP configurations per Load Balancer     | 5,000 IP configurations      |
 | High-availability ports                 | 1 per internal frontend      |
 
 
