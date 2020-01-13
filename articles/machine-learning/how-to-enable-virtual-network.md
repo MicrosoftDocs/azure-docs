@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/03/2020
+ms.date: 01/13/2020
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -164,7 +164,7 @@ If you don't want to use the default outbound rules and you do want to limit the
    - Azure Storage, by using __Service Tag__ of __Storage.Region_Name__ (for example, Storage.EastUS)
    - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.Region_Name__ (for example, AzureContainerRegistry.EastUS)
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
-   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureCloud.Region_Name__ (for example, AzureCloud.NorthCentralUS)
+   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureResourceManager__
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
