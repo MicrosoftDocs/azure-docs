@@ -152,7 +152,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 / [Response](#response-5)) 
   - [Delete User](#delete-user) ([Request](#request-6) / 
 [Response](#response-6))
-
+  - [Disable User](#disable-user) ([Request](#request-14) / 
+[Response](#response-14))
 [Group Operations](#group-operations)
   - [Create Group](#create-group) (
 [Request](#request-7) / [Response](#response-7))
@@ -436,6 +437,60 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
+### Disable User
+
+##### <a name="request-14"></a>Request
+
+*PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
+```json
+{
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": false
+        }
+    ],
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ]
+}
+```
+
+##### <a name="response-14"></a>Response
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "id": "CEC50F275D83C4530A495FCF@834d0e1e5d8235f90a495fda",
+    "userName": "deanruiz@testuser.com",
+    "name": {
+        "familyName": "Harris",
+        "givenName": "Larry"
+    },
+    "active": false,
+    "emails": [
+        {
+            "value": "gloversuzanne@testuser.com",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "addresses": [
+        {
+            "country": "ML",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "meta": {
+        "resourceType": "Users",
+        "location": "/scim/5171a35d82074e068ce2/Users/CEC50F265D83B4530B495FCF@5171a35d82074e068ce2"
+    }
+}
+```
 #### Delete User
 
 ##### <a name="request-6"></a>Request
