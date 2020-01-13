@@ -19,49 +19,52 @@ ms.collection: M365-identity-device-management
 # Remove role assignments from a group in Azure Active Directory
 
     This section describes how an IT admin can remove Azure AD role assigned to group. 
-Using Azure Admin Center 1. Open https://aka.ms//assignrolestogroups. Sign in with Privileged Role Administrator or Global Administrator permissions in the Azure AD organization. 
+Using Azure Admin Center 
+1. Open https://aka.ms//assignrolestogroups. Sign in with Privileged Role Administrator or Global Administrator permissions in the Azure AD organization. 
 
-2. Select Azure Active Directory > Roles and administrators > {Role name}. 
+1. Select Azure Active Directory > Roles and administrators > {Role name}. 
 
-3. Select the group from which you want to remove the role assignment and select Remove assignment. 
+1. Select the group from which you want to remove the role assignment and select Remove assignment. 
 
-4. When asked to confirm your action, select Yes. 
+1. When asked to confirm your action, select Yes. 
 
 
 
-Using PowerShell 
+## Using PowerShell 
+
 Note: Creating a group eligible for role assignment via PowerShell will not work now. We are working on fixing this issue. Use Azure portal to create groups that are eligible for role assignments. 
-# Create a group that can be assigned to role 
+
+### Create a group that can be assigned to role 
 $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
 
-# Get the role definition you want to assign the group to 
+### Get the role definition you want to assign the group to 
 $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'" 
 
-# Create a role assignment 
+### Create a role assignment 
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.objectId 
 
-#Remove the role assignment 
+### Remove the role assignment 
 Remove-AzureAdMSRoleAssignment -Id $roleAssignment.Id 
 
-Using Microsoft Graph API 
+## Using Microsoft Graph API
 
-//Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups 
-{ 
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.", 
-"displayName": "Contoso_Helpdesk_Administrators", 
-"groupTypes": [ 
-"Unified" 
-], 
-"mailEnabled": true, 
-"securityEnabled": true 
-"mailNickname": "contosohelpdeskadministrators", 
-"isAssignableToRole": true, 
-} 
+//Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups
+{
+"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+"displayName": "Contoso_Helpdesk_Administrators",
+"groupTypes": [
+"Unified"
+],
+"mailEnabled": true,
+"securityEnabled": true
+"mailNickname": "contosohelpdeskadministrators",
+"isAssignableToRole": true,
+}
 
-//Get the role definition. 
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’ 
+### Get the role definition.
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’
 
-//Create the role assignment. 
+### Create the role assignment. 
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments 
 { 
 "principalId":"<Object Id of Group>", 
@@ -69,5 +72,6 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 "resourceScope":"/" 
 } 
 
-//Delete role assignment DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/<Id of role assignment> 
+### Delete role assignment
 
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/<Id of role assignment> 

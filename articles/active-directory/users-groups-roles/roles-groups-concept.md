@@ -18,32 +18,37 @@ ms.collection: M365-identity-device-management
 
 # Use groups to assign roles in Azure Active Directory (preview)
 
-In the past, Azure Active Directory (Azure AD) hasn’t assigning a group to Azure AD roles. In your Azure AD organization you would have to do some custom development to manage bulk role assignments or assign roles individually, increasing costs. With this public preview, you can assign a role-eligible group to Azure AD built-in roles. Use it, for example, to assign the Helpdesk administrator role to a group of your Tier I helpdesk personnel. 
+In the past, Azure Active Directory (Azure AD) hasn’t assigning a group to Azure AD roles. In your Azure AD organization you would have to do some custom development to manage bulk role assignments or assign roles individually, increasing costs. With this public preview, you can assign a role-eligible group to Azure AD built-in roles. Use it, for example, to assign the Helpdesk administrator role to a group of your Tier I helpdesk personnel.
 
-Consider this example: Contoso has hired people across regions to manage resetting of passwords of employees in its Azure AD organization. Instead of asking a Privileged Role Administrator or Global Administrator to assign Helpdesk Administrator role to each person individually, he/she can be asked to assign a group Contoso_Helpdesk_Administrators to the role. Then people can join the group and get the role indirectly. The existing governance workflow can then take care of approval process and auditing of the group’s membership to ensure that only legitimate users are member of the group and thus the Helpdesk Administrator role. 
+Then members can be added to the group and they get the role indirectly. The existing governance workflow then takes care of the approval process and auditing of the group’s membership to ensure that only legitimate users are member of the group and thus the Helpdesk Administrator role.
 
-As you can see in example above, with this feature you can use groups to grant admin access in Azure AD. And this requires minimal effort from your Global Administrators (GA) or Privileged Role Administrators (PRA) who might have other pressing things to take care of. 
-2. How does this feature work? 
-· Create a new Office or security group with ‘isAssignableToRole’ property set to ‘true’. This is a new property that we have introduced. You can enable this property in UI by switching on the toggle ‘Eligible for role assignment’ when creating a new group. More details in subsequent sections. 
-· Assign this group to one or more Azure AD roles in the same way as you assign to users. 
+As you can see in example above, with this feature you can use groups to grant admin access in Azure AD. And this requires minimal effort from your Global Administrators (GA) or Privileged Role Administrators (PRA) who might have other pressing things to take care of.
 
-Why do we enforce creation of a special group for assigning it to a role? 
-If a group is assigned a role, any IT admin who can manage group membership can indirectly manage the membership of that role. For example, assume that a group Contoso_User_Administrators is assigned to User Account Administrator role. An Exchange Admin who can modify group membership can add himself to the Contoso_User_Administrators group and become a User Account Administrator. As you can see, an Exchange Admin could elevate his/her privilege in a way you did not intend. The groups assigned to roles feature is designed to prevent this from happening. 
+##  How does this feature work? 
+
+· Create a new Office or security group with ‘isAssignableToRole’ property set to ‘true’. This is a new property that we have introduced. You can enable this property in UI by switching on the toggle ‘Eligible for role assignment’ when creating a new group. More details in subsequent sections.
+· Assign this group to one or more Azure AD roles in the same way as you assign to users.
+
+## Why we enforce creation of a special group for assigning it to a role
+
+If a group is assigned a role, any IT admin who can manage group membership can indirectly manage the membership of that role. For example, assume that a group Contoso_User_Administrators is assigned to User Account Administrator role. An Exchange Admin who can modify group membership can add himself to the Contoso_User_Administrators group and become a User Account Administrator. As you can see, an Exchange Admin could elevate his/her privilege in a way you did not intend. The groups assigned to roles feature is designed to prevent this from happening.
+
 To block this from happening, we have to "protect" the group assigned to role. We have done this by introducing a new property called isAssignableToRole for groups. Only new cloud groups with the isAssignableToRole property set to ‘true’ can be assigned a role. This property is immutable; once a 
 group has been created with this property set to ‘true’, it can’t be changed. You cannot set this property on a previously created group. 
 
 Below are important points about groups that have this property set: 
-a. Only Global Administrator and Privileged Role Administrator can create a group with "isAssignableToRole" property enabled. 
-b. It can only have “assigned” membership type. It cannot be dynamic. This is because dynamic groups can also lead to unexpected people being able to manage the group membership, thus assignments to the role. 
-c. There can't be an owner of this group. Only Global Administrator and Privileged Role Administrator can manage the membership of this group by default. We will bring the ability to delegate the management of such groups to other people in future. 
-d. No nesting. A group cannot be added as a member of this group. 
+1. Only Global Administrator and Privileged Role Administrator can create a group with "isAssignableToRole" property enabled. 
+1. It can only have “assigned” membership type. It cannot be dynamic. This is because dynamic groups can also lead to unexpected people being able to manage the group membership, thus assignments to the role. 
+1. There can't be an owner of this group. Only Global Administrator and Privileged Role Administrator can manage the membership of this group by default. We will bring the ability to delegate the management of such groups to other people in future. 
+1. No nesting. A group cannot be added as a member of this group. 
 
 Important: If you use Office groups to assign to roles, they can expire. And since these groups cannot have owners, the expiration email will be sent to the alternate email address you provide. So, provide an email address that you monitor. Read this - Set Office 365 groups to expire in Azure Active Directory. Otherwise use a security group for assigning to roles. 
 
-3. Required license plan 
+## Required license plan 
+
 Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see Comparing generally available features of the Free, Basic, and Premium editions. 
 
-What is supported in private preview? 
+## Supported in this preview?
 
 Scenario Azure AD Portal MS Graph API PowerShell 
 Create a new Office 365 cloud group with 

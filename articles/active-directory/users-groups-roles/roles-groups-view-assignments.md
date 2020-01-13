@@ -23,12 +23,11 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 1. Open https://aka.ms//assignrolestogroups. Sign in with any non-admin or admin credentials.
 
-2. Select the group that you are interested in.
+1. Select the group that you are interested in.
 
-3. Select Assigned Roles tab from left pane. You can now see all the Azure AD roles assigned to this group. 
+1. Select Assigned Roles tab from left pane. You can now see all the Azure AD roles assigned to this group. 
 
-
-Using PowerShell
+## Using PowerShell
 
 #Get object id of the group 
 Get-AzureADMSGroup -SearchString “Contoso_Helpdesk_Administrators”
@@ -36,10 +35,9 @@ Get-AzureADMSGroup -SearchString “Contoso_Helpdesk_Administrators”
 #View role assignment to a group 
 Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>" 
 
-Using Microsoft Graph API 
+## Using Microsoft Graph API
 
 //Get object id of the group GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_Helpdesk_Administrator’ 
 
 //Get role assignments to a group GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
 
-9.
