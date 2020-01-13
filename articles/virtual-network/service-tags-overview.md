@@ -38,6 +38,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. | Both | No | Yes |
+| **ApplicationInsightsAvailability** | Application Insights Availability. | Both | No | No |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web app front ends. | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
@@ -54,6 +55,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake. | Outbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
+| **AzureFrontDoor** | Azure Front Door. | Both | No | No |
+| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureFrontDoor** tag. | Outbound | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
@@ -63,14 +66,18 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | No |
+| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Note:* This tag has a dependency on the **Storage**, **AzureActiveDirectory**, and **EventHub** tags. | Outbound | No | No |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inbound | No | Yes |  
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
+| **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
+| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Both | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
+| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 | **ServiceFabric** | Azure Service Fabric. | Outbound | No | No |
