@@ -344,6 +344,34 @@ service = Model.deploy(
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
 
+## Create and manage environments with the CLI
+
+The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors the majority of the functionality of the Python SDK, and can be used for environment creation and management. The following commands demonstrate basic functionality.
+
+The following command scaffolds the files for a default environment definition in the specified directory. These files are JSON files that are similar in function to the corresponding class in the SDK, and can be used to create new environments with custom settings. 
+
+```azurecli-interactive
+az ml environment scaffold -n myenv -d myenvdir
+```
+
+Run the following command to register an environment from a specified directory.
+
+```azurecli-interactive
+az ml environment register -d myenvdir
+```
+
+Running the following command will list all registered environments.
+
+```azurecli-interactive
+az ml environment list
+```
+
+Download a registered environment with the following command.
+
+```azurecli-interactive
+az ml environment download -n myenv -d downloaddir
+```
+
 ## Next steps
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.

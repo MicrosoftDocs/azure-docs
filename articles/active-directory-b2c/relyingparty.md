@@ -204,7 +204,7 @@ The **OutputClaim** element contains the following attributes:
 ### SubjectNamingInfo
 
 With the **SubjectNameingInfo** element, you control the value of the token subject:
-- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
 - **SAML token** - the `<Subject><NameID>` element which identifies the subject element.
 
 The **SubjectNamingInfo** element contains the following attribute:
@@ -242,5 +242,3 @@ The JWT token includes the `sub` claim with the user objectId:
   ...
 }
 ```
-
-

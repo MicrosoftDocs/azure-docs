@@ -96,17 +96,19 @@ To support client certificate authentication in your custom policy, change the t
 
 ## Step 4: Upload the policy to your tenant
 
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 
-2. Select **Identity Experience Framework**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 
-3. Select **All Policies**.
+1. Select **Identity Experience Framework**.
 
-4. Select **Upload Policy**.
+1. Select **All Policies**.
 
-5. Select the **Overwrite the policy if it exists** check box.
+1. Select **Upload Policy**.
 
-6. Upload the *TrustFrameworkExtensions.xml* file, and then ensure that it passes validation.
+1. Select the **Overwrite the policy if it exists** check box.
+
+1. Upload the *TrustFrameworkExtensions.xml* file, and then ensure that it passes validation.
 
 ## Step 5: Test the custom policy by using Run Now
 1. Open **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
