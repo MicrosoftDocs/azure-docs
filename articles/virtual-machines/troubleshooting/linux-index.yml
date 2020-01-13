@@ -61,7 +61,6 @@ landingContent:
             url: https://azure.microsoft.com/documentation/articles/virtual-machines-troubleshoot-ssh-connections/
           - text: Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure
             url: https://docs.microsoft.com/azure/virtual-machines/linux/detailed-troubleshoot-ssh-connection
-          - text: Troubleshooting connectivity problems between Azure VMs
 
   # Card
   - title: Help with VM Password Reset
@@ -154,3 +153,17 @@ landingContent:
             url: https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#installing-the-extension-in-your-vm
           - text:  Custom Script Extension for Windows
             url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+           
+   # Card
+  - title: Backup and Restore
+    linkLists:
+      - linkListType: learn
+        links:
+          - text:  Troubleshoot Azure virtual machine backup in Azure Portal
+            url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+          - text:  Troubleshoot Azure Backup Server
+            url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
+          - text:  Review the features of Azure Backup
+            url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup
+          - text:  Understand how to backup Azure virtual machines to Recovery Services vaults
+            url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm
