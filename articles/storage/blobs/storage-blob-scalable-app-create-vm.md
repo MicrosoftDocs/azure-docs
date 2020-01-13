@@ -101,7 +101,7 @@ For this tutorial, there are pre-requisites that must be installed on the virtua
 > * Install chocolatey
 > * Install GIT
 > * Clone the sample repo
-> * Restore NuGet packages
+> * Restore Nuget packages
 > * Creates 50 1-GB files with random data
 
 Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-15 minutes to complete.

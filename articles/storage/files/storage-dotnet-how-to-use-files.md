@@ -48,7 +48,7 @@ You can add all the code examples in this tutorial to the `Main()` method of you
 
 You can use the Azure Storage client library in any type of .NET application. These types include an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
-## Use NuGet to install the required packages
+## Use Nuget to install the required packages
 
 Refer to these packages in your project to complete this tutorial:
 
@@ -65,10 +65,10 @@ Refer to these packages in your project to complete this tutorial:
 
   This package provides a class for parsing a connection string in a configuration file, wherever your application runs.
 
-You can use NuGet to obtain both packages. Follow these steps:
+You can use Nuget to obtain both packages. Follow these steps:
 
-1. In **Solution Explorer**, right-click your project and choose **Manage NuGet Packages**.
-1. In **NuGet Package Manager**, select **Browse**. Then search for and choose **Microsoft.Azure.Storage.Blob**, and then select **Install**.
+1. In **Solution Explorer**, right-click your project and choose **Manage Nuget Packages**.
+1. In **Nuget Package Manager**, select **Browse**. Then search for and choose **Microsoft.Azure.Storage.Blob**, and then select **Install**.
 
    This step installs the package and its dependencies.
 1. Search for and install these packages:
