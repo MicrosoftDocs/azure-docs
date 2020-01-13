@@ -1,6 +1,6 @@
 ---
 title: Handle throttling problems, or '429 - Too many requests' errors
-description: How to work around throttling problems, or '429 Too many requests' errors, in Azure Logic Apps
+description: How to work around throttling problems, or 'HTTP 429 Too many requests' errors, in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -10,7 +10,7 @@ ms.date: 01/14/2020
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns a ["429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific limit, such as an amount of time. Throttling can create problems such as delaying data processing and reducing performance speed.
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific limit, such as an amount of time. Throttling can create problems such as delaying data processing and reducing performance speed.
 
 Here are some common types of throttling that your logic app might experience:
 
@@ -24,11 +24,17 @@ Here are some common types of throttling that your logic app might experience:
 
 The Azure Logic Apps service has its own [throughput limits](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). If your logic app exceeds these limits, throttling happens at the logic app's level, not the logic app's run level, Azure subscription level, or Azure resource group level.
 
+![Throttling at logic app level](./media/handle-throttling-problems-429-errors/)
+
 To find throttling errors at this level, check your logic app's **Metrics** pane in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. On the logic app menu, under **Monitoring**, select **Metrics**. 
+1. On the logic app menu, under **Monitoring**, select **Metrics**.
+
+1. Under **Chart Title**, select **Add Metric** so that you add another metric to the existing.
+
+1. In the first metric bar, from the **METRIC** list, select **Action Throttled Events**. In the second metric bar, from the **METRIC** list, select **Trigger Throttled Events**.
 
 To handle throttling at this level, you have these options:
 
@@ -46,13 +52,23 @@ To handle throttling at this level, you have these options:
 
   Consider whether you can break down your logic app's actions into smaller logic apps so that each logic app runs a number of actions below the limit.
 
+  Here's the first logic app that gets the tables and then calls another logic app to get the rows for each table:
+
+  ![Create one logic app for an action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+
+  Here's the second logic app that's called by the first logic app to get the rows for each table:
+
+  ![Create another logic app for a different action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
+
 <a name="connector-throttling"></a>
 
 ## Connector throttling
 
 Each connector has its own throttling limits, which you can find on the connector's technical reference page. For example, the [Azure Service Bus connector](https://docs.microsoft.com/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the SQL Server connector has [throttling limits that vary based on the operation type](https://docs.microsoft.com/connectors/sql/).
 
-To find throttling errors at this level, check the connector's "retry" history. You might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response details or perform some calculations to identify the source. 
+![Throttling in SQL Server connector](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
+
+To find throttling errors at this level, check the action's "retry" history. After a connector starts throttling and returns the HTTP 429 error, Logic Apps follows the connector's "retry policy" to attempt the action again based on the [retry policy limits](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits). This behavior means that you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response details or perform some calculations to identify the source.
 
 For logic apps that run in the public, multi-tenant Azure Logic Apps service, versus an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling happens at the *connection* level, not connector level.
 
@@ -60,7 +76,7 @@ To handle throttling at this level, you have these options:
 
 * Distribute the work for a single action across different connections.
 
-  Consider whether you can spread the workload for a single action across more than one connection, even when those connections communicate with the same service or system, but use the same credentials, for example:
+  Consider whether you can spread the workload for a single action across more than one connection, even when those connections communicate with the same service or system, but use the same credentials.
 
   For example, suppose your logic app gets the tables from a SQL Server database and for each table, gets the rows from each table. Based on the number of rows that you have to process, you use multiple but separate connections to get those rows. After the first branch reaches the limit, the second branch can continue the work.
 
@@ -68,7 +84,7 @@ To handle throttling at this level, you have these options:
 
 * Distribute work for multiple actions across different connections.
 
-  Consider whether you can spread the workload across different connections, even if those connections communicate with same service or system, but still use the same credentials.
+  Consider whether you can spread the workload across actions across different connections, even if those connections communicate with same service or system, but still use the same credentials.
 
   For example, suppose your logic app gets a row from a SQL Server database, processes the data from that row, and then updates that row with the results. You can use separate connections so that one connection gets the row, while the other connection updates the row.
 
