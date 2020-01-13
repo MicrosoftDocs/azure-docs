@@ -31,7 +31,7 @@ The following metrics related to timing of the request and response are availabl
 
   Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond.
   
-If the *Client RTT* is much more than the *Application gateway total time*, then it can be deduced that the latency observed by the client is due to the network connectivity between the client and Application Gateway. If both the latencies are comparable, then the high latency could be due to any of the following: Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
+After filtering by listener, if the *Client RTT* is much more than the *Application gateway total time*, then it can be deduced that the latency observed by the client is due to the network connectivity between the client and Application Gateway. If both the latencies are comparable, then the high latency could be due to any of the following: Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
 
 - **Backend first byte response time**
 
