@@ -1,14 +1,9 @@
 ---
-title: include file
-description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 01/12/2020
 ms.author: glenga
-ms.custom: include file
 ---
 
 ## Publish the project to Azure

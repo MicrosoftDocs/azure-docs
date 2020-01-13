@@ -136,19 +136,7 @@ Now, it's time to republish the updated function app to Azure.
 
 You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
-1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Open in portal`.
-
-1. Choose your function app, and press Enter. The function app page is opened in the [Azure portal](https://portal.azure.com).
-
-1. In the **Overview** tab, select the named link under **Resource group**.
-
-    ![Select the resource group to delete from the function app page.](./media/functions-add-output-binding-storage-queue-vs-code/functions-app-delete-resource-group.png)
-
-1. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
- 
-1. Select **Delete resource group**, and follow the instructions.
-
-   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
 ## Next steps
 

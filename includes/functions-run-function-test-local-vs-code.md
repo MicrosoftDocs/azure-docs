@@ -22,4 +22,4 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Function localhost response in the browser](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
-1. To stop debugging, press Shift + F5.
+1. To stop Core Tools, press Ctrl + C in the Terminal window. This also disconnects the debugger.

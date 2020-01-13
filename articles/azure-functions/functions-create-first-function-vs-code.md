@@ -64,7 +64,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Run the function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. This URL includes the function key, which is passed to the `code` query parameter. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
+1. Copy the URL of the HTTP trigger from the **Output** panel. This URL includes the function key, which is passed to the `code` query parameter. Again, add the `name` query string, this time as `&name=<yourname>`, to the end of this URL and execute the request.
 
     The URL that calls your HTTP-triggered function should be in the following format:
 
@@ -73,6 +73,16 @@ After you've verified that the function runs correctly on your local computer, i
 1. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 
     ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
+
+## Clean up resources
+
+If you continue to the next step, [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md), keep all your resources in place as you'll build on what you've already done.
+
+Otherwise, use the following steps to delete the function app and its related resources to avoid incurring further costs.
+
+[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+
+To learn more about Functions costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
 
 ## Next steps
 
