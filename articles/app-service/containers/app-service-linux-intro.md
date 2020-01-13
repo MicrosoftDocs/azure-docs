@@ -55,6 +55,11 @@ App Service on Linux is only supported with [Free, Basic, Standard, and Premium]
 
 Based on a current limitation, for the same resource group you cannot mix Windows and Linux apps in the same region.
 
+> [!NOTE]
+> When creating Web App using ARM, the error message "Requested feature is not available in resource group" could mean that you are creating a Linux Webapp in a Resource Group that contains a Windows App Service plan or vice-versa. Please create a new Resource group if you observe such errors. Please refer to the Limitations above.
+>
+>
+
 ## Troubleshooting
 
 > [!NOTE]
