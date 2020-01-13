@@ -330,8 +330,6 @@
           href: ./spark/apache-spark-machine-learning-mllib-ipython.md
         - name: Analyze website logs
           href: ./spark/apache-spark-custom-library-website-log-analysis.md
-        - name: Use Caffe for deep learning
-          href: ./spark/apache-spark-deep-learning-caffe.md
         - name: Use with Microsoft Cognitive Toolkit
           href: ./spark/apache-spark-microsoft-cognitive-toolkit.md
         - name: Create an Apache Spark machine learning pipeline
