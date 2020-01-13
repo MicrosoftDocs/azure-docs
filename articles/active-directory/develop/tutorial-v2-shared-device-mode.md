@@ -47,14 +47,14 @@ Refer to the [configuration documentation](https://docs.microsoft.com/azure/acti
 
 Set "shared_device_mode_supported" to **true** in your MSAL configuration file. 
 
-If you are not planning on supporting "multiple account" mode (i.e. when the device is not marked as shared, the user can sign into the app with more than one account at a time), set "account_mode" to "SINGLE. This will guarantee that your application will always get `ISingleAccountPublicClientApplication`, and will significantly simplify your MSAL integration. The default value of "account_mode" is "MULTIPLE", so it is important to change this value in the config file if you are using "single account" mode.
+If you are not planning on supporting "multiple account" mode (i.e. when the device is not marked as shared, the user can sign into the app with more than one account at the same time), set "account_mode" to "SINGLE. This will guarantee that your application will always get `ISingleAccountPublicClientApplication`, and will significantly simplify your MSAL integration. The default value of "account_mode" is "MULTIPLE", so it is important to change this value in the config file if you are using "single account" mode.
 
 Example of the auth_config.json file included in the **app**>**main**>**res**>**raw** directory of our Sample app:
 ```JSON
 {
- "client_id":"Register your app at https://aka.ms/MobileAppReg",
+ "client_id":"Client ID after app registration at https://aka.ms/MobileAppReg",
  "authorization_user_agent":"DEFAULT",
- "redirect_uri":"Register your app at https://aka.ms/MobileAppReg",
+ "redirect_uri":"Redirect URI after app registration at https://aka.ms/MobileAppReg",
  "account_mode":"SINGLE",
  "broker_redirect_uri_registered": true,
  "shared_device_mode_supported": true,
@@ -71,7 +71,7 @@ Example of the auth_config.json file included in the **app**>**main**>**res**>**
 ```
 ### Detecting Shared Device Mode 
 
-`Shared Device` Mode will allow you to configure Android devices to be shared by multiple employees, while providing Microsoft Identity backed management of the device. Employees will be able to sign-in to their devices and access customer information quickly. When they are finished with their shift or task, they will be able to globally Sign-Out of the device and it will be immediately ready for the next employee to use.
+`Shared Device` Mode will allow you to configure Android devices to be shared by multiple employees, while providing Microsoft Identity backed management of the device. Employees will be able to sign-in to their devices and access customer information quickly. When they are finished with their shift or task, they will be able to globally Sign-Out of all apps on the shared device with a single click and it will be immediately ready for the next employee to use.
 
 In the code, you can use the `isSharedDevice()` flag to determine if an application is in the Shared Device Mode. Your app can use this flag to modify UX accordingly.
 
@@ -107,7 +107,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 
 If you are writing an application that will only be used for Firstline Workers on shared devices, we recommend you write your application to only support Single Account Mode. This will simplify your development as many features of the SDK won’t need to be accommodated. This includes most applications that are task focused such as Medical Records apps, Invoice apps, and most LOB apps.
 
-If your app also supports multiple accounts as well as shared device mode, you will have to perform type check and cast to the appropriate interface to perform an operation shown as below.
+If your app also supports multiple accounts as well as shared device mode, you will have to perform type check and cast to the appropriate interface to perform an operation as shown below.
 
 ```java
 
@@ -149,7 +149,7 @@ private void loadAccount(){
   }
 }  
 ```
-### Globaly sign in a user
+### Globally sign in a user
 This will sign in a user accross the device to other apps using MSAL with the Authenticator App.
 ```java
 private void onSignInClicked(){
@@ -178,7 +178,7 @@ The following steps describe setting up your application in the Azure portal and
 
 ### Register your application in Azure Active Directory 
 
-For application to be usable, you will need to register your application within your organizational tenant. You will then provide these values in to auth_config.json in order for your application to run correctly.
+As a first step, you will need to register your application within your organizational tenant. You will then provide these values in to auth_config.json in order for your application to run correctly.
 
 For information on how to do this, refer to the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#integrate-with-microsoft-authentication-library). 
 
@@ -194,7 +194,7 @@ Download the Microsoft Authenticator App from the Play store. If you already hav
 
 ### Authenticator App settings & Registering the device in the cloud 
 
-Launch the Authenticator App and nativate to main account page. Once you see the Add Account page, you’re ready to make the device shared. Go to the Settings pane using the right-hand menu bar. Select “Device Registration” under Work & School accounts. Note that when you click on this button, you will be asked to authorize access to device contacts. This is a consequence of using Android’s account integration on the device. You must say “allow” here. The Cloud Device Administrator should enter their organizational email under "Or register as a shared device", select the "register as shared device" button, and enter their credentials. 
+Launch the Authenticator App and navigate to main account page. Once you see the Add Account page, you’re ready to make the device shared. Go to the Settings pane using the right-hand menu bar. Select “Device Registration” under Work & School accounts. Note that when you click on this button, you will be asked to authorize access to device contacts. This is a consequence of using Android’s account integration on the device. You must say “allow” here. The Cloud Device Administrator should enter their organizational email under "Or register as a shared device", select the "register as shared device" button, and enter their credentials. 
 
 This device is now in Shared Mode. Any sign-ins and sign-outs on the device will be global. You can now deploy applications to the device that leverage features of devices in Shared Device mode.
 
