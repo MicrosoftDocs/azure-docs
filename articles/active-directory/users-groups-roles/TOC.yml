@@ -25,8 +25,6 @@
   items:
   - name: Delegate Azure AD admin roles
     href: roles-concept-delegation.md
-  - name: Use groups to assign roles
-    href: roles-groups-concept.md
   - name: Compare default user permissions    
     href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Compare Azure and Azure AD roles    
@@ -68,7 +66,7 @@
       href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage your directory
     items:
-    - name: Administer your directory    
+    - name: Administer your Azure AD organization  
       href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage domain names
       href: domains-manage.md
@@ -88,8 +86,6 @@
       href: groups-members-owners-search.md
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Create a role-eligible group
-      href: roles-groups-create-eligible.md
     - name: Assign sensitivity labels (preview)
       href: groups-assign-sensitivity-labels.md
     - name: Manage groups PowerShell for Graph (v2)   
@@ -153,11 +149,17 @@
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
     - name: Assign roles to groups
-      href: roles-groups-assign-role.md
-    - name: Remove roles from groups
-      href: roles-groups-remove-assignment.md
-    - name: View group role assignments
-      href: roles-groups-view-assignments.md
+      items:
+      - name: Use groups to assign roles
+        href: roles-groups-concept.md
+      - name: Create a role-eligible group
+        href: roles-groups-create-eligible.md
+      - name: Assign roles to a group
+       href: roles-groups-assign-role.md
+      - name: Remove roles from a group
+        href: roles-groups-remove-assignment.md
+      - name: View role assignments for a group
+        href: roles-groups-view-assignments.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
     - name: Microsoft 365 roles
