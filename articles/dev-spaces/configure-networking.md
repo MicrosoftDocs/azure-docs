@@ -28,7 +28,7 @@ Azure Dev Spaces needs ingress and egress traffic for following FQDNs:
 | cloudflare.docker.com      | HTTPS: 443 | To pull docker images for Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | To pull helm images for Azure Dev Spaces |
 | storage.googleapis.com     | HTTPS: 443 | To pull helm images for Azure Dev Spaces |
-| azds-*.azds.io             | HTTPS: 443 | To communicate with Azure Dev Spaces backend services for the Azure Dev Spaces controller. The exact FQDN can be found in *dataplaneFqdn* in `USERPROFILE.azds\settings.json` |
+| azds-*.azds.io             | HTTPS: 443 | To communicate with Azure Dev Spaces backend services for the Azure Dev Spaces controller. The exact FQDN can be found in *dataplaneFqdn* in `USERPROFILE\.azds\settings.json` |
 
 Update your firewall or security configuration to allow network traffic to and from the all of the above FQDNs. For example, if you are using a firewall to secure your network,  the above FQDNs should be added to the application rule of the firewall to allow traffic to and from these domains.
 
@@ -62,7 +62,7 @@ At this time, Azure Dev Spaces is not supported with [AKS private clusters][aks-
 
 ## Azure Dev Spaces client requirements
 
-Azure Dev Spaces uses client-side tooling, such as the Azure Dev Spaces CLI extension, Visual Studio Code extension, and Visual Studio extension, to communicate with your AKS cluster for debugging. To use the Azure Dev Spaces client-side tooling, allow traffic from the development machines to the *azds-\*.azds.io* domain. See *dataplaneFqdn* in `USERPROFILE.azds\settings.json` for the exact FQDN. If using [API server authorized IP ranges][auth-range-section], you also need to allow the IP address of any development machines that connect to your AKS cluster for debugging to connect to your API server.
+Azure Dev Spaces uses client-side tooling, such as the Azure Dev Spaces CLI extension, Visual Studio Code extension, and Visual Studio extension, to communicate with your AKS cluster for debugging. To use the Azure Dev Spaces client-side tooling, allow traffic from the development machines to the *azds-\*.azds.io* domain. See *dataplaneFqdn* in `USERPROFILE\.azds\settings.json` for the exact FQDN. If using [API server authorized IP ranges][auth-range-section], you also need to allow the IP address of any development machines that connect to your AKS cluster for debugging to connect to your API server.
 
 ## Next steps
 
