@@ -2,12 +2,12 @@
 title: Troubleshoot ongoing replication of Azrue VMs with Azure Site Recovery 
 description: Troubleshooting errors and problems when replicating Azure virtual machines for disaster recovery
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
+ms.author: carmonm
 
 ---
 # Troubleshoot ongoing problems in Azure-to-Azure VM replication

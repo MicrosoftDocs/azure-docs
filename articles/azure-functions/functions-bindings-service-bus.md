@@ -494,7 +494,7 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
 
 ### Output - Java example
 
-The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by a HTTP request.
+The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by an HTTP request.
 
 ```java
 @FunctionName("httpToServiceBusQueue")
