@@ -83,7 +83,7 @@ The following section describes the configuration of auditing using the Azure po
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
   
   > [!NOTE]
-   >Customer wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage] (https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+   >Customer wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
   
   > [!WARNING]
    > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
