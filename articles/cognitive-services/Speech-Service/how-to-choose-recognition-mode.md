@@ -1,5 +1,5 @@
 ---
-title: Choosing a speech recognition mode with the Speech SDK
+title: Choose a speech recognition mode with the Speech SDK
 titleSuffix: Azure Cognitive Services
 description: Learn how to choose the best recognition mode when using the Speech SDK.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Choosing a speech recognition mode
+# Choose a speech recognition mode
 
 When considering speech-to-text recognition operations, the [Speech SDK](speech-sdk.md) provides multiple modes for processing speech. Conceptually, sometimes called the *recognition mode*. This article compares the various recognition modes.
 
