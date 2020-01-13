@@ -111,7 +111,7 @@ Common use case scenarios for timed metadata include:
  - Interactive advertising packages to be displayed alongside the video in the browser
  - Quizzes or polls
   
-Azure Media Services Live Events and Packager are capable of receiving these timed metadata signals and converting them into a stream of metadata that can reach client applications using standards based protocols like HLS and DASH.
+Azure Media Services Live Events and Packager are capable of receiving these timed metadata signals and converting them into a stream of metadata that can reach client applications using standards-based protocols like HLS and DASH.
 
 
 ## 2.1 RTMP Timed Metadata
@@ -127,7 +127,7 @@ The following [AMF0] commands are supported by Azure Media Services for RTMP ing
 - **onCuePoint** - supported by certain on-premises hardware encoders, like the Elemental Live encoder, to signal [SCTE35] messages. 
   
 
-The following tables describes the format of the AMF message payload that Media Services will ingest for both "simple" and [SCTE35] message modes.
+The following table describes the format of the AMF message payload that Media Services will ingest for both "simple" and [SCTE35] message modes.
 
 The name of the [AMF0] message can be used to differentiate multiple event streams of the same type.  For both [SCTE-35] messages and "simple" mode, the name of the AMF message MUST be “onAdCue” as required in the [Adobe-Primetime] specification.  Any fields not listed below SHALL be ignored by Azure Media Services at ingest.
 
@@ -232,7 +232,7 @@ Individual events or their data payloads are NOT output directly in the HLS, DAS
 
 Azure Media Services can listen and respond to several [AMF0] message types which can be used to signal various real time synchronized metadata in the live stream.  The [Adobe-Primetime] specification defines two cue types called "simple" and "SCTE-35" mode. For "simple" mode, Media Services supports a single AMF cue message called "onAdCue" using a payload that matches the table below defined for the  "Simple Mode" signal.  
 
-The following section shows RTMP "simple" mode" payload, which can be used to signal a basic "spliceOut" ad signal that will be carried through to the client manifest for HLS, DASH, and Microsoft Smooth Streaming. This is very useful for scenarios where the customer does not have a complex SCTE-35 based ad signaling deployment or insertion system, and is using a basic on-premises encoder to send in the cue message via an API. Typically the on-premises encoder will support a REST based API to trigger this signal, which will also "splice-condition" the video stream by inserting an IDR frame into the video, and starting a new GOP.
+The following section shows RTMP "simple" mode" payload, which can be used to signal a basic "spliceOut" ad signal that will be carried through to the client manifest for HLS, DASH, and Microsoft Smooth Streaming. This is very useful for scenarios where the customer does not have a complex SCTE-35 based ad signaling deployment or insertion system, and is using a basic on-premises encoder to send in the cue message via an API. Typically the on-premises encoder will support a REST-based API to trigger this signal, which will also "splice-condition" the video stream by inserting an IDR frame into the video, and starting a new GOP.
 
 ## 2.1.3  RTMP ad cue signaling with "onAdCue" - Simple Mode
 
@@ -294,7 +294,7 @@ The "onCuePoint" message type is defined in [Adobe-Flash-AS] and has the followi
 | name       | The name SHOULD be '**scte35**' by Elemental Live.                                                                                                                                                                              |
 | time       | The time in seconds at which the cue point occurred in the video file during timeline                                                                                                                                           |
 | type       | The type of cue point SHOULD be set to "**event**".                                                                                                                                                                             |
-| parameters | A associative array of name/value pair strings containing the information from the SCTE-35 message, including Id and duration. These values are parsed out by Azure Media Services and included in the manifest decoration tag. |
+| parameters | An associative array of name/value pair strings containing the information from the SCTE-35 message, including Id and duration. These values are parsed out by Azure Media Services and included in the manifest decoration tag. |
 
 
 When this mode of ad marker is used, the HLS manifest output is similar to Adobe "Simple" mode.
@@ -970,8 +970,8 @@ The following example shows an excerpt EventStream from the Media Services dynam
 
 #### 3.3.3.1 Example MPEG DASH manifest (MPD) with single-period, EventStream, using Adobe simple mode signals
 
-The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe "simple" mode ad signal method. The output is a single period manifest showing an EventStream using the schemeId Uri set to "urn:com:adobe:dpi:simple:2015" and value property set to "simplesignal". 
-Each simple signal is provided in an Event element with the @presentationTime, @duration, and @id properties populated based on the incorming simple signals.
+The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe "simple" mode ad signal method. The output is a single period manifest showing an EventStream using the schemeId Uri set to "urn:com:adobe:dpi:simple:2015" and value property set to "simplesignal".
+Each simple signal is provided in an Event element with the @presentationTime, @duration, and @id properties populated based on the incoming simple signals.
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
