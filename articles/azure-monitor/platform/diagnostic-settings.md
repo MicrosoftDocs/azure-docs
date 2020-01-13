@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 
 # Create diagnostic setting to collect platform logs and metrics in Azure
-[Platform logs](resource-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to send platform logs to different destinations.
+[Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to send platform logs to different destinations.
 
 > [!IMPORTANT]
 > Before you create a diagnostic setting to collect the Activity log, you should first disable any legacy configuration. See [Collect Azure Activity log with legacy settings](diagnostic-settings-legacy.md) for details.
@@ -131,4 +131,4 @@ See [Create diagnostic setting in Azure Monitor using a Resource Manager templat
 
 ## Next steps
 
-* [Read more about Azure platform Logs](resource-logs-overview.md)
+* [Read more about Azure platform Logs](platform-logs-overview.md)

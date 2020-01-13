@@ -4,7 +4,7 @@ description: This simple sample app implements security best practices that impr
 keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
+ms.author: terrylan
 ---
 # Develop secure app for an Azure AD app
 ## Overview

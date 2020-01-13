@@ -1477,6 +1477,9 @@
     - name: Databricks Connect
       href: /azure/databricks/dev-tools/databricks-connect
       maintainContext: true
+    - name: CI/CD with Jenkins
+      href: /azure/databricks/dev-tools/ci-cd
+      maintainContext: true
     - name: Manage dependencies in data pipelines
       href: /azure/databricks/dev-tools/data-pipelines
       maintainContext: true
@@ -1578,6 +1581,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: January 2020
+        href: /azure/databricks/release-notes/product/2020/january
         maintainContext: true
       - name: December 2019
         href: /azure/databricks/release-notes/product/2019/december

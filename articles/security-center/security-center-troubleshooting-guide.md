@@ -40,7 +40,7 @@ Customers can share feedback for the alert description and relevance. Navigate t
 
 ## Audit log
 
-Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](../azure-monitor/platform/activity-logs-overview.md) records for the failed component. Through audit logs, you can determine:
+Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](../azure-monitor/platform/platform-logs-overview.md) records for the failed component. Through audit logs, you can determine:
 
 * Which operations were taken place
 * Who initiated the operation
