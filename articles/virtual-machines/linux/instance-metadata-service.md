@@ -356,7 +356,7 @@ scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | This field holds up to 64K of custom data. Note that this feature is currently disabled, but will be enabled soon | 2019-02-01
+customData | This field holds up to 64 K of custom data. This feature is currently disabled, but will be enabled soon | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
@@ -412,7 +412,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
-Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Note that due to IMDS's caching mechanism, a previously cached nonce value
+Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value
 may be returned.
 
  **Response**
@@ -445,7 +445,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api-version is a mandatory field. Refer to the service availability section for supported API versions.
-Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Note that due to IMDS's caching mechanism, a previously cached nonce value
+Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value
 may be returned.
 
  **Response**
