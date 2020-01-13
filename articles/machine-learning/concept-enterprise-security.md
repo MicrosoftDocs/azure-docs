@@ -19,7 +19,7 @@ In this article, you'll learn about security features available for Azure Machin
 When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. Finally, you need to be able to monitor the service and produce an audit log of all activity.
 
 > [!NOTE]
-> The information in this article works with the Azure Machine Learning SDK version 1.0.83.1 or higher.
+> The information in this article works with the Azure Machine Learning Python SDK version 1.0.83.1 or higher.
 
 ## Authentication
 
@@ -129,7 +129,9 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
-* Configure customer-managed keys for Cosmos-DB. For more information, see 
+* Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+
+    For more information, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
 
 * Authorize the Machine Learning App (in Identity and Access Management) with contributor permissions on your subscription.
 
@@ -210,7 +212,7 @@ Microsoft may collect non-user identifying information like resource names (for 
 
 Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us.
 
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML SDK, CLI, REST APIs, or Azure Resource Manager templates.
+You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, CLI, REST APIs, or Azure Resource Manager templates.
 
 ### Microsoft-generated data
 
