@@ -41,24 +41,22 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
-Internet clients send webpage requests to the public IP address of a web app on TCP port 80. Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about Load Balancer algorithms, see [Load Balancer concepts](load-balancer-overview.md#load-balancer-concepts).
+### Load Balancer Options
 
-Azure Load Balancer distributes network traffic equally among multiple VM instances by default. You can also configure session affinity. For more information, see [Configure the distribution mode for Azure Load Balancer](load-balancer-distribution-mode.md).
+For more information on the key scenarios that you can implement, see the Load Balancing options below:
 
-### <a name = "internalloadbalancer"></a> Internal Load Balancer
+- **Health Monitoring**: [Standard Load Balancer diagnostics with metrics, alerts and resource health](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
 
-An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure, in contrast to a public Load Balancer. Azure infrastructure restricts access to the load-balanced front-end IP addresses of a virtual network. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+- **HA Ports**: [High availability ports overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)
 
-An internal Load Balancer enables the following types of load balancing:
+- **IPV6**: [What is IPv6 for Azure Virtual Network? (Preview)](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)
 
-* **Within a virtual network**: Load balancing from VMs in the virtual network to a set of VMs that are in the same virtual network.
-* **For a cross-premises virtual network**: Load balancing from on-premises computers to a set of VMs that are in the same virtual network.
-* **For multi-tier applications**: Load balancing for internet-facing multi-tier applications where the back-end tiers aren't internet-facing. The back-end tiers require traffic load balancing from the internet-facing tier. See the next figure.
-* **For line-of-business applications**: Load balancing for line-of-business applications that are hosted in Azure without additional load balancer hardware or software. This scenario includes on-premises servers that are in the set of computers whose traffic is load balanced.
+- **Port Forwarding**: [Tutorial: Configure port forwarding in Azure Load Balancer using the portal](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)
 
-![Internal Load Balancer example](./media/load-balancer-overview/IC744147.png)
+- **Availability Zones**: [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 
-*Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
+- **Outbound Connections and Outbound Rules**: [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections), [Load Balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
+
 
 ## Pricing
 
