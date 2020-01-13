@@ -15,6 +15,16 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 # Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
+## Technologies
+
+These technologies are used in this walkthrough.
+* Azure Data Lake Analytics
+* U-SQL and Visual Studio
+* Python
+* Azure Machine Learning
+* Scripts
+
+
 ### Azure Data Lake Analytics
 The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user-defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
@@ -28,7 +38,7 @@ This walkthrough recommends using Visual Studio to edit U-SQL scripts to process
 ### Python
 This walkthrough also contains a section that shows how to build and deploy a predictive model using Python with Azure Machine Learning Studio. It provides a Jupyter notebook with the Python scripts for the steps in this process. The notebook includes code for some additional feature engineering steps and models construction such as multiclass classification and regression modeling in addition to the binary classification model outlined here. The regression task is to predict the amount of the tip based on other tip features.
 
-### Azure Machine Learning
+### Azure Machine Learning 
 Azure Machine Learning Studio (classic) is used to build and deploy the predictive models using two approaches: first with Python scripts and then with Hive tables on an HDInsight (Hadoop) cluster.
 
 ### Scripts
@@ -88,7 +98,7 @@ Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data
 
  ![6](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
-After the installation completes, open up Visual Studio. You should see the Data Lake tab the menu at the top. Your Azure resources should appear in the left panel when you sign into your Azure account.
+After the installation finishes, open up Visual Studio. You should see the Data Lake tab the menu at the top. Your Azure resources should appear in the left panel when you sign into your Azure account.
 
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
@@ -115,7 +125,7 @@ The 'trip_fare' CSV contains details of the fare paid for each trip, such as pay
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-The unique key to join trip\_data and trip\_fare is composed of the following three fields: medallion, hack\_license and pickup\_datetime. The raw CSV files can be accessed from a public Azure Storage blob. The U-SQL script for this join is in the [Join trip and fare tables](#join) section.
+The unique key to join trip\_data and trip\_fare is composed of the following three fields: medallion, hack\_license and pickup\_datetime. The raw CSV files can be accessed from an Azure Storage blob. The U-SQL script for this join is in the [Join trip and fare tables](#join) section.
 
 ## Process data with U-SQL
 The data processing tasks illustrated in this section include ingesting, checking quality, exploring, and sampling the data. How to join trip and fare tables is also shown. The final section shows run a U-SQL scripted job from the Azure portal. Here are links to each subsection:
@@ -581,7 +591,7 @@ You want to operationalize the machine learning model after it has been built. T
         @services.returns(float)
         def NYCTAXIPredictor(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             pass
-* Call Web service API. You have to wait 5-10 seconds after the previous step.
+* Call Web service API. Typically, wait 5-10 seconds after the previous step.
 
         NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
@@ -651,7 +661,7 @@ You are now ready to build and deploy a model that predicts whether or not a tip
 3. Paste the following Hive script in the **Hive database query** editor
 
         select * from nyc_stratified_sample;
-4. Enter the URI of HDInsight cluster (this can be found in Azure portal), Hadoop credentials, location of output data, and Azure Storage account name/key/container name.
+4. Enter the URI of HDInsight cluster (this URI can be found in Azure portal), Hadoop credentials, location of output data, and Azure Storage account name/key/container name.
 
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)
 

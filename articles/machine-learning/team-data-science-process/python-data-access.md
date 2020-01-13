@@ -118,7 +118,7 @@ The following steps show an example that creates an experiment, runs it and acce
 2. Insert an **Adult Census Income Binary Classification dataset** module.
 3. Insert a [Split][split] module, and connect its input to the dataset module output.
 4. Insert a [Convert to CSV][convert-to-csv] module and connect its input to one of the [Split][split] module outputs.
-5. Save the experiment, run it, and wait for the job to complete.
+5. Save the experiment, run it, and wait for the job to finish.
 6. Click the output node on the [Convert to CSV][convert-to-csv] module.
 7. When the context menu appears, select **Generate Data Access Code**.
    

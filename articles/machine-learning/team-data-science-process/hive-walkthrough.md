@@ -133,7 +133,7 @@ These two commands download all '.hql' files needed in this walkthrough to the l
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
 > [!NOTE]
-> This is typically an admin task.
+> This task is typically for an admin.
 > 
 > 
 
@@ -201,7 +201,7 @@ If you need any additional assistance with these procedures, or you want to inve
 
 ## <a name="#load-data"></a>Load data to Hive tables by partitions
 > [!NOTE]
-> This is typically an admin task.
+> This task is typically for an admin.
 > 
 > 
 
@@ -406,7 +406,7 @@ From the Hive directory prompt, run the following command:
 
 ### Exploration: Trip distribution by medallion and hack license
 > [!NOTE]
-> This is typically a data scientist task.
+> This task is typically for a data scientist.
 > 
 > 
 

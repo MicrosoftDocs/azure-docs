@@ -31,9 +31,9 @@ This article assumes that you have:
 ## <a name="sql-featuregen"></a>Feature generation with SQL
 In this section, we describe ways of generating features using SQL:  
 
-1. [Count based Feature Generation](#sql-countfeature)
-2. [Binning Feature Generation](#sql-binningfeature)
-3. [Rolling out the features from a single column](#sql-featurerollout)
+* [Count based Feature Generation](#sql-countfeature)
+* [Binning Feature Generation](#sql-binningfeature)
+* [Rolling out the features from a single column](#sql-featurerollout)
 
 > [!NOTE]
 > Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table.
@@ -70,7 +70,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 * The fifth decimal place is worth up to 1.1 m: it distinguishes trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 * The sixth decimal place is worth up to 0.11 m: you can use this level for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This goal can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can be featurized by separating out region, location, and city information. Once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
+The location information can be featurized by separating out region, location, and city information. Once can also call a REST endpoint, such as Bing Maps API (see `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information).
 
     select
         <location_columnname>

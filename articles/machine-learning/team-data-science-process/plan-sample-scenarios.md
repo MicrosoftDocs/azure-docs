@@ -103,28 +103,24 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 1. Upload data to an Azure Storage container.
 1. (Optional) Pre-process and clean data.
    
-   a.  Pre-process and clean data in IPython Notebook, accessing data from Azure
+    a.  Pre-process and clean data in IPython Notebook, accessing data from Azure blobs.
    
-       blobs.
+    b.  Transform data to a cleaned tabular form, if needed.
    
-   b.  Transform data to a cleaned tabular form, if needed.
-   
-   c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
+    c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
 1. Load data to SQL Server database running on an Azure VM.
    
-   a.  Log in to SQL Server VM.
+    a.  Log in to SQL Server VM.
    
-   b.  If data not saved already, download data files from Azure
+    b.  If data not saved already, download data files from Azure storage container to local-VM folder.
    
-       storage container to local-VM folder.
+    c.  Run SQL Server Management Studio.
    
-   c.  Run SQL Server Management Studio.
+    d.  Create database and target tables.
    
-   d.  Create database and target tables.
+    e.  Use one of the bulk import methods to load the data.
    
-   e.  Use one of the bulk import methods to load the data.
-   
-   f.  If table joins are required, create indexes to expedite joins.
+    f.  If table joins are required, create indexes to expedite joins.
    
    > [!NOTE]
    > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).

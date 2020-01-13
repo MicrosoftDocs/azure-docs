@@ -37,15 +37,15 @@ If you want to practice on the **NYC Taxi Trip Data**, you need to:
 ## <a name="submit"></a>How to submit Hive queries
 Hive queries can be submitted by using:
 
-1. [Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster](#headnode)
-2. [Submit Hive queries with the Hive Editor](#hive-editor)
-3. [Submit Hive queries with Azure PowerShell Commands](#ps)
+* [Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster](#headnode)
+* [Submit Hive queries with the Hive Editor](#hive-editor)
+* [Submit Hive queries with Azure PowerShell Commands](#ps)
 
 Hive queries are SQL-like. If you are familiar with SQL, you may find the [Hive for SQL Users Cheat Sheet](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) useful.
 
 When submitting a Hive query, you can also control the destination of the output from Hive queries, whether it be on the screen or to a local file on the head node or to an Azure blob.
 
-### <a name="headnode"></a> 1. Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster
+### <a name="headnode"></a>Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster
 If the Hive query is complex, submitting it directly in the head node of the Hadoop cluster typically leads to faster turn around than submitting it with a Hive Editor or Azure PowerShell scripts.
 
 Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node, and enter command `cd %hive_home%\bin`.
@@ -105,10 +105,10 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 
 ![Azure Storage Explorer showing output of the Hive query](./media/move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
+### <a name="hive-editor"></a>Submit Hive queries with the Hive Editor
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
-### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
+### <a name="ps"></a>Submit Hive queries with Azure PowerShell Commands
 You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables

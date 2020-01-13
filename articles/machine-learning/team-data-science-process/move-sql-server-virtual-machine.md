@@ -58,16 +58,16 @@ BCP is a command-line utility installed with SQL Server and is one of the quicke
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 
-```sql
-CREATE DATABASE <database_name>
-
-CREATE TABLE <tablename>
-(
-    <columnname1> <datatype> <constraint>,
-    <columnname2> <datatype> <constraint>,
-    <columnname3> <datatype> <constraint>
-)
-```
+    ```sql
+    CREATE DATABASE <database_name>
+    
+    CREATE TABLE <tablename>
+    (
+        <columnname1> <datatype> <constraint>,
+        <columnname2> <datatype> <constraint>,
+        <columnname3> <datatype> <constraint>
+    )
+    ```
 
 1. Generate the format file that describes the schema for the table by issuing the following command from the command line of the machine where bcp is installed.
 
@@ -134,22 +134,22 @@ Here are some sample commands for Bulk Insert are as below:
 
 1. Analyze your data and set any custom options before importing to make sure that the SQL Server database assumes the same format for any special fields such as dates. Here is an example of how to set the date format as year-month-day (if your data contains the date in year-month-day format):
 
-```sql
-SET DATEFORMAT ymd;
-```
-1. Import data using bulk import statements:
+    ```sql
+    SET DATEFORMAT ymd;
+    ```
+2. Import data using bulk import statements:
 
-```sql
-BULK INSERT <tablename>
-FROM
-'<datafilename>'
-WITH
-(
-    FirstRow = 2,
-    FIELDTERMINATOR = ',', --this should be column separator in your data
-    ROWTERMINATOR = '\n'   --this should be the row separator in your data
-)
-```
+    ```sql
+    BULK INSERT <tablename>
+    FROM
+    '<datafilename>'
+    WITH
+    (
+        FirstRow = 2,
+        FIELDTERMINATOR = ',', --this should be column separator in your data
+        ROWTERMINATOR = '\n'   --this should be the row separator in your data
+    )
+    ```
 
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
 You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file.

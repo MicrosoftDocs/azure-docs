@@ -1,6 +1,6 @@
 ---
-title: Build and deploy a model using Synapse Analytics - Team Data Science Process
-description: Build and deploy a machine learning model using Synapse Analytics with a publicly available dataset.
+title: Build and deploy a model using Azure Synapse Analytics - Team Data Science Process
+description: Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# The Team Data Science Process in action: using Synapse Analytics
-In this tutorial, we walk you through building and deploying a machine learning model using Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
+# The Team Data Science Process in action: using Azure Synapse Analytics
+In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
 
-The procedure follows the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) workflow. We show how to set up a data science environment, how to load the data into Synapse Analytics, and how to use either Synapse Analytics or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
+The procedure follows the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) workflow. We show how to set up a data science environment, how to load the data into Azure Synapse Analytics, and how to use either Azure Synapse Analytics or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
 The NYC Taxi Trip data consists of about 20 GB of compressed CSV files (~48 GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique ID) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
@@ -69,7 +69,7 @@ To set up your Azure Data Science environment, follow these steps.
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
 **Provision your Azure Synapse Analytics instance.**
-Follow the documentation at [Create and query an Azure SQL Data Warehouse in the Azure portal](../../sql-data-warehouse/create-data-warehouse-portal.md) to provision a Synapse Analytics instance. Make sure that you make notations on the following Synapse Analytics credentials that will be used in later steps.
+Follow the documentation at [Create and query an Azure SQL Data Warehouse in the Azure portal](../../sql-data-warehouse/create-data-warehouse-portal.md) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
@@ -81,7 +81,7 @@ Follow the documentation at [Create and query an Azure SQL Data Warehouse in the
 **Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
-> Run the following SQL query on the database you created in your Synapse Analytics (instead of the query provided in step 3 of the connect topic,) to **create a master key**.
+> Run the following SQL query on the database you created in your Azure Synapse Analytics (instead of the query provided in step 3 of the connect topic,) to **create a master key**.
 >
 >
 
@@ -95,7 +95,7 @@ Follow the documentation at [Create and query an Azure SQL Data Warehouse in the
 
 **Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](../studio/create-workspace.md).
 
-## <a name="getdata"></a>Load the data into Synapse Analytics
+## <a name="getdata"></a>Load the data into Azure Synapse Analytics
 Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on GitHub to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script.
 
 > [!NOTE]
@@ -120,7 +120,7 @@ In your *-DestDir*, execute the following PowerShell script in administrator mod
 When the PowerShell script runs for the first time, you will be asked to input the information from your Azure Synapse Analytics and your Azure blob storage account. When this PowerShell script completes running for the first time, the credentials you input will have been written to a configuration file SQLDW.conf in the present working directory. The future run of this PowerShell script file has the option to read all needed parameters from this configuration file. If you need to change some parameters, you can choose to input the parameters on the screen upon prompt by deleting this configuration file and inputting the parameters values as prompted or to change the parameter values by editing the SQLDW.conf file in your *-DestDir* directory.
 
 > [!NOTE]
-> In order to avoid schema name conflicts with those that already exist in your Azure Synapse Analytics, when reading parameters directly from the SQLDW.conf file, a 3-digit random number is added to the schema name from the SQLDW.conf file as the default schema name for each run. The PowerShell script may prompt you for a schema name: the name may be specified at user discretion.
+> In order to avoid schema name conflicts with those that already exist in your Azure Azure Synapse Analytics, when reading parameters directly from the SQLDW.conf file, a 3-digit random number is added to the schema name from the SQLDW.conf file as the default schema name for each run. The PowerShell script may prompt you for a schema name: the name may be specified at user discretion.
 >
 >
 
@@ -248,7 +248,7 @@ This **PowerShell script** file completes the following tasks:
                 REJECT_VALUE = 12
             )
 
-    - Load data from external tables in Azure blob storage to Synapse Analytics
+    - Load data from external tables in Azure blob storage to Azure Synapse Analytics
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
@@ -304,7 +304,7 @@ This **PowerShell script** file completes the following tasks:
 The geographic location of your storage accounts affects load times.
 
 > [!NOTE]
-> Depending on the geographical location of your private blob storage account, the process of copying data from a public blob to your private storage account can take about 15 minutes, or even longer,and the process of loading data from your storage account to your Azure Synapse Analytics could take 20 minutes or longer.
+> Depending on the geographical location of your private blob storage account, the process of copying data from a public blob to your private storage account can take about 15 minutes, or even longer,and the process of loading data from your storage account to your Azure Azure Synapse Analytics could take 20 minutes or longer.
 >
 >
 
@@ -320,7 +320,7 @@ You will have to decide what do if you have duplicate source and destination fil
 You can use your own data. If your data is in your on-premises machine in your real life application, you can still use AzCopy to upload on-premises data to your private Azure blob storage. You only need to change the **Source** location, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in the AzCopy command of the PowerShell script file to the local directory that contains your data.
 
 > [!TIP]
-> If your data is already in your private Azure blob storage in your real life application, you can skip the AzCopy step in the PowerShell script and directly upload the data to Azure Synapse Analytics. This will require additional edits of the script to tailor it to the format of your data.
+> If your data is already in your private Azure blob storage in your real life application, you can skip the AzCopy step in the PowerShell script and directly upload the data to Azure Azure Synapse Analytics. This will require additional edits of the script to tailor it to the format of your data.
 >
 >
 
@@ -333,7 +333,7 @@ After a successful execution, you will see screen like below:
 ## <a name="dbexplore"></a>Data exploration and feature engineering in Azure Synapse Analytics
 In this section, we perform data exploration and feature generation by running SQL queries against Azure Synapse Analytics directly using **Visual Studio Data Tools**. All SQL queries used in this section can be found in the sample script named *SQLDW_Explorations.sql*. This file has already been downloaded to your local directory by the PowerShell script. You can also retrieve it from [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). But the file in GitHub does not have the Azure Synapse Analytics information plugged in.
 
-Connect to your Azure Synapse Analytics using Visual Studio with the Synapse Analytics login name and password and open up the **SQL Object Explorer** to confirm the database and tables have been imported. Retrieve the *SQLDW_Explorations.sql* file.
+Connect to your Azure Synapse Analytics using Visual Studio with the Azure Synapse Analytics login name and password and open up the **SQL Object Explorer** to confirm the database and tables have been imported. Retrieve the *SQLDW_Explorations.sql* file.
 
 > [!NOTE]
 > To open a Parallel Data Warehouse (PDW) query editor, use the **New Query** command while your PDW is selected in the **SQL Object Explorer**. The standard SQL query editor is not supported by PDW.
@@ -554,11 +554,11 @@ The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, ge
 When you are ready to proceed to Azure Machine Learning, you may either:
 
 1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an Import Data][import-data] module in Azure Machine Learning, or
-2. Persist the sampled and engineered data you plan to use for model building in a new Synapse Analytics table and use the new table in the [Import Data][import-data] module in Azure Machine Learning. The PowerShell script in earlier step has done this task for you. You can read directly from this table in the Import Data module.
+2. Persist the sampled and engineered data you plan to use for model building in a new Azure Synapse Analytics table and use the new table in the [Import Data][import-data] module in Azure Machine Learning. The PowerShell script in earlier step has done this task for you. You can read directly from this table in the Import Data module.
 
 ## <a name="ipnb"></a>Data exploration and feature engineering in IPython notebook
 In this section, we will perform data exploration and feature generation
-using both Python and SQL queries against the Synapse Analytics created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
+using both Python and SQL queries against the Azure Synapse Analytics created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
 
 The needed Azure Synapse Analytics information in the sample IPython Notebook and the Python script file downloaded to your local machine has been plugged in by the PowerShell script previously. They are executable without any modification.
 
@@ -590,7 +590,7 @@ When building advanced analytical solutions on Azure Machine Learning with large
 * Read in a small sample of the data into an in-memory data frame.
 * Perform some visualizations and explorations using the sampled data.
 * Experiment with feature engineering using the sampled data.
-* For larger data exploration, data manipulation and feature engineering, use Python to issue SQL Queries directly against the Synapse Analytics.
+* For larger data exploration, data manipulation and feature engineering, use Python to issue SQL Queries directly against the Azure Synapse Analytics.
 * Decide the sample size to be suitable for Azure Machine Learning model building.
 
 The followings are a few data exploration, data visualization, and feature engineering examples. More data explorations can be found in the sample IPython Notebook and the sample Python script file.
@@ -646,7 +646,7 @@ Here is the connection string that creates the connection to the database.
 * Total number of rows = 173179759
 * Total number of columns = 11
 
-### Read-in a small data sample from the Synapse Analytics Database
+### Read-in a small data sample from the Azure Synapse Analytics Database
     t0 = time.time()
 
     query = '''
@@ -825,7 +825,7 @@ A typical training experiment consists of the following steps:
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
 10. Tune the model(s) and select the best model to deploy.
 
-In this exercise, we have already explored and engineered the data in Synapse Analytics, and decided on the sample size to ingest in Azure Machine Learning Studio (classic). Here is the procedure to build one or more of the prediction models:
+In this exercise, we have already explored and engineered the data in Azure Synapse Analytics, and decided on the sample size to ingest in Azure Machine Learning Studio (classic). Here is the procedure to build one or more of the prediction models:
 
 1. Get the data into Azure Machine Learning Studio (classic) using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
 
@@ -836,7 +836,7 @@ In this exercise, we have already explored and engineered the data in Synapse An
 5. Enter the *SQL user name* in the **Server user account name**, and the *password* in the **Server user account password**.
 7. In the **Database query** edit text area, paste the query that extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
 
-An example of a binary classification experiment reading data directly from the Synapse Analytics database is in the figure below (remember to replace the table names nyctaxi_trip and nyctaxi_fare by the schema name and the table names you used in your walkthrough). Similar experiments can be constructed for multiclass classification and regression problems.
+An example of a binary classification experiment reading data directly from the Azure Synapse Analytics database is in the figure below (remember to replace the table names nyctaxi_trip and nyctaxi_fare by the schema name and the table names you used in your walkthrough). Similar experiments can be constructed for multiclass classification and regression problems.
 
 ![Azure ML Train][10]
 

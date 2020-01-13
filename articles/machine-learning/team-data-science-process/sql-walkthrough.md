@@ -40,15 +40,15 @@ The unique key to join trip\_data and trip\_fare is composed of the fields: meda
 ## <a name="mltasks"></a>Examples of Prediction Tasks
 We will formulate three prediction problems based on the *tip\_amount*, namely:
 
-1. Binary classification: Predict whether or not a tip was paid for a trip, that is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
-2. Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
+* Binary classification: Predict whether or not a tip was paid for a trip, that is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
+* Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Regression task: To predict the amount of tip paid for a trip.  
+* Regression task: To predict the amount of tip paid for a trip.  
 
 ## <a name="setup"></a>Setting Up the Azure data science environment for advanced analytics
 As you can see from the [Plan Your Environment](plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:

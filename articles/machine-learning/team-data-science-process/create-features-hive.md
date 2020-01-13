@@ -1,5 +1,5 @@
 ---
-title: Create features for data in a Hadoop cluster - Team Data Science Process
+title: Create features for data in an Azure HDInsight Hadoop cluster - Team Data Science Process
 description: Examples of Hive queries that generate features in data stored in an Azure HDInsight Hadoop cluster.
 services: machine-learning
 author: marktab

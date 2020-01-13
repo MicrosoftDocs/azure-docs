@@ -68,9 +68,9 @@ The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) da
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
+The data resides in an [Azure blob storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
 
-1. The data in this public blob storage consists of three subfolders of unzipped data.
+1. The data in this Azure blob storage consists of three subfolders of unzipped data.
 
    1. The subfolder *raw/count/* contains the first 21 days of data - from day\_00 to day\_20
    2. The subfolder *raw/train/* consists of a single day of data, day\_21
@@ -151,13 +151,13 @@ All these tables are external so you can point to their Azure Blob Storage (wasb
 
 **There are two ways to execute ANY Hive query:**
 
-1. **Using the Hive REPL command line**: The first is to issue a "hive" command and copy and paste a query at the Hive REPL command line:
+* **Using the Hive REPL command line**: The first is to issue a "hive" command and copy and paste a query at the Hive REPL command line:
 
         cd %hive_home%\bin
         hive
 
      Now at the REPL command line, cutting and pasting the query executes it.
-2. **Saving queries to a file and executing the command**: The second is to save the queries to a '.hql' file ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) and then issue the following command to execute the query:
+* **Saving queries to a file and executing the command**: The second is to save the queries to a '.hql' file ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) and then issue the following command to execute the query:
 
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -276,7 +276,7 @@ This yields the following:
         65510   3446
         Time taken: 317.851 seconds, Fetched: 20 row(s)
 
-The LATERAL VIEW - explode combination in Hive serves to produce a SQL-like output instead of the usual list. In the this table, the first column corresponds to the bin center and the second to the bin frequency.
+The LATERAL VIEW - explode combination in Hive serves to produce a SQL-like output instead of the usual list. In this table, the first column corresponds to the bin center and the second to the bin frequency.
 
 ### Approximate percentiles of some numeric variables in the train dataset
 Also of interest with numeric variables is the computation of approximate percentiles. Hive's native "percentile\_approx" does this for us. The contents of [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) are:
@@ -401,7 +401,7 @@ There is a final important component before moving on to Azure Machine Learning,
 ## <a name="count"></a> A brief discussion on the count table
 As you saw, several categorical variables have a high dimensionality. In the walkthrough, a powerful technique called [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner is presented. More information on this technique is in the link provided.
 
-[!NOTE]
+>[!NOTE]
 >In this walkthrough, the focus is on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) and [feature hashing](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
