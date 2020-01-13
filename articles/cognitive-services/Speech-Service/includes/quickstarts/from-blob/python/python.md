@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 01/13/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
@@ -18,10 +18,10 @@ zone_pivot_groups: programming-languages-set-two
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Upload a source file to an azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## Download and install the API client library
 
@@ -63,7 +63,8 @@ pip install requests
 Let's add some code that works as a skeleton for our project.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
-(You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacements.md)]
 
 ## Create and configure an Http Client
 The first thing we'll need is an Http Client that has a correct base URL and authentication set.
