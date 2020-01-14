@@ -45,8 +45,8 @@ Using this feature requires an Azure AD Premium P1 license. To find the right li
 
 ## Supported in this preview?
 
-Scenario Azure | AD Portal | MS Graph API | PowerShell
--------------- | --------- | --------- | -------
+Scenario | Azure AD portal | MS Graph API | PowerShell
+-------- | --------------- | ------------ | ----------
 Create a new Office 365 cloud group with the isAssignableToRole property set to true. | Supported | Supported | Not supported
 Assign new Office 365 cloud group with the isAssignableToRole set to true to a built-in Azure AD role.  | Supported | Supported  | Supported
 Create a new security cloud group with the isAssignableToRole property set to true.  | Supported  | Supported  | Not supported
