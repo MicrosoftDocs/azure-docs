@@ -27,9 +27,11 @@
     href: visualize-power-bi.md  
 - name: Concepts
   items:
-  - name: Data ingestion overview
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
+  - name: Data Ingestion
+    items:  
+    - name: Data ingestion overview
+      displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
+      href: ingest-data-overview.md
   - name: Data visualization overview
     href: viz-overview.md
   - name: Security overview
@@ -95,7 +97,9 @@
     - name: Logstash
       href: ingest-data-logstash.md
     - name: Copy data using Azure Data Factory
-      href: data-factory-load-data.md   
+      href: data-factory-load-data.md  
+    - name: json formatted data
+      href: ingest-json-formats.md  
   - name: Query data
     items:
     - name: Write queries

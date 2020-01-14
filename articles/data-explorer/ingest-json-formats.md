@@ -11,7 +11,7 @@ ms.date: 01/12/2020
 
 # Ingest json formatted sample data into Azure Data Explorer
 
-This article shows you how to ingest json formatted data into an Azure Data Explorer database. You will start with a simple example of a flattened json and continue with more complex json schemas containing arrays and dictionaries. 
+This article shows you how to ingest json formatted data into an Azure Data Explorer database. You'll start with simple examples of raw and mapped json, continue to multi-lined json, and then tackle more complex json schemas containing arrays and dictionaries. 
 
 ## Prerequisites
 
@@ -25,8 +25,7 @@ ADX supports two json file formats:
 
 ### Ingest and map json formatted data
 
-Ingestion of json formatted data requires you to specify the *format* [ingestion property](/azure/kusto/management/data-ingestion/index#ingestion-properties). 
-Ingestion of json data requires [mapping](/azure/kusto/management/mappings), which maps a json source entry to its target column. When ingesting data, use the pre-defined `jsonMappingReference` ingestion property or specify the `jsonMapping`ingestion property. This article will use the `jsonMappingReference` ingestion property which is pre-defined on the table used for ingestion. In the examples below, we'll start by ingesting json records as raw data to a single column table. Later we'll use the mapping to ingest each property to its mapped column. 
+Ingestion of json formatted data requires you to specify the *format* [ingestion property](/azure/kusto/management/data-ingestion/index#ingestion-properties). Ingestion of json data requires [mapping](/azure/kusto/management/mappings), which maps a json source entry to its target column. When ingesting data, use the pre-defined `jsonMappingReference` ingestion property or specify the `jsonMapping`ingestion property. This article will use the `jsonMappingReference` ingestion property which is pre-defined on the table used for ingestion. In the examples below, we'll start by ingesting json records as raw data to a single column table. Then we'll use the mapping to ingest each property to its mapped column. 
 
 ### Simple json example
 
