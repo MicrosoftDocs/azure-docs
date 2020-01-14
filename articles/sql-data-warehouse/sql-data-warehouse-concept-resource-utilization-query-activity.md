@@ -37,10 +37,10 @@ The following metrics are available in the Azure portal for SQL Data Warehouse. 
 | Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max    |
 | Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max    |
 
-> Things to consider when viewing metrics and setting alerts:
->
-> - Failed and successful connections are reported for a particular data warehouse - not for the logical server
-> - Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
+Things to consider when viewing metrics and setting alerts:
+
+- Failed and successful connections are reported for a particular data warehouse - not for the logical server
+- Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
 
 
 ## Query activity
