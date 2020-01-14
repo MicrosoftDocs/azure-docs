@@ -1,7 +1,8 @@
 ---
 title:  az spring cloud
 description: Log streaming to view application logs instantly 
-author:  v-gedo
+author:  MikeDodaro
+ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
@@ -9,12 +10,12 @@ ms.date: 01/14/2019
 
 # Log Streaming
 
-The log streaming feature makes application logs available instantly using CLI with limited range. To view logs out of range, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+The log streaming feature makes application logs available instantly using CLI with limited range. To view logs out of range, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites
 
-* Install the [Azure CLI extension](spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
-* Launch [Spring Cloud app](spring-cloud-launch-app-maven)
+* Install the [Azure CLI extension](./spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
+* Launch [Spring Cloud app](./spring-cloud-launch-app-maven)
 
 ## Use CLI to tail logs
 
@@ -68,7 +69,7 @@ az spring-cloud app log tail -h
 
 ## Next steps
 
-* [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
+* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 
  
 
