@@ -303,9 +303,9 @@ provisioned manually by the product team once the previous steps are
 completed. Use the channel you have with Microsoft to provide the
 following details:
 
-1. Confirmation that the steps above where completed successfully.
+- Confirmation that the steps above where completed successfully.
 
-2. The JSON response from the previous step. It can be retrieved at any time using a Get API call:
+- The JSON response from the previous step. It can be retrieved at any time using a Get API call:
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
