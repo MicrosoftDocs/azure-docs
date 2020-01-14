@@ -41196,7 +41196,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-giraph-install-linux",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install-linux.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
       "redirect_document_id": false
     },
     {
