@@ -122,11 +122,11 @@ In this section, you will create a private storage account using a Private Endpo
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     |Location|Select **WestCentralUS**.|
-    |Name|Enter *myPrivateEndpoint*.  |
+    |Name|Enter *myPrivateEndpoint*.  |
     |Storage sub-resource|Leave the default **Blob**. |
     | **NETWORKING** |  |
-    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
-    | Subnet | Select *mySubnet*. |
+    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
+    | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION**|  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
     | Private DNS zone  | Leave the default **(New) privatelink.blob.core.windows.net**. |
@@ -167,8 +167,8 @@ Connect to the VM *myVm* from the internet as follows:
 
 In this section, you will connect privately to the storage account using the Private Endpoint.
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net`
+1. In the Remote Desktop of *myVM*, open PowerShell.
+2. Enter `nslookup mystorageaccount.blob.core.windows.net`
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
@@ -188,19 +188,19 @@ In this section, you will connect privately to the storage account using the Pri
 10. Select **Connect**.
 11. Browse the Blob containers from mystorageaccount 
 12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+13. Close the remote desktop connection to *myVM*. 
 
 Additional options to access the storage account:
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
 
 
 ## Clean up resources 
 When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
 2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
 
 ## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
