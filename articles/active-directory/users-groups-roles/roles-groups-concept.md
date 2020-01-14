@@ -67,4 +67,4 @@ Use an existing security cloud group and assign it to a role | Out of scope  | O
 - [Create a role-eligible group](roles-groups-create-eligible.md)
 - [Assign a role to a group](roles-groups-assign-role.md)
 - [View a group's role assignments](roles-groups-view-assignments.md)
-- [Remove a group role assignment](roles-groups-remove-assignments.md)
+- [Remove a group role assignment](roles-groups-remove-assignment.md)
