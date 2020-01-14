@@ -221,59 +221,59 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "5-6",
-	"storageProfile": {
-		"dataDisks": [
-		  {
-			"caching": "None",
-			"createOption": "Empty",
-			"diskSizeGB": "1024",
-			"image": {
-			  "uri": ""
-			},
-			"lun": "0",
-			"managedDisk": {
-			  "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-			  "storageAccountType": "Standard_LRS"
-			},
-			"name": "exampledatadiskname",
-			"vhd": {
-			  "uri": ""
-			},
-			"writeAcceleratorEnabled": "false"
-		  }
-		],
-		"imageReference": {
-		  "id": "",
-		  "offer": "UbuntuServer",
-		  "publisher": "Canonical",
-		  "sku": "16.04.0-LTS",
-		  "version": "latest"
-		},
-		"osDisk": {
-		  "caching": "ReadWrite",
-		  "createOption": "FromImage",
-		  "diskSizeGB": "30",
-		  "diffDiskSettings": {
-			"option": "Local"
-		  },
-		  "encryptionSettings": {
-			"enabled": "false"
-		  },
-		  "image": {
-			"uri": ""
-		  },
-		  "managedDisk": {
-			"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-			"storageAccountType": "Standard_LRS"
-		  },
-		  "name": "exampleosdiskname",
-		  "osType": "Linux",
-		  "vhd": {
-			"uri": ""
-		  },
-		  "writeAcceleratorEnabled": "false"
-		}
-	}
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
     "version": "7.1.1902271506",
@@ -354,59 +354,59 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "5-6",
-	"storageProfile": {
-		"dataDisks": [
-		  {
-			"caching": "None",
-			"createOption": "Empty",
-			"diskSizeGB": "1024",
-			"image": {
-			  "uri": ""
-			},
-			"lun": "0",
-			"managedDisk": {
-			  "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-			  "storageAccountType": "Standard_LRS"
-			},
-			"name": "exampledatadiskname",
-			"vhd": {
-			  "uri": ""
-			},
-			"writeAcceleratorEnabled": "false"
-		  }
-		],
-		"imageReference": {
-		  "id": "",
-		  "offer": "UbuntuServer",
-		  "publisher": "Canonical",
-		  "sku": "16.04.0-LTS",
-		  "version": "latest"
-		},
-		"osDisk": {
-		  "caching": "ReadWrite",
-		  "createOption": "FromImage",
-		  "diskSizeGB": "30",
-		  "diffDiskSettings": {
-			"option": "Local"
-		  },
-		  "encryptionSettings": {
-			"enabled": "false"
-		  },
-		  "image": {
-			"uri": ""
-		  },
-		  "managedDisk": {
-			"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-			"storageAccountType": "Standard_LRS"
-		  },
-		  "name": "exampleosdiskname",
-		  "osType": "Linux",
-		  "vhd": {
-			"uri": ""
-		  },
-		  "writeAcceleratorEnabled": "false"
-		}
-	}
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
     "version": "7.1.1902271506",
@@ -643,59 +643,59 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "5-6",
-	"storageProfile": {
-		"dataDisks": [
-		  {
-			"caching": "None",
-			"createOption": "Empty",
-			"diskSizeGB": "1024",
-			"image": {
-			  "uri": ""
-			},
-			"lun": "0",
-			"managedDisk": {
-			  "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-			  "storageAccountType": "Standard_LRS"
-			},
-			"name": "exampledatadiskname",
-			"vhd": {
-			  "uri": ""
-			},
-			"writeAcceleratorEnabled": "false"
-		  }
-		],
-		"imageReference": {
-		  "id": "",
-		  "offer": "UbuntuServer",
-		  "publisher": "Canonical",
-		  "sku": "16.04.0-LTS",
-		  "version": "latest"
-		},
-		"osDisk": {
-		  "caching": "ReadWrite",
-		  "createOption": "FromImage",
-		  "diskSizeGB": "30",
-		  "diffDiskSettings": {
-			"option": "Local"
-		  },
-		  "encryptionSettings": {
-			"enabled": "false"
-		  },
-		  "image": {
-			"uri": ""
-		  },
-		  "managedDisk": {
-			"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-			"storageAccountType": "Standard_LRS"
-		  },
-		  "name": "exampleosdiskname",
-		  "osType": "Linux",
-		  "vhd": {
-			"uri": ""
-		  },
-		  "writeAcceleratorEnabled": "false"
-		}
-	}
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
     "version": "7.1.1902271506",
@@ -966,57 +966,57 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 
 ```json
 {
-	"dataDisks": [
-	  {
-		"caching": "None",
-		"createOption": "Empty",
-		"diskSizeGB": "1024",
-		"image": {
-		  "uri": ""
-		},
-		"lun": "0",
-		"managedDisk": {
-		  "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-		  "storageAccountType": "Standard_LRS"
-		},
-		"name": "exampledatadiskname",
-		"vhd": {
-		  "uri": ""
-		},
-		"writeAcceleratorEnabled": "false"
-	  }
-	],
-	"imageReference": {
-	  "id": "",
-	  "offer": "UbuntuServer",
-	  "publisher": "Canonical",
-	  "sku": "16.04.0-LTS",
-	  "version": "latest"
-	},
-	"osDisk": {
-	  "caching": "ReadWrite",
-	  "createOption": "FromImage",
-	  "diskSizeGB": "30",
-	  "diffDiskSettings": {
-		"option": "Local"
-	  },
-	  "encryptionSettings": {
-		"enabled": "false"
-	  },
-	  "image": {
-		"uri": ""
-	  },
-	  "managedDisk": {
-		"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-		"storageAccountType": "Standard_LRS"
-	  },
-	  "name": "exampleosdiskname",
-	  "osType": "Linux",
-	  "vhd": {
-		"uri": ""
-	  },
-	  "writeAcceleratorEnabled": "false"
-	}
+    "dataDisks": [
+      {
+        "caching": "None",
+        "createOption": "Empty",
+        "diskSizeGB": "1024",
+        "image": {
+          "uri": ""
+        },
+        "lun": "0",
+        "managedDisk": {
+          "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "exampledatadiskname",
+        "vhd": {
+          "uri": ""
+        },
+        "writeAcceleratorEnabled": "false"
+      }
+    ],
+    "imageReference": {
+      "id": "",
+      "offer": "UbuntuServer",
+      "publisher": "Canonical",
+      "sku": "16.04.0-LTS",
+      "version": "latest"
+    },
+    "osDisk": {
+      "caching": "ReadWrite",
+      "createOption": "FromImage",
+      "diskSizeGB": "30",
+      "diffDiskSettings": {
+        "option": "Local"
+      },
+      "encryptionSettings": {
+        "enabled": "false"
+      },
+      "image": {
+        "uri": ""
+      },
+      "managedDisk": {
+        "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+        "storageAccountType": "Standard_LRS"
+      },
+      "name": "exampleosdiskname",
+      "osType": "Linux",
+      "vhd": {
+        "uri": ""
+      },
+      "writeAcceleratorEnabled": "false"
+    }
 }
 ```
 
