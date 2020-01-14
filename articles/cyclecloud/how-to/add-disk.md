@@ -1,22 +1,25 @@
 ---
-title: Storage Options
-description: Attach and manage storage options within Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
+title: Managed Disk Options
+description: Attach and manage disk options within Azure CycleCloud.
+author: mvrequa
+ms.date: 01/20/2020
 ms.author: adjohnso
 ---
 
-# Storage
+# Managed Disks
 
-CycleCloud supports automatically attaching volumes (disks) to your nodes for additional storage space. To create a 100GB volume, add the following to your `[[node]]` element in your cluster template:
+CycleCloud will automatically attach volumes ([Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)) to your nodes for additional storage space. The managed disks come in four flavors and have capacities up to 64TiB.
+
+To create a 100GB volume, add the following to your `[[node]]` element in your cluster template:
 
 ``` ini
 [[[volume example-vol]]]
 Size = 100
 ```
 
-This volume will be created when the instance is started, and deleted when the instance is terminated.
-If you want to preserve the data on the volume even after the instance is terminated, make it a **persistent** volume:
+## Persistent Volumes
+
+By default, a volume will be created when the instance is started, and deleted when the instance is terminated. If you want to preserve the data on the volume even after the instance is terminated, make it a **persistent** volume:
 
 ``` ini
 [[[volume example-vol]]]
@@ -26,7 +29,12 @@ Persistent = true
 
 This volume will be created the first time the instance is started, but will not be deleted when the instance is terminated. Instead, it will be kept and re-attached to the instance the next time the node is started. Persistent volumes are not deleted until the cluster is deleted.
 
-To use Premium Storage for the disk (or the equivalent cloud provider SSD storage), use `SSD = true`:
+> [!WARNING]
+> When your cluster is deleted, all persistent volumes are deleted as well! If you want your storage to persist longer than your cluster, you must attach a preexisting volume by ID.
+
+## Disk Types
+
+There are four [Azure disk types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, use `SSD = true`:
 
 ``` ini
 [[[volume example-vol]]]
@@ -35,8 +43,15 @@ Persistent = true
 SSD = true
 ```
 
-> [!NOTE]
-Azure SSD will round up to the next size for [pricing](https://azure.microsoft.com/pricing/details/managed-disks). For example, if you create a disk size of 100GB, you will be charged at the 128GB rate.
+A premium SSH disk is used by default when you are using a VM series that is premium storage-compatible.
 
-> [!WARNING]
-> When your cluster is deleted, all persistent volumes are deleted as well! If you want your storage to persist longer than your cluster, you must attach a preexisting volume by id.
+> [!NOTE]
+> Azure SSD will round up to the next size for [pricing](https://azure.microsoft.com/pricing/details/managed-disks). For example, if you create a disk size of 100GB, you will be charged at the 128GB rate.
+
+Specifying a volume attaches the device(s) to your instance, but does not mount and format the device.
+
+## Further Reading
+
+* [Mounting Volumes](mount-disk.md)
+* [Creating a Fileserver](create-fileserver.md)
+* [Mounting a Fileserver](mount-fileserver.md)

@@ -102,12 +102,12 @@
       href: ./how-to/add-node-array.md
     - name: Add a Disk
       href: ./how-to/add-disk.md
-    - name: Add a File Store
-      href: ./how-to/add-fs.md
-    - name: Create NFS Exports
-      href: ./how-to/create-nfs.md
-    - name: Mount an NFS Endpoint
-      href: ./how-to/mount-nfs.md
+    - name: Mount a Disk
+      href: ./how-to/mount-disk.md
+    - name: Create Network Fileserver
+      href: ./how-to/create-fileserver.md
+    - name: Mount a Network Fileserver
+      href: ./how-to/mount-fileserver.md
     - name: Enable Return Proxy
       href: ./how-to/return-proxy.md
     - name: Add an Open Port
