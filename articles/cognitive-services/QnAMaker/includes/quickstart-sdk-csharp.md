@@ -1,21 +1,9 @@
 ---
 title: "Quickstart: QnA Maker client library for .NET"
-titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
+ms.date: 01/13/2020
 ---
-
-# Quickstart: QnA Maker client library for .NET
-
-Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-
 Use the QnA Maker client library for .NET to:
 
 * Create a knowledge base
@@ -112,7 +100,7 @@ Next, create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotn
 
 |Environment variable|variable|Example|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.|
+|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.|
 |`QNAMAKER_HOST`|`Endpoint`| Your authoring endpoint, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, includes your **resource name**. This is not the same URL used to query the prediction endpoint.|
 ||||
 
@@ -204,12 +192,3 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Tutorial: Create and answer a KB](../tutorials/create-publish-query-in-portal.md)
-
-* [What is the QnA Maker API?](../Overview/overview.md)
-* [Edit a knowledge base](../how-to/edit-knowledge-base.md)
-* [Get usage analytics](../how-to/get-analytics-knowledge-base.md)
