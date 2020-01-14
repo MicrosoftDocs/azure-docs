@@ -1,6 +1,6 @@
 ---
-title: Connect using sqlcmd
-description: Use the sqlcmd command-line utility to connect to and query an Azure Synapse Analytics.
+title: Connect to SQL Analytics using sqlcmd
+description: Use the sqlcmd command-line utility to connect to and query SQL on-demand and SQL pool.
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use the [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Analytics.  
+You have the ability to use the [sqlcmd][sqlcmd] command-line utility to connect to and query SQL on-demand and SQL pool.  
 
 ## 1. Connect
 To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
@@ -73,7 +73,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ## 2. Query 
 
-### Using SQL pool
+### Use SQL pool
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode:
 
 ```sql
