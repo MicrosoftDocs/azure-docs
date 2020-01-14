@@ -1,4 +1,4 @@
-- name: Submit your solutions to Microsoft AppSource via Partner Center
+- name: Submit your solutions to Microsoft AppSource
   items:
   - name: Overview
     href: submit-to-appsource-via-partner-center.md
@@ -7,7 +7,7 @@
     items:
       - name: Manage account settings and profile
         href: manage-account-settings-and-profile.md
-  - name: Optimize add-in placement and ranking in Microsoft AppSource
+  - name: Optimize add-in placement and ranking
     href: optimize-for-store-discovery.md
   - name: Moving from paid to free add-ins
     href: moving-from-paid-to-free-addins.md
@@ -43,7 +43,7 @@
       href: appsource-listing.md
     - name: Specify availability
       href: specify-availability.md
-    - name: Microsoft AppSource submission FAQ
+    - name: Submission FAQ
       href: appsource-submission-faq.md
     - name: Create effective listings
       items:
