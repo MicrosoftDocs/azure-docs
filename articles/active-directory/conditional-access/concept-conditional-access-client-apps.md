@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Cloud apps or actions is a key part of a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions. 
 
-- Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md). 
+- Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-client-apps/conditional-access-define-policy-specify-cloud-apps.png)
@@ -37,7 +37,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
-- [Microsoft Azure Management](../../role-based-access-control/conditional-access-azure-management.md)
+- [Microsoft Azure Management](#microsoft-azure-management)
 - Microsoft Azure Subscription Management
 - Microsoft Cloud App Security
 - Microsoft Commerce Tools Access Control Portal
@@ -113,6 +113,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 - Applications published through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md)
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
 - [Custom applications not in the gallery](../manage-apps/add-non-gallery-app.md)
+- [Legacy applications published through app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)
 
 ## User actions
 
@@ -122,3 +123,4 @@ User actions are tasks that can be performed by a user. The only currently suppo
 
 - [Conditional Access policy components](concept-conditional-access-policies.md)
 - [Client application dependencies](service-dependencies.md)
+- [Microsoft Intune: Require MFA for device enrollment](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
