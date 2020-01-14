@@ -56,11 +56,11 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
 1. Stop Steps Recorder, and save the file.
 
-1. Back in the browser developer tools pane, select the **Console** tab. Select **Save as...**, and save the console output to a text file.
+1. Back in the browser developer tools pane, select the **Console** tab. Right-click, then select **Save as...**, and save the console output to a text file.
 
     ![Screenshot of console output](media/azure-portal-browser-trace/chromium-console-select.png)
 
-1. Package the HAR file, console output, and Steps Recorder in a compressed format like .zip, and share that with Microsoft support.
+1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
 ## Microsoft Edge (EdgeHTML)
 
@@ -102,15 +102,65 @@ The following steps show how to use the developer tools in Microsoft Edge (EdgeH
 
 1. Stop Steps Recorder, and save the file.
 
-1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Copy the output and save it to a text file.
+1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Right-click, then select **Copy**, and save the console output to a text file.
 
     ![Screenshot of console output](media/azure-portal-browser-trace/edge-console-select.png)
 
-1. Package the HAR file, console output, and Steps Recorder in a compressed format like .zip, and share that with Microsoft support.
+1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
 ## Apple Safari
 
-Steps go here
+The following steps show how to use the developer tools in Apple Safari. For more information, see [Safari Developer Tools overview](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
+
+1. Enable the developer tools in Apple Safari:
+
+    1. Select **Safari**, then select **Preferences**.
+
+        ![Screenshot of Safari preferences](media/azure-portal-browser-trace/safari-preferences.png)
+
+    1. Select the **Advanced** tab, then select **Show Develop menu in menu bar**.
+
+        ![Screenshot of Safari advanced preferences](media/azure-portal-browser-trace/safari-show-develop-menu.png)
+
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
+
+1. Start recording the steps you take in the portal. For more information, see [How to record the screen on your Mac](https://support.apple.comHT208721).
+
+1. In the portal, navigate to the step just prior to where the issue occurs.
+
+1. Select **Develop**, then select **Show Web Inspector**.
+
+    ![Screenshot of "Show Web Inspector"](media/azure-portal-browser-trace/safari-show-web-inspector.png)
+
+1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
+
+    1. Select the **Network** tab, then select **Preserve Log**.
+
+          ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/safari-network-preserve-log.png)
+
+    1. Select the **Console** tab, then select **Preserve Log**.
+
+          ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/safari-console-preserve-log.png)
+
+1. Select the **Network** tab, then select **Clear Network Items**.
+
+    ![Screenshot of "Clear Network Items"](media/azure-portal-browser-trace/safari-clear-session.png)
+
+1. Reproduce the issue in the portal. You will see session output similar to the following image.
+
+    ![Screenshot of browser trace results](media/azure-portal-browser-trace/safari-browser-trace-results.png)
+
+1. After you have reproduced the unexpected portal behavior, select **Export** and save the file.
+
+    ![Screenshot of "Export"](media/azure-portal-browser-trace/safari-network-export-har.png)
+
+1. Stop the screen recorder, and save the file.
+
+1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Use Command-C to copy the output and save it to a text file.
+
+    ![Screenshot of console output](media/azure-portal-browser-trace/safari-console-select.png)
+
+1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
 ## Next steps
 
