@@ -17,7 +17,8 @@ Save on your premium solid-state drive (SSD) usage with reserved capacity, combi
 
 Before you purchase a reservation, you should determine what your storage needs are. Currently, disk reservation is only available for select premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance. When determining your storage needs, we do not recommend thinking of disks just as a total capacity, you cannot use a reservation for a larger disk (like a P40) and use that to pay for two smaller disks (P30). When purchasing a reservation, you are only purchasing the total number of disks per SKU.
 
-Disk reservation is made per Disk SKU, hence the reservation consumption is based on the unit of the Disk SKUs instead of the provided size. For example, if you have reserved 1 P40 of 2 TiB provisioned capacity but only allocated 2 P30 disks, the two P30 consumption will not be accounted for P40 reservation and you will pay the pay-as-you-go rate. 
+Disk reservation is made per Disk SKU, hence the reservation consumption is based on the unit of the Disk SKUs instead of the provided size. For example, if you have reserved 1 P40 of 2 TiB provisioned capacity but only allocated 2 P30 disks, the two P30 consumption will not be accounted for P40 reservation and you will pay the pay-as-you-go rate.
+
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
