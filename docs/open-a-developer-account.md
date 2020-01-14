@@ -1,12 +1,12 @@
 ---
 title: Open a developer account in Partner Center
-description: To publish your Office solutions to AppSource, you first need to set up a developer account.
+description: To publish your Office solutions to Microsoft AppSource, you first need to set up a developer account.
 localization_priority: Normal
 ---
 
 # Open a developer account in Partner Center
 
-To publish your Office solutions to [AppSource](https://appsource.microsoft.com), you first need to set up a developer account. You sign up for a developer account using your Azure Active Directory (Azure AD) work account.
+To publish your Office solutions to [Microsoft AppSource](https://appsource.microsoft.com), you first need to set up a developer account. You sign up for a developer account using your Azure Active Directory (Azure AD) work account.
 
 > [!NOTE]
 > If you have an existing Microsoft account that you used to sign in to Seller Dashboard, that account will continue to work in Partner Center.
@@ -83,7 +83,7 @@ After you sign in, use the following steps to finish setting up your account:
 After you're enrolled, you're directed to the Office Store Overview page. Office Store is displayed in the left navigation bar. If you select **Settings** > **Developer Settings** > **Programs**, you'll see that Office Store is listed as registered.
 
 ## Next steps
-Now you're ready to [submit your solutions to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
+Now you're ready to [submit your solutions to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
 
 You can also [Manage your account settings and profile](manage-account-settings-and-profile.md).
 

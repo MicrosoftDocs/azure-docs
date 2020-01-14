@@ -1,19 +1,19 @@
 ---
-title: Submit your Office solution to AppSource via Partner Center
-description: If you want your Office solution to appear in AppSource, you need to submit it to Partner Center for approval.
+title: Submit your Office solution to Microsoft AppSource via Partner Center
+description: If you want your Office solution to appear in Microsoft AppSource, you need to submit it to Partner Center for approval.
 localization_priority: Priority
 ---
 
-# Submit your Office solution to AppSource via Partner Center
+# Submit your Office solution to Microsoft AppSource via Partner Center
 
-If you want your Office solution to appear in AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). 
+If you want your Office solution to appear in Microsoft AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [validation policies](validation-policies.md). 
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
-For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
+For information about the Microsoft AppSource approval process, see [Make your solutions available in Microsoft AppSource](submit-to-the-office-store.md).
 
 >[!NOTE]
->If your solutions haven't been migrated to Partner center, you can use [Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md) to submit to AppSource. For details about the Partner Center migration, see the [FAQ](partner-center-faq.md).
+>If your solutions haven't been migrated to Partner center, you can use [Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md) to submit to Microsoft AppSource. For details about the Partner Center migration, see the [FAQ](partner-center-faq.md).
 
 ## Submission process
 
@@ -40,7 +40,7 @@ On the Product overview page, add the details associated with your submission. T
 |:-------------|:-------|
 |Add setup and lead management details|[Add setup details](add-setup-details.md)|
 |Upload your add-in manifest or app package|[Upload your submission package](upload-package.md)|
-|Define your marketplace listing|[Define properties](define-office-solution-properties.md) and [Create your AppSource listing](appsource-listing.md)|
+|Define your marketplace listing|[Define properties](define-office-solution-properties.md) and [Create your Microsoft AppSource listing](appsource-listing.md)|
 |Specify the availability for your solution|[Specify availability](specify-availability.md)|
 
 > [!NOTE]
@@ -68,8 +68,8 @@ After a solution is unpublished, new customers will not be able to get it. Exist
 ## See also
 <a name="bk_addresources"> </a>
 
-- [AppSource submission FAQ](office-store-submission-faq.md)
-- [Create effective AppSource listings](create-effective-office-store-listings.md)
+- [Microsoft AppSource submission FAQ](office-store-submission-faq.md)
+- [Create effective listings](create-effective-office-store-listings.md)
 - [Validation policies](validation-policies.md)
  
 

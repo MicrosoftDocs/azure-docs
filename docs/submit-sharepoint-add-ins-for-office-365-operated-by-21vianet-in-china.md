@@ -29,7 +29,7 @@ Similarly, if you do not wish to distribute to China, you only need to submit on
  
 ## See also
 
-- [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
+- [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
 - [Create or update client IDs and secrets](create-or-update-client-ids-and-secrets.md)
 - [Validation policies](validation-policies.md)
     

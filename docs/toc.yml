@@ -1,4 +1,4 @@
-- name: Submit your solutions to AppSource via Partner Center
+- name: Submit your solutions to Microsoft AppSource via Partner Center
   items:
   - name: Overview
     href: submit-to-appsource-via-partner-center.md
@@ -7,7 +7,7 @@
     items:
       - name: Manage account settings and profile
         href: manage-account-settings-and-profile.md
-  - name: Optimize add-in placement and ranking in AppSource
+  - name: Optimize add-in placement and ranking in Microsoft AppSource
     href: optimize-for-store-discovery.md
   - name: Moving from paid to free add-ins
     href: moving-from-paid-to-free-addins.md
@@ -39,17 +39,17 @@
       href: upload-package.md
     - name: Define solution properties
       href: define-office-solution-properties.md
-    - name: Create your AppSource listing
+    - name: Create your listing
       href: appsource-listing.md
     - name: Specify availability
       href: specify-availability.md
-    - name: AppSource submission FAQ
+    - name: Microsoft AppSource submission FAQ
       href: appsource-submission-faq.md
-    - name: Create effective AppSource listings
+    - name: Create effective listings
       items:
       - name: Overview
         href: create-effective-office-store-listings.md
-      - name: Craft effective AppSource store images
+      - name: Craft effective store images
         href: craft-effective-appsource-store-images.md
   - name: Solution management and services
     items:
@@ -61,7 +61,7 @@
     href: submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md
   - name: Validation policies
     href: validation-policies.md
-  - name: Promote your AppSource solution
+  - name: Promote your solution
     href: promote-your-office-store-solution.md
   - name: Analyze performance
     href: view-acquisitions-report.md
