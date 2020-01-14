@@ -117,18 +117,18 @@ The Managed Identity does not have permissions to access your Azure resources by
 1. Click Save
 1. Repeat the steps for all resource groups you want to use in SAP LaMa
 
-In your SAP LaMa Azure connector configuration, select 'Use Managed Idendity' to enable the usage of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
+In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the usage of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
 
 ### Create a new connector in SAP LaMa
 
 Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Managers and click on Add. Select the Microsoft Azure Cloud Adapter and click Next. Enter the following information:
 
 * Label: Choose a name for the connector instance
-* User Name: Service Principal Application ID or ID of the user assigned identity of the virtual machine. See [Using a System or User Assigned Idenity] for more information
+* User Name: Service Principal Application ID or ID of the user assigned identity of the virtual machine. See [Using a System or User Assigned Identity] for more information
 * Password: Service Principal key/password. You can leave this field empty if you use a system or user assigned identity.
 * URL: Keep default https://management.azure.com/
 * Monitoring Interval (Seconds): Should be at least 300
-* Use Managed Idendity: SAP LaMa can use a system or user assigned identity to authenticate against the Azure API. See chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) in this guide.
+* Use Managed Identity: SAP LaMa can use a system or user assigned identity to authenticate against the Azure API. See chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) in this guide.
 * Subscription ID: Azure subscription ID
 * Azure Active Directory Tenant ID: ID of the Active Directory tenant
 * Proxy host: Hostname of the proxy if SAP LaMa needs a proxy to connect to the internet
