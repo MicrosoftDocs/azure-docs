@@ -130,7 +130,7 @@ These items should be treated as sensitive data and specified in the extensions 
 script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
-* `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
+* `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
   * `clientId`: (optional, string) the client id of the managed identity
   * `objectId`: (optional, string) the object id of the managed identity
 
@@ -144,9 +144,9 @@ Public settings are sent in clear text to the VM where the script will be execut
 
 ####  Property: managedIdentity
 
-CustomScript (version 1.10.4 onwards) supports [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) based RBAC for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to  access Azure Storage private blobs/containers without the user having to pass secrets like SAS tokens or storage account keys.
+CustomScript (version 1.10.4 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) based RBAC for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to  access Azure Storage private blobs/containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
 To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 
