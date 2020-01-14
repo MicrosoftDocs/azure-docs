@@ -30,6 +30,8 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
+    ::: zone-end
+
     ::: zone pivot="programming-language-nodejs"
 
     | Prompt | Value | Description |
@@ -39,6 +41,8 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
     | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
+
+    ::: zone-end
 
     ::: zone pivot="programming-language-python"
 
@@ -68,6 +72,8 @@ public static async Task<IActionResult> Run(
     ...
 }
 ```
+
+::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
@@ -106,6 +112,8 @@ module.exports = async function (context, req) {
 ```
 
 The project-level package.json is a standard Node.js package file.
+
+::: zone-end
 
 ::: zone pivot="programming-language-python"
 

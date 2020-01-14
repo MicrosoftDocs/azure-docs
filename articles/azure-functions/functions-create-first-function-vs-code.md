@@ -38,10 +38,14 @@ To verify your version of Azure Functions Core Tools, open the Visual Studio Cod
 
     The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
 
+    ::: zone-end
+
     ::: zone pivot="programming-language-nodejs"
 
     [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
+    ::: zone-end
+    
     ::: zone pivot="programming-language-python"
         
     + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
