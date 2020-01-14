@@ -37,7 +37,7 @@ Regions                                        | Availability?                  
 -----------------------------------------------|-----------------------------------------------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure China 21Vianet](https://www.azure.cn/)                                            | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 
 This table is updated when there are service updates and/or new supported versions are available.
@@ -463,13 +463,12 @@ The following Compute categories are available through the Instance API:
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | This field holds up to 64 K of custom data. This feature is currently disabled, but will be enabled soon | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if its an Azure Marketplace Image | 2018-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
 platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
 platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
@@ -484,7 +483,7 @@ tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for you
 tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 version | Version of the VM image | 2017-04-02
 vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
+vmScaleSetName | [Virtual Machine scale set Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 vmSize | [VM size](sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
@@ -532,7 +531,7 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
 #### Retrieving attested metadata in Windows Virtual Machine
 
@@ -564,7 +563,7 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
 
 ## Example scenarios for usage  
@@ -724,7 +723,7 @@ The regions and the values of the Azure Environment are listed below.
 ---------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure China](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### Getting the tags for the VM
@@ -838,7 +837,7 @@ Once you get the signature above, you can verify that the signature is from Micr
 ---------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -902,7 +901,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### Storage Profile
+### Storage profile
 
 Instance Metadata Service can provide details about the storage disks associated with the VM. This data can be found at the instance/compute/storageProfile endpoint.
 
