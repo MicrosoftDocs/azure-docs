@@ -12566,6 +12566,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-python.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
