@@ -82,7 +82,7 @@ The following sample Resource Manager template specifies a user to be added to t
 
 ```
 
-If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/resource-group-define-dependencies.md) article.
+If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/templates/define-resource-dependency.md) article.
 
 ### Role Assignment Resource Information
 The role assignment resource needs to specify the type and name.
