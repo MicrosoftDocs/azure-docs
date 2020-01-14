@@ -34,7 +34,7 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
           ![Screenshot of "Preserve log"](media/azure-portal-browser-trace/chromium-network-preserve-log.png)
 
-    1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**.
+    1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**. Select **Console settings** again to close the settings pane.
 
           ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/chromium-console-preserve-log.png)
 
