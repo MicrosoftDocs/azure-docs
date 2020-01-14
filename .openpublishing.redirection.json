@@ -12566,6 +12566,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-python.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
@@ -45650,9 +45655,20 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-byos.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/byos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-arm.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
     }
   ]
 }
+
