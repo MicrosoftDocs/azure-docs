@@ -33,7 +33,7 @@ Implementing disaster recovery for Dynamics AX application by using Site Recover
 
 ## Site Recovery support
 
-For the purpose of creating this article, we used VMware virtual machines with Dynamics AX 2012 R3 on Windows Server 2012 R2 Enterprise. Because site recovery replication is application agnostic, we expect the recommendations provided here to hold for the following scenarios.
+For the purpose of creating this article, we used VMware virtual machines with Dynamics AX 2012 R3 on Windows Server 2012 R2 Enterprise. Because Site Recovery replication is application agnostic, we expect the recommendations provided here to hold for the following scenarios.
 
 ### Source and target
 
