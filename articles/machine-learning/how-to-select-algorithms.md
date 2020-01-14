@@ -1,7 +1,7 @@
 ---
-title: How to choose machine learning algorithms 
+title: How to select a machine learning algorithm
 titleSuffix: Azure Machine Learning
-description: How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
+description: How to select Azure Machine Learning  algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,17 +12,17 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 01/20/2020
 ---
-# How to choose algorithms for Azure Machine Learning
+# How to select algorithms for Azure Machine Learning
 
-“What machine learning algorithm should I use?” The answer to this popular question mainly depends on two different aspects of your data science scenario:
+A common question is “What machine learning algorithm should I use?” The answer to this popular question mainly depends on two different aspects of your data science scenario:
 
  - What you want to do with your data: Specifically, what is the business question you want to answer by learning from your past data?
 
  - The requirements of your data science scenario: Specifically, what is the accuracy, training time, linearity, number of parameters, number of features your solution is supporting?
 
- ![Considerations for algorithm choice: What do you want to know? What are the scenario requirements?](./media/how-to-choose-algorithms/how-to-choose-algorithms.png)
+ ![Considerations for algorithm choice: What do you want to know? What are the scenario requirements?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
 
- ## Machine Learning Algorithm Cheat Sheet and business scenarios
+## Machine Learning Algorithm Cheat Sheet and business scenarios
 
 The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first aspect listed above: **what you want to do with your data**. With the Machine Learning Algorithm Cheat Sheet you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
 
@@ -39,9 +39,9 @@ However, there are a few additional requirements that, together with the Azure M
 
 ## Additional requirements for a data science scenario
 
-When choosing your algorithm, you need to know what you want to do with your data and what the additional requirements of your solution are. 
+Once you know what you want to do with your data, you need to determine additional requirements for your solution. 
 
-Requirements include:
+Make choices and possibly trade-offs for the following requirements:
 - Accuracy
 - Training time
 - Linearity
@@ -94,7 +94,7 @@ Parameters are the knobs a data scientist gets to turn when setting up an algori
 
 Alternatively, there is the [Tune Model Hyperparameters module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) in Machine Learning designer: The goal of this module is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
 
-While this is a great way to make sure you’ve spanned the parameter space, the time required to train a model increases exponentially with the number of parameters.  The upside is that having many parameters typically indicates that an algorithm has greater flexibility. It can often achieve very good accuracy, provided you can find the right combination of parameter settings.
+While this is a great way to make sure you’ve spanned the parameter space, the time required to train a model increases exponentially with the number of parameters.The upside is that having many parameters typically indicates that an algorithm has greater flexibility. It can often achieve very good accuracy, provided you can find the right combination of parameter settings.
 
 ## Number of features
 
