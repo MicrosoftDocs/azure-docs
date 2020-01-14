@@ -153,24 +153,33 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     > [!IMPORTANT]
     > Images created by Azure Machine Learning use Linux, so you must use the `--is-linux` parameter.
 
-1. Create the storage account to use as the trigger and get it's connection string. Replace `<triggerStorage>` with the name you want to use.
+1. Create the storage account to use for the web job storage and get it's connection string. Replace `<webjobStorage>` with the name you want to use.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
-    Record this connection string to provide to the function app. We will use it later when we ask for `<triggerConnectionString>`
 
-1. To create the function app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace Replace `<triggerStorage>` with the name of the storage account:
+1. To create the function app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace Replace `<webjobStorage>` with the name of the storage account from the previous step:
 
     ```azurecli-interactive
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account triggerStorage
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
     ```
 
     > [!IMPORTANT]
     > At this point, the function app has been created. However, since you haven't provided the connection string for the blob trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry. 
+
+1. Create the storage account to use for the blob trigger storage and get it's connection string. Replace `<triggerStorage>` with the name you want to use.
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
+    ```
+    Record this connection string to provide to the function app. We will use it later when we ask for `<triggerConnectionString>`
 
 1. Create the containers for the input and output in the storage account. Replace `<triggerConnectionString>` with the connection string returned earlier:
 
