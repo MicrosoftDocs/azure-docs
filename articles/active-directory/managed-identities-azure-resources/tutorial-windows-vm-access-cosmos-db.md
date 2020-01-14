@@ -65,12 +65,7 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
 
-
-
-
-
-
-### 1,2,3 
+### Grant access to the Cosmos DB account access keys
 
 This section shows how to grant Windows VM system-assigned managed identity access to the Cosmos DB account access keys. Cosmos DB does not natively support Azure AD authentication. However, you can use a system-assigned managed identity to retrieve a Cosmos DB access key from the Resource Manager, and use the key to access Cosmos DB. In this step, you grant your Windows VM system-assigned managed identity access to the keys to the Cosmos DB account.
 
