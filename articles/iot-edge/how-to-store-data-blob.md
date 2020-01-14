@@ -169,8 +169,8 @@ The following quickstart samples use languages that are also supported by IoT Ed
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Versions before V2.1 of the Python SDK have a known issue where the module does not return blob creation time. Because of that issue, some methods like list blobs does not work. As a workaround, explicitly set the API version on the blob client to '2017-04-17'. Example:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Append Blob Sample](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
-* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)
 * [PHP](../storage/blobs/storage-quickstart-blobs-php.md)
