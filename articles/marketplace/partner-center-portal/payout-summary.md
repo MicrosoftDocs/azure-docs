@@ -47,7 +47,7 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 | Transaction not ready for payout | Billing in Progress | Next estimated payment: The payout status is in the unprocessed state.  |
 | Payout status |  | Unprocessed: <br> The earning is eligible for payment. It stays in this state for a cooling period as defined in the program guide for the Incentive program. <br> <br> Upcoming: <br> Payment order-generated pending internal reviews before payment is processed. <br> <br> Sent: <br> The payment has been sent to your bank. |
 
-## Customer types 
+## Customer types
 
 ### Enterprise agreement
 
@@ -61,7 +61,7 @@ Customers can also pay using a credit card and a monthly invoice. In this case, 
 
 For example, if the customer purchases using a credit card.
 
-## Corelation between payout and usage 
+## Corelation between payout and usage
 
 |Description    |    Date  | Orders/Usage  | Payout |
 |----------|----------|-----------|-------------|
@@ -92,33 +92,33 @@ For example, if the customer purchases using a credit card.
 
 ## Transaction history download export
 
-This option provides a download of each earning line item you see in the Transaction history page, earning type, date, associated transaction amount, customer, product, and other transactional details applicable to the Incentives program. 
+This option provides a download of each earning line item you see in the Transaction history page, earning type, date, associated transaction amount, customer, product, and other transactional details applicable to the Incentives program.
 
-| Column name     | Description    | 
+| Column name     | Description    |
 |-------------|-------------------------------|
 | earningId                      | Unique identifier for each earning                                                                                                       |
-| participantId                  | The primary identity of the partner earning under the program                                                                            | 
-| participantIdType              | Mostly program ID for Incentive programs and Seller IF for Store programs and Azure Marketplace                                          | 
-| participantName                | Name of the earning partner                                                                                                              | 
+| participantId                  | The primary identity of the partner earning under the program                                                                            |
+| participantIdType              | Mostly program ID for Incentive programs and Seller IF for Store programs and Azure Marketplace                                          |
+| participantName                | Name of the earning partner                                                                                                              |
 | partnerCountryCode             | Location/country of the earning partner                                                                                                  |
-| programName                    | Incentive/store program name                                                                                                             | 
-| transactionId                  | Unique identifier for the transaction                                                                                                    | 
-| transactionCurrency            | Currency in which the original customer transaction occurred (it is not the partner location currency)                                     | 
-| transactionDate                | Date of the transaction. Useful for programs where many transactions contribute to one earning                                           | 
-| transactionExchangeRate        | Exchange rate used to show the corresponding transaction USD amount                                                                 | 
-| transactionAmount              | Transaction amount in the original transaction currency based on which earning is generated                                              | 
-| transactionAmountUSD           | Transaction amount in USD                                                                                                                | 
-| lever                          | Indicates business rule for the earning                                                                                                  | 
-| earningRate                    | Incentive rate applied on transaction amount to generate an earning                                                                      | 
-| quantity                       | Varies based on program. Indicates billed quantity for transactional programs                                                            | 
+| programName                    | Incentive/store program name                                                                                                             |
+| transactionId                  | Unique identifier for the transaction                                                                                                    |
+| transactionCurrency            | Currency in which the original customer transaction occurred (it is not the partner location currency)                                     |
+| transactionDate                | Date of the transaction. Useful for programs where many transactions contribute to one earning                                           |
+| transactionExchangeRate        | Exchange rate used to show the corresponding transaction USD amount                                                                 |
+| transactionAmount              | Transaction amount in the original transaction currency based on which earning is generated                                              |
+| transactionAmountUSD           | Transaction amount in USD                                                                                                                |
+| lever                          | Indicates business rule for the earning                                                                                                  |
+| earningRate                    | Incentive rate applied on transaction amount to generate an earning                                                                      |
+| quantity                       | Varies based on program. Indicates billed quantity for transactional programs                                                            |
 | quantityType                   | Indicates type of quantity, for example: Billed quantity, MAU                                                                                     |
-| earningType                    | Indicates if it is fee, rebate, coop, sell etc.                                                                                          | 
+| earningType                    | Indicates if it is fee, rebate, coop, sell etc.                                                                                          |
 | earningAmount                  | Earning Amount in the original transaction currency                                                                                      |
 | earningAmountUSD               | Earning Amount in USD                                                                                                                    |
 | earningDate                    | Date of the earning                                                                                                                      |
 | calculationDate                | Date the earning was calculated in the system                                                                                            |
 | earningExchangeRate            | Exchange rate used to show the corresponding USD amount                                                                                  |
-| exchangeRateDate               | Exchange rate date used to calculate EarningAmount USD                                                                                   | 
+| exchangeRateDate               | Exchange rate date used to calculate EarningAmount USD                                                                                   |
 | paymentAmountWOTax             | Earning amount (without tax) in Pay To currency for “Sent” payments only                                                                 |
 | paymentCurrency                | Pay to currency chosen by partner in the Payment profile. Shown only for sent payments                                                   |
 | paymentExchangeRate            | Exchange rate used to calculate paymentAmountWOTax in payment currency using ExchangeRateDate                                            |
