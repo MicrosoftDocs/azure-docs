@@ -42,6 +42,7 @@ However, Maps does not have the same level of information and accuracy for all c
 |Hong Kong SAR     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
+|Kazakhstan    |✓         |✓         |
 |Macao SAR     |✓         |✓         |
 |Malaysia     |✓         |✓         |
 |New Zealand     |✓         |✓         |

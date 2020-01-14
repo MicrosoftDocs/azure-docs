@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/27/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -85,3 +85,4 @@ Access to resources in the shared pool is allocated on an [importance](sql-data-
 - [Quickstart: configure workload isolation](quickstart-configure-workload-isolation-tsql.md)
 - [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Convert resource classes to workload groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
+- [Workload Management Portal Monitoring](sql-data-warehouse-workload-management-portal-monitor.md).  

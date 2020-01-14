@@ -39,8 +39,8 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The Azure AD authentication token. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
-| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
+| `token` | string | The Azure AD authentication token. |
+| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
@@ -105,13 +105,21 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 }
 ```
 
+### CookiePolicy enum
+
+An enum used to set the policy for the Immersive Reader's cookie usage. See [options](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### Supported MIME types
 
 | MIME Type | Description |
 | --------- | ----------- |
 | text/plain | Plain text. |
 | text/html | HTML content. [Learn more](#html-support)|
-| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
 ### HTML Support
@@ -138,6 +146,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
