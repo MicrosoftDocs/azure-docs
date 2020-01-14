@@ -1,12 +1,10 @@
 ---
 title: Common questions about Azure VM disaster recovery with Azure Site Recovery
-description: This article answers common questions about disaster recovery of Azure VMs to another Azure region using Azure Site Recovery
-author: carmonmills
+description: This article answers common questions about Azure VM disaster recovery using Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: carmonm
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
@@ -40,7 +38,7 @@ The Site Recovery team works with the Azure capacity management team to plan suf
 Yes, Site Recovery supports disaster recovery of VMs with Azure disk encryption (ADE) enabled. When you enable replication, all the required disk encryption keys and secrets are copied from the source region to the target region in the user context. If you don't have appropriate permission, a ready-to-use script can be handed to the security administrator, to copy the keys and secrets.
 
 - Site Recovery supports ADE for Azure VMs running Windows.
-- Site recovery supports ADE version 0.1, with a schema using Azure Active Directory (AAD), and version 1.1, without AAD. [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site Recovery supports ADE version 0.1, with a schema using Azure Active Directory (AAD), and version 1.1, without AAD. [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
 - ADE version 1.1, the Windows VMs must be used managed disks.
 - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
