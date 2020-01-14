@@ -69,4 +69,4 @@ If you publish an updated package with the same name to Blob storage, you need t
 ## More resources
 
 - [Continuous deployment for Azure App Service](deploy-continuous-deployment.md)
-- [Deploy code with a ZIP or WAR file](deployment-zip-push.md)
+- [Deploy code with a ZIP or WAR file](deploy-zip.md)
