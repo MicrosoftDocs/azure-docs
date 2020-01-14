@@ -49,7 +49,7 @@ Refer to the [configuration documentation](https://docs.microsoft.com/azure/acti
 
 Set `"shared_device_mode_supported"` to `true` in your MSAL configuration file.
 
-You may not be planning on supporting multiple-account mode. That may be the case if you are not using a shared device, and the user can sign into the app with more than one account at the same time. If so, set `"account_mode"` to `"SINGLE"`. This guarantees that your app will always get `ISingleAccountPublicClientApplication`, and significantly simplifies your MSAL integration. The default value of `"account_mode"` is `"MULTIPLE"`, so it is important to change this value in the config file if you are using `"single account"` mode.
+You may not be planning to support multiple-account mode. That could be if you are not using a shared device, and the user can sign into the app with more than one account at the same time. If so, set `"account_mode"` to `"SINGLE"`. This guarantees that your app will always get `ISingleAccountPublicClientApplication`, and significantly simplifies your MSAL integration. The default value of `"account_mode"` is `"MULTIPLE"`, so it is important to change this value in the config file if you are using `"single account"` mode.
 
 Here's an example of the auth_config.json file included in the **app**>**main**>**res**>**raw** directory of the sample app:
 
@@ -203,7 +203,15 @@ The following steps describe setting up your application in the Azure portal and
 
 First, register your application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
 
-For information on how to do this, refer to the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#integrate-with-microsoft-authentication-library).
+For information on how to do this, refer to [Register your application](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+
+> [!NOTE]
+> When you register your app, please use the QuickStart guide on the left-hand side and then select **Android**. This will lead you to a page where you will be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You will then receive a configuration object that you can use for your app that you will cut and paste into your auth_config.json file.
+
+![App registration screen](media/tutorial-v2-shared-device-mode/register-app.png)
+You should select **Make this change for me** and then provide the values the QuickStart asks for in the Azure portal. When that's done, we will generate all the configuration files you need.
+
+![App config info screen](media/tutorial-v2-shared-device-mode/config-info.png)
 
 ## Setup a tenant
 
