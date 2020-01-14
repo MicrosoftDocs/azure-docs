@@ -15,11 +15,11 @@ ms.reviewer: jrasnick
 
 In either SQL pool or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
 
-1. Create an external table
-1. Export, in parallel, the results of a Transact-SQL SELECT statement to
-   1. Hadoop
-   1. Azure Storage Blob
-   1. Azure Data Lake Storage Gen2
+- Create an external table
+- Export, in parallel, the results of a Transact-SQL SELECT statement to
+   - Hadoop
+   - Azure Storage Blob
+   -  Azure Data Lake Storage Gen2
 
 ## CETAS in SQL pool
 
