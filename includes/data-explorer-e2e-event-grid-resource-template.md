@@ -136,7 +136,7 @@ In this article, you use an Azure Resource Manager template to create a resource
                 "tier": "Standard",
                 "capacity": 2
             },
-            "apiVersion": "2019-05-15",
+            "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
             "tags": {
                 "Created By": "GitHub quickstart template"
@@ -144,7 +144,7 @@ In this article, you use an Azure Resource Manager template to create a resource
         }, {
             "name": "[concat(parameters('kustoClusterName'), '/', parameters('kustoDatabaseName'))]",
             "type": "Microsoft.Kusto/clusters/databases",
-            "apiVersion": "2019-05-15",
+            "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
             "dependsOn": ["[resourceId('Microsoft.Kusto/clusters', parameters('kustoClusterName'))]"],
             "properties": {

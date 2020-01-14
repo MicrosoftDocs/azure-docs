@@ -1,23 +1,15 @@
 ---
-title: Create a custom probe - Azure Application Gateway - Azure portal | Microsoft Docs
+title: Create a custom probe using the portal
+titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using the portal
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Create a custom probe for Application Gateway by using the portal
 
 > [!div class="op_single_selector"]

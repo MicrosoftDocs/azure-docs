@@ -1,11 +1,7 @@
 ---
 title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf

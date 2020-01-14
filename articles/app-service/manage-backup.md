@@ -1,18 +1,9 @@
 ---
-title: Back up app - Azure App Service
-description: Learn how to create backups of your apps in Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-
+title: Back up an app
+description: Learn how to create backups of your apps in Azure App Service. Run manual or scheduled backups. Customize backups by including the attached database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

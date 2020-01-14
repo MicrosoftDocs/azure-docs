@@ -1,13 +1,9 @@
 ---
-title: Automate tasks for enterprise integration - Azure Logic Apps
+title: Automate tasks for enterprise integration
 description: Learn about automating workflows that integrate apps, data, services, and systems with minimal code for enterprise integration by using Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
@@ -37,7 +33,7 @@ Every logic app workflow starts with a trigger, which fires when a specific even
 
 Each time that the trigger fires, the Logic Apps engine creates a logic app instance that runs the actions in the workflow. These actions can also include data conversions and flow controls, such as conditional statements, switch statements, loops, and branching. For example, this logic app starts with a Dynamics 365 trigger with the built-in criteria "When a record is updated". If the trigger detects an event that matches this criteria, the trigger fires and runs the workflow's actions. Here, these actions include XML transformation, data updates, decision branching, and email notifications.
 
-![Logic Apps Designer - example logic app](./media/logic-apps-overview/azure-logic-apps-overview.png)
+![Logic Apps Designer - example logic app](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
 You can build your logic apps visually with the Logic Apps Designer, which is available in the Azure portal through your browser and in Visual Studio. For more custom logic apps, you can create or edit logic app definitions in JavaScript Object Notation (JSON) by working in the "code view" editor. You can also use Azure PowerShell commands and Azure Resource Manager templates for select tasks. Logic apps deploy and run in the cloud on Azure. For a more detailed introduction, watch this video: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
@@ -47,7 +43,7 @@ With businesses moving toward digitization, logic apps help you connect legacy, 
 
 In many cases, you won't have to write code. But if you must write some code, you can create code snippets with [Azure Functions](../azure-functions/functions-overview.md) and run that code on-demand from logic apps. Also, if your logic apps need to interact with events from Azure services, custom apps, or other solutions, you can use [Azure Event Grid](../event-grid/overview.md) with your logic apps for event monitoring, routing, and publishing.
 
-Logic Apps, Functions, and Event Grid are fully managed by Microsoft Azure, which frees you from worries about building, hosting, scaling, managing, monitoring, and maintaining your solutions. With the capability to create ["serverless" apps and solutions](../logic-apps/logic-apps-serverless-overview.md), you can just focus on the business logic. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps with minimal code. Plus, you pay only for what you use, based on a consumption [pricing model](../logic-apps/logic-apps-pricing.md).
+Logic Apps, Functions, and Event Grid are fully managed by Microsoft Azure, which frees you from worries about building, hosting, scaling, managing, monitoring, and maintaining your solutions. With the capability to create ["serverless" apps and solutions](../logic-apps/logic-apps-serverless-overview.md), you can just focus on the business logic. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps with minimal code.
 
 To learn how companies improved their agility and increased focus on their core businesses when they combined Logic Apps with other Azure services and Microsoft products, check out these [customer stories](https://aka.ms/logic-apps-customer-stories).
 

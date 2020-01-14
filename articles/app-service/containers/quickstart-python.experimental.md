@@ -4,15 +4,9 @@ description: Deploy your first Python hello world app in Azure App Service on Li
 services: app-service\web
 documentationcenter: ''
 author: msangapu-msft
-manager: gwallace
-editor: ''
 
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 1/14/2020
 ms.author: msangapu
 ms.custom: seo-python-october2019
 

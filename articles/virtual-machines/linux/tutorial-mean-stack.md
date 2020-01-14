@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a MEAN stack on a Linux virtual machine in Azure | Microsoft Docs
+title: Tutorial - Create a MEAN stack on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to create a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines

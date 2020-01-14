@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice assistant, C# (UWP) - Speech Service'
+title: 'Quickstart: Custom voice assistant, C# (UWP) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech Software Development Kit (SDK). You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -26,7 +26,7 @@ In this article, you'll develop a C# Universal Windows Platform (UWP) applicatio
 This quickstart requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
+* An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
@@ -287,7 +287,7 @@ To add the code-behind source, follow these steps:
 1. Add the following code snippet to the method body of `InitializeDialogServiceConnector`. This code creates the `DialogServiceConnector` with your subscription information.
 
     ```csharp
-    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // Create a BotFrameworkConfig by providing a Speech service subscription key
     // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
@@ -417,7 +417,7 @@ Now you are ready to build and test your application.
 ## See also
 
 - [About voice assistants](voice-assistants.md)
-- [Get a Speech Services subscription key for free](get-started.md)
+- [Get a Speech service subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)

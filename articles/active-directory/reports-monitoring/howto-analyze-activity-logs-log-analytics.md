@@ -3,7 +3,7 @@ title: Analyze activity logs using Azure Monitor logs | Microsoft Docs
 description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
-ms.reviewer: markvi
+ms.author: markvi
+ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---

@@ -262,7 +262,7 @@ The objective of this section is to create a user called Britta Simon in Zendesk
     ![New user](././media/zendesk-tutorial/ic773633.png "New user")
 
 > [!NOTE]
-> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts.
+> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

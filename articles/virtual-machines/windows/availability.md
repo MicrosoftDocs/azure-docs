@@ -1,5 +1,5 @@
 ---
-title: Azure availability options for Windows VMs | Microsoft Docs
+title: Azure availability options for Windows VMs 
 description: Learn about the availability features for running Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 11/05/2019
 ms.author: cynthn
 ---
-# Availability options for virtual machines in Azure
 
+# Availability options for virtual machines in Azure
 [!INCLUDE [virtual-machines-common-availability](../../../includes/virtual-machines-common-availability.md)]
 

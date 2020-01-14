@@ -1,5 +1,5 @@
 ---
-title: 'About point-to-site VPN client profiles: Azure VPN Gateway| Microsoft Docs'
+title: 'Azure VPN Gateway: About P2S VPN client profiles'
 description: This helps you work with the client profile file
 services: vpn-gateway
 author: cherylmc
@@ -30,7 +30,7 @@ Extract the zip file. The file contains the following folders:
 
 * AzureVPN
 * Generic
-* OpenVPN
+* OpenVPN (If you enabled the OpenVPN and Azure AD authentication settings on the gateway. See [Create a tenant](openvpn-azure-ad-tenant.md).)
 
 ## 3. Retrieve information
 

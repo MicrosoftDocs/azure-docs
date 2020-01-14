@@ -1,5 +1,5 @@
 ---
-title: Document Extraction cognitive search skill (preview)
+title: Document Extraction cognitive skill (preview)
 titleSuffix: Azure Cognitive Search
 description: Extracts content from a file within the enrichment pipeline. This skill is currently in public preview.
 manager: nitinme

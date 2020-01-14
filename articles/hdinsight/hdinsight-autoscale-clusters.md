@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 # Automatically scale Azure HDInsight clusters
 
 > [!Important]
-> The Autoscale feature only works for Spark, Hive and MapReduce clusters created after May 8th 2019. 
+> The Autoscale feature only works for Spark, Hive, LLAP and HBase clusters created after May 8th 2019. 
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
 
@@ -23,10 +23,12 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+
+\* HBase clusters can only be configured for schedule-based scaling, not load-based.
 
 ## How it works
 

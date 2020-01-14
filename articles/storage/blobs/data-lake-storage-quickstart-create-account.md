@@ -90,7 +90,7 @@ To remove a resource group using the Azure portal:
 
 ## Create an account using PowerShell
 
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
 Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
@@ -194,7 +194,7 @@ az storage account create `
     --location westus2 `
     --sku Standard_LRS `
     --kind StorageV2 `
-    --hierarchical-namespace true
+    --enable-hierarchical-namespace true
 ```
 
 ### Clean up resources

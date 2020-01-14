@@ -78,12 +78,11 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
    > [!NOTE]
    > You can limit access to only your resource group for more granular control.
-3. Follow the instructions in the following link.
+3. Follow the [ZScaler: Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) instructions to:
 
-   - To sign in to the partner portal and add your credentials to give the trusted partner access to your secured hub.
-   - Once your Azure AD authentication credentials are validated, use the following instructions to sync the virtual hubs in the partner portal, and set up the tunnel to the virtual hub.
-
-   [ZScaler: Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - Sign in to the partner portal and add your credentials to give the trusted partner access to your secured hub.
+   - Sync the virtual hubs in the partner portal, and set up the tunnel to the virtual hub. You can do so once your Azure AD authentication credentials are validated.
+   
 4. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 
 ## Configure route settings

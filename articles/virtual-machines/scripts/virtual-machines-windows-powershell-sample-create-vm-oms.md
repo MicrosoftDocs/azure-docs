@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Azure Monitor logs | Microsoft Docs
+title: Azure PowerShell Script Sample - Azure Monitor logs 
 description: Azure PowerShell Script Sample - Azure Monitor logs
 services: virtual-machines-windows
 documentationcenter: virtual-machines

@@ -17,7 +17,9 @@ ms.author: memildin
 
 To help secure your systems and environment, Azure Security Center generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
 
-With this preview feature, you can add your own *custom* initiatives. You'll then receive recommendations if your machines don't follow the policies you create.
+With this preview feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
+
+As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) in the Azure Policy documentation, when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
 ## To add a custom initiative to your subscription 
 
@@ -28,7 +30,9 @@ With this preview feature, you can add your own *custom* initiatives. You'll the
     [![Selecting a subscription for which you'll create your custom policy](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > When you add a custom standard, it assigns an *initiative* to that scope. We therefore recommend that you select the widest scope required for that assignment. 
+    > You must add custom standards at the subscription level (or higher) for them to be evaluated and displayed in Security Center. 
+    >
+    > When you add a custom standard, it assigns an *initiative* to that scope. We therefore recommend that you select the widest scope required for that assignment.
 
 1. In the Security policy page, under Your custom initiatives (Preview), click **Add a custom initiative**.
 
@@ -53,7 +57,13 @@ With this preview feature, you can add your own *custom* initiatives. You'll the
     > [!NOTE]
     > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Azure Security Center](security-center-permissions.md).
 
-1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a “Custom” label and be available for up to 30 minutes.
+    Your new initiative takes effect and you can see the impact in the following two ways:
+
+    * From the Security Center sidebar, under Policy & Compliance, select **Regulatory compliance**. The compliance dashboard opens to show your new custom initiative alongside the built-in initiatives.
+    
+    * You'll begin to receive recommendations if your environment doesn't follow the policies you've defined.
+
+1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a “Custom” label and be available within approximately one hour.
 
     [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 

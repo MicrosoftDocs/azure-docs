@@ -1,5 +1,5 @@
 ---
-title: Specifying DNS Settings in a virtual network configuration file | Microsoft Docs
+title: Specify DNS settings in Azure VNet configuration file
 description: How to change DNS server settings in a virtual network using a virtual network configuration file in the classic deployment model
 services: virtual-network
 documentationcenter: na

@@ -1,21 +1,12 @@
 ---
-title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
-description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
-services: cache
-documentationcenter: ''
+title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
+description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
 

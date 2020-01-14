@@ -1,11 +1,8 @@
 ---
 title: Author policies for array properties on resources
-description: Learn to create array parameters, create rules for array language expressions, evaluate the [*] alias, and to append elements to an existing array with Azure Policy definition rules.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/06/2019
-ms.topic: conceptual
-ms.service: azure-policy
+description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
+ms.date: 11/26/2019
+ms.topic: how-to
 ---
 # Author policies for array properties on Azure resources
 
@@ -18,8 +15,9 @@ used in several different ways:
 - Part of a [policy rule](../concepts/definition-structure.md#policy-rule) using the conditions
   **in** or **notIn**
 - Part of a policy rule that evaluates the [\[\*\]
-  alias](../concepts/definition-structure.md#understanding-the--alias) to evaluate specific
-  scenarios such as **None**, **Any**, or **All**
+  alias](../concepts/definition-structure.md#understanding-the--alias) to evaluate:
+  - Scenarios such as **None**, **Any**, or **All**
+  - Complex scenarios with **count**
 - In the [append effect](../concepts/effects.md#append) to replace or add to an existing array
 
 This article covers each use by Azure Policy and provides several example definitions.
@@ -163,12 +161,13 @@ expression. To resolve this error message, change `equals` to either `in` or `no
 
 ### Evaluating the [*] alias
 
-Aliases that have **[\*]** attached to their name indicate the **type** is an _array_. Instead of
-evaluating the value of the entire array, **[\*]** makes it possible to evaluate each element of the
-array. There are three scenarios this per item evaluation is useful in: None, Any, and All.
+Aliases that have **\[\*\]** attached to their name indicate the **type** is an _array_. Instead of
+evaluating the value of the entire array, **\[\*\]** makes it possible to evaluate each element of
+the array. There are three standard scenarios this per item evaluation is useful in: None, Any, and
+All. For complex scenarios, use [count](../concepts/definition-structure.md#count).
 
 The policy engine triggers the **effect** in **then** only when the **if** rule evaluates as true.
-This fact is important to understand in context of the way **[\*]** evaluates each individual
+This fact is important to understand in context of the way **\[\*\]** evaluates each individual
 element of the array.
 
 The example policy rule for the scenario table below:
@@ -224,11 +223,11 @@ rule and array of existing values above:
 ## The append effect and arrays
 
 The [append effect](../concepts/effects.md#append) behaves differently depending on if the
-**details.field** is a **[\*]** alias or not.
+**details.field** is a **\[\*\]** alias or not.
 
-- When not a **[\*]** alias, append replaces the entire array with the **value** property
-- When a **[\*]** alias, append adds the **value** property to the existing array or creates the new
-  array
+- When not a **\[\*\]** alias, append replaces the entire array with the **value** property
+- When a **\[\*\]** alias, append adds the **value** property to the existing array or creates the
+  new array
 
 For more information, see the [append examples](../concepts/effects.md#append-examples).
 

@@ -1,13 +1,8 @@
 ---
-title: Use Azure Backup Server to back up workloads to Azure
+title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
 ---
 
 # Install and upgrade Azure Backup Server
@@ -31,7 +26,7 @@ This article explains how to prepare your environment to back up workloads using
 MABS deployed in an Azure VM can back up VMs in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation, see [DPM as an Azure virtual machine](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/management/deployment-models.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 >
 >
 
@@ -180,14 +175,14 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     Use the following values for SSRS configuration:
     * Service Account: ‘Use built-in account’ should be Network Service
-    * Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-    * Database: DatabaseName should be ReportServer$<SQLInstanceName>
-    * Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    * Web Service URL: ‘Virtual Directory’ should be ReportServer_\<SQLInstanceName>
+    * Database: DatabaseName should be ReportServer$\<SQLInstanceName>
+    * Web Portal URL: ‘Virtual Directory’ should be Reports_\<SQLInstanceName>
 
     [Learn more](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
 
     > [!NOTE]
-    > Licensing for SQL Server used as the database for MABS is governed by [Microsoft Online Services Terms](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). According to OST, SQL Server bundled with MABS can be used only as the database for MABS.
+    > Licensing for SQL Server used as the database for MABS is governed by [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST). According to OST, SQL Server bundled with MABS can be used only as the database for MABS.
 
 4. Provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
 
@@ -331,8 +326,6 @@ Use the following steps to upgrade MABS:
    > [!NOTE]
    >
    > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and hence an attempt to re-upgrade MABS will fail.
-
-   Important things to note:
 
    > [!IMPORTANT]
    >

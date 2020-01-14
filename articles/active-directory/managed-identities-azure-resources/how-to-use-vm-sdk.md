@@ -1,5 +1,5 @@
 ---
-title: How to use managed identities for Azure resources on an Azure VM with Azure SDKs
+title: Use managed identities on an Azure VM with Azure SDKs - Azure AD
 description: Code samples for using Azure SDKs with an Azure VM that has managed identities for Azure resources.
 services: active-directory
 documentationcenter: 

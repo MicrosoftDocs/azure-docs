@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - IIS with DSC | Microsoft Docs
+title: Azure PowerShell Script Sample - IIS with DSC 
 description: Azure PowerShell Script Sample - IIS with DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines

@@ -1,16 +1,12 @@
 ---
-title: Connect to Twitter from Azure Logic Apps | Microsoft Docs
+title: Connect to Twitter from Azure Logic Apps
 description: Automate tasks and workflows that monitor and manage tweets, plus get data about followers, your followed users, other users, timelines, and more from your Twitter account by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
+tags: connectors
 ---
 
 # Monitor and manage Twitter by using Azure Logic Apps

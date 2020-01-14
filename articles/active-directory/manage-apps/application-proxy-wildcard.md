@@ -1,5 +1,5 @@
 ---
-title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
+title: Wildcard applications in the Azure AD Application Proxy
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''

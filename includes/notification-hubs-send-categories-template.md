@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: notification-hubs
- author: spelluru
+ author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 03/30/2018
- ms.author: spelluru
+ ms.date: 11/07/2019
+ ms.author: sethm
  ms.custom: include file
 ---
 
@@ -40,12 +40,15 @@ In this section, you send breaking news as tagged template notifications from a 
         // Define the notification hub.
         NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
 
+        // Apple requires the apns-push-type header for all requests
+        var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
+
         // Create an array of breaking news categories.
         var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
 
         // Send the notification as a template notification. All template registrations that contain
         // "messageParam" and the proper tags will receive the notifications.
-        // This includes APNS, GCM, WNS, and MPNS template registrations.
+        // This includes APNS, GCM/FCM, WNS, and MPNS template registrations.
 
         Dictionary<string, string> templateParams = new Dictionary<string, string>();
 

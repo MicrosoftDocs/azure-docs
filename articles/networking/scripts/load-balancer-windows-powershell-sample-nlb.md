@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Load balance traffic to VMs for high availability | Microsoft Docs
+title: Load balance traffic to VMs for HA - Azure PowerShell
 description: Azure PowerShell Script Sample - Load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer

@@ -1,13 +1,8 @@
 ---
-title: Configure Windows Java apps - Azure App Service | Microsoft Docs
-description: Learn how to configure Java apps to run on the default Windows instances in Azure App Service.
+title: Configure Windows Java apps
+description: Learn how to configure Java apps to run on the Windows VM instances in Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java
-services: app-service
 author: jasonfreeberg
-manager: jeconnock
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
@@ -36,10 +31,6 @@ Do not deploy your .war using FTP. The FTP tool is designed to upload startup sc
 ## Logging and debugging apps
 
 Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
-
-### SSH console access
-
-[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### Stream diagnostic logs
 
@@ -320,7 +311,7 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 
 ### Runtime support
 
-Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
+Developers can [open an issue](/azure/azure-portal/supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

@@ -1,8 +1,7 @@
 ---
-title: Receive an email when door is opened using SendGrid service and Azure Functions | Microsoft Docs
+title: Send email when door is opened using Azure Functions
 description: Monitor the magnetic sensor to detect when a door is opened and use Azure Functions to send an email notification.
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -11,7 +10,7 @@ ms.date: 03/19/2018
 ms.author: liydu
 ---
 
-# Door Monitor          
+# Door Monitor -- Using Azure Functions and SendGrid, send email when a door is opened           
 
 The MXChip IoT DevKit contains a built-in magnetic sensor. In this project, you detect the presence or absence of a nearby strong magnetic field -- in this case, coming from a small, permanent magnet.
 
@@ -61,7 +60,7 @@ You now see the SendGrid sign-up form.
 
 Complete the sign-up form:
 
-   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Name**: The name for your SendGrid service. Choose a unique name, differing from other services you may have.
 
@@ -101,7 +100,7 @@ The sign-up form appears.
 
 Fill in the fields on the sign-up form.
 
-   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Iot Hub Name**: The name for your IoT hub. Choose a unique name, differing from other services you may have.
 

@@ -1,6 +1,6 @@
 ---
 author: amberbhargava
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb

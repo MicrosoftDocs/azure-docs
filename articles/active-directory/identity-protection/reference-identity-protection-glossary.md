@@ -42,7 +42,7 @@ A risk detection status set manually by an Identity Protection user, indicating 
 A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
 
 ### Identity risk detection
-AAD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
+Azure AD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
 
 ### Ignored (risk detection)
 A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.

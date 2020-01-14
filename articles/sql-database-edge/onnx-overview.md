@@ -22,31 +22,26 @@ To infer machine learning models in Azure SQL Database Edge, you will first need
 
 ## Get ONNX models
 
-There are several ways that you can obtain a model in the ONNX format:
+To obtain a model in the ONNX format:
 
-- [ONNX Model Zoo](https://github.com/onnx/models): Contains many pre-trained ONNX models for different types of tasks that can be downloaded and are ready to use.
+- **Model Building Services**: Services such as the [automated Machine Learning feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) support directly exporting the trained model in the ONNX format.
 
-- [Native export from ML training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format, including [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2. In addition, model building services such as  the [automated Machine Learning feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) provide ONNX export.
+- [**Convert and/or export existing models**](https://github.com/onnx/tutorials#converting-to-onnx-format): Several training frameworks (e.g. [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2) support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format. For frameworks that do not support native export, there are standalone ONNX Converter installable packages that enable you to convert models trained from different machine learning frameworks to the ONNX format.
 
-- [Convert existing models](https://github.com/onnx/tutorials#converting-to-onnx-format): For frameworks that do not support native export, there are standalone packages for converting models to the ONNX format. For examples and tutorials, see [Converting to ONNX format](https://github.com/onnx/tutorials#converting-to-onnx-format). 
-
-### Supported frameworks
-
-ONNX Converters enable you to convert models trained from different machine learning frameworks to the ONNX format. Popular converters include: 
-
-* [PyTorch](http://pytorch.org/docs/master/onnx.html)
-* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
-* [Keras](https://github.com/onnx/keras-onnx)
-* [Scikit-learn](https://github.com/onnx/sklearn-onnx)
-* [CoreML](https://github.com/onnx/onnxmltools)
-
-For the full list of supported frameworks, see [Converting to ONNX format](https://github.com/onnx/tutorials#converting-to-onnx-format).
+     **Supported frameworks**
+   * [PyTorch](http://pytorch.org/docs/master/onnx.html)
+   * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+   * [Keras](https://github.com/onnx/keras-onnx)
+   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+   * [CoreML](https://github.com/onnx/onnxmltools)
+    
+    For the full list of supported frameworks and examples, see [Converting to ONNX format](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## Limitations
 
 Currently, not all ONNX models are supported by Azure SQL Database Edge. The support is limited to models with **numeric data types**:
 
-- [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real and float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
   
 Other numeric types can be converted to supported types by using [CAST and CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).

@@ -1,7 +1,7 @@
 ---
 title: C# tutorial on autocompletion and suggestions
 titleSuffix: Azure Cognitive Search
-description:  This tutorial builds on the "Search results pagination - Azure Cognitive Search" project, to add autocompletion and suggestions. The goal is a richer user experience. Learn how to combine a drop-down list of suggestions with inline autocompletion.
+description:  This tutorial demonstrates autocompletion and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
 
 manager: nitinme
 author: PeterTurcan

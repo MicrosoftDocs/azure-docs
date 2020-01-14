@@ -1,11 +1,8 @@
 ---
 title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
-services: functions
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
@@ -27,7 +24,7 @@ The Microsoft Graph extension provides the following bindings:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph bindings are currently in preview for Azure Functions version 2.x. They are not supported in Functions version 1.x.
+> Microsoft Graph bindings are currently in preview for Azure Functions version 2.x and higher. They are not supported in Functions version 1.x.
 
 ## Packages
 
@@ -52,7 +49,7 @@ To install an extension from the Azure portal, navigate to either a template or 
 In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension. Each extension only needs to be installed once per function app. 
 
 > [!Note] 
-> The in-portal installation process can take up to 10 minutes on a consumption plan.
+> The in-portal installation process can take up to 10 minutes on a Consumption plan.
 
 If you are using Visual Studio, you can get the extensions by installing [the NuGet packages that are listed earlier in this article](#packages).
 

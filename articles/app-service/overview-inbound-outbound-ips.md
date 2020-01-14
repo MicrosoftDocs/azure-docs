@@ -1,18 +1,8 @@
 ---
-title: Inbound/Outbound IP addresses - Azure App Service | Microsoft Docs
-description: Describes how inbound and outbound IP addresses are used in App Service and how to find information on them for your app.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Inbound/Outbound IP addresses
+description: Learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for your app.
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

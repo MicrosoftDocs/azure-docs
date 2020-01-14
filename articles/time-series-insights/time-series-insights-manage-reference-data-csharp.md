@@ -1,6 +1,6 @@
 ---
-title: 'Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs'
-description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
+title: 'Manage reference data in GA environments using C# - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to manage reference data for your GA environment by creating a custom application written in C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -25,7 +25,7 @@ Complete the following steps before you compile and run the sample code:
 
 1. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request.
 
-   For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+   For information about how to set up non-interactive applications, read [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 
 1. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code.
 

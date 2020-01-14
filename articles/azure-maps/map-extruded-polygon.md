@@ -1,6 +1,6 @@
 ---
-title: Add an extrusion polygon layer to Azure Maps | Microsoft Docs
-description: How to add an extrusion polygon layer to the Azure Maps Web SDK.
+title: Add a polygon extrusion layer to a map | Microsoft Azure Maps
+description: How to add a polygon extrusion layer to the Microsoft Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -11,7 +11,7 @@ manager:
 ms.custom: codepen
 ---
 
-# Add an extrusion polygon layer to the map
+# Add a polygon extrusion layer to the map
 
 This article shows you how to use the polygon extrusion layer to render areas of `Polygon` and `MultiPolygon` feature geometries as extruded shapes on the map. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles are transformed into polygons when rendered on the map. All feature geometries can also be easily updated if wrapped with the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class.
 
@@ -66,6 +66,14 @@ The Azure Maps Web SDK converts these `Point` features into `Polygon` features u
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## Customize a polygon extrusion layer
+
+The Polygon Extrusion layer several styling options. Here is a tool to try them out.
+
+<br/>
+
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Next steps
 

@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Create an Azure virtual machine scale set using Terraform
 description: Learn to use Terraform to configure and version an Azure virtual machine scale set.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
 ---
@@ -422,7 +419,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {

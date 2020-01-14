@@ -1,9 +1,9 @@
 ---
-title: Create a water consumption monitoring app with Azure IoT Central | Microsoft Docs
-description: Learn to create a water consumption monitoring application using Azure IoT Central application templates.
+title: 'Tutorial: Create a water consumption monitoring app with Azure IoT Central'
+description: 'Tutorial: Learn to create a water consumption monitoring application using Azure IoT Central application templates.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 09/24/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

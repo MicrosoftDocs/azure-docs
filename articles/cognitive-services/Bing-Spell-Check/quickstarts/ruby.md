@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and Ruby"
+title: "Quickstart: Check spelling with the REST API and Ruby - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check REST API to check spelling and grammar.
+description: Get started using the Bing Spell Check REST API to check spelling and grammar with this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
@@ -27,13 +27,13 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 1. Create a new Ruby file in your favorite editor or IDE, and add the following requirements. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Create variables for your subscription key, endpoint URI and path. Create your request parameters by appending the `mkt=` parameter to your market, and `&mode` to the `proof` proof mode.
+2. Create variables for your subscription key, endpoint URI and path. Create your request parameters by appending the `mkt=` parameter to your market, and `&mode` to the `proof` proof mode. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -76,6 +76,16 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## Run the application
+
+Build and run your project.
+
+If you're using the command line, use the following command to run the application.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## Example JSON response
 

@@ -1,11 +1,8 @@
 ---
-title: Create a blueprint in the portal
-description: Use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/11/2019
+title: "Quickstart: Create a blueprint in the portal"
+description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.service: blueprints
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
@@ -14,13 +11,7 @@ reusable and rapidly deployable configurations based on Azure Resource Manager t
 security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
 tasks related to creating, publishing, and assigning a blueprint within your organization. These tasks include:
 
-> [!div class="checklist"]
-> - Create a new blueprint and add various supported artifacts
-> - Make changes to an existing blueprint still in **Draft**
-> - Mark a blueprint as ready to assign with **Published**
-> - Assign a blueprint to an existing subscription
-> - Check the status and progress of an assigned blueprint
-> - Remove a blueprint that has been assigned to a subscription
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -338,7 +329,9 @@ Now that the blueprint has been assigned to a subscription, verify the progress 
    that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md)
    for steps to determine what went wrong.
 
-## Unassign a blueprint
+## Clean up resources
+
+### Unassign a blueprint
 
 If you no longer need a blueprint assignment, remove it from a subscription. The blueprint might
 have been replaced by a newer blueprint with updated patterns, policies, and designs. When a
@@ -352,7 +345,7 @@ blueprint assignment, follow these steps:
 
 1. Read the confirmation message and then select **OK**.
 
-## Delete a blueprint
+### Delete a blueprint
 
 1. Select **Blueprint definitions** from the page on the left.
 
@@ -367,9 +360,8 @@ blueprint assignment, follow these steps:
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
-- Understand how to use [static and dynamic parameters](./concepts/parameters.md).
-- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
-- Learn how to [update existing assignments](./how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md).
+In this quickstart, you've created, assigned, and removed a blueprint with Azure portal. To learn
+more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)
