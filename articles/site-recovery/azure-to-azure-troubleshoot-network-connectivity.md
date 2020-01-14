@@ -5,9 +5,8 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 08/05/2019
-ms.author: sideeksh
-
 ---
+
 # Troubleshoot Azure-to-Azure VM network connectivity issues
 
 This article describes the common issues related to network connectivity when you replicate and recover Azure virtual machines from one region to another region. For more information about networking requirements, see the [connectivity requirements for replicating Azure VMs](azure-to-azure-about-networking.md).

@@ -5,7 +5,7 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: sideeksh
+
 ---
 
 # Troubleshoot Azure VM extension issues

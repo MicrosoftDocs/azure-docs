@@ -5,8 +5,6 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
-ms.author: sideeksh
-
 ---
 
 

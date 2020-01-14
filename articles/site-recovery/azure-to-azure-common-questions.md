@@ -1,11 +1,10 @@
 ---
 title: Common questions about Azure VM disaster recovery with Azure Site Recovery
-description: This article answers common questions about Azure VM disaster recovery using Azure Site Recovery
+description: This article answers common questions about Azure VM disaster recovery using Azure Site Recovery.
 author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: sideeksh
 
 ---
 # Common questions: Azure-to-Azure disaster recovery

@@ -5,7 +5,6 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: sideeksh
 
 ---
 # Troubleshoot replication in Azure VM disaster recovery

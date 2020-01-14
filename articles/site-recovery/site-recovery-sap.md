@@ -5,7 +5,6 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: sideeksh
 
 ---
 # Set up disaster recovery for a multi-tier SAP NetWeaver app deployment

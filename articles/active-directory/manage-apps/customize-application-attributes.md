@@ -67,6 +67,7 @@ Along with this property, attribute-mappings also support the following attribut
 
 - **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (example: ServiceNow).
+- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If, for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
 - **Match objects using this attribute** – Whether this mapping should be used to uniquely identify users between the source and target systems. It's typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
 - **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 - **Apply this mapping**
