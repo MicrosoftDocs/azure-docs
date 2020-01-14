@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a daily export
 
-To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, click **Export** and then choose an export option. For example, click **Schedule export**.  
+To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Export** and then choose an export option. For example, select **Schedule export**.  
 
 > [!NOTE]
 > - Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
@@ -50,17 +50,17 @@ To create or view a data export or to schedule an export, open the desired scope
 >
 
 
-Click **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Click **Next**.
+Select **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Select **Next**.
 
 ![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)
 
-Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to.  Click **Next**.
+Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to. Select **Next**.
 
 ![New export example showing storage account details](./media/tutorial-export-acm-data/storage_exports.png)
 
-Review your export details and click **Create**.
+Review your export details and select **Create**.
 
-Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, click any item in the list and then click either **Disable** or **Delete**.
+Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list and then select either **Disable** or **Delete**.
 
 Initially, it can take one to two hours before the export runs. However, it can take up to four hours before data is shown in exported files.
 
@@ -85,11 +85,11 @@ If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice b
 
 You can easily verify that your Cost Management data is being collected and view the exported CSV file using Azure Storage Explorer.
 
-In the export list, click the storage account name. On the storage account page, click Open in Explorer. If you see a confirmation box, click **Yes** to open the file in Azure Storage Explorer.
+In the export list, select the storage account name. On the storage account page, select Open in Explorer. If you see a confirmation box, select **Yes** to open the file in Azure Storage Explorer.
 
 ![Storage account page showing example information and link to Open in Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 
-In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then click **Open**.
+In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
 
 ![Example information shown in Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
 
