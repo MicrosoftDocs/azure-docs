@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 01/10/2020
 ms.author: aahi
 ms.reviewer: assafi
 ---
