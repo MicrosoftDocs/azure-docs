@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/14/2020
 ms.author: iainfou
 
 ---
@@ -115,23 +115,21 @@ There's nothing for you to configure for Azure AD DS to be distributed across zo
 
 ## Resource definition for Azure AD DS
 
+## Resource definition for Azure AD DS
+
 As part of the Resource Manager resource definition, the following configuration parameters are required:
 
-* **domainName** - The DNS domain name for your managed domain, taking into consideration the previous points on naming prefixes and conflicts.
-* **filteredSync** - Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize all users and groups, you can't later choose to only perform a scoped synchronization. For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].
-    * When **filteredSync** is *Disabled*, all users are synchronized. When *Enabled*, only the specified groups are synchronized
-* **domainConfigurationType** - A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
-    * When **domainConfiguration** type is *FullySynced*, a user forest is created. When *ResourceTrusting*, a resource forest is created.
-* **notificationSettings** - If there are any alerts generated in the Azure AD DS managed domain, email notifications can be sent out. *Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.
-    * If desired, you can add additional recipients for notifications when there are alerts that require attention.
+| Parameter               | Value |
+|-------------------------|---------|
+| domainName              | The DNS domain name for your managed domain, taking into consideration the previous points on naming prefixes and conflicts. |
+| filteredSync            | Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize all users and groups, you can't later choose to only perform a scoped synchronization.<br /> For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].|
+| notificationSettings    | If there are any alerts generated in the Azure AD DS managed domain, email notifications can be sent out. <br />*Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.<br /> If desired, you can add additional recipients for notifications when there are alerts that require attention.|
+| domainConfigurationType | By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /> A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. Set the value to *ResourceTrusting* to create a resource forest.<br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].|
 
 The following condensed parameters definition shows how these values are declared. A user forest named *aadds.contoso.com* is created with all users from Azure AD synchronized to the Azure AD DS managed domain:
 
 ```json
 "parameters": {
-    "domainConfigurationType": {
-        "value": "FullySynced"
-    },
     "domainName": {
         "value": "aadds.contoso.com"
     },
@@ -165,7 +163,6 @@ The following condensed Resource Manager template resource type is then used to 
             "domainName": "[parameters('domainName')]",
             "subnetId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('vnetName'), '/subnets/', parameters('subnetName'))]",
             "filteredSync": "[parameters('filteredSync')]",
-            "domainConfigurationType": "[parameters('domainConfigurationType')]",
             "notificationSettings": "[parameters('notificationSettings')]"
         }
     },
