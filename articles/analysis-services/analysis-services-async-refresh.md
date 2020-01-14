@@ -25,7 +25,7 @@ The base URL follows this format:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-For example, consider a model named AdventureWorks on a server named myserver, located in the West US Azure region. The server name is:
+For example, consider a model named AdventureWorks on a server named `myserver`, located in the West US Azure region. The server name is:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -139,7 +139,7 @@ To check the status of a refresh operation, use the GET verb on the refresh ID. 
 |notStarted    |   Operation not started yet.      |
 |inProgress     |   Operation in progress.      |
 |timedOut     |    Operation timed out based on user specified timeout.     |
-|cancelled     |   Operation cancelled by user or system.      |
+|canceled     |   Operation canceled by user or system.      |
 |failed     |   Operation failed.      |
 |succeeded      |   Operation succeeded.      |
 
