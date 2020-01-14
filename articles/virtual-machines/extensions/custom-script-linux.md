@@ -52,7 +52,7 @@ If your script is on a local server, then you may still need additional firewall
 * There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
 * Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
 * If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Cron job, or using tools such as DSC, or Chef, Puppet extensions.
-* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a Systemd service unit.
+* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a SystemD service unit.
 * If you want to schedule when a script will run, you should use the extension to create a Cron job. 
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
@@ -83,7 +83,7 @@ These items should be treated as sensitive data and specified in the extensions 
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
@@ -94,11 +94,15 @@ These items should be treated as sensitive data and specified in the extensions 
        "script": "<base64-script-to-execute>",
        "storageAccountName": "<storage-account-name>",
        "storageAccountKey": "<storage-account-key>",
-       "fileUris": ["https://.."]  
+       "fileUris": ["https://.."],
+        "managedIdentity" : "<managed-identity-identifier>"
     }
   }
 }
 ```
+
+>[!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
 
 ### Property values
 
@@ -107,7 +111,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
-| typeHandlerVersion | 2.0 | int |
+| typeHandlerVersion | 2.1 | int |
 | fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (e.g) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
@@ -115,6 +119,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | timestamp  (e.g) | 123456789 | 32-bit integer |
 | storageAccountName (e.g) | examplestorageacct | string |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (e.g) | { } or { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } or { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json object |
 
 ### Property value details
 * `apiVersion`: The most up to date apiVersion can be found using [Resource Explorer](https://resources.azure.com/) or from Azure CLI using the following command `az provider list -o json`
@@ -128,6 +133,9 @@ These items should be treated as sensitive data and specified in the extensions 
 * `storageAccountName`: (optional, string) the name of storage account. If you
   specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
+* `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
+  * `clientId`: (optional, string) the client ID of the managed identity
+  * `objectId`: (optional, string) the object ID of the managed identity
 
 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
@@ -200,6 +208,45 @@ CustomScript uses the following algorithm to execute a script.
  1. write the decoded (and optionally decompressed) value to disk (/var/lib/waagent/custom-script/#/script.sh)
  1. execute the script using _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
+####  Property: managedIdentity
+
+CustomScript (version 2.1.2 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) based RBAC for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to  access Azure Storage private blobs/containers without the user having to pass secrets like SAS tokens or storage account keys.
+
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
+
+> Example:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : {}
+> }
+> ```
+
+To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client ID or the object ID of the managed identity.
+
+> Examples:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
 
 ## Template deployment
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -220,7 +267,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       },
