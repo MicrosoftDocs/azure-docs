@@ -1,5 +1,5 @@
 ---
-title: Monitoring and diagnostics in Azure Service Fabric Mesh applications 
+title: Monitoring and diagnostics in Azure Service Fabric Mesh apps 
 description: Learn about monitoring and diagnosing application in Service Fabric Mesh on Azure.
 author: srrengar
 ms.topic: conceptual

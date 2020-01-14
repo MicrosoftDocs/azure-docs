@@ -730,6 +730,9 @@
           - name: Hyperopt with HorovodRunner
             href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-distributed-ml
             maintainContext: true
+          - name: Hyperopt best practices
+            href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-best-practices
+            maintainContext: true
           - name: Model Search using Distributed Hyperopt
             href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
             maintainContext: true
@@ -993,6 +996,12 @@
       - name: Secret workflow example
         href: /azure/databricks/security/secrets/example-secret-workflow
         maintainContext: true
+    - name: Encrypt traffic between cluster worker nodes
+      href: /azure/databricks/security/encrypt-otw
+    - name: Enable customer-managed keys for notebooks
+      href: /azure/databricks/security/customer-managed-key-notebook
+    - name: Enable customer-managed keys for DBFS
+      href: /azure/databricks/security/customer-managed-keys-dbfs
   - name: Administration
     items:
     - name: Administration overview
@@ -1477,6 +1486,9 @@
     - name: Databricks Connect
       href: /azure/databricks/dev-tools/databricks-connect
       maintainContext: true
+    - name: CI/CD with Jenkins
+      href: /azure/databricks/dev-tools/ci-cd
+      maintainContext: true
     - name: Manage dependencies in data pipelines
       href: /azure/databricks/dev-tools/data-pipelines
       maintainContext: true
@@ -1578,6 +1590,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: January 2020
+        href: /azure/databricks/release-notes/product/2020/january
         maintainContext: true
       - name: December 2019
         href: /azure/databricks/release-notes/product/2019/december
