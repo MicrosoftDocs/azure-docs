@@ -4,6 +4,7 @@ description: Create and publish to Azure a simple HTTP triggered function by usi
 ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
+zone_pivot_groups: programming-languages-set-one
 ---
 
 # Create your first function using Visual Studio Code
@@ -33,21 +34,21 @@ To verify your version of Azure Functions Core Tools, open the Visual Studio Cod
 
 + Language-specific requirements:
 
-    # [C\#](#tab/csharp)
+    ::: zone pivot="programming-language-csharp"
 
     The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
 
-    # [JavaScript](#tab/nodejs)
+    ::: zone pivot="programming-language-nodejs"
 
     [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
-    # [Python](#tab/python)
+    ::: zone pivot="programming-language-python"
         
     + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
 
     + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
-    ---
+    ::: zone-end
 
 + An [Azure account](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 

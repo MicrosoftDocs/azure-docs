@@ -19,7 +19,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 1. Following the prompts, provide the following information for your desired language:
 
-    # [C\#](#tab/csharp)
+    ::: zone pivot="programming-language-csharp"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -30,7 +30,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
-     # [JavaScript](#tab/nodejs)
+    ::: zone pivot="programming-language-nodejs"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -40,7 +40,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
-    # [Python](#tab/python)
+    ::: zone pivot="programming-language-python"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -51,11 +51,11 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
-    ---
+    ::: zone-end
 
 Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files. It also creates the following language-specific files.
 
-# [C\#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
 An HttpTrigger.cs code file for the new HTTP triggered function is created. This file contains a **My.Functions.HttpTrigger** class. The **Run** method is your function, which is defined as follows:
 
@@ -69,7 +69,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# [JavaScript](#tab/nodejs)
+::: zone pivot="programming-language-nodejs"
 
 The HTTP triggered function itself is created in the HttpTrigger project folder. The function is defined by the following function.json:
 
@@ -107,7 +107,7 @@ module.exports = async function (context, req) {
 
 The project-level package.json is a standard Node.js package file.
 
-# [Python](#tab/python)
+::: zone pivot="programming-language-python"
 
 The HTTP triggered function itself is created in the HttpTrigger project folder. The function is defined by the following function.json:
 
@@ -147,4 +147,4 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 The project-level requirements.txt file lists packages required by the function app.
 
----
+::: zone-end
