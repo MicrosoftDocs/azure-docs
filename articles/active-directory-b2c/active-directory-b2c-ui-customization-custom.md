@@ -1,5 +1,6 @@
 ---
-title: Customize the user interface of your application using a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Customize the user interface of your app with a custom policy
+titleSuffix: Azure AD B2C
 description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -202,4 +203,4 @@ In the Modify your sign-up or sign-in custom policy section, you configured the 
 
 ## Next steps
 
-For more information about UI elements that can be customized, see [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md).
+For more information about UI elements that can be customized, see [reference guide for UI customization for user flows](active-directory-b2c-reference-ui-customization.md).

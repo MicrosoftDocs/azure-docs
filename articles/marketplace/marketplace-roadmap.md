@@ -5,6 +5,7 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/02/2019
 ms.author: blevens
@@ -13,7 +14,7 @@ ms.author: blevens
 
 # Microsoft commercial marketplace roadmap
 
-This document provides a view into what's next for Microsoft’s commercial marketplace for publishers, sellers, and customers. It captures some of the significant features we have committed, a rough time frame for when you can expect to see them and will be refreshed monthly. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
+This document provides a view into what's next for Microsoft's commercial marketplace for publishers, sellers, and customers. It captures some of the significant features we have committed, a rough time frame for when you can expect to see them and will be refreshed monthly. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
 
 We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
 

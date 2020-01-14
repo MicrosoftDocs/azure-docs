@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM sizes - General purpose | Microsoft Docs
+title: Azure Linux VM sizes - General purpose 
 description: Lists the different general purpose sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''

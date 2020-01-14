@@ -64,7 +64,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
 5. Click **Create**.
 
-When the solution resource is deployed, a notification appears at the top right of the window.
+When the solution resource is deployed, a notification appears at the top right- of the window.
 
 
 ## Creating an ITSM  connection

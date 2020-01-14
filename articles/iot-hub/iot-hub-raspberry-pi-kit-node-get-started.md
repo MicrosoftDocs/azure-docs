@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi to cloud (Node.js) - Connect Raspberry Pi to Azure IoT Hub | Microsoft Docs
+title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 author: wesmc7777
 manager:  philmea
@@ -143,7 +143,7 @@ For sensor pins, use the following wiring:
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | White cable   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Black cable   |
 
-Click to view [Raspberry Pi 2 & 3 pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) for your reference.
+Click to view [Raspberry Pi 2 & 3 pin mappings](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) for your reference.
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 

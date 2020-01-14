@@ -1,7 +1,7 @@
 ---
 title: Get started - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Learn how to sign up for the Translator Text API and get a subscription key.
+description: This article will show you how to sign up for the Azure Cognitive Services Translator Text API and get a subscription key.
 services: cognitive-services
 author: swmachan
 manager: nitinme

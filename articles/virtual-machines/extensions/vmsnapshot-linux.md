@@ -1,5 +1,5 @@
 ---
-title: VM Snapshot Linux extension for Azure Backup | Microsoft Docs
+title: VM Snapshot Linux extension for Azure Backup 
 description: Take application consistent backup of the virtual machine from Azure Backup using VM snapshot extension
 services: backup, virtual-machines-linux
 documentationcenter: ''

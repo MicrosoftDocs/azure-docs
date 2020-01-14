@@ -27,6 +27,8 @@
       href: custom-event-quickstart-powershell.md
     - name: Portal
       href: custom-event-quickstart-portal.md
+  - name: Azure Functions as event handler
+    href: custom-event-to-function.md
   - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
   - name: Event Hubs as event handler
@@ -111,6 +113,8 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
+  - name: Secure WebHook with AAD
+    href: secure-webhook-delivery.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
   - name: Filter events

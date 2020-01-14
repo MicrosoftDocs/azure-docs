@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
 ---
@@ -33,7 +33,7 @@ In this quickstart, you'll create an empty project for your preferred programmin
 **Choose your target environment**
 #### [Linux](#tab/linux)
 For this sample, we'll be compiling with g++, so all you need for an empty project is to create a helloworld.cpp with your favorite text editor.
-#### [MacOS](#tab/macos)
+#### [macOS](#tab/macos)
 For this sample, we'll be compiling with g++, so all you need for an empty project is to create a helloworld.cpp with your favorite text editor.
 #### [Windows](#tab/windows)
 [!INCLUDE [C++ quickstart](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]

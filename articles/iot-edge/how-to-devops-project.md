@@ -2,13 +2,11 @@
 title: CI/CD pipeline with Azure DevOps Projects - Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Projects makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
 author: shizn
-manager: 
 ms.author: xshi
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects

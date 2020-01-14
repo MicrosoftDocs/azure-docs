@@ -1,7 +1,7 @@
 ---
-title: Dynamic packaging in Media Services
+title: Dynamic packaging in Azure Media Services v3
 titleSuffix: Azure Media Services
-description: An overview of dynamic packaging in Azure Media Services.
+description: This article gives an overview of dynamic packaging in Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -18,7 +18,7 @@ ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 
-# Dynamic packaging in Media Services
+# Dynamic packaging in Media Services v3
 
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
@@ -266,6 +266,9 @@ To control the number of tracks, formats, bitrates, and presentation time window
 ## Dynamic encryption
 
 You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [dynamic encryption](content-protection-overview.md).
+
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## More information
 

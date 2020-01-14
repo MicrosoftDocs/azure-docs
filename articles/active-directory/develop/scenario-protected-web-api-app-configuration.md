@@ -1,5 +1,5 @@
 ---
-title: Protected web API - app code configuration 
+title: Configure protected web API apps | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
@@ -40,7 +40,7 @@ The information about the identity of the app, and about the user (unless the we
 
 Here's a C# code example that shows a client calling the API after it acquires a token with Microsoft Authentication Library for .NET (MSAL.NET):
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -93,19 +93,19 @@ When an app is called on a controller action that holds an `[Authorize]` attribu
 
 In ASP.NET Core, this middleware is initialized in the Startup.cs file:
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 The middleware is added to the web API by this instruction:
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization, not with personal accounts. But you can easily change them to use the Microsoft identity platform endpoint by adding this code to the Startup.cs file:
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.
@@ -155,6 +155,10 @@ The validators are described in this table:
 | `ValidateTokenReplay` | Ensures the token isn't replayed. (Special case for some onetime use protocols.) |
 
 The validators are all associated with properties of the `TokenValidationParameters` class, themselves initialized from the ASP.NET/ASP.NET Core configuration. In most cases, you won't have to change the parameters. There's one exception, for apps that aren't single tenants. (That is, web apps that accept users from any organization or from personal Microsoft accounts.) In this case, the issuer must be validated.
+
+## Token validation in Azure Functions
+
+It's also possible to validate incoming access tokens in Azure functions. You can find examples of validating tokens in Azure functions in [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), and [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Configure an application gateway with SSL termination - Azure portal
+title: 'Tutorial: Configure SSL termination in portal - Azure Application Gateway'
 description: In this tutorial, you learn how to configure an application gateway and add a certificate for SSL termination using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/27/2019
+ms.date: 11/13/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with SSL termination so I can secure my application traffic.
 ---

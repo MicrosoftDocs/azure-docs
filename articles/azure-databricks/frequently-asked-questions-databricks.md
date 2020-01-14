@@ -28,7 +28,7 @@ Follow these steps:
 1. Assign the necessary permissions to the service principal in Data Lake Storage.
 1. To access a file in Data Lake Storage, use the service principal credentials in Notebook.
 
-For more information, see [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
+For more information, see [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## Fix common problems
 
@@ -86,7 +86,7 @@ If you did not create the workspace, and you are added as a user, contact the pe
 
 #### Solution
 
-Databricks clusters use one public IP address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
+Databricks clusters use one public IP address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
 
 ### Issue: A second type of cloud provider launch failure while setting up the cluster (MissingSubscriptionRegistration)
 

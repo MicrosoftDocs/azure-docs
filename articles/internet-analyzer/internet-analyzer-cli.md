@@ -76,7 +76,7 @@ The Internet Analyzer CLI exposes the following types of resources:
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    The command above assumes that both www.contoso.com and www.microsoft.com are hosting the one-pixel image ([trans.gif](https://fpc.msedge.net/apc/trans.gif)) under custom paths. If an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default, which is where the preconfigured endpoints are hosting the one-pixel image. Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
+    The command above assumes that both `www.contoso.com` and `www.microsoft.com` are hosting the one-pixel image ([trans.gif](https://fpc.msedge.net/apc/trans.gif)) under custom paths. If an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default, which is where the preconfigured endpoints are hosting the one-pixel image. Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
 
 11. The new test should appear under the Internet Analyzer profile:
     ```azurecli-interactive
@@ -129,5 +129,6 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 ## Next steps
 
-* Read the [Internet Analyzer FAQ](internet-analyzer-faq.md)
+* Browse the [Internet Analyzer CLI reference](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) for the full list of supported commands and usage examples.
+* Read the [Internet Analyzer FAQ](internet-analyzer-faq.md).
 * Learn more about embedding the [Internet Analyzer Client](internet-analyzer-embed-client.md) and creating a [custom endpoint](internet-analyzer-custom-endpoint.md). 

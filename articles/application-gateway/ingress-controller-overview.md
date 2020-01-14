@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 11/4/2019
 ms.author: caya
 ---
 
@@ -23,7 +23,7 @@ Using Application Gateway in addition to AGIC also helps protect your AKS cluste
 
 ![Azure Application Gateway + AKS](./media/application-gateway-ingress-controller-overview/architecture.png)
 
-AGIC is configured via the Kubernetes [Ingress resource](http://kubernetes.io/docs/user-guide/ingress/), along with Service and Deployments/Pods. It provides a number of features, leveraging Azure’s native Application Gateway L7 load balancer. To name a few:
+AGIC is configured via the Kubernetes [Ingress resource](https://kubernetes.io/docs/user-guide/ingress/), along with Service and Deployments/Pods. It provides a number of features, leveraging Azure’s native Application Gateway L7 load balancer. To name a few:
   - URL routing
   - Cookie-based affinity
   - SSL termination

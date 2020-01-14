@@ -38,9 +38,19 @@ App Configuration is complementary to Key Vault, and the two should be used side
 
 Although App Configuration provides hardened security, Key Vault is still the best place for storing application secrets. Key Vault provides hardware-level encryption, granular access policies, and management operations, such as certificate rotation.
 
+You can create App Configuration values that reference secrets stored in Key Vault. For more information, see [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).
+
 ## Does App Configuration encrypt my data?
 
 Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names are used as indexes for retrieving configuration data and aren't encrypted.
+
+## How is App Configuration different from Azure App Service settings?
+
+Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if desired. For more information, see [Configure app settings](/azure/app-service/configure-common#configure-app-settings).
+
+In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps, including apps running in App Service. These settings can be accessed in application code through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
+
+You can also import and export settings between App Service and App Configuration. This allows you to quickly set up a new App Configuration store based on existing App Service settings, or easily share configuration with an existing app that relies on App Service settings.
 
 ## Are there any size limitations on keys and values stored in App Configuration?
 

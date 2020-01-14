@@ -1,22 +1,12 @@
 ---
-title: Deploy a Service Fabric app to a cluster in Azure | Microsoft Docs
-description: Learn how to deploy an application to a cluster from Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Deploy a Service Fabric app to a cluster in Azure 
+description: Learn how to deploy an existing application to a newly created Azure Service Fabric cluster from Visual Studio.
 author: athinanthny 
-manager: msfussell 
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-
 ---
 # Tutorial: Deploy a Service Fabric application to a cluster in Azure
 
@@ -44,7 +34,7 @@ Before you begin this tutorial:
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 
 > [!NOTE]
-> A free account may not meet the requirements to create a virtual machine. This will prevent the completion of the tutorial.
+> A free account may not meet the requirements to create a virtual machine. This will prevent the completion of the tutorial. In addition, a non-work or non-school account may encounter permission issues while creating the certificate on the keyvault associated with the cluster. If you experience an error related to certificate creation use the Portal to create the cluster instead. 
 
 ## Download the voting sample application
 

@@ -156,7 +156,7 @@ The following provides an overview of the Blob service components.
 ## Next steps
 * [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-* [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK Reference](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 

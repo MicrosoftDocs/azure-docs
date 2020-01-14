@@ -1,6 +1,6 @@
 ---
 title: Use rendering applications - Azure Batch
-description: How to use rendering applications with Azure Batch
+description: How to use rendering applications with Azure Batch. This article provides a brief description of how to run each rendering application.
 services: batch
 ms.service: batch
 author: mscurrell

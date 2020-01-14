@@ -5,12 +5,12 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 05/17/2018
+ ms.date: 01/03/2020
  ms.author: tomfitz
  ms.custom: include file
 ---
 
-1. To view the tags for a resource or a resource group, looks for existing tags in the overview. If you have not previously applied tags, the list is empty.
+1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you have not previously applied tags, the list is empty.
    
      ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
 1. To add a tag, select **Click here to add tags**.
@@ -47,9 +47,9 @@ To bulk assign tags to multiple resources:
 
 To view all resources with a tag:
 
-1. Select **All services** and **Tags**.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![Find by tag](./media/resource-manager-tag-resources/find-tags.png)
+     ![Find by tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. Select the tag for viewing resources.
 
@@ -58,11 +58,3 @@ To view all resources with a tag:
 1. All resources with that tag are displayed.
 
      ![View resources by tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. For quick access, pin the view to the dashboard.
-
-     ![Pin to dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. The view is available from the dashboard.
-
-     ![Dashboard](./media/resource-manager-tag-resources/dashboard.png)

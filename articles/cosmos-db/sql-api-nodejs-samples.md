@@ -1,5 +1,5 @@
 ---
-title: Node.js examples for Azure Cosmos DB
+title: Node.js examples to manage data in Azure Cosmos database
 description: Find Node.js examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
 author: deborahc
 ms.service: cosmos-db
@@ -9,7 +9,8 @@ ms.date: 08/23/2019
 ms.author: dech
 
 ---
-# Azure Cosmos DB Node.js examples
+# Node.js examples to manage data in Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)

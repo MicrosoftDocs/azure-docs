@@ -105,4 +105,4 @@ If you're not going to continue to use this application, delete the application 
 ## Next steps
 * Learn more about [connected logistics concept](./architecture-connected-logistics-pnp.md)
 * Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about [IoT Central overview](../preview/overview-iot-central.md)

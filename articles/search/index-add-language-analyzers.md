@@ -1,5 +1,5 @@
 ---
-title: Add language analyzers to string fields in an index
+title: Add language analyzers to string fields
 titleSuffix: Azure Cognitive Search
 description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Cognitive Search.
 
@@ -8,7 +8,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -21,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add language analyzers to an Azure Cognitive Search index
+# Add language analyzers to string fields in an Azure Cognitive Search index
 
 A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your index contains translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.  
 
@@ -43,7 +43,10 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 ## Configuring analyzers
 
-Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies the language and linguistics stack (Microsoft or Lucene). The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index. Alternatively, instead of **analyzer**, you can use **indexAnalyzer** and **searchAnalyzer** to have different analysis rules at indexing time and query time. 
+Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies the language and linguistics stack (Microsoft or Lucene). The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index.
+
+> [!NOTE]
+> It is not possible to use a different language analyzer at indexing time than at query time for a field. That capability is reserved for [custom analyzers](index-add-custom-analyzers.md). For this reason, if you try to set the **searchAnalyzer** or **indexAnalyzer** properties to the name of a language analyzer, the REST API will return an error response. You must use the **analyzer** property instead.
 
 Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 

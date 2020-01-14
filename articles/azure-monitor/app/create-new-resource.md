@@ -6,7 +6,7 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/16/2019
+ms.date: 12/02/2019
 
 ---
 
@@ -26,9 +26,12 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring. |
+   | **Name**      | Unique value | Name that identifies the app you are monitoring. |
    | **Resource Group**     | myResourceGroup      | Name for the new or existing resource group to host App Insights data. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted. |
+
+> [!NOTE]
+> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) as it simplifies the required syntax.
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 

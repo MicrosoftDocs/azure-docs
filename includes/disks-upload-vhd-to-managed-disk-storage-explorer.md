@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Use Azure Storage Explorer to manage Azure managed disks
+
 
 Storage Explorer 1.10.0 enables users to upload, download, and copy managed disks, as well as create snapshots. Because of these additional capabilities, you can use Storage Explorer to migrate data from on-premises to Azure, and migrate data across Azure regions.
 

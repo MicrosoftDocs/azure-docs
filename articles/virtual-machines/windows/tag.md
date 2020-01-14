@@ -1,5 +1,5 @@
 ---
-title: How to tag a Windows VM resource in Azure | Microsoft Docs
+title: How to tag a Windows VM resource in Azure 
 description: Learn about tagging a Windows virtual machine created in Azure using the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
@@ -92,7 +92,7 @@ To learn more about tagging through PowerShell, check out the [Azure Resource Cm
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/
-[Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md

@@ -10,7 +10,7 @@ ms.author: cynthn
 ms.custom: include file
 ---
 
-When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-subscription-service-limits.md#networking-limits).
+When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
 
@@ -26,8 +26,6 @@ In addition to those basic resources, you should also consider these optional re
 
 - Network security groups
 - Load balancers 
-
-[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## Network interfaces
 
@@ -167,3 +165,4 @@ There are also tutorials on how to load balance VMs and create highly available 
 - Learn how to configure [user-defined routes and IP forwarding](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Learn how to configure [VNet to VNet connections](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../articles/virtual-network/diagnose-network-routing-problem.md).
+- Learn more about [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).

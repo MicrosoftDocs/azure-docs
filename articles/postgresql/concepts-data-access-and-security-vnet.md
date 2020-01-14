@@ -1,8 +1,8 @@
 ---
-title: Virtual Network (VNet) services endpoint overview in Azure Database for PostgreSQL - Single Server
-description: Learn how Virtual Network (VNet) service endpoints work for Azure Database for PostgreSQL - Single Server.
-author: bolzmj
-ms.author: mbolz
+title: Virtual network rules - Azure Database for PostgreSQL - Single Server
+description: Learn how to use virtual network (vnet) service endpoints to connect to Azure Database for PostgreSQL - Single Server.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019

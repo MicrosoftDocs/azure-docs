@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title:  Azure Database for PostgreSQL documentation
-summary: "Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability. It's available in two deployment options, as a single server and as a Hyperscale (Citus) cluster (preview). The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding, and serves applications that require greater scale and performance. Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples."
+summary: "Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability. It's available in two deployment options, as a single server and as a Hyperscale (Citus) cluster. The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding, and serves applications that require greater scale and performance. Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples."
 metadata: 
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: rachel-msft
@@ -57,11 +57,11 @@ landingContent:
           - text: Monitor and tune the service
             url: tutorial-monitor-and-tune.md   
 # Card
-  - title: Create a Hyperscale (Citus) cluster (preview)
+  - title: Create a Hyperscale (Citus) cluster
     linkLists:
       - linkListType: quickstart
         links:    
-          - text: Create a Hyperscale (Citus) cluster (preview) in the Azure Portal
+          - text: Create a Hyperscale (Citus) cluster in the Azure Portal
             url: quickstart-create-hyperscale-portal.md    
       - linkListType: tutorial
         links:

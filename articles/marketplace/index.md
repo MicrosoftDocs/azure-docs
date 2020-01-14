@@ -5,6 +5,7 @@ services: Azure, marketplace
 author: jm-aditi-ms
 layout: LandingPage
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi

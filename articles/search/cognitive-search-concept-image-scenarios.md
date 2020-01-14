@@ -1,5 +1,5 @@
 ---
-title: Process and extract text from images in an enrichment pipeline
+title: Extract text from images
 titleSuffix: Azure Cognitive Search
 description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
 

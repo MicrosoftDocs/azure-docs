@@ -1,5 +1,5 @@
 ---
-title: Build workflows with the Azure IoT Central connector in Microsoft Flow | Microsoft Docs
+title: Use the Azure IoT Central connector in Microsoft Flow | Microsoft Docs
 description: Use the IoT Central connector in Microsoft Flow to trigger workflows and create, get, update, delete devices and run commands in workflows.
 services: iot-central
 author: viv-liu

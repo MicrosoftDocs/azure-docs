@@ -189,7 +189,7 @@ To enable Azure AD users to sign in to RightAnswers, they must be provisioned in
 Users are automatically created if necessary during the first single sign-on attempt.
 
 > [!NOTE]
-> You can use any other RightAnswers user account creation tools or APIs provided by RightAnswers to provision AAD user accounts.
+> You can use any other RightAnswers user account creation tools or APIs provided by RightAnswers to provision Azure AD user accounts.
 
 ### Test single sign-on
 

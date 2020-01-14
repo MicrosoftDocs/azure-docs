@@ -1,6 +1,6 @@
 - [Quickstart: Recognize speech from a microphone](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone.md)
 - [Quickstart: Recognize speech from a file](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-file.md)
-- [Quickstart: Recognize speech from an Azure Blog](~/articles/cognitive-services/speech-service/quickstarts/from-blob.md)
+- [Quickstart: Recognize speech from an Azure Blob](~/articles/cognitive-services/speech-service/quickstarts/from-blob.md)
 - [Quickstart: Translate speech-to-text](~/articles/cognitive-services/speech-service/quickstarts/translate-speech-to-text.md)
 - [Quickstart: Synthesize text to an audio device](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech.md)
 - [Quickstart: Synthesize text to a file](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file.md)

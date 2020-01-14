@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL - Single Server using the Azure portal
+title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL - Single Server by using the Azure portal user interface.
 author: rachel-msft
 ms.author: raagyema
@@ -20,7 +20,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ## Create an Azure Database for PostgreSQL server
 
-An Azure Database for PostgreSQL server is created with a configured set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+An Azure Database for PostgreSQL server is created with a configured set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 To create an Azure Database for PostgreSQL server, take the following steps:
 1. Select **Create a resource** (+) in the upper-left corner of the portal.
@@ -195,7 +195,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in one of two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the server resource.
+You can clean up the resources that you created in the Quickstart in one of two ways. You can delete the [Azure resource group](../azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the server resource.
 
 > [!TIP]
 > Other Quickstarts in this collection build on this Quickstart. If you plan to continue working with Quickstarts, don't clean up the resources that you created in this Quickstart. If you don't plan to continue, follow these steps to delete the resources that were created by this Quickstart in the portal.

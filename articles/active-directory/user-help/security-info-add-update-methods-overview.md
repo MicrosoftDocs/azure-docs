@@ -1,6 +1,6 @@
 ---
-title: Overview of changing your security info (preview) methods and information - Azure Active Directory | Microsoft Docs
-description: Overview about how to add, update, and delete your security info methods for two-factor verification and self-service password reset.
+title: Overview about changing your security info (preview) - Azure AD
+description: Links to articles about how to add, update, and delete your security info methods for two-factor verification and self-service password reset.
 services: active-directory
 author: eross-msft
 manager: daveba

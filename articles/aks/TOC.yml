@@ -21,18 +21,27 @@
     items:
     - name: Use Draft
       href: kubernetes-draft.md
-    - name: Use Visual Studio Code and Azure Dev Spaces
-      href: ../dev-spaces/quickstart-netcore.md
-      maintainContext: true
-    - name: Use Visual Studio and Azure Dev Spaces
-      href: ../dev-spaces/quickstart-netcore-visualstudio.md
-      maintainContext: true
-    - name: Use the CLI and Azure Dev Spaces
-      href: ../dev-spaces/quickstart-cli.md
-      maintainContext: true
-    - name: Use Azure Dev Spaces for team development 
-      href: ../dev-spaces/quickstart-team-development.md 
-      maintainContext: true
+    - name: Azure Dev Spaces
+      expanded: true
+      items:
+      - name: Use Azure Dev Spaces for team development 
+        href: ../dev-spaces/quickstart-team-development.md 
+        maintainContext: true
+      - name: Use Visual Studio Code
+        href: ../dev-spaces/quickstart-netcore.md
+        maintainContext: true
+      - name: Use Visual Studio
+        href: ../dev-spaces/quickstart-netcore-visualstudio.md
+        maintainContext: true
+      - name: Use the CLI
+        href: ../dev-spaces/quickstart-cli.md
+        maintainContext: true
+      - name: Use Azure Dev Spaces with Java
+        href: ../dev-spaces/quickstart-java.md 
+        maintainContext: true
+      - name: Use Azure Dev Spaces Node.js
+        href: ../dev-spaces/quickstart-nodejs.md 
+        maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -128,8 +137,6 @@
         href: virtual-nodes-cli.md
       - name: Use the Azure portal
         href: virtual-nodes-portal.md
-    - name: Use Virtual Kubelet
-      href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
       href: cluster-autoscaler.md
     - name: Use Availability Zones
@@ -218,6 +225,12 @@
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
+    - name: Rotate certificates
+      href: certificate-rotation.md
+    - name: Create a private cluster
+      href: private-clusters.md
+    - name: BYOK for disks
+      href: azure-disk-customer-managed-keys.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
@@ -308,6 +321,9 @@
       href: gpu-cluster.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
+      maintainContext: true
+    - name: Use Azure API Management
+      href: ../api-management/api-management-kubernetes.md
       maintainContext: true
   - name: Select and deploy a service mesh
     items: 

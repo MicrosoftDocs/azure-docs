@@ -1,18 +1,18 @@
 ---
-title: Schedule Azure Container Registry tasks
-description: Set timers to run an Azure Container Registry task on a defined schedule.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Tutorial - Schedule an ACR task
+description: In this tutorial, learn how to run an Azure Container Registry Task on a defined schedule by setting one or more timer triggers
 ms.topic: article
 ms.date: 06/27/2019
-ms.author: danlep
 ---
 # Run an ACR task on a defined schedule
 
-This article shows you how to run an [ACR task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*.
+This tutorial shows you how to run an [ACR Task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*. Timer triggers can be used alone, or in combination with other task triggers.
+
+In this tutorial, learn about scheduling tasks and:
+
+> [!div class="checklist"]
+> * Create a task with a timer trigger
+> * Manage timer triggers
 
 Scheduling a task is useful for scenarios like the following:
 
@@ -194,9 +194,11 @@ Each field can have one of the following types of values:
 
 ## Next steps
 
+In this tutorial, you learned how to create Azure Container Registry tasks that are automatically triggered by a timer. 
+
 For an example of using a scheduled task to clean up repositories in a registry, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
-For examples of tasks triggered by source code commits or base image updates, check out the [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
+For examples of tasks triggered by source code commits or base image updates, see other articles in the [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
 
 

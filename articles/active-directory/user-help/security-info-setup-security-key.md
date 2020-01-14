@@ -1,6 +1,6 @@
 ---
-title: Set up security info to use a security key (preview) - Azure Active Directory | Microsoft Docs
-description: How to set up your security info to verify your identity using a Fast Identity Online (FIDO2) security key.
+title: Set up a security key as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity to use a Fast Identity Online (FIDO2) security key as your verification method.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,9 +15,9 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up security info to use a security key (Preview)
+# Set up a security key as your verification method
 
-You can use security keys as a passwordless sign-in method within your organization. A security key is a physical device that's used with a unique PIN to sign-in to your work or school account. Because security keys require you to have the physical device and something only you know, it's considered a stronger authentication method than a username and password.
+You can use security keys as a passwordless sign-in method within your organization. A security key is a physical device that's used with a unique PIN to sign-in to your work or school account. Because security keys require you to have the physical device and something only you know, it's considered a stronger verification method than a username and password.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
@@ -31,7 +31,7 @@ We currently support several designs and providers of security keys using the [F
 Your administrator or your organization will provide you with a security key if they require it for your work or school account. There are different types of security keys you can use, for example a USB key that you plug in to your device or an NFC key that you tap on an NFC reader. You can find out more information about your security key, including what type it is, from the manufacturer's documentation.
 
 > [!Note]
-> If you're unable to use a FIDO2 security key, there are other passwordless authentication methods you can use such as the Microsoft Authenticator app or Windows Hello. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md). For more information about Windows Hello, see [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
+> If you're unable to use a FIDO2 security key, there are other passwordless verification methods you can use such as the Microsoft Authenticator app or Windows Hello. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md). For more information about Windows Hello, see [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
 
 ## Before you begin
 
@@ -146,7 +146,7 @@ In order to register a security key, you must have at least one additional secur
 
 ## Next steps
 
-- For more information about passwordless authentication methods, read the [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blog, or read the [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello) articles.
+- For more information about passwordless verification methods, read the [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blog, or read the [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello) articles.
 
 - For more detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

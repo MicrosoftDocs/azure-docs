@@ -1,5 +1,5 @@
 ---
-title: How to configure managed identities for Azure resources on an Azure VM using PowerShell
+title: Configure managed identities on an Azure VM using PowerShell - Azure AD
 description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
 documentationcenter: 
@@ -30,7 +30,7 @@ In this article, using PowerShell, you learn how to perform the following manage
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
 

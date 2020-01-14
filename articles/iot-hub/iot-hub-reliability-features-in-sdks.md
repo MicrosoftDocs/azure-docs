@@ -1,5 +1,5 @@
 ---
-title: How to manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
+title: Manage IoT Hub connectivity & reliable messaging w/device SDKs
 description: Learn how to improve your device connectivity and messaging when using the Azure IoT Hub device SDKs
 services: iot-hub
 author: robinsh

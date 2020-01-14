@@ -1,6 +1,6 @@
 ---
 
-title: Allow or block invites to specific organizations - Azure Active Directory | Microsoft Docs
+title: Allow or block invites to specific organizations - Azure AD
 description: Shows how an administrator can use the Azure portal or PowerShell to set an access or deny list to allow or block B2B users from certain domains.
 
 services: active-directory

@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 10/02/2019
+ ms.date: 01/07/2020
  ms.custom: include file
 ---
 
@@ -17,7 +17,7 @@
 
 You can access your own generated Management API Swagger documentation at:
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Use Docker Compose on a Linux VM in Azure | Microsoft Docs
+title: Use Docker Compose on a Linux VM in Azure 
 description: How to install and use Docker and Compose on Linux virtual machines with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Elastic Scale FAQ 
+title: Elastic Scale FAQ 
 description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Manage elastic pools - Azure SQL database 
+title: Manage elastic pools
 description: Create and manage Azure SQL elastic pools.
 services: sql-database
 ms.service: sql-database

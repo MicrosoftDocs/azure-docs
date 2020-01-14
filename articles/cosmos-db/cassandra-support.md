@@ -1,5 +1,5 @@
 ---
-title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API
+title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 author: kanshiG
 ms.author: govindk
@@ -105,7 +105,7 @@ CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of bo
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
 **Unix/Linux/Mac:**
 

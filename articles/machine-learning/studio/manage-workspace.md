@@ -1,6 +1,6 @@
 ---
 title: Manage workspaces
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Manage access to Azure Machine Learning Studio (classic) workspaces, and deploy and manage Machine Learning API web services
 services: machine-learning
 ms.service: machine-learning

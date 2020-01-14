@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
+
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
@@ -134,7 +134,9 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 **Can I use GPT partitioning on an Azure Disk?**
 
-GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
+Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
+
+[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk as well as the data disks.
 
 **What disk types support snapshots?**
 
@@ -345,18 +347,6 @@ No. But if you export a VHD to an encrypted storage account from an encrypted ma
 
 ## Premium disks: Managed and unmanaged
 
-**What regions support bursting capability for applicable premium SSD disk size?**
-
-The bursting capability is currently supported in Azure West Central US.
-
-**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
-
-These new disk sizes are currently supported in Azure West Central US.
-
-**Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
-
-No, it is only supported on Premium SSD Managed Disks. 
-
 **If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks?** 
 
 Yes.
@@ -387,9 +377,25 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 ## New disk sizes: Managed and unmanaged
 
+**What regions support bursting capability for applicable premium SSD disk size?**
+
+The bursting capability is currently supported in Azure West Central US.
+
+**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
+
+These new disk sizes are currently supported in Azure West Central US.
+
+**Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
+
+No, it is only supported on premium SSD managed disks. 
+
+**Are E1/E2/E3 disk sizes supported for unmanaged disks or page blobs?**
+
+No, standard SSD managed disks of any size cannot be used with unmanaged disks or page blobs.
+
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks in global Azure, 4 TiB in Azure sovereign clouds.
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks.
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
