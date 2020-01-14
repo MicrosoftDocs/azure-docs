@@ -49,7 +49,7 @@ To install an extension from the Azure portal, navigate to either a template or 
 In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension. Each extension only needs to be installed once per function app. 
 
 > [!Note] 
-> The in-portal installation process can take up to 10 minutes on a consumption plan.
+> The in-portal installation process can take up to 10 minutes on a Consumption plan.
 
 If you are using Visual Studio, you can get the extensions by installing [the NuGet packages that are listed earlier in this article](#packages).
 
