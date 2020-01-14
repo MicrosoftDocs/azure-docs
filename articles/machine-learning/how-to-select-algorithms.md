@@ -14,17 +14,17 @@ ms.date: 01/20/2020
 ---
 # How to select algorithms for Azure Machine Learning
 
-A common question is “What machine learning algorithm should I use?” The answer to this popular question mainly depends on two different aspects of your data science scenario:
+A common question is “Which machine learning algorithm should I use?” The answer to this popular question mainly depends on two different aspects of your data science scenario:
 
- - What you want to do with your data: Specifically, what is the business question you want to answer by learning from your past data?
+ - **What you want to do with your data?** Specifically, what is the business question you want to answer by learning from your past data?
 
- - The requirements of your data science scenario: Specifically, what is the accuracy, training time, linearity, number of parameters, number of features your solution is supporting?
+ - **What are the requirements of your data science scenario?** Specifically, what is the accuracy, training time, linearity, number of parameters, number of features your solution supports?
 
- ![Considerations for algorithm choice: What do you want to know? What are the scenario requirements?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
+ ![Considerations for choosing algorithms: What do you want to know? What are the scenario requirements?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
 
-## Machine Learning Algorithm Cheat Sheet and business scenarios
+## Business scenarios and the Machine Learning Algorithm Cheat Sheet
 
-The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first aspect listed above: **what you want to do with your data**. With the Machine Learning Algorithm Cheat Sheet, you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
+The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first consideration: **what you want to do with your data**? With the Machine Learning Algorithm Cheat Sheet, you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
 
 Machine Learning designer provides a comprehensive portfolio of algorithms, such as Multiclass Decision Forest, Recommendation systems, Neural Network Regression, Multiclass Neural Network, and K-Means Clustering. Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri
 ) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm for your use.
@@ -107,7 +107,7 @@ Feature selection refers to the process of applying statistical tests to inputs,
 You can also use the [Permutation Feature Importance module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) to compute a set of feature importance scores for your dataset. You can then leverage these scores to help you determine the best features to use in a model.
 
 
-## Next Steps
+## Next steps
 
  - [Learn more about Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
  - For descriptions of all the machine learning algorithms available in Azure Machine Learning designer, see [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
