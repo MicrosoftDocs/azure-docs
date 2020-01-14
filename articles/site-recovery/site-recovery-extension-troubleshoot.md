@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot issues with Azure Site Recovery agents | Microsoft Docs'
 description: Provides information about symptoms, causes, and resolutions of Azure Site Recovery agent failures.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: asgang
+ms.author: carmonm
 ---
 
 # Troubleshoot issues with the Azure Site Recovery agent
