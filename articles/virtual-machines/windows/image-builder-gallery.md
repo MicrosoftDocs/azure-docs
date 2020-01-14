@@ -101,7 +101,7 @@ New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subs
 
 
 
-# Create the Shared Image Gallery
+## Create the Shared Image Gallery
 
 To use Image Builder with a shared image gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
 
@@ -131,7 +131,6 @@ New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $im
 Download the .json template and configure it with your variables.
 
 ```azurepowershell-interactive
-
 $templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json"
 $templateFilePath = "armTemplateWinSIG.json"
 
@@ -146,25 +145,20 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 ((Get-Content -path $templateFilePath -Raw) -replace '<sharedImageGalName>',$sigGalleryName) | Set-Content -Path $templateFilePath
 ((Get-Content -path $templateFilePath -Raw) -replace '<region1>',$location) | Set-Content -Path $templateFilePath
 ((Get-Content -path $templateFilePath -Raw) -replace '<region2>',$replRegion2) | Set-Content -Path $templateFilePath
-
 ```
 
 
 ## Create the image version
 
-This next part will create the image version in the gallery. 
-
-# Submit the template
 Your template must be submitted to the service, this will download any dependent artifacts (scripts etc), and store them in the staging Resource Group, prefixed, *IT_*.
 
-```powerShell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2019-05-01-preview" -imageTemplateName $imageTemplateName -svclocation $location
 ```
- 
-# Build the image
-To build the image you need to invoke 'Run'.
 
-```powerShell
+To build the image you need to invoke 'Run' on the template.
+
+```azurepowershell-interactive
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview" -Action Run
 ```
 
