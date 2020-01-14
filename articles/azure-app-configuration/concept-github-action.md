@@ -123,7 +123,11 @@ jobs:
 ```
 
 ## Use max depth to limit GitHub Action
-The default behavior for nested JSON attributes is to flatten the entire object.  The JSON below produces this key-value pair: `Key: Object:Inner:InnerKey, Value: InnerValue`
+The default behavior for nested JSON attributes is to flatten the entire object.  The JSON below defines this key-value pair:
+
+| Key | Value |
+| --- | --- |
+| Object:Inner:InnerKey | InnerValue |
 
 ```json
 { "Object": 
@@ -160,6 +164,13 @@ jobs:
           separator: ':' 
           depth: 2 
 ```
+
+Given a depth of 2, the example above now returns the following key:value pair:
+
+| Key | Value |
+| --- | --- |
+| Object:Inner | InnerKey:InnerValue |
+
 ## Understand Action Inputs
 Input parameters allow you to specify data that the action expects to use during runtime.  Below is a table containing the input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, refer to GitHub's [documentation](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)
 
