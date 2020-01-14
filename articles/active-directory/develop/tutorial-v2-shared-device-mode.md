@@ -31,11 +31,11 @@ This guide provides developer guidance to implement shared-device mode in an And
 
 ### Download the sample
 
-Clone the [sample application](https://github.com/Azure-Samples/ms-identity-android-java/) from Github. The sample has the capability to work in [single or multi account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Clone the [sample application](https://github.com/Azure-Samples/ms-identity-android-java/) from GitHub. The sample has the capability to work in [single or multi account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
 
 ### Add the MSAL SDK to your local Maven repository
 
-If you are not using the sample app, add the MSAL library as a dependency in your build.gradle file, like so:
+If you're not using the sample app, add the MSAL library as a dependency in your build.gradle file, like so:
 
 ```gradle
 dependencies{
@@ -49,7 +49,7 @@ Refer to the [configuration documentation](https://docs.microsoft.com/azure/acti
 
 Set `"shared_device_mode_supported"` to `true` in your MSAL configuration file.
 
-You may not be planning to support multiple-account mode. That could be if you are not using a shared device, and the user can sign into the app with more than one account at the same time. If so, set `"account_mode"` to `"SINGLE"`. This guarantees that your app will always get `ISingleAccountPublicClientApplication`, and significantly simplifies your MSAL integration. The default value of `"account_mode"` is `"MULTIPLE"`, so it is important to change this value in the config file if you are using `"single account"` mode.
+You may not be planning to support multiple-account mode. That could be if you're not using a shared device, and the user can sign into the app with more than one account at the same time. If so, set `"account_mode"` to `"SINGLE"`. This guarantees that your app will always get `ISingleAccountPublicClientApplication`, and significantly simplifies your MSAL integration. The default value of `"account_mode"` is `"MULTIPLE"`, so it is important to change this value in the config file if you're using `"single account"` mode.
 
 Here's an example of the auth_config.json file included in the **app**>**main**>**res**>**raw** directory of the sample app:
 
@@ -75,7 +75,7 @@ Here's an example of the auth_config.json file included in the **app**>**main**>
 
 ### Detect shared-device mode
 
-Shared-device mode allows you to configure Android devices to be shared by multiple employees, while providing Microsoft Identity backed management of the device. Employees can sign-in to their devices and access customer information quickly. When they are finished with their shift or task, they will be able to sign-out of all apps on the shared device with a single click and the device will be immediately ready for the next employee to use.
+Shared-device mode allows you to configure Android devices to be shared by multiple employees, while providing Microsoft Identity backed management of the device. Employees can sign in to their devices and access customer information quickly. When they are finished with their shift or task, they will be able to sign-out of all apps on the shared device with a single click and the device will be immediately ready for the next employee to use.
 
 Use `isSharedDevice()` to determine if an app is running on a device that is in shared-device mode. Your app could use this flag to determine if it should modify UX accordingly.
 
@@ -110,7 +110,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 
 ### Detect single vs. multiple account mode
 
-If you are writing an app that will only be used for firstline workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line of business apps. This will simplify your development as many features of the SDK won’t need to be accommodated.
+If you're writing an app that will only be used for firstline workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. This will simplify your development as many features of the SDK won’t need to be accommodated.
 
 If your app supports multiple accounts as well as shared device mode, you must perform a type check and cast to the appropriate interface as shown below.
 
@@ -206,18 +206,18 @@ First, register your application within your organizational tenant. Then provide
 For information on how to do this, refer to [Register your application](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
 
 > [!NOTE]
-> When you register your app, please use the QuickStart guide on the left-hand side and then select **Android**. This will lead you to a page where you will be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You will then receive a configuration object that you can use for your app that you will cut and paste into your auth_config.json file.
+> When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.
 
 ![App registration screen](media/tutorial-v2-shared-device-mode/register-app.png)
 You should select **Make this change for me** and then provide the values the QuickStart asks for in the Azure portal. When that's done, we will generate all the configuration files you need.
 
 ![App config info screen](media/tutorial-v2-shared-device-mode/config-info.png)
 
-## Setup a tenant
+## Set up a tenant
 
 For testing purposes, set up the following in your tenant: at least two employees, one Cloud Device Administrator, and one Global Administrator. In the Azure portal, set the Cloud Device Administrator by modifying Organizational Roles. In the Azure portal, access your Organizational Roles by selecting **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**. Add the users that can put a device into shared mode.
 
-## Setup an Android device in shared mode
+## Set up an Android device in shared mode
 
 ### Download the Authenticator App
 
@@ -233,7 +233,7 @@ Launch the Authenticator App and navigate to main account page. Once you see the
  
  ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
- When you click this button, you will be asked to authorize access to device contacts. This is due to Android’s account integration on the device. Choose **allow**.
+ When you click this button, you'll be asked to authorize access to device contacts. This is due to Android’s account integration on the device. Choose **allow**.
 
  ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
 
@@ -251,11 +251,11 @@ The device is now in shared mode.
 
 ## View the shared device in the Azure portal
 
-Once you’ve put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure Portal.
+Once you’ve put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure portal.
 
 ## Running the sample app
 
-The Sample Application is a simple app that will call the Graph API of your organization. Note that on first run you’ll be prompted to consent as the application is new to your employee account.
+The Sample Application is a simple app that will call the Graph API of your organization. n first run you’ll be prompted to consent as the application is new to your employee account.
 
 ![App config info screen](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
 

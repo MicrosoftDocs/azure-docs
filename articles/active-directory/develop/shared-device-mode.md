@@ -61,7 +61,7 @@ The following object model illustrates the type of object you may receive and wh
 
 ![public client application inheritance model](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-You'll need to perform a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account mode or single account mode, and casts the application object appropriately:
+You'll need to do a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account mode or single account mode, and casts the application object appropriately:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -88,7 +88,7 @@ The following differences apply depending on whether your app is running on a sh
 
 ## Why you may want to only support single-account mode
 
-If you are writing an app that will only be used for firstline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
+If you're writing an app that will only be used for firstline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
 
 ## What happens when the device mode changes
 
@@ -96,7 +96,7 @@ If your application is running in multiple-account mode, and an administrator pu
 
 ## Shared device sign-out and the overall app lifecycle
 
-When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
+When a user signs out, you'll need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
@@ -106,4 +106,4 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ## Next steps
 
-See the [shared device sign-out sample](https://github.com/brandwe/GlobalSignoutSample) for example shared device mode app code that shows how to write a firstline worker app that runs on a shared mode Android device.
+See the [shared device sign-out sample](https://github.com/brandwe/GlobalSignoutSample) for shared device mode app example code that shows how to write a firstline worker app that runs on a shared mode Android device.
