@@ -109,7 +109,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
 #### [.NET Core 2.x](#tab/core2x)
-    ```csharp
+    
+```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -121,10 +122,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 });
             })
             .UseStartup<Startup>();
-    ```
+```
 
 #### [.NET Core 3.x](#tab/core3x)
-    ```csharp
+    
+```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(webBuilder =>
@@ -137,7 +139,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             });
         })
         .UseStartup<Startup>());
-    ```
+```
 ---
 
 1. Open *Startup.cs*, and add references to the .NET Core feature manager:
@@ -265,11 +267,12 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     dotnet run
     ```
 
-1. Open a browser window, and go to `https://localhost:5001`, which is the default URL for the web app hosted locally.
-    If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*.  
+1. Open a browser window, and go to `https://localhost:5000`, which is the default URL for the web app hosted locally.
+    If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*.  When prompted, select port 5000.
 
     ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
+    Your browser should display a page similar to the image below.
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
