@@ -114,7 +114,7 @@ Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) quickst
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
 #### Powershell method ####
-Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
+Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -134,13 +134,13 @@ Yes. API Management works with Azure ExpressRoute.
 
 ### Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?
 The dedicated subnet requirement for API Management comes from the fact, that it is built on Classic (PAAS V1 layer) deployment model. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure is not tightly coupled with the Resource Manager model and so if you create a resource in V2 layer, the V1 layer doesn't know about it and problems can happen, such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
-To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/management/deployment-models.md).
 
 ### What is the minimum subnet size needed when deploying API Management into a VNET?
 The minimum subnet size needed to deploy API Management is [/29](../virtual-network/virtual-networks-faq.md#configuration), which is the minimum subnet size that Azure supports.
 
 ### Can I move an API Management service from one subscription to another?
-Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### Are there restrictions on or known issues with importing my API?
 [Known issues and restrictions](api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.

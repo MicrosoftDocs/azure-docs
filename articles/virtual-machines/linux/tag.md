@@ -58,6 +58,6 @@ Now that we have applied tags to our resources Azure CLI and the Portal, let’s
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
-[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
-[Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
-[Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md
+[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
+[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md

@@ -5,7 +5,7 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/5/2019
+ms.date: 1/13/2020
 ms.author: harelbr
 ms.subservice: alerts
 ---
@@ -23,7 +23,7 @@ The basic steps are as follows:
 1. Use one of the templates below as a JSON file that describes how to create the alert.
 2. Edit and use the corresponding parameters file as a JSON to customize the alert.
 3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-4. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+4. Deploy the template using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Template for a simple static threshold metric alert
 
@@ -549,7 +549,12 @@ az group deployment create \
 
 Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
 
-Please note that when the alert rule contains multiple criteria, the use of dimensions is limited to one value per dimension within each criterion.
+Please note the following constraints when using dimensions in an alert rule that contains multiple criteria:
+- You can only select one value per dimension within each criterion.
+- You cannot use "\*" as a dimension value.
+- When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant criterions).
+	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **API Name** dimension, and *criterion1* specifies the *"GetBlob"* value for the **API Name** dimension, then *criterion2* must also set a *"GetBlob"* value for the **API Name** dimension.
+
 
 Save the json below as advancedstaticmetricalert.json for the purpose of this walkthrough.
 
@@ -778,9 +783,6 @@ az group deployment create \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> When an alert rule contains multiple criteria, the use of dimensions is limited to one value per dimension within each criterion.
 
 ## Template for a static metric alert that monitors multiple dimensions
 
