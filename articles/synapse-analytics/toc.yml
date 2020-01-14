@@ -164,8 +164,8 @@
         href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       # - name: Workspace
       #   href: article-template.md
-      # - name: Pool and On-Demand
-      #   href: article-template.md
+      - name: Pool and on-demand
+        href: ./sql-analytics/access-control.md
       - name: Data
         items:
         - name: Column-level security
