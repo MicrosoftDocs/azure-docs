@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
@@ -50,11 +50,11 @@ Register the Microsoft.DataMigration resource provider before you create your fi
     - Select the Azure **Subscription** in which you want to create the instance.
     - Select an existing **Resource Group** or create a new one.
     - Choose the **Location** that is closest to your source or target server.
-    - Select an existing **Virtual network** (VNet) or create one.
+    - Select an existing **Virtual network** or create one.
 
-        The VNet provides Azure Database Migration Service with access to the source database and target environment.
+        The virtual network provides Azure Database Migration Service with access to the source database and target environment.
 
-        For more information on how to create a VNet in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/vnet).
+        For more information on how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/vnet).
 
     - Select Basic: 1 vCore for the **Pricing tier**.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/08/2020
 tags: connectors
 ---
 
@@ -37,27 +37,29 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app in the Logic App Designer.
 
-1. In the search box, enter "office 365" as your filter. For this example, select **When an upcoming event is starting soon**.
+1. In the search box, enter `office 365 outlook` as your filter. This example selects **When an upcoming event is starting soon**.
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, select the calendar that you want to use in your workflow:
-  
-   ![Select calendar to use in your workflow](./media/connectors-create-api-office365-outlook/sample-calendar.png)
+1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
 
-1. In the trigger, set the **Frequency** and **Interval** values.
+   This example selects the calendar that the trigger checks, for example:
 
-   For example, if you want the trigger to poll every 15 minutes, set the **Frequency** to **Minute**, and set the **Interval** to **15**.
-   
+   ![Configure the trigger's properties](./media/connectors-create-api-office365-outlook/select-calendar.png)
+
+1. In the trigger, set the **Frequency** and **Interval** values. To add other available trigger properties, such as **Time zone**, select those properties from the **Add new parameter** list.
+
+   For example, if you want the trigger to check the calendar every 15 minutes, set **Frequency** to **Minute**, and set **Interval** to `15`. 
+
    ![Set frequency and interval for the trigger](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
-1. On the designer toolbar, select **Save**, which saves your logic app.
+1. On the designer toolbar, select **Save**.
 
-To respond to the trigger, add another action. For example, you can add the Twilio **Send message** action, which sends a text when the calendar event starts in 15 minutes.
+Now add an action that runs after the trigger fires. For example, you can add the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
 
 ## Add an action
 
-An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger to create the contact. For example, suppose your logic app uses the SalesForce **When an object is created** trigger. You can add the Office 365 Outlook **Create contact** action and use the outputs from the SalesForce trigger to create the new contact.
+An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Dynamics 365 trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the SalesForce trigger to create the new contact.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -65,15 +67,19 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    To add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. In the search box, enter “office 365” as your filter. For this example, select **Create contact**. 
+1. In the search box, enter `office 365 outlook` as your filter. This example selects **Create contact**.
 
-   ![Add the "Create contact" action to your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+   ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action properties:
+1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
 
-   ![Enter information for the action](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+   This example selects the contacts folder where the action creates the new contact, for example:
 
-1. On the designer toolbar, select **Save**, which saves your logic app.
+   ![Configure the action's properties](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
+
+   To add other available action properties, select those properties from the **Add new parameter** list.
+
+1. On the designer toolbar, select **Save**.
 
 ## Connector-specific details
 
