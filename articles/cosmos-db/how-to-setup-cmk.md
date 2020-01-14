@@ -12,7 +12,7 @@ ROBOTS: noindex, nofollow
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
 
 > [!NOTE]
-> Currently to use customer-managed keys, you must request access. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+> At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options to manage the keys used to encrypt the data at rest:
 
@@ -95,7 +95,7 @@ When creating a new Azure Cosmos DB account with PowerShell,
 - Use **2019-12-12** as the API version.
 
 > [!IMPORTANT]
-> You should set the `Location` parameter explicitly for the account to be successfully created with customer-managed keys.
+> You must set the `Location` parameter explicitly for the account to be successfully created with customer-managed keys.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -126,7 +126,7 @@ When creating a new Azure Cosmos account through an Azure Resource Manager templ
 - Use **2019-12-12** as the API version.
 
 > [!IMPORTANT]
-> You should set the `Location` parameter explicitly for the account to be successfully created with customer-managed keys.
+> You must set the `Location` parameter explicitly for the account to be successfully created with customer-managed keys.
 
 ```json
 {
@@ -200,7 +200,7 @@ All the data stored in your Azure Cosmos account is encrypted with the customer-
 
 - The property paths declared in your [indexing policies](./index-policy.md)
 
-- The values of your container's [partition key](./partitioning-overview.md)
+- The values of your containers' [partition key](./partitioning-overview.md)
 
 ### Are customer-managed keys supported for existing Azure Cosmos accounts?
 
