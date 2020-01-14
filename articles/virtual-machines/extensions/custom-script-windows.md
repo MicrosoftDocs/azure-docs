@@ -131,8 +131,8 @@ script by changing value of this field.  Any integer value is acceptable; it mus
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
 * `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
-  * `clientId`: (optional, string) the client id of the managed identity
-  * `objectId`: (optional, string) the object id of the managed identity
+  * `clientId`: (optional, string) the client ID of the managed identity
+  * `objectId`: (optional, string) the object ID of the managed identity
 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 
@@ -160,7 +160,7 @@ To use the system-assigned identity on the target VM/VMSS, set "managedidentity"
 > }
 > ```
 
-To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client id or the object id of the managed identity.
+To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client ID or the object ID of the managed identity.
 
 > Examples:
 >
