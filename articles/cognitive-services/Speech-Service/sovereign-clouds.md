@@ -8,7 +8,7 @@ manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/14/202o
+ms.date: 1/14/2020
 ms.author: cbasoglu
 ---
 
