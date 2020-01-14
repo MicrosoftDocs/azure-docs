@@ -15,7 +15,7 @@ ms.author: mlearned
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][customer-managed-keys] to use for encryption of both the OS and data disks for your AKS clusters.
 
 > [!NOTE]
-> Linux and Windows based AKS clusters are both supported.
+> Linux and Windows based AKS clusters are both available in certain [supported Azure regions][supported-regions]
 
 ## Before you begin
 
@@ -47,12 +47,14 @@ az extension update --name aks-preview
 
 You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]
 
-Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.
+Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.  Ensure you use the same region and resource group names for each command.
 
 ```azurecli-interactive
 # Optionally retrieve Azure region short names for use on upcoming commands
 az account list-locations
+```
 
+```azurecli-interactive
 # Create new resource group in a supported Azure region
 az group create -l myAzureRegionName -n myResourceGroup
 
@@ -62,7 +64,7 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
 
 ## Create an instance of a DiskEncryptionSet
 
-You will need a *key* stored in Azure Key Vault to complete the following steps.  Either store your existing Key in the Key Vault you created, or [generate a key][key-vault-generate]
+Replace *myKeyVaultName* with the name of your key vault.  You will also need a *key* stored in Azure Key Vault to complete the following steps.  Either store your existing Key in the Key Vault you created on the previous steps, or [generate a new key][key-vault-generate] and replace *myKeyName* below with the name of your key.
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -133,6 +135,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## Limitations
 
+* Currently available in GA and Preview in certain [Azure regions][supported-regions]
 * OS Disk Encryption supported with Kubernetes version 1.17 and above   
 * Available only in regions where BYOK is supported
 * This is currently for new AKS clusters only, existing clusters cannot be upgraded
@@ -152,3 +155,4 @@ Review [best practices for AKS cluster security][best-practices-security]
 [byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
 [key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
+[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-scenarios-and-restrictions
