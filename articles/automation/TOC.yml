@@ -315,7 +315,7 @@
     - name: PowerShell modules
       items: 
       - name: Modules
-        href: automation-integration-modules.md
+        href: shared-resources/modules.md
       - name: Using Az modules in Azure Automation
         href: az-modules.md
       - name: Update Azure PowerShell modules
