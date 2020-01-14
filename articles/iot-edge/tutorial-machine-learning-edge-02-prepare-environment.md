@@ -44,15 +44,15 @@ The developer VM is not strictly necessary – all the development tools can be 
 
 It takes about 30 minutes to create and configure the virtual machine.
 
-1. Clone or download the PowerShell script from the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository. Navigate to the DevVM directory.
+1. Clone or download the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository.
 
-   The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
-
-1. Open Powershell as an administrator and navigate to the directory where you downloaded the code, such as `srcdir` in the following example:
+1. Open Powershell as an administrator and navigate to the '\IoTEdgeAndMlSample\DevVM' directory in the root directory where you downloaded the code. We will refer to the root directory for your source as `<srcdir>`.
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
     ```
+
+   The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
 
 1. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
 
@@ -83,7 +83,7 @@ It takes about 30 minutes to create and configure the virtual machine.
    * Enables Hyper-V on the VM.
    * Installs software need for development and clone the sample repository.
 
-1. Determine the name of the VM that the script created by checking the Azure portal or by the PowerShell **Get-VM** command. It will have a name ending with random characters such as IoTMLDemo-o4pv3.
+1. Determine the name of the VM that the script created by checking the Azure portal or by the PowerShell **Get-VM** command. It will have a name ending with random characters such as `IoTMLDemo-o4pv3`.
 
 1. Restart the VM.
 
@@ -177,7 +177,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Open the [Azure portal](https://portal.azure.com) and go to the resource group you're using for this tutorial.
 
-1. In the list of resources, select the IoT Hub that the script created. It will have a name ending with random characters such as "IotEdgeAndMlHub-jrujej6de6i7w".
+1. In the list of resources, select the IoT Hub that the script created. It will have a name ending with random characters such as `IotEdgeAndMlHub-jrujej6de6i7w`.
 
 1. From the left pane menu, under **Messaging**, select **Message routing**.
 
