@@ -81,15 +81,15 @@ For more information, see [connector usage](https://github.com/Azure/azure-kusto
 
 1. Set the following Spark cluster settings, based on Azure Databricks cluster using Spark 2.4.4 and Scala 2.11: 
 
-    [Databricks cluster settings](media/spark-connector/databricks-cluster.png)
+    ![Databricks cluster settings](media/spark-connector/databricks-cluster.png)
+    
+1. Install the latest spark-kusto-connector library from Maven:
 
-1. Install the latest spark-kusto-connector library from Maven::
-
-    [Import Azure Data Explorer library](media/spark-connector/db-create-library.png)
+    ![Import Azure Data Explorer library](media/spark-connector/db-create-library.png)
 
 1. Verify that all required libraries are installed:
 
-    [Verify libraries installed](media/spark-connector/db-libraries-view.png)
+    ![Verify libraries installed](media/spark-connector/db-libraries-view.png)
 
 ## Authentication
 
@@ -105,16 +105,16 @@ Most simple and common authentication method. This method is recommended for Azu
 |**KUSTO_AAD_AUTHORITY_ID**     |  Azure AD authentication authority. Azure AD Directory (tenant) ID.        |
 |**KUSTO_AAD_CLIENT_PASSWORD**    |    Azure AD application key for the client.     |
 
-### Azure Data Explorer Privileges
+### Azure Data Explorer privileges
 
-The following privileges must be granted on an Azure Data Explorer Cluster:
+The following privileges must be granted on an Azure Data Explorer cluster:
 
 * For reading (data source), Azure AD application must have *viewer* privileges on the target database, or *admin* privileges on the target table.
 * For writing (data sink), Azure AD application must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, *admin* privileges on the target table can be configured.
  
 For more information on Azure Data Explorer principal roles, see [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, see [security roles management](/azure/kusto/management/security-roles).
 
-## Spark sink: Writing to Azure Data Explorer
+## Spark sink: writing to Azure Data Explorer
 
 1. Set up sink parameters:
 
@@ -179,10 +179,9 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
           .option(KustoSinkOptions.KUSTO_WRITE_ENABLE_ASYNC, "true") // Optional, better for streaming, harder to handle errors
           .trigger(Trigger.ProcessingTime(TimeUnit.SECONDS.toMillis(10))) // Sync this with the ingestionBatching policy of the database
           .start()
-    
     ```
 
-## Spark source: Reading from Azure Data Explorer
+## Spark source: reading from Azure Data Explorer
 
 1. When reading small amounts of data, define the data query:
 
