@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL analytics with Azure Data Studio | Microsoft Docs
-description: Use Azure Data Studio to connect to and query an Azure SQL on-demand.
+title: Connect to SQL on-demand with Azure Data Studio | Microsoft Docs
+description: Use Azure Data Studio to connect to and query SQL on-demand.
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,7 +11,8 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to Azure SQL analytics with Azure Data Studio
+# Connect to Azure SQL on-demand with Azure Data Studio
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -21,10 +22,10 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use the Azure Data Studio application to connect to and query an Azure SQL analytics database.
+You can use the Azure Data Studio application to connect to and query a SQL on-demand database. 
 
 ## 1. Connect using Azure Data Studio
-To get started with [Azure Data Studio][ads], open the application and select **New Connection** followed by the connection details for your SQL on-demand database. 
+To get started with [Azure Data Studio](get-started-azure-data-studio.md), open the application and select **New Connection**. You'll be prompted to enter the connection details for your SQL on-demand database. 
 
 ![Open Azure Data Studio][1]
 
@@ -38,7 +39,7 @@ To use SQL Server Authentication, you need to add the username/password paramete
 * **User:** Server user in the form `<`User`>`
 * **Password:** Password associated with the user
 
-For example, your connection might look like the following screenshot:
+As an example, your connection might look like the following Connection Details screenshot:
 
 ![SQL Login][2]
 
@@ -49,16 +50,16 @@ Example of the Windows authentication connection:
 
 ![Windows Authentication][3]
 
-After successful login, you should see a dashboard like this:
+After successful login, you should see a dashboard like the one in the following screenshot:
+
 ![Dashboard][4]
 
-## 2. Query using SQL Analytics on-demand
-After connection, you can issue any supported Transact-SQL statements against the instance.
+## 2. Query using SQL on-demand
+After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance. To start a query, you'll need to select select **"New query"** from the dashboard view.
 
-On the screenshot bellow you can see the dashboard, select **"New query"**
 ![New Query][5]
 
-In the example below, you will query parquet files:
+To [query Parquet](query-parquet-files.md) files, you can use the the following example:
 
 ```sql
 SELECT COUNT(*) 
@@ -79,11 +80,4 @@ For more about details about the options available in sqlcmd see [sqlcmd documen
 [4]: media/sql-analytics-query-ads/4-dashboard.png
 [5]: media/sql-analytics-query-ads/5-new-query.png
 
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[ads]: https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+ 
