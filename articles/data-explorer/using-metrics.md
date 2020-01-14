@@ -49,7 +49,7 @@ In the Metrics pane:
     | Total number of concurrent queries | Count | Avg, Max, Min, Sum | The number of queries run in parallel in the cluster. This metric is a good way to estimate the load on the cluster. |
     | Total number of throttled queries | Count | Avg, Max, Min, Sum | The number of throttled (rejected) queries in the cluster. The maximum number of concurrent (parallel) queries allowed is defined in the concurrent query policy. |
     | Total number of throttled commands | Count | Avg, Max, Min, Sum | The number of throttled (rejected) commands in the cluster, since the maximum allowed number of concurrent (parallel) commands was reached. |
-    | Total number of extents | Count | Avg, Max, Min, Sum | Total number of data extents in the cluster. Changes in this metric can imply massive data structure changes and high load on the cluster, since merging data extents is a CPU-heavy activity |
+    | Total number of extents | Count | Avg, Max, Min, Sum | Total number of data extents in the cluster. Changes in this metric can imply massive data structure changes and high load on the cluster, since merging data extents is a CPU-heavy activity. |
     | | | | |
 
     Additional information about [supported Azure Data Explorer cluster metrics](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
