@@ -20,7 +20,7 @@ The CLI installer is distributed as part of the CycleCloud installation package.
 
 ![Download CLI installer](./images/cli-download.png)
 
-Alternatively, it can be downloaded directly from the command line using this command.
+Alternatively, it can be downloaded directly from the command line using this command. One may need to add the `--no-check-certificate` flag to the following wget command if the CycleCloud instance does not have a certificate matching its hostname.
 
 ```bash
 wget https://<your CycleCloud domain name>/download/tools/cyclecloud-cli.zip
@@ -42,10 +42,12 @@ cd /tmp/cyclecloud-cli-installer
 ./install.sh
 ```
 
-The CycleCloud CLI will be installed to _${HOME}/bin_. Optionally, after installing the CLI, add the _${HOME}/bin_ directory to the PATH environment variable in your profile.
+The CycleCloud CLI will be installed to _${HOME}/bin_. After installing the CLI, add the _${HOME}/bin_ directory to the PATH environment variable in your login profile, if not already done.
 
 ```bash
-export PATH=$PATH:${HOME}/bin
+if [[ -d ${HOME}/bin ]]; then
+  export PATH=${HOME}/bin:$PATH
+fi
 ```
 
 ## CycleCloud CLI Installation for Windows
