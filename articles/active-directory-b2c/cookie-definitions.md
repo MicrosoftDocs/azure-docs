@@ -29,4 +29,3 @@ The following table lists the cookies used in Azure Active Directory B2C.
 | x-ms-cpim-ctx | login.microsoftonline.com, b2clogin.com, branded domain | End of [browser session](session-behavior.md) | Context |
 | x-ms-cpim-rp | login.microsoftonline.com, b2clogin.com, branded domain | End of [browser session](session-behavior.md) | Used for storing membership data for the resource provider tenant. |
 | x-ms-cpim-rc | login.microsoftonline.com, b2clogin.com, branded domain | End of [browser session](session-behavior.md) | Used for storing the relay cookie. |
-

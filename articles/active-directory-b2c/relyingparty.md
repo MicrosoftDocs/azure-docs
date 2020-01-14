@@ -242,5 +242,3 @@ The JWT token includes the `sub` claim with the user objectId:
   ...
 }
 ```
-
-
