@@ -18,11 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Create a group for assigning roles in Azure Active Directory
 
-This preview adds a group attribute that makes a group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
+You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to ‘true’. To This group attribute makes the group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
 
-## Using Azure Admin Center
+## Using Azure AD admin center
 
-1. Open the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Sign in with Privileged Role Administrator or Global Administrator permissions in the Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select Azure Active Directory > Groups > All groups > New group
 
 

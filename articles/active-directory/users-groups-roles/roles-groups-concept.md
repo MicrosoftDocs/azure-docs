@@ -1,5 +1,5 @@
 ---
-title: Use groups to assign roles in Azure Active Directory | Microsoft Docs
+title: Use groups to manage role assignments in Azure Active Directory | Microsoft Docs
 description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
@@ -16,17 +16,15 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Use groups to assign roles in Azure Active Directory (preview)
+# Use groups to manage role assignments in Azure Active Directory (preview)
 
-In the past, Azure Active Directory (Azure AD) wouldn't allow you to assign Azure AD roles to a group. To manage bulk role assignments or assign roles individually required custom development, which increased cost. We are now introducing a public preview in which you can assign a role-enabled group to Azure AD built-in roles. Use it, for example, to assign the Helpdesk administrator role to a group of your Tier I helpdesk personnel.
+Azure Active Directory (Azure AD) is introducing a public preview in which you can assign a role-enabled group to Azure AD built-in roles. Use it, for example, to assign the Helpdesk administrator role to a group of your Tier I helpdesk personnel. When members are added to the group, they are assigned to the role indirectly. Azure AD governance then takes care of the approval process and auditing of the group’s membership to ensure that only legitimate users are member of the group and thus the Helpdesk Administrator role.
 
-When members are added to the group, they are assigned to the role indirectly. Azure AD governance then takes care of the approval process and auditing of the group’s membership to ensure that only legitimate users are member of the group and thus the Helpdesk Administrator role.
-
-As you can see in example above, with this feature you can use groups to grant admin access in Azure AD. And this process requires minimal effort from your Global Administrators (GA) or Privileged Role Administrators (PRA) who might have other pressing things to take care of.
+You can use groups to grant admin access in Azure AD in a process that requires minimal effort from your Global administrators or Privileged role administrators who might have other pressing things to take care of.
 
 ## How this feature works
 
-Create a new Office or security group with the new property ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by switching on the toggle ‘enabled for role assignment’ when creating a new group. More details in subsequent sections. Then assign this group to one or more Azure AD roles in the same way as you assign to users.
+Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by switching on the toggle ‘enabled for role assignment’ when creating a new group. More details in subsequent sections. Then assign this group to one or more Azure AD roles in the same way as you assign to users.
 
 ## Why we enforce creation of a special group for assigning it to a role
 

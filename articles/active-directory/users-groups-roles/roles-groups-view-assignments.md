@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 This section describes how the roles assigned to a group can be viewed using Azure AD admin center. Viewing groups and roles is a default user permission.
 
-1. Open https://aka.ms//assignrolestogroups. Sign in with any non-admin or admin credentials.
+1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with any non-admin or admin credentials.
 
 1. Select the group that you are interested in.
 

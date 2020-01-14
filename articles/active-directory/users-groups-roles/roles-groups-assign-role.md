@@ -20,11 +20,11 @@ ms.collection: M365-identity-device-management
 
 This section describes how an IT admin can assign Azure AD role to a group.
 
-## Using Azure AD Admin Center 
+## Using Azure AD admin aenter
 
 Assigning a group to a user is similar to users and service principals with one caveat. Only groups that are eligible (isAssignableToRole property set to true) for role assignment are shown in the menu. 
 
-1. Open https://aka.ms//assignrolestogroups. Sign in with Privileged Role Administrator or Global Administrator permissions in the Azure AD organization. 
+1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 
 1. Select Azure Active Directory > Roles and administrators > {Role name} > Add assignment. 
 

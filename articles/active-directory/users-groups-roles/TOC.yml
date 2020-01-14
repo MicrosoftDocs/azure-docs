@@ -150,7 +150,7 @@
         href: roles-delegate-app-roles.md
     - name: Assign roles to groups
       items:
-      - name: Use groups to assign roles
+      - name: Use groups to manage role assignments
         href: roles-groups-concept.md
       - name: Create a role-eligible group
         href: roles-groups-create-eligible.md
