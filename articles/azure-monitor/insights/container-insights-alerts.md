@@ -2,7 +2,7 @@
 title: Create performance alerts for Azure Monitor for containers | Microsoft Docs
 description: This article describes how to create custom alerts based on log queries for memory and CPU utilization from Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 01/07/2020
 
 ---
 
@@ -280,13 +280,14 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Monitor** from the pane on the left side. Under **Insights**, select **Containers**.
-3. On the **Monitored Clusters** tab, select a cluster from the list.
-4. In the pane on the left side under **Monitoring**, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure Log Analytics queries.
-5. On the **Logs** page, select **+New alert rule**.
-6. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
-7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
-8. Configure the alert as follows:
+2. In the Azure portal, search for and select **Log Analytics workspaces**.
+3. In your list of Log Analytics workspaces, select the workspace supporting Azure Monitor for containers. 
+4. In the pane on the left side, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure Log Analytics queries.
+5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
+6. Select **+New alert** to create a log alert.
+7. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
+8. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
+9. Configure the alert as follows:
 
     1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
     1. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold** for the CPU and memory utilization alerts. For the low disk space alert, enter **90**. Or enter a different value that meets your criteria.
@@ -294,11 +295,11 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
     1. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. To configure for cluster node low disk alert, select **ClusterId**.
     1. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
 
-9. Select **Done** to complete the alert rule.
-10. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
-11. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
-12. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
-13. Select **Create alert rule** to complete the alert rule. It starts running immediately.
+10. Select **Done** to complete the alert rule.
+11. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
+12. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
+13. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
+14. Select **Create alert rule** to complete the alert rule. It starts running immediately.
 
 ## Next steps
 

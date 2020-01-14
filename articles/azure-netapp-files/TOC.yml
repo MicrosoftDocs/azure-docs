@@ -83,5 +83,7 @@
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=netapp
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos
     href: azure-netapp-files-videos.md

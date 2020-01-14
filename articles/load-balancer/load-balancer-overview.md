@@ -68,7 +68,7 @@ Load Balancer supports both Basic and Standard SKUs. These SKUs differ in scenar
 The complete scenario configuration might differ slightly depending on SKU. Load Balancer documentation calls out when an article applies only to a specific SKU. To compare and understand the differences, see the following table. For more information, see [Azure Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> Microsoft reccomends Standard Load Balancer.
+> Microsoft recommends Standard Load Balancer.
 Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
@@ -90,7 +90,7 @@ The following figure shows a load-balanced endpoint for web traffic that is shar
 
 *Figure: Balancing web traffic by using a public Load Balancer*
 
-Internet clients send webpage requests to the public IP address of a web app on TCP port 80. Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about Load Balancer algorithms, see [Load Balancer concepts](load-balancer-overview.md##load-balancer-concepts).
+Internet clients send webpage requests to the public IP address of a web app on TCP port 80. Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about Load Balancer algorithms, see [Load Balancer concepts](load-balancer-overview.md#load-balancer-concepts).
 
 Azure Load Balancer distributes network traffic equally among multiple VM instances by default. You can also configure session affinity. For more information, see [Configure the distribution mode for Azure Load Balancer](load-balancer-distribution-mode.md).
 

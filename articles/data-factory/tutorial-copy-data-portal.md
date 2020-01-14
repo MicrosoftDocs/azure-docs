@@ -88,7 +88,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     b. Select **Create new**, and enter the name of a resource group. 
          
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md). 
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 6. Under **Version**, select **V2**.
 7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 8. Select **Create**. 

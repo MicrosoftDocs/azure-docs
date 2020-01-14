@@ -1,5 +1,5 @@
 ---
-title: Add a drawing toolbar to Azure Maps| Microsoft Docs
+title: Add a drawing toolbar to a map | Microsoft Azure Maps
 description: How to add a drawing toolbar to a map using Azure Maps Web SDK
 author: walsehgal
 ms.author: v-musehg

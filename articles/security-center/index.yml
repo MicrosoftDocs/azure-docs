@@ -58,8 +58,6 @@ landingContent:
             url: security-center-secure-score.md
           - text: Upgrade to advanced security
             url: security-center-onboarding.md
-          - text: Integrate with other Azure security products
-            url: security-center-alerts-integration.md
 
   # Card
   - title: Improve your secure score

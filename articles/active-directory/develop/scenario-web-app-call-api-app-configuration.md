@@ -35,8 +35,8 @@ The libraries supporting the authorization code flow for web Apps are:
 | MSAL library | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications) |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Development in progress - in public preview |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Development in progress - in public preview |
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for Python web applications |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for Java web applications |
 
 Select the tab corresponding to the platform you're interested in:
 

@@ -46,7 +46,7 @@ Create a Kubernetes namespace for the NGINX ingress controller and install it us
 
 ```console
 kubectl create ns nginx
-helm install nginx stable/nginx-ingress --namespace nginx
+helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 Get the IP address of the NGINX ingress controller service using [kubectl get][kubectl-get].

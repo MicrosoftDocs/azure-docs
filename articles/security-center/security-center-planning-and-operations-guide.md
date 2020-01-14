@@ -79,6 +79,10 @@ Using the personas explained in the previous diagram, the following RBAC would b
 
 * Resource Group Owner/Contributor
 
+**Ellen (CISO/CIO)**
+
+* Subscription Owner/Contributor or Security Admin
+
 **David (IT Security)**
 
 * Subscription Owner/Contributor or Security Admin

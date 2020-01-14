@@ -28,6 +28,10 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
+  - name: Monitor
+    items: 
+    - name: Use diagnostic logs to monitor SignalR Service 
+      href: signalr-tutorial-diagnostic-logs.md
 
 - name: Samples
   items:
@@ -107,7 +111,7 @@
   - name: FAQs
     href: signalr-resource-faq.md
   - name: SignalR Service subscription level limits
-    href: https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits 
+    href: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits 
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos

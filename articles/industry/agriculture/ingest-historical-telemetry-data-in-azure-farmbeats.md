@@ -56,11 +56,11 @@ Follow these steps.
     ./generateCredentials.ps1
     ```
 
-7. Follow the onscreen instructions to complete the procedure.
+7. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**. The EventHub connection string is available as part of the API response in Swagger.
 
 ## Create device or sensor metadata
 
- Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by using FarmBeats APIs.
+ Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by calling FarmBeats APIs. Please note you will need to call the APIs as the client app that you created in the above section
 
  FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata.
 
@@ -72,8 +72,8 @@ Follow these steps.
 
 |        DeviceModel   |  Suggestions   |
 | ------- | -------             |
-|     Type (node, gateway)        |          1 Star      |
-|          Manufacturer            |         2 Star     |
+|     Type (node, gateway)        |          Type of the Device - Node or Gateway      |
+|          Manufacturer            |         Name of the manufacturer    |
 |  ProductCode                    |  Device product code or model name or number. For example, EnviroMonitor#6800.  |
 |            Ports          |     Port name and type, which is digital or analog.
 |     Name                 |  Name to identify the resource. For example, the model name or product name.
