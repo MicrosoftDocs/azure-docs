@@ -1,5 +1,5 @@
 ---
-title: Connect to SQL on-demand with Azure Data Studio | Microsoft Docs
+title: Connect to SQL Analytics with Azure Data Studio | Microsoft Docs
 description: Use Azure Data Studio to connect to and query SQL on-demand.
 services: synapse analytics
 author: azaricstefan 
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL on-demand with Azure Data Studio
+# Connect to SQL Analytics with Azure Data Studio
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
@@ -22,12 +22,12 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use the Azure Data Studio application to connect to and query a SQL on-demand database. 
+You can use the Azure Data Studio application to connect to and query SQL Analytics. 
 
 ## 1. Connect using Azure Data Studio
 To get started with [Azure Data Studio](get-started-azure-data-studio.md), open the application and select **New Connection**. You'll be prompted to enter the connection details for your SQL on-demand database. 
 
-![Open Azure Data Studio][1]
+![Open Azure Data Studio](media/sql-analytics-query-ads/1-start.png)
 
 The connection requires the following parameters:
 
@@ -41,21 +41,21 @@ To use SQL Server Authentication, you need to add the username/password paramete
 
 As an example, your connection might look like the following Connection Details screenshot:
 
-![SQL Login][2]
+![SQL Login](media/sql-analytics-query-ads/2-database-details.png)
 
 
 To use Windows authentication or Azure Active Directory, you'll select one or the other as the authentication type. The following screenshot shows the Connection Details for Windows Authentication:
 
-![Windows Authentication][3]
+![Windows Authentication](media/sql-analytics-query-ads/3-windows-auth.png)
 
 After successful login, you should see a dashboard such as the one in the following screenshot:
 
-![Dashboard][4]
+![Dashboard](media/sql-analytics-query-ads/4-dashboard.png)
 
 ## 2. Query using SQL on-demand
 After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance. To start a query, you'll need to select **"New query"** from the dashboard view.
 
-![New Query][5]
+![New Query](media/sql-analytics-query-ads/5-new-query.png)
 
 To [query Parquet](query-parquet-files.md) files, you can use the following example:
 
@@ -71,11 +71,5 @@ OPENROWSET(
 ## Next steps 
 For more details about the available options in sqlcmd, see the [Connect to SQL Analytics using sqlcmd](get-started-connect-sqlcmd.md) article.
 
-<!--Image references-->
-[1]: media/sql-analytics-query-ads/1-start.png
-[2]: media/sql-analytics-query-ads/2-database-details.png
-[3]: media/sql-analytics-query-ads/3-windows-auth.png
-[4]: media/sql-analytics-query-ads/4-dashboard.png
-[5]: media/sql-analytics-query-ads/5-new-query.png
 
  
