@@ -3,7 +3,7 @@ title: Azure Monitor virtual machine extension for Windows
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -90,6 +90,9 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* The workspaceId is called the consumerId in the Log Analytics API.
+
+> [NOTE!]
+> For additional properties see Azure [Connect Windows Computes to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 ## Template deployment
 
