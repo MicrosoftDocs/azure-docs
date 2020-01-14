@@ -87,7 +87,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 |Environment variable|Node.js variable|Example|
 |--|--|--|
-|`QNAMAKER_AUTHORING_KEY`|`authoring_key`|The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.|
+|`QNAMAKER_AUTHORING_KEY`|`authoring_key`|The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.|
 |`QNAMAKER_ENDPOINT`|`endpoint`| Your authoring endpoint, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, includes your **resource name**. This is not the same URL used to query the prediction endpoint.|
 ||||
 
