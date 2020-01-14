@@ -6,7 +6,7 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 01/18/2019
 ms.author: evansma
 
 ---
@@ -15,7 +15,7 @@ ms.author: evansma
 
 You've published to marketplace, now you want to see your offer be successful. We provide you the benefits - sales, technical, and marketing - you need to accelerate your offer's growth.
 
-When you go live with your offer, the Marketplace Rewards team will reach out to begin working with you on your eligible benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
+Once your offer is live on Azure Marketplace or AppSource, go to [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) to access and activate your eligible marketing, sales and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
 ## Marketplace Rewards
 
@@ -33,12 +33,24 @@ The minimum requirement to publish in the storefronts is an MPNID, so these bene
 
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
 
-Detailed descriptions of all program benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
+Check your eligibility for Marketplace Rewards program [here](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
 Your steps to get started are easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-2. The team reaches out to the "owner" or "primary contact" per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
+2. Go to the Partner Center [dashboard](https://partner.microsoft.com/dashboard/directory), select **Sales and Marketing benefits** tab on Marketplace Rewards page to see your list of benefits.
+3. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
+4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
+
+    * Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
+    * Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
+    * Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
+    * After you’ve updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
+
+**Technical benefits**
+
+1. You can use your technical benefit to request technical assistance during the presales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
+2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
 >[!Note]
 >If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
@@ -53,7 +65,7 @@ The table below summarize the eligibility requirements for list and trial offers
 
 ![Go-To-Market benefits](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
+Check your eligibility for Marketplace Rewards program [here](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
 ## Marketplace Rewards for transact partners
 
@@ -74,7 +86,7 @@ All partners who have a live offer get to work with a dedicated engagement manag
 
 \* Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2020.
 
-Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
+Check your eligibility for Marketplace Rewards program [here](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
 In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
 
@@ -100,6 +112,8 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
 Transactions that are proven to be fraudulent will not count towards a publisher's [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
+
+Transactions that are proven to be fraudulent will not count towards a publisher's <mark>[billed sales program tier](https://aka.ms/marketplacepublisherrewards)</mark>, as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and [Program Overview](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed.
 
 ## Next steps
 
