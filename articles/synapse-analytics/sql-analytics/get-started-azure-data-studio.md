@@ -55,11 +55,11 @@ After successful login, you should see a dashboard like the one in the following
 ![Dashboard][4]
 
 ## 2. Query using SQL on-demand
-After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance. To start a query, you'll need to select select **"New query"** from the dashboard view.
+After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance. To start a query, you'll need to select **"New query"** from the dashboard view.
 
 ![New Query][5]
 
-To [query Parquet](query-parquet-files.md) files, you can use the the following example:
+To [query Parquet](query-parquet-files.md) files, you can use the following example:
 
 ```sql
 SELECT COUNT(*) 
@@ -71,7 +71,7 @@ OPENROWSET(
 ```
 
 ## Next steps 
-For more about details about the options available in sqlcmd see [sqlcmd documentation](get-started-connect-sqlcmd.md).
+For more about details about the options available in sqlcmd, see [sqlcmd documentation](get-started-connect-sqlcmd.md).
 
 <!--Image references-->
 [1]: media/sql-analytics-query-ads/1-start.png
