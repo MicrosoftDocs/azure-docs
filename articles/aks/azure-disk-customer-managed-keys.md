@@ -116,7 +116,7 @@ You can also encrypt the AKS data disks with your own keys.  Replace myResourceG
 Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is present. Otherwise, you will get an error suggesting that the service principal does not have permissions.
 
 ```azurecli-interactive
-# Retrieve your Azure Subscription Id
+# Retrieve your Azure Subscription Id from id property as shown below
 az account list
 ```
 
@@ -125,7 +125,7 @@ someuser@Azure:~$ az account list
 [
   {
     "cloudName": "AzureCloud",
-    **"id": "666e66d8-1e43-4136-be25-f25bb5de5893",**
+    "id": "666e66d8-1e43-4136-be25-f25bb5de5893",
     "isDefault": true,
     "name": "MyAzureSubscription",
     "state": "Enabled",
