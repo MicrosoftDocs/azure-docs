@@ -4,7 +4,7 @@ description: How to manage Avere cluster - add or remove nodes, reboot, stop, or
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
@@ -47,7 +47,7 @@ The Avere Control Panel can be used for these tasks:
 * Remove a node from the cluster
 * Stop or reboot the entire cluster
 
-Avere Control Panel prioritizes data integrity, so it attempts to write any changed data to backend storage before a possibly destructive operation. This makes it a safer option than the Azure portal.
+Avere Control Panel prioritizes data integrity, so it attempts to write any changed data to back-end storage before a possibly destructive operation. This makes it a safer option than the Azure portal.
 
 Access Avere Control Panel from a web browser. Follow the instructions in [Access the vFXT cluster](avere-vfxt-cluster-gui.md) if you need help.
 

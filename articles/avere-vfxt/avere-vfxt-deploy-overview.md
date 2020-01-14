@@ -4,7 +4,7 @@ description: Overview of deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 <!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
@@ -36,21 +36,23 @@ Here is an overview of all of the steps.
    Cluster creation involves these steps, which are all done by the marketplace template:
 
    * Create new network infrastructure and resource groups, if needed
-   * Create a *cluster controller*  
+   * Create a cluster controller
 
      The cluster controller is a simple VM that resides in the same virtual network as the Avere vFXT cluster and has the custom software needed to create and manage the cluster. The controller creates the vFXT nodes and forms the cluster, and it also provides a command-line interface to manage the cluster during its lifetime.
 
-     If you create a new virtual network or subnet during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the subnet.
+     If you create a new virtual network or subnet during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the virtual network.
 
    * Create the cluster node VMs
 
-   * Configure the cluster node VMs to form the cluster
+   * Create the cluster from the individual nodes
 
    * Optionally, create a new Blob container and configure it as back-end storage for the cluster
 
+  Cluster creation is described in detail in [Deploy the vFXT cluster](avere-vft-deploy.md).
+
 1. Configure the cluster
 
-   Connect to the Avere vFXT configuration interface (Avere Control Panel) to customize the cluster's settings. Opt in for support monitoring, and add your storage system if you are using an on-premises data center.
+   Connect to the Avere vFXT configuration interface (Avere Control Panel) to customize the cluster's settings. Opt in for support monitoring, and add your storage system if you are using hardware storage or additional Blob containers.
 
    * [Access the vFXT cluster](avere-vfxt-cluster-gui.md)
    * [Enable support](avere-vfxt-enable-support.md)

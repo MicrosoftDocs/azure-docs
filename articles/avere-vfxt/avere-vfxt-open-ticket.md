@@ -4,7 +4,7 @@ description: Explanation of opening support tickets about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
@@ -22,7 +22,7 @@ If you encounter issues while deploying or using Avere vFXT, request help throug
 
 Follow these steps to make sure that your support ticket is tagged with a resource from your cluster. Tagging the ticket helps us route it to the correct support resource.
 
-1. From [https://portal.azure.com](https://portal.azure.com), select **Resource Groups**. Browse to the resource group that contains the vFXT cluster where the issue occurred, and click on one of the Avere virtual machines.
+1. From [https://portal.azure.com](https://portal.azure.com), select **Resource Groups**. Browse to the resource group that contains the vFXT cluster where the issue occurred, and click on one of the Avere cluster virtual machines.
 
     ![screenshot of Azure portal resource group "overview" panel with a particular VM circled](media/avere-vfxt-ticket-vm.png)
 
@@ -38,11 +38,13 @@ Follow these steps to make sure that your support ticket is tagged with a resour
 
     ![screenshot of a new support request screen in the Azure portal. The Basics tab is selected. Screen items include Issue type, Subscription, Service, Summary, and Problem type.](media/ticket-basics.png)
 
+   Click **Next** to continue.
+
 1. The second page of the support form contains suggestions for fixing the problem based on your summary description. Click the **Next** button at the bottom if you still need to create a support ticket.
 
    ![screenshot of the new support request screen with the Solutions tab selected. A text field in the middle has the title 'Recommended solution' and explains possible remedies.](media/ticket-solutions.png)
 
-1. In the third page, provide details - this includes information about your cluster, the time the problem occurred, the severity, and how to contact you.
+1. In the third page, provide details - this includes information about your cluster, the time the problem occurred, the severity, and how to contact you. Fill in the information and click the **Next** button at the bottom.
 
    ![screenshot of the new support request screen with the Details tab selected. Information fields are organized into the categories 'Problem details', 'Support method', and "Contact info'.](media/ticket-details.png)
 
