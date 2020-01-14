@@ -225,11 +225,27 @@ Download the Microsoft Authenticator App from the Google Play store. If you alre
 
 ### Authenticator app settings & registering the device in the cloud
 
-Launch the Authenticator App and navigate to main account page. Once you see the **Add Account** page, you’re ready to make the device shared. Go to the **Settings** pane using the right-hand menu bar. Select **Device Registration** under **Work & School accounts**. When you click this button, you will be asked to authorize access to device contacts. This is due to Android’s account integration on the device. Choose **allow**. 
+Launch the Authenticator App and navigate to main account page. Once you see the **Add Account** page, you’re ready to make the device shared.
+
+![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
+
+ Go to the **Settings** pane using the right-hand menu bar. Select **Device Registration** under **Work & School accounts**.
+ 
+ ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
+
+ When you click this button, you will be asked to authorize access to device contacts. This is due to Android’s account integration on the device. Choose **allow**.
+
+ ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
 
 The Cloud Device Administrator should enter their organizational email under **Or register as a shared device**. Then click the **register as shared device** button, and enter their credentials.
 
-The device is now in shared mode. Any sign-ins and sign-outs on the device will be global, meaning they apply to all apps that are integrated with MSAL and Microsoft Authenticator on the device. You can now deploy applications to the device that use shared-device mode features.
+![register-device screen](media/tutorial-v2-shared-device-mode/register-device.png)
+
+The device is now in shared mode.
+
+![register-device screen](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
+
+ Any sign-ins and sign-outs on the device will be global, meaning they apply to all apps that are integrated with MSAL and Microsoft Authenticator on the device. You can now deploy applications to the device that use shared-device mode features.
 
 ## View the shared device in the Azure portal
 
