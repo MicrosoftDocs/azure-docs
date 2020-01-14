@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/05/2019
+ms.date: 01/13/2019
 ms.author: aahi
 ---
 
@@ -53,7 +53,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch.  To analyze a single doc there are a collection of functions in the sdk separate from the Text Analytics client which we will be using in the examples below.   
 
-Text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
+When batch processing text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. When processing single documents, only a `text` input is needed as can be see in the examples below.  
 
 The response object is a list containing the analysis information for each document. 
 
