@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2019
+ms.date: 1/14/2019
 ms.author: allensu
 
 ---
@@ -23,13 +23,6 @@ ms.author: allensu
 
 Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes new inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load-balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
->[!NOTE]
-> Microsoft recommends Standard Load Balancer.
-Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
-
-## Why use Azure Load Balancer?
-With Azure Load Balancer, you can scale your applications and create highly available services. 
-Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
 A **[public load balancer](./concepts-limitations.md#publicloadbalancer)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balancer internet traffic to your VMs.
 
@@ -41,22 +34,37 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
-### Load Balancer Options
+>[!NOTE]
+> Microsoft recommends Standard Load Balancer.
+Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
 
-For more information on the key scenarios that you can implement, see the Load Balancing options below:
+## Why use Azure Load Balancer?
+With Azure Load Balancer, you can scale your applications and create highly available services. 
+Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
-- **Health Monitoring**: [Standard Load Balancer diagnostics with metrics, alerts and resource health](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+Key scenarios that you can accomplish using Azure Load Balancer include:
 
-- **HA Ports**: [High availability ports overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)
+- Load balance **[internal](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** and **[external](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** traffic to Azure virtual machines.
 
-- **IPV6**: [What is IPv6 for Azure Virtual Network? (Preview)](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)
+- Increase availability by distributing resources **[within](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** and **[across](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** zones.
 
-- **Port Forwarding**: [Tutorial: Configure port forwarding in Azure Load Balancer using the portal](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)
+- Configure **[outbound connectivity ](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** for Azure virtual machines.
 
-- **Availability Zones**: [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Use **[health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** to monitor load-balanced resources.
 
-- **Outbound Connections and Outbound Rules**: [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections), [Load Balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
+- Employ **[port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** to access virtual machines in a virtual network by public IP address and port.
 
+- Enable support for **[load-balancing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** of **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)**.
+
+- Take advantage of **[metrics and diagnostics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)** for Azure Load Balancer with **[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)**.
+
+- Load balance services on **[multiple ports, multiple IP addresses, or both](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)**.
+
+- Move **[internal](https://docs.microsoft.com/azure/load-balancer/move-across-regions-internal-load-balancer-portal)** and **[external](https://docs.microsoft.com/azure/load-balancer/move-across-regions-external-load-balancer-portal)** load balancer resources across Azure regions.
+
+- Load balance TCP and UDP flow on all ports simultaneously using **[HA ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**.
+
+- **[Troubleshoot](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot)** Azure Load Balancer.
 
 ## Pricing
 
