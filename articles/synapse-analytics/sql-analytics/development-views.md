@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# T-SQL Views using SQL Analytics
+# T-SQL views using SQL Analytics
 In this article, you'll find tips for using T-SQL views and developing solutions with SQL Analytics. 
 
 ## Why use views?
