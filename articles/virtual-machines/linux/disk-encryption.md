@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
@@ -63,8 +63,8 @@ For now, only the following scenarios are supported:
 
 For now, we also have the following restrictions:
 
-- Available as a GA offering in East US, West US 2, and South Central US.
-- Available as a public preview in West Central US, East US 2, Canada Central, and North Europe.
+- Available as a GA offering in the East US, West US 2, and South Central US regions.
+- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.

@@ -491,7 +491,7 @@ If the Azure file share was deleted, you need to create a new file share and the
 | **Error string** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../billing/billing-subscription-become-disable.md) for more information.
+This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../cost-management-billing/manage/subscription-disabled.md) for more information.
 
 <a id="-2134364052"></a>**The storage account has a firewall or virtual networks configured.**  
 
