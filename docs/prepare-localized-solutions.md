@@ -14,21 +14,21 @@ To offer your add-in solution in languages beyond the primary language, you need
 
 To distribute your solution in additional languages, choose **Manage additional languages** on the **Marketplace listings** page in Partner Center. After you add other languages, you need to submit your solution for certfication again. 
 
-For previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest. The current add-in version remains in AppSource and the in-product experience until your new add-in is approved, unless you unpublish the current add-in. 
+For previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest. The current add-in version remains in Microsoft AppSource and the in-product experience until your new add-in is approved, unless you unpublish the current add-in. 
 
-## Localized AppSource fronts
+## Localized Microsoft AppSource fronts
 
-AppSource is available in 40 languages in 60 corresponding markets. In each of these markets, AppSource displays metadata in either English or the corresponding language. When you submit your solution, you can provide metadata (descriptions, screen shots, name) in the languages that you would like to be listed in, and explicitly specify these languages on the **Marketplace listings** page in Partner Center. Verify that the primary submission language is in the add-in manifest, if applicable. 
+Microsoft AppSource is available in 40 languages in 60 corresponding markets. In each of these markets, Microsoft AppSource displays metadata in either English or the corresponding language. When you submit your solution, you can provide metadata (descriptions, screen shots, name) in the languages that you would like to be listed in, and explicitly specify these languages on the **Marketplace listings** page in Partner Center. Verify that the primary submission language is in the add-in manifest, if applicable. 
 
-If English is the only submission language, by default, your solution is listed in AppSource fronts in all 60 markets with English metadata. 
+If English is the only submission language, by default, your solution is listed in Microsoft AppSource fronts in all 60 markets with English metadata. 
 
-If a non-English language is the submission language, your solution is listed in AppSource fronts in the corresponding markets, with metadata in that language. 
+If a non-English language is the submission language, your solution is listed in Microsoft AppSource fronts in the corresponding markets, with metadata in that language. 
 
 If English and any other non-English language are submission languages, the solution is listed in all 60 markets with English metadata, except for those markets for which the corresponding non-English language has been submitted, where the metadata is in the corresponding language.
 
-The following table lists the submission languages that AppSource is available in, and the locales and markets that correspond to each of these languages. 
+The following table lists the submission languages that Microsoft AppSource is available in, and the locales and markets that correspond to each of these languages. 
 
-**List of distribution languages and corresponding markets for AppSource**
+**List of distribution languages and corresponding markets for Microsoft AppSource**
 
 |**Submission language**|**Locale (language tag)**|**Market (country/region)**|
 |:-----|:-----|:-----|
@@ -96,7 +96,7 @@ The following table lists the submission languages that AppSource is available i
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)    
+- [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)    
 - [Validation policies](validation-policies.md) 
 
  

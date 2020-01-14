@@ -13,14 +13,14 @@ To offer your Office Add-in or SharePoint Add-in in languages beyond the primary
 
 To distribute your add-in in additional languages, you can edit the details in Partner Center. After you add other languages, you need to submit it for approval again. 
 
-In the case of previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version remains in AppSource and the in-product Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see [Update, unpublish, and view metrics](update-unpublish-and-view-metrics.md). 
+In the case of previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version remains in Microsoft AppSource and the in-product Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see [Update, unpublish, and view metrics](update-unpublish-and-view-metrics.md). 
 
 > [!NOTE]
 > You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
 
 To distribute your app or add-in in additional languages, you can edit the details in the Seller Dashboard. After you add other languages, you need to submit it for approval again. 
 
-In the case of previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version remains in AppSource until your new add-in is approved, unless you unpublish the current add-in. For more information, see [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md). 
+In the case of previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version remains in Microsoft AppSource until your new add-in is approved, unless you unpublish the current add-in. For more information, see [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md). 
  
 > [!NOTE]
 > You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.

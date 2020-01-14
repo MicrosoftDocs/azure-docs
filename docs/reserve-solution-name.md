@@ -25,7 +25,7 @@ We recommend that you limit your name to 30-50 characters, and include the impor
 For guidelines for solution names, see [Use a succinct and descriptive name](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-name).
 
 > [!NOTE]
-> You might find that you can't reserve a name, even though you don't see any apps listed by that name in AppSource. This is usually because another developer has reserved the name but hasn't submitted it yet. If you're unable to reserve a name for which you hold the trademark or other legal right, or if you see another app in AppSource using that name, [contact Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=233777).
+> You might find that you can't reserve a name, even though you don't see any apps listed by that name in Microsoft AppSource. This is usually because another developer has reserved the name but hasn't submitted it yet. If you're unable to reserve a name for which you hold the trademark or other legal right, or if you see another app in Microsoft AppSource using that name, [contact Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=233777).
 
 After you reserve a name, you have three months to submit your solution. If you don't submit it within three months, the name reservation will expire, and another developer can use that name. You might encounter an error if you try to submit a solution with a name that has expired.
 
