@@ -152,10 +152,12 @@
     items:
     - name: Back up Azure File shares
       href: backup-afs.md
-      name: Restore Azure File shares
+    - name: Restore Azure File shares
       href: restore-afs.md
-      name: Manage Azure File share backups
+    - name: Manage Azure File share backups
       href: manage-afs-backup.md
+    - name: Back up Azure File Shares with CLI
+      href: backup-afs-cli.md
   - name: Back up Azure VMs
     items:
     - name: About Azure VM backup
