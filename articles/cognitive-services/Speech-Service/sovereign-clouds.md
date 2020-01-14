@@ -20,7 +20,7 @@ Only US federal, state, local, and tribal governments and their partners have ac
 
 - SR in SpeechSDK:  *config.FromHost("wss://virginia.stt.speech.azure.us", "\<your-key\>");*
 - TTS in SpeechSDK:  *config.FromHost("https[]()://virginia.tts.speech.azure.us", "\<your-key\>");*
-- Auth Token Service: https[]()://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Authentication Tokens: https[]()://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Custom Speech Portal: https://virginia.cris.azure.us/Home/CustomSpeech
 - Available SKUs: S0
 - Supported features:
@@ -48,7 +48,7 @@ Located in China, an Azure data center with direct access to China Mobile, China
 
 - SR in SpeechSDK: *config.FromHost("wss://chinaeast2.stt.speech.azure.cn", "\<your-key\>");*
 - TTS in SpeechSDK:  *config.FromHost("https[]()://chinaeast2.tts.speech.azure.cn", "\<your-key\>");*
-- Auth Token Service: https[]()://chinaeast2.api.cognitive.microsoft.cn/sts/v1.0/issueToken
+- Authentication Tokens: https[]()://chinaeast2.api.cognitive.microsoft.cn/sts/v1.0/issueToken
 - Custom Speech Portal: https://chinaeast2.cris.azure.cn/Home/CustomSpeech
 - Available SKUs: S0
 - Supported features:
