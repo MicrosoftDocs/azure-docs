@@ -109,18 +109,20 @@ This table describes the timeline for what happens in the loop when the action's
 
 To handle throttling at this level, you have these options:
 
-* Set up another logic app as a "singleton" worker.
+* Create logic apps as "singleton" workers.
 
-  Continuing with the example SQL Server scenario in this section, you have these options for this solution:
+  Continuing with the example SQL Server scenario in this section, here are options for this solution:
 
-  * Queue up the array items and use another logic app that just performs the insert operation. That way, only one logic app instance runs at any specific time and either completes the insert operation and moves on to the next item in the queue. Or, the instance waits for 429 errors without unproductive retries.
+  * Put the array items into a queue and create a logic app that performs only the insert operation. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
 
   * Create a parent logic app that calls a child or nested logic app for each action. That way, you have one parent logic app that controls the main workflow, a child logic app that iterates through the array items, and another child logic app that inserts the item.
 
-* Set up and run batch operations.
+* Set up batch processing.
 
-  If a connector supports batch operations, 
+  If the destination service supports batch operations, better to process items in groups or batches, rather than individually.
 
-* Set up a webhook subscription.
+* Use webhook triggers or actions, rather than the polling versions.
+
+  When your logic app uses a webhook trigger or action, such as the [HTTP Webhook trigger](../connectors/connectors-native-webhook.md) or a specific connector webhook, your logic app *subscribes* to the destination service or system and waits until the specified event happens without having to periodically check for the event. If the destination service or system supports webhooks and provides a connector that provides webhook triggers or actions, this option is better than  
 
 ## Next steps
