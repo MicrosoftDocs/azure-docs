@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/workloads.md",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
       "redirect_document_id": false
@@ -12677,7 +12682,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk",
+      "redirect_url": "https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md",
+      "redirect_url": "https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
     },
     {
@@ -28222,8 +28232,13 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-deep-learning-caffe-spark.md",
-      "redirect_url": "/azure/hdinsight/spark/apache-spark-deep-learning-caffe",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-deep-learning-caffe.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md",
@@ -41181,7 +41196,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-giraph-install-linux",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install-linux.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
       "redirect_document_id": false
     },
     {
@@ -45627,6 +45647,11 @@
     {
       "source_path": "articles/media-services/latest/cae-experimental.md",
       "redirect_url": "/azure/media-services/latest/content-aware-encoding",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-arm.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
     }
   ]
