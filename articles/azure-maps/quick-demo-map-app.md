@@ -56,7 +56,7 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 
 ## Download the application
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
+1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) and click it to view the contents within the GitHub User Interface. Right click on the **Raw** button and copy the content of the file or 'Save as' to download the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Search for the string `<Your Azure Maps Key>`. Replace it with the **Primary Key** value from the preceding section.
 
