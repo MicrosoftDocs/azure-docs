@@ -904,7 +904,7 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 
 ### Storage Profile
 
-Instance Metadata Service can provide details about the storage disks associated with the VM. This data is can be found at the instance/compute/storageProfile endpoint.
+Instance Metadata Service can provide details about the storage disks associated with the VM. This data can be found at the instance/compute/storageProfile endpoint.
 
 The storage profile of a VM is divided into three categories - image reference, OS disk, and data disks.
 
