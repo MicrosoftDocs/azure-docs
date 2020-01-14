@@ -22,16 +22,19 @@ This article introduces the enhanced Secure Score (currently in preview), the ac
 
 ## Introduction to Secure Score
 
-Azure Security Center has two main goals:
+Azure Security Center has two main goals: to help you understand your current security situation, and to help you efficiently and effectively improve your security. The central aspect of Security Center that enables you to achieve those goals is Secure Score.
 
-* To help you understand your current security situation
-* To help you efficiently and effectively improve your security
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. Use the score to track security efforts and projects in your organization. 
 
-The central aspect of Security Center that enables you to achieve those goals is **Secure Score**.
+The *enhanced* Secure Score (currently in preview) is **attack surface focused** and brings three benefits:
 
-Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
+- Security Controls - Security recommendations are now grouped into logical set that better reflect your vulnerable attack surfaces. For more details, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
 
-You can also use this score to track your security posture over time, and track security efforts and projects in your organization. The enhanced Secure Score (currently in preview) adds a percentage to the display to make it even simpler to track over time:
+- Overall score better reflects the overall posture - Points were awarded at the recommendation level. With this enhancement, your score will only improve when you remediate *all* of the recommendations for a single resource within a control. That means that your score only improves when the security of a resource improves. 
+
+- Security status of individual attack surfaces is more visible - By showing the score per Security Control, the Secure Score page becomes the place where you can get a granular view of how well your organization is securing each individual attack surface.
+
+The enhanced Secure Score is shown as a percentage, as shown in the following screenshot:
 
 [![The enhanced Secure Score (preview) now includes a percentage](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
 
@@ -44,7 +47,7 @@ Security Center displays your score prominently: it's the first thing shown in t
 
 Before this preview, Security Center considered each recommendation individually and assigned a value to it based on its severity. Security teams working to improve their security posture had to prioritize responses to Security Center recommendations based on the full list of findings. Every time you remediated a recommendation for a single resource, your Secure Score improved.
 
-As part of the enhancements to the Secure Score, recommendations are now grouped into **Security Controls**. These controls are logical groupings of related recommendations. Points are no longer awarded at the recommendation level. Instead, your score will only improve when you remediate *all* of the recommendations for a single resource within a control.
+As part of the enhancements to the Secure Score, recommendations are now grouped into **Security Controls**. A control is a set of security recommendations and the instructions that help you implement those recommendations. Controls are logical groupings of related recommendations. Points are no longer awarded at the recommendation level. Instead, your score will only improve when you remediate *all* of the recommendations for a single resource within a control.
 
 The contribution of each Security Control towards the overall Secure Score is shown clearly on the recommendations page.
 
@@ -56,11 +59,17 @@ For example, the Security Control called "Apply system updates" has a maximum sc
 
 [![The Security Control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
+The value for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (which in this case is 1 point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
+
+* **Potential increase** - This shows the remaining points available to you within the control. To get these points  added to your Secure Score, remediate all of the control's recommendations. In the example above, the 1 point shown for the control is actually 0.96 points.
+* **Current score** - The current score for this control. Each control contributes towards the total score. In this example, the control is contributing 5.04 points to the total. 
+* **Max score** - The sum of the previous two values.
+
 ### Calculations
 
 |Metric|Calculation|Example|
 |-|-|-|
-|**Secure Score**<br>Single subscription|(Sum of your current points /<br> sum of the maximum score available)<br> * 100|![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 27 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the Security Controls.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Secure Score**<br>Single subscription|(Sum of your current points /<br> sum of the maximum score available)<br> * 100|![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the Security Controls.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Secure Score**<br>Multiple subscriptions|(Sum of your current points for all resources in all subscriptions/<br> sum of the maximum score available)<br> * 100|When viewing multiple subscriptions, Secure Score evaluates all resources within all enabled policies and groups their combined impact on each Security Control's maximum score.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 
 
