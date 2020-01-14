@@ -150,10 +150,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
   - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) /  [Response](#response-4))
   - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5)
 / [Response](#response-5)) 
-  - [Delete User](#delete-user) ([Request](#request-6) / 
-[Response](#response-6))
   - [Disable User](#disable-user) ([Request](#request-14) / 
 [Response](#response-14))
+  - [Delete User](#delete-user) ([Request](#request-6) / 
+[Response](#response-6))
+
+
 [Group Operations](#group-operations)
   - [Create Group](#create-group) (
 [Request](#request-7) / [Response](#response-7))
