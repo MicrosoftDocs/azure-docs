@@ -36,7 +36,6 @@ Service plans:
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 - Azure Data Explorer
-- Premium SSD managed disks
 
 
 For Windows virtual machines and SQL Database, you can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
