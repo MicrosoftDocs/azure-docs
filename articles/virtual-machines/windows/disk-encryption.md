@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 01/13/2020
+ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
@@ -50,22 +50,14 @@ The following list explains the diagram in even more detail:
 
 To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-### Supported scenarios and restrictions
+### Supported regions
+- Available as a GA offering in East US, West US 2, and South Central US.
+- Available as a public preview in West Central US, East US 2, Canada Central, and North Europe.
 
-For now, only the following scenarios are supported:
-
-- Create a virtual machine (VM) from an Azure Marketplace image and encrypt the OS disk with server-side encryption using customer-managed keys.
-- Create a custom image encrypted with server-side encryption and customer-managed keys.
-- Create a VM from a custom image and encrypt the OS disk using server-side encryption and customer-managed keys.
-- Create data disks encrypted using server-side encryption and customer-managed keys.
-- (CLI/PowerShell only) Create snapshots that are encrypted using server-side encryption and customer-managed keys.
-- Create virtual machine scale sets that are encrypted with server-side encryption and customer-managed keys.
-- ["Soft" and "Hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported.
+### Restrictions
 
 For now, we also have the following restrictions:
 
-- Available as a GA offering in East US, West US 2, and South Central US.
-- Available as a public preview in West Central US, East US 2, Canada Central, and North Europe.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
