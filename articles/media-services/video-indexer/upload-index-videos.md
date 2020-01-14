@@ -39,6 +39,10 @@ The article shows how to upload and index your videos with these options:
 - The URL provided in the `videoURL` param needs to be encoded.
 - Indexing Media Services assets has the same limitation as indexing from URL.
 - Video Indexer has a max duration limit of 4 hours for a single file.
+- The URL needs to be accessible (for example a public URL). 
+
+    If it is a private URL, the access token need to be provided in the request.
+- The URL has to point to a valid media file and not to a webpage, such as a link to youtube page.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
