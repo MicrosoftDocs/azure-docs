@@ -29,7 +29,7 @@ The investigation feature shows all entities, user information, and data under t
 ## Securing and controlling access to personal information
 A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool.
 
-See [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) to learn more about the Account Administrator role.
+See [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) to learn more about the Account Administrator role.
 
 ## Deleting personal data
 A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the investigation information.

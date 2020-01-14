@@ -869,6 +869,9 @@
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
+      - name: Scale using Azure Functions timer
+        displayName: request units, RUs, RU, timer
+        href: scale-on-schedule.md
     - name: Work with containers and items
       items:
       - name: Work with Cosmos DB data

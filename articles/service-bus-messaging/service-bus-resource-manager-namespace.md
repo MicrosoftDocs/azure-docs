@@ -78,9 +78,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 Azure PowerShell is used to deploy the template in this tutorial. For other template deployment methods, see:
 
-* [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [By using the Azure portal](../azure-resource-manager/templates/deploy-portal.md).
+* [By using Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [By using REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 ## Clean up resources
 
