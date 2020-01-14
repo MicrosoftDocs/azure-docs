@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 4/29/2019
+ms.date: 1/14/2020
 ---
 
 # Azure Data Explorer Connector for Apache Spark (Preview)
@@ -30,7 +30,7 @@ and sink operations such as write, read and writeStream.
 * Install Azure Data Explorer connector library, and libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) libraries:
     * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto Ingest Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)
+* Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases) and [Maven repo](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
 
 ## How to build the Spark connector
 
@@ -79,24 +79,17 @@ For more information, see [connector usage](https://github.com/Azure/azure-kusto
 > [!NOTE]
 > It is recommended to use the latest Azure Data Explorer Spark connector release when performing the following steps:
 
-1. Set the following Spark cluster settings, based on Azure Databricks cluster using Spark 2.4 and Scala 2.11: 
+1. Set the following Spark cluster settings, based on Azure Databricks cluster using Spark 2.4.4 and Scala 2.11: 
 
-    ![Databricks cluster settings](media/spark-connector/databricks-cluster.png)
+    [Databricks cluster settings](media/spark-connector/databricks-cluster.png)
 
-1. Import the Azure Data Explorer connector library:
+1. Install the latest spark-kusto-connector library from Maven::
 
-    ![Import Azure Data Explorer library](media/spark-connector/db-create-library.png)
-
-1. Add additional dependencies (not necessary if used from maven) :
-
-    ![Add dependencies](media/spark-connector/db-dependencies.png)
-
-    > [!TIP]
-    > The correct java release version for each Spark release is found [here](https://github.com/Azure/azure-kusto-spark#dependencies).
+    [Import Azure Data Explorer library](media/spark-connector/db-create-library.png)
 
 1. Verify that all required libraries are installed:
 
-    ![Verify libraries installed](media/spark-connector/db-libraries-view.png)
+    [Verify libraries installed](media/spark-connector/db-libraries-view.png)
 
 ## Authentication
 
@@ -141,19 +134,19 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
 
     ```scala
     import com.microsoft.kusto.spark.datasink.KustoSinkOptions
-    val conf = Map(
-            KustoSinkOptions.KUSTO_CLUSTER -> cluster,
-            KustoSinkOptions.KUSTO_TABLE -> table,
-            KustoSinkOptions.KUSTO_DATABASE -> database,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_ID -> appId,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
-            KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID -> authorityId)
-    
+    import org.apache.spark.sql.{SaveMode, SparkSession}
+
     df.write
       .format("com.microsoft.kusto.spark.datasource")
-      .options(conf)
-      .save()
-      
+      .option(KustoSinkOptions.KUSTO_CLUSTER, cluster)
+      .option(KustoSinkOptions.KUSTO_DATABASE, database)
+      .option(KustoSinkOptions.KUSTO_TABLE, "Demo3_spark")
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_ID, appId)
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD, appKey)
+      .option(KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID, authorityId)
+      .option(KustoSinkOptions.KUSTO_TABLE_CREATE_OPTIONS, "CreateIfNotExist")
+      .mode(SaveMode.Append)
+      .save()  
     ```
     
    Or use the simplified syntax:
@@ -249,3 +242,9 @@ For more information on Azure Data Explorer principal roles, see [role-based aut
     
     display(dfFiltered)
     ```
+
+## Next steps
+
+* Learn more about the [Azure Data Explorer Spark Connector](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
+* [Sample code](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
+
