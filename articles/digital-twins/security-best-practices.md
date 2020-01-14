@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/14/2020
 ---
 
 # Azure Digital Twins security best practices
@@ -35,6 +35,7 @@ Some key practices to safely secure your IoT devices include:
 > * Limit I/O and device bandwidth to improve performance. Rate-limiting can improve security by preventing denial-of-service attacks.
 > * Keep device firmware, operating system, and software up to date.
 > * Periodically audit and review device, software, network, and gateway security best practices as they continue to improve and evolve.
+> * Use [trusted, certified, and compliant](https://azure.microsoft.com/overview/trusted-cloud/compliance/) security systems, software, and devices.
 
 Some key practices to safely secure an IoT space include:
 
@@ -64,6 +65,7 @@ Azure Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azu
 > * Verify the length of time a token is valid and whether a token remains valid.
 > * Set appropriate lengths of time that tokens are valid for.
 > * Refresh expired tokens.
+> * Remove unused **Redirect URIs** and permissions.
 
 ## Role-based access control best practices
 
