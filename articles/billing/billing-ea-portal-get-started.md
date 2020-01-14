@@ -97,7 +97,7 @@ Each account requires a unique work, school, or Microsoft account. For more info
 
 ### Service administrator
 
-The service administrator role has permissions to manage services in the Azure portal and assign users to the co-administrator role.
+The service administrator role has permissions to manage services in the Azure portal and assign users to the coadministrator role.
 
 ### Notification contact
 
@@ -107,13 +107,9 @@ The notification contact receives usage notifications related to the enrollment.
 
 To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
 
-<<<<<<< HEAD
-If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure Enterprise portal.
-=======
-If you’ve been set up as the EA administrator, you don’t need to receive the activation email to log on to the Azure EA portal. You can proceed to [https://ea.azure.com](https://ea.azure.com) and log on with your email address (either work, school, or live ID) and password.
+If you’ve been set up as the Enterprise administrator, you don’t need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
 
 If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure EA portal.
->>>>>>> 84ba1797cd05706b024e0788af1c10a2890bf9c5
 
 Under **Enrollment**, the status shows **Active**.
 
@@ -240,7 +236,7 @@ Be aware of this important information when transferring accounts:
 
 Understand these role-based access control (RBAC) policies:
 
-- When you perform subscription transfers between two organizational IDs in the same tenant, RBAC policies and existing service administrator and co-administrator roles are preserved.
+- When you perform subscription transfers between two organizational IDs in the same tenant, RBAC policies and existing service administrator and coadministrator roles are preserved.
 - Other subscription transfers result in losing your RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
 
@@ -316,7 +312,7 @@ To transfer an Enterprise subscription to an individual subscription with Pay-As
 
 ## Associate an existing account with your Pay-As-You-Go subscription
 
-If you already have an existing Microsoft Azure account on the Azure portal, enter the associated , school, work, or Microsoft account in order to associate it with your Enterprise Agreement enrollment.
+If you already have an existing Microsoft Azure account on the Azure portal, enter the associated school, work, or Microsoft account in order to associate it with your Enterprise Agreement enrollment.
 
 ### Associate an existing account
 
@@ -347,7 +343,7 @@ Although most subscriptions can convert from the Pay-as-You-Go environment to Az
 1. View the Enrollment Detail section.
 1. To the right of the Azure Marketplace field, select the pencil icon to enable it. Select **Save**.
 
-The account owner can now purchase any Azure Marketplace services that where previously owned in the Pay-As-You-Go subscription.
+The account owner can now purchase any Azure Marketplace services that were previously owned in the Pay-As-You-Go subscription.
 
 After the new Azure Marketplace subscriptions are activated under your Azure EA enrollment, cancel the Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
 
@@ -439,7 +435,7 @@ You can use the advance report download to get reports that cover specific date 
 
 - **Account**: An organizational unit on the Azure Enterprise portal. They are used to administer subscriptions and for reporting.
 - **Account owner**: The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
-- **Amendment subscription**: A single, one-year or coterminous subscription under the enrollment amendment.
+- **Amendment subscription**: A one-year, or coterminous subscription under the enrollment amendment.
 - **Commitment**: Commitment of an annual monetary amount for Azure services at a discounted commitment rate for usage against this prepayment.
 - **Department administrator**: The person who manages departments, creates new accounts and account owners, views usage details for the departments they manage, and can view costs when granted permissions.
 - **Enrollment number**: A unique identifier supplied by Microsoft to identify the specific enrollment associated with an enterprise agreement.
@@ -501,11 +497,11 @@ The Azure Enterprise portal offers two types of subscriptions for enterprise cus
   - Medium-to-heavy individual dev/test workloads
   - Access to special MSDN images and preferential service rates
   
-  For more informatin, see [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/).
+  For more information, see [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### Is it possible to transfer subscription ownership to another account?
 
-Yes, you can transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise administrator can transfer one subscription to Account B, one to Account C, and one to Account D. Or they can transfer all subscriptions to Account E.
+Yes, you can transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise administrator is able to transfer one subscription to Account B, one to Account C, and one to Account D. Or they can transfer all subscriptions to Account E.
 
 To transfer subscriptions:
 
@@ -526,7 +522,7 @@ To change the name:
 
 ### How can I track costs incurred by a cost center?
 
-In order to track cost by cost center, you need to define the cost center at one of the following levels:
+To track cost by cost center, you need to define the cost center at one of the following levels:
 
 - Department
 - Account
@@ -585,7 +581,7 @@ To use Power BI:
 
    You can find the API key in the Azure Enterprise portal. Look under the **Download Usage** tab, and then select **API Access Key**. Copy it, and then paste the key into **Account Key** box in Power BI.
 
-Depending on the size of the data set, it can take between five and thirty minutes for the data to load in Power BI.
+Depending on the size of the data set, it can take between five and 30 minutes for the data to load in Power BI.
 
 Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
 
