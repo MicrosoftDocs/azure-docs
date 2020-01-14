@@ -75,6 +75,8 @@ If you are using availability zones, try another zone within the region that may
 
 If your allocation request is large (more than 500 cores), see the guidance in the following sections to break up the request into smaller deployments.
 
+If you can tolerate losing the temporary drive and waiting for the VM to redeploy, try [redeploying the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows).  Redeploying the VM allocates the VM to a new cluster within the region.
+
 ## Allocation failures for older VM sizes (Av1, Dv1, DSv1, D15v2, DS15v2, etc.)
 
 As we expand Azure infrastructure, we deploy newer-generation hardware that’s designed to support the latest virtual machine types. Some of the older series VMs do not run on our latest generation infrastructure. For this reason, customers may occasionally experience allocation failures for these legacy SKUs. To avoid this problem, we encourage customers who are using legacy series virtual machines to consider moving to the equivalent newer VMs per the following recommendations: These VMs are optimized for the latest hardware and will let you take advantage of better pricing and performance. 
@@ -89,6 +91,8 @@ As we expand Azure infrastructure, we deploy newer-generation hardware that’s 
 ## Allocation failures for large deployments (more than 500 cores)
 
 Reduce the number of instances of the requested VM size, and then retry the deployment operation. Additionally, for larger deployments, you may want to evaluate [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, and you have a greater chance of allocation success because the deployments can be spread across multiple clusters. 
+
+
 
 ## Background information
 ### How allocation works
