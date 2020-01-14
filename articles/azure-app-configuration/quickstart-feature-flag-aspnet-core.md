@@ -31,7 +31,8 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
     | Key | State |
     |---|---|
     | Beta | Off |
-Leave the 'label' undefined for now.
+    
+    Leave the 'label' undefined for now.
 
 ## Create an ASP.NET Core web app
 
@@ -108,9 +109,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
-#### [.NET Core 2.x](#tab/core2x)
+    #### [.NET Core 2.x](#tab/core2x)
     
-```csharp
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -122,11 +123,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 });
             })
             .UseStartup<Startup>();
-```
+    ```
 
-#### [.NET Core 3.x](#tab/core3x)
+    #### [.NET Core 3.x](#tab/core3x)
     
-```csharp
+    ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(webBuilder =>
@@ -139,8 +140,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             });
         })
         .UseStartup<Startup>());
-```
----
+    ```
+    ---
 
 1. Open *Startup.cs*, and add references to the .NET Core feature manager:
 
