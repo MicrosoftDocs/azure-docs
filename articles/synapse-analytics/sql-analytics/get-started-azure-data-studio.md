@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to Azure SQL on-demand with Azure Data Studio
+# Connect to SQL on-demand with Azure Data Studio
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
@@ -44,13 +44,11 @@ As an example, your connection might look like the following Connection Details 
 ![SQL Login][2]
 
 
-To use Windows authentication or Azure Active Directory, you need to choose the needed authentication type.
-
-Example of the Windows authentication connection:
+To use Windows authentication or Azure Active Directory, you'll select one or the other as the authentication type. The following screenshot shows the Connection Details for Windows Authentication:
 
 ![Windows Authentication][3]
 
-After successful login, you should see a dashboard like the one in the following screenshot:
+After successful login, you should see a dashboard such as the one in the following screenshot:
 
 ![Dashboard][4]
 
@@ -71,7 +69,7 @@ OPENROWSET(
 ```
 
 ## Next steps 
-For more details about the options available in sqlcmd, see [sqlcmd documentation](get-started-connect-sqlcmd.md).
+For more details about the available options in sqlcmd, see the [Connect to SQL Analytics using sqlcmd](get-started-connect-sqlcmd.md) article.
 
 <!--Image references-->
 [1]: media/sql-analytics-query-ads/1-start.png
