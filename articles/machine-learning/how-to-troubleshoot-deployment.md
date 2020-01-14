@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-author: chris-lauren
+author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
