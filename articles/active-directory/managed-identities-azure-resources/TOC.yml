@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Use a VM managed identity to access Azure Resource Manager
-    items: 
+    items:
     - name: Windows VM
       href: tutorial-windows-vm-access-arm.md
     - name: Linux VM
@@ -74,7 +74,7 @@
       href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
-    
+
   - name: Configure managed identities on virtual machine scale sets
     items:
     - name: Portal
@@ -87,7 +87,7 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
-      
+
   - name: Use managed identities on VMs
     items:
     - name: Acquire an access token
@@ -98,7 +98,7 @@
       href: how-to-use-vm-sdk.md
     - name: Stop using VM extension and start using Azure IMDS
       href: howto-migrate-vm-extension.md
-      
+
   - name: Assign a managed identity access to another Azure resource
     items:
     - name: Portal
@@ -107,7 +107,7 @@
       href: howto-assign-access-cli.md
     - name: PowerShell
       href: howto-assign-access-powershell.md
-      
+
   - name: Manage user-assigned managed identities
     items:
     - name: Portal
@@ -128,13 +128,13 @@
       href: how-to-view-managed-identity-service-principal-cli.md
     - name: PowerShell
       href: how-to-view-managed-identity-service-principal-powershell.md
-             
+
 - name: Reference
   items:
   - name: CLI
     href: /cli/azure/identity
   - name: PowerShell
-    href: /powershell/module/az.managedserviceidentity#managed_service_identity 
+    href: /powershell/module/az.managedserviceidentity#managed_service_identity
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
   - name: Java
@@ -145,9 +145,9 @@
     href: https://rubygems.org/gems/azure_mgmt_msi
   - name: Node.js
     href: /javascript/api/ms-rest-azure
-  - name: Go 
+  - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
-    
+
 - name: Resources
   items:
   - name: FAQs and known issues
@@ -158,4 +158,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: AAD Developers forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-    
