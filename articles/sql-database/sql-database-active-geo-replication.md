@@ -143,6 +143,7 @@ The client performing the changes needs network access to the primary server. Al
    create user geodrsetup for login gedrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
+
 1. Take note of the SID of the new login using this query: 
 
    ```sql
@@ -181,7 +182,7 @@ The client performing the changes needs network access to the primary server. Al
 
 ### On the master of the primary server
 
-1. Login to the master of the primary server using  the new login. 
+1. Login to the master of the primary server using the new login. 
 1. Create a secondary replica of the source database on the secondary server (adjust database name and servername as needed):
 
    ```sql
