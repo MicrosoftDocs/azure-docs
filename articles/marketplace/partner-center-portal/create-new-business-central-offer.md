@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/13/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -159,13 +159,13 @@ Use the following instructions to use the rich text editor:
 
      ![Using the rich text editor to change text format](./media/text-editor3.png)
 
-- To add a bulleted or numbered list to the text, use the options as below:
+- To add a bulleted or numbered list to the text, use the options below:
 
      ![Using the rich text editor to add lists](./media/text-editor4.png)
 
 - To add or remove indentation to the text, use the options below:
 
-     ![Using the rich text editor to indent](./media/text-editor4.png)
+     ![Using the rich text editor to indent](./media/text-editor5.png)
 
 ### Search keywords
 
