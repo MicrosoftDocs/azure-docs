@@ -176,9 +176,9 @@ This article provides answers to some of the most common questions about running
 
 ## General
 
-1. **Are SQL Server Failover Cluster Instances (FCI) supported on Azure VMs?**
+1. **Are SQL Server failover cluster instances (FCI) supported on Azure VMs?**
 
-   Yes. You can [create a Windows Failover Cluster on Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) and use Storage Spaces Direct (S2D) for the cluster storage. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Yes. You can install a failover cluster instance using either [premium file shares (PFS)](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) or [storage spaces direct (S2D)](virtual-machines-windows-portal-sql-create-failover-cluster.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on manged premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > At this time, the _full_ [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the _full_ extension from VMs that participate in the FCI, and install the extension in _lightweight_ mode instead. This extension supports features, such as Automated Backup and Patching and some portal features for SQL Server. These features will not work for SQL Server VMs after the _full_ agent is uninstalled.
