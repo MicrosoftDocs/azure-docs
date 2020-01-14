@@ -18,7 +18,7 @@ Learn how to use the Azure HDInsight .NET SDK to run Apache Sqoop jobs in HDInsi
 
 ## Prerequisites
 
-* Completion of [Set up test environment](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) from [Use Apache Sqoop with Hadoop in HDInsight](./hadoop/hdinsight-use-sqoop.md).
+* Completion of [Set up test environment](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
