@@ -115,7 +115,7 @@ You can also encrypt the AKS data disks with your own keys.  Replace myResourceG
 
 Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is present. Otherwise, you will get an error suggesting that the service principal does not have permissions.
 
-Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myResourceGroup and myDiskEncrptionSetName with your values.
+Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values.
 
 ```
 kind: StorageClass
@@ -126,7 +126,7 @@ provisioner: kubernetes.io/azure-disk
 parameters:
   skuname: Standard_LRS
   kind: managed
-  diskEncryptionSetID: "/subscriptions/{subs-id}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
+  diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
 Next, run this deployment in your AKS cluster:
 ```azurecli-interactive
