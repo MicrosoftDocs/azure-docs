@@ -95,7 +95,8 @@ These items should be treated as sensitive data and specified in the extensions 
 }
 ```
 
->[!NOTE] managedIdentity setting **must not** be used in conjunction with storageAccountName or storageAccountKey settings
+> [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
 
 > [!NOTE]
 > Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
@@ -178,8 +179,8 @@ To use the user-assigned idenity on the target VM/VMSS, configure "managedIdenit
 > }
 > ```
 
->[!NOTE]
-> managedIdentity setting **must not** be used in conjunction with storageAccountName or storageAccountKey settings
+> [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
 
 ## Template deployment
 

@@ -102,7 +102,7 @@ These items should be treated as sensitive data and specified in the extensions 
 ```
 
 >[!NOTE]
-> managedIdentity setting **must not** be used in conjunction with storageAccountName or storageAccountKey settings
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
 
 ### Property values
 
@@ -245,8 +245,8 @@ To use the user-assigned idenity on the target VM/VMSS, configure "managedIdenit
 > }
 > ```
 
->[!NOTE]
-> managedIdentity setting **must not** be used in conjunction with storageAccountName or storageAccountKey settings
+> [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
 
 ## Template deployment
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
