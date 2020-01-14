@@ -16,7 +16,7 @@ ms.author: dapine
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=vs)
 
@@ -28,7 +28,7 @@ The first step is to make sure that you have your project open in Visual Studio.
 
 1. Launch Visual Studio 2019.
 2. Load your project and open `Program.cs`.
-3. Download the <a href="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download>whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> and add it to your project.
+3. Download the <a href="/whatstheweatherlike.wav" download="whatstheweatherlike.wav" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> and add it to your project.
     - Save the *whatstheweatherlike.wav* file next to the `Program.cs` file.
     - From the **Solution Explorer** right-click on the project, select **Add > Existing item**.
     - Select the *whatstheweatherlike.wav* file, then select the **Add** button.
