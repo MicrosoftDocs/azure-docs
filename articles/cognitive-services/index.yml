@@ -70,7 +70,7 @@ conceptualContent:
       links:
         - url: ./immersive-reader/index.yml
           itemType: overview
-          text: Immersive Reader (Preview)
+          text: Immersive Reader
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
