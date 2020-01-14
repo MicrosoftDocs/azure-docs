@@ -140,7 +140,7 @@ If you have secrets to pass in an Azure Resource Manager template, we recommend 
 
 There are two ways to handle secrets:
 
--  Add the secrets to the parameters file. For more info, see [Use Azure Key Vault to pass a secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Add the secrets to parameters file. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md).
 
     Create a copy of the parameters file that's uploaded to the publish branch. Set the values of the parameters that you want to get from Key Vault by using this format:
 
