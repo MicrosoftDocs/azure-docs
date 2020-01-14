@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux bring-your-own-susbcription images | Microsoft Docs
+title: Red Hat Enterprise Linux bring-your-own-susbcription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -51,7 +51,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 Upon completing the Cloud Access enablement steps, Red Hat will validate your eligibility for the Red Hat Gold Images. If validation is successful, you will receive access to the Gold Images within three hours.
 
-## Use the Red Hat Gold Images from the Azure Portal
+## Use the Red Hat Gold Images from the Azure portal
 
 1. After your Azure subscription receives access to Red Hat Gold images, you can locate them in the [Azure portal](https://portal.azure.com) by navigating to **Create a Resource** and then **See all**.
 
