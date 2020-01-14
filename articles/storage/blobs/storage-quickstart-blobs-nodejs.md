@@ -15,7 +15,7 @@ ms.topic: quickstart
 Get started with the Azure Blob storage client library v12 for JavaScript. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
 > [!NOTE]
-> To get started with the previous SDK version, see [Quickstart: Azure Blob storage client library for JavaScript](storage-quickstart-blobs-nodejs-v10.md).
+> To get started with the previous SDK version, see [Quickstart: Azure Blob storage client library for JavaScript](storage-quickstart-blobs-nodejs-legacy.md).
 
 Use the Azure Blob storage client library v12 for JavaScript to:
 
