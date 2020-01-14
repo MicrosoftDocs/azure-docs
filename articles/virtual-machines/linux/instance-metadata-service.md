@@ -371,7 +371,7 @@ resourceGroupName | [Resource group](../../azure-resource-manager/management/ove
 resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
-tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
+tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 version | Version of the VM image | 2017-04-02
 vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
@@ -778,9 +778,9 @@ Puppet | https://github.com/keirans/azuremetadata
 2. Why am I not getting compute information for my VM?
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
+   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. I am not seeing all data populated for new version
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
+   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 5. Why am I getting the error `500 Internal Server Error`?
    * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
 6. Where do I share additional questions/comments?
