@@ -71,17 +71,17 @@ Configure and test Azure AD SSO with Citrix NetScaler by using a test user calle
 
 To configure and test Azure AD SSO with Citrix NetScaler, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) - to enable your users to use this feature.
 
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD SSO with B.Simon.
+    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) - to test Azure AD SSO with B.Simon.
 
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD SSO.
+    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) - to enable B.Simon to use Azure AD SSO.
 
-1. **[Configure Citrix NetScaler SSO](#configure-citrix-netscaler-sso)** - to configure the SSO settings on the application side.
+1. [Configure Citrix NetScaler SSO](#configure-citrix-netscaler-sso) - to configure the SSO settings on the application side.
 
-    * **[Create a Citrix NetScaler test user](#create-a-citrix-netscaler-test-user)** - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of the user.
+    * [Create a Citrix NetScaler test user](#create-a-citrix-netscaler-test-user) - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of the user.
 
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. [Test SSO](#test-sso) - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -274,25 +274,23 @@ To create an authentication policy:
     
     ![Citrix NetScaler configuration - Create Authentication Policy pane](./media/header-citrix-netscaler-tutorial/policy01.png)
 
-1. Select **Create**
+1. Select **Create**.
 
 ### Create an authentication SAML server
 
-To create an authentication SAML server:
+To create an authentication SAML server, go to the **Create Authentication SAML Server** pane, and then complete the following steps:
 
-* Go to the **Create Authentication SAML Server** pane, and then complete the following steps:
+1. For **Name**, enter a name for the authentication SAML server.
 
-   1. For **Name**, enter a name for the authentication SAML server.
+1. Under **Export SAML Metadata**:
 
-   1. Under **Export SAML Metadata**:
+   1. Select the **Import Metadata** check box.
 
-      1. Select the **Import Metadata** check box.
-
-      1. Enter the federation metadata URL from the Azure SAML UI that you copied earlier.
+   1. Enter the federation metadata URL from the Azure SAML UI that you copied earlier.
     
-   1. For **Issuer Name**, enter the relevant URL.
+1. For **Issuer Name**, enter the relevant URL.
 
-   1. Select **Create**.
+1. Select **Create**.
 
 ![Citrix NetScaler configuration - Create Authentication SAML Server pane](./media/header-citrix-netscaler-tutorial/server01.png)
 
