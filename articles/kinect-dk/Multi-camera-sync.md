@@ -57,7 +57,7 @@ Azure Kinect DK includes 3.5-mm synchronization ports that can be used to link m
 
 Cable requirements:
 
-- 3.5-mm tip male-to-male cable ("3.5-mm audio cable")
+- 3.5-mm male-to-male cable ("3.5-mm audio cable")
 - Maximum cable length < 10 m
 - Both stereo and mono cable are supported
 
