@@ -128,7 +128,7 @@ Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret
 
 Follow these steps to use the secret in your Service Fabric application.
 
-1. Add a section in the **settings.xml** file with the following script. Note here that the value is in the format {`secretname:version`}.
+1. Add a section in the **settings.xml** file with the following snippet. Note here that the value is in the format {`secretname:version`}.
 
 ```xml
   <Section Name="testsecrets">
@@ -149,12 +149,12 @@ Follow these steps to use the secret in your Service Fabric application.
   </ServiceManifestImport>
 ```
 
-`EnvironmentVariableName=SecretPath` will point to the directory where all secrets are stored. Each parameter listed under the `testsecrets` section is stored in a separate file. The application can now use the secret as follows:
+The environment variable `SecretPath` will point to the directory where all secrets are stored. Each parameter listed under the `testsecrets` section is stored in a separate file. The application can now use the secret as follows:
 ```C#
 secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
 ```
-3. Mount the secrets to a container. The only change required to make the secrets available inside the container is to specify a mount point in `<ConfigPackage>`.
-The following script is the modified **ApplicationManifest.xml**.  
+1. Mount the secrets to a container. The only change required to make the secrets available inside the container is to `specify` a mount point in `<ConfigPackage>`.
+The following snippet is the modified **ApplicationManifest.xml**.  
 
 ```xml
 <ServiceManifestImport>
@@ -172,7 +172,7 @@ The following script is the modified **ApplicationManifest.xml**.
 ```
 Secrets are available under the mount point inside your container.
 
-4. You can bind a secret to a process environment variable by specifying `Type='SecretsStoreRef`. The following script is an example of how to bind the `supersecret` version `ver1` to the environment variable `MySuperSecret` in **ServiceManifest.xml**.
+4. You can bind a secret to a process environment variable by specifying `Type='SecretsStoreRef`. The following snippet is an example of how to bind the `supersecret` version `ver1` to the environment variable `MySuperSecret` in **ServiceManifest.xml**.
 
 ```xml
 <EnvironmentVariables>
