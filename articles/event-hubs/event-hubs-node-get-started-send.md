@@ -38,7 +38,7 @@ To complete this tutorial, you need the following prerequisites:
 
 
 ### Install npm package
-To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs@2), open a command prompt that has `npm` in its path, change the directory
+To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0), open a command prompt that has `npm` in its path, change the directory
 to the folder where you want to have your samples and then run this command
 
 ```shell
