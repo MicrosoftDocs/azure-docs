@@ -626,7 +626,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 > [!TIP]
 > 
 > - To learn how to generate the API key for your enrollment, see the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
-> - For more information about connecting Power BI to  to your Azure consumption, see [Microsoft Azure Consumption Insights](https://docs.microsoft.com/en-us/power-bi/desktop-connect-azure-consumption-insights).
+> - For more information about connecting Power BI to  to your Azure consumption, see [Microsoft Azure Consumption Insights](https://docs.microsoft.com/power-bi/desktop-connect-azure-consumption-insights).
 
 ### To access the legacy Power BI EA content pack:
 
@@ -713,7 +713,6 @@ The resource rate is derived based on your charges. It might not match the actua
 In the download usage data report, you can see raw resource usage up to six decimal places. This data is used for overage charge calculations. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for commitment units and truncated to zero decimals for overage units. Under the Azure Enterprise portal, all overage usage is charged for full units only. You might see a large difference between the unit price and the resource rate for usage that is charged as overage or in mixed months.
 
 ## Next steps
-<<<<<<< HEAD:articles/billing/billing-ea-portal-enrollment-invoices.md
 
 - The following Excel files provide details on Azure services and are updated on the 6th and 20th of every month:
 
@@ -721,9 +720,6 @@ In the download usage data report, you can see raw resource usage up to six deci
    | --- | --- | --- |
    | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li> service category</li>   <li>friendly service name</li>   <li>commitment name and part number</li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
-- For more information about your invoice and charges, see [Understand your Azure Enterprise Agreement bill](billing-understand-your-bill-ea.md).
-- View instructions on how to [Get started with the Azure Enterprise portal](billing-ea-portal-get-started.md).
-=======
+
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).
-- To start using the Azure EA portal, see [Get started with the Azure EA portal](ea-portal-get-started.md).
->>>>>>> 4700a4d22788800da6af065910beca716f13d28e:articles/cost-management-billing/manage/ea-portal-enrollment-invoices.md
+- To start using the Azure Enterprise portal, see [Get started with the Azure EA portal](ea-portal-get-started.md).

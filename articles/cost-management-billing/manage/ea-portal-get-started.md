@@ -93,11 +93,7 @@ Users with this role can:
 - Manage service administrators
 - View usage for subscriptions
 
-<<<<<<< HEAD:articles/billing/billing-ea-portal-get-started.md
-Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
-=======
-Each account requires a unique Work, School, or Microsoft Account. For more information about Azure EA Portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
->>>>>>> 4700a4d22788800da6af065910beca716f13d28e:articles/cost-management-billing/manage/ea-portal-get-started.md
+Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
 ### Service administrator
 
@@ -380,28 +376,14 @@ To view detailed usage for specific accounts, download the Usage Detail report:
 
 To view the usage summary reports and graphs:
 
-<<<<<<< HEAD:articles/billing/billing-ea-portal-get-started.md
 1. Sign in to the Azure Enterprise portal.
-1. In the left navigation pane, select **Reports** and view the **Usage Summary** tab.  
-  ![Create and view usage summary and download reports](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
+
 1. Select a commitment term.
 
    To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.
 
-   ![Create and view usage summary and download reports in custom view](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+   ![Create and view usage summary and download reports in custom view](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. To view additional details, you can select a period or month on the graph.
-=======
-1. In the Azure EA portal, in the left navigation area, click **Reports** and view the **Usage Summary** tab.  
-  ![Create and view usage summary and download reports](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
-2. Select a commitment term.
-3. Toggle between **M** (Monthly) and **C** (Custom) on the top right of the page to view the **Usage Summary** with custom start and end dates.  
-  ![Create and view usage summary and download reports in custom view](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
-4. Select a period or month on the graph to view additional details.
-5. The graph shows month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
-6. For the selected month, filter by departments, accounts, and subscriptions below the graph.
-7. Toggle between **Charge by Services** and **Charge by Hierarchy**.
-8. Expand and collapse between **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** to view details.
->>>>>>> 4700a4d22788800da6af065910beca716f13d28e:articles/cost-management-billing/manage/ea-portal-get-started.md
 
    - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
    - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
@@ -604,12 +586,6 @@ Power BI reporting is available for Azure EA direct, partner, and indirect custo
 
 ## Next steps
 
-<<<<<<< HEAD:articles/billing/billing-ea-portal-get-started.md
-- Azure Enterprise portal administrators should read [Azure Enterprise portal administration](billing-ea-portal-administration.md) to learn about common administrative tasks.
-- If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](billing-ea-portal-troubleshoot.md).
+- Azure Enterprise portal administrators should read [Azure Enterprise portal administration](ea-portal-administration.md) to learn about common administrative tasks.
+- If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](ea-portal-troubleshoot.md).
 - For an Azure EA onboarding guide, see [Azure EA Onboarding Guide (PDF)](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
-=======
-- Azure EA portal administrators should read [Azure EA portal administration](ea-portal-administration.md) to learn about common administrative tasks.
-- If you need help with troubleshooting Azure EA portal issues, see [Troubleshoot Azure EA portal access](ea-portal-troubleshoot.md).
-- For an Azure EA onboarding guide, see [Azure EA Onboarding Guide](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
->>>>>>> 4700a4d22788800da6af065910beca716f13d28e:articles/cost-management-billing/manage/ea-portal-get-started.md
