@@ -37,7 +37,7 @@ One thing to be aware of is that on an Azure IaaS VM failover cluster, we recomm
 You should also have a general understanding of these technologies:
 
 - [Azure premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Azure resource groups](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.

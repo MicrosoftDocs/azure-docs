@@ -1,11 +1,11 @@
 ---
 title: Data Encryption for Azure Database for PostgreSQL Single server using portal
-description: Learn how to set up and manage Data Encryption for your Azure Database for PostgreSQL Single server using Azure portal
+description: Learn how to set up and manage Data Encryption for your Azure Database for PostgreSQL Single server using Azure portal.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ---
 
 # Data Encryption for Azure Database for PostgreSQL Single server using portal
@@ -16,39 +16,39 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 * You must have an Azure subscription and be an administrator on that subscription.
 * Create an Azure Key Vault and Key to use for customer-managed key.
-* The Key vault must have the following property to use as a customer-managed key
-    * [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+* The Key vault must have the following property to use as a customer-managed key:
+  * [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md)
 
-        ```azurecli-interactive
-        az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-        ```
-    
-    * [Purge protected](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)
+    ```azurecli-interactive
+    az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+    ```
 
-        ```azurecli-interactive
-        az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
-        ```
+  * [Purge protected](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+
+    ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
+    ```
 
 * The key must have the following attributes to be used for customer-managed key.
-    * No expiration date
-    * Not disabled
-    * Able to perform get, wrap key, unwrap key operations
+  * No expiration date
+  * Not disabled
+  * Able to perform _get_, _wrap key_, and _unwrap key_ operations
 
 ## Setting the right permissions for key operations
 
-1. On the Azure Key Vault, select the **Access Policies** and, **Add Access Policy** 
+1. On the Azure Key Vault, select the **Access Policies**, then **Add Access Policy**.
 
    ![Access policy overview](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Under the **Key Permissions** select **Get**, **Wrap**, **Unwrap** and the **Principal**, which is the name of the PostgreSQL server. If your server principal can't be found in the list of existing principals, you will need to register it by attempting to set up Data Encryption for the first time, which will fail.  
+2. Under the **Key Permissions**, and select **Get**, **Wrap**, **Unwrap** and the **Principal**, which is the name of the PostgreSQL server. If your server principal can't be found in the list of existing principals, you will need to register it by attempting to set up Data Encryption for the first time, which will fail.  
 
-   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
+   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
 3. **Save** the settings.
 
 ## Setting Data Encryption for Azure Database for PostgreSQL Single server
 
-1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key set up.
+1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key setup.
 
    ![Setting Data Encryption](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
@@ -68,23 +68,22 @@ Once an Azure Database for PostgreSQL Single server is encrypted with customer's
 
    ![Initiate-restore](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-   Or for a replication enabled server, under the **Settings** heading, select **Replication**
+   Or for a replication-enabled server, under the **Settings** heading, select **Replication**, as shown here:
 
    ![Initiate-replica](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
 
-2. Once the restore operation is complete, the new server created is data encrypted with the primary server's key. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This is to prevent any data manipulation since the new server's identity has still been not given permission to access the Key Vault.
+2. Once the restore operation is complete, the new server created is data encrypted with the primary server's key. However, the features and options on the server are disabled and the server is marked in an **Inaccessible** state. This behavior is designed to prevent any data manipulation, since the new server's identity has still been not given permission to access the Key Vault.
 
    ![Mark server inaccessible](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-
-3. To fix Inaccessible state, you need to revalidate the key on the restored server. Click on the **Data Encryption** blade and then the **Revalidate key** button.
+3. To fix Inaccessible state, you need to revalidate the key on the restored server. Select the **Data Encryption** pane, and then the **Revalidate key** button.
 
    > [!NOTE]
-   > The first attempt to revalidate will fail since the new server's service principal needs to be given access to the key vault. To generate the service principal click on **Revalidate key**, which will give error but generates the service principal. Thereafter, refer to steps [in section 2](https://docs.microsoft.com/azure/postgresql/howto-data-encryption-portal#setting-the-right-permissions-for-key-operations) above.
+   > The first attempt to revalidate will fail since the new server's service principal needs to be given access to the key vault. To generate the service principal, select **Revalidate key**, which will give error but generates the service principal. Thereafter, refer to steps [in section 2](#setting-the-right-permissions-for-key-operations) above.
 
    ![revalidate server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-   You will have to give access to the new server to the Key Vault. 
+   You will have to give access to the new server to the Key Vault.
 
 4. After registering the service principal, you will need to revalidate the key again and the server resumes its normal functionality.
 

@@ -31,7 +31,7 @@ This document demonstrates how to create a .NET Core console application that ru
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- An [Azure storage account](storage-quickstart-create-account.md)
+- An [Azure storage account](storage-account-create.md)
 
 ## Setup
 
