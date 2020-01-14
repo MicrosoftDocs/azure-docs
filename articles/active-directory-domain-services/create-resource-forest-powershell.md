@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services resource forest and one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
@@ -187,7 +187,7 @@ Use the `Add-AaddsResourceForestTrust` script to create the Azure AD DS side of 
 | Azure AD DS domain name            | *-ManagedDomainFqdn* | FQDN of the managed domain, such as *rf.aaddscontoso.com* |
 | On-premises AD DS domain name      | *-TrustFqdn*         | The FQDN of the trusted forest, such as *corp.contoso.com* |
 | Trust friendly name                | *-TrustFriendlyName* | Friendly name of the trust relationship. |
-| On-premises AD DS DNS IP addresses | *-TrustDnsIPs*       | A comma-delimited list DNS server IPv4 addresses for the trusted domain listed. |
+| On-premises AD DS DNS IP addresses | *-TrustDnsIPs*       | A comma-delimited list of DNS server IPv4 addresses for the trusted domain listed. |
 | Trust password                     | *-TrustPassword*     | A complex password for the trust relationship. This password is also entered when creating the one-way inbound trust in the on-premises AD DS. |
 | Credentials                        | *-Credentials*       | The credentials used to authenticate to Azure. The user must be in the *AAD DC Administrators group*. If not provided, the script prompts for authentication. |
 
