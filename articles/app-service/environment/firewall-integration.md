@@ -248,7 +248,25 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 ## US Gov dependencies
 
-For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
+For ASEs in US Gov regions, follow the instructions in the [Configuring Azure Firewall with your ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) section of this document to configure an Azure Firewall with your ASE.
+
+If you want to use a device other than Azure Firewall in US Gov 
+
+* Service Endpoint capable services should be configured with service endpoints.
+* FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
+* Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers.
+
+Linux is not available in US Gov regions and is thus not listed as an optional configuration.
+
+#### Service Endpoint capable dependencies ####
+
+| Endpoint |
+|----------|
+| Azure SQL |
+| Azure Storage |
+| Azure Event Hub |
+
+#### Dependencies ####
 
 | Endpoint |
 |----------|
