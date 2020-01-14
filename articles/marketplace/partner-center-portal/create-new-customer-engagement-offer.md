@@ -1,13 +1,13 @@
 ---
 title: Create a new Dynamics 365 for Customer Engagement & PowerApps offer in the Commercial Marketplace 
 description: How to create a new Dynamics 365 for Customer Engagement & PowerApps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: JnHs 
+author: ChJenk 
 manager: evansma
-ms.author: jenhayes 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/31/2019
+ms.date: 01/13/2020
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
@@ -138,6 +138,16 @@ The name you enter here will be shown to customers as the title of your offer li
 
 Provide a short description of your offer (up to 100 characters). This may be used in marketplace search results.
 
+
+
+
+
+
+
+
+
+
+
 ### Description
 
 Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures. 
@@ -150,8 +160,32 @@ Some tips for writing your description:
   - Customer needs or pain that the product addresses
 - Keep in mind that the first few sentences might be displayed in search engine results.  
 - Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible. 
+- Use industry-specific vocabulary or benefit-based wording as much as possible.
 - Consider using HTML tags to format your description and make it more engaging.
+
+To make your offer description more engaging, use the rich text editor to format your description.
+
+![Using the rich text editor](./media/text-editor2.png)
+
+Use the following instructions to use the rich text editor:
+
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
+
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
+
+- To add a bulleted or numbered list to the text, use the options as below:
+
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
+
+- To add or remove indentation to the text, use the options below:
+
+     ![Using the rich text editor to indent](./media/text-editor4.png)
+
+
+
+
+
+
 
 ### Search keywords
 

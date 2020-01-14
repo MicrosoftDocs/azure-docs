@@ -162,7 +162,7 @@ Select **Save** after completing these fields.
 
 ### Category
 
-Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description.
 
 ### Industry
 
@@ -235,7 +235,7 @@ Up to 3,000 characters of text can be entered in this field. For additional tips
 
 #### **Description**
 
-This is a required field. Items to include in the description:
+This is a required field. Items to include in **Description**:
 
 * Clearly describe your offer's value proposition in the first few sentences of your description.  
 * Keep in mind that the first few sentences might be displayed in search engine results.  
@@ -248,9 +248,35 @@ Core components of your value proposition should include the following informati
 * Type of user that benefits from the product.
 * Customer needs or pain that the product addresses.
 
-To make your offer description more engaging you can use HTML tags to format the description.
+To make your offer **Description** more engaging, use the rich text editor to format your description.
 
-1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
+![Using the rich text editor](./media/text-editor2.png)
+
+Use the following instructions to use the rich text editor:
+
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
+
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
+
+- To add a bulleted or numbered list to the text, use the options as below:
+
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
+
+- To add or remove indentation to the text, use the options below:
+
+     ![Using the rich text editor to indent](./media/text-editor4.png)
+
+
+
+
+
+
+
+
+
+You can also use HTML to format **Description**.
+
+- If you want to create paragraphs, add `<p>` at the beginning of the text and add `</p>` at the end.
 
     **Example**:
 
@@ -262,12 +288,12 @@ To make your offer description more engaging you can use HTML tags to format the
     <p> This is my first paragraph. </p>
     <p> This is my second paragraph. </p>
 
-1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`.
+- If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`.
 
     **Example**:
 
     ```
-    <ul> 
+    <ul>
         <li>add text here</li>
         <li> add text here </li>
         <li> add text here </li>
@@ -281,7 +307,7 @@ To make your offer description more engaging you can use HTML tags to format the
         <li> add text here </li>
     </ul> 
 
-1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold.
+- To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold.
 
     **Example**: `<b>` FREE TRIAL `</b>`
     
@@ -289,7 +315,7 @@ To make your offer description more engaging you can use HTML tags to format the
 
     **FREE TRIAL**
 
-1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content.
+- To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content.
 
     **Example**:
 
@@ -299,7 +325,7 @@ To make your offer description more engaging you can use HTML tags to format the
 
     This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below.
 
-1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text.
+- If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text.
 
     **Example**:
 

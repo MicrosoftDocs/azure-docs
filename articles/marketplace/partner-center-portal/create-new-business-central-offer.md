@@ -146,8 +146,26 @@ Some tips for writing your description:
   - Customer needs or pain that the product addresses
 - Keep in mind that the first few sentences might be displayed in search engine results.  
 - Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible. 
+- Use industry-specific vocabulary or benefit-based wording as much as possible.
 - Consider using HTML tags to format your description and make it more engaging.
+
+To make your offer description more engaging, use the rich text editor to format your description.
+
+![Using the rich text editor](./media/text-editor2.png)
+
+Use the following instructions to use the rich text editor:
+
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
+
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
+
+- To add a bulleted or numbered list to the text, use the options as below:
+
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
+
+- To add or remove indentation to the text, use the options below:
+
+     ![Using the rich text editor to indent](./media/text-editor4.png)
 
 ### Search keywords
 
