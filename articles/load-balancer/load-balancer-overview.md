@@ -32,6 +32,8 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
   <img src='./media/load-balancer-overview/IC744147.png'>
 </div>
 
+*Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
+
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
 >[!NOTE]
