@@ -8,6 +8,8 @@ ms.author: adjohnso
 
 # Slurm
 
+[//]: # (Need to link to the scheduler README on Github)
+
 Slurm is a highly configurable open source workload manager. See the [Slurm project site](https://www.schedmd.com/) for an overview.
 
 Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'master' node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:

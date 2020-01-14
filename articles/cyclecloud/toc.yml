@@ -179,9 +179,10 @@
     href: cookbook-reference.md
   - name: Node Configuration
     href: node-configuration-reference.md
-  - name: Scheduler
-    href: scheduler-integration.md
+  - name: Schedulers
     items:
+    - name: Scheduler Integration
+      href: scheduler-integration.md
     - name: PBS Professional OSS
       href: pbspro.md
     - name: Grid Engine

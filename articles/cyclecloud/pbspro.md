@@ -8,6 +8,8 @@ ms.author: adjohnso
 
 # PBS Professional OSS
 
+[//]: # (Need to link to the scheduler README on Github)
+
 [PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
@@ -34,12 +36,29 @@ Importing and starting a cluster with definition in CycleCloud will yield a sing
 cyclecloud add_node my-pbspro -t execute -c 10
 ```
 
+## PBS Resource-based Autoscaling
+
+Cyclecloud maintains two resources to expand the dynamic provisioning capability. These resources are *nodearray* and *machinetype*. 
+
+If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname ` 
+then CycleCloud will add nodes to the nodearray named 'highmem'. If there is  no such nodearray then the job will remain idle.
+
+Similarly if a machinetype resource is specified which a job submission, e.g. `qsub -l machinetype:Standard_L32s_v2 my-job.sh`, then CycleCloud autoscales the 'Standard_L32s_v2' in the 'execute' (default) nodearray. If that machine type is not available in the 'execute' node array then the job will remain idle.
+
+These resources can be used in combination as:
+
+```bash
+qsub -l nodes=8:ppn=16:nodearray=hpc:machinetype=Standard_HB60rs my-simulation.sh
+```
+
+which will autoscale only if the 'Standard_HB60rs' machines are specified an the 'hpc' node array.
+
 ## PBS Professional Configuration Reference
 
 The following are the PBS Professional specific configuration options you can toggle to customize functionality:
 
-| PBS Pro Specific Configuration Options | Description |
-| -------------------------------------- | ----------- |
+| PBS Pro Options | Description |
+| --------------- | ----------- |
 | pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                               |
 | pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=<type>', that job will *only* run on a machine of the same slot type. This allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported. |
