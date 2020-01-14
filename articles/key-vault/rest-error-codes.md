@@ -50,7 +50,7 @@ The "Authorization" header is the access token that is required with every call 
 
 ### The token lacks the correct resource associated with it. 
 
-When requesting an access token from the Azure OAUTH endpoint, a parameter called "resource" is mandatory. The value is important for the token provider because it scopes the token for its intended use. The resource for **all* tokens to access a Key Vault is <https://vault.keyvault.net> (with no trailing slash).
+When requesting an access token from the Azure OAUTH endpoint, a parameter called "resource" is mandatory. The value is important for the token provider because it scopes the token for its intended use. The resource for **all* tokens to access a Key Vault is <https:\//vault.keyvault.net> (with no trailing slash).
 
 ### The token is expired
 
