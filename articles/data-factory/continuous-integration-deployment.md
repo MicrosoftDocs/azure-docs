@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ---
 
-# Continuous integration and delivery (CI/CD) in Azure Data Factory
+# Continuous integration and delivery in Azure Data Factory
 
 ## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and delivery means moving Data Factory pipelines from one environment (development, test, production) to another. You can use Data Factory UX integration with Azure Resource Manager templates to do continuous integration and delivery.
+In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. You can use Data Factory UX integration with Azure Resource Manager templates to do CI/CD.
 
 In the Data Factory UX, you can generate a Resource Manager template from the **ARM Template** drop-down menu. When you select **Export ARM Template**, the portal generates the Resource Manager template for the data factory and a configuration file that includes all your connection strings and other parameters. Then you create one configuration file for each environment (development, test, production). The main Resource Manager template file remains the same for all the environments.
 
@@ -29,9 +29,9 @@ For a nine-minute introduction to this feature and a demonstration, watch this v
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Continuous integration and delivery lifecycle
+## CI/CD lifecycle
 
-Below is a sample overview of the continuous integration and delivery lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
+Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
 
 1.  A development data factory is created and configured with Azure Repos Git. All developers should have permission to author Data Factory resources like pipelines and datasets.
 
@@ -196,11 +196,11 @@ Deployment can fail if you try to update active triggers. To update active trigg
 You can complete similar steps (with the `Start-AzDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
 > [!IMPORTANT]
-> In continuous integration and deployment scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
+> In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
 
 #### Sample pre- and post-deployment script
 
-The following sample script shows how to stop triggers before deployment and restart them afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+The following sample script shows how to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ```powershell
 param
@@ -651,7 +651,7 @@ The following example shows how to add a single value to the default parameteriz
 
 ## Linked Resource Manager templates
 
-If you've set up continuous integration and deployment (CI/CD) for your data factories, you might exceed the Azure Resource Manager template limits as your factory grows bigger. For example, one limit is the maximum number of resources in a Resource Manager template. To accommodate large factories while generating the full Resource Manager template for a factory, Data Factory now generates linked Resource Manager templates. With this feature, the entire factory payload is broken down into several files so that you aren't constrained by the limits.
+If you've set up CI/CD for your data factories, you might exceed the Azure Resource Manager template limits as your factory grows bigger. For example, one limit is the maximum number of resources in a Resource Manager template. To accommodate large factories while generating the full Resource Manager template for a factory, Data Factory now generates linked Resource Manager templates. With this feature, the entire factory payload is broken down into several files so that you aren't constrained by the limits.
 
 If you've configured Git, the linked templates are generated and saved alongside the full Resource Manager templates in the adf_publish branch in a new folder called linkedTemplates:
 
@@ -663,7 +663,7 @@ To use linked templates instead of the full Resource Manager template, update yo
 
 Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
 
-If you don’t have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
+If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
 ## Hotfix production branch
 
