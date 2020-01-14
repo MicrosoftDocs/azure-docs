@@ -40,8 +40,10 @@ Suppose that in a given hour within the reservation period, you have deployed on
 Suppose that in a given hour within the reservation period, you are using 101 P30 premium managed disks. The reservation discount only applies to 100 P30 disks and the remaining 1 P30 disk is charged at pay-as-you-go rates for that hour. For the next hour, if your usage decreases to 100 P30 disks, then all usage is covered by the reservation.
 
 ## Need help? Contact us
+
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-•	[Reduce costs with Azure Disks Reservation](../virtual-machines/linux/disks-reserved-capacity.md)
-•	[What are Azure Reservations?](billing-save-compute-costs-reservations.md)
+
+- [Reduce costs with Azure Disks Reservation](../virtual-machines/linux/disks-reserved-capacity.md)
+- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)

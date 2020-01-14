@@ -53,12 +53,12 @@ To exchange or refund a reservation, navigate to the reservation details in the 
 
 For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
-## Exchange a reservation
+### Exchange a reservation
 
 Exchanging a reservation enables you to receive a prorated refund based on the unused portion of the reservation. You can then apply the refund to the purchase price of a new Azure disk reservation.
 There's no limit on the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new reservation that you purchase must be of equal or greater value than the prorated credit from the original reservation. An Azure disk reservation can be exchanged only for another Azure disk reservation, and not for a reservation for any other Azure service.
 
-## Refund a reservation
+### Refund a reservation
 
 You may cancel an Azure disk reservation at any time. If you cancel, you'll receive a prorated refund based on the remaining term of the reservation, minus a 12 percent early termination fee. The maximum refund per year is $50,000.
 Cancelling a reservation immediately terminates the reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase.
@@ -70,8 +70,8 @@ You will receive an email notification 30 days prior to the expiration of the re
 
 ## Need help? Contact us
 
-If you have questions or need help, create a support request.
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
-•	[What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
+- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
