@@ -13,9 +13,12 @@ ms.reviewer: jrasnick
 
 # Manage access to workspaces, data, and pipelines
 
+Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace.
+
 ## Notes to the reader
 
-- For GA, RBAC will be more developed through the introduction of Synapse-specific Azure RBAC roles
+> [!NOTE]
+> For GA, RBAC will be more developed through the introduction of Synapse-specific Azure RBAC roles
 
 ## Access Control for Workspace
 
@@ -24,46 +27,46 @@ For a production deployment into a Synapse workspace, we suggest organizing your
 > [!NOTE]
 > The approach taken here is to pre-create several security groups and then configure the workspace to use them consistently. So after the groups are setup, an admin only need to manage membership within the security groups.
 
-### STEP 1: Set up security groups with names following this pattern
+### Step 1: Set up security groups with names following this pattern
 
-- Create security group called `Synapse_WORKSPACENAME_Users`
-- Create security group called `Synapse_WORKSPACENAME_Admins`
-- Add `Synapse_WORKSPACENAME_Admins` to `ProjectSynapse_WORKSPACENAME_Users`
+1. Create security group called `Synapse_WORKSPACENAME_Users`
+2. Create security group called `Synapse_WORKSPACENAME_Admins`
+3. Add `Synapse_WORKSPACENAME_Admins` to `ProjectSynapse_WORKSPACENAME_Users`
 
-### STEP 2: Prepare the Default ADLS Gen2 Account
+### Step 2: Prepare the Default ADLS Gen2 Account
 
 When you provisioned your workspace you had to pick an ADLSGEN2 account and a container for the filesystem for the workspace to use.
 
-- Open the Azure Portal (https://portal.azure.com)
-- Navigate to the ADLSGEN2 account
-- Navigate to container (filesystem) you picked for the Azure Synapse workspace
-- Click **Access Control (IAM)**
-- Assign roles
-  - **Reader** role:  `Synapse_WORKSPACENAME_Users`
-  - **Storage Blob Data Owner** role:  `Synapse_WORKSPACENAME_Admins`
-  - **Storage Blob Data Contributor** role: `Synapse_WORKSPACENAME_Users`
-  - **Storage Blob Data Owner** role:  `WORKSPACENAME`
+1. Open the Azure portal (https://portal.azure.com)
+2. Navigate to the ADLSGEN2 account
+3. Navigate to container (filesystem) you picked for the Azure Synapse workspace
+4. Click **Access Control (IAM)**
+5. Assign roles
+   1. **Reader** role:  `Synapse_WORKSPACENAME_Users`
+   2. **Storage Blob Data Owner** role:  `Synapse_WORKSPACENAME_Admins`
+   3. **Storage Blob Data Contributor** role: `Synapse_WORKSPACENAME_Users`
+   4. **Storage Blob Data Owner** role:  `WORKSPACENAME`
   
-### STEP 3: Configure the workspace admin list
+### Step 3: Configure the workspace admin list
 
-- Go to the **Azure Synapse Web UI** (https://web.azuresynapse.net)
-- Go to the **Manage**  > **Security** > **Access control**
-- Click **Add Admin**, and select `Synapse_WORKSPACENAME_Admins`
+1. Go to the **Azure Synapse Web UI** (https://web.azuresynapse.net)
+2. Go to the **Manage**  > **Security** > **Access control**
+3. Click **Add Admin**, and select `Synapse_WORKSPACENAME_Admins`
 
-### STEP 4: Configure SQL Admin Access for the workspace
+### Step 4: Configure SQL Admin Access for the workspace
 
-- Open the Azure portal (https://portal.azure.com)
-- Navigate to your workspace
-- Go to **Settings** > **Active Directory admin**
-- Click **Set Admin**
-- Select `Synapse_WORKSPACENAME_Admins`
-- click **Select**
-- click **Save**
+1. Open the Azure portal (https://portal.azure.com)
+2. Navigate to your workspace
+3. Go to **Settings** > **Active Directory admin**
+4. Click **Set Admin**
+5. Select `Synapse_WORKSPACENAME_Admins`
+6. click **Select**
+7. click **Save**
 
-### STEP 5: Add and Remove Users and Admins to Security groups
+### Step 5: Add and Remove Users and Admins to Security groups
 
-- Add users that need administrative access to `Synapse_WORKSPACENAME_Admins`
-- Add all other users to `Synapse_WORKSPACENAME_Users`
+1. Add users that need administrative access to `Synapse_WORKSPACENAME_Admins`
+2. Add all other users to `Synapse_WORKSPACENAME_Users`
 
 ## Access Control to data
 
