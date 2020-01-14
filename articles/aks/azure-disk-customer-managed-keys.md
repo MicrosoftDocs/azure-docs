@@ -104,16 +104,17 @@ diskEncryptionSetId=$(az resource show -n diskEncryptionSetName -g myResourceGro
 az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
 ```
 
 When new node pools are added to the cluster created above, the customer-managed key provided during the create is used to encrypt the OS disk.
 
 ## Encrypt your AKS cluster data disk
 
-You can also encrypt the AKS data disks with your own keys.  Replace myResourceGroup and myDiskEncryptionSetName with your real values, and apply the yaml.
+You can also encrypt the AKS data disks with your own keys.
 
-Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is present. Otherwise, you will get an error suggesting that the service principal does not have permissions.
+> [!IMPORTANT]
+> Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the service principal does not have permissions.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below
@@ -139,7 +140,7 @@ someuser@Azure:~$ az account list
 ]
 ```
 
-Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values.
+Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values, and apply the yaml.
 
 ```
 kind: StorageClass
