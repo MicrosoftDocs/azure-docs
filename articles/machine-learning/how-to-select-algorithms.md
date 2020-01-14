@@ -24,7 +24,7 @@ A common question is “What machine learning algorithm should I use?” The ans
 
 ## Machine Learning Algorithm Cheat Sheet and business scenarios
 
-The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first aspect listed above: **what you want to do with your data**. With the Machine Learning Algorithm Cheat Sheet you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
+The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first aspect listed above: **what you want to do with your data**. With the Machine Learning Algorithm Cheat Sheet, you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
 
 Machine Learning designer provides a comprehensive portfolio of algorithms, such as Multiclass Decision Forest, Recommendation systems, Neural Network Regression, Multiclass Neural Network, and K-Means Clustering. Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri
 ) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm for your use.
@@ -50,7 +50,7 @@ Make choices and possibly trade-offs for the following requirements:
 
 ## Accuracy
 
-Accuracy in machine learning is a general term used to measure the effectiveness of a model as the proportion of true results to total cases. In Machine Learning designer the [Evaluate Model module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) computes a set of industry-standard evaluation metrics. You can use this module to measure the accuracy of a trained model.
+Accuracy in machine learning is a general term used to measure the effectiveness of a model as the proportion of true results to total cases. In Machine Learning designer, the [Evaluate Model module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) computes a set of industry-standard evaluation metrics. You can use this module to measure the accuracy of a trained model.
 
 Getting the most accurate answer possible isn’t always necessary. Sometimes an approximation is adequate, depending on what you want to use it for. If that is the case, you may be able to cut your processing time dramatically by sticking with more approximate methods. Another advantage of more approximate methods is that they naturally tend to avoid overfitting.
 
@@ -86,7 +86,7 @@ For example, linear classification algorithms assume that classes can be separat
 - [Two-class logistic regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
 - [Support vector machines](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
 
-Linear regression algorithms assume that data trends follow a straight line. This assumption isn't bad for some problems, but on others it reduces accuracy. Despite their drawbacks, linear algorithms are very popular as a first line of attack. They tend to be algorithmically simple and fast to train.
+Linear regression algorithms assume that data trends follow a straight line. This assumption isn't bad for some problems, but on others it reduces accuracy. Despite their drawbacks, linear algorithms are popular as a first line of attack. They tend to be algorithmically simple and fast to train.
 
 ## Number of parameters
 
@@ -98,7 +98,7 @@ While this is a great way to make sure you’ve spanned the parameter space, the
 
 ## Number of features
 
-In machine learning a feature is a quantifiable variable of the phenomenon you are trying to analyze. For certain types of data, the number of features can be very large compared to the number of data points. This is often the case with genetics or textual data. 
+In machine learning, a feature is a quantifiable variable of the phenomenon you are trying to analyze. For certain types of data, the number of features can be very large compared to the number of data points. This is often the case with genetics or textual data. 
 
 The large number of features can bog down some learning algorithms, making training time unfeasibly long. [Support vector machines](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) are particularly well suited to scenarios with high number of features: for this reason, they have been used in many applications, from information retrieval to text and image classification. Support vector machines can be used for both classification and regression tasks.
 
