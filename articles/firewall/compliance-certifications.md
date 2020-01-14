@@ -13,9 +13,9 @@ ms.author: victorh
 
 Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant.
 
-## Azure public certifications
+## Global Azure certifications
 
-The following Azure Firewall certifications are for public Azure:
+The following Azure Firewall certifications are for global Azure:
 
 - 23 NYCRR 500
 - AFM and DNB (Netherlands)
