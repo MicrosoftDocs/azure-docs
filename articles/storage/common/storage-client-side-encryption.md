@@ -239,6 +239,6 @@ Note that encrypting your storage data results in additional performance overhea
 
 ## Next steps
 * [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
-* Download the [Azure Storage Client Library for .NET Nuget package](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Download the Azure Key Vault Nuget [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
+* Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
+* Download the Azure Key Vault NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 * Visit the [Azure Key Vault Documentation](../../key-vault/key-vault-overview.md)

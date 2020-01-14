@@ -18,7 +18,7 @@ Use the links below to view and download Azure Storage sample code and applicati
 The [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 ## .NET samples
-To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from Nuget. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
+To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
 * [Azure Storage samples using .NET](storage-samples-dotnet.md)
 
@@ -39,7 +39,7 @@ To explore the Node.js samples, download the [Node.js Storage Client Library](ht
 * [Azure Storage samples using JavaScript/Node.js](storage-samples-javascript.md)
 
 ## C++ samples
-To explore the C++ samples, download the [C++ Storage Client Library](https://www.nuget.org/packages/wastorage/) from Nuget.
+To explore the C++ samples, download the [C++ Storage Client Library](https://www.nuget.org/packages/wastorage/) from NuGet.
 
 * [Get started with blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
 * [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)

@@ -345,7 +345,7 @@ These packages are the most common requirements for Storage Explorer on Linux:
 
 For Storage Explorer 1.7.0 or earlier, you might have to patch the version of .NET Core used by Storage Explorer:
 
-1. Download version 1.5.43 of StreamJsonRpc [from Nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Look for the "Download package" link on the right side of the page.
+1. Download version 1.5.43 of StreamJsonRpc [from NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Look for the "Download package" link on the right side of the page.
 2. After you download the package, change its file extension from `.nupkg` to `.zip`.
 3. Unzip the package.
 4. Open the `streamjsonrpc.1.5.43/lib/netstandard1.1/` folder.

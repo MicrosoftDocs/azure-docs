@@ -182,7 +182,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
    ```
 
    > [!NOTE]
-   > If you have a Nuget version that is older than 2.8.5.201, you're prompted to download and install the latest version of Nuget.
+   > If you have a NuGet version that is older than 2.8.5.201, you're prompted to download and install the latest version of NuGet.
 
    By default, the PowerShell gallery isn't configured as a trusted repository for PowerShellGet. The first time you use the PSGallery, you see the following prompt:
 

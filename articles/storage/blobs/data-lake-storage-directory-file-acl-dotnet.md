@@ -15,9 +15,9 @@ ms.reviewer: prishet
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
 > [!IMPORTANT]
-> The [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) Nuget package that is featured in this article is currently in public preview.
+> The [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) NuGet package that is featured in this article is currently in public preview.
 
-[Package (Nuget)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API reference](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+[Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API reference](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ This article shows you how to use .NET to create and manage directories, files, 
 
 ## Set up your project
 
-To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) Nuget package.
+To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package.
 
-For more information about how to install Nuget packages, see [Install and manage packages in Visual Studio using the Nuget Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
+For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
 Then, add these using statements to the top of your code file.
 
@@ -300,7 +300,7 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 ## See also
 
 * [API reference documentation](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
-* [Package (Nuget)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)
+* [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)
 * [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)

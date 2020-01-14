@@ -17,7 +17,7 @@ This guide demonstrates how to perform common scenarios using Azure Blob storage
 To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [Nuget](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -35,7 +35,7 @@ To install the Azure Storage Client Library for C++, you can use the following m
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
+You can find a guide for how to build the source code and export to NuGet in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## Configure your application to access Blob storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  

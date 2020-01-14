@@ -26,7 +26,7 @@ Follow these steps to create your application:
 
 1. If you haven't already, download and install [Xamarin for Visual Studio](https://www.xamarin.com/download).
 2. Open Visual Studio, and create a Blank App (Native Portable): **File > New > Project > Cross-Platform > Blank App(Native Portable)**.
-3. Right-click your solution in the Solution Explorer pane and select **Manage Nuget Packages for Solution**. Search for **WindowsAzure.Storage** and install the latest stable version to all projects in your solution.
+3. Right-click your solution in the Solution Explorer pane and select **Manage NuGet Packages for Solution**. Search for **WindowsAzure.Storage** and install the latest stable version to all projects in your solution.
 4. Build and run your project.
 
 You should now have an application that allows you to click a button which increments a counter.
