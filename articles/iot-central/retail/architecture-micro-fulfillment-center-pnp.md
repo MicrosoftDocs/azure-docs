@@ -13,8 +13,6 @@ manager: eliotgra
 
 # Micro-fulfillment center architecture
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
-
 Micro-fulfillment center solutions allow you to digitally connect, monitor, and manage all aspects of a fully automated fulfillment center to reduce costs by eliminating downtime while increasing security and overall efficiency. These solutions can be built by leveraging one of the application templates within IoT Central and the architecture below as guidance.
 
 ![Azure IoT Central Store Analytics](./media/architecture/micro-fulfillment-center-architecture-frame.png)
