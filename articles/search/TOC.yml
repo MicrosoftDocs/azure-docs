@@ -85,6 +85,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Indexers
+    href: search-indexer-overview.md
   - name: AI enrichment
     href: cognitive-search-concept-intro.md
   - name: Skillsets
@@ -147,7 +149,7 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Create indexes
+  - name: Creating indexes
     items:
     - name: Create a basic index
       href: search-what-is-an-index.md
@@ -179,7 +181,7 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Indexing any data
+  - name: Import (indexing)
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -273,12 +275,16 @@
       href: search-query-lucene-examples.md
     - name: Use Search Explorer (portal)
       href: search-explorer.md
-    - name: Simple query syntax
-      href: query-simple-syntax.md
-    - name: Full Lucene query syntax
-      href: query-lucene-syntax.md
-    - name: moreLikeThis query parameter
-      href: search-more-like-this.md
+    - name: Special characters and partial terms
+      href: search-query-partial-matching.md
+    - name: Syntax reference
+      items:
+      - name: Simple query syntax
+        href: query-simple-syntax.md
+      - name: Full Lucene query syntax
+        href: query-lucene-syntax.md
+      - name: moreLikeThis (preview)
+        href: search-more-like-this.md
   - name: Apply filters
     items:
     - name: Filter overview
