@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 01/13/2020
+ ms.date: 01/14/2020
  ms.author: anavin
  ms.custom: include file
 
@@ -21,7 +21,8 @@ The following limits apply only for networking resources managed through **Azure
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
 | Virtual network peerings per virtual network |500 |
-| [Virtual network gateways (VPN Gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Virtual network gateways (ExpressRoute gateways) per virtual network](](../articles/expressroute/expressroute-about-virtual-network-gateways#gwsku) |1 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
 | Private IP addresses per network interface |256 |
