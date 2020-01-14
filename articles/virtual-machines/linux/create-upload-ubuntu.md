@@ -93,7 +93,16 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         (recommended) sudo apt-get dist-upgrade
 
         # sudo reboot
+	
+	Ubuntu 18.04.04:
+	
+		# sudo apt-get update
+		# sudo apt-get install --install-recommends linux-generic-hwe-18.04 xserver-xorg-hwe-18.04
+		# sudo apt-get install --install-recommends linux-cloud-tools-generic-hwe-18.04
+		(recommended) sudo apt-get dist-upgrade
 
+		# sudo reboot
+	
 	**See also:**
 	- [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 	- [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)

@@ -117,3 +117,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Data masking for sensitive data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
 
 [Logical Models vs. Physical Models](http://youtu.be/K5tgzLjEE9Q)
+
+[Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)

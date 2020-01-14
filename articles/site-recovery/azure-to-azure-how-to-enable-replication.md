@@ -2,12 +2,12 @@
 title: Configure replication for Azure VMs in Azure Site Recovery | Microsoft Docs
 description: This article describes how to configure replication for Azure VMs, from one Azure region to another using Site Recovery.
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
-ms.author: asgang
+ms.author: carmonm
 
 ---
 
