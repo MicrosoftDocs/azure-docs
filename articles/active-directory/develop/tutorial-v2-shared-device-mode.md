@@ -241,6 +241,8 @@ The Cloud Device Administrator should enter their organizational email under **O
 
 ![register-device screen](media/tutorial-v2-shared-device-mode/register-device.png)
 
+![sign-in](media/tutorial-v2-shared-device-mode/sign-in.png)
+
 The device is now in shared mode.
 
 ![register-device screen](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
@@ -250,6 +252,12 @@ The device is now in shared mode.
 ## View the shared device in the Azure portal
 
 Once you’ve put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure Portal.
+
+## Running the sample app
+
+The Sample Application is a simple app that will call the Graph API of your organization. Note that on first run you’ll be prompted to consent as the application is new to your employee account.
+
+![App config info screen](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
 
 ## Next steps
 
