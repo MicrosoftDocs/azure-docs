@@ -179,8 +179,6 @@
     href: cookbook-reference.md
   - name: Node Configuration
     href: node-configuration-reference.md
-  - name: Auto Scale
-    href: autoscale-api.md
   - name: Scheduler
     href: scheduler-integration.md
     items:
