@@ -19,7 +19,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Before you begin
 
-* This article assumes that you are creating a *new AKS cluster*.  You will also need to use or create an instance of Azure Key Vault to store your encryption keys.
+* This article assumes that you are creating a *new AKS cluster*.
 
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 
