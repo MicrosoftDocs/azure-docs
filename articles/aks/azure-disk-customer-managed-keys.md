@@ -158,6 +158,10 @@ parameters:
 ```
 Next, run this deployment in your AKS cluster:
 ```azurecli-interactive
+# Get credentials
+az aks get-credentials --name myAksCluster --resource-group myResourceGroup --output table
+
+# Update cluster
 kubectl apply -f byok-azure-disk.yaml
 ```
 
