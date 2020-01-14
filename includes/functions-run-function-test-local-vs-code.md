@@ -8,18 +8,18 @@ ms.author: glenga
 
 ## Run the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer.
+Visual Studio Code integrates with Core Tools to let you run this project on your local development computer before you publish to Azure.
 
-1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To call your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. 
 
     ![Azure local output](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
-1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. Execution is paused when the breakpoint is hit.
+1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the GET request. 
 
-1. When you continue the execution, the following shows the response in the browser to the GET request:
+1. A response is returned, which looks like the following in a browser:
 
     ![Function localhost response in the browser](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
-1. To stop Core Tools, press Ctrl + C in the Terminal window. This also disconnects the debugger.
+1. Press Ctrl + F5 to stop Core Tools and disconnect the debugger.

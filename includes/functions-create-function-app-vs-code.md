@@ -105,6 +105,7 @@ module.exports = async function (context, req) {
 }
 ```
 
+The project-level package.json is a standard Node.js package file.
 
 # [Python](#tab/python)
 
@@ -143,5 +144,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     ...
 ```
+
+The project-level requirements.txt file lists packages required by the function app.
 
 ---

@@ -75,9 +75,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Clean up resources
 
-If you continue to the next step, [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md), keep all your resources in place as you'll build on what you've already done.
+When you continue to the next step, [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md), you'll need to keep all your resources in place to build on what you've already done.
 
-Otherwise, use the following steps to delete the function app and its related resources to avoid incurring further costs.
+Otherwise, you can use the following steps to delete the function app and its related resources to avoid incurring any further costs.
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
@@ -85,7 +85,7 @@ To learn more about Functions costs, see [Estimating Consumption plan costs](fun
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. The next article also shows you how to clean up these new Azure resources by removing the resource group you created.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. 
 
 > [!div class="nextstepaction"]
 > [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
