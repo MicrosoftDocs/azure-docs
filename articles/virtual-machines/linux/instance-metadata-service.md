@@ -232,7 +232,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
               "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
@@ -263,7 +263,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
             "uri": ""
           },
           "managedDisk": {
-            "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
             "storageAccountType": "Standard_LRS"
           },
           "name": "exampleosdiskname",
@@ -365,7 +365,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
               "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
@@ -396,7 +396,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
             "uri": ""
           },
           "managedDisk": {
-            "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
             "storageAccountType": "Standard_LRS"
           },
           "name": "exampleosdiskname",
@@ -652,7 +652,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
               "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
@@ -683,7 +683,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
             "uri": ""
           },
           "managedDisk": {
-            "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
             "storageAccountType": "Standard_LRS"
           },
           "name": "exampleosdiskname",
@@ -973,7 +973,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
         },
         "lun": "0",
         "managedDisk": {
-          "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+          "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
           "storageAccountType": "Standard_LRS"
         },
         "name": "exampledatadiskname",
@@ -1004,7 +1004,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
         "uri": ""
       },
       "managedDisk": {
-        "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+        "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
         "storageAccountType": "Standard_LRS"
       },
       "name": "exampleosdiskname",
