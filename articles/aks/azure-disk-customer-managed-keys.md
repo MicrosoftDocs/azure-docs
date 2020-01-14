@@ -43,9 +43,9 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## Create an Azure Key Vault instance to store your keys
+## Create an Azure Key Vault instance
 
-You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]
+Use an Azure Key Vault instance to store your keys.  You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]
 
 Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.  Ensure you use the same region and resource group names for each command.
 
@@ -77,7 +77,7 @@ keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyN
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
-## Grant the DiskEncryptionSet resource access to the key vault
+## Grant the DiskEncryptionSet access to key vault
 
 Use the DiskEncryptionSet and resource groups you created on the prior steps, and grant the DiskEncryptionSet resource access to the Azure Key Vault.
 
@@ -92,7 +92,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
-## Create a new AKS cluster and encrypt the OS disk with a customer-manged key
+## Create a new AKS cluster and encrypt the OS disk
 
 Create a new resource group and AKS cluster, then use your key to encrypt the OS disk. Customer managed key is only supported in kubernetes versions greater than 1.17
 
@@ -109,7 +109,7 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 When new node pools are added to the cluster created above, the customer managed key provided during the create is used to encrypt the OS disk
 
-## Encrypt your AKS cluster data disk with a customer-managed key
+## Encrypt your AKS cluster data disk
 
 You can also encrypt the AKS data disks with your own keys.  Replace myResourceGroup and myDiskEncryptionSetName with your real values, and apply the yaml.
 
