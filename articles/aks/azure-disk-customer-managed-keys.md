@@ -94,7 +94,10 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Create a new resource group and AKS cluster, then use your key to encrypt the OS disk. Customer-managed keys are only supported in kubernetes versions greater than 1.17.
+Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk. Customer-managed keys are only supported in kubernetes versions greater than 1.17. 
+
+> [!IMPORTANT]
+> Ensure you create a new resoruce group for your AKS cluster
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -140,11 +143,11 @@ someuser@Azure:~$ az account list
 ]
 ```
 
-Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values, and apply the yaml.
+Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  If you use the Azure Cloud Shell, this file can be created using vi or nano as if working on a virtual or physical system:
 
 ```
 kind: StorageClass
-apiVersion: storage.k8s.io/v1
+apiVersion: storage.k8s.io/v1  
 metadata:
   name: hdd
 provisioner: kubernetes.io/azure-disk
