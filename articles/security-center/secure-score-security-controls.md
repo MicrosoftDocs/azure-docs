@@ -28,7 +28,7 @@ Security Center continually assesses your resources, subscriptions, and organiza
 
 The *enhanced* Secure Score (currently in preview) is **attack surface focused** and brings three benefits:
 
-- Security Controls - Security recommendations are now grouped into logical set that better reflect your vulnerable attack surfaces. For more details, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
+- Security Controls - Security recommendations are now grouped into logical sets that better reflect your vulnerable attack surfaces. For more information, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
 
 - Overall score better reflects the overall posture - Points were awarded at the recommendation level. With this enhancement, your score will only improve when you remediate *all* of the recommendations for a single resource within a control. That means that your score only improves when the security of a resource improves. 
 
@@ -59,9 +59,9 @@ For example, the Security Control called "Apply system updates" has a maximum sc
 
 [![The Security Control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
-The value for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (which in this case is 1 point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
+The value for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (which in this case is one point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
 
-* **Potential increase** - This shows the remaining points available to you within the control. To get these points  added to your Secure Score, remediate all of the control's recommendations. In the example above, the 1 point shown for the control is actually 0.96 points.
+* **Potential increase** - The remaining points available to you within the control. To get these points  added to your Secure Score, remediate all of the control's recommendations. In the example above, the one point shown for the control is actually 0.96 points.
 * **Current score** - The current score for this control. Each control contributes towards the total score. In this example, the control is contributing 5.04 points to the total. 
 * **Max score** - The sum of the previous two values.
 
@@ -120,7 +120,7 @@ Yes, but for a while they'll be running side by side to ease the transition.
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
 
 ### If a Security Control offers me zero points towards my Secure Score, should I ignore it?
-In some cases you will see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it is rounded to zero. Don't ignore these recommendations as they still bring security improvements. The only exception is the “Additional Best Practice” control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
+In some cases you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations as they still bring security improvements. The only exception is the “Additional Best Practice” control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
 
 ## Next steps
 
