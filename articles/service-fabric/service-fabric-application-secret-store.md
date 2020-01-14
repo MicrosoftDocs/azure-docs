@@ -181,4 +181,4 @@ The following snippet is the modified **ApplicationManifest.xml**.
    ```
 
 ## Next steps
-Learn more about [application and service security](service-fabric-application-and-service-security.md)
+Learn more about [application and service security](service-fabric-application-and-service-security.md).
