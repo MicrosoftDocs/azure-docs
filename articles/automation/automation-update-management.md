@@ -3,7 +3,7 @@ title: Update Management solution in Azure
 description: This article describes how to use the Azure Update Management solution to manage updates for your Windows and Linux computers.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
 ---
 # Update Management solution in Azure
@@ -231,7 +231,9 @@ For Linux, Update Management can distinguish between critical updates and securi
 sudo yum -q --security check-update
 ```
 
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own.
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own. 
+
+To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself, there is no need to install anything. For further information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 ## Integrate with System Center Configuration Manager
 
@@ -245,7 +247,7 @@ Update Management relies on the locally configured update repository to patch su
 
 ## Patch Linux machines
 
-The following sections explain potential issues with Linux patching.
+The following sections explain potential issues with patching Linux distros.
 
 ### Unexpected OS-level upgrades
 

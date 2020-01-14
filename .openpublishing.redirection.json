@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/workloads.md",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
       "redirect_document_id": false
@@ -588,6 +593,22 @@
     {
       "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models.md",
       "redirect_url": "/azure/machine-learning",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     },
     {
@@ -12561,6 +12582,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-python.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
@@ -12677,7 +12703,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk",
+      "redirect_url": "https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md",
+      "redirect_url": "https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
     },
     {
@@ -28222,8 +28253,13 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-deep-learning-caffe-spark.md",
-      "redirect_url": "/azure/hdinsight/spark/apache-spark-deep-learning-caffe",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-deep-learning-caffe.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md",
@@ -41181,7 +41217,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-giraph-install-linux",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install-linux.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
       "redirect_document_id": false
     },
     {
@@ -45628,6 +45669,22 @@
       "source_path": "articles/media-services/latest/cae-experimental.md",
       "redirect_url": "/azure/media-services/latest/content-aware-encoding",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-byos.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/byos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-arm.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-overview",
+      "redirect_document_id": true
     }
   ]
 }
+
