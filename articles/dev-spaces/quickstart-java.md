@@ -92,6 +92,9 @@ When Visual Studio Code also prompts you to configure your base images, exposed 
 
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+
 ## Build and run code in Kubernetes from Visual Studio
 
 Click on the *Debug* icon on the left and click *Launch Java Program (AZDS)* at the top.
