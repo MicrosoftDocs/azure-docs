@@ -4,7 +4,7 @@ description: 'Tutorial: Prepare your environment for development and deployment 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/9/2020
+ms.date: 1/14/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -44,14 +44,14 @@ The developer VM is not strictly necessary – all the development tools can be 
 
 It takes about 30 minutes to create and configure the virtual machine.
 
-Clone or download the PowerShell script from the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository. Navigate to the DevVM directory.
+1. Clone or download the PowerShell script from the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository. Navigate to the DevVM directory.
 
-The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
+   The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
 
-1. Open Powershell as an administrator and navigate to the directory where you downloaded the code. By default, its root folder is named `source`.
+1. Open Powershell as an administrator and navigate to the directory where you downloaded the code, such as `srcdir` in the following example:
 
     ```powershell
-    cd c:\source\IoTEdgeAndMlSample\DevVM
+    cd c:\srcdir\IoTEdgeAndMlSample\DevVM
     ```
 
 1. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
@@ -88,12 +88,14 @@ The DevVM directory contains the files needed to create an Azure virtual machine
 1. Restart the VM.
 
     ```powershell
-    Restart-AzureRmVM IoTMLDemo-o4pv3
+    Restart-AzureRmVM  [VM name]
     ```
 
 ### Connect to the development VM
 
-1. On the page for the virtual machine in the Azure portal, select **Connect**.
+1. In the Azure portal, navigate to the VM in the resource group that the script created.
+
+1. On the page for the VM, select **Connect**.
 
 1. On the right pane, select **Download RDP File**.
 
@@ -181,21 +183,26 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. On the **Message routing** page, select the **Custom endpoints** tab.
 
-1. Expand the **Storage** section, and select **turbofanDeviceStorage** as shown here:
+1. Expand the **Storage** section:
 
-   ![Custom Endpoints](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Verify turbofandevicestorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-1. Note that this endpoint points to the container named `**device data** that you created.
+   We see **turbofandevicestorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
-1. Also note the **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
+   * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
+   * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
 
-1. Return to the **Message routing** page and select the **Routes** tab.
+1. Select the **Routes** tab.
 
 1. Select the route named **turbofanDeviceDataToStorage**.
 
-1. Note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
+1. On the **Routes details** page, note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
 
-1. Look at the **Routing query**, which is set to **true**. This setting means that all device telemetry messages will match this route and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
+1. Look at the **Routing query**, which is set to **true**. This setting means that all device telemetry messages will match this route; and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
+
+   ![Review details about the turbofanDeviceDataToStorage route](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
+
+1. Since no edits were made, just close this page.
 
 ## Next steps
 
