@@ -15,12 +15,12 @@ When you create a Run As account, it creates a new service principal user in Azu
 
 There are two types of Run As Accounts:
 
-* **Azure Run As Account** - This account is used to manage [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md) resources.
+* **Azure Run As Account** - This account is used to manage [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) resources.
   * Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change this setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
   * Creates an Automation certificate asset named *AzureRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key that's used by the Azure AD application.
   * Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
 
-* **Azure Classic Run As Account** - This account is used to manage [Classic deployment model](../azure-resource-manager/resource-manager-deployment-model.md) resources.
+* **Azure Classic Run As Account** - This account is used to manage [Classic deployment model](../azure-resource-manager/management/deployment-models.md) resources.
   * Creates a management certificate in the subscription
   * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
   * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.

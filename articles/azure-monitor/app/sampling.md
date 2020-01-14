@@ -178,10 +178,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
     // builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 
-    builder.Build();
-
     // If you have other telemetry processors:
     builder.Use((next) => new AnotherProcessor(next));
+    
+    builder.Build();
+
     // ...
 }
 
