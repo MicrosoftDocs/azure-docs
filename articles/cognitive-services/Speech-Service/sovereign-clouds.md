@@ -12,9 +12,9 @@ ms.date: 1/14/2020
 ms.author: cbasoglu
 ---
 
-# United States Government Clouds
+# Speech Services with Sovereign Clouds
 
-## Fairfax Cloud
+## Fairfax Cloud (US)
 
 Only US federal, state, local, and tribal governments and their partners have access to this dedicated instance with operations controlled by screened US citizens.
 
@@ -44,7 +44,7 @@ Only US federal, state, local, and tribal governments and their partners have ac
   - Russian
   - Spanish (es-*)
 
-## Mooncake Cloud
+## Mooncake Cloud (China)
 
 Located in China, an Azure data center with direct access to China Mobile, China Telecom, China Unicom and other major carrier backbone network, for Chinese users to provide high-speed and stable local network access experience.
 
