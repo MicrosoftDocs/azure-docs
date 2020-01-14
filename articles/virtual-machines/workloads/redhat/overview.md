@@ -26,8 +26,10 @@ Azure offers a variety of RHEL PAYG images. These images come properly entitled 
 
 You may want to use the PAYG images if you don't want to worry about paying separately for the appropriate number of subscriptions.
 
-### Bring-your-own-subscription (BYOS) images
-Azure also offers RHEL BYOS images. These images may be useful to customers who have existing Red Hat subscriptions and want to use them in Azure. You are required to convert your existing subscriptions into Cloud Access subscriptions before you can use them in Azure. Access to these images is granted only when Red Hat verifies that you have sufficient Cloud Access subscriptions. Using these images allows a customer to avoid double-billing that may be incurred from using the PAYG images. You may request access to the BYOS images [here](https://aka.ms/rhel-byos).
+### Red Hat Gold Images (`rhel-byos`)
+Azure also offers Red Hat Gold Images. These images may be useful to customers who have existing Red Hat subscriptions and want to use them in Azure. You are required to enable your existing Red Hat subscriptions for Red Hat Cloud Access before you can use them in Azure. Access to these images is granted automatically when your Red Hat subscriptions are enabled for Cloud Access and meet the eligibility requirements. Using these images allows a customer to avoid double-billing that may be incurred from using the PAYG images.
+* [Learn how to enable your Red Hat subscriptions for Cloud Access with Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs)
+* [Learn how to locate Red Hat Gold Images in the Azure portal, CLI, or PowerShell Cmdlet](./byos.md)
 
 > [!NOTE]
 > Note on double billing: Double billing is incurred when a user pays twice for RHEL subscriptions. This usually happens when a customer uses subscription-manager to attach an entitlement on a RHEL PAYG VM. For example, a customer that uses subscription-manager to attach an entitlement for SAP packages on a RHEL PAYG image will indirectly be double-billed because they will pay twice for RHEL - once through the PAYG premium fee and once through their SAP subscription. This will not happen to BYOS image users.
@@ -41,4 +43,4 @@ RHEL images connected to RHUI will, by default, update to the latest minor versi
 ## Next steps
 * Learn more about [RHEL images on Azure](./redhat-images.md)
 * Learn more about [Red Hat Update Infrastructure](./redhat-rhui.md)
-* Learn more about the [RHEL BYOS offer](./redhat-byos.md)
+* Learn more about the [Red Hat Gold Image (`rhel-byos`) offer](./byos.md)

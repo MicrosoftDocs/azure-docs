@@ -47,7 +47,9 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
 ## Next steps
 
-You can now use the [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+See [Upload and index videos](upload-index-videos.md) for more details.
+
+After you upload and index a video, you can start using [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
 
 ## See also
 
