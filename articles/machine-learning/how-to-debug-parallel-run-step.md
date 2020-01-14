@@ -31,7 +31,9 @@ Because of the distributed nature of parallel run jobs, there are logs from seve
 
 - `~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run's result.
+- `~/logs/sys/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
+
+Logs generated from entry script using EntryScript.logger and print statements will be found in following files:
 
 - `~/logs/user/<ip_address>/Process-*.txt`: This file contains logs written from entry_script using EntryScript.logger. It also contains print statement (stdout) from entry_script.
 
@@ -40,11 +42,10 @@ When you need a full understanding of how each node executed the score script, l
 - `~/logs/sys/worker/<ip_address>/Process-*.txt`: This file provides detailed info about each mini-batch as it is picked up or completed by a worker. For each mini-batch, this file includes:
 
     - The IP address and the PID of the worker process. 
-    - The total number of items and the number of successfully processed items. 
-    - The start and end time in wall-clock times (`start1` and `end1`). 
-    - The start and end time in processor time spent (`start2` and `end2`). 
+    - The total number of items, successfully processed items count and failed item count.
+    - The start time, duration, process time and run method time.
 
-You can also find information on the resource usage of the processes for each worker. This information is in CSV format, and is located at `~/logs/sys/perf/<ip_address>/`. For example, when checking for resource utilization, look at the following files:
+You can also find information on the resource usage of the processes for each worker. This information is in CSV format and is located at `~/logs/sys/perf/<ip_address>/`. For single node job files will be available under `~logs/sys/perf`. For example, when checking for resource utilization, look at the following files:
 
 - `Process-*.csv`: Per worker process resource usage. 
 - `sys.csv`: Per node log.
@@ -57,7 +58,7 @@ You can get a logger from EntryScript as shown in below sample code to make the 
 from entry_script import EntryScript
 
 def init():
-    """ Intialize the node."""
+    """ Initialize the node."""
     entry_script = EntryScript()
     logger = entry_script.logger
     logger.debug("This will show up in files under logs/user on the Azure portal.")
