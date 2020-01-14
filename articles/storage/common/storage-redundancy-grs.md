@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -27,7 +27,7 @@ Some considerations to keep in mind when using RA-GRS:
 
 - Your application has to manage which endpoint it is interacting with when using RA-GRS.
 - Since asynchronous replication involves a delay, changes that haven't yet been replicated to the secondary region may be lost if data can't be recovered from the primary region.
-- You can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value. All primary writes before the Last Sync Time have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or from one of the Azure Storage client libraries.
+- You can check the **Last Sync Time** property for your storage account. **Last Sync Time** is a GMT date/time value. All primary writes made before the **Last Sync Time** have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the **Last Sync Time** may or may not be available for reads yet. You can query this value using PowerShell, Azure CLI, or one of the Azure Storage client libraries. For more information, see **Getting the last sync time** in [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time).
 - If you initiate an account failover (preview) of a GRS or RA-GRS account to the secondary region, write access to that account is restored after the failover has completed. For more information, see [Disaster recovery and storage account failover (preview)](storage-disaster-recovery-guidance.md).
 - RA-GRS is intended for high-availability purposes. For scalability guidance, review the [performance checklist](storage-performance-checklist.md).
 - For suggestions on how to design for high availability with RA-GRS, see [Designing Highly Available Applications using RA-GRS storage](storage-designing-ha-apps-with-ragrs.md).

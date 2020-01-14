@@ -155,7 +155,7 @@ After the deployment completes, you see the URL you can use to access your funct
 
 <!--- We can updates this to remove portal dependency after the Maven archetype returns the full URLs with keys on publish (https://github.com/microsoft/azure-maven-plugins/issues/571). -->
 
-You can get the URL required to the trigger your function, with the function key, from the Azure portal. 
+You can get the URL required to trigger your function, with the function key, from the Azure portal. 
 
 1. Browse to the [Azure portal], sign in, type the _appName_ of your function app into **Search** at the top of the page, and press enter.
  

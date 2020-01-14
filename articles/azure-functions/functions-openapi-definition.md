@@ -34,7 +34,7 @@ This tutorial uses an HTTP triggered function that takes two parameters:
 * The estimated time to make a turbine repair, in hours.
 * The capacity of the turbine, in kilowatts. 
 
-The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period. TO create the HTTP triggered function in the [Azure portal](https://portal.azure.com).
+The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period. To create the HTTP triggered function in the [Azure portal](https://portal.azure.com):
 
 1. Expand your function app and select the **+** button next to **Functions**. Select **In-portal** > **Continue**.
 

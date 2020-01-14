@@ -42,7 +42,7 @@ If you already have a storage account or Data Lake Storage containing your data 
 
 After you have an HDInsight cluster deployed, you can attach additional Azure Storage accounts or access other Data Lake Storage. All your storage accounts must reside in the same location as your cluster. A Data Lake Storage can be in a different location, although this may introduce some data read/write latency.
 
-Azure Storage has some [capacity limits](../azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is virtually unlimited.
+Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is virtually unlimited.
 
 A cluster can access a combination of different storage accounts. Typical examples include:
 
@@ -121,9 +121,9 @@ If you need to request a quota increase, do the following steps:
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
 
-You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
-However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## Next steps
 

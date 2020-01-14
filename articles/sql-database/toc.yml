@@ -313,7 +313,7 @@
         href: sql-database-elastic-scale-introduction.md
       - name: Glossary
         href: sql-database-elastic-scale-glossary.md
-      - name: Elastic client library - consolidate
+      - name: Elastic client library
         href: sql-database-elastic-database-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
@@ -359,6 +359,8 @@
         href: sql-database-design-first-database-csharp.md
     - name: Load and move data
       items:
+      - name: Import or export from an Azure VM
+        href: import-export-from-vm.md
       - name: Import a database from a BACPAC file
         href: sql-database-import.md
       - name: Export a database to a BACPAC file
@@ -530,6 +532,8 @@
       href: sql-database-security-tutorial.md
     - name: Stream data with Stream Analytics
       href: sql-database-stream-analytics.md
+    - name: Migrate a SQLite database to Azure SQL Database Serverless
+      href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
 
   - name: Concepts
     items:

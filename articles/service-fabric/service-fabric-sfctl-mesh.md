@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh 
-description: Describes the Service Fabric CLI sfctl mesh commands.
+title: Azure Service Fabric CLI- sfctl mesh
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing Service Fabric Mesh applications.
 author: jeffj6123
 
 ms.topic: reference

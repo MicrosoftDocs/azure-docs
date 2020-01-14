@@ -38,10 +38,17 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
+## <a name="azure"></a>Run notebook in your workspace
 
-## <a name="azure"></a>Clone a notebook folder
+This tutorial uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
+Follow along with this video or use the detailed steps below to clone and run the tutorial from your workspace. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+
+
+### Clone a notebook folder
 
 You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
@@ -63,7 +70,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
-## <a name="open">Open the cloned notebook
+### <a name="open">Open the cloned notebook
 
 1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
 
