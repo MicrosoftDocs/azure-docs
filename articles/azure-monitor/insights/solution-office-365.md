@@ -26,7 +26,7 @@ ms.date: 01/08/2019
 > The collection of Azure AD log is subjected to Azure Monitor pricing.  See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for more information.
 >
 > To use the Azure Sentinel Office 365 solution:
-> 1. Using this connector affects the pricing of your workspace. For more information, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> 1. Using Office 365 connector in Azure Sentinel affects the pricing for your workspace. For more information, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 > 2. If you are already using the Azure Monitor Office 365 solution, you must first uninstall it using the script in the [Uninstall section below](#uninstall).
 > 3. [Enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your workspace.
 > 4. Go to the **Data connectors** page in Azure Sentinel and enable the **Office 365** connector.

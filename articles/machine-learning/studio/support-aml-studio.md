@@ -30,7 +30,7 @@ You can **submit requests** for additional learning materials using the **Conten
 
 Check out these support resources:
 
-+ **Technical support for Azure Customers**: [Submit and manage support requests](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) through the Azure portal.
++ **Technical support for Azure Customers**: [Submit and manage support requests](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal.
 
 + **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio (classic) support forum on MSDN](https://aka.ms/aml-forum-studio).
 
