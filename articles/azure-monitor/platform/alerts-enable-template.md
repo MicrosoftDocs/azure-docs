@@ -21,7 +21,7 @@ This article shows how you can use an [Azure Resource Manager template](../../az
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the alert.
-2. [Deploy the template using any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+2. [Deploy the template using any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
 
