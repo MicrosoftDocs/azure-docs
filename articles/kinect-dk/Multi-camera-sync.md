@@ -44,7 +44,7 @@ On the image below, the left camera sees the grey pixel P2, but the ray from the
 
 Using additional Azure Kinect DK devices will solve this issue and fill out an occlusion problem.
 
-## Set up multiple Azure Kinect Dk devices
+## Set up multiple Azure Kinect DK devices
 
 Make sure to review [the multi- camera hardware setup article](https://support.microsoft.com/help/4494429) that describes different options for hardware setup. 
 
