@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You have the ability to use the [sqlcmd][sqlcmd] command-line utility to connect to and query SQL on-demand and SQL pool.  
+You have the ability to use the [sqlcmd][sqlcmd] command-line utility to connect to and query SQL on-demand and SQL pool within SQL Analytics.  
 
 ## 1. Connect
 To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
@@ -30,7 +30,7 @@ To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd
 * **Database (-d):** Database name
 * **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Analytics instance
 
-To use SQL Server Authentication, you need to add the username/password parameters:
+To use SQL Server Authentication, you need to add the username and password parameters:
 
 * **User (-U):** Server user in the form `<`User`>`
 * **Password (-P):** Password associated with the user
@@ -83,7 +83,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
+For SQL pool, the following examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -92,8 +92,8 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```sql
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
-### Using SQL on-demand
-After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode:
+### Use SQL on-demand
+After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance.  In the following example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -102,7 +102,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
+For SQL on-demand, the examples that follow show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"
@@ -113,7 +113,7 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 ```
 
 ## Next steps
-See [sqlcmd documentation][sqlcmd] for more details about the options available in sqlcmd.
+See the [sqlcmd documentation][sqlcmd] for more details about the options available in sqlcmd.
 
 <!--Image references-->
 
