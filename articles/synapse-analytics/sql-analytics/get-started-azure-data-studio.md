@@ -71,7 +71,7 @@ OPENROWSET(
 ```
 
 ## Next steps 
-For more about details about the options available in sqlcmd, see [sqlcmd documentation](get-started-connect-sqlcmd.md).
+For more details about the options available in sqlcmd, see [sqlcmd documentation](get-started-connect-sqlcmd.md).
 
 <!--Image references-->
 [1]: media/sql-analytics-query-ads/1-start.png
