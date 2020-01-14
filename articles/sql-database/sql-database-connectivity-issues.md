@@ -11,10 +11,10 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
 ---
-# Working with SQL Database connection issues and transient errors
+# Troubleshooting transient connection errors to SQL Database
 
 This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
 
