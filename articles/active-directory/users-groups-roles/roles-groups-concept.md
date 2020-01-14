@@ -39,9 +39,9 @@ If a group is assigned a role, any IT admin who can manage group membership coul
 
 Important: If you use Office 365 groups to assign to roles, they can expire. And because role-enabled  groups can't have owners, the expiration email will be sent to the alternate email address you provide. So, provide an email address that you monitor. Set Office 365 groups to expire in Azure Active Directory. Otherwise use a security group for assigning to roles.
 
-## Required license plan 
+## Required license plan
 
-Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see Comparing generally available features of the Free, Basic, and Premium editions. 
+Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see Comparing generally available features of the Free, Basic, and Premium editions.
 
 ## Supported in this preview?
 
@@ -53,12 +53,12 @@ Create a new security cloud group with the isAssignableToRole property set to tr
 Assign new security group with the isAssignableToRole set to true to a built-in Azure AD role.  | Supported  | Supported  | Supported
 Put users into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role)  | Supported  | Supported  | Supported
 Put service principals into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role). | Supported  | Supported  | Not supported
-Assign groups with isAssignableToRole set to true to built-in roles scoped to Admin Units.  | Calendar 2020 H1  | 2020 H1 Calendar year  | 2020 H1
-Delegate the management of group that has been assigned to a built-in role.  | Calendar year 2020 H1  | Calendar year 2020 H1 Calendar year  | 2020 H1
-Assign a new on-prem security group to an Azure AD role (no Office 365 group on-prem).  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
-Assign an existing on-prem security group to an Azure AD role (no Office 365 group on-premises). | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
-Nest another group with isAssignableToRole set to true into a group that is assigned a role.  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
-Assign a group (on-prem or cloud) to custom Azure AD role  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
+Assign groups with isAssignableToRole set to true to built-in roles scoped to Admin Units.  | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020
+Delegate the management of group that has been assigned to a built-in role.  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Assign a new on-prem security group to an Azure AD role (no Office 365 group on-prem).  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Assign an existing on-prem security group to an Azure AD role (no Office 365 group on-premises). | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Nest another group with isAssignableToRole set to true into a group that is assigned a role. | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020
+Assign a group (on-prem or cloud) to custom Azure AD role  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
 Use an existing Office 365 cloud group and assign it to a role  | Out of scope  | Out of scope  | Out of scope
 Use an existing security cloud group and assign it to a role | Out of scope  | Out of scope  | Out of scope
 
