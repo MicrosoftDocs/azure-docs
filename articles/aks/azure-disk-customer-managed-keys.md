@@ -15,7 +15,7 @@ ms.author: mlearned
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][customer-managed-keys] to use for encryption of both the OS and data disks for your AKS clusters.
 
 > [!NOTE]
-> Linux and Windows based AKS clusters are both available in certain [supported Azure regions][supported-regions]
+> BYOK Linux and Windows based AKS clusters are available in the same [Azure regions][supported-regions] that support server side encryption of Azure managed disks.
 
 ## Before you begin
 
