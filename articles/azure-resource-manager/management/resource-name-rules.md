@@ -9,13 +9,13 @@ ms.date: 01/13/2020
 
 This article summarizes naming rules and restrictions for Azure resources. For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-In general, avoid using a special character, such as a hyphen (-) or underscore (_), as the first or last character in any name. These characters cause most validation rules to fail. Resource names are case-insensitive unless specifically noted in the valid characters column.
+Resource names are case-insensitive unless specifically noted in the valid characters column.
 
-In the following tables, the term alphanumerics refers to:
+In the following tables, the term alphanumeric refers to:
 
-* letters **a** through **z** (lowercase)
-* **A** through **Z** (uppercase)
-* numbers **0** through **9**.
+* **a** through **z** (lowercase letters)
+* **A** through **Z** (uppercase letters)
+* **0** through **9** (numbers)
 
 ## Microsoft.AnalysisServices
 
@@ -324,53 +324,26 @@ In the following tables, the term alphanumerics refers to:
 > | /servers / securityAlertPolicies | servers | Not specified |  |
 > | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
-## Microsoft.DeploymentManager
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /artifactSources | resource group | Not specified |  |
-> | /rollouts | resource group | Not specified |  |
-> | /serviceTopologies | resource group | Not specified |  |
-> | /serviceTopologies / services | serviceTopologies | Not specified |  |
-> | /serviceTopologies / services / serviceUnits | services | Not specified |  |
-> | /steps | resource group | Not specified |  |
-
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /IotHubs | resource group | Not specified |  |
-> | /IotHubs / certificates | IotHubs | 1-64 | `^[A-Za-z0-9-._]{1,64}$` |
-> | /IotHubs / eventHubEndpoints / ConsumerGroups | eventHubEndpoints | Not specified |  |
-> | /provisioningServices | resource group | Not specified |  |
-> | /provisioningServices / certificates | provisioningServices | Not specified |  |
+> | IotHubs | global | 3-50 | Alphanumerics and hyphens.<br><br>Can't end with hyphen. |
+> | IotHubs / certificates | IoT hub | 1-64 | Alphanumerics, hyphens, periods, and underscores. |
+> | IotHubs / eventHubEndpoints / ConsumerGroups | eventHubEndpoints | 1-50 | Alphanumerics, hyphens, periods, and underscores. |
+> | provisioningServices | resource group | 3-64 | Alphanumerics and hyphens.<br><br>End with alphanumeric. |
+> | provisioningServices / certificates | provisioningServices | 1-64 | Alphanumerics, hyphens, periods, and underscores. |
 
 ## Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /labs | resource group | Not specified |  |
-> | /labs / artifactsources | labs | Not specified |  |
-> | /labs / costs | labs | Not specified |  |
-> | /labs / customimages | labs | Not specified |  |
-> | /labs / formulas | labs | Not specified |  |
-> | /labs / notificationchannels | labs | Not specified |  |
-> | /labs / policysets / policies | policysets | Not specified |  |
-> | /labs / schedules | labs | Not specified |  |
-> | /labs / servicerunners | labs | Not specified |  |
-> | /labs / users | labs | Not specified |  |
-> | /labs / users / disks | users | Not specified |  |
-> | /labs / users / environments | users | Not specified |  |
-> | /labs / users / secrets | users | Not specified |  |
-> | /labs / users / servicefabrics | users | Not specified |  |
-> | /labs / users / servicefabrics / schedules | servicefabrics | Not specified |  |
-> | /labs / virtualmachines | labs | Not specified |  |
-> | /labs / virtualmachines/schedules | virtualmachines | Not specified |  |
-> | /labs / virtualnetworks | labs | Not specified |  |
-> | /schedules | resource group | Not specified |  |
+> | labs | resource group | 1-50 | Alphanumerics, underscores, and hyphens. |
+> | labs / customimages | lab | 1-80 | Alphanumerics, underscores, hyphens, and parentheses. |
+> | labs / formulas | lab | 1-80 | Alphanumerics, underscores, hyphens, and parentheses. |
+> | labs / virtualmachines | lab | 1-15 (Windows), 1-64 (Linux) | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. Can't be all numbers. |
 
 ## Microsoft.DocumentDB
 
@@ -378,19 +351,19 @@ In the following tables, the term alphanumerics refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | databaseAccounts | global | 3-31 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / cassandraKeyspaces | Database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / cassandraKeyspaces | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 > | databaseAccounts / cassandraKeyspaces / tables | Cassandra keyspace |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / gremlinDatabases | Database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / gremlinDatabases | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 > | databaseAccounts / gremlinDatabases / graphs | Gremlin database |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / mongodbDatabases | Database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / mongodbDatabases | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 > | databaseAccounts / mongodbDatabases / collections | Mongodb database |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / privateEndpointConnections | Database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases | Database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / privateEndpointConnections | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / sqlDatabases | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 > | databaseAccounts / sqlDatabases / containers | SQL database |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers / storedProcedures | Container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers / triggers | Container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers / userDefinedFunctions | Container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / tables | Database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / sqlDatabases / containers / storedProcedures | container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / sqlDatabases / containers / triggers | container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / sqlDatabases / containers / userDefinedFunctions | container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts / tables | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
 ## Microsoft.EventGrid
 
@@ -398,7 +371,7 @@ In the following tables, the term alphanumerics refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | domains | resource group | 3-50 | Alphanumerics and hyphens. |
-> | domains / topics | Domain | 3-50 | Alphanumerics and hyphens. |
+> | domains / topics | domain | 3-50 | Alphanumerics and hyphens. |
 > | eventSubscriptions | resource group | 3-64 | Alphanumerics and hyphens. |
 > | topics | resource group | 3-50 | Alphanumerics and hyphens. |
 
@@ -409,11 +382,11 @@ In the following tables, the term alphanumerics refers to:
 > | --- | --- | --- | --- |
 > | clusters | resource group | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
-> | namespaces / AuthorizationRules | Namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / disasterRecoveryConfigs | Namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / eventhubs | Namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / eventhubs / authorizationRules | Event Hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / eventhubs / consumergroups | Event Hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / disasterRecoveryConfigs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / eventhubs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 
 ## Microsoft.HDInsight
 
@@ -421,8 +394,6 @@ In the following tables, the term alphanumerics refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | clusters | global | 3-59 | Alphanumerics and hyphens<br><br>Start and end with letter or number. |
-> | clusters / applications | Cluster |  |  |
-> | clusters / extensions | Cluster |  |  |
 
 ## Microsoft.ImportExport
 
@@ -488,17 +459,16 @@ In the following tables, the term alphanumerics refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | integrationAccounts | resource group | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / agreements | Integration account | Not specified |  |
-> | integrationAccounts / assemblies | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / batchConfigurations | Integration account | 1-20 | Alphanumerics. |
-> | integrationAccounts / certificates | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / maps | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / partners | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / rosettanetprocessconfigurations | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / schemas | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
-> | integrationAccounts / sessions | Integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / assemblies | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / batchConfigurations | integration account | 1-20 | Alphanumerics. |
+> | integrationAccounts / certificates | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / maps | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / partners | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / rosettanetprocessconfigurations | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / schemas | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | integrationAccounts / sessions | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 > | integrationServiceEnvironments | resource group | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
-> | integrationServiceEnvironments / managedApis | Integration service environment | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
+> | integrationServiceEnvironments / managedApis | integration service environment | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
 > | workflows | resource group | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 
 ## Microsoft.MachineLearning
@@ -506,9 +476,9 @@ In the following tables, the term alphanumerics refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | commitmentPlans | resource group | 1-260 | Can't use these characters: `<>*%&:?+/\\`<br><br>Can't end with a space. |
-> | webServices | resource group | 1-260 | Can't use these characters: `<>*%&:?+/\\`<br><br>Can't end with a space. |
-> | workspaces | resource group | 1-260 | Can't use these characters: `<>*%&:?+/\\`<br><br>Can't end with a space. |
+> | commitmentPlans | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\`<br><br>Can't end with a space. |
+> | webServices | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\`<br><br>Can't end with a space. |
+> | workspaces | resource group | 1-260 | Can't use:<br>`<>*%&:?+/\\`<br><br>Can't end with a space. |
 
 ## Microsoft.MachineLearningServices
 
@@ -876,15 +846,6 @@ In the following tables, the term alphanumerics refers to:
 > | /servers / virtualNetworkRules | servers | Not specified |  |
 > | /servers / vulnerabilityAssessments | servers | Not specified |  |
 
-## Microsoft.SqlVirtualMachine
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /sqlVirtualMachineGroups | resource group | Not specified |  |
-> | /sqlVirtualMachineGroups / availabilityGroupListeners | sqlVirtualMachineGroups | Not specified |  |
-> | /sqlVirtualMachines | resource group | Not specified |  |
-
 ## Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
@@ -912,14 +873,7 @@ In the following tables, the term alphanumerics refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /managers | resource group | 2-50 |  |
-> | /managers / accessControlRecords | managers | Not specified |  |
-> | /managers / bandwidthSettings | managers | Not specified |  |
-> | /managers / devices / backupPolicies | devices | Not specified |  |
-> | /managers / devices / backupPolicies / schedules | backupPolicies | Not specified |  |
-> | /managers / devices / volumeContainers | devices | Not specified |  |
-> | /managers / devices / volumeContainers / volumes | volumeContainers | Not specified |  |
-> | /managers / storageAccountCredentials | managers | Not specified |  |
+> | managers | resource group | 2-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
 
 ## Microsoft.StreamAnalytics
 
@@ -937,10 +891,10 @@ In the following tables, the term alphanumerics refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | environments | resource group | 1-90 | Can't use `'<>%&:\?/#` |
-> | environments / accessPolicies | Environment | 1-90 | Can't use `'<>%&:\?/#` |
-> | environments / eventSources | Environment | 1-90 | Can't use `'<>%&:\?/#` |
-> | environments / referenceDataSets | Environment | 3-63 |  Alphanumerics |
+> | environments | resource group | 1-90 | Can't use:<br>`'<>%&:\?/#` |
+> | environments / accessPolicies | Environment | 1-90 | Can't use:<br> `'<>%&:\?/#` |
+> | environments / eventSources | Environment | 1-90 | Can't use:<br>`'<>%&:\?/#` |
+> | environments / referenceDataSets | Environment | 3-63 | Alphanumerics |
 
 ## Microsoft.Web
 
