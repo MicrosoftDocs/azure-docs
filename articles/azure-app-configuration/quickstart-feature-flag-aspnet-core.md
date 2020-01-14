@@ -1,27 +1,19 @@
 ---
-title: Quickstart for adding feature flags to ASP.NET Core | Microsoft Docs
-description: A quickstart for adding feature flags to ASP.NET Core apps and managing them in Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: maiye
-editor: ''
+title: Quickstart for adding feature flags to ASP.NET Core
+description: Add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
+author: jpconnock
 
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET Core
-ms.workload: tbd
-ms.date: 04/19/2019
-ms.author: yegu
+ms.date: 01/14/2020
+ms.author: jeconnoc
 
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-In this quickstart, you incorporate Azure App Configuration into an ASP.NET Core web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
+In this quickstart, you create an end-to-end implementation of feature management in an ASP.NET Core application using Azure App Configuration. You will use the App Configuration service to centrally store all your feature flags and control their states. 
 
 The .NET Core Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET Core configuration system. They seamlessly integrate with App Configuration through its .NET Core configuration provider.
 
@@ -39,10 +31,11 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
     | Key | State |
     |---|---|
     | Beta | Off |
+Leave the 'label' undefined for now.
 
 ## Create an ASP.NET Core web app
 
-You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI instead of Visual Studio is that the .NET Core CLI is available across the Windows, macOS, and Linux platforms.
+Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI instead of Visual Studio is that the .NET Core CLI is available across the Windows, macOS, and Linux platforms.
 
 1. Create a new folder for your project. For this quickstart, name it *TestFeatureFlags*.
 
@@ -74,8 +67,6 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     </Project>
     ```
-
-1. Save the file.
 
 ## Connect to an App Configuration store
 
@@ -117,8 +108,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
-    ### Update `CreateWebHostBuilder` for .NET Core 2.x
-
+#### [.NET Core 2.x](#tab/core2x)
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -133,8 +123,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .UseStartup<Startup>();
     ```
 
-    ### Update `CreateHostBuilder` for .NET Core 3.x
-
+#### [.NET Core 3.x](#tab/core3x)
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -149,7 +138,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         })
         .UseStartup<Startup>());
     ```
-
+---
 
 1. Open *Startup.cs*, and add references to the .NET Core feature manager:
 
@@ -277,6 +266,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```
 
 1. Open a browser window, and go to `https://localhost:5001`, which is the default URL for the web app hosted locally.
+    If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*.  
+
+    ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
