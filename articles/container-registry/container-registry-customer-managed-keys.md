@@ -66,7 +66,10 @@ az keyvault create \
 
 ### Create a key and get the key ID
 
-Run the [az keyvault key create][az-keyvault-key-create] command to create a key in the key vault key and the corresponding key ID. In this example, the key is stored in the `KEK` variable:
+Run the [az keyvault key create][az-keyvault-key-create] command to create a key in the key vault key and the corresponding key ID. In this example, the key is stored in the `KEK` variable.
+
+> [!NOTE]
+> If you skip this step because you have an existing key, make sure you use a full key ID including version.
 
 ```bash
  KEK=$(az keyvault key create --name <key-name> --vault-name <key-vault-name> --query key.kid --output tsv)
