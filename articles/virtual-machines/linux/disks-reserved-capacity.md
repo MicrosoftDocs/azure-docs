@@ -15,7 +15,7 @@ Save on your premium solid-state drive (SSD) usage with reserved capacity, combi
 
 ## Determine your storage needs
 
-Before you purchase a reservation, you should determine what your storage needs are. Currently, disk reservation is only available for select premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance. When determining your storage needs, we do not recommend thinking of disks just as a total capacity, you cannot use a reservation for a larger disk (like a P40) and use that to pay for two smaller disks (P30). When purchasing a reservation, you are only purchasing the total number of disks per SKU, not capacity.
+Before you purchase a reservation, you should determine what your storage needs are. Currently, disk reservation is only available for select premium SSD SKUs. The SKU of a premium SSD determines the disk's size and performance. When determining your storage needs, we do not recommend thinking of disks just as a total capacity, you cannot use a reservation for a larger disk (like a P40) and use that to pay for two smaller disks (P30). When purchasing a reservation, you are only purchasing the total number of disks per SKU.
 
 Disk reservation is made per Disk SKU, hence the reservation consumption is based on the unit of the Disk SKUs instead of the provided size. For example, if you have reserved 1 P40 of 2 TiB provisioned capacity but only allocated 2 P30 disks, the two P30 consumption will not be accounted for P40 reservation and you will pay the pay-as-you-go rate. 
 
@@ -26,7 +26,7 @@ Disk reservation is made per Disk SKU, hence the reservation consumption is base
 We recommend the following best practices when considering disk reservation purchase:
 
 •	Analyze your usage information to help determine which reservations you should purchase. Make sure you are tracking the usage in Disk SKUs instead of provisioned or used disk capacity. 
-•	Examine your Disk Reservation along with your VM reservation. We highly recommend making reservation for both VM and Disk usage for maximum saving. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly. Per workload, there is a typically a fix disk to VM configuration regarding of the SKUs and units. This approach can simplify the evaluation process and also make sure that you have an aligned plan for both VM and Disks in terms of subscriptions, regions, and others. 
+•	Examine your Disk Reservation along with your VM reservation. We highly recommend making reservation for both VM and Disk usage for maximum saving. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly. Generally, you’ll have a standard configuration for each of your workloads, for example, a SQL server might have two P40 data disks and one P30 OS disk. This kind of pattern may help you determine the amount of reservations you might purchase. This approach can simplify the evaluation process and also make sure that you have an aligned plan for both VM and Disks in terms of subscriptions, regions, and others. 
 
 ## Purchase restrictions
 

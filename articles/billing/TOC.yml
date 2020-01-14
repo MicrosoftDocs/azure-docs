@@ -69,6 +69,8 @@
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: Azure Storage
         href: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: Azure Disk Storage
+        href: ../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Cosmos DB
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
@@ -91,6 +93,8 @@
         href: billing-understand-vm-reservation-charges.md
       - name: Azure Storage reserved capacity
         href: billing-understand-storage-charges.md
+      - name: Azure Disk Storage reserved capacity
+        href: billing-understand-disk-reservations.md
       - name: Cosmos DB reserved capacity
         href: billing-understand-cosmosdb-reservation-charges.md
       - name: SQL Database reserved capacity
