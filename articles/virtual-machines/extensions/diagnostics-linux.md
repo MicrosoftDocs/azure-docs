@@ -192,7 +192,7 @@ If you created a SAS good until midnight UTC on January 1, 2018, the sasURL valu
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-For more information about generating SAS tokens for Event Hubs, see [this web page](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+For more information about generating SAS tokens for Event Hubs, see [this web page](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### The JsonBlob sink
 
