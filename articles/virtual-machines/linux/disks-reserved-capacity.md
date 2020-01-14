@@ -25,17 +25,17 @@ Disk reservation is made per Disk SKU, hence the reservation consumption is base
 
 We recommend the following best practices when considering disk reservation purchase:
 
-•	Analyze your usage information to help determine which reservations you should purchase. Make sure you are tracking the usage in Disk SKUs instead of provisioned or used disk capacity. 
-•	Examine your Disk Reservation along with your VM reservation. We highly recommend making reservation for both VM and Disk usage for maximum saving. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly. Generally, you’ll have a standard configuration for each of your workloads, for example, a SQL server might have two P40 data disks and one P30 OS disk. This kind of pattern may help you determine the amount of reservations you might purchase. This approach can simplify the evaluation process and also make sure that you have an aligned plan for both VM and Disks in terms of subscriptions, regions, and others. 
+- Analyze your usage information to help determine which reservations you should purchase. Make sure you are tracking the usage in Disk SKUs instead of provisioned or used disk capacity. 
+- Examine your Disk Reservation along with your VM reservation. We highly recommend making reservation for both VM and Disk usage for maximum saving. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly. Generally, you’ll have a standard configuration for each of your workloads, for example, a SQL server might have two P40 data disks and one P30 OS disk. This kind of pattern may help you determine the amount of reservations you might purchase. This approach can simplify the evaluation process and also make sure that you have an aligned plan for both VM and Disks in terms of subscriptions, regions, and others. 
 
 ## Purchase restrictions
 
 Reservation discounts are not currently available for the following disks:
-•	Unmanaged disks/page blobs
-•	Standard SSD or standard HDD
-•	Premium SSD SKUs smaller than P30 – Reservations aren’t available for P1/P2/P3/P4/P6/P10/P15/P20 Premium SSD SKUs.
-•	Clouds - Reservations aren't available for purchase in Azure Gov, Germany, or China regions.
-•	Capacity restrictions - In rare circumstances, Azure limits the purchase of new reservations for subset of disk SKUs, because of low capacity in a region.
+- Unmanaged disks/page blobs
+- Standard SSD or standard HDD
+- Premium SSD SKUs smaller than P30 – Reservations aren’t available for P1/P2/P3/P4/P6/P10/P15/P20 Premium SSD SKUs.
+- Clouds - Reservations aren't available for purchase in Azure Gov, Germany, or China regions.
+- Capacity restrictions - In rare circumstances, Azure limits the purchase of new reservations for subset of disk SKUs, because of low capacity in a region.
 
 ## Buy a Disk Reservation
 
