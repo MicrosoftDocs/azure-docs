@@ -186,6 +186,8 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
+
 ## Publish to Azure
 
 Visual Studio Code lets you publish your Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.

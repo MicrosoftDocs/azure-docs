@@ -1,7 +1,6 @@
 ---
 title: Create your first function in Azure using Visual Studio Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
-
 ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
@@ -30,7 +29,7 @@ To learn how to use Visual Studio Code to create and publish PowerShell function
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later.  
 To verify your version of Azure Functions Core Tools, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func --version`. 
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 + Language-specific requirements:
 

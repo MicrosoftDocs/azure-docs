@@ -24,11 +24,10 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | C# | Create a local Functions project in C#. |
-    | Select a version | Azure Functions v2 | Function app runs on [version 2.x](../articles/azure-functions/functions-versions.md) of the Functions runtime. |
     | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
     | Provide a namespace | My.Functions | C# class libraries must have a namespace.  |
-    | Authorization level | Anonymous | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), anyone can call your function's HTTP endpoint. |
+    | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
      # [JavaScript](#tab/nodejs)
@@ -36,10 +35,9 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
-    | Select a version | Azure Functions v2 | Function app runs on [version 2.x](../articles/azure-functions/functions-versions.md) of the Functions runtime. |
     | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
-    | Authorization level | Anonymous | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), anyone can call your function's HTTP endpoint. |
+    | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
     # [Python](#tab/python)
@@ -47,14 +45,103 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | Python | Create a local Python Functions project. |
-    | Select a version | Azure Functions v2 | Function app runs on [version 2.x](../articles/azure-functions/functions-versions.md) of the Functions runtime. |
+    | Select a Python alias to create a virtual environment | Python alias | Choose the discovered alias of your installed version of Python 3.6 or 3.7. Your app runs in virtual environment based on this installation.  |
     | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
-    | Authorization level | Anonymous | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), anyone can call your function's HTTP endpoint. |
+    | Authorization level | Function | With this [Authorization level](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys), you must supply a key value when calling your function's HTTP endpoint. |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
     ---
 
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. 
+Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files. It also creates the following language-specific files.
 
-A new HTTP triggered function is also created in the HttpTrigger folder of the function app project.
+# [C\#](#tab/csharp)
+
+An HttpTrigger.cs code file for the new HTTP triggered function is created. This file contains a **My.Functions.HttpTrigger** class. The **Run** method is your function, which is defined as follows:
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+    ILogger log)
+{
+    ...
+}
+```
+
+# [JavaScript](#tab/nodejs)
+
+The HTTP triggered function itself is created in the HttpTrigger project folder. The function is defined by the following function.json:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+The function itself in index.js is standard Node.js, as follows:
+
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    ...
+}
+```
+
+
+# [Python](#tab/python)
+
+The HTTP triggered function itself is created in the HttpTrigger project folder. The function is defined by the following function.json:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+The Python code in the \_\_init\_\_.py file is defined as follows:
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    ...
+```
+
+---

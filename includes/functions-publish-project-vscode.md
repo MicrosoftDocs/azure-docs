@@ -12,20 +12,20 @@ Visual Studio Code lets you publish your functions project directly to Azure. In
 
 By default, Visual Studio Code creates all of the Azure resources required to create your function app. The names of these resources are based on the function app name you choose. If you need to have full control of the created resources, you can instead [publish using advanced options](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
 
-This section assumes that you are creating a new function app in Azure.
+This section assumes that you are creating a new function app in Azure and are signed-in to your account. Option differ slightly by language
 
 > [!IMPORTANT]
 > Publishing to an existing function app overwrites the content of that app in Azure.
 
-1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Deploy to function app...`.
+1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Deploy to function app...`. 
 
-1. If not signed-in, you are prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After successful sign in from the browser, go back to Visual Studio Code. 
-
-1. If you have multiple subscriptions, **Select a subscription** for the function app, then choose **+ Create New Function App in Azure**.
+1. If you have multiple subscriptions, **Select a subscription** for the function app, then choose **+ Create New Function App in Azure** (not **Advanced**).
 
 1. Type a globally unique name that identifies your function app and press Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
 
-    When you press Enter, the following Azure resources are created in your subscription:
+1. If prompted, **Select a runtime**, choose the language version and press Enter. The version must 
+
+    When completed, the following Azure resources are created in your subscription:
 
     * **[Resource group](../articles/azure-resource-manager/resource-group-overview.md)**: Contains all of the created Azure resources. The name is based on your function app name.
     * **[Storage account](../articles/storage/common/storage-quickstart-create-account.md)**: A standard Storage account is created with a unique name that is based on your function app name.
