@@ -1,13 +1,13 @@
 ---
-title: Understand Azure reserved disk instances discount | Microsoft Docs
-description: Learn how Azure reserved disk instance discount is applied to your managed disks.
+title: Understand Azure reserved disk instances discount
+description: Learn how Azure reserved disk instance discount is applied to your premium SSD managed disks.
 author: roygara
 ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2020
+ms.date: 01/13/2020
 ms.author: rogarana
 ---
 
