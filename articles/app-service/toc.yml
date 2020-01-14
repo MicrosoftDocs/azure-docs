@@ -117,6 +117,8 @@
     items:
     - name: Deploy the app
       items:
+      - name: Run from package
+        href: deploy-run-package.md
       - name: Deploy ZIP or WAR
         href: deploy-zip.md
       - name: Deploy via FTP
