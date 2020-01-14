@@ -39,6 +39,7 @@ Environments can be created by:
 * Defining new `Environment` objects, either using a curated environment or by defining your own dependencies
 * Using existing `Environment` objects from your workspace. This allows for consistency and reproducibility with your dependencies
 * Importing from an existing Anaconda environment definition.
+* Using the Azure Machine Learning CLI
 
 See the [how-to](how-to-use-environments.md#create-an-environment) for specific code examples. Environments are also easily managed through your workspace and include the following functionality:
 

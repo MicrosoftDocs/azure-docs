@@ -137,7 +137,7 @@ Punctuation marks (`?`, `!`, `.`) should be ignored and you need to ignore them 
 Learn more about patterns:
 
 * [How to add patterns](luis-how-to-model-intent-pattern.md)
-* [How to add pattern.any entity](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [How to add pattern.any entity](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Patterns Concepts](luis-concept-patterns.md)
 
 Understand how [sentiment](luis-reference-prebuilt-sentiment.md) is returned in the .json response.
