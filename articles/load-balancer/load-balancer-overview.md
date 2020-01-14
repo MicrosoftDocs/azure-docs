@@ -66,8 +66,6 @@ Key scenarios that you can accomplish using Azure Load Balancer include:
 
 - Load balance TCP and UDP flow on all ports simultaneously using **[HA ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**.
 
-- **[Troubleshoot](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot)** Azure Load Balancer.
-
 ## Pricing
 
 Standard Load Balancer usage is charged.
