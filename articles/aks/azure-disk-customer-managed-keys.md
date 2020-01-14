@@ -125,7 +125,7 @@ someuser@Azure:~$ az account list
 [
   {
     "cloudName": "AzureCloud",
-    "id": "666e66d8-1e43-4136-be25-f25bb5de5893",
+    **"id": "666e66d8-1e43-4136-be25-f25bb5de5893",**
     "isDefault": true,
     "name": "MyAzureSubscription",
     "state": "Enabled",
