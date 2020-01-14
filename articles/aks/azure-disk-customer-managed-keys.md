@@ -135,7 +135,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## Limitations
 
-* Currently available in GA and Preview in certain [Azure regions][supported-regions]
+* BYOK is only currently available in GA and Preview in certain [Azure regions][supported-regions]
 * OS Disk Encryption supported with Kubernetes version 1.17 and above   
 * Available only in regions where BYOK is supported
 * Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
