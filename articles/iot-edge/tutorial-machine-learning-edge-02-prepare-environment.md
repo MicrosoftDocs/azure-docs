@@ -46,7 +46,7 @@ It takes about 30 minutes to create and configure the virtual machine.
 
 1. Clone or download the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository.
 
-1. Open Powershell as an administrator and navigate to the '\IoTEdgeAndMlSample\DevVM' directory in the root directory where you downloaded the code. We will refer to the root directory for your source as `<srcdir>`.
+1. Open Powershell as an administrator and navigate to the **\IoTEdgeAndMlSample\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
@@ -60,7 +60,7 @@ It takes about 30 minutes to create and configure the virtual machine.
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-1. Run Create-AzureDevVM.ps1 from this directory.
+1. Run Create-AzureDevVM.ps1.
 
     ```powershell
     .\Create-AzureDevVm.ps1
@@ -70,20 +70,20 @@ It takes about 30 minutes to create and configure the virtual machine.
 
     * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
     * **Resource Group Name**: The name of a new or existing resource group in Azure.
-    * **Location**: Choose an Azure location where the virtual machine will be created. For example, `West US 2` or `North Europe`. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **Location**: Choose an Azure location where the virtual machine will be created. For example, 'West US 2' or 'North Europe'. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
     * **Username**: Provide a memorable name for the administrator account for the VM.
     * **Password**: Set a password for the administrator account for the VM.
 
    The script runs for several minutes as it executes the following steps:
 
    * Prompts you to sign in to Azure.
-   * Confirms the information for the creation of your VM. Press `y` or `Enter` to continue.
+   * Confirms the information for the creation of your VM. Press **y** or **Enter** to continue.
    * Creates the resource group if it does not exist.
    * Deploys the virtual machine.
    * Enables Hyper-V on the VM.
    * Installs software need for development and clone the sample repository.
 
-1. Determine the name of the VM that the script created by checking the Azure portal or by the PowerShell **Get-VM** command. It will have a name ending with random characters such as `IoTMLDemo-o4pv3`.
+1. Determine the name of the VM that the script created by checking the Azure portal or with the PowerShell **Get-AzureRmVM** command. It will have a name ending with random characters such as `IoTMLDemo-o4pv3`.
 
 1. Restart the VM.
 
@@ -109,14 +109,13 @@ It takes about 30 minutes to create and configure the virtual machine.
 
 ### Set auto-shutdown schedule
 
-To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this setting depending on your location and schedule. To update the shutdown
-schedule:
+To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this setting depending on your location and schedule. To update the shutdown schedule:
 
 1. In the Azure portal, navigate to the VM that the script created.
 
 1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
 
-1. Enter a new shutdown time in **Scheduled shutdown** or change the **Time zone** then click **Save**.
+1. Adjust the **Scheduled shutdown** and **Time zone** as desired and select **Save**.
 
 ## Install Visual Studio Code extensions
 
@@ -125,7 +124,7 @@ Now that you have connected to the development machine, add some useful extensio
 1. Connect to the development VM, open a PowerShell window, and navigate to the DevVM directory.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\DevVM.
+    cd C:\srcdir\IoTEdgeAndMlSample\DevVM
     ```
 
 1. Run the Visual Studio Code extensions script.
@@ -157,7 +156,7 @@ In this section, you use a script to create an Azure IoT hub and an Azure Storag
 1. Connect to the development VM, open a PowerShell window, and navigate to the DevVM directory.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\IoTHub
+    cd C:\srcdir\IoTEdgeAndMlSample\IoTHub
     ```
 
 1. Run the creation script. Use the same values for subscription ID, location, and resource group as you did when creating the development VM.
@@ -167,7 +166,7 @@ In this section, you use a script to create an Azure IoT hub and an Azure Storag
     ```
 
     * You will be prompted to sign in to Azure.
-    * The script confirms the information for the creation of your Hub and Storage account. Press `y` or `Enter` to continue.
+    * The script confirms the information for the creation of your Hub and Storage account. Press **y** or **Enter** to continue.
 
 The script takes about two minutes to run. Once complete, the script outputs the name of the IoT hub and the storage account.
 
@@ -198,9 +197,9 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. On the **Routes details** page, note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
 
-1. Look at the **Routing query**, which is set to **true**. This setting means that all device telemetry messages will match this route; and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
-
    ![Review details about the turbofanDeviceDataToStorage route](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
+
+1. Look at the **Routing query**, which is set to **true**. This setting means that all device telemetry messages will match this route; and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
 
 1. Since no edits were made, just close this page.
 
