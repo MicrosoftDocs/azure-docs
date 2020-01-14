@@ -27,7 +27,9 @@ Interest in moving beyond a one-preset-fits-all-videos approach increased after 
 
 In early 2017, Microsoft released the [Adaptive Streaming](autogen-bitrate-ladder.md) preset to address the problem of the variability in the quality and resolution of the source videos. Our customers had a varying mix of content, some at 1080p, others at 720p, and a few at SD and lower resolutions. Furthermore, not all source content was high quality mezzanines from film or TV studios. The Adaptive Streaming preset addresses these problems by ensuring that the bitrate ladder never exceeds the resolution or the average bitrate of the input mezzanine.
 
-The experimental content-aware encoding preset extends that mechanism, by incorporating custom logic that lets the encoder seek the optimal bitrate value for a given resolution, but without requiring extensive computational analysis. The net result is that this new preset produces an output that has lower bitrate than the Adaptive Streaming preset, but at a higher quality. See the following sample graphs that show the comparison using quality metrics like [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). The source was created by concatenating short clips of high complexity shots from movies and TV shows, intended to stress the encoder. By definition, this preset produces results that vary from content to content – it also means that for some content, there may not be significant reduction in bitrate or improvement in quality.
+The new content-aware encoding preset extends that mechanism, by incorporating custom logic that lets the encoder seek the optimal bitrate value for a given resolution, but without requiring extensive computational analysis. This preset produces a set of GOP-aligned MP4s. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates than the Adaptive Streaming preset but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved
+
+See the following sample graphs that show the comparison using quality metrics like [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). The source was created by concatenating short clips of high complexity shots from movies and TV shows, intended to stress the encoder. By definition, this preset produces results that vary from content to content – it also means that for some content, there may not be significant reduction in bitrate or improvement in quality.
 
 ![Rate-distortion (RD) curve using PSNR](media/cae-experimental/msrv1.png)
 
@@ -37,7 +39,7 @@ The experimental content-aware encoding preset extends that mechanism, by incorp
 
 **Figure 2: Rate-distortion (RD) curve using VMAF metric for high complexity source**
 
-The preset currently is tuned for high complexity, high quality source videos (movies, TV shows). Work is in progress to adapt to low complexity content (for example, PowerPoint presentations), as well as poorer quality videos. This preset also uses the same set of resolutions as the Adaptive Streaming preset. Microsoft is working on methods to select the minimal set of resolutions based on the content. As follows are results for another category of source content, where the encoder was able to determine that the input was of poor quality (many compression artifacts because of the low bitrate). Note that with the experimental preset, the encoder decided to produce just one output layer – at a low enough bitrate so that most clients would be able to play the stream without stalling.
+Below are the results for another category of source content, where the encoder was able to determine that the input was of poor quality (many compression artifacts because of the low bitrate). Note that with the content-aware preset, the encoder decided to produce just one output layer – at a low enough bitrate so that most clients would be able to play the stream without stalling.
 
 ![RD curve using PSNR](media/cae-experimental/msrv3.png)
 
@@ -60,16 +62,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> The prefix "experimental" is used here to signal that the underlying algorithms are still evolving. There can and will be changes over time to the logic used for generating bitrate ladders, with the goal of converging on an algorithm that is robust, and adapts to a wide variety of input conditions. Encoding jobs using this preset will still be billed based on output minutes, and the output asset can be delivered from our streaming endpoints in protocols such as DASH and HLS.
+> The underlying algorithms are subject to further improvements. There can and will be changes over time to the logic used for generating bitrate ladders, with the goal of providing an algorithm that is robust, and adapts to a wide variety of input conditions. Encoding jobs using this preset will still be billed based on output minutes, and the output asset can be delivered from our streaming endpoints in protocols such as DASH and HLS.
 
 ## Next steps
 
-Now that you have learned about this new option of optimizing your videos, we invite you to try it out. You can send us feedback using the links at the end of this article, or engage us more directly at <amsved@microsoft.com>.
+Now that you have learned about this new option of optimizing your videos, we invite you to try it out. You can send us feedback using the links at the end of this article.
