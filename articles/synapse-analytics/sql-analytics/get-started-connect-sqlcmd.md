@@ -21,10 +21,10 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You have the ability to use the [sqlcmd][sqlcmd] command-line utility to connect to and query SQL on-demand and SQL pool within SQL Analytics.  
+You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand and SQL pool within SQL Analytics.  
 
 ## 1. Connect
-To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
+To get started with [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15), open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name
@@ -36,7 +36,7 @@ To use SQL Server Authentication, you need to add the username and password para
 * **Password (-P):** Password associated with the user
 
 
-For example, your connection string might look like the following:
+Your connection string might look like the following example:
 
 
 **SQL on-demand**
@@ -54,7 +54,7 @@ To use Azure Active Directory Integrated authentication, you need to add the Azu
 
 * **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
 
-For example, your connection string might look like the following:
+Your connection string might look like on of the following examples:
 
 **SQL on-demand**
 ```sql
@@ -83,7 +83,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-For SQL pool, the following examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
+For SQL pool, the following examples show you how to run queries in batch mode using the -Q option or piping your SQL to sqlcmd:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -102,7 +102,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-For SQL on-demand, the examples that follow show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd:
+For SQL on-demand, the examples that follow show you how to run queries in batch mode using the -Q option or piping your SQL to sqlcmd:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"
@@ -113,14 +113,5 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 ```
 
 ## Next steps
-See the [sqlcmd documentation][sqlcmd] for more details about the options available in sqlcmd.
+For more information about sqlcmd options, see the [sqlcmd documentation](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15).
 
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
