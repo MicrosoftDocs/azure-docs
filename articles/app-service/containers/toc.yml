@@ -103,6 +103,8 @@
     items:
     - name: Deploy the app
       items:
+      - name: Run from package
+        href: ../deploy-run-package.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy via FTP
         href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy via cloud sync
