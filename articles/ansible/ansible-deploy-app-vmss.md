@@ -3,7 +3,7 @@ title: Tutorial - Deploy apps to virtual machine scale sets in Azure using Ansib
 description: Learn how to use Ansible to configure Azure virtual machine scale sets and deploy application on the scale set
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.date: 04/30/2019
+ms.date: 01/13/2020
 ---
 
 # Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible
@@ -51,13 +51,13 @@ Save the following sample playbook as `get-hosts-tasks.yml`:
   - name: Add all hosts
     add_host:
       groups: scalesethosts
-      hostname: "{{ output_ip_address.ansible_facts.azure_publicipaddresses[0].properties.ipAddress }}_{{ item.properties.frontendPort }}"
-      ansible_host: "{{ output_ip_address.ansible_facts.azure_publicipaddresses[0].properties.ipAddress }}"
+      hostname: "{{ output_ip_address.publicipaddresses[0].ip_address }}_{{ item.properties.frontendPort }}"
+      ansible_host: "{{ output_ip_address.publicipaddresses[0].ip_address }}"
       ansible_port: "{{ item.properties.frontendPort }}"
       ansible_ssh_user: "{{ admin_username }}"
       ansible_ssh_pass: "{{ admin_password }}"
     with_items:
-      - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
+      - "{{ output.ansible_info.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
 ## Prepare an application for deployment
