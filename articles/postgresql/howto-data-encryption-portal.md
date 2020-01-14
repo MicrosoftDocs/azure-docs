@@ -20,13 +20,13 @@ In this article, you will learn how to set up and manage to use the Azure portal
   * [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_valut_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+    az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
   * [Purge protected](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
-    az keyvault update --name <key_valut_name> --resource-group <resource_group_name>  --enable-purge-protection true
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
 * The key must have the following attributes to be used for customer-managed key.

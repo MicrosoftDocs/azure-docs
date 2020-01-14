@@ -56,7 +56,7 @@ The following example shows how to connect to your PostgreSQL server using the p
 
 The following command is an example of the psql connection string:
 
-```console
+```shell
 psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
