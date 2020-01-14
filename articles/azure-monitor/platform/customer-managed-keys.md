@@ -241,10 +241,7 @@ It takes a few minutes until the *Cluster* resource is propagated in
 
 ### Update Cluster resource with Key identifier details
 
-Update the *Cluster* resource with Key Vault *Key identifier* details, to allow Azure Monitor Storage to use the new key version. Select the current version of your key in Azure Key Vault to get the Key identifier details.
-
-> [!Important]
-> This step applies to future key version updates in your Key Vault. In such updates, you should repeat this step and update the *Cluster* resource with the Key Vault *Key identifier* details, since your previous key won’t be accessible by Azure Monitor Storage about 15 minutes after the key version update in your Key Vault.
+This step applies following future key version updates in your Key Vault. Update the *Cluster* resource with Key Vault *Key identifier* details, to allow Azure Monitor Storage to use the new key version. Select the current version of your key in Azure Key Vault to get the Key identifier details.
 
 ![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
 
@@ -421,7 +418,7 @@ the new Azure Key Vault Key version. To update Azure Monitor with your
 new key version, follow the instructions in "Update *Cluster* resource
 with *Key identifier* details" step.
 
-If you rotate your key in Key Vault and don't update the new version in Azure Monitor shortly after, the key won't be accessible by Azure Monitor Storage.
+If you update your key in Key Vault and don't update the new *Key identifier* details in the *Cluster* resource*, Azure Monitor Storage will keep using your previous key.
 
 ## Limitations and constraints
 
@@ -434,8 +431,6 @@ If you rotate your key in Key Vault and don't update the new version in Azure Mo
     after you received a confirmation from the product group that the
     ADX cluster provisioning was fulfilled. Data that is sent prior to
     this provisioning will be dropped and won't be recoverable.
-
-- Updating your key in Key Vault requires that you update the *Cluster* resource with the Key Vault *Key identifier* details, since your previous key won't be accessible by Azure Monitor Storage in about 15 minutes after the key version update.
 
 - CMK encryption applies to newly ingested data after the CMK
     configuration. Data that was ingested prior to the CMK
