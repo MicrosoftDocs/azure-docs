@@ -14,8 +14,8 @@ This topic describes the configurations available for your Azure Cache for Redis
 
 > [!NOTE]
 > For more information on configuring and using premium cache features, see [How to configure persistence](cache-how-to-premium-persistence.md), [How to configure clustering](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support](cache-how-to-premium-vnet.md).
-> 
-> 
+>
+>
 
 ## Configure Azure Cache for Redis settings
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
@@ -64,7 +64,7 @@ You can view and configure the following settings using the **Resource Menu**.
 
 ### Activity log
 
-Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Cache for Redis events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md). For more information on monitoring Azure Cache for Redis events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### Access control (IAM)
 
@@ -72,7 +72,7 @@ The **Access control (IAM)** section provides support for role-based access cont
 
 ### Tags
 
-The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
+The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
 
 ### Diagnose and solve problems
@@ -145,8 +145,8 @@ One thing to consider when choosing a new memory reservation value (**maxmemory-
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are only available for Standard and Premium caches.
-> 
-> 
+>
+>
 
 #### Keyspace notifications (advanced settings)
 Redis keyspace notifications are configured on the **Advanced settings** blade. Keyspace notifications allow clients to receive notifications when certain events occur.
@@ -155,15 +155,15 @@ Redis keyspace notifications are configured on the **Advanced settings** blade. 
 
 > [!IMPORTANT]
 > Keyspace notifications and the **notify-keyspace-events** setting are only available for Standard and Premium caches.
-> 
-> 
+>
+>
 
 For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 
 <a name="recommendations"></a>
 ## Azure Cache for Redis Advisor
-The **Azure Cache for Redis Advisor** blade displays recommendations for your cache. During normal operations, no recommendations are displayed. 
+The **Azure Cache for Redis Advisor** blade displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
 ![Recommendations](./media/cache-configure/redis-cache-no-recommendations.png)
 
@@ -201,8 +201,8 @@ Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running 
 
 > [!NOTE]
 > Note that while the Azure Cache for Redis Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
-> 
-> 
+>
+>
 
 ![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
@@ -210,8 +210,8 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 > [!IMPORTANT]
 > Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
-> 
-> 
+>
+>
 
 
 ### Redis data persistence
@@ -222,16 +222,16 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 
 > [!IMPORTANT]
 > Redis data persistence is only available for Premium caches.
-> 
-> 
+>
+>
 
 ### Schedule updates
-The **Schedule updates** blade allows you to designate a maintenance window for Redis server updates for your cache. 
+The **Schedule updates** blade allows you to designate a maintenance window for Redis server updates for your cache.
 
 > [!IMPORTANT]
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
-> 
-> 
+>
+>
 
 ![Schedule updates](./media/cache-configure/redis-schedule-updates.png)
 
@@ -239,8 +239,8 @@ To specify a maintenance window, check the desired days and specify the maintena
 
 > [!IMPORTANT]
 > The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates).
-> 
-> 
+>
+>
 
 ### Geo-replication
 
@@ -248,16 +248,16 @@ The **Geo-replication** blade provides a mechanism for linking two Premium tier 
 
 > [!IMPORTANT]
 > **Geo-replication** is only available for Premium tier caches. For more information and instructions, see [How to configure Geo-replication for Azure Cache for Redis](cache-how-to-geo-replication.md).
-> 
-> 
+>
+>
 
 ### Virtual Network
 The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
-> Virtual network settings are only available for premium caches that were configured with VNET support during cache creation. 
-> 
-> 
+> Virtual network settings are only available for premium caches that were configured with VNET support during cache creation.
+>
+>
 
 ### Firewall
 
@@ -271,8 +271,8 @@ You can specify firewall rules with a start and end IP address range. When firew
 
 > [!IMPORTANT]
 > Connections from Azure Cache for Redis monitoring systems are always permitted, even if firewall rules are configured.
-> 
-> 
+>
+>
 
 ### Properties
 Click **Properties** to view information about your cache, including the cache endpoint and ports.
@@ -280,14 +280,14 @@ Click **Properties** to view information about your cache, including the cache e
 ![Azure Cache for Redis Properties](./media/cache-configure/redis-cache-properties.png)
 
 ### Locks
-The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 ### Automation script
 
-Click **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
+Click **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Administration settings
-The settings in the **Administration** section allow you to perform the following administrative tasks for your cache. 
+The settings in the **Administration** section allow you to perform the following administrative tasks for your cache.
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
@@ -305,8 +305,8 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
 > [!IMPORTANT]
 > Import/Export is only available for Premium tier caches. For more information and instructions, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
-> 
-> 
+>
+>
 
 ### Reboot
 The **Reboot** blade allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
@@ -321,13 +321,13 @@ To reboot one or more nodes of your cache, select the desired nodes and click **
 
 > [!IMPORTANT]
 > Reboot is now available for all pricing tiers. For more information and instructions, see [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot).
-> 
-> 
+>
+>
 
 
 ## Monitoring
 
-The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis. 
+The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis.
 For more information on Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
 
 ![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
@@ -365,8 +365,8 @@ The settings in the **Support + troubleshooting** section provide you with optio
 
 > [!NOTE]
 > Resource health is currently unable to report on the health of Azure Cache for Redis instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
-> 
-> 
+>
+>
 
 ### New support request
 Click **New support request** to open a support request for your cache.
@@ -380,12 +380,12 @@ New Azure Cache for Redis instances are configured with the following default Re
 
 > [!NOTE]
 > The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following example is thrown:  
-> 
+>
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-> 
+>
 > Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal or command-line management tools such as Azure CLI or PowerShell.
-> 
-> 
+>
+>
 
 | Setting | Default value | Description |
 | --- | --- | --- |
@@ -419,8 +419,8 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 
 > [!NOTE]
 > The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
-> 
-> 
+>
+>
 
 <a name="maxclients"></a>
 <sup>2</sup>`maxclients` is different for each Azure Cache for Redis pricing tier.
@@ -441,15 +441,15 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 
 > [!NOTE]
 > While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
-> 
-> 
+>
+>
 
 
 
 ## Redis commands not supported in Azure Cache for Redis
 > [!IMPORTANT]
 > Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, the following commands are disabled. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
-> 
+>
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIG
@@ -459,8 +459,8 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 > * SHUTDOWN
 > * SLAVEOF
 > * CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
-> 
-> 
+>
+>
 
 For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 
@@ -470,8 +470,8 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 > [!IMPORTANT]
 > - The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
 > - Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
-> 
-> 
+>
+>
 
 To access the Redis Console, click **Console** from the **Azure Cache for Redis** blade.
 
@@ -503,8 +503,7 @@ You can move your cache to a new subscription by clicking **Move**.
 
 ![Move Azure Cache for Redis](./media/cache-configure/redis-cache-move.png)
 
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## Next steps
 * For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
-
