@@ -730,6 +730,9 @@
           - name: Hyperopt with HorovodRunner
             href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-distributed-ml
             maintainContext: true
+          - name: Hyperopt best practices
+            href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-best-practices
+            maintainContext: true
           - name: Model Search using Distributed Hyperopt
             href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
             maintainContext: true
