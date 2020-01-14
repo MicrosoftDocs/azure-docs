@@ -255,8 +255,8 @@ In this step, we establish connectivity with SuccessFactors and Active Directory
         > This setting only comes into play for user account creations if the *parentDistinguishedName* attribute is not configured in the attribute mappings. This setting is not used for user search or update operations. The entire domain sub tree falls in the scope of the search operation.
 
    * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
+    > [!NOTE]
+    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and the AD credentials configured on the agent setup are valid.
     >[!div class="mx-imgBorder"]

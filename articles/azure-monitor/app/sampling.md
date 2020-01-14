@@ -544,7 +544,7 @@ apply sampling to those items already sampled in the SDK itself.'
         {
             if(somecondition)
             {
-                ((ISupportSampling)item).SamplingPercentage = 100;
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
             }
         }
       }

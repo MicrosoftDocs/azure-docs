@@ -1,5 +1,5 @@
 ---
-title: Overview of the Service Fabric Reliable Service programming model 
+title: Overview of the Reliable Service programming model 
 description: Learn about Service Fabric's Reliable Service programming model, and get started writing your own services.
 author: masnider
 

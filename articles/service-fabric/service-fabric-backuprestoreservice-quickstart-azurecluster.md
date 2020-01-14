@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ---
-# Periodic backup and restore in Azure Service Fabric 
+# Periodic backup and restore in an Azure Service Fabric cluster
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

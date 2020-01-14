@@ -560,7 +560,7 @@ Example 4: Check that all object array members meet the condition expression
             "equals": "description"
         }
     },
-    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
 }
 ```
 

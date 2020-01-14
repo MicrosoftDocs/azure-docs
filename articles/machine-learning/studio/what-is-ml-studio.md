@@ -33,23 +33,23 @@ There is no programming required, visually connect datasets and modules to const
 <a name="compare"></a>
 ## How does Machine Learning Studio (classic) differ from Azure Machine Learning?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/concept-designer.md) |
+| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../concept-designer.md) |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target.md#train))|
-|Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../service/how-to-deploy-and-where.md)) |
-| ML Pipeline | Not supported | [Pipelines](../service/concept-ml-pipelines.md) supported |
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../concept-compute-target.md#train))|
+|Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../how-to-deploy-and-where.md)) |
+| ML Pipeline | Not supported | [Pipelines](../concept-ml-pipelines.md) supported |
 | MLOps | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
 | Model format | Proprietary format, Studio (classic) only | Standard format depending on training job type |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../service/concept-automated-ml.md)) | 
+|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../concept-automated-ml.md)) | 
 
-Try out the designer with [Tutorial: Predict automobile price with the designer](../service/tutorial-designer-automobile-price-train-score.md)
+Try out the designer with [Tutorial: Predict automobile price with the designer](../tutorial-designer-automobile-price-train-score.md)
 
 > [!NOTE]
 > Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.

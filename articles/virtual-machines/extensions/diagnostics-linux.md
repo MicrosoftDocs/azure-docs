@@ -2,14 +2,14 @@
 title: Azure Compute - Linux Diagnostic Extension 
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: MicahMcKittrick-MSFT
 manager: gwallace
 
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018 
-ms.author: gwallace
+ms.author: mimckitt
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 
@@ -192,7 +192,7 @@ If you created a SAS good until midnight UTC on January 1, 2018, the sasURL valu
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-For more information about generating SAS tokens for Event Hubs, see [this web page](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+For more information about generating and retrieving information on SAS tokens for Event Hubs, see [this web page](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### The JsonBlob sink
 

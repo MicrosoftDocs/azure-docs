@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/21/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -40,11 +40,11 @@ For more information about device twins and tags, see [Understand and use device
 
 IoT Edge provides two different types of automatic deployments that you can use to customize your scenario. You can create a standard *deployment*, which includes that system runtime modules and any additional modules and routes. Each device can only apply one deployment. Or you can create a *layered deployment*, which only includes custom modules and routes, not the system runtime. Many layered deployments can be combined on a device, on top of a standard deployment. For more information about how the two types of automatic deployments work together, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps. 
+The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
-1. From the left bar, select **IoT Edge** under **Automatic Device Management**.
-1. Select **Create Deployment** or **Create Layered Deployment**.
+1. On the menu in the left pane, select **IoT Edge** under **Automatic Device Management**.
+1. On the upper bar, select **Create Deployment** or **Create Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
@@ -71,8 +71,8 @@ You can add three types of modules:
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
 1. In the **Container Registry Credentials** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown.
-1. Select **IoT Edge Module**.
+1. In the **IoT Edge Modules** section of the page, click **Add**.
+1. Select **IoT Edge Module** from the drop-down menu.
 1. Give your module a **IoT Edge Module Name**.
 1. For the **Image URI** field, enter the container image for your module.
 1. Use the drop-down menu to select a **Restart policy**. Choose from the following options:
@@ -90,10 +90,10 @@ To add custom code as a module, or to manually add an Azure service module, foll
 
 #### Add a module from the Marketplace
 
-To add a module for the Azure Marketplace, follow these steps:
+To add a module from the Azure Marketplace, follow these steps:
 
 1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Marketplace Module**.
+1. Select **Marketplace Module** from the drop-down menu.
 1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information, see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
 
 #### Add a Stream Analytics module
@@ -101,9 +101,9 @@ To add a module for the Azure Marketplace, follow these steps:
 To add a module from Azure Stream Analytics, follow these steps:
 
 1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Azure Stream Analytics module**.
-1. Choose your **Subscription** from the drop-down menu.
-1. Choose your IoT **Edge job** from the drop-down menu.
+1. Select **Azure Stream Analytics module** from the drop-down menu.
+1. On the right pane, choose your **Subscription**.
+1. Choose your IoT **Edge job**.
 1. Select **Save** to add your module to the deployment.
 
 #### Configure module settings
@@ -198,7 +198,7 @@ To modify a deployment, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
 1. Select **IoT Edge**.
-1. Select **IoT Edge Deployments**.
+1. Select the **IoT Edge Deployments** tab.
 
    ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
@@ -220,7 +220,7 @@ When you delete a deployment, any deployed devices take on their next highest pr
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
 1. Select **IoT Edge**.
-1. Select **IoT Edge Deployments**.
+1. Select the **IoT Edge Deployments** tab.
 
    ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 

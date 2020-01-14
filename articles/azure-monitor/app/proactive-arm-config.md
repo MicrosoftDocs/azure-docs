@@ -129,9 +129,12 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ```
 
-### Failure Anomalies v2 (non-classic) alert rule
+### Failure Anomalies alert rule
 
-This Azure Resource Manager template demonstrates configuring a Failure Anomalies v2 alert rule with a severity of 2. This new version of the Failure Anomalies alert rule is part of the new Azure alerting platform, and replaces the classic version that is being retired as part of the [classic alerts retirement process](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2. This new version of the Failure Anomalies alert rule is part of the new Azure alerting platform, and replaces the classic version that is being retired as part of the [classic alerts retirement process](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> Failure Anomalies is a global service therefore rule location is create on the global location.
 
 ```json
 {
@@ -162,7 +165,7 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
 ```
 
 > [!NOTE]
-> This Azure Resource Manager template is unique to the Failure Anomalies v2 alert rule and is different from the other classic Smart Detection rules described in this article.   
+> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article.
 
 ## Smart detection rule names
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI- sfctl rpm
-description: Describes the Service Fabric CLI sfctl rpm commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for the repair manager service.
 author: jeffj6123
 
 ms.topic: reference
