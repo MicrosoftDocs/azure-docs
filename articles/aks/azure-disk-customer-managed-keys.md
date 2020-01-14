@@ -94,7 +94,7 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Create a new resource group and AKS cluster, then use your key to encrypt the OS disk. Customer managed key is only supported in kubernetes versions greater than 1.17
+Create a new resource group and AKS cluster, then use your key to encrypt the OS disk. Customer-managed keys are only supported in kubernetes versions greater than 1.17.
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -107,7 +107,7 @@ az group create -n myResourceGroup-l myAzureRegionName
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0
 ```
 
-When new node pools are added to the cluster created above, the customer managed key provided during the create is used to encrypt the OS disk
+When new node pools are added to the cluster created above, the customer-managed key provided during the create is used to encrypt the OS disk.
 
 ## Encrypt your AKS cluster data disk
 
@@ -138,7 +138,7 @@ kubectl apply -f byok-azure-disk.yaml
 * Currently available in GA and Preview in certain [Azure regions][supported-regions]
 * OS Disk Encryption supported with Kubernetes version 1.17 and above   
 * Available only in regions where BYOK is supported
-* This is currently for new AKS clusters only, existing clusters cannot be upgraded
+* Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
 * AKS cluster using Virtual Machine Scale Sets are required, no support for Virtual Machine Availability Sets
 
 
