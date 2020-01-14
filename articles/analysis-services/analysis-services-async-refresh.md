@@ -4,7 +4,7 @@ description: Describes how to use the Azure Analysis Services REST API to code a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -130,6 +130,19 @@ To check the status of a refresh operation, use the GET verb on the refresh ID. 
     ]
 }
 ```
+
+### Return values
+
+
+|Return value  |Description  |
+|---------|---------|
+|notStarted    |   Operation not started yet.      |
+|inProgress     |   Operation in progress.      |
+|timedOut     |    Operation timed out based on user specified timeout.     |
+|cancelled     |   Operation cancelled by user or system.      |
+|failed     |   Operation failed.      |
+|succeeded      |   Operation succeeded.      |
+
 
 ## GET /refreshes
 
