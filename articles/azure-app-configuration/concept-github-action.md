@@ -1,11 +1,10 @@
 ---
-title: Using GitHub Actions with Azure App Configuration Sync | Microsoft Docs
-description: Use Github Actions to sync Azure App Configuration files 
-services: azure-app-configuration
+title: Use GitHub Actions with Azure App Configuration Sync | Microsoft Docs
+description: Use GitHub Actions to trigger an update to your App Configuration store when defined actions are performed on a GitHub repository
 author: jpconnock
 
 ms.author: jeconnoc
-ms.date: 01/09/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 
@@ -182,7 +181,4 @@ Input parameters allow you to specify data that the action expects to use during
 
 ## Next steps
 
-In this article, you learned about the App Configuration Sync GitHub Action and how it can be used to automate updates to your App Configuration store. To learn how Azure App Configuration reacts to changes in key-value pairs, continue to the next article.
-
-> [!div class="nextstepaction"]
-> [Event handling](./concept-app-configuration-event.md)
+In this article, you learned about the App Configuration Sync GitHub Action and how it can be used to automate updates to your App Configuration store. To learn how Azure App Configuration reacts to changes in key-value pairs, continue to the next [article](./concept-app-configuration-event.md).
