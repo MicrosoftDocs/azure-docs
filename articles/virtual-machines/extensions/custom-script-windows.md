@@ -146,9 +146,9 @@ Public settings are sent in clear text to the VM where the script will be execut
 
 CustomScript (version 1.10.4 onwards) supports [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) based RBAC for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to  access Azure Storage private blobs/containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feauture, the user must add a [system-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) idenity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
-To use the system-assigned idenity on the target VM/VMSS, set "managedIdenity" field to an empty json object. 
+To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 
 > Example:
 >
@@ -160,7 +160,7 @@ To use the system-assigned idenity on the target VM/VMSS, set "managedIdenity" f
 > }
 > ```
 
-To use the user-assigned idenity on the target VM/VMSS, configure "managedIdenity" field with the client id or the object id of the managed identity.
+To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client id or the object id of the managed identity.
 
 > Examples:
 >

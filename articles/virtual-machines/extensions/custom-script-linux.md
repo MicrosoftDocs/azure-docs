@@ -52,7 +52,7 @@ If your script is on a local server, then you may still need additional firewall
 * There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
 * Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
 * If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Cron job, or using tools such as DSC, or Chef, Puppet extensions.
-* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a Systemd service unit.
+* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a SystemD service unit.
 * If you want to schedule when a script will run, you should use the extension to create a Cron job. 
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
@@ -212,9 +212,9 @@ CustomScript uses the following algorithm to execute a script.
 
 CustomScript (version 2.1.2 onwards) supports [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) based RBAC for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to  access Azure Storage private blobs/containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feauture, the user must add a [system-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) idenity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
-To use the system-assigned idenity on the target VM/VMSS, set "managedIdenity" field to an empty json object. 
+To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 
 > Example:
 >
@@ -226,7 +226,7 @@ To use the system-assigned idenity on the target VM/VMSS, set "managedIdenity" f
 > }
 > ```
 
-To use the user-assigned idenity on the target VM/VMSS, configure "managedIdenity" field with the client id or the object id of the managed identity.
+To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client id or the object id of the managed identity.
 
 > Examples:
 >
