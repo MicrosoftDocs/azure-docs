@@ -54,14 +54,17 @@ Assign new security group with the isAssignableToRole set to true to a built-in 
 Put users into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role)  | Supported  | Supported  | Supported
 Put service principals into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role). | Supported  | Supported  | Not supported
 Assign groups with isAssignableToRole set to true to built-in roles scoped to Admin Units.  | Calendar 2020 H1  | 2020 H1 Calendar year  | 2020 H1
-Delegate the management of group that has been 
-assigned to a built-in role.  | Calendar year 2020 H1  | Calendar year 2020 H1 Calendar year  | 2020 H1
+Delegate the management of group that has been assigned to a built-in role.  | Calendar year 2020 H1  | Calendar year 2020 H1 Calendar year  | 2020 H1
 Assign a new on-prem security group to an Azure AD role (no Office 365 group on-prem).  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
-Assign an existing on-prem security group to an Azure AD role (no Office 365 group on-prem).  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
-Nest another group with isAssignableToRole set to 
-true into a group that is assigned a role.  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
+Assign an existing on-prem security group to an Azure AD role (no Office 365 group on-premises). | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
+Nest another group with isAssignableToRole set to true into a group that is assigned a role.  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
 Assign a group (on-prem or cloud) to custom Azure AD role  | Calendar year 2020 H1  | Calendar year 2020 H1  | Calendar year 2020 H1
 Use an existing Office 365 cloud group and assign it to a role  | Out of scope  | Out of scope  | Out of scope
 Use an existing security cloud group and assign it to a role | Out of scope  | Out of scope  | Out of scope
 
+## Next steps
 
+- [Create a role-eligible group](roles-groups-create-eligible.md)
+- [Assign a role to a group](roles-groups-assign-role.md)
+- [View a group's role assignments](roles-groups-view-assignments.md)
+- [Remove a group role assignment](roles-groups-remove-assignments.md)
