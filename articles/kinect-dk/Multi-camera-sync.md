@@ -17,7 +17,7 @@ Before you start, make sure to review [Azure Kinect DK Hardware specification](h
 
 There are a few important things to consider before starting your multi- camera setup. 
 
-- We recommend not to use automatic exposure setting since it can cause the device timing to change as exposure changes.
+- We recommend using a manual exposure setting if you want to control the precise timing of each device. Automatic exposure allows each the color camera to dynamically change exposure, as a result it is impossible for the timing between the two devices to stay exactly the same.
 - Device timestamp changes to ‘Start of Frame’ from ‘Center of Frame’ when using master or subordinate modes.
 - Do not let the IR lasers from depth camera’s all fire at the same time.
 - Do use depth_delay_off_color_usec or subordinate_delay_off_master_usec to give each laser its own 160us window.
@@ -126,4 +126,3 @@ In order to trigger multiple Azure Kinect DK devices by an external device and c
 - The below plugs can be used with Kinect DK, and all sleeves and rings are shorted together inside Kinect DK and they are connected to ground of master Kinect DK. Tip is the sync signal.
 
 ![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
-
