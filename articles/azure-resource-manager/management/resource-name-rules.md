@@ -287,42 +287,30 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
-> | /servers / configurations | servers | Not specified |  |
-> | /servers / databases | servers | Not specified |  |
-> | /servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
-> | /servers / keys | servers | Not specified |  |
-> | /servers / privateEndpointConnections | servers | Not specified |  |
-> | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
+> | servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
+> | servers / databases | servers | 1-63 | Alphanumerics and hyphens. |
+> | servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
+> | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
-> | /servers / configurations | servers | Not specified |  |
-> | /servers / databases | servers | Not specified |  |
-> | /servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
-> | /servers / keys | servers | Not specified |  |
-> | /servers / privateEndpointConnections | servers | Not specified |  |
-> | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
+> | servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
+> | servers / databases | servers | 1-63 | Alphanumerics and hyphens. |
+> | servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
+> | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
-> | /servers / configurations | servers | Not specified |  |
-> | /servers / databases | servers | Not specified |  |
-> | /servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
-> | /servers / keys | servers | Not specified |  |
-> | /servers / privateEndpointConnections | servers | Not specified |  |
-> | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
+> | servers | global | 3-63 | Lowercase letters, hyphens and numbers.<br><br>Can't start or end with hyphen. |
+> | servers / databases | servers | 1-63 | Alphanumerics and hyphens. |
+> | servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
+> | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
 ## Microsoft.Devices
 
@@ -351,19 +339,6 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | databaseAccounts | global | 3-31 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / cassandraKeyspaces | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / cassandraKeyspaces / tables | Cassandra keyspace |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / gremlinDatabases | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / gremlinDatabases / graphs | Gremlin database |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / mongodbDatabases | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / mongodbDatabases / collections | Mongodb database |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / privateEndpointConnections | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers | SQL database |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers / storedProcedures | container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers / triggers | container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / sqlDatabases / containers / userDefinedFunctions | container |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
-> | databaseAccounts / tables | database account |  | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
 ## Microsoft.EventGrid
 
@@ -401,31 +376,6 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | jobs | resource group | 2-64 | Alphanumerics and hyphens.<br><br>Start with letter. |
-
-## microsoft.insights
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /actionGroups | resource group | Not specified |  |
-> | /activityLogAlerts | resource group | Not specified |  |
-> | /alertrules | resource group | Not specified |  |
-> | /autoscalesettings | resource group | Not specified |  |
-> | /components | resource group | Not specified |  |
-> | /components / exportconfiguration | Component | Not specified |  |
-> | /components / favorites | Component | Not specified |  |
-> | /components / ProactiveDetectionConfigs | Component | Not specified |  |
-> | /diagnosticSettings | resource group | Not specified |  |
-> | /guestDiagnosticSettings | resource group | Not specified |  |
-> | /guestDiagnosticSettingsAssociation | resource group | Not specified |  |
-> | /logprofiles | resource group | Not specified |  |
-> | /metricAlerts | resource group | Not specified |  |
-> | /queryPacks | resource group | Not specified |  |
-> | /queryPacks / queries | Query pack | Not specified |  |
-> | /scheduledQueryRules | resource group | Not specified |  |
-> | /webtests | resource group | Not specified |  |
-> | /workbooks | resource group | Not specified |  |
-> | /workbooktemplates | resource group | Not specified |  |
 
 ## Microsoft.IoTCentral
 
@@ -486,7 +436,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | workspaces | resource group | 3-33 | Alphanumerics and hyphens. |
-> | workspaces / computes | Workspace | 2-16 | Alphanumerics and hyphens. |
+> | workspaces / computes | workspace | 2-16 | Alphanumerics and hyphens. |
 
 ## Microsoft.ManagedIdentity
 
@@ -534,16 +484,6 @@ In the following tables, the term alphanumeric refers to:
 > | projects | resource group |  |  |
 > | projects/groups | Project |  |  |
 > | projects/groups/assessments | Group |  |  |
-
-## Microsoft.NetApp
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | netAppAccounts | resource group |  |  |
-> | netAppAccounts / capacityPools | NetApp account |  |  |
-> | netAppAccounts / capacityPools / volumes | Capacity pool |  |  |
-> | netAppAccounts / capacityPools / volumes / snapshots | Volume |  |  |
 
 ## Microsoft.Network
 
@@ -627,18 +567,18 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start and end with letter or number. |
-> | namespaces / AuthorizationRules | Namespace |  |  |
-> | namespaces / notificationHubs | Namespace | 1-260 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / notificationHubs / AuthorizationRules | Notification hub |  |  |
+> | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start and end with alphanumeric. |
+> | namespaces / AuthorizationRules | namespace | 1-256 |  |
+> | namespaces / notificationHubs | namespace | 1-260 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
+> | namespaces / notificationHubs / AuthorizationRules | notification hub | 1-256 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
 
 ## Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /clusters | resource group | 4-63 | Must start with alphanumeric character<br>`^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
-> | /workspaces | resource group | 4-63 | Must start with alphanumeric character<br>`^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
+> | clusters | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | workspaces | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | /workspaces / dataSources | workspaces | Not specified |  |
 > | /workspaces / linkedServices | workspaces | Not specified |  |
 > | /workspaces / savedSearches | workspaces | Not specified |  |
