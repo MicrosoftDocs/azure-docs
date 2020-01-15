@@ -57,7 +57,7 @@ Below is the list of supported data types.
 
 
 > [!NOTE] 
-For more information on how to shape your JSON events as well as details on nested object flattening, see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+> For more information on how to shape your JSON events as well as details on nested object flattening, see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
 
 ## Ingress best practices
