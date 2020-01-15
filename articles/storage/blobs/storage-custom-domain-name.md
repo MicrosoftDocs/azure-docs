@@ -1,10 +1,11 @@
 ---
-title: Map a custom domain to an Azure Blob Storage endpoint | Microsoft Docs
-description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage or web endpoint in an Azure storage account.
+title: Map a custom domain to an Azure Blob Storage endpoint
+titleSuffix: Azure Storage
+description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -12,15 +13,13 @@ ms.subservice: blobs
 
 # Map a custom domain to an Azure Blob Storage endpoint
 
-You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
-
-This article shows you two ways to do this. The first way requires fewer steps but your custom domain will be briefly unavailable to users while you complete the configuration. 
-
-The second approach requires more steps, but incurs no downtime. It's useful in cases where your custom domain supports an application that can't have any downtime. 
+You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. This article shows you two ways to do this. 
 
 To learn more, see [Custom domain names with Azure Blob storage endpoints](storage-blob-custom-domain.md)
 
 ## Map a custom domain with fewer steps but some downtime
+
+This approach is easiest, but your custom domain will be briefly unavailable to users while you complete the configuration. If your custom domain can't afford downtime, see the [Map a custom domain with more steps but zero downtime](#zero-down-time) section of this article.
 
 Follow these steps to map your custom domain to blob storage with some downtime.
 
@@ -103,9 +102,13 @@ To confirm that your custom domain is mapped to your blob service endpoint, crea
 
 For example, to access a web form in the *myforms* container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
+<a id="zero-down-time" />
+
 ## Map a custom domain with more steps but zero downtime
 
-This is a bit more involved.
+This approach involves more steps but incurs no downtime. It's useful in cases where your custom domain supports an application that can't have any downtime. 
+
+Follow these steps to map your custom domain to blob storage with zero downtime.
 
 :heavy_check_mark: Step 1: Get the host name of your storage endpoint
 
