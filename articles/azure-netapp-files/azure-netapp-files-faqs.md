@@ -196,3 +196,4 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)

@@ -36,11 +36,11 @@ Here's what you should have done in the first tutorial:
 
 - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
 - [Prepare VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) for assessment:
-   - Verify VMware settings.
-   - Set up permissions to create a VMware VM with an OVA template.
-   - Set up an account for VM discovery. 
-   - Make required ports available.
-   - Be aware of the URLs needed for access to Azure.
+   - [Verify](migrate-support-matrix-vmware.md#vmware-requirements) VMware settings.
+   - Set up permissions in VMware, to create a VMware VM with an OVA template.
+   - Set up an [account for VM discovery](migrate-support-matrix-vmware.md#vmware-requirements). 
+   - Make [required ports](migrate-support-matrix-vmware.md#port-access) available.
+   - Be aware of the [URLs needed](migrate-replication-appliance.md#url-access) for access to Azure.
 
 ## Set up an Azure Migrate project
 
