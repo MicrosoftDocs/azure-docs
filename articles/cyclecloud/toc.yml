@@ -128,9 +128,7 @@
       href: ./how-to/healthcheck.md
   - name: Scheduling
     items:
-    - name: Disable Autoscaling
-      href: ./how-to/disable-autoscaling.md
-    - name: Configure Autoscaling Settings
+    - name: Configure Autoscaling
       href: ./how-to/configure-autoscaling.md
   - name: Troubleshoot
     href: ./how-to/troubleshoot.md
