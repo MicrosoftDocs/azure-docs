@@ -341,7 +341,7 @@
     - name: 'Designer: Retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
-    - name: Use parallal run step
+    - name: Use parallel run step
       displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-use-paralle-run-step.md
     - name: Debug & troubleshoot parallel run step

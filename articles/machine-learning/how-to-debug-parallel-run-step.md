@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 11/21/2019
+ms.date: 01/15/2020
 ---
 
 # Debug and troubleshoot ParallelRunStep
@@ -42,10 +42,10 @@ When you need a full understanding of how each node executed the score script, l
 - `~/logs/sys/worker/<ip_address>/Process-*.txt`: This file provides detailed info about each mini-batch as it is picked up or completed by a worker. For each mini-batch, this file includes:
 
     - The IP address and the PID of the worker process. 
-    - The total number of items, successfully processed items count and failed item count.
+    - The total number of items, successfully processed items count, and failed item count.
     - The start time, duration, process time and run method time.
 
-You can also find information on the resource usage of the processes for each worker. This information is in CSV format and is located at `~/logs/sys/perf/<ip_address>/`. For single node job files will be available under `~logs/sys/perf`. For example, when checking for resource utilization, look at the following files:
+You can also find information on the resource usage of the processes for each worker. This information is in CSV format and is located at `~/logs/sys/perf/<ip_address>/`. For a single node, job files will be available under `~logs/sys/perf`. For example, when checking for resource utilization, look at the following files:
 
 - `Process-*.csv`: Per worker process resource usage. 
 - `sys.csv`: Per node log.
