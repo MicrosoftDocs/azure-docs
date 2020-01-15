@@ -42,7 +42,7 @@ The graph displays the transformation stream. It shows the lineage of source dat
 
 ![Debug button](media/data-flow/debugbutton.png "Debug button")
 
-When you begin working with data flows in ADF, you want to turn on the "Debug" switch for data flows at the top of the browser UI. This spins-up an Azure Apache Spark cluster to use for interactive debugging, data previews, and pipeline debug executions. You can set the size of the cluster being utilized by choosing a custom [Azure Integration Runtime](concepts-integration-runtime.md). The debug session stays alive for up to 60 minutes after your last data preview or last debug pipeline execution.
+When you begin working with data flows in ADF, you want to turn on the "Debug" switch for data flows at the top of the browser UI. This spins-up an Apache Spark cluster to use for interactive debugging, data previews, and pipeline debug executions. You can set the size of the cluster being utilized by choosing a custom [Azure Integration Runtime](concepts-integration-runtime.md). The debug session stays alive for up to 60 minutes after your last data preview or last debug pipeline execution.
 
 When you operationalize your pipelines with data flow activities, ADF uses the Azure Integration Runtime associated with the [activity](control-flow-execute-data-flow-activity.md) in the "Run On" property.
 
@@ -54,7 +54,7 @@ You can instruct ADF to maintain a pool of cluster resources (VMs) by setting a 
 
 ##### Execute data flows in parallel
 
-If you execute data flows in a pipeline in parallel, ADF spins up separate Azure Apache Spark clusters for each activity execution based on the settings in your Azure Integration Runtime attached to each activity. To design parallel executions in ADF pipelines, add your data flow activities without precedence constraints in the UI.
+If you execute data flows in a pipeline in parallel, ADF spins up separate Apache Spark clusters for each activity execution based on the settings in your Azure Integration Runtime attached to each activity. To design parallel executions in ADF pipelines, add your data flow activities without precedence constraints in the UI.
 
 Of these three options, this option likely executes in the shortest amount of time. However, each parallel data flow executes at the same time on separate clusters, so the ordering of events is non-deterministic.
 
