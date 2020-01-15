@@ -16,7 +16,7 @@ When creating a new cluster via the GUI, the **Compute Backend** tab allows you 
 
 ![Auto-Scale Setting for New Cluster](~/images/autoscale-setting.png)
 
-Setting a **Max Cores** number will limit the number of nodes started to ensure your workload does not run unfetted. You can also set up an [usage alert](usage.md) when submitting your job to ensure a budget is not exceeded.
+Setting a **Max Cores** number will limit the number of nodes started to ensure your workload does not run unfetted. You can also set up an [usage alert](./~/concepts/usage-tracking.md) when submitting your job to ensure a budget is not exceeded.
 
 ## Auto-Scaling in Cluster Template
 

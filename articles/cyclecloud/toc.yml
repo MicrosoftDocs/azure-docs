@@ -119,9 +119,9 @@
     - name: Install Jetpack
       href: ./how-to/install-jetpack.md
     - name: Install a Custom Service
-      href: ./how-to/install-custom-service
+      href: ./how-to/install-custom-service.md
     - name: Create a Custom Image
-      href: ./how-to/create-custom-image
+      href: ./how-to/create-custom-image.md
     - name: Use HB and HC VMs
       href: ./how-to/hb-hc-best-practices.md
     - name: Use HealthCheck
@@ -155,17 +155,15 @@
       href: ~/cluster-references/input-endpoint.md
     - name: Cluster Configuration
       href: ~/cluster-references/cluster-configuration.md
-    - name: (beta) Environment
+    - name: Environment
       href: ~/cluster-references/environment.md
-    - name: (beta) Noderef
+    - name: Noderef
       href: ~/cluster-references/noderef.md
     - name: Cluster Parameters
       href: ~/cluster-references/parameter-reference.md
     - name: Cluster Parameter Special Parsing
       href: ~/cluster-references/special-parsing.md
     - name: Download Existing Cluster Templates
-      href: download-cluster-templates.md
-    - name: Configure SSL
       href: download-cluster-templates.md
   - name: REST API Reference
     href: api.md
