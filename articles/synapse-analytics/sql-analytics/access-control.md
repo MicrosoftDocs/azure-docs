@@ -35,7 +35,7 @@ For a production deployment into an Azure Synapse workspace, we suggest organizi
 
 When you provisioned your workspace, you had to pick an ADLSGEN2 account and a container for the filesystem for the workspace to use.
 
-1. Open the Azure portal (https://portal.azure.com)
+1. Open the [Azure portal](https://portal.azure.com)
 2. Navigate to the ADLSGEN2 account
 3. Navigate to container (filesystem) you picked for the Azure Synapse workspace
 4. Click **Access Control (IAM)**
