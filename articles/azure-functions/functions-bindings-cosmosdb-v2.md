@@ -1723,11 +1723,11 @@ Updates are not made automatically upon function exit. Instead, use `context.bin
 
 # [Python](#tab/python)
 
-**TODO**
+Data is made available to the function via a `DocumentList` parameter. Changes made to the document are not automatically persisted.
 
 # [Java](#tab/java)
 
-**TODO**
+From the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), the [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotation exposes Cosmos DB data to the function. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ---
 
