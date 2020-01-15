@@ -75,7 +75,7 @@ Azure Synapse Analytic enables you to use built-in security features to secure y
 
 SQL Pool and SQL On-Demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
 
-Spark Pool uses Apache Spark language. For more details about the Spark language capabilities, look at the [Apache Spark documentation](https://spark.apache.org/docs/latest/sql-getting-started.htm).
+Spark Pool uses Apache Spark language. For more details about the Spark language capabilities, look at the [Apache Spark documentation](https://spark.apache.org/docs/latest/sql-getting-started.html).
 
 ## Tools
 
