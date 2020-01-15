@@ -78,9 +78,9 @@
         href: ./spark/apache-spark-overview.md
     - name: Metadata management
       items:
-    - name: Overview
-      href: azure-synapse-metadata-overview.md
-    - name: Storage objects
+      - name: Overview
+        href: azure-synapse-metadata-overview.md
+      - name: Storage objects
         items:
         - name: Objects
           href: azure-synapse-metadata-objects.md
