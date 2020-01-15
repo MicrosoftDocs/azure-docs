@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Develop module for Linux devices - Azure IoT Edge'
+title: 'Tutorial - Develop module for Linux devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices 
 author: kgremban
 manager: philmea

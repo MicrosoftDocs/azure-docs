@@ -34,5 +34,6 @@ The following table lists quota information specific to Azure Service Bus messag
 | Size of SQL filters or actions |Namespace |Subsequent requests for creation of additional filters are rejected, and an exception is received by the calling code. |Maximum length of filter condition string: 1,024 (1 K).<br /><br />Maximum length of rule action string: 1,024 (1 K).<br /><br />Maximum number of expressions per rule action: 32. |
 | Number of [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) rules per namespace, queue, or topic |Entity, namespace |Subsequent requests for creation of additional rules are rejected, and an exception is received by the calling code. |Maximum number of rules: 12. <br /><br /> Rules that are configured on a Service Bus namespace apply to all queues and topics in that namespace. |
 | Number of messages per transaction | Transaction | Additional incoming messages are rejected, and an exception stating "Cannot send more than 100 messages in a single transaction" is received by the calling code. | 100 <br /><br /> For both **Send()** and **SendAsync()** operations. |
+| Number of virtual network and IP filter rules | Namespace | &nbsp; | 128 | 
 
 [Azure portal]: https://portal.azure.com

@@ -34,13 +34,8 @@ To complete this guide, make sure you have:
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
 
 ```cpp
-// Create the ASA factory
-SpatialAnchorsFactory m_asaFactory { nullptr };
-// . . .
-
 // Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider;
-sensorProvider = m_asaFactory.CreatePlatformLocationProvider();
+PlatformLocationProvider sensorProvider = PlatformLocationProvider();
 
 // Allow GPS
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -66,12 +61,12 @@ sensors.KnownBeaconProximityUuids(uuids);
 cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 // Configure the near-device criteria
-NearDeviceCriteria nearDeviceCriteria = m_asaFactory.CreateNearDeviceCriteria();
+NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
 nearDeviceCriteria.DistanceInMeters(5.0f);
 nearDeviceCriteria.MaxResultCount(25);
 
 // Set the session's locate criteria
-anchorLocateCriteria = m_asaFactory.CreateAnchorLocateCriteria();
+anchorLocateCriteria = AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 ```

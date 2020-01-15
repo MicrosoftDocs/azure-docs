@@ -1,13 +1,8 @@
 ---
-title: Improve operational excellency for your Azure subscriptions with Azure Advisor | Microsoft Docs
-description: Use Advisor to optimize and get mature in operational excellence for your Azure subscriptions.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Improve operational excellency for your Azure subscriptions with Azure Advisor
+description: Use Advisor to optimize and get mature in operational excellence for your Azure subscriptions
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
 ---
 
 # Achieve operational excellence with Azure Advisor

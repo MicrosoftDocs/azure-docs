@@ -1,16 +1,9 @@
 ---
-title: Network configuration details for Azure ExpressRoute - App Service
-description: Network configuration details for App Service Environment for PowerApps in virtual networks connected to an Azure ExpressRoute circuit.
-services: app-service
-documentationcenter: ''
+title: Configure Azure ExpressRoute v1
+description: Network configuration for App Service Environment for PowerApps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
-manager: nirma
-editor: ''
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch

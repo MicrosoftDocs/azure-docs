@@ -44,8 +44,8 @@ This article documents the security controls built into Azure Service Bus Messag
 
 | Security control | Yes/No | Notes | Documentation |
 |---|---|--|--|
-| Server-side encryption at rest: Microsoft-managed keys |  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
-| Server-side encryption at rest: customer-managed keys (BYOK) | No |   |   |
+| Server-side encryption at rest: Microsoft-managed keys |  Yes for server-side encryption-at-rest by default. |  |  |
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes. | A customer managed key in Azure KeyVault can be used to encrypt the data on the Service Bus Namespace at rest. | [Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal](configure-customer-managed-key.md)  |
 | Column level encryption (Azure Data Services)| N/A | |   |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Supports standard HTTPS/TLS mechanism. |   |
 | API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |   |

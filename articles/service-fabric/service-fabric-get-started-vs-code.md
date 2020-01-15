@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric with VS Code Getting Started | Microsoft Docs
+title: Azure Service Fabric with VS Code Getting Started 
 description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-
 ---
 
 # Service Fabric for Visual Studio Code

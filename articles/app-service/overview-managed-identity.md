@@ -1,13 +1,8 @@
 ---
-title: Managed identities overview - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for managed identities in Azure App Service and Azure Functions
-services: app-service
+title: Managed identities
+description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back end resource.
 author: mattchenderson
-manager: cfowler
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
@@ -20,7 +15,7 @@ ms.reviewer: yevbronsh
 > [!Important] 
 > Managed identities for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
 
-This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. A managed identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. A managed identity from Azure Active Directory (AAD) allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities: 
 - A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
@@ -42,7 +37,7 @@ To set up a managed identity in the portal, you will first create an application
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-    ![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Managed identity in App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 ### Using the Azure CLI
 
@@ -79,7 +74,7 @@ The following steps will walk you through creating a web app and assigning it an
 
 The following steps will walk you through creating a web app and assigning it an identity using Azure PowerShell:
 
-1. If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzAccount` to create a connection with Azure.
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzAccount` to create a connection with Azure.
 
 2. Create a web application using Azure PowerShell. For more examples of how to use Azure PowerShell with App Service, see [App Service PowerShell samples](../app-service/samples-powershell.md):
 
@@ -171,7 +166,7 @@ First, you'll need to create a user-assigned identity resource.
 
 6. Search for the identity you created earlier and select it. Click **Add**.
 
-    ![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
 ### Using an Azure Resource Manager template
 
@@ -237,12 +232,12 @@ Where `<PRINCIPALID>` and `<CLIENTID>` are replaced with GUIDs. The principalId 
 
 ## Obtaining tokens for Azure resources
 
-An app can use its identity to get tokens to other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
+An app can use its managed identity to get tokens to access other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
 > [!IMPORTANT]
-> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+> You may need to configure the target resource to allow access from your application. For example, if you request a token to access Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-There is a simple REST protocol for obtaining a token in App Service and Azure Functions. This can be used for all applications and languages. For some .NET and Java, the Azure SDK provides an abstraction over this protocol and facilitates a local development experience.
+There is a simple REST protocol for obtaining a token in App Service and Azure Functions. This can be used for all applications and languages. For .NET and Java, the Azure SDK provides an abstraction over this protocol and facilitates a local development experience.
 
 ### Using the REST protocol
 

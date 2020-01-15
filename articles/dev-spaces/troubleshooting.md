@@ -3,7 +3,7 @@ title: "Troubleshooting"
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to troubleshoot and resolve common problems when enabling and using Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Azure Dev Spaces troubleshooting
@@ -468,3 +468,4 @@ To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from c
 | cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
 | gcr.io | HTTP:443 | To pull helm/tiller images|
 | storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json|

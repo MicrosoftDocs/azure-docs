@@ -71,6 +71,6 @@ Paragraph and Steps
 Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series (one link only here), or, if there are no other tutorials, to some other cool thing the customer can do with the service. Use the blue box format for tutorials and note that you can shorten the H1 in the boxes if the original one doesn’t fit.
 
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](overview-what-is-azure-ml.md)
+> [Azure Windows virtual machine tutorials](../../articles/machine-learning/overview-what-is-azure-ml.md)
 
 Do not link to troubleshooting content or FAQs. This implies the customer is going to run into known issues. Either fix these issues beforehand or create a different path to success for users that avoid these problems.

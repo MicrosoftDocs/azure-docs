@@ -1,5 +1,6 @@
 ---
-title: What to do in the event of an Azure service disruption that impacts Azure Cloud Services | Microsoft Docs
+title: Handling an Azure service disruption that impacts Azure Cloud Services
+titleSuffix: Azure Cloud Services
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''

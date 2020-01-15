@@ -1,15 +1,9 @@
 ---
-title: Certificates and the App Service Environment - Azure
-description: Explain numerous topics related to certificates on an ASE
-services: app-service
-documentationcenter: na
+title: Certificates bindings
+description: Explain numerous topics related to certificates on an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an ASE.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy

@@ -1,19 +1,10 @@
 ---
-title: Configure ASP.NET Core apps - Azure App Service | Microsoft Docs 
-description: Learn how to configure ASP.NET Core apps to work in Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: Configure Linux ASP.NET Core apps
+description: Learn how to configure a pre-built ASP.NET Core container for your app. This article shows the most common configuration tasks. 
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 
 ---
 
@@ -50,7 +41,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them in any class using the standard ASP.NET Core dependency injection pattern:
 
 ```csharp
-include Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace SomeNamespace 
 {

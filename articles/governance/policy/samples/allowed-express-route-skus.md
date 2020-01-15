@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed ExpressRoute SKUs
-description: This sample policy definition requires that ExpressRoute use an approved SKU.
+description: This sample policy definition requires that ExpressRoute use an approved SKU defined in a parameter.
 ms.date: 01/29/2019
 ms.topic: sample
 ---

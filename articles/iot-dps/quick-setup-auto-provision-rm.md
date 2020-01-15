@@ -1,6 +1,6 @@
 ---
 title: Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
-description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
+description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using a template
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019

@@ -1,19 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample - Create a web app and deploy code from GitHub | Microsoft Docs
-description: Azure PowerShell Script Sample - Create a web app and deploy code from GitHub
-services: app-service\web
-documentationcenter: 
-author: cephalin
-manager: erikre
-editor: 
+title: 'PowerShell: Deploy code from GitHub'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to deploy code from GitHub.
 tags: azure-service-management
 
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
 ---
 

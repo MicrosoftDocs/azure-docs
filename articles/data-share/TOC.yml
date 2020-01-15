@@ -19,6 +19,8 @@
     href: terminology.md
   - name: Roles and requirements 
     href: concepts-roles-permissions.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
 - name: Samples
   items:
   - name: Code samples

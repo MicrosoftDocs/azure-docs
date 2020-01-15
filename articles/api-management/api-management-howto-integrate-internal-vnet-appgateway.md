@@ -1,5 +1,6 @@
 ---
-title: How to use Azure API Management in Virtual Network with Application Gateway | Microsoft Docs
+title: How to use API Management in Virtual Network with Application Gateway
+titleSuffix: Azure API Management
 description: Learn how to setup and configure Azure API Management in Internal Virtual Network with Application Gateway (WAF) as FrontEnd
 services: api-management
 documentationcenter: ''

@@ -181,7 +181,7 @@ The solution back end operates on the module twin using the following atomic ope
     moduleId | ID of the module |
     hubName | Name of IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" or "updateTwin" |
 
     Message system properties are prefixed with the `$` symbol.
@@ -261,7 +261,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 ## Module twin size
 
-IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements.
 
 The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
 
