@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019
-ms.devlang: 
+ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas

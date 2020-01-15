@@ -22,8 +22,8 @@ You can buy Azure Data Explorer reserved capacity in the [Azure portal](https://
 * For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Data Explorer reserved capacity.
 
 For details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see:
-* [Understand Azure reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md) 
-* [Understand Azure reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md).
+* [Understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 
+* [Understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## Determine the right markup usage before purchase
 
@@ -49,7 +49,7 @@ If you need to cancel your Azure Data Explorer reserved capacity reservation, th
 
 If you need to change your Azure Data Explorer reserved capacity reservation to another term, you can exchange it for another reservation that is of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3-year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
 
-For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Manage your reserved capacity reservation
 
@@ -58,17 +58,17 @@ The Azure Data Explorer markup units reservation discount is applied automatical
 
 > [!NOTE]
 > * You can update the scope of the Azure Data Explorer reserved capacity reservation through the [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API.
-> * To learn how to manage the Azure Data Explorer reserved capacity reservation, see [manage Azure Data Explorer reserved capacity](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
+> * To learn how to manage the Azure Data Explorer reserved capacity reservation, see [manage Azure Data Explorer reserved capacity](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md).
 
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
 
-* [What are Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
-* [Manage Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
-* [Understand Azure Reservations discount](../billing/billing-understand-reservation-charges.md)
-* [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)
-* [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## Need help? Contact us
