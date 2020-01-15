@@ -31,7 +31,7 @@ Each account has a limit of 50 Person models. If you do not need the multiple Pe
 
 ## Create a new Person model
 
-To create a new Person model in the specified account, use the [create person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) API.
+To create a new Person model in the specified account, use the [create a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) API.
 
 The response provides the name and generated model ID of the Person model that you just created following the format of the example below.
 
@@ -46,7 +46,7 @@ You should then use the **id** value for the **personModelId** parameter when [u
 
 ## Delete a Person model
 
-To delete a custom Person model from the specified account, use the [delete person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)API. 
+To delete a custom Person model from the specified account, use the [delete a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)API. 
 
 Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you reindex them. Upon reindexing, the faces that were named in the deleted model will not be recognized by Video Indexer in your current videos that were indexed using that model; however, those faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
 
@@ -54,7 +54,7 @@ There is no returned content when the Person model is deleted successfully.
 
 ## Get all Person models
 
-To get all Person models in the specified account, use the [get person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) API.
+To get all Person models in the specified account, use the [get a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) API.
 
 The response provides a list of all of the Person models in your account (including the default Person model in the specified account) and each of their names and ids following the format of the example below.
 
@@ -81,7 +81,7 @@ Once this happens, it recognizes the occurrences of the same face in your other 
 
 You can update a face that Video Indexer recognized as a celebrity with a new name. The new name that you give will take precedence over the built-in celebrity recognition.
 
-To update the face, use the [update video face](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) API.
+To update the face, use the [update a video face](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) API.
 
 Names are unique for Person models, so if you give two different faces in the same Person model the same **name** parameter value, Video Indexer views the faces as the same person and converges them once you reindex your video. 
 
