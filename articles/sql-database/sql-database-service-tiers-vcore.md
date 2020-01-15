@@ -221,9 +221,9 @@ On the **Basics** page, provide the following:
 
 On the **Details** page, provide the following:
 
-5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
-6. For **SQL Database quota type** select **M-series**.
-7. For **Region**, select the region to enable M-series.
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
     For regions where M-series is available, see [M-series availability](#m-series).
 
 Approved support requests are typically fulfilled within 5 business days.
