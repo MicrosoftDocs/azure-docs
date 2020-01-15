@@ -59,7 +59,7 @@ Create-ImmersiveReaderResource
   -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
 ```
 
-## Add the new resources to your environment configuration
+## Add resources to environment configuration
 
 In the quickstart, you created an environment configuration file that contains the `TenantId`, `ClientId`, `ClientSecret`, and `Subdomain` parameters. Since all of your resources use the same Azure AD application, we can use the same values for the `TenantId`, `ClientId`, and `ClientSecret`. The only change that needs to be made is to list each subdomain for each resource.
 
