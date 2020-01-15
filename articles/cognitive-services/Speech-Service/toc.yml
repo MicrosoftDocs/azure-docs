@@ -525,7 +525,7 @@
     href: regions.md
   - name: Sovereign Clouds
     href: sovereign-clouds.md    
-    displayName: "fairfax,mooncake,compliant,secret,compliance,goverment,dod,china"
+    displayName: "fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china"
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance
