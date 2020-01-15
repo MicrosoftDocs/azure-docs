@@ -1,21 +1,11 @@
 ---
-title: Connect and communicate with services in Azure Service Fabric | Microsoft Docs
+title: Connect and communicate with services in Azure Service Fabric 
 description: Learn how to resolve, connect, and communicate with services in Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: msfussell
 
-ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-
 ---
 # Connect and communicate with services in Service Fabric
 In Service Fabric, a service runs somewhere in a Service Fabric cluster, typically distributed across multiple VMs. It can be moved from one place to another, either by the service owner, or automatically by Service Fabric. Services are not statically tied to a particular machine or address.

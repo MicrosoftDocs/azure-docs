@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 01/13/2020
 ms.author: apimpm
 ---
 
@@ -23,7 +23,12 @@ API Management provides the capability to secure access to APIs (i.e., client to
 For information about securing access to the back-end service of an API using client certificates (i.e., API Management to backend), see [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 > [!IMPORTANT]
-> To receive and verify client certificates in the Consumption tier you must first turn on "Request client certificate" setting on the "Custom domains" blade as shown below.
+> To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers you must turn on the "Negotiate client certificate" setting on the "Custom domains" blade as shown below.
+
+![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+
+> [!IMPORTANT]
+> To receive and verify client certificates in the Consumption tier you must turn on the "Request client certificate" setting on the "Custom domains" blade as shown below.
 
 ![Request client certificate](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

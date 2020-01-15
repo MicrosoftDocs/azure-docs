@@ -70,7 +70,7 @@ conceptualContent:
       links:
         - url: ./immersive-reader/index.yml
           itemType: overview
-          text: Immersive Reader (Preview)
+          text: Immersive Reader
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
@@ -88,7 +88,7 @@ conceptualContent:
       links:
         - url: ./speech-service/index.md
           itemType: overview
-          text: Speech Services
+          text: Speech service
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)

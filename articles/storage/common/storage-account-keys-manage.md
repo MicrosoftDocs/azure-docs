@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ---
 
@@ -15,7 +15,7 @@ ms.author: tamram
 
 When you create a storage account, Azure generates two 512-bit storage account access keys. These keys can be used to authorize access to data in your storage account via Shared Key authorization.
 
-Microsoft recommends that you regularly rotate and regenerate your access keys. You can rotate the keys without interruption to your applications.
+Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -52,4 +52,4 @@ Follow this process to rotate your storage account keys:
 ## Next steps
 
 - [Azure storage account overview](storage-account-overview.md)
-- [Create a storage account](storage-quickstart-create-account.md)
+- [Create a storage account](storage-account-create.md)

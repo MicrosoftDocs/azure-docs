@@ -46,7 +46,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
      The following costs are *not* included in the cost calculation:
 
-   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
+   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../cost-management-billing/manage/usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
    * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
    * Your taxes
    * Your discounts

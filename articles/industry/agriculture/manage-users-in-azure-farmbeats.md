@@ -1,6 +1,6 @@
 ---
-title: Manage users
-description: This article describes how to manage users.
+title: Manage users in Azure FarmBeats
+description: This article describes how to manage users in Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
@@ -10,75 +10,74 @@ ms.author: v-umha
 
 # Manage users
 
-Azure FarmBeats includes user management for people who are part of your Azure Active Directory (Azure AD). You are able to add users to your Azure FarmBeats instance to access the APIs, view the generated maps, and sensor telemetry from the farm.
+Azure FarmBeats includes user management for people who are part of your Azure Active Directory (Azure AD) instance. You can add users to your Azure FarmBeats instance to access the APIs, view the generated maps, and access sensor telemetry from the farm.
 
 ## Prerequisites
 
-- An Azure FarmBeats installation is required. See [Install Azure FarmBeats](install-azure-farmbeats.md) to know more on how to setup Azure FarmBeats.
-- The email ID of the users you want to add or remove from your Azure FarmBeats instance.
+- An Azure FarmBeats installation is required. For more information, see [Install Azure FarmBeats](install-azure-farmbeats.md).
+- The email IDs of the users you want to add or remove from your Azure FarmBeats instance.
 
 ## Manage Azure FarmBeats users
 
-Azure FarmBeats uses Azure AD for authentication, access control and roles. Users in the Azure AD tenant can be added as users in Azure FarmBeats.
+Azure FarmBeats uses Azure AD for authentication, access control, and roles. You can add users in the Azure AD tenant as users in Azure FarmBeats.
 
 > [!NOTE]
-> If the user you are trying to add is not present in the Azure AD tenant, follow the instructions in the **Add Azure AD users** section to complete the setup, before proceeding to set them up as Azure FarmBeats users.
+> If a user you're trying to add as an Azure FarmBeats user isn't present in the Azure AD tenant, complete the setup by following the instructions in the "Add Azure AD users" section.
 
-**Roles**
+Azure FarmBeats supports two types of user roles:
 
-There are two kinds of user roles supported in Azure FarmBeats today:
+ - **Admin**: Full access to Azure FarmBeats Datahub APIs. Users in this role can query all Azure FarmBeats Datahub objects and perform all operations from the FarmBeats Accelerator.
+ - **Read-Only**: Read-only access to FarmBeats Datahub APIs. Users can view the Datahub APIs, the Accelerator Dashboards, and the maps. Users with read-only access can't perform operations such as generating maps, associating devices, or creating farms.
 
- - **Admin** — All access to Azure FarmBeats Datahub APIs. Users in this role can query all  Azure FarmBeats Datahub objects, perform all operations from the FarmBeats Accelerator.
- - **Read-Only** — Read-only access to FarmBeats Datahub APIs. Users can view the Datahub APIs, the Accelerator Dashboards and the maps. A user with “Read-only” role will NOT be able to perform any operations like generate maps, associate devices or create farms.
+## Add users to Azure FarmBeats
 
+To add users to Azure FarmBeats:
 
-## Add user to Azure FarmBeats
+1. Sign in to Accelerator, and then select the **Settings** icon.
+2. Select **Access Control**.
 
-Follow the steps to add a user to Azure FarmBeats:
+    ![The Farms Settings pane](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
 
-1.	Sign in to the Accelerator and then select the **Settings** icon.
-2.	Select **Access Control**.
+3. Enter the email ID of the user you want to grant access to.
+4. Select the desired role, **Admin** or **Read-Only**.
+5. Select **Add Role**.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
+The added user can now access Azure FarmBeats (both Datahub and Accelerator).
 
-3.	Enter the email ID of the user you want to provide access.
-4.	Select the desired role – Admin or Read-Only.
-5.	Select **Add Role**.
+## Delete users from Azure FarmBeats
 
-The added user(s) will now be able to access Azure FarmBeats (both Datahub and Accelerator).
+To remove users from the Azure FarmBeats system:
 
-## Delete user from Azure FarmBeats
+1. Sign in to Accelerator, and then select the **Settings** icon.
+2. Select **Access Control**.
+3. Select **Delete**.
 
-Follow the steps to remove a user from the Azure FarmBeats system:
+   The user is deleted from the system. You will receive the following confirmation message:
 
-1.	Sign in to the Accelerator and then select the **Settings** icon.
-2.	Select **Access Control**.
-3.	Select the **Delete** to delete a user.
-
-The user is deleted from the system. You will receive the following message to confirm the successful operation.
-
-![Project Farm Beats](./media/create-farms-in-azure-farmbeats/manage-users-2.png)
+   ![Azure FarmBeats confirmation message](./media/create-farms-in-azure-farmbeats/manage-users-2.png)
 
 ## Add Azure AD users
 
 > [!NOTE]
-> Follow the below steps to provide user access to Azure FarmBeats, if the user doesn't exist in the Azure AD tenant. You can skip the below steps if the user exists in Azure AD tenant.
->
+> Azure FarmBeats users need to exist in the Azure AD tenant before you can assign them to applications and roles. If a user that you want to add to Azure FarmBeats doesn't already exist in the Azure AD tenant, follow the instructions in this section. If the user exists in the Azure AD tenant, you can skip these instructions.
 
-FarmBeats users need to exist in the Azure AD tenant before you can assign them to applications and roles. To add users to Azure AD, use the following steps:
+To add users to Azure AD, do the following:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com/).
-2.	Select your account in the top-right corner, and switch to the Azure AD tenant associated to FarmBeats.
-3.	Select **Azure Active Directory > Users**.
-    You see a list of users in your directory.
-4.	To add users to the directory, select **New user**. For external users, select **New guest user**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. At the top right, select your account, and then switch to the Azure AD tenant that's associated with FarmBeats.
+3. Select **Azure Active Directory** > **Users**.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
+    A list of Azure AD users is displayed.
 
-5.	Complete the required fields for the new user. Select **Create**.
+4. To add a user to the directory, select **New user**. To add an external user, select **New guest user**.
 
-Visit [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/) documentation for more details on how to manage users within Azure AD.
+    ![The "All users" pane](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
+
+5. Select the new user's name, and then complete the required fields for that user.
+6. Select **Create**.
+
+For information about managing Azure AD users, see [Add or delete users in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 
 ## Next steps
 
-You have successfully added users to Azure FarmBeats instance. Now, learn how to [create farms](manage-farms-in-azure-farmbeats.md#create-farms).
+You have successfully added users to your Azure FarmBeats instance. Now, learn how to [create and manage farms](manage-farms-in-azure-farmbeats.md#create-farms).

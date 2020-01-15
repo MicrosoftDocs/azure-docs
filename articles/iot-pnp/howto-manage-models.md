@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
 ---
 
@@ -32,7 +32,7 @@ There are two types of model repository for storing device capability models and
 In the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com), you can complete the following tasks:
 
 - [Complete the certification process for your IoT device](./tutorial-certification-test.md).
-- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./quickstart-connect-pnp-device-solution.md).
+- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./quickstart-connect-pnp-device-solution-node.md).
 
 ## Azure CLI
 

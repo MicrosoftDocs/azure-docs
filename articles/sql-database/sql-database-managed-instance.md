@@ -23,7 +23,7 @@ The following diagram outlines key features of managed instances:
 
 ![key features](./media/sql-database-managed-instance/key-features.png)
 
-The managed instance deployment model is designed for customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided environment to fully managed PaaS cloud environment, with as low migration effort as possible. Using the fully automated [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, customers can lift and shift their on-premises SQL Server to a managed instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNet support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a managed instance using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  A managed instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface.
+The managed instance deployment model is designed for customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided environment to fully managed PaaS cloud environment, with as low migration effort as possible. Using the fully automated [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, customers can lift and shift their on-premises SQL Server to a managed instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNet support.  With Software Assurance, you can exchange your existing licenses for discounted rates on a managed instance using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  A managed instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface.
 
 The managed instance deployment option aims delivers close to 100% surface area compatibility with the latest on-premises SQL Server version through a staged release plan.
 
@@ -178,7 +178,35 @@ Managed instances are available during update operations but there is a short do
 
 [Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Database managed instances. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
 
+### Canceling management operations
 
+The following table summarizes ability to cancel specific management operations and typical overall durations:
+
+Category  |Operation  |Cancelable  |Estimated cancel duration  |
+|---------|---------|---------|---------|
+|Deployment |Instance creation |No |  |
+|Update |Instance storage scaling up/down (General Purpose) |No |  |
+|Update |Instance storage scaling up/down (Business Critical) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance compute (vCores) scaling up and down (General Purpose) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance compute (vCores) scaling up and down (Business Critical) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance service tier change (General Purpose to Business Critical and vice versa) |Yes |90% of operations finish in 5 minutes |
+|Delete |Instance deletion |No |  |
+|Delete |Virtual cluster deletion (as user-initiated operation) |No |  |
+
+In order to cancel the management operation, go to the overview blade and click on notification box of ongoing operation. From the right side, a screen with ongoing operation will appear and there will be button for canceling operation. After first click, you will be asked to click again and confirm that you want to cancel the operation.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not. 
+
+In case of cancel success, management operation will be canceled in couple of minutes resulting with a failure.
+
+![canceling operation result](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+If cancel request fails or cancel button is not active, that means that management operation has entered not cancelable state and that it will finish in couple of minutes. Management operation will continue its execution until it is completed.
+
+> [!IMPORTANT]
+> Canceling operation is currently supported only in Portal.
 
 ## Advanced security and compliance
 

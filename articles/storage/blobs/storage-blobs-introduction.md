@@ -37,7 +37,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To create a storage account, see [Create a storage account](../common/storage-account-create.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Containers
 
@@ -69,5 +69,5 @@ A number of solutions exist for migrating existing data to Blob storage:
 
 ## Next steps
 
-* [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure Storage scalability and performance targets](../common/storage-scalability-targets.md)
+- [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Scalability and performance targets for Blob storage](scalability-targets.md)

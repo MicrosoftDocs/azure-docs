@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Multiple routes with Azure Maps'
-description: 'Tutorial: Find routes for different modes of travel using Azure Maps'
+title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
+description: In this tutorial, you will learn how to find routes for different modes of travel using Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the route service to 
 > * Display multiple routes on your map
 
 ## Prerequisites
-Before you proceed, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](/how-to-manage-authentication.md).
+Before you proceed, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new map
 
@@ -112,7 +112,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
 2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles, you should see the streets with the current traffic data.
 
-   ![View traffic map](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![View traffic on a map](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

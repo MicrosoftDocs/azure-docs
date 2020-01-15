@@ -113,7 +113,7 @@ You have a firewall rule on your Network Security Group (NSG) that is blocking c
 ### Resolution
 If you plan to use **network security groups** to control network traffic, take the following actions before you install HDInsight: 
   - Identify the Azure region that you plan to use for HDInsight. 
-  - Identify the IP addresses required by HDInsight. For more information, see [HDInsight management IP addresses](https://docs.microsoft.com/hdinsight/hdinsight-management-ip-addresses). 
+  - Identify the IP addresses required by HDInsight. For more information, see [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses). 
     - Create or modify the network security groups for the subnet that you plan to install HDInsight into. 
     - **Network security groups:** Allow **inbound** traffic on port **443** from the IP addresses. This makes sure that HDInsight management services can reach the cluster from outside the virtual network. 
 

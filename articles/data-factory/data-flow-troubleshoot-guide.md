@@ -8,7 +8,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
+ms.date: 12/19/2019
 ---
 
 # Troubleshoot Azure Data Factory Data Flows
@@ -87,8 +87,18 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Cause**: The streams that are being joined have common column names
 
-- **Resolution**: Add a Select transforamtion following the Join and select "Remove duplicate columns" for both the input and output.
+- **Resolution**: Add a Select transformation following the Join and select "Remove duplicate columns" for both the input and output.
 
+### Error message: Possible cartesian product
+
+- **Symptoms**: Join or Lookup transformation detected possible cartesian product upon execution of your data flow
+
+- **Cause**: If you have not explicitly directed ADF to use a cross join, the data flow may fail
+
+- **Resolution**: Change your Lookup or Join transformation to a Join using Custom cross join and enter your lookup or join condition in the expression editor. If you would like to explicitly produce a full cartesian product, use the Derived Column transformation in each of the two independent streams before the join to create a synthetic key to match on. For example, create a new column in Derived Column in each stream called ```SyntheticKey``` and set it equal to ```1```. Then use ```a.SyntheticKey == b.SyntheticKey``` as your custom join expression.
+
+> [!NOTE]
+> Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side will result in full scans of the entire dataset, causing your data flow to perform poorly.
 
 ## General troubleshooting guidance
 
