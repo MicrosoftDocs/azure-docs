@@ -180,7 +180,7 @@ $properties = New-Object System.Object
 Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
 ```
 
-Make sure to enter your subscription id, name, and resource group of the managed instance.
+Make sure to enter your subscription ID, name, and resource group of the managed instance.
 
 ---
 
