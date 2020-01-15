@@ -28,7 +28,7 @@ Any SMB connection established before the feature enablement will need to be res
 
 ## Is RSS supported?
 
-Yes, Azure NetApp Files supports receive-side-scaling (RSS)?
+Yes, Azure NetApp Files supports receive-side-scaling (RSS).
 
 With SMB Multichannel enabled, an SMB3 client establishes multiple TCP connections to the Azure NetApp Files SMB server over a network interface card (NIC) that is single RSS capable. 
 
@@ -86,7 +86,7 @@ Tests similar to the random I/O tests described above were performed with 64-KiB
 
 ![Sequential I/O tests](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D16 instance type has an imposed network limit of 8000 Mibps (1,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
+Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D16 instance type has an imposed network limit of 8000 Mbps (1,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
 
 ![Sequential I/O comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
