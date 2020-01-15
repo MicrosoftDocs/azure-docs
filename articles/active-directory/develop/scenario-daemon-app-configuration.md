@@ -31,8 +31,8 @@ The Microsoft libraries supporting daemon apps are:
   MSAL library | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms to build a daemon application are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Development in progress - in public preview
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Development in progress - in public preview
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for daemon applications in Python
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for daemon applications in Java
 
 ## Configuration of the Authority
 

@@ -132,7 +132,7 @@ spec:
 Install istio using the `istioctl apply` command and the above `istio.aks.yaml` Istio control plane spec file as follows:
 
 ```console
-istioctl manifest apply -f istio.aks.yaml
+istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
 ```
 
 The installer will deploy a number of [CRDs][kubernetes-crd] and then manage dependencies to install all of the relevant objects defined for this configuration of Istio. You should see something like the following output snippet.
@@ -357,7 +357,9 @@ istioctl dashboard envoy <pod-name>.<namespace>
 To remove Istio from your AKS cluster, use the `istioctl manifest generate` command with the `istio.aks.yaml` Istio control plane spec file. This will generate the deployed manifest, which we will pipe to `kubectl delete` in order to remove all the installed components and the `istio-system` namespace.
 
 ```console
-istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
+istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 
+
+kubectl delete -f istio-components-aks -R
 ```
 
 ### Remove Istio CRDs and Secrets

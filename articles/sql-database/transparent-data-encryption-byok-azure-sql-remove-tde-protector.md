@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019
-ms.devlang: 
+ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
@@ -47,10 +47,10 @@ The following steps outline how to check the TDE Protector thumbprints still in 
 The thumbprint of the current TDE protector of the database, and the database ID can be found by running:
 
 ```sql
-SELECT [database_id], 
-       [encryption_state], 
-       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ 
-       [encryptor_thumbprint], 
+SELECT [database_id],
+       [encryption_state],
+       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
+       [encryptor_thumbprint],
  FROM [sys].[dm_database_encryption_keys]
 ```
 

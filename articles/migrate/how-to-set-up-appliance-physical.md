@@ -79,7 +79,7 @@ Run the script as follows:
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script by running the following command:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 The script will launch the appliance web application when it finishes successfully.
 
@@ -87,7 +87,7 @@ The script will launch the appliance web application when it finishes successful
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to the required [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to the required [Azure URLs](migrate-appliance.md#url-access).
 
 ## Configure the appliance
 

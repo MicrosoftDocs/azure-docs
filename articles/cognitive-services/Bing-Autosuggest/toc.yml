@@ -22,6 +22,12 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: Client library
+  items:
+  - name: C#
+    href: quickstarts/csharp-sdk.md
+  - name: Go
+    href: quickstarts/go-sdk.md
 - name: Tutorials
   items:
   - name: Single-page web app

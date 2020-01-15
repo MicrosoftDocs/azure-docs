@@ -72,7 +72,7 @@ In some cases, in order to mitigate a threat detection alert, you may have to us
     The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
     
     * [Service layer alerts](security-center-alerts-service-layer.md)
-    * [Integration with Azure security products](security-center-alerts-integration.md)
+    * [Threat detection for Azure WAF and Azure DDoS Protection](security-center-alerts-integration.md)
     
 ## See also
 

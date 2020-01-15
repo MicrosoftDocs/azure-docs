@@ -90,7 +90,7 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
     ![Paste code into the notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
-After an experiment is run in the classic version of Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
+After an experiment is run in Machine Learning Studio (classic), it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
 
 Intermediate datasets can be accessed as long as the data format is compatible with the Python client library.
 

@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 
 # Azure classic subscription administrators
 
-Microsoft recommends that you manage access to Azure resources using role-based access control (RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft recommends that you manage access to Azure resources using role-based access control (RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 This article describes how to add or change the Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
 
@@ -148,7 +148,7 @@ For more information about Microsoft accounts and Azure AD accounts, see [What i
 
 ## View the Account Administrator
 
-The Account Administrator is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
+The Account Administrator is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 Follow these steps to view the Account Administrator.
 
@@ -166,4 +166,4 @@ Follow these steps to view the Account Administrator.
 
 * [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Manage access to Azure resources using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md)
+* [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)

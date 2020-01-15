@@ -163,10 +163,10 @@ You use the device SDK to build the generated device code stub. The application 
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. After the build completes successfully, at the same command prompt run your application. Replace `<scopeid>` and `<devicekey>` with the values you noted previously:
+1. After the build completes successfully, at the same command prompt run your application. Replace `<scopeid>` and `<primarykey>` with the values you noted previously:
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. The device application starts sending data to IoT Hub. Sometimes you see the error `Error registering device for DPS` the first time you run the previous command. If you see this error, retry the command.

@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 12/12/2019
 ms.author: jingwang
 
 ---
@@ -83,6 +83,9 @@ Copy activity supports preserving the following types of ACLs during data copy. 
 - **Group**: Copy and preserve the owning group of files and directories. Super-user access to sink Data Lake Storage Gen2 or the owning user (if the owning user is also a member of the target group) is required.
 
 If you specify to copy from a folder, Data Factory replicates the ACLs for that given folder and the files and directories under it, if `recursive` is set to true. If you specify to copy from a single file, the ACLs on that file are copied.
+
+>[!NOTE]
+>When you use ADF to preserve ACLs from Data Lake Storage Gen1 to Gen2, the existing ACLs on Gen2's corresponding folder/files will be overwritten.
 
 >[!IMPORTANT]
 >When you choose to preserve ACLs, make sure you grant high enough permissions for Data Factory to operate against your sink Data Lake Storage Gen2 account. For example, use account key authentication or assign the Storage Blob Data Owner role to the service principal or managed identity.
