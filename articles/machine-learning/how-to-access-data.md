@@ -124,10 +124,10 @@ account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage 
 account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account key
 
 file_datastore = Datastore.register_azure_file_share(workspace=ws,
-                                                 datastore_name=file_datastore_name, 
-                                                 file_share_name=file_share_name, 
-                                                 account_name=account_name,
-                                                 account_key=account_key)
+                                                     datastore_name=file_datastore_name, 
+                                                     file_share_name=file_share_name, 
+                                                     account_name=account_name,
+                                                     account_key=account_key)
 ```
 
 #### Azure Data Lake Storage Generation 2
@@ -147,13 +147,13 @@ tenant_id=os.getenv("ADLSGEN2_TENANT", "<my_tenant_id>") # tenant id of service 
 client_id=os.getenv("ADLSGEN2_CLIENTID", "<my_client_id>") # client id of service principal
 client_secret=os.getenv("ADLSGEN2_CLIENT_SECRET", "<my_client_secret>") # the secret of service principal
 
-adlsgen2_datastore = Datastore.register_azure_data_lake_gen2( workspace=ws,
-                                                              datastore_name=adlsgen2_datastore_name,
-                                                              account_name=account_name, # ADLS Gen2 account name
-                                                              filesystem='test', # ADLS Gen2 filesystem
-                                                              tenant_id=tenant_id, # tenant id of service principal
-                                                              client_id=client_id, # client id of service principal
-                                                              client_secret=client_secret) # the secret of service principal
+adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
+                                                             datastore_name=adlsgen2_datastore_name,
+                                                             account_name=account_name, # ADLS Gen2 account name
+                                                             filesystem='test', # ADLS Gen2 filesystem
+                                                             tenant_id=tenant_id, # tenant id of service principal
+                                                             client_id=client_id, # client id of service principal
+                                                             client_secret=client_secret) # the secret of service principal
 ```
 
 ### Azure Machine Learning studio 
