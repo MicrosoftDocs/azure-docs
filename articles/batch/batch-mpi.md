@@ -12,7 +12,7 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.date: 03/13/2019
-author: jushiman
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 ---
 

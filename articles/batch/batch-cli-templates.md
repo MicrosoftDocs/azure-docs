@@ -10,7 +10,7 @@ ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: seodec18
 ---
 # Use Azure Batch CLI templates and file transfer

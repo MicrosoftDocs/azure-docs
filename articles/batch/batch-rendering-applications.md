@@ -4,7 +4,7 @@ description: Pre-installed Batch rendering applications
 services: batch
 ms.service: batch
 author: ju-shim
-author: jushiman
+ms.author: jushiman
 ms.date: 09/19/2019
 ms.topic: conceptual
 ---

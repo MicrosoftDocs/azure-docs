@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: seodec18
 
 ---

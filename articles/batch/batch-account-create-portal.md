@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-author: jushiman
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: [seo-python-october2019, mvc]
 ---
 

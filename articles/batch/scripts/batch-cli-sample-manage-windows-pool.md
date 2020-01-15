@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2019
-author: jushiman
+ms.author: jushiman
 ---
 
 # CLI example: Create and manage a Windows pool in Azure Batch

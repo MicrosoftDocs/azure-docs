@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
-author: jushiman
+ms.author: jushiman
 ---
 
 # Creating and using resource files

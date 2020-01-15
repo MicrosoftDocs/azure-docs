@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/17/2019
-author: jushiman
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 
 ---

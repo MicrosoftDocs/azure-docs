@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: mvc
 ---
 

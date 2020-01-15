@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 02/27/2017
-author: jushiman
+ms.author: jushiman
 ms.custom: seodec18
 
 ---

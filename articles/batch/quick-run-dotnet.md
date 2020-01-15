@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: mvc
 ---
 

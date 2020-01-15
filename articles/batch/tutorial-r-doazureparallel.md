@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: mvc
 ---
 

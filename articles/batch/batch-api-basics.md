@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 08/29/2019
-author: jushiman
+ms.author: jushiman
 ms.custom: seodec18
 
 ---

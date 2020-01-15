@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-author: jushiman
+ms.author: jushiman
 ms.custom: mvc
 ---
 

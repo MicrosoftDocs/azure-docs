@@ -11,7 +11,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-author: jushiman
+ms.author: jushiman
 ---
 
 # Mount a virtual file system on a Batch pool
