@@ -111,7 +111,7 @@ You run all subsequent commands in this activated virtual environment. (To exit 
 
 ## Create a local functions project
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section you create a function project that contains a single boilerplate function named `classify` that provides an HTTP endpoint. You add more specific code in a later section.
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single boilerplate function named `classify` that provides an HTTP endpoint. You add more specific code in a later section.
 
 1. In the *start* folder, use the Azure Functions Core Tools to initialize a Python function app:
 
@@ -201,7 +201,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 
 1. Verify that the *classify* folder now contains a file named *predict.py*.
 
-1. Open *start/requirements.txt* in a text editor and add the following dependencies required by the helpder code:
+1. Open *start/requirements.txt* in a text editor and add the following dependencies required by the helper code:
 
     ```txt
     tensorflow==1.14
@@ -224,7 +224,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 
 ## Update the function to run predictions
 
-1. Open *classify/\_\_init\_\_.py* in a text editor abd add the following lines after the existing `import` statements to import the standard JSON library and the *predict* helpers:
+1. Open *classify/\_\_init\_\_.py* in a text editor and add the following lines after the existing `import` statements to import the standard JSON library and the *predict* helpers:
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
@@ -290,7 +290,7 @@ To test invoking the function endpoint from another web app, there's a simple ap
 
     ![Screenshot of finished project](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
 
-    If the browser reports and error when you submit the image URL, check the terminal in which you're running the function app. If, for example, you see an error like "No module found 'PIL'", you probably started the function app in the *start* folder without first activating the virtual environment you created earlier. If you still see errors, run `pip install -r requirements.txt` again with the virtual environment activated.
+    If the browser reports and error when you submit the image URL, check the terminal in which you're running the function app. If you see an error like "No module found 'PIL'", you may have started the function app in the *start* folder without first activating the virtual environment you created earlier. If you still see errors, run `pip install -r requirements.txt` again with the virtual environment activated and look for errors.
 
 > [!NOTE]
 > The model always classifies the content of the image as a cat or a dog, regardless of whether the image contains either, defaulting to dog. Images of tigers and panthers, for example, typically classify as cat, but images of elephants, carrots, or airplanes classify as dog.

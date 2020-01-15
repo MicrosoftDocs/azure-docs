@@ -73,7 +73,7 @@ You run all subsequent commands in this activated virtual environment. (To exit 
 
 ## Create a local function project
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section you create a function project that contains a single function.
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 1. In the virtual environment, run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
