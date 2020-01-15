@@ -9,19 +9,15 @@ zone_pivot_groups: programming-languages-set-one
 
 # Create your first function using Visual Studio Code
 
-In this quickstart, you create and test a "hello world" function on your local computer using Microsoft Visual Studio Code. You then publish the function code to Azure from Visual Studio Code.
+In this quickstart, you use Microsoft Visual Studio Code to create and test a "hello world" function on your local computer. You then use Visual Studio Code to create Azure resources and publish your function code to those Azure resources. You can also [create and publish functions from the Terminal or command prompt](functions-create-first-azure-function-azure-cli.md).
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. 
-
-The [Azure Functions extension for Visual Studio Code] currently supports C#, JavaScript, Java, PowerShell, Python and TypesScript functions. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. To learn more, see the [Azure Functions overview](functions-overview.md).
 
 The steps in this article and the article that follows support the following languages:
 
 + [C#](/azure/azure-functions/functions-create-first-function-vs-code?tabs=csharp)
 + [JavaScript](/azure/azure-functions/functions-create-first-function-vs-code?tabs=nodejs)
 + [Python](/azure/azure-functions/functions-create-first-function-vs-code?tabs=python)
-
-To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). You can also [create a local Functions project using command line tools](functions-create-first-azure-function-azure-cli.md).
 
 ## Prerequisites
 
@@ -30,7 +26,7 @@ To learn how to use Visual Studio Code to create and publish PowerShell function
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later.  
 To verify your version of Azure Functions Core Tools, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func --version`. 
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension currently lets you create functions in C#, JavaScript, Java, PowerShell, Python, and TypesScript. It also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 + Language-specific requirements:
 
@@ -60,7 +56,7 @@ To verify your version of Azure Functions Core Tools, open the Visual Studio Cod
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
+After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure. 
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -74,7 +70,7 @@ After you've verified that the function runs correctly on your local computer, i
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?code=<function_key>&name=<yourname> 
 
-1. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
+1. Paste this new URL for the HTTP request into your browser's address bar. The following example shows the response in the browser to the remote GET request returned by the function: 
 
     ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
