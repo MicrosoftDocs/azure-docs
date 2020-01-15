@@ -99,4 +99,4 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [What are Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
