@@ -75,9 +75,9 @@ def run(mini_batch):
     return mini_batch
 ```
 
-### How could I pass a side input, e.g., a file or files(s) containing a lookup table, to all my workers?
+### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
-Construct a [Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) object containing the side input and register with your workspace. After that you can access it in your inference script (e.g., in your init() method) as follows:
+Construct a [Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) object containing the side input and register with your workspace. After that you can access it in your inference script (for example, in your init() method) as follows:
 
 ```python
 from azureml.core.run import Run
