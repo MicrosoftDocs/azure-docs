@@ -120,6 +120,10 @@ You are billed for each hour a database exists using the highest service tier + 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
+### Geo-replicated database
+
+To change the database size of a replicated secondary database, change the size of the primary database. This change will then be replicated and implemented on the secondary database as well. 
+
 ## P11 and P15 constraints when max size greater than 1 TB
 
 More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
