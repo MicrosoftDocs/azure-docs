@@ -10,7 +10,7 @@ ms.topic: conceptual
 Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through Azure delegated resource management, along with those done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
 > [!NOTE]
-> Customers can view role assignments the role assignments that grant permissions to the service provider [in the **Delegations** section of the **Service providers** page.](view-manage-service-providers.md#view-delegations) However, they cannot  see these role assignments, or any users from the service provider tenant who have been granted these roles, when [viewing role assignment info for the delegated subscription or resource group in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs.
+> Customers can view the role assignments that grant permissions to service providers [in the **Delegations** section of the **Service providers** page.](view-manage-service-providers.md#view-delegations). However, they won't see any users from the service provider's tenant when viewing role assignments for the delegated scope in the Azure portal or via APIs.
 
 ## View activity log data
 

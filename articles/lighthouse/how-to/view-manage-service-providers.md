@@ -56,7 +56,7 @@ Delegations represent the role assignments that grant permissions to the service
 Filters at the top of the page let you sort and group your delegation info or filter by specific customers, offers, or keywords.
 
 > [!NOTE]
-> Customers will not see these role assignments, or any users from the service provider tenant who have been granted these roles, when [viewing role assignment info for the delegated subscription or resource group in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs.
+> Customers will not see these role assignments, or any users from the service provider tenant who have been granted these roles, when [viewing role assignment info for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs.
 
 ## Next steps
 
