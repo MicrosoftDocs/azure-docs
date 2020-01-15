@@ -37,7 +37,7 @@ The command should output a JSON object:
 
 This example uses the [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub.  Fork the sample, open GitHub repository page, and click Settings tab. Open Secrets menu, and click Add a new secret:
 
-> ![Add new secret](./media/github-actions/actions1.png)
+ ![Add new secret](./media/github-actions/actions1.png)
 
 Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string which you found under heading *Set up your GitHub repository and authenticate with Azure*.
 
