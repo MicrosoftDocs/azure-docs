@@ -68,7 +68,11 @@ We recommend that you employ the following best practices:
 
 #### Per environment limitations
 
-The ingestion rate is defined as the rate at which data is received by your TSI environment, and it is a factor of the number of devices in an organization, event emission frequency, and the size of an event. By default, Time Series Insights preview can ingest incoming data at a rate of up to 1 megabyte per second (MBps) **per TSI environment**. Please contact us if this does not meet your requirements, we can support up to 16 MBps for an environment by submitting a support ticket in the Azure portal.
+In general, ingress rates are viewed as the factor of the number of devices that are in your organization, event emission frequency, and the size of each event:
+
+*  **Number of devices** × **Event emission frequency** × **Size of each event**.
+
+By default, Time Series Insights preview can ingest incoming data at a rate of up to 1 megabyte per second (MBps) **per TSI environment**. Please contact us if this does not meet your requirements, we can support up to 16 MBps for an environment by submitting a support ticket in the Azure portal.
  
 Example 1: Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Event Hub with 4 partitions as the TSI event source.
 The ingestion rate for their TSI environment would be: 100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps.
@@ -102,7 +106,7 @@ We recommend the following:
   ![IoT Hub Partiton Diagram](media/concepts-ingress-overview/iot-hub-partiton-diagram.png) 
 
 
-Please refer to the following links for more information on throughput units and partitions:
+Refer to the following links for more information on throughput units and partitions:
 
 * [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
