@@ -60,9 +60,9 @@ While incremental enrichment is designed to detect and respond to changes with n
 
 ### Prioritize new documents
 
-Set the `enableReprocessing` to control processing over incoming documents already represented in the cache. When `true` (default), documents already in the cache are reprocessed when you rerun the indexer, assuming your skill update affects that doc. 
+Set the `enableReprocessing` property to control processing over incoming documents already represented in the cache. When `true` (default), documents already in the cache are reprocessed when you rerun the indexer, assuming your skill update affects that doc. 
 
-When `false`, existing documents are not reprocessed, effectively prioritizing new, incoming documents over existing ones. You should only set `enableReprocessing` to `false` on a temporary basis. To ensure consistency across the corpus, `enableReprocessing` should be `true` most of the time to ensure that all documents, both new and cached, are valid per the current skillset definition.
+When `false`, existing documents are not reprocessed, effectively prioritizing new, incoming content over existing content. You should only set `enableReprocessing` to `false` on a temporary basis. To ensure consistency across the corpus, `enableReprocessing` should be `true` most of the time, ensuring that all documents, both new and existing, are valid per the current skillset definition.
 
 ### Bypass skillset evaluation
 
@@ -92,9 +92,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ### Force skillset evaluation
 
-The purpose of the cache is to avoid unnecessary processing, but suppose you have made a change to a skill that the indexer doesn't detect (for example, changing something in external code, such as a custom skill).
+The purpose of the cache is to avoid unnecessary processing, but suppose you make a change to a skill that the indexer doesn't detect (for example, changing something in external code, such as a custom skill).
 
-In this case, you can use the [Reset Skills](preview-api-resetskills.md) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and rerun. After Reset Skills, run the indexer to execute the operation.
+In this case, you can use the [Reset Skills](preview-api-resetskills.md) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
 
 ## Change detection
 
