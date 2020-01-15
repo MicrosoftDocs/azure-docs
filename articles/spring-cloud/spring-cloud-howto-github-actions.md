@@ -9,13 +9,13 @@ ms.date: 01/15/2019
 ---
 # Azure Spring Cloud CI/CD with GitHub Actions
 
-GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release and deploy to Azure. 
+GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure. 
 
 ## Prerequisites
-This example requires the [Azure CLI](https://review.docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
+This example requires the [Azure CLI](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
 
 ## Set up your GitHub repository and authenticate with Azure
-You need an Azure service principle credential to authorize Azure login action. To get Azure credential, execute the following commands on you local machine:
+You need an Azure service principle credential to authorize Azure login action. To get an Azure credential, execute the following commands on you local machine:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
@@ -37,11 +37,11 @@ The command should output a JSON object:
 
 This example uses the [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub.  Fork the sample, open GitHub repository page, and click Settings tab. Open Secrets menu, and click Add a new secret:
 
-    > ![Add new secret](./media/github-actions/actions1.png)
+> ![Add new secret](./media/github-actions/actions1.png)
 
 Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string which you found under heading *Set up your GitHub repository and authenticate with Azure*.
 
-    > ![Set secret data](./media/github-actions/actions2.png)
+> ![Set secret data](./media/github-actions/actions2.png)
 
 ## Provision Azure Spring Cloud service instance
 To provision your service instance, run the following commands using the Azure CLI.
@@ -150,7 +150,7 @@ jobs:
 ```
 
 ## Deploy with Maven Plugin
-Another option is to use the [Maven Plugin](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```
 name: AzureSpringCloud
@@ -188,12 +188,12 @@ GitHub Actions should be enabled automatically after you push `.github/workflow/
 
 To verify your action has been enabled, click **Actions** tab on the GitHub repository page:
 
-    > ![Verify action enabled](./media/github-actions/actions3.png)
+> ![Verify action enabled](./media/github-actions/actions3.png)
 
 If your action runs in error, for example, you haven't set Azure credential, you can re-run checks after fixing the error. On GitHub repository page, click **Actions**, select the specific workflow task, then click Re-run checks button to re-run checks:
 
-    > ![Re-run checks](./media/github-actions/actions4.png)
+> ![Re-run checks](./media/github-actions/actions4.png)
 
 ## Next steps
-* [Azure Active Directory service principals](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+* [Azure Active Directory service principals](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)
