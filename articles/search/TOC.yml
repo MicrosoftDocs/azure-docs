@@ -91,6 +91,8 @@
     href: cognitive-search-concept-intro.md
   - name: Skillsets
     href: cognitive-search-working-with-skillsets.md
+  - name: Built-in skills
+    href: cognitive-search-predefined-skills.md
   - name: Knowledge store 
     href: knowledge-store-concept-intro.md
   - name: Projections
@@ -328,21 +330,25 @@
   - name: Azure PowerShell
     href: /powershell/module/az.search 
   - name: .NET
-    href: /dotnet/api/?term=microsoft.azure.search
-  - name: .NET (Management)
-    href: /dotnet/api/?term=microsoft.azure.management.search
-  - name: Python (Management)
-    href: /python/api/?view=azure-python&term=search
-  - name: REST
-    href: /rest/api/searchservice
-  - name: REST (Management)
-    href: /rest/api/searchmanagement
-  - name: REST (Preview)
     items:
-    - name: API version 2019-05-06-Preview
+    - name: microsoft.azure.search
+      href: /dotnet/api/?term=microsoft.azure.search
+    - name: microsoft.azure.management.search
+      href: /dotnet/api/?term=microsoft.azure.management.search
+  - name: REST
+    items:
+    - name: Search 2019-05-06
+      href: /rest/api/searchservice
+    - name: Search 2019-05-06-Preview
       href: search-api-preview.md
-    - name: Reset Skills API
-      href: preview-api-resetskills.md
+    - name: Management 2015-08-15
+      href: /rest/api/searchmanagement
+    - name: Management 2019-10-01-Preview
+      href: /rest/api/searchmanagement
+  - name: Python
+    items:
+    - name: Management API
+      href: /python/api/overview/azure/search?view=azure-python
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
   - name: OData language reference
@@ -371,42 +377,43 @@
       href: search-query-odata-search-score-function.md
     - name: OData Language Grammar
       href: search-query-odata-syntax-reference.md
-  - name: Cognitive skills reference
-    href: cognitive-search-predefined-skills.md
+  - name: Skills
     items:
-    - name: Key Phrase Extraction 
-      href: cognitive-search-skill-keyphrases.md
-    - name: Language Detection
-      href: cognitive-search-skill-language-detection.md
-    - name: Entity Recognition
-      href: cognitive-search-skill-entity-recognition.md
-    - name: Text Merger
-      href: cognitive-search-skill-textmerger.md
-    - name: Text Split
-      href: cognitive-search-skill-textsplit.md 
-    - name: Sentiment
-      href: cognitive-search-skill-sentiment.md
-    - name: Text Translation
-      href: cognitive-search-skill-text-translation.md
-    - name: Image Analysis
-      href: cognitive-search-skill-image-analysis.md
-    - name: OCR
-      href: cognitive-search-skill-ocr.md
-    - name: Shaper
-      href: cognitive-search-skill-shaper.md
-    - name: Conditional
-      href: cognitive-search-skill-conditional.md
-    - name: Document Extraction
-      href: cognitive-search-skill-document-extraction.md
-  - name: Custom skills
-    items:
-    - name: Custom Web API
-      href: cognitive-search-custom-skill-web-api.md
-  - name: Deprecated Skills
-    href: cognitive-search-skill-deprecated.md
-    items:
-    - name: Named Entity Recognition
-      href: cognitive-search-skill-named-entity-recognition.md
+    - name: Built-in skills
+      items:
+      - name: Key Phrase Extraction 
+        href: cognitive-search-skill-keyphrases.md
+      - name: Language Detection
+        href: cognitive-search-skill-language-detection.md
+      - name: Entity Recognition
+        href: cognitive-search-skill-entity-recognition.md
+      - name: Text Merger
+        href: cognitive-search-skill-textmerger.md
+      - name: Text Split
+        href: cognitive-search-skill-textsplit.md 
+      - name: Sentiment
+        href: cognitive-search-skill-sentiment.md
+      - name: Text Translation
+        href: cognitive-search-skill-text-translation.md
+      - name: Image Analysis
+        href: cognitive-search-skill-image-analysis.md
+      - name: OCR
+        href: cognitive-search-skill-ocr.md
+      - name: Shaper
+        href: cognitive-search-skill-shaper.md
+      - name: Conditional
+        href: cognitive-search-skill-conditional.md
+      - name: Document Extraction
+        href: cognitive-search-skill-document-extraction.md
+    - name: Custom skills
+      items:
+      - name: Custom Web API
+        href: cognitive-search-custom-skill-web-api.md
+    - name: Deprecated Skills
+      href: cognitive-search-skill-deprecated.md
+      items:
+      - name: Named Entity Recognition
+        href: cognitive-search-skill-named-entity-recognition.md
 - name: Resources
   items:
   - name: Azure Community Support
