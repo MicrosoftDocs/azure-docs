@@ -10,7 +10,7 @@ ms.date: 01/14/2020
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific limit, such as an amount of time. Throttling can create problems such as delayed data processing and reduced performance speed.
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific amount of time. Throttling can create problems such as delayed data processing and reduced performance speed.
 
 ![Throttling in SQL Server connector](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
 
@@ -48,7 +48,11 @@ To handle throttling at this level, you have these options:
 
   Your logic app has a default limit on the number of actions that can run in a 5-minute rolling interval. To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
 
-* Refactor actions into multiple logic apps.
+* Disable array debatching ("split on") behavior in triggers.
+
+  If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) splits up the array items and starts a workflow instance for each array item, effectively triggering multiple concurrent runs up to the [**Split On** limit](logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To control throttling, turn off the **Split On** behavior and have your logic app process the entire array with a single call, rather than handle a single item per call.
+
+* Refactor actions into smaller logic apps.
 
   Consider whether you can break down your logic app's actions into smaller logic apps so that each logic app runs a number of actions below the limit.
 
@@ -66,29 +70,29 @@ To handle throttling at this level, you have these options:
 
 Each connector has its own throttling limits, which you can find on the connector's technical reference page. For example, the [Azure Service Bus connector](https://docs.microsoft.com/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the SQL Server connector has [throttling limits that vary based on the operation type](https://docs.microsoft.com/connectors/sql/).
 
-Some triggers and actions, such as HTTP, have a ["retry policy"](../logic-apps/logic-apps-exception-handling.md#retry-policies) that you can customize based on the [retry policy limits](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits). This policy specifies whether and how often a trigger or action retries a request when the original request fails or times out and results in a 408, 429, or 5xx response. So, when throttling starts and returns a 429 error, Logic Apps follows the retry policy where supported.
+Some triggers and actions, such as HTTP, have a ["retry policy"](../logic-apps/logic-apps-exception-handling.md#retry-policies) that you can customize based on the [retry policy limits](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) to implement exception handling. This policy specifies whether and how often a trigger or action retries a request when the original request fails or times out and results in a 408, 429, or 5xx response. So, when throttling starts and returns a 429 error, Logic Apps follows the retry policy where supported.
 
 To learn whether a trigger or action supports retry policies, check the trigger or action's settings. To view a trigger or action's retry attempts, go to your logic app's runs history, select the run that you want to review, and expand that trigger or action to view details about inputs, outputs, and any retries, for example:
 
 ![View action's run history, retries, inputs, and outputs](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-retries.png)
 
-Although the retries history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
+Although the retry history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
 
 For logic apps that run in the public, multi-tenant Azure Logic Apps service, versus an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling happens at the *connection* level, not connector level.
 
 To handle throttling at this level, you have these options:
 
-* Distribute the work for a single action across multiple connections.
+* Set up multiple connections for a single action.
 
-  Consider whether you can spread the workload for a single action across multiple connections that communicate with the same service or system and use the same credentials.
+  Consider whether you can distribute the workload by spreading an action's requests across multiple connections to the same service or system using the same credentials.
 
   For example, suppose your logic app gets the tables from a SQL Server database and for each table, gets the rows from each table. Based on the number of rows that you have to process, you use multiple but separate connections to get those rows. After the first branch reaches the limit, the second branch can continue the work.
 
   ![Create and use multiple connections for a single action](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
 
-* Distribute the work for each action across its own connection.
+* Set up a different connection for each action.
 
-  Consider whether you can spread the workload for each action across its own connection, even when those connections communicate with same service or system and use the same credentials.
+  Consider whether you can distribute the workload by spreading each action's requests over their own connection, even when actions connect to the same service or system and use the same credentials.
 
   For example, suppose your logic app gets the tables from a SQL Server database and gets each row in each table. You can use separate connections so that the getting the tables use one connection, while the getting each row uses another connection.
 
