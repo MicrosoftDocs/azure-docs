@@ -5,7 +5,7 @@ services: sql-data-warehouse
 author: MikeRys 
 ms.service: sql-data-warehouse 
 ms.topic: overview 
-ms.subservice: design 
+ms.subservice: 
 ms.date: 10/23/2019 
 ms.author: mrys 
 ms.reviewer: jrasnick
@@ -24,7 +24,7 @@ The shared meta data model supports the modern data warehouse pattern as shown i
 
 1. Data from the data lake is being prepared and structured efficiently with Spark by storing the prepared data in (possibly partitioned) tables contained in a database.
 
-2. The Spark created databases and their tables will become visible in any of the Synapse workspace's Spark Pool instances and can be used from any of the Spark jobs, subject to the [permissions](#Security-model-at-a-glance). 
+2. The Spark created databases and their tables will become visible in any of the Synapse workspace's Spark Pool instances and can be used from any of the Spark jobs, subject to the [permissions](#security-model-at-a-glance). 
 
 3. The Spark created databases and their tables will also become visible in the SQL Analytics On-Demand engine. Databases [ADD LINK] are being created automatically in the SQL Analytics On-Demand meta data, and both the external and managed tables [ADD LINK] created by a Spark job will be made accessible as external tables in the SQL Analytics On-Demand meta data in the `dbo` schema of the corresponding database. For more details, see [ADD LINK].
 

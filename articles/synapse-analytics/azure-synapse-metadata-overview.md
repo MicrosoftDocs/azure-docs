@@ -1,11 +1,11 @@
 ---
-title: What is Azure Synapse Analytics' shared Meta Data Model 
+title: Azure Synapse Analytics shared metadata model 
 description: Azure Synapse Analytics provides a shared meta data model where creating a database or table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data or requiring user action. 
 services: synapse-analytics
 author: MikeRys 
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/02/2019
 ms.author: mrys
 ms.reviewer: jrasnick
@@ -24,7 +24,7 @@ The shared meta data model supports the modern data warehouse pattern as shown i
 
 1. Data from the data lake is being prepared and structured efficiently with Spark by storing the prepared data in (possibly partitioned) tables contained in a database.
 
-2. The Spark created databases and their tables will become visible in any of the Synapse workspace's Spark Pool instances and can be used from any of the Spark jobs, subject to the [permissions](#Security-model-at-a-glance). 
+2. The Spark created databases and their tables will become visible in any of the Synapse workspace's Spark Pool instances and can be used from any of the Spark jobs, subject to the [permissions](#security-model-at-a-glance). 
 
 3. The Spark created databases and their tables will also become visible in the SQL Analytics On-Demand engine. [Databases](azure-synapse-metadata-database.md) are being created automatically in the SQL Analytics On-Demand meta data, and both the [external and managed tables](azure-synapse-metadata-table.md) created by a Spark job will be made accessible as external tables in the SQL Analytics On-Demand meta data in the `dbo` schema of the corresponding database. <!--For more details, see [ADD LINK].-->
 
