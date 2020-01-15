@@ -203,23 +203,23 @@ Before you get started, make sure to:
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
+1. Choose **Debug** > **Start Debugging** (or press <kbd>F5</kbd>) to start the **helloworld** application.
 
 1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak
     - If you share the conversation code with the others and they join the conversation, you'll see their transcriptions as well.
 
-1. Once you're done speaking, press `Ctrl + C` on your keyboard to stop audio capture.
+1. Once you're done speaking, press <kbd>Ctrl + C</kbd> on your keyboard to stop audio capture.
 
     > [!NOTE]
     > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
     > <br/> <br/>
-    > Press **F5** to continue.
+    > Press <kbd>F5</kbd> to continue.
 
 ## Build and run the application to join an existing conversation
 
 1. Copy and paste the following function into your **helloworld.cpp** just before the `int main()` function:
 
-    ```C++
+    ```cpp
     void JoinExistingConversation(const std::string& conversationId)
     {
         std::string speechLanguage("en-US");
@@ -283,7 +283,7 @@ Before you get started, make sure to:
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors.
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
+1. Choose **Debug** > **Start Debugging** (or press <kbd>F5</kbd>) to start the **helloworld** application.
 
 1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
@@ -293,7 +293,7 @@ Before you get started, make sure to:
     > [!NOTE]
     > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
     > <br/> <br/>
-    > Press **F5** to continue.
+    > Press <kbd>F5</kbd> to continue.
 
 1. Go back to your browser and exit the conversation using the ![exit button](../../../../media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner.
 
