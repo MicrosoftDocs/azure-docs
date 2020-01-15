@@ -22,8 +22,8 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Adobe Creative Cloud
 
-	> [!NOTE]
-	> This article describes Adobe Admin Console's custom SAML-based set-up for Microsoft Azure AD. For brand new configurations, it is recommended the you use the [Azure AD Connector](https://https://helpx.adobe.com/enterprise/using/sso-setup-azure.html), which can be set up within minutes and shortens the entire process of Domain Claim, SSO-setup, and user-sync.
+> [!NOTE]
+> This article describes Adobe Admin Console's custom SAML-based setup for Azure Active Directory (Azure AD). For brand-new configurations, we recommend that you use the [Azure AD Connector](https://helpx.adobe.com/enterprise/using/sso-setup-azure.html). Azure AD Connector can be set up in minutes and shortens the process of domain claim, single sign-on setup, and user sync.
 
 In this tutorial, you'll learn how to integrate Adobe Creative Cloud with Azure Active Directory (Azure AD). When you integrate Adobe Creative Cloud with Azure AD, you can:
 
@@ -111,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> Users need to have a valid Office 365 ExO license for email claim value to be populated in the SAML response.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Data XML** and select **Download** to download the XML metadata file and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Data XML**, and then select **Download** to download the XML metadata file and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -151,24 +151,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Adobe Creative Cloud SSO
 
-1. In a different web browser window, sign-in to [Adobe Admin Console](https://adminconsole.adobe.com) as a system administrator.
+1. In a different web browser window, sign in to [Adobe Admin Console](https://adminconsole.adobe.com) as a system administrator.
 
-1. Go to **Settings** on the top navigation bar and then choose **Identity**. The list of directories opens. Click on the desired Federated directory.
+1. Go to **Settings** on the top navigation bar, and then choose **Identity**. The list of directories opens. Select the Federated directory you want.
 
-1. On the Directory Details page, click **Configure**.
+1. On the **Directory Details** page, select **Configure**.
 
-1. Copy the Entity ID and the ACS URL (Assertion Consumer Service URL or Reply URL) and enter these at the appropriate fields in the Azure portal. 
-	![Configure Single Sign-On On App Side](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
+1. Copy the Entity ID and the ACS URL (Assertion Consumer Service URL or Reply URL). Enter the URLs at the appropriate fields in the Azure portal.
 
-	a. Use the Entity ID value Adobe provided you for **Identifier** on the **Configure App Settings** dialog.
+	![Configure single sign-on on the app side](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
-	b. Use the ACS URL (Assertion Consumer Service URL) value Adobe provided you for **Reply URL** on the **Configure App Settings** dialog.
+	a. Use the Entity ID value Adobe provided you for **Identifier** in the **Configure App Settings** dialog box.
 
-1. Towards the bottom of the page, upload the **Federation Data XML** file that you downloaded from the Azure AD portal. 
+	b. Use the ACS URL (Assertion Consumer Service URL) value Adobe provided you for **Reply URL** in the **Configure App Settings** dialog box.
 
-	![Federation DATA XML](https://helpx.adobe.com/content/dam/help/en/enterprise/kb/configure-microsoft-azure-with-adobe-sso/jcr_content/main-pars/procedure/proc_par/step_228106403/step_par/image_copy/saml_signinig_certificate.png "IdP Metadata XML")
+1. Near the bottom of the page, upload the **Federation Data XML** file that you downloaded from the Azure portal. 
 
-1. Click **Save**.
+	![Federation Data XML file](https://helpx.adobe.com/content/dam/help/en/enterprise/kb/configure-microsoft-azure-with-adobe-sso/jcr_content/main-pars/procedure/proc_par/step_228106403/step_par/image_copy/saml_signinig_certificate.png "IdP Metadata XML")
+
+1. Select **Save**.
 
 
 ### Create Adobe Creative Cloud test user
@@ -202,7 +203,7 @@ When you click the Adobe Creative Cloud tile in the Access Panel, you should be 
 
 - [Try Adobe Creative Cloud with Azure AD](https://aad.portal.azure.com/)
 
-- [Set up a Identity (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-identity.html)
+- [Set up an identity (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-identity.html)
   
 - [Configure Azure for use with Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
