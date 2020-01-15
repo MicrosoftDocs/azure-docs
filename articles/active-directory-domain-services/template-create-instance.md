@@ -338,8 +338,8 @@ To see the Azure AD DS managed domain in action, you can [domain-join a Windows 
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
 [availability-zones]: ../availability-zones/az-overview.md
-[portal-deploy]: ../azure-resource-manager/resource-group-template-deploy-portal.md
-[powershell-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
+[powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [scoped-sync]: scoped-synchronization.md
 [resource-forests]: concepts-resource-forest.md
 
