@@ -196,7 +196,7 @@ The wait step pauses the deployment before continuing. It allows you to verify t
     "type": "Microsoft.DeploymentManager/steps",
     "apiVersion": "2018-09-01-preview",
     "name": "waitStep",
-      "location": "<step-location>",
+    "location": "<step-location>",
     "properties": {
         "stepType": "wait",
         "attributes": {
