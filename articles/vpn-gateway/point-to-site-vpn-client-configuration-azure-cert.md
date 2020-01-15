@@ -98,7 +98,7 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
    ![authentication settings](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 
-    5b.   For Catalina, select **None** and then **Certificate**. **Select** the correct certificate
+   * For Catalina, select **None** and then **Certificate**. **Select** the correct certificate:
    
    ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
