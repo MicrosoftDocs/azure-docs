@@ -94,7 +94,7 @@ After setting up the hardware and connecting the sync out jack of the master to 
 
 When Master Azure Kinect Device is started, the synchronized image from both of the Azure Kinect devices should appear.
 
-### Avoiding multi-device depth interference
+### Avoiding interference from other depth cameras
 
 It is important to understand how to set up your Azure Kinect DK devices to avoid depth interference. 
 The depth camera laser on time is less than 160us, 160us ends up having a safety margin (over the 125 us in the table below) to ensure variations is sensors don’t cause issues with software. There are nine pulses & images that the sensor uses to capture the depth engine. The exact timing changes based on the depth mode you are using.
