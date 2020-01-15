@@ -97,7 +97,7 @@ For more information about this advanced scenario, see [Confidential client asse
 
 ### How to call On-Behalf-Of
 
-You call the On-Behalf-Of (OBO) call by calling the [AcquireTokenOnBehalf method](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) on the `IConfidentialClientApplication` interface.
+You make the On-Behalf-Of (OBO) call by calling the [AcquireTokenOnBehalf method](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) on the `IConfidentialClientApplication` interface.
 
 The `UserAssertion` class is built from the bearer token that's received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
 * One that takes a JSON Web Token (JWT) bearer token
