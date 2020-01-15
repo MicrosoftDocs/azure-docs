@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have included the most common performance tips here. You should use this document as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB’s core (SQL) API. You use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have included the most common performance tips here. You should use this document as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB’s core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or consume significant amounts of throughput.
 
 You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
 
@@ -127,10 +127,14 @@ Indexing policy:
 {
     "indexingMode": "consistent",
     "automatic": true,
-    "includedPaths": [],
-    "excludedPaths": [
+    "includedPaths": [
         {
             "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/description/*"
         }
     ]
 }
@@ -148,14 +152,10 @@ Updated indexing policy:
     "automatic": true,
     "includedPaths": [
         {
-            "path": "/description/*"
-        }
-    ],
-    "excludedPaths": [
-        {
             "path": "/*"
         }
-    ]
+    ],
+    "excludedPaths": []
 }
 ```
 
@@ -406,7 +406,7 @@ Queries that are run from a different region than the Azure Cosmos DB account wi
 
 ## Increasing provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors.md) in the Metrics blade of the Azure portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
 
 ## Increasing MaxConcurrency
 
