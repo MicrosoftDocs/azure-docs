@@ -36,7 +36,7 @@ Data encryption for Azure Database for PostgreSQL Single server provides the fol
 
 **Key Encryption Key (KEK)** - An encryption key used to encrypt the data encryption Keys. Use of a Key Encryption Key that never leaves Key Vault, allows the data encryption keys themselves to be encrypted and controlled. The entity that has access to the KEK may be different than the entity that requires the DEK. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEKs can be effectively deleted by deletion of the KEK.
 
-The Data Encryption Key (DEK), encrypted with the Key Encryption Keys, are stored separately and only an entity with access to the Key Encryption Key can decrypt these data encryption Keys. For more information, see [security in encryption at rest](../security/fundamentals/encryption-atrest.md).
+The Data Encryption Keys (DEK), encrypted with the Key Encryption Keys, are stored separately and only an entity with access to the Key Encryption Key can decrypt these data encryption Keys. For more information, see [security in encryption at rest](../security/fundamentals/encryption-atrest.md).
 
 ## How data encryption with customer-managed key works
 
