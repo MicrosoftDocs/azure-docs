@@ -115,8 +115,6 @@ There's nothing for you to configure for Azure AD DS to be distributed across zo
 
 ## Resource definition for Azure AD DS
 
-## Resource definition for Azure AD DS
-
 As part of the Resource Manager resource definition, the following configuration parameters are required:
 
 | Parameter               | Value |
