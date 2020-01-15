@@ -286,13 +286,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Feature Manager**, and change the state of the **Beta** key to **On**:
+1. Select **Feature Manager**, and change the state of the **Beta** key to **On**.
 
-    | Key | State |
-    |---|---|
-    | Beta | On |
-
-1. Restart your application by switching back to your command prompt and pressing `Ctrl-C` to cancel the running `dotnet` process, then rerunning `dotnet run`.
+1. Return to the command prompt and cancel the running `dotnet` process by pressing `Ctrl-C`.  Restart your application using `dotnet run`.
 
 1. Refresh the browser page to see the new configuration settings.
 
