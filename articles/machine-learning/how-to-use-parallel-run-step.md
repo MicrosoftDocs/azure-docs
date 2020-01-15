@@ -1,7 +1,7 @@
 ---
 title: Run batch predictions on big data 
 titleSuffix: Azure Machine Learning
-description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in Azure Machine Learning. Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
+description: Learn how to get inferences asynchronously on large amounts of data by using ParallelRunStep in Azure Machine Learning. ParallelRunStep provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: vaidyas
 author: vaidya-s
-ms.date: 11/04/2019
+ms.date: 01/15/2020
 ms.custom: Ignite2019
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
+Learn how to process large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
-With batch inference, it's straightforward to scale offline inferences to large clusters of machines on terabytes of production data resulting in improved productivity and optimized cost.
+With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of production data resulting in improved productivity and optimized cost.
 
 In this article, you learn the following tasks:
 
@@ -183,10 +183,10 @@ model = Model.register(model_path="models/",
 >The following code is only a sample that the [sample notebook](https://aka.ms/batch-inference-notebooks) uses. You’ll need to create your own script for your scenario.
 
 The script *must contain* two functions:
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object.
+- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: Batch inference will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
-    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful inference of input element in the input mini-batch. User should make sure that enough data is included in inference result to map input to inference. Inference output will be written in output file and not guaranteed to be in order, user should use some key in the output to map it to input.
+    -  `mini_batch`: Parallel run step will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
+    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. User should make sure that enough data is included in run result to map input to run result. Run output will be written in output file and not guaranteed to be in order, user should use some key in the output to map it to input.
 
 ```python
 # Snippets from a sample script.
@@ -233,16 +233,16 @@ def run(mini_batch):
     return resultList
 ```
 
-### How to access other files in `init()` or `run()` functions
+### How to access other files in source directory in entry_script
 
-If you have another file or folder in the same directory as your inference script, you can reference it by finding the current working directory.
+If you have another file or folder in the same directory as your entry script, you can reference it by finding the current working directory.
 
 ```python
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
 file_path = os.path.join(script_dir, "<file_name>")
 ```
 
-## Build and run the batch inference pipeline
+## Build and run the pipeline containing ParallelRunStep
 
 Now you have everything you need to build the pipeline.
 
@@ -267,21 +267,21 @@ batch_env.spark.precache_packages = False
 ### Specify the parameters for your batch inference pipeline step
 
 `ParallelRunConfig` is the major configuration for the newly introduced batch inference `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following parameters:
-- `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directly` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
-- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (Optional; the default value is `1`.)
+- `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
+- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for FileDataset and `1MB` for TabularDataset.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
-- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be stopped. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
+- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
-    - `append_row`: For all input files, only one file will be created in the output folder to append all outputs separated by line. The file name will be parallel_run_step.txt.
+    - `append_row`: For all input files, only one file will be created in the output folder to append all outputs separated by line. The file name will be `parallel_run_step.txt`.
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
 - `node_count`: The number of compute nodes to be used for running the user script.
 - `process_count_per_node`: The number of processes per node.
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
-- `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. The default is `INFO` (optional).
-- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is `60`.
+- `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. (optional; the default value is `INFO`)
+- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -306,7 +306,7 @@ Create the pipeline step by using the script, environment configuration, and par
 - `inputs`: One or more single-typed Azure Machine Learning datasets.
 - `output`: A `PipelineData` object that corresponds to the output directory.
 - `arguments`: A list of arguments passed to the user script (optional).
-- `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (Optional; the default value is `True`.)
+- `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunStep
@@ -339,7 +339,7 @@ pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
 pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
 ```
 
-## Monitor the batch inference job
+## Monitor the parallel run job
 
 A batch inference job can take a long time to finish. This example monitors progress by using a Jupyter widget. You can also manage the job's progress by using:
 
@@ -357,7 +357,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
 
-For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-batch-predictions.md).
+For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-parallel-run-step.md).
 
 For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
 
