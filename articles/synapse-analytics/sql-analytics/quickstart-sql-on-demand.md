@@ -19,7 +19,7 @@ The following file types are supported:
 
 - JSON
 - CSV
-- Parquet
+- Apache Parquet
 
 ## Prerequisites
 
