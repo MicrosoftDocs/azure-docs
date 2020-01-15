@@ -1,14 +1,15 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-ms.date: 01/14/2020
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
+zone_pivot_groups: programming-languages-set-six
 ---
 
 # Create a function on Linux using a custom container
 
-In this tutorial, you create and deploy Python code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image. You can follow this tutorial on any computer running Windows, Mac OS, or Linux. You only incur costs of a few US dollars in your Azure account.
+In this tutorial, you create and deploy Python code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
 You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](functions-create-first-azure-function-azure-cli-linux.md). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -24,6 +25,8 @@ In this tutorial, you learn how to:
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
+
+You can follow this tutorial on any computer running Windows, Mac OS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
 
 ## Prerequisites
 
@@ -50,38 +53,36 @@ In this tutorial, you learn how to:
 
 1. Run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
-    # [C\#](#tab/csharp)
-
+    ::: zone pivot="programming-language-csharp"
     ```
     func init LocalFunctionsProject --worker-runtime dotnet --docker
     ```
+    ::: zone-end
 
-    # [Node.js (JavaScript)](#tab/nodejs)
-
+    ::: zone pivot="programming-language-node-javascript"
     ```
     func init LocalFunctionsProject --worker-runtime node --language javascript --docker
     ```
+    ::: zone-end
 
-    # [Node.js (TypeScript)](#tab/typescript)
-    
+    ::: zone pivot="programming-language-node-typescript"
     ```
     func init LocalFunctionsProject --worker-runtime node --language typescript --docker
     ```
+    ::: zone-end
 
-    # [Python](#tab/python)
-
+    ::: zone pivot="programming-language-node-python"
     ```
     func init LocalFunctionsProject --worker-runtime python --docker
     ```
+    ::: zone-end
 
-    # [PowerShell](#tab/powershell)
-
+    ::: zone pivot="programming-language-powershell"
     ```
     func init LocalFunctionsProject --worker-runtime powershell --docker
     ```
-
-    ---
-
+    ::: zone-end
+    
 1. Navigate into the project folder:
 
     ```
@@ -96,20 +97,19 @@ In this tutorial, you learn how to:
 
 1. To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder:
    
-    # [C\#](#tab/csharp)
-
+    ::: zone pivot="programming-language-csharp"
     ```
     func start --build
     ```
+    ::: zone-end
 
-    # [Node.js (JavaScript)](#tab/nodejs)
-
+    ::: zone pivot="programming-language-node-javascript"
     ```
     func start
     ```
+    ::: zone-end
 
-    # [Node.js (TypeScript)](#tab/typescript)
-    
+    ::: zone pivot="programming-language-node-typescript"
     ```
     npm install
     ```
@@ -117,20 +117,19 @@ In this tutorial, you learn how to:
     ```
     npm start
     ```
+    ::: zone-end
 
-    # [Python](#tab/python)
-
+    ::: zone pivot="programming-language-node-python"
     ```
     func start
     ```
+    ::: zone-end    
 
-    # [PowerShell](#tab/powershell)
-
+    ::: zone pivot="programming-language-powershell"
     ```
     func start
     ```
-
-    ---
+    ::: zone-end
 
 1. Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like "Hello, Functions" (varied slightly depending on your chosen programming language).
 
@@ -140,8 +139,7 @@ In this tutorial, you learn how to:
 
 1. (Optional) Examine the *Dockerfile" in the *LocalFunctionsProj* folder. The Dockerfile describes the required environment to run the function app on Linux: 
 
-    # [C\#](#tab/csharp)
-
+    ::: zone pivot="programming-language-csharp"
     ```Dockerfile
     FROM microsoft/dotnet:2.2-sdk AS installer-env
 
@@ -158,9 +156,9 @@ In this tutorial, you learn how to:
     
     COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
     ```
+    ::: zone-end
 
-    # [Node.js (JavaScript)](#tab/nodejs)
-
+    ::: zone pivot="programming-language-node-javascript"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
     # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
@@ -174,9 +172,9 @@ In this tutorial, you learn how to:
     RUN cd /home/site/wwwroot && \
     npm install    
     ```
+    ::: zone-end
 
-    # [Node.js (TypeScript)](#tab/typescript)
-    
+    ::: zone pivot="programming-language-node-typescript"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
     # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
@@ -190,10 +188,9 @@ In this tutorial, you learn how to:
     RUN cd /home/site/wwwroot && \
     npm install    
     ```
+    ::: zone-end
 
-
-    # [Python](#tab/python)
-
+    ::: zone pivot="programming-language-node-python"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
     # FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
@@ -207,9 +204,9 @@ In this tutorial, you learn how to:
     
     COPY . /home/site/wwwroot    
     ```
+    ::: zone-end
 
-    # [PowerShell](#tab/powershell)
-
+    ::: zone pivot="programming-language-powershell"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
     # FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
@@ -219,8 +216,7 @@ In this tutorial, you learn how to:
     
     COPY . /home/site/wwwroot    
     ```
-
-    ---
+    ::: zone-end
 
     > [!NOTE]
     > The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
@@ -310,7 +306,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 
 1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<storage_name>` with the name you used in the previous section for the storage account. Also replace `<app_name>` with a globally unique name appropriate to you, and `<docker_id>` with your Docker ID.
 
-    ```azurecli-interactive
+    ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
@@ -353,15 +349,15 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     # [Portal](#tab/portal)
 
-    a. Sign in to the Azure portal, then locate your function app by entering your function app name in the **Search** box at the top of the page. In the results, select the **App Service** resource.
+    1. Sign in to the Azure portal, then locate your function app by entering your function app name in the **Search** box at the top of the page. In the results, select the **App Service** resource.
 
-    a. In the left navigation panel, under **Functions (Read Only)**, select the name of your function.
+    1. In the left navigation panel, under **Functions (Read Only)**, select the name of your function.
 
-    a. In the details panel, select **</> Get function URL**:
+    1. In the details panel, select **</> Get function URL**:
     
         ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
 
-    a. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
+    1. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
 
         ![Copying the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
 
@@ -370,7 +366,7 @@ With the image deployed to the function app on Azure, you can now invoke the fun
     
     # [Azure CLI](#tab/azurecli)
 
-    a. Construct a URL string in the following format, replacing `<subscription_id>`, `<resource_group>`, and `<app_name>` with your Azure subscription ID, the resource group of your function app, and the name of your function app, respectively:
+    1. Construct a URL string in the following format, replacing `<subscription_id>`, `<resource_group>`, and `<app_name>` with your Azure subscription ID, the resource group of your function app, and the name of your function app, respectively:
 
         ```
         "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Web/sites/<app_name>/host/default/listKeys?api-version=2018-11-01"
@@ -385,7 +381,7 @@ With the image deployed to the function app on Azure, you can now invoke the fun
         [!TIP]
         > For convenience, you can instead assign the URL to an environment variable and use it in the `az rest` command.
     
-    a. Run the following `az rest` command (available in the Azure CLI version 2.0.77 and later), replacing `<uri>` with the URI string from the last step, including the quotes:
+    1. Run the following `az rest` command (available in the Azure CLI version 2.0.77 and later), replacing `<uri>` with the URI string from the last step, including the quotes:
 
         ```azurecli
         az rest --method post --uri <uri> --query functionKeys.default --output tsv
@@ -431,39 +427,36 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 1. In your Dockerfile, append the string `-appservice` to the base image in your `FROM` instruction:
 
-    # [C\#](#tab/csharp)
-
+    ::: zone pivot="programming-language-csharp"
     ```Dockerfile
     FROM microsoft/dotnet:2.2-sdk-appservice AS installer-env
     ```
+    ::: zone-end
 
-    # [Node.js (JavaScript)](#tab/nodejs)
-
+    ::: zone pivot="programming-language-node-javascript"
     ```Dockerfile
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
+    ::: zone-end
 
-    # [Node.js (TypeScript)](#tab/typescript)
-    
+    ::: zone pivot="programming-language-node-typescript"
     ```Dockerfile
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
+    ::: zone-end
 
-    # [Python](#tab/python)
-
+    ::: zone pivot="programming-language-node-python"
     ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
+    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
+    ::: zone-end
 
-    # [PowerShell](#tab/powershell)
-
+    ::: zone pivot="programming-language-powershell"
     ```Dockerfile
     FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
     ```
+    ::: zone-end
 
-    ---
-
-    
     The differences between the base images are describe in the [App Services - Custom docker images tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
 
 1. Rebuild the image by using the `docker build` command again, replacing `<docker_id>` with your Docker ID.:
@@ -513,7 +506,7 @@ Earlier, you created an Azure Storage account for use by the function app. The c
 
 In Azure Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. Your *function.json* already includes an input binding for the "httpTrigger" type and an output binding for the HTTP response. To add a binding to a storage queue, modify the file as follows, which adds an output binding for the "queue" type, where the queue appears in the code as an input argument named `msg`. The queue binding also requires the name of the queue to use, in this case `outqueue`, and the name of the settings that holds the connection string, in this case `AzureWebJobStorage`.
 
-# [C\#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
 In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file is then auto-generated based on these attributes.
 
@@ -546,57 +539,65 @@ In a C# class library project, the bindings are defined as binding attributes on
     
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The connection string for the Storage account is set by the `StorageAccountAttribute`. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you're already using the default storage account.
 
-# [Node.js (JavaScript)](#tab/nodejs)
+::: zone-end
+
+::: zone pivot="programming-language-node-javascript"
 
 Update *function.json* to match the following by adding the queue binding:
 
 :::code language="javascript" source="code/create-function-linux-custom-image/function-json-javascript-storage-queue.json" highlight="17-24":::
 
-# [Node.js (TypeScript)](#tab/typescript)
+::: zone-end
+
+::: zone pivot="programming-language-node-typescript"
 
 Update *function.json* to match the following by adding the queue binding:
 
 :::code language="javascript" source="code/create-function-linux-custom-image/function-json-typescript-storage-queue.json" highlight="17-24":::
 
-# [Python](#tab/python)
+::: zone-end
+
+::: zone pivot="programming-language-node-python"
 
 Update *function.json* to match the following by adding the queue binding:
 
-:::code language="python" source="code/create-function-linux-custom-image/function-json-javascript-storage-queue.json" highlight="18-25":::
+:::code language="python" source="code/create-function-linux-custom-image/function-json-python-storage-queue.json" highlight="18-25":::
 
-# [PowerShell](#tab/powershell)
+::: zone-end
+
+::: zone pivot="programming-language-node-powershell"
 
 Update *function.json* to match the following by adding the queue binding:
 
 :::code language="powershell" source="code/create-function-linux-custom-image/function-json-powershell-storage-queue.json" highlight="17-24":::
 
----
+::: zone-end
+
 
 ## Add code to use the output binding
 
 After the binding is defined, the name of the binding, in this case `msg`, appears in the function code as an argument (or in the `context` object in JavaScript and TypeScript). You can then use that variable to write messages to the queue. You need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
-# [C\#](#tab/csharp)
 
-:::code language="csharp" source="code/create-function-linux-custom-image/use-queue-csharp.cs" highlight="4,15-18":::
+::: zone pivot="programming-language-csharp"
+:::code language="csharp" source="code/create-function-linux-custom-image/use-queue-csharp.cs" highlight="4,14-18":::
+::: zone-end
 
-# [Node.js (JavaScript)](#tab/nodejs)
-
+::: zone pivot="programming-language-node-javascript"
 :::code language="javascript" source="code/create-function-linux-custom-image/use-queue-javascript.js" highlight="5-7":::
+::: zone-end
 
-# [Node.js (TypeScript)](#tab/typescript)
-
+::: zone pivot="programming-language-node-typescript"
 :::code language="typescript" source="code/create-function-linux-custom-image/use-queue-typescript.ts" highlight="8-10":::
+::: zone-end
 
-# [Python](#tab/python)
-
+::: zone pivot="programming-language-node-python"
 :::code language="python" source="code/create-function-linux-custom-image/use-queue-python.py" highlight="6,18":::
+::: zone-end
 
-# [PowerShell](#tab/powershell)
-
+::: zone pivot="programming-language-node-powershell"
 :::code language="powershell" source="code/create-function-linux-custom-image/use-queue-powershell.ps1" highlight="16-17":::
-
----
+::: zone-end
 
 
 ### Update the image in the registry
@@ -615,9 +616,9 @@ After the binding is defined, the name of the binding, in this case `msg`, appea
 
 1. Because you configured continuous delivery, updating the image in the registry again automatically updates your function app in Azure.
 
-### ## View the message in the Azure Storage queue
+## View the message in the Azure Storage queue
 
-1. In a browser, use the same URL as before to invoke your function. The browser should display the same response as before, because you didn't modify that part of the function code. The added code, however, wrote a message using the `name` URL parameter to the `outqueue` storage queue.
+In a browser, use the same URL as before to invoke your function. The browser should display the same response as before, because you didn't modify that part of the function code. The added code, however, wrote a message using the `name` URL parameter to the `outqueue` storage queue.
 
 You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer][https://storageexplorer.com/]. You can also view the queue in the Azure CLI as described in the following steps:
 
@@ -685,12 +686,11 @@ You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-
 
     ---
 
-
 ## Clean up resources
 
-If you want to continue working with Azure Function using the resources you created in this tutorial, you can leave all those resources in place. Because Azure Functions is an on-demand serverless platform, you incur ongoing costs only when you continue to invoke the functions. The storage account also incurs a small ongoing cost.
+If you want to continue working with Azure Function using the resources you created in this tutorial, you can leave all those resources in place. Because you created a Premium Plan for Azure Functions, you'll incur one or two USD per day in ongoing costs.
 
-Once you're finished with the resources, delete the `AzureFunctionsContainer-rg` resource group to clean up all the resources in that group: 
+To avoid ongoing costs, delete the `AzureFunctionsContainer-rg` resource group to clean up all the resources in that group: 
 
 ```azurecli
 az group delete --name AzureFunctionsContainer-rg

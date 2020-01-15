@@ -1,7 +1,7 @@
 [FunctionName("HttpTrigger")]
 public static async Task<IActionResult> Run(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
+    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -16,6 +16,7 @@ public static async Task<IActionResult> Run(
         // Add a message to the output collection.
         msg.Add(string.Format("Name passed to the function: {0}", name));
     }
+    
     return name != null
         ? (ActionResult)new OkObjectResult($"Hello, {name}")
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");

@@ -4,7 +4,7 @@ description: Use Python, TensorFlow, and Azure Functions with a machine learning
 author: anthonychu
 
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
 ---
@@ -217,6 +217,8 @@ To modify the `classify` function to classify an image based on its contents, yo
     pip install --no-cache-dir -r requirements.txt
     ```
     
+    On Windows, you may encounter the error, "Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory:" followed by a long pathname to a file like *sharded_mutable_dense_hashtable.cpython-37.pyc*. Typically, this error happens because the depth of the folder path becomes too long. In this case, set the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` to `1` to enable long paths. Alternately, check where your Python interpreter is installed. If that location has a long path, try reinstalling in a folder with a shorter path.
+
 > [!TIP]
 > When calling upon *predict.py* to make its first prediction, a function named `_initialize` loads the TensorFlow model from disk and caches it in global variables. This caching speeds up subsequent predictions. For more information on using global variables, refer to the [Azure Functions Python developer guide](functions-reference-python.md#global-variables).
 
@@ -228,7 +230,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 
 1. Replace the entire contents of the `main` function with the following code:
 
-    :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19" highlight="8-19":::
+    :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19":::
 
     This function receives an image URL in a query string parameter named `img`. It then calls `predict_image_from_url` from the helper library to download and classify the image using the TensorFlow model. The function then returns an HTTP response with the results. 
 
@@ -237,12 +239,12 @@ To modify the `classify` function to classify an image based on its contents, yo
     >
     > In a production application, change `*` to the web page's specific origin for added security.
 
-1. Save your changes, then assuming that dependencies have finished installing, start the local function host again:
+1. Save your changes, then assuming that dependencies have finished installing, start the local function host again with `func start`. Be sure to run the host in the *start* folder with the virtual environment activated. Otherwise the host will start, but you will see errors when invoking the function.
 
-    ```console
+    ```
     func start
     ```
-    
+
 1. In a browser, open the following URL to invoke the function with the URL of a cat image and confirm that the returned JSON classifies the image as a cat.
 
     ```
@@ -273,7 +275,7 @@ To test invoking the function endpoint from another web app, there's a simple ap
 
     # [Cmd](#tab/cmd)
 
-    ```powershell
+    ```cmd
     py -m http.server
     ```
 
@@ -287,6 +289,8 @@ To test invoking the function endpoint from another web app, there's a simple ap
 1. Select **Submit** to invoke the function endpoint to classify the image.
 
     ![Screenshot of finished project](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
+
+    If the browser reports and error when you submit the image URL, check the terminal in which you're running the function app. If, for example, you see an error like "No module found 'PIL'", you probably started the function app in the *start* folder without first activating the virtual environment you created earlier. If you still see errors, run `pip install -r requirements.txt` again with the virtual environment activated.
 
 > [!NOTE]
 > The model always classifies the content of the image as a cat or a dog, regardless of whether the image contains either, defaulting to dog. Images of tigers and panthers, for example, typically classify as cat, but images of elephants, carrots, or airplanes classify as dog.

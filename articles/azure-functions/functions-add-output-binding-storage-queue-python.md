@@ -1,7 +1,7 @@
 ---
 title: Add an Azure Storage queue binding to your Python function 
 description: Integrate an Azure Storage queue with a Python function using an output binding.
-ms.date: 01/10/2020
+ms.date: 01/15/2020
 ms.topic: quickstart
 ---
 
@@ -196,7 +196,9 @@ Now that you've tested the function locally and verified that it wrote a message
     # [Browser](#tab/browser)
     
     Copy the complete **Invoke url** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Azure`. The browser should display similar output as when you ran the function locally.
-        
+
+    ![The output of the function run on Azure in a browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
+
     # [curl](#tab/curl)
     
     Run [curl](https://curl.haxx.se/) with the **Invoke url**, appending the parameter `&name=Azure`. The output of the command should be the text, "Hello Azure".

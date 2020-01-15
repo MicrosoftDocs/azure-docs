@@ -1,7 +1,7 @@
 ---
 title: Create an HTTP triggered Python function in Azure
 description: Create and deploy serverless Python code to the cloud using Azure Functions.
-ms.date: 01/07/2020
+ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
 ---
@@ -102,7 +102,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-### \_\_init\_\_.py]
+### \_\_init\_\_.py
 
 *\_\_init\_\_.py* contains a `main()` Python function that's triggered according to the configuration in *function.json*.
 
