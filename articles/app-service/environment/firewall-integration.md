@@ -47,15 +47,16 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
    ![select service endpoints][2]
   
 1. Create a subnet named AzureFirewallSubnet in the VNet where your ASE exists. Follow the directions in the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
+
 1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows Update. 
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. In the provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a ptocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a ptocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
 
    ![Add NTP network rule][3]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under Service Tags , provide a name, select a protocol of **Any**, set * to Source addresses, select a service tag of Azure Monitor and set the ports to 80, 443. This rule allows the system to supply Azure Monitor with health and metrics information.
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under Service Tags, provide a name, select a protocol of **Any**, set * to Source addresses, select a service tag of AzureMonitor, and set the ports to 80, 443. This rule allows the system to supply Azure Monitor with health and metrics information.
 
    ![Add NTP service tag network rule][6]
    
