@@ -122,7 +122,8 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### Attach a database using an Azure Resource Manager template
 
-In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
+In this section, you learn how to create a follower cluster and attach a database to it by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
+If you already have a cluster just remove "Microsoft.Kusto/clusters" resource from the list of the resource below.
 
 ```json
 {
@@ -154,7 +155,7 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the leader cluster to create."
+				"description": "The resouce ID of the leader cluster."
 			}
 		},
 		"defaultPrincipalsModificationKind": {
