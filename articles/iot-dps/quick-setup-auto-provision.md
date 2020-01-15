@@ -52,7 +52,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this section, you will add a configuration to the Device Provisioning Service instance. This configuration sets the IoT hub for which devices will be provisioned.
 
-1. Select the **All resources** button from the left-hand menu of the Azure portal. Select the Device Provisioning Service instance that you created in the preceding section.  
+1. Select the **All resources** button from the left-hand menu of the Azure portal. Select the Device Provisioning Service instance that you created in the preceding section. 
+
+    If your menu is configured using **Flyout** instead of the **Docked** mode in the portal settings, you will need to click the 3 lines at the top left to open the portal menu on the left.  
 
 2. From the Device Provisioning Service's menu, select **Linked IoT hubs**. Hit the **+ Add** button seen at the top. 
 
