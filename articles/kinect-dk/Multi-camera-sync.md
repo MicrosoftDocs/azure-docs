@@ -82,7 +82,7 @@ After setting up the hardware and connecting the sync out jack of the master to 
 
   ![Subordinate camera start](./media/open-device.png)
 
-3. In the section "External Sync", choose option "Sub" and start the device. (when subordinate device is started, you will see no images yet until master device is turned on.)
+3. In the section "External Sync", choose option "Sub" and start the device. Images will not be sent to the subordinate after hitting start due to the device waiting for the sync pulse from the master device.
 
   ![Subordinate camera start](./media/sub-start.png)
 
