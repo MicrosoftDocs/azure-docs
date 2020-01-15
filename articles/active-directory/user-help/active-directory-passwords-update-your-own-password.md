@@ -22,7 +22,7 @@ If you forgot your work or school password, never got a password from your organ
 If you know your password, but want to change it, see the [Change your password steps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) sections of this article.
 
 >[!Important]
->This article is intended for users trying to use reset a forgotten or unknown work or school account password. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles]( https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>This article is intended for users trying to use reset a forgotten or unknown work or school account password. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## How to reset or unlock your password for a work or school account
 
@@ -55,7 +55,7 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
     1. Select **Email my alternate email**, and then select **Email**.
 
     2. Type the verification code from the email into the box, and then select **Next**.
-    
+
     3. Type and confirm your new password, and then select **Finish**.
 
 - **Reset your password using a text message.** Sends a text message to the phone number you previously set up in security info. If your administrator has turned on the security info experience, you can find more info about setting up text messaging in the [Set up security info to use text messaging (preview)](security-info-setup-text-msg.md) article. If you're not yet using security info, you can find more info about setting up text messaging in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
@@ -97,7 +97,7 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
   3. Type and confirm your new password, and then select **Finish**.
 
   4. After you get the message saying that your password has been reset, you can sign in to your account using your new password.
-        
+
      If you still can't access your account, you should contact your organization's administrator for more help.
 
 After resetting your password, you might get a confirmation email that comes from an account like, "Microsoft on behalf of \<*your_organization*>." If you get a similar email, but you didn't recently reset your password, you must contact your organization's administrator immediately.

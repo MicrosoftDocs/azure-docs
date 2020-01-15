@@ -26,14 +26,12 @@
     href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator app help
   items:
-  - name: Overview
+  - name: vWhat is the Microsoft Authenticator app?
     href: user-help-auth-app-overview.md
   - name: Download and install the app
     href: user-help-auth-app-download-install.md
   - name: Add accounts
     items:
-      - name: Overview
-        href: user-help-auth-app-add-account-overview.md
       - name: Add a work or school account
         href: user-help-auth-app-add-work-school-account.md
       - name: Add a personal Microsoft account
