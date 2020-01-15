@@ -188,7 +188,7 @@ Therefore, Azure Storage runs on separate hardware with no network connectivity 
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 
 ### IP Level Storage Isolation
-You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](../../storage/common/storage-security-guide.md).
+You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](../../storage/blobs/security-recommendations.md).
 
 IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
 
@@ -201,18 +201,18 @@ Azure offers the following types of Encryption to protect data:
 #### Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
 
--	[Transport-level encryption](../../storage/common/storage-security-guide.md), such as HTTPS when you transfer data into or out of Azure Storage.
+-	[Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../../storage/common/storage-security-guide.md), such as SMB 3.0 encryption for Azure File shares.
+-	[Wire encryption](../../storage/blobs/security-recommendations.md), such as SMB 3.0 encryption for Azure File shares.
 
--	[Client-side encryption](../../storage/common/storage-security-guide.md), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
+-	[Client-side encryption](../../storage/blobs/security-recommendations.md), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 #### Encryption at Rest
 For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
--	[Storage Service Encryption](../../storage/common/storage-security-guide.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
+-	[Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 
--	[Client-side Encryption](../../storage/common/storage-security-guide.md) also provides the feature of encryption at rest.
+-	[Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.
 
 -	[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
