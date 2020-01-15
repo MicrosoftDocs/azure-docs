@@ -16,15 +16,15 @@ Get started with the Personalizer client library for Python. Follow these steps 
  * Report reward score indicating success of top ranked action.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Get intent with C# SDK](../includes/quickstart-sdk-csharp.md)]
+[!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python SDK](../includes/quickstart-sdk-python.md)]
+[!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get intent with Node.js SDK](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ## Clean up resources

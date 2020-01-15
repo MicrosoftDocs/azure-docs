@@ -11,7 +11,7 @@
     displayName: release notes, service updates, videos
 - name: Quickstarts
   items:
-  - Using SDK
+  - name: Using SDK
     href: use-sdk-learning-loop.md
 - name: Tutorials
   items:
