@@ -21,34 +21,6 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
-## Create helloworld project
-
-1. Open Visual Studio 2019.
-
-1. In the Start window, select **Create a new project**. 
-
-1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
-
-1. In the **Configure your new project** window, enter *helloworld* in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
-
-1. Right click on the **helloworld** project and click on **Open Folder in File Explorer**.
-
-1. Right click on **helloworld.csproj** and choose **Open with**, **Choose another app**.
-
-1. Click on **Notepad** in the list. If you don't see it, click on **More apps** and choose Notepad from the list.
-
-1. Scroll to the end of the file and add the following line just after the ```<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />``` line:
-
-    ```Xml
-    <Import Project="$(SolutionDir)ext\Microsoft.CognitiveServices.Speech.csharp.targets" />
-    ```
-
-1. Navigate one directory up. You should see a **helloworld.sln** file.
-
-1. Create a new folder called **ext**.
-
-1. Download the [multi-device conversation preview DLLs](https://aka.ms/mdc-preview) and extract its contents to the **ext** folder you created in the previous step.
-
 ## Add sample code
 
 1. Open **Program.cs**, and replace all code in it with the following code:
@@ -226,7 +198,7 @@ Before you get started, make sure to:
     }
     ```
 
-1. In the same file, replace the string `YourSubscriptionKey` with your Cognitive Speech subscription key.
+2. In the same file, replace the string `YourSubscriptionKey` with your Cognitive Speech subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
@@ -321,7 +293,7 @@ Before you get started, make sure to:
     }
     ```
 
-1. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
+2. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
 
     ```C#
     // set this to the conversation you want to join
@@ -330,18 +302,18 @@ Before you get started, make sure to:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-1. Go back to Visual Studio and replace the string `YourConversationId` in your `public static void Main(string[] args)` function with the conversation ID you created in the previous step.
+1. Go back to Visual Studio and replace the string ```YourConversationId``` with the conversation ID you created in the previous step.
 
-1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors.
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
 1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
 
-1.  Once you're done speaking, press `Ctrl + C` to stop audio capture, and end the conversation.
+1. Once you're done speaking, press `Ctrl + C` to stop audio capture, and end the conversation.
 
-1. Go back to your browser and exit the conversation using the <img src="../../../../media/scenarios/conversation_translator_web_exit_button.png" width="20" /> button in the upper right corner.
+1. Go back to your browser and exit the conversation using the ![exit button](../../../../media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner.
 
 ## Next Steps
 
