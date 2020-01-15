@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # A web API that calls web APIs: Call an API
 
-After you have a token, you can call a protected web API. You do this from the controller of your ASP.NET/ASP.NET Core web API.
+After you have a token, you can call a protected web API. You do this from the controller of your ASP.NET or ASP.NET Core web API.
 
 ## Controller code
 
