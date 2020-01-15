@@ -1,11 +1,7 @@
 ---
 title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
@@ -60,7 +56,7 @@ The event-sourcing behavior of the Durable Task Framework is closely coupled wit
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
@@ -108,28 +104,28 @@ Upon completion, the history of the function shown earlier looks something like 
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | Result                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
 
 A few notes on the column values:
 
 * **PartitionKey**: Contains the instance ID of the orchestration.
 * **EventType**: Represents the type of the event. May be one of the following types:
-  * **OrchestrationStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
+  * **OrchestrationStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the `CurrentUtcDateTime` (.NET) and `currentUtcDateTime` (JavaScript) APIs.
   * **ExecutionStarted**: The orchestrator function started executing for the first time. This event also contains the function input in the `Input` column.
   * **TaskScheduled**: An activity function was scheduled. The name of the activity function is captured in the `Name` column.
   * **TaskCompleted**: An activity function completed. The result of the function is in the `Result` column.
@@ -182,7 +178,7 @@ Orchestrator functions can also add retry policies to the activity or sub-orches
 
 For more information and for examples, see the [Error handling](durable-functions-error-handling.md) article.
 
-### Critical sections
+### Critical sections (Durable Functions 2.x)
 
 Orchestration instances are single-threaded so it isn't necessary to worry about race conditions *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* using a `LockAsync` method in .NET.
 
@@ -208,7 +204,7 @@ The critical section feature is also useful for coordinating changes to durable 
 > [!NOTE]
 > Critical sections are available in Durable Functions 2.0 and above. Currently, only .NET orchestrations implement this feature.
 
-### Calling HTTP endpoints
+### Calling HTTP endpoints (Durable Functions 2.x)
 
 Orchestrator functions aren't permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code that needs to do I/O in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the result to the orchestration.
 
@@ -232,10 +228,22 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
 For more information and for detailed examples, see the [HTTP features](durable-functions-http-features.md) article.
 
 > [!NOTE]
-> Calling HTTP endpoints directly from orchestrator functions is available in Durable Functions 2.0 and above. Currently, only .NET orchestrations implement this feature.
+> Calling HTTP endpoints directly from orchestrator functions is available in Durable Functions 2.0 and above.
 
 ### Passing multiple parameters
 
@@ -246,7 +254,7 @@ The following sample is using new features of [ValueTuples](https://docs.microso
 ```csharp
 [FunctionName("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string major = "ComputerScience";
     int universityYear = context.GetInput<int>();
@@ -258,7 +266,7 @@ public static async Task<object> RunOrchestrator(
 }
 
 [FunctionName("CourseRecommendations")]
-public static async Task<object> Mapper([ActivityTrigger] DurableActivityContext inputs)
+public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContext inputs)
 {
     // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();

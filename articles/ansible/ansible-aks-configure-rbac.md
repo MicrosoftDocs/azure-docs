@@ -3,10 +3,6 @@ title: Tutorial - Configure role-based access control (RBAC) roles in Azure Kube
 description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Service(AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 

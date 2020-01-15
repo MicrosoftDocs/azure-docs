@@ -1,32 +1,21 @@
 ---
-title: Automate resource deployment for a function app in Azure Functions | Microsoft Docs
+title: Automate function app resource deployment to Azure
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
-services: Functions
-documtationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
-ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: glenga
 ---
 
 # Automate resource deployment for your function app in Azure Functions
 
 You can use an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy additional resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
 
-For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 For sample templates, see:
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
-
-> [!NOTE]
-> The Premium plan for Azure Functions hosting is currently in preview. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
 
 ## Required resources
 
@@ -97,7 +86,7 @@ Application Insights is recommended for monitoring your function apps. The Appli
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```
@@ -213,7 +202,7 @@ The Consumption plan is a special type of "serverfarm" resource. For Windows, yo
 > [!NOTE]
 > The Consumption plan cannot be explicitly defined for Linux. It will be created automatically.
 
-If you do explicitly define your consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+If you do explicitly define your Consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
 
 ### Create a function app
 
@@ -310,7 +299,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 
 ## Deploy on Premium plan
 
-The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan (Preview)](./functions-premium-plan.md).
+The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
 
 ### Create a Premium plan
 

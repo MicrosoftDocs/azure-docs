@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls web APIs (move to production) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (move to production)
+title: Move desktop app calling web APIs to production - Microsoft identity platform | Azure
+description: Learn how to move a desktop app that calls web APIs to production
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Desktop app that calls web APIs - move to production
 
-This article provides you details to improve your application further and move it to production.
+This article provides you details to move your desktop app that calls web APIs to production.
 
 ## Handling errors in desktop applications
 
@@ -47,7 +47,7 @@ For instance:
 
 ### In MSAL.NET
 
-```CSharp
+```csharp
 string[] scopesForCustomerApi = new string[]
 {
   "https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -73,10 +73,10 @@ Objective-C:
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
                                 @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
-    
+
 NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                               @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-    
+
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
 interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
@@ -87,10 +87,10 @@ Swift:
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
                             "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
-        
+
 let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                           "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-        
+
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
 interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
@@ -100,7 +100,7 @@ This call will get you an access token for the first web API.
 
 When you need to call the second web API, you can call `AcquireTokenSilent` API:
 
-```CSharp
+```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 

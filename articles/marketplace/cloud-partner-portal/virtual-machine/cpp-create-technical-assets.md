@@ -4,6 +4,7 @@ description: Explains how to create the technical assets for a virtual machine o
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler

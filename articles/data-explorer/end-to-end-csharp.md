@@ -1,6 +1,6 @@
 ---
-title: 'End-to-end Blob ingestion into Azure Data Explorer using C#'
-description: In this article, you learn how to ingest blobs into Azure Data Explorer with an End to End example using C#.
+title: 'End-to-end blob ingestion into Azure Data Explorer through C#'
+description: In this article, you learn how to ingest blobs into Azure Data Explorer with an end-to-end example that uses C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -9,26 +9,28 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# End-to-end Blob ingestion into Azure Data Explorer using C#
+# End-to-end blob ingestion into Azure Data Explorer through C#
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. This article gives you an end-to-end example about how to ingest data from Blob Storage into Azure Data Explorer. You will learn how to programmatically create a resource group, a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. You will also learn how to programmatically configure Azure Data Explorer to ingest data from the new storage account.
+Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. This article gives you an end-to-end example of how to ingest data from Azure Blob storage into Azure Data Explorer. 
+
+You'll learn how to programmatically create a resource group, a storage account and container, an event hub, and an Azure Data Explorer cluster and database. You'll also learn how to programmatically configure Azure Data Explorer to ingest data from the new storage account.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-## Install C# Nuget
+## Install C# NuGet
 
-* Install the [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Install the [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-* Install the [Microsoft.Azure.Management.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
-* Install the [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
-* Install the [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) for authentication.
+* Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Install [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+* Install [Microsoft.Azure.Management.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
+* Install [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
+* Install [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) for authentication.
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
@@ -36,16 +38,18 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Code example 
 
-The following code example gives you a step-by-step process resulting in data ingestion into Azure Data Explorer. You first create a resource group, and Azure resources such as a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. You then create an Event Grid subscription and table and column mapping in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account. 
+The following code example gives you a step-by-step process that results in data ingestion into Azure Data Explorer. 
+
+You first create a resource group. You also create Azure resources such as a storage account and container, an event hub, and an Azure Data Explorer cluster and database. You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
-var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
+var clientSecret = "xxxxxxxxxxxxxx";//Client secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 string location = "West Europe";
 string locationSmallCase = "westeurope";
-string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//path to the Azure Resource Manager template json from the previous section
+string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//Path to the Azure Resource Manager template JSON from the previous section
 
 string deploymentName = "e2eexample";
 string resourceGroupName = deploymentName + "resourcegroup";
@@ -142,14 +146,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **Setting** | **Field description** |
 |---|---|---|
-| tenantId | Your tenant ID. Also known as directory ID.|
+| tenantId | Your tenant ID. It's also known as a directory ID.|
 | subscriptionId | The subscription ID that you use for resource creation.|
 | clientId | The client ID of the application that can access resources in your tenant.|
 | clientSecret | The client secret of the application that can access resources in your tenant. |
 
 ## Test the code example
 
-1. Upload a file into the storage account
+1. Upload a file into the storage account.
 
     ```csharp
     string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
@@ -165,7 +169,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     |---|---|---|
     | storageConnectionString | The connection string of the programmatically created storage account.|
 
-2. Run a test query in Azure Data Explorer
+2. Run a test query in Azure Data Explorer.
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -200,7 +204,7 @@ await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 
 ## Next steps
 
-*  [Create an Azure Data Explorer cluster and database](create-cluster-database-csharp.md) to learn about other ways to create a cluster and database.
-* [Azure Data Explorer data ingestion](ingest-data-overview.md) to learn more about ingestion methods.
-* [Quickstart: Query data in Azure Data Explorer](web-query-data.md) Web UI.
+*  To learn about other ways to create a cluster and database, see [Create an Azure Data Explorer cluster and database](create-cluster-database-csharp.md).
+* To learn more about ingestion methods, see [Azure Data Explorer data ingestion](ingest-data-overview.md).
+* To learn about the web application, see [Quickstart: Query data in the Azure Data Explorer web UI](web-query-data.md).
 * [Write queries](write-queries.md) with Kusto Query Language.

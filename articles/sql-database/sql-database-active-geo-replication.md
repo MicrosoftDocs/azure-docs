@@ -1,5 +1,5 @@
 ---
-title: Active geo-replication - Azure SQL Database | Microsoft Docs
+title: Active geo-replication
 description: Use active geo-replication to create readable secondary databases of individual databases in the same or different data center (region).
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Partitioning tables in Azure SQL Data Warehouse | Microsoft Docs
+title: Partitioning tables
 description: Recommendations and examples for using table partitions in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Partitioning tables in SQL Data Warehouse
@@ -326,5 +327,5 @@ To avoid your table definition from **rusting** in your source control system, y
 With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.
 
 ## Next steps
-For more information about developing tables, see the articles on [Table Overview](sql-data-warehouse-tables-overview.md).
+For more information about developing tables, see the articles on [Table Overview](../synapse-analytics/sql-analytics/development-tables-overview.md).
 

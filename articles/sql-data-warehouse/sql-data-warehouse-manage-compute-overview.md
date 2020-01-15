@@ -1,15 +1,16 @@
 ---
-title: Manage compute resource in Azure SQL Data Warehouse | Microsoft Docs
+title: Manage compute resource
 description: Learn about performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs, or lower costs by pausing the data warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 11/12/2019
+ms.author: rortloff
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Manage compute in Azure SQL Data Warehouse
@@ -19,7 +20,7 @@ Learn about managing compute resources in Azure SQL Data Warehouse. Lower costs 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
 
 ## Scaling compute
-You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
+You can scale out or scale back compute by adjusting the [data warehouse units](../synapse-analytics/sql-analytics/resource-consumption-models.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
 
 For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -28,19 +29,23 @@ To perform a scale operation, SQL Data Warehouse first kills all incoming querie
 The following table shows how the number of distributions per Compute node changes as the data warehouse units change.  DWU6000 provides 60 Compute nodes and achieves much higher query performance than DWU100. 
 
 | Data warehouse units  | \# of Compute nodes | \# of distributions per node |
-| ---- | ------------------ | ---------------------------- |
-| 100  | 1                  | 60                           |
-| 200  | 2                  | 30                           |
-| 300  | 3                  | 20                           |
-| 400  | 4                  | 15                           |
-| 500  | 5                  | 12                           |
-| 600  | 6                  | 10                           |
-| 1000 | 10                 | 6                            |
-| 1200 | 12                 | 5                            |
-| 1500 | 15                 | 4                            |
-| 2000 | 20                 | 3                            |
-| 3000 | 30                 | 2                            |
-| 6000 | 60                 | 1                            |
+| -------- | ---------------- | -------------------------- |
+| DW100c   | 1                | 60                         |
+| DW200c   | 1                | 60                         |
+| DW300c   | 1                | 60                         |
+| DW400c   | 1                | 60                         |
+| DW500c   | 1                | 60                         |
+| DW1000c  | 2                | 30                         |
+| DW1500c  | 3                | 20                         |
+| DW2000c  | 4                | 15                         |
+| DW2500c  | 5                | 12                         |
+| DW3000c  | 6                | 10                         |
+| DW5000c  | 10               | 6                          |
+| DW6000c  | 12               | 5                          |
+| DW7500c  | 15               | 4                          |
+| DW10000c | 20               | 3                          |
+| DW15000c | 30               | 2                          |
+| DW30000c | 60               | 1                          |
 
 
 ## Finding the right size of data warehouse units
@@ -49,7 +54,7 @@ To see the performance benefits of scaling out, especially for larger data wareh
 
 Recommendations for finding the best number of data warehouse units:
 
-- For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400 or DW200.
+- For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400c or DW200c.
 - Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
 - Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. 
 - Continue making adjustments until you reach an optimum performance level for your business requirements.
@@ -95,7 +100,7 @@ We recommend allowing existing transactions to finish before you initiate a paus
 
 When you pause or scale your SQL Data Warehouse, behind the scenes your queries are canceled when you initiate the pause or scale request.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries, by definition, must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+See also [Understanding transactions](../synapse-analytics/sql-analytics/development-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automating compute management
 To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).

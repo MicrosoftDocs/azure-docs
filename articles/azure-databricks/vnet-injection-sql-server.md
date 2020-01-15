@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 11/07/2019
 ---
 
 # Tutorial: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
     ![Add new Azure virtual machine](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. On the **Basics** tab, Choose Ubuntu Server 16.04 LTS. Change the VM size to B1ms, which has one VCPUS and 2-GB RAM. The minimum requirement for a Linux SQL Server Docker container is 2 GB. Choose an administrator username and password.
+2. On the **Basics** tab, Choose Ubuntu Server 18.04 LTS and change the VM size to B2s. Choose an administrator username and password.
 
     ![Basics tab of new virtual machine configuration](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
@@ -75,8 +75,7 @@ In this tutorial, you learn how to:
 
     |Setting|Suggested value|Description|
     |-------|---------------|-----------|
-    |Source|IP Addresses|IP Addresses specifies that incoming traffic from a specific source IP Address will be allowed or denied by this rule.|
-    |Source IP addresses|10.179.0.0/16|Enter the address range for your virtual network.|
+    |Source|Any|Source specifies that incoming traffic from a specific source IP Address will be allowed or denied by this rule.|
     |Source port ranges|*|Allow traffic from any port.|
     |Destination|IP Addresses|IP Addresses specifies that outgoing traffic for a specific source IP Address will be allowed or denied by this rule.|
     |Destination IP addresses|<your vm public ip\>|Enter your virtual machine's public IP address. You can find this on the **Overview** page of your virtual machine.|

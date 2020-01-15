@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -23,7 +23,7 @@ In Azure Lab Services, a lab account is a container for managed lab types such a
 The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Select **Lab Accounts** in the **DEVOPS** section. If you select star (`*`) next to **Lab Accounts**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Accounts** under **FAVORITES**.
+2. Select **All Services** on the left menu. Select **Lab Accounts** in the **DevOps** section. If you select star (`*`) next to **Lab Accounts**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Accounts** under **FAVORITES**.
 
     ![All Services -> Lab Accounts](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. On the **Lab Accounts** page, select **Add** on the toolbar. 
@@ -92,6 +92,8 @@ Follow instructions from the previous section that displays lab accounts in a li
 
     ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
+> [!NOTE]
+> You can also use the Az.LabServices PowerShell module (preview) to manage lab accounts. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## Next steps
 See the following article: [How to configure lab accounts](how-to-configure-lab-accounts.md).

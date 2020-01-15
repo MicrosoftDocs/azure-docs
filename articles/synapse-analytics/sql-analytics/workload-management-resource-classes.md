@@ -1,12 +1,12 @@
 ---
 title: Resource classes for workload management in Azure SQL Data Warehouse | Microsoft Docs
 description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
-services: sql-data-warehouse
+services: synapse analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: workload-management
+ms.subservice:
 ms.date: 10/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -179,7 +179,7 @@ We recommend creating a user that is dedicated to running a specific type of que
 
 `CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Memory pressure can lead to needing a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher resource class.
 
-The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](data-load-columnstore-compression.md).
 
 Once you have determined the memory requirement, choose whether to assign the load user to a static or dynamic resource class.
 
@@ -577,7 +577,7 @@ GO
 
 ## Next step
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](data-load-columnstore-compression.md).
 
 <!--Image references-->
 

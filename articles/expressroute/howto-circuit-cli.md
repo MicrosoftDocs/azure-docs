@@ -1,14 +1,13 @@
 ---
-title: 'Create and modify an ExpressRoute circuit: Azure CLI | Microsoft Docs'
+title: 'Create and modify an ExpressRoute circuit: Azure CLI'
 description: This article shows how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit using CLI.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
 
 ---
 # Create and modify an ExpressRoute circuit using CLI
@@ -138,8 +137,8 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify 'Standard' to get the standard SKU or 'Premium' for the premium add-on.
-* SKU family determines the billing type. You can specify 'Metereddata' for a metered data plan and 'Unlimiteddata' for an unlimited data plan. You can change the billing type from 'Metereddata' to 'Unlimiteddata', but you can't change the type from 'Unlimiteddata' to 'Metereddata'.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
+* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
 
 
 Your ExpressRoute circuit is billed from the moment a service key is issued. The following example is a request for a new service key:

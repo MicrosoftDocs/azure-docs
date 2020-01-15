@@ -159,7 +159,7 @@ Azure Provisioning device and service SDKs for Python:
 
 Azure IoT SDKs also provide a set of tools to help with development:
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): a cross-platform command line tool to help diagnose issues related to connection with IoT Hub.
-* [device-explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): a Windows desktop application to connect to your IoT Hub.
+* [azure-iot-explorer](https://github.com/Azure/azure-iot-explorer): a cross-platform desktop application to connect to your IoT Hub and add/manage/communicate with IoT devices.
 
 Relevant docs related to development using the Azure IoT SDKs:
 * Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.

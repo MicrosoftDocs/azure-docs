@@ -1,21 +1,9 @@
 ---
-title: Capacity planning for Service Fabric apps | Microsoft Docs
+title: Capacity planning for Service Fabric apps 
 description: Describes how to identify the number of compute nodes required for a Service Fabric application
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: markfuss
-editor: ''
 
-ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Capacity planning for Service Fabric applications
 This document teaches you how to estimate the amount of resources (CPUs, RAM, disk storage) you need to run your Azure Service Fabric applications. It is common for your resource requirements to change over time. You typically require few resources as you develop/test your service, and then require more resources as you go into production and your application grows in popularity. When you design your application, think through the long-term requirements and make choices that allow your service to scale to meet high customer demand.

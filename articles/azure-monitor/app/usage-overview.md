@@ -121,7 +121,7 @@ For this technique, you attach distinct property values to all the telemetry tha
 
 In the Application Insights portal, filter and split your data on the property values, so as to compare the different versions.
 
-To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
 **ASP.NET apps**
 

@@ -4,7 +4,7 @@ description: Learn about how to change your Azure subscription and switch to a d
 author: bandersmsft
 manager: amberb
 tags: billing,top-support-issue
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -90,7 +90,7 @@ There is no service downtime for any users associated with the subscription. How
 
 #### Quota increases are reset
 
-When you switch offers, any [limit or quota increases above the default limit](../azure-supportability/resource-manager-core-quotas-request.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
+When you switch offers, any [limit or quota increases above the default limit](../azure-portal/supportability/resource-manager-core-quotas-request.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
 
 #### Billing
 

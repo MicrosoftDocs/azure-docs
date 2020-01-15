@@ -9,13 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
 # Tutorial: Add LUIS results to Application Insights from a Bot in C#
 
 This tutorial adds bot and Language Understanding information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 In this tutorial, you learn how to:
 
@@ -155,7 +157,7 @@ In order to add data to application insights, you need the instrumentation key.
 1. In Visual Studio, build and run the bot. 
 1. Start the bot emulator and open the bot. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
-1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
+1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
 ## View LUIS entries in Application Insights
 

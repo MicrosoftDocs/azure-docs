@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Personalizer client library for .NET | Microsoft Docs"
+title: "Quickstart: Personalizer client library for .NET"
 titleSuffix: Azure Cognitive Services
-description:  Get started with the Personalizer client library for .NET using a learning loop. 
+description:  This quickstart shows how to get started with the Personalizer client library for .NET using a learning loop. 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 
@@ -35,29 +35,28 @@ Get started with the Personalizer client library for .NET. Follow these steps to
 There are several steps to use this quickstart:
 
 * In the Azure portal, create a Personalizer resource
-* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
+* In the Azure portal, for the Personalizer resource, on the **Configuration** page, change the model update frequency
 * In a code editor, create a code file and edit the code file
 * In the command line or terminal, install the SDK from the command line
 * In the command line or terminal, run the code file
 
 ## Create a Personalizer Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
+Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/).
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 After you get a key from your trial subscription or resource, create two [environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY` for the resource key.
 * `PERSONALIZER_RESOURCE_ENDPOINT` for the resource endpoint.
 
-In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
+In the Azure portal, both the key and endpoint values are available from the **quickstart** page.
 
 ## Change the model update frequency
 
-In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This short duration will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -94,7 +93,7 @@ Build succeeded.
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0-preview
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -107,11 +106,11 @@ To ask for a rank of the content, create a [RankRequest](https://docs.microsoft.
 
 To send a reward to Personalizer, create a [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview), then pass it to the [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) method. 
 
-Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture. 
+Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture. 
 
 ## Code examples
 
-These code snippets show you how to do the following with the Personalizer client library for .NET:
+These code snippets show you how to do the following tasks with the Personalizer client library for .NET:
 
 * [Create a Personalizer client](#create-a-personalizer-client)
 * [Request a rank](#request-a-rank)
@@ -135,9 +134,15 @@ Next, create a method to return a Personalizer client. The parameter to the meth
 
 [!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
-## Get content choices represented as actions
+## Get food items as rankable actions
 
-Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference.
+Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to represent the set of actions to rank.
+
+[!code-csharp[Food items as actions](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createAction)]
+
+## Get user preferences for context
+
+Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference. These will be uses as context when ranking the actions.
 
 [!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTimeOfDay)]
 
@@ -153,89 +158,14 @@ The Personalizer learning loop is a cycle of rank and reward calls. In this quic
 
 The following code in the `main` method of the program loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
-```csharp
-static void Main(string[] args)
-{
-    int iteration = 1;
-    bool runLoop = true;
+[!code-csharp[Learning loop](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)]
 
-    // Get the actions list to choose from personalizer with their features.
-    IList<RankableAction> actions = GetActions();
+Add the following methods, which [get the content choices](#get-food-items-as-rankable-actions), before running the code file:
 
-    // Initialize Personalizer client.
-    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
-
-    do
-    {
-        Console.WriteLine("\nIteration: " + iteration++);
-
-        // <rank>
-        // Get context information from the user.
-        string timeOfDayFeature = GetUsersTimeOfDay();
-        string tasteFeature = GetUsersTastePreference();
-
-        // Create current context from user specified data.
-        IList<object> currentContext = new List<object>() {
-            new { time = timeOfDayFeature },
-            new { taste = tasteFeature }
-        };
-
-        // Exclude an action for personalizer ranking. This action will be held at its current position.
-        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
-        // As juice is excluded, the return of the API will always be with a probability of 0.
-        IList<string> excludeActions = new List<string> { "juice" };
-
-        // Generate an ID to associate with the request.
-        string eventId = Guid.NewGuid().ToString();
-
-        // Rank the actions
-        var request = new RankRequest(actions, currentContext, excludeActions, eventId);
-        RankResponse response = client.Rank(request);
-        // </rank>
-
-        Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
-
-        // <reward>
-        float reward = 0.0f;
-        string answer = GetKey();
-
-        if (answer == "Y")
-        {
-            reward = 1;
-            Console.WriteLine("\nGreat! Enjoy your food.");
-        }
-        else if (answer == "N")
-        {
-            reward = 0;
-            Console.WriteLine("\nYou didn't like the recommended food choice.");
-        }
-        else
-        {
-            Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
-        }
-
-        Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
-        foreach (var rankedResponse in response.Ranking)
-        {
-            Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
-        }
-
-        // Send the reward for the action based on user response.
-        client.Reward(response.EventId, new RewardRequest(reward));
-        // </reward>
-
-        Console.WriteLine("\nPress q to break, any other key to continue:");
-        runLoop = !(GetKey() == "Q");
-
-    } while (runLoop);
-}
-```
-
-Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
-
-* GetUsersTimeOfDay
-* GetUsersTastePreference
-* GetKey
+* `GetActions`
+* `GetUsersTimeOfDay`
+* `GetUsersTastePreference`
+* `GetKey`
 
 ## Request a rank
 
@@ -280,4 +210,3 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is Personalizer?](what-is-personalizer.md)
 * [Where can you use Personalizer?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md)
-

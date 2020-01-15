@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure SQL Data Warehouse - SSMS | Microsoft Docs
+title: Connect with SSMS 
 description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: XiaoyuMSFT 
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Connect to SQL Data Warehouse with SQL Server Management Studio (SSMS)
@@ -17,7 +18,7 @@ ms.reviewer: igorstan
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [sqlcmd](../synapse-analytics/sql-analytics/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
@@ -73,7 +74,7 @@ Now that you can connect and query, try [visualizing the data with PowerBI][visu
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Connect to SQL Data Warehouse]:../synapse-analytics/sql-analytics/connect-overview.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 

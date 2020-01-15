@@ -1,12 +1,12 @@
 ---
 title: Optimizing transactions for Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to optimize the performance of your transactional code in Azure SQL Data Warehouse while minimizing risk for long rollbacks.
-services: sql-data-warehouse
+services: synapse analytics
 author: XiaoyuMSFT 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -412,5 +412,5 @@ The best scenario is to let in flight data modification transactions complete pr
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+See [Transactions in SQL Data Warehouse](development-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](best-practices-sql-pool.md).
 

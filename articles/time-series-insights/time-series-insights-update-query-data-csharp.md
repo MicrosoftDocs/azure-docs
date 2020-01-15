@@ -1,16 +1,15 @@
 ---
-title: 'Query data from an Azure Time Series Insights Preview environment using C# code | Microsoft Docs'
-description: This article describes how to query data from an Azure Time Series Insights environment by coding a custom app written in the  C# (C-sharp) .NET language.
+title: 'Query data from a Preview environment using C# - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to query data from an Azure Time Series Insights environment by using an app written in C#.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
 ---
 
@@ -20,13 +19,13 @@ This C# example demonstrates how to query data from the Azure Time Series Insigh
 
 The sample shows several basic examples of Query API usage:
 
-1. As a preparation step, acquire the access token through the Azure Active Directory API. Pass this token in the `Authorization` header of every Query API request. For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Also, ensure all the constants defined at the beginning of the sample are correctly set.
+1. As a preparation step, acquire the access token through the Azure Active Directory API. Pass this token in the `Authorization` header of every Query API request. For setting up non-interactive applications, read [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Also, ensure all the constants defined at the beginning of the sample are correctly set.
 1. The list of environments that the user has access to is obtained. One of the environments is picked up as the environment of interest, and further data is queried for this environment.
 1. As an example of HTTPS request, availability data is requested for the environment of interest.
-1. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
+1. Provides an example of SDK auto-generation support from [Azure AutoRest](https://github.com/Azure/AutoRest).
 
 > [!NOTE]
-> This example code is also available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+> The example code as well as the steps to compile and run it are available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
 ## C# example
 

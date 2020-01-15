@@ -1,7 +1,7 @@
 ---
 title:  "Execute Python Script: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Execute Python Script module in Azure Machine Learning service to run Python code.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Execute Python Script module in Azure Machine Learning to run Python code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Execute Python Script module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
 With Python, you can perform tasks that aren't currently supported by existing modules such as:
 
@@ -76,7 +76,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
 1. Add the **Execute Python Script** module to your pipeline.
 
-2. Add and connect on **Dataset1** any datasets from the interface that you want to use for input. Reference this dataset in your Python script as **DataFrame1**.
+2. Add and connect on **Dataset1** any datasets from the designer that you want to use for input. Reference this dataset in your Python script as **DataFrame1**.
 
     Use of a dataset is optional, if you want to generate data using Python, or use Python code to import the data directly into the module.
 
@@ -92,7 +92,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
 5. In the **Python script** text box, type or paste valid Python script.
 
-    The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. **You must edit or replace this code.** Be sure to follow Python conventions about indentation and casing.
+    The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. You must edit or replace this code. Be sure to follow Python conventions about indentation and casing.
 
     + The script must contain a function named `azureml_main` as the entry point for this module.
     + The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
@@ -100,7 +100,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     Therefore, if your zip file contains `mymodule.py`, import it using `import mymodule`.
 
-    + Two datasets can be returned to the interface, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
+    + Two datasets can be returned to the designer, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
 6. Run the pipeline, or select the module and click **Run selected** to run just the Python script.
 
@@ -119,4 +119,4 @@ The module returns two datasets:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,10 +1,9 @@
 ---
 title: Real-time fraud detection using Azure Stream Analytics
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
-services: stream-analytics 
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics 
 ms.topic: conceptual 
 ms.date: 12/07/2018

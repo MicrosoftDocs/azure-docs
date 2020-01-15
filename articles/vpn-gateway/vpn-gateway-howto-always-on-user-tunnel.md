@@ -1,5 +1,6 @@
 ---
-title: 'Configure an Always On VPN user tunnel for your VPN gateway'
+title: 'Configure an Always-On VPN user tunnel'
+titleSuffix: Azure VPN Gateway
 description: This article describes how to configure an Always On VPN user tunnel for your VPN gateway
 services: vpn-gateway
 author: cherylmc
@@ -94,9 +95,10 @@ After you've configured the virtual network gateway and installed the client cer
    ```
 1. Copy the following text, and save it as *VPNProfile.xml* in the same folder as *usercert.ps1*. Edit the following text to match your environment:
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<PrefixSize>32</PrefixSize>     <= Subnet mask`
 
    ```
 	<VPNProfile>  

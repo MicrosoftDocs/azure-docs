@@ -1,5 +1,5 @@
 ---
-title: 'Reset circuit peering - ExpressRoute:  Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Reset circuit peering'
 description: How to disable and enable ExpressRoute circuit peerings.
 services: expressroute
 author:  charwen
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.custom: seodec18
 ---
 
 # Reset ExpressRoute circuit peerings
@@ -21,7 +20,7 @@ There are a couple scenarios where you may find it helpful resetting your Expres
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

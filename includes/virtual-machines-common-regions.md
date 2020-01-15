@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Regions for virtual machines in Azure
+
 It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
 
 
@@ -25,7 +25,7 @@ Azure has some special regions that you may wish to use when building out your a
 * **US Gov Virginia** and **US Gov Iowa**
   * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
 * **China East** and **China North**
-  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Azure China 21Vianet](http://www.windowsazure.cn/).
+  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Azure China 21Vianet](https://www.windowsazure.cn/).
 * **Germany Central** and **Germany Northeast**
   * These regions are available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
 

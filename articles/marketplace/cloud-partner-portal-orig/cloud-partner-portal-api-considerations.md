@@ -4,6 +4,7 @@ description: Versioning, error-handling, and authorization issues when using the
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
@@ -27,7 +28,7 @@ body.
 
 ``` json
     {
-        "error”: { 
+        "error": { 
             "code":"InvalidAPIVersion",
             "message":"Invalid api version. Allowed values are [2016-08-01-preview]"
         }

@@ -118,7 +118,7 @@ The default password for SSH access to the clusters is `Thisisapassword1`. If yo
 
 ### Create a data factory
 
-Azure Data Factory is a tool that helps automate Azure pipelines. It's not the only way to accomplish these tasks, but it's a great way to automate the processes. For more information on Azure Data Factory, see the [Azure Data Factory documentation](https://azure.microsoft.com/en-us/services/data-factory/). 
+Azure Data Factory is a tool that helps automate Azure pipelines. It's not the only way to accomplish these tasks, but it's a great way to automate the processes. For more information on Azure Data Factory, see the [Azure Data Factory documentation](https://azure.microsoft.com/services/data-factory/). 
 
 This data factory will have one pipeline with two activities: 
 

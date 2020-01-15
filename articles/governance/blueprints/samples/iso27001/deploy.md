@@ -1,11 +1,8 @@
 ---
-title: ISO 27001 blueprint sample - Deploy steps
+title: Deploy ISO 27001 blueprint sample
 description: Deploy steps for the standalone ISO 27001 blueprint sample including blueprint artifact parameter details.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Deploy the ISO 27001 blueprint sample
 
@@ -150,7 +147,7 @@ the following articles to learn about the architecture and control mapping:
 > [ISO 27001 blueprint - Overview](./index.md)
 > [ISO 27001 blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

@@ -1,11 +1,11 @@
 ---
-title: Troubleshooting Starting and Stopping VMs with Azure Automation
-description: This article provides information on troubleshooting Starting and Stopping VMs in Azure Automation
+title: Troubleshoot Starting and Stopping VMs - Azure Automation
+description: This article provides information on troubleshooting Starting and Stopping VMs in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
@@ -23,7 +23,7 @@ Account already exists in another resourcegroup in a subscription. ResourceGroup
 ```
 
 ```error
-Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]".
 ```
 
 ```error

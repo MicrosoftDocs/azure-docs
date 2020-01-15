@@ -1,5 +1,5 @@
 ---
-title: Using IDENTITY to create surrogate keys - Azure SQL Data Warehouse| Microsoft Docs
+title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author:  XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Using IDENTITY to create surrogate keys in Azure SQL Data Warehouse
@@ -155,7 +156,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](../synapse-analytics/sql-analytics/data-loading-overview.md) and  [Loading best practices](../synapse-analytics/sql-analytics/data-loading-best-practices.md).
 
 ## System views
 

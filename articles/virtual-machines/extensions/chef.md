@@ -1,5 +1,5 @@
 ---
-title: Chef extension for Azure VMs  | Microsoft Docs
+title: Chef extension for Azure VMs  
 description: Deploy the Chef Client to a virtual machine using the Chef VM Extension.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -147,6 +147,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | This extension is not supported on the VM's operating system | |
 
 Additional troubleshooting information can be found in the [Chef VM Extension readme](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> For anything else directly related to Chef, contact [Chef Support](https://www.chef.io/support/).
 
 ## Next steps
 

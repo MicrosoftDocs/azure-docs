@@ -5,6 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 6/24/2018
 ms.author: ellacroi

@@ -1,11 +1,8 @@
 ---
-title: ISO 27001 ASE/SQL workload blueprint sample - Overview
+title: ISO 27001 ASE/SQL workload blueprint sample overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
@@ -60,7 +57,7 @@ and how to deploy this sample:
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Control mapping](./control-mapping.md)
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

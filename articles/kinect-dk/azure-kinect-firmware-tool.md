@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect firmware tool
-description:  Azure Kinect Firmware Tool usage
+description:  Understand how to query and update device firmware using the Azure Kinect firmware tool.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

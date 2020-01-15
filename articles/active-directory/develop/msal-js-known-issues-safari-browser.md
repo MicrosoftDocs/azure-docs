@@ -1,18 +1,14 @@
 ---
-title: Known issues on browsers (Microsoft Authentication Library for JavaScript) 
+title: Known Safari browser issues (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about know issues when using the Microsoft Authentication Library for JavaScript (MSAL.js) with Safari browser.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
 ms.author: nacanuma

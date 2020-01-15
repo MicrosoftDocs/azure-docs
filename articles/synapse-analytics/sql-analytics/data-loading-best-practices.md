@@ -1,12 +1,12 @@
 ---
-title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
+title: Data loading best practices
 description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: load-data
+ms.subservice:
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -78,7 +78,7 @@ Consider that loading is usually a two-step process in which you first load to a
 
 ## Loading to a columnstore index
 
-Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](data-load-columnstore-compression.md).
 
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class. 
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
@@ -138,6 +138,6 @@ No other changes to underlying external data sources are needed.
 
 ## Next steps
 
-- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](../../sql-data-warehouse/design-elt-data-loading.md).
+- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](data-loading-overview.md).
 - For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 - To monitor data loads, see [Monitor your workload using DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md).

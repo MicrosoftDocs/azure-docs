@@ -27,7 +27,7 @@ Windows 10 Enterprise multi-session is a virtual edition of Windows 10 Enterpris
  
 ## Can I run Windows 10 Enterprise multi-session on-premises?
 
-Windows 10 Enterprise multi-session can't run in on-premises production environments because it's optimized for the Windows Virtual Desktop service for Azure. It’s against the licensing agreement to run Windows 10 Enterprise multi-session outside of Azure for production purposes. Windows 10 Enterprise multi-session won't activate against on-premise Key Management Services (KMS).
+Windows 10 Enterprise multi-session can't run in on-premises production environments because it's optimized for the Windows Virtual Desktop service for Azure. It’s against the licensing agreement to run Windows 10 Enterprise multi-session outside of Azure for production purposes. Windows 10 Enterprise multi-session won't activate against on-premises Key Management Services (KMS).
  
 ## How do I customize the Windows 10 Enterprise multi-session image for my organization?
 

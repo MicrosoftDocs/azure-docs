@@ -1,12 +1,9 @@
 ---
-title: Wait and respond to events - Azure Logic Apps
+title: Wait and respond to events
 description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
@@ -100,7 +97,7 @@ This built-in action registers a callback URL with the specified service, pauses
 
    This example renames the action to "HTTP Webhook action" so that the step has a more descriptive name.
 
-1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) that you want to use for the subscribe and unsubscribe calls, for example:
+1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) that you want to use for the subscribe and unsubscribe calls, for example:
 
    ![Enter HTTP Webhook action parameters](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -114,7 +111,7 @@ This built-in action registers a callback URL with the specified service, pauses
 
 ## Connector reference
 
-For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### Output details
 

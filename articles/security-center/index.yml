@@ -8,12 +8,11 @@ metadata:
   description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
   ms.author: memildin #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
+  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,20 +30,34 @@ landingContent:
             url: security-center-os-coverage.md
  
   # Card
+  - title: Stay current
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Protect your containers
+            url: container-security.md
+          - text: Add dynamic compliance packages
+            url: update-regulatory-compliance-packages.md
+          - text: Integrate with Windows Admin Center
+            url: windows-admin-center-integration.md
+          - text: Automate responses to alerts and recommendations
+            url: workflow-automation.md
+          - text: Export security alerts and recommendations
+            url: continuous-export.md
+          - text: Set up advanced threat protection for Azure Key Vault 
+            url: advanced-threat-protection-key-vault.md
+ 
+  # Card
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
           - text: Configure your security policies
             url: tutorial-security-policy.md
-          - text: Adjust Security Center's settings
-            url: security-center-policies-overview.md
           - text: Evaluate your security posture
             url: security-center-secure-score.md
           - text: Upgrade to advanced security
             url: security-center-onboarding.md
-          - text: Integrate with other Azure security products
-            url: security-center-alerts-integration.md
 
   # Card
   - title: Improve your secure score

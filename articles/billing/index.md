@@ -7,7 +7,7 @@ author: cwatson-cat
 manager: dougeby
 layout: LandingPage
 ms.assetid:
-ms.service: billing
+ms.service: cost-management-billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

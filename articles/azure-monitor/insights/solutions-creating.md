@@ -56,7 +56,7 @@ You [create custom views using the View Designer](../../azure-monitor/platform/v
 
 
 ## Create solution file
-Once you've configured and tested the components that will be part of your solution, you can [create your solution file]( solutions-solution-file.md).  You will implement the solution components in a [Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) that includes a [solution resource]( solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
+Once you've configured and tested the components that will be part of your solution, you can [create your solution file]( solutions-solution-file.md).  You will implement the solution components in a [Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) that includes a [solution resource]( solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
 
 
 ## Test your solution
@@ -72,5 +72,5 @@ Once you have completed and tested your solution, you can make it available to c
 
 ## Next steps
 * Learn how to [create a solution file]( solutions-solution-file.md) for your management solution.
-* Learn the details of [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Learn the details of [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.

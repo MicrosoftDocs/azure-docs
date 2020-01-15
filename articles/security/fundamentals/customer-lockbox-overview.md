@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
+ms.date: 11/04/2019
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -86,7 +86,7 @@ As an example:
 
 ![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## Supported services and scenarios
+## Supported services and scenarios in general availability
 
 The following services and scenarios are currently in general availability for Customer Lockbox.
 
@@ -103,6 +103,23 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 #### Detailed audit logs
 
 For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+
+## Supported services and scenarios in preview
+
+The following services are now currently in preview for Customer Lockbox:
+
+- Azure Storage 
+
+- Azure SQL DB 
+
+- Azure Data Explorer 
+
+- Virtual machines (now also covering access to memory dumps and managed disks) 
+
+- Azure subscription transfers
+
+To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
+
 
 ## Exclusions
 

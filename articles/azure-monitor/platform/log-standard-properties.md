@@ -3,7 +3,7 @@ title: Standard properties in Azure Monitor log records | Microsoft Docs
 description: Describes properties that are common to multiple data types in Azure Monitor logs.
 ms.service:  azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019

@@ -3,7 +3,7 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
 ---
 
@@ -50,12 +50,12 @@ Create your resource group and single database using the Azure portal.
 
      ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Select **Provisioned** and **Gen5**.
+   - Select **Provisioned**.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Review the settings for **Max vCores**, **Min vCores**, **Autopause delay**, and **Data max size**. Change these as desired.
-   - Accept the preview terms and click **OK**.
+   - Review the settings for **vCores**, and **Data max size**. Change these as desired. 
+     - Optionally, you can also select **Change configuration** to change the hardware generation.
    - Select **Apply**.
 
 5. Select the **Additional settings** tab. 

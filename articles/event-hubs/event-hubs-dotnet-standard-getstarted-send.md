@@ -55,8 +55,8 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 
     ```csharp
     using Microsoft.Azure.EventHubs;
-	using System.Text;
-	using System.Threading.Tasks;
+    using System.Text;
+    using System.Threading.Tasks;
     ```
 
 2. Add constants to the `Program` class for the Event Hubs connection string and entity path (individual event hub name). Replace the placeholders in brackets with the proper values that were obtained when creating the event hub. Make sure that the `{Event Hubs connection string}` is the namespace-level connection string, and not the event hub string. 

@@ -1,5 +1,5 @@
 ---
-title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft Docs
+title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Guidance for designing distributed tables in Azure SQL Data Warehouse
@@ -22,7 +23,7 @@ A distributed table appears as a single table, but the rows are actually stored 
 
 **Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
 
-Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
+Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](../synapse-analytics/sql-analytics/development-tables-overview.md). 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -54,7 +55,7 @@ Consider using the round-robin distribution for your table in the following scen
 
 - When getting started as a simple starting point since it is the default
 - If there is no obvious joining key
-- If there is not good candidate column for hash distributing the table
+- If there is no good candidate column for hash distributing the table
 - If the table does not share a common join key with other tables
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
@@ -130,7 +131,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 To identify which tables have more than 10% data skew:
 
-1. Create the view dbo.vTableSizes that is shown in the [Tables overview](sql-data-warehouse-tables-overview.md#table-size-queries) article.  
+1. Create the view dbo.vTableSizes that is shown in the [Tables overview](../synapse-analytics/sql-analytics/development-tables-overview.md#table-size-queries) article.  
 2. Run the following query:
 
 ```sql

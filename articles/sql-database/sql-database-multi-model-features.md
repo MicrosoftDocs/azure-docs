@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Multi-model capabilities | Microsoft Docs
+title: Multi-model capabilities
 description: Azure SQL Database enables you to work with multiple data models in the same database.
 services: sql-database
 ms.service: sql-database
@@ -23,7 +23,7 @@ You should consider using multi-model capabilities of Azure SQL Database in the 
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
 - A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
 - You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and applications that can use SQL language.
-- You want to apply database features such as [in-memory technologies](sql-database-in-memory.md) to improve performance of your analytic or processing of your NoSQL data strucutres, use [transactional replication](sql-database-managed-instance-transactional-replication.md) or [readable replicas](sql-database-read-scale-out.md) to create copy of your data on the other place and offload soem analytic workloads from the primary database.
+- You want to apply database features such as [in-memory technologies](sql-database-in-memory.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](sql-database-managed-instance-transactional-replication.md) or [readable replicas](sql-database-read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
 
 ## Overview
 
@@ -32,7 +32,7 @@ Azure SQL provides the following multi-model features:
 - [JSON features](#json-features) enable you to put JSON documents in tables, transform relational data to JSON documents and vice versa. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents, and use non clustered indexes, columnstore indexes, or memory-optimized tables, to optimize your queries.
 - [Spatial features](#spatial-features) enables you to store geographical and geometrical data, index them using the spatial indexes, and retrieve the data using spatial queries.
 - [XML features](#xml-features) enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL database has specialized built-in XML query engine that process XML data.
-- [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value paris can be natively modeled as two-column tables.
+- [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value pairs can be natively modeled as two-column tables.
 
   > [!Note]
   > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](/azure/cosmos-db/) that provides specialized API for different data models.
@@ -62,7 +62,7 @@ There is nothing a graph database can achieve, which cannot be achieved using a 
 
 Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
 
-JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
+JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
 
 Azure SQL Database lets you work with JSON data easily and integrate your database with modern services. Azure SQL Database provides the following functions for working with JSON data:
 

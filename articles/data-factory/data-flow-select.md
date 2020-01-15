@@ -1,10 +1,11 @@
 ---
-title: Azure Data Factory mapping data flow Select Transformation
+title: Mapping data flow Select Transformation
 description: Azure Data Factory mapping data flow Select Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
 ---
 

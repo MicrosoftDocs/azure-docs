@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Add an Azure SQL Database single database to a failover group | Microsoft Docs"
+title: "Tutorial: Add a single database to a failover group"
 description: Add an Azure SQL Database single database to a failover group using the Azure portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database
@@ -421,6 +421,10 @@ This portion of the tutorial uses the following Az CLI cmdlets:
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 ---
+
+
+> [!IMPORTANT]
+> If you want to keep the resource group but delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 
 ## Full scripts

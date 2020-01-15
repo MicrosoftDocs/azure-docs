@@ -3,7 +3,7 @@ title: Create free services with Azure free account
 description: Learn how to create services included with Azure free account.
 author: amberbhargava
 manager: amberb
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

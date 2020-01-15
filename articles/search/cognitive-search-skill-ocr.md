@@ -1,18 +1,18 @@
 ---
-title: OCR cognitive search skill - Azure Search
-description: Extract text from image files using optical character recognition (OCR) in an Azure Search enrichment pipeline.
-services: search
+title: OCR cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 # OCR cognitive skill
 
-Optical character recognition (OCR) skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
+The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
 + The ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) API is used for languages other than English. 
 + For English, the new ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API is used.
@@ -27,9 +27,9 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .TIFF
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## Skill parameters
@@ -200,7 +200,7 @@ The above skillset example assumes that a normalized-images field exists. To gen
 ```
 
 ## See also
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

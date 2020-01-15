@@ -1,6 +1,6 @@
 ---
 title: How to deploy OPC Twin cloud dependencies in Azure | Microsoft Docs
-description: How to deploy OPC Twin Azure dependencies.
+description: This article describes how to deploy the OPC Twin Azure dependencies needed to do local development and debugging. 
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018

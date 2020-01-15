@@ -1,19 +1,19 @@
 ---
-title: Expression functions in the mapping data flow feature of Azure Data Factory
+title: Expression functions in the mapping data flow
 description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/15/2019
 ---
 
 # Data transformation expressions in mapping data flow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
-
-
 
 ## Expression functions
 

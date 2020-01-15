@@ -3,10 +3,6 @@ title: Tutorial - Configure dynamic inventories of your Azure resources using An
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/23/2019
 ---
 
@@ -150,7 +146,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg`.
+    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`.
 
     ```bash
     host_key_checking = False
@@ -227,7 +223,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     

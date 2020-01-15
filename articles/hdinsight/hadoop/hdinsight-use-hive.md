@@ -15,7 +15,7 @@ ms.date: 10/04/2019
 
 [Apache Hive](https://hive.apache.org/) is a data warehouse system for Apache Hadoop. Hive enables data summarization, querying, and analysis of data. Hive queries are written in HiveQL, which is a query language similar to SQL.
 
-Hive allows you to project structure on largely unstructured data. After you define the structure, you can use HiveQL to query the data without knowledge of Java or MapReduce.
+Hive allows you to project structure on largely structured data. After you define the structure, you can use HiveQL to query the data without knowledge of Java or MapReduce.
 
 HDInsight provides several cluster types, which are tuned for specific workloads. The following cluster types are most often used for Hive queries:
 

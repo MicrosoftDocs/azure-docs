@@ -1,13 +1,8 @@
 ﻿---
-title: Improve performance of Azure applications with Azure Advisor | Microsoft Docs
+title: Improve performance of Azure applications with Azure Advisor
 description: Use Advisor to optimize the performance of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
 ---
 
 # Improve performance of Azure applications with Azure Advisor
@@ -68,7 +63,7 @@ Advisor identifies tables that are not replicated tables but would benefit from 
 Migrate your Storage Account deployment model to Azure Resource Manager (Resource Manager) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the Resource Manager deployment model.
 
 > [!NOTE]
-> Classic alerts in Azure Monitor have been retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Classic alerts in Azure Monitor have been retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## Design your storage accounts to prevent hitting the maximum subscription limit
 
@@ -117,6 +112,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

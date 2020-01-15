@@ -1,29 +1,38 @@
 ---
-title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
-services: sql-data-warehouse
-author: XiaoyuMSFT
+title: Creating, updating statistics
+description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
+services: synapse analytics
+author: filippopovic
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
-ms.date: 05/09/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seoapril2019
+ms.subservice:
+ms.date: 10/15/2019
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.custom: 
 ---
 
-# Table statistics in Azure SQL Data Warehouse
+# Statistics in SQL Analytics
 
-Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
+Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the SQL Analytics resources: SQL pool and SQL on-demand.
 
-## Why use statistics
+## Statistics in SQL pool
 
-The more Azure SQL Data Warehouse knows about your data, the faster it can execute queries against it. After loading data into SQL Data Warehouse, collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+### Why use statistics
 
-## Automatic creation of statistic
+The more the SQL pool resource knows about your data, the faster it can execute queries. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do for query optimization.  
 
-When the database AUTO_CREATE_STATISTICS option is on, SQL Data Warehouse analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is currently turned on by default.
+The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
+
+For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+
+### Automatic creation of statistics
+
+SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. This function is used to improve cardinality estimates for the query plan. 
+
+> [!IMPORTANT]
+> Automatic creation of statistics is currently turned on by default.
 
 You can check if your data warehouse has AUTO_CREATE_STATISTICS configured by running the following command:
 
@@ -32,14 +41,14 @@ SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-If your data warehouse does not have AUTO_CREATE_STATISTICS configured, we recommend you enable this property by running the following command:
+If your data warehouse doesn't have AUTO_CREATE_STATISTICS enabled, we recommend you enable this property by running the following command:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-These statements will trigger automatic creation of statistics:
+These statements will trigger the automatic creation of statistics:
 
 - SELECT
 - INSERT-SELECT
@@ -49,24 +58,30 @@ These statements will trigger automatic creation of statistics:
 - EXPLAIN when containing a join or the presence of a predicate is detected
 
 > [!NOTE]
-> Automatic creation of statistics are not created on temporary or external tables.
+> The automatic creation of statistics is not generated on temporary or external tables.
 
-Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table. To avoid measurable performance degradation, especially in performance benchmarking, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
+Automatic creation of statistics is done synchronously. So, you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table. 
+
+To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
-> The creation of stats will be logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
+> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
 
-When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats that have already been created by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
+When automatic statistics are created, they'll take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-The table_name is the name of the table that contains the statistics to display. This cannot be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
+The table_name is the name of the table that contains the statistics to display, which can't be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
 
-## Updating statistics
+### Update statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
+
+Statistics on a country or region column in a customer table might never need to be updated because the distribution of values doesn’t usually change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+
+However, when your data warehouse only contains one country or region and you bring in data from a new country or region, then you need to update statistics on the country or region column.
 
 The following are recommendations updating statistics:
 
@@ -75,11 +90,13 @@ The following are recommendations updating statistics:
 | **Frequency of stats updates**  | Conservative: Daily </br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent). </br> With more than 1 billion rows, use sampling of two percent. |
 
+### Determine last statistics update
+
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
-This question is not one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics.
+This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or a material change in the distribution of values for a column occurs, *then* it's time to update statistics.
 
-There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture. You can use the following query to determine the last time your statistics were updated on each table.
+There isn't a dynamic management view available to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture. You can use the following query to determine the last time your statistics were updated on each table.
 
 > [!NOTE]
 > If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
@@ -111,33 +128,34 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
+**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
 
-For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
+Statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
 
-## Implementing statistics management
+But, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column. For further information, review the [Statistics](/sql/relational-databases/statistics/statistics) article.
 
-It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore, this is a logical place to implement some management processes.
+### Implementing statistics management
+
+It's often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size, distribution of values, or both. As such, the load process is a logical place to implement some management processes.
 
 The following guiding principles are provided for updating your statistics during the load process:
 
-* Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
+* Ensure that each loaded table has at least one statistics object updated. This process updates the table size (row count and page count) information as part of the statistics update.
 * Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-* Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+* Consider updating "ascending key" columns such as transaction dates more frequently because these values won't be included in the statistics histogram.
 * Consider updating static distribution columns less frequently.
 * Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## Examples: Create statistics
+### Examples: Create statistics
 
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
-### Create single-column statistics with default options
+#### Create single-column statistics with default options
 
-To create statistics on a column, simply provide a name for the statistics object and the name of the column.
-
-This syntax uses all of the default options. By default, SQL Data Warehouse samples **20 percent** of the table when it creates statistics.
+To create statistics on a column, provide a name for the statistics object and the name of the column.
+This syntax uses all of the default options. By default, SQL pool samples **20 percent** of the table when it creates statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -149,11 +167,9 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### Create single-column statistics by examining every row
+#### Create single-column statistics by examining every row
 
-The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate.
-
-To sample the full table, use this syntax:
+The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate. To sample the full table, use this syntax:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
@@ -165,19 +181,19 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### Create single-column statistics by specifying the sample size
+#### Create single-column statistics by specifying the sample size
 
-Alternatively, you can specify the sample size as a percent:
+Another option you have is to specify the sample size as a percent:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### Create single-column statistics on only some of the rows
+#### Create single-column statistics on only some of the rows
 
-You can also create statistics on a portion of the rows in your table. This is called a filtered statistic.
+You can also create statistics on a portion of the rows in your table, which is called a filtered statistic.
 
-For example, you can use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics will improve, and therefore improve query performance.
+For example, you can use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics will improve. You'll also experience an improvement in query performance.
 
 This example creates statistics on a range of values. The values can easily be defined to match the range of values in a partition.
 
@@ -188,7 +204,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 > [!NOTE]
 > For the query optimizer to consider using filtered statistics when it chooses the distributed query plan, the query must fit inside the definition of the statistics object. Using the previous example, the query's WHERE clause needs to specify col1 values between 2000101 and 20001231.
 
-### Create single-column statistics with all the options
+#### Create single-column statistics with all the options
 
 You can also combine the options together. The following example creates a filtered statistics object with a custom sample size:
 
@@ -198,9 +214,9 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
-### Create multi-column statistics
+#### Create multi-column statistics
 
-To create a multi-column statistics object, simply use the previous examples, but specify more columns.
+To create a multi-column statistics object, use the previous examples, but specify more columns.
 
 > [!NOTE]
 > The histogram, which is used to estimate the number of rows in the query result, is only available for the first column listed in the statistics object definition.
@@ -211,9 +227,9 @@ In this example, the histogram is on *product\_category*. Cross-column statistic
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Because there is a correlation between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
+Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
 
-### Create statistics on all columns in a table
+#### Create statistics on all columns in a table
 
 One way to create statistics is to issue CREATE STATISTICS commands after creating the table:
 
@@ -235,10 +251,9 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### Use a stored procedure to create statistics on all columns in a database
+#### Use a stored procedure to create statistics on all columns in a database
 
-SQL Data Warehouse does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
-
+SQL pool doesn't have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
 ```sql
@@ -339,22 +354,21 @@ To create statistics on all columns in the table using a fullscan, call this pro
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-To create sampled statistics on all columns in the table, enter 3, and the sample percent. This procedures uses a 20 percent sample rate.
+To create sampled statistics on all columns in the table, enter 3, and the sample percent. The procedure below uses a 20 percent sample rate.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-To create sampled statistics on all columns
 
-## Examples: Update statistics
+### Examples: Update statistics
 
 To update statistics, you can:
 
 - Update one statistics object. Specify the name of the statistics object you want to update.
 - Update all statistics objects on a table. Specify the name of the table instead of one specific statistics object.
 
-### Update one specific statistics object
+#### Update one specific statistics object
 
 Use the following syntax to update a specific statistics object:
 
@@ -368,9 +382,9 @@ For example:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-By updating specific statistics objects, you can minimize the time and resources required to manage statistics. This requires some thought to choose the best statistics objects to update.
+By updating specific statistics objects, you can minimize the time and resources required to manage statistics. This action requires some thought for selecting the best statistics objects to update.
 
-### Update all statistics on a table
+#### Update all statistics on a table
 
 A simple method for updating all the statistics objects on a table is:
 
@@ -384,20 +398,19 @@ For example:
 UPDATE STATISTICS dbo.table1;
 ```
 
-The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
+The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, prompting more work than is necessary. If performance isn't an issue, this method is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
-> When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
+> When updating all statistics on a table, SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
-For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](development-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
+For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary tables](development-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
+For the full syntax, see [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 
-For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
+### Statistics metadata
 
-## Statistics metadata
+There are several system views and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out of date by using the STATS_DATE() function. STATS_DATE() allows you to see when statistics were last created or updated.
 
-There are several system views and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out of date by using the stats-date function to see when statistics were last created or updated.
-
-### Catalog views for statistics
+#### Catalog views for statistics
 
 These system views provide information about statistics:
 
@@ -411,7 +424,7 @@ These system views provide information about statistics:
 | [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |One row for each table (includes external tables). |
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |One row for each data type. |
 
-### System functions for statistics
+#### System functions for statistics
 
 These system functions are useful for working with statistics:
 
@@ -420,7 +433,7 @@ These system functions are useful for working with statistics:
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Date the statistics object was last updated. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
-### Combine statistics columns and functions into one view
+#### Combine statistics columns and functions into one view
 
 This view brings columns that relate to statistics and results from the STATS_DATE() function together.
 
@@ -460,7 +473,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## DBCC SHOW_STATISTICS() examples
+### DBCC SHOW_STATISTICS() examples
 
 DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data comes in three parts:
 
@@ -468,9 +481,9 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 - Density vector
 - Histogram
 
-The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL Data Warehouse computes cardinality estimates with any of the data in the statistics object.
+The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL pool computes cardinality estimates with any of the data in the statistics object.
 
-### Show header, density, and histogram
+#### Show header, density, and histogram
 
 This simple example shows all three parts of a statistics object:
 
@@ -484,7 +497,7 @@ For example:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Show one or more parts of DBCC SHOW_STATISTICS()
+#### Show one or more parts of DBCC SHOW_STATISTICS()
 
 If you're only interested in viewing specific parts, use the `WITH` clause and specify which parts you want to see:
 
@@ -498,18 +511,202 @@ For example:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## DBCC SHOW_STATISTICS() differences
+### DBCC SHOW_STATISTICS() differences
 
-DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server:
+DBCC SHOW_STATISTICS() is more strictly implemented in SQL pool compared to SQL Server:
 
-- Undocumented features are not supported.
-- Cannot use Stats_stream.
-- Cannot join results for specific subsets of statistics data. For example, STAT_HEADER JOIN DENSITY_VECTOR.
-- NO_INFOMSGS cannot be set for message suppression.
-- Square brackets around statistics names cannot be used.
-- Cannot use column names to identify statistics objects.
-- Custom error 2767 is not supported.
+- Undocumented features aren't supported.
+- Can't use Stats_stream.
+- Can't join results for specific subsets of statistics data. For example, STAT_HEADER JOIN DENSITY_VECTOR.
+- NO_INFOMSGS can't be set for message suppression.
+- Square brackets around statistics names can't be used.
+- Can't use column names to identify statistics objects.
+- Custom error 2767 isn't supported.
+
+### Next steps
+
+For further improve query performance, see [Monitor your workload](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md)
+
+
+
+## Statistics in SQL on-demand
+Statistics are created per particular column for particular dataset (OPENROWSET path).
+
+### Why use statistics
+
+The more SQL on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+
+### Automatic creation of statistics
+
+SQL on-demand analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
+
+The SELECT statement will trigger automatic creation of statistics.
+
+> [!NOTE]
+> Automatic creation of statistics is turned on for Parquet files. For CSV files,  you need to create statistics manually until automatic creation of CSV files statistics is supported.
+
+Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted. 
+
+### Manual creation of statistics
+
+SQL on-demand lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. See the examples below for instructions on how to manually create statistics.
+
+### Updating statistics
+
+Changes to data in files, deleting, and adding files result in data distribution changes and makes statistics out of date. In that case, statistics needs to be updated.
+
+SQL on-demand automatically recreates statistics if data is changed significantly. Every time statistics are automatically created, the current state of the dataset is also saved: file paths, sizes, last modification dates.
+
+When statistics are stale, new ones will be created. The algorithm goes through the data and compares it to the current state of the dataset. If the size of the changes is greater than the specific threshold, then old stats are deleted and will be re-created over the new dataset.
+
+Manual stats are never declared stale.
+
+>[!NOTE]
+Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
+
+One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
+
+When the number of rows has changed substantially, or there's a material change in the distribution of values for a column, *then* it's time to update statistics.
+
+> [!NOTE]
+> If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
+
+### Implementing statistics management
+
+You may want to extend your data pipeline to ensure that statistics are updated when data is significantly altered through addition, deletion, or change of files.
+
+The following guiding principles are provided for updating your statistics:
+
+- Ensure that the dataset has at least one statistics object updated. This updates size (row count and page count) information as part of the statistics update.
+- Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
+- Update "ascending key" columns such as transaction dates more frequently because these values won't be included in the statistics histogram.
+- Update static distribution columns less frequently.
+
+For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
+
+### Examples: Create statistics
+
+The following examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+
+> [!NOTE]
+> You can create single-column statistics only at this moment.
+
+The following stored procedure is used to create statistics:
+```sql
+sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+```
+Arguments:
+[ @stmt = ] N'statement_text' -
+Specifies a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify samples of data to be used. If TABLESAMPLE isn't specified, FULLSCAN will be used. 
+```sql
+<tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
+```
+> [!NOTE]
+> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
+
+#### Create single-column statistics by examining every row
+
+To create statistics on a column, provide a query that returns the column for which you need statistics.
+
+By default, if you don't specify otherwise, SQL on-demand uses 100%  of the data provided in the dataset when it creates statistics.
+
+For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
+
+```sql
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
+*/
+
+EXEC sys.sp_create_file_statistics N'SELECT year 
+FROM OPENROWSET(
+        BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
+        FORMAT = ''CSV'', 
+        FIELDTERMINATOR ='','', 
+        ROWTERMINATOR = ''\n''
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+) AS [r]
+'
+```
+
+#### Create single-column statistics by specifying the sample size
+
+You can specify the sample size as a percent:
+
+```sql
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
+*/
+
+EXEC sys.sp_create_file_statistics N'SELECT payment_type 
+FROM OPENROWSET(
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+ 		FORMAT = ''PARQUET''
+	) AS [nyc] 
+	TABLESAMPLE(5 PERCENT)
+'
+```
+
+### Examples: Update statistics
+
+To update statistics, you need to drop and create statistics. The following stored procedure is used to drop statistics:
+```sql
+sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+```
+Arguments:
+[ @stmt = ] N'statement_text' - 
+Specifies the same Transact-SQL statement used when the statistics were created. 
+
+To update the statistics for the year column in the dataset, which is based on the population.csv file, you need to drop and create statistics:
+
+```sql
+EXEC sys.sp_drop_file_statistics N'SELECT payment_type 
+FROM OPENROWSET(
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+ 		FORMAT = ''PARQUET''
+	) AS [nyc] 
+	TABLESAMPLE(5 PERCENT)
+'
+GO
+
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
+*/
+
+EXEC sys.sp_create_file_statistics N'SELECT payment_type 
+FROM OPENROWSET(
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+ 		FORMAT = ''PARQUET''
+	) AS [nyc] 
+	TABLESAMPLE(5 PERCENT)
+'
+```
 
 ## Next steps
 
-For further improve query performance, see [Monitor your workload](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md)
+For further query performance improvements, see [Best practices for SQL pool](best-practices-sql-pool.md#maintain-statistics).

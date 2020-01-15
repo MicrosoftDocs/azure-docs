@@ -10,12 +10,15 @@
  ms.custom: include file
 ---
 
-1. In the portal, on the left side, click **+ Create a resource** and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** page, click **Create**. This opens the **Create virtual network gateway** page.
+1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**. 
+
+   ![Create a resource in the Azure portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+2. In the **Search the marketplace** field, type 'Virtual Network Gateway'. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** page, click **Create**. This opens the **Create virtual network gateway** page.
 
    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Create virtual network gateway page fields")
 
    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw2.png "Create virtual network gateway page fields")
-2. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway.
+3. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway.
 
    **Project details**
 
@@ -44,6 +47,6 @@
 
    Leave **Configure BGP ASN** deselected, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
 
-3. Click **Review + Create** to run validation. Once validation passes, click **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
+4. Click **Review + Create** to run validation. Once validation passes, click **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
 
 After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.

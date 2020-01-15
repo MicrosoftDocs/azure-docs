@@ -1,6 +1,6 @@
 ---
 
-title: Configure ExpressRoute Direct - Azure CLI | Microsoft Docs
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
 description: This article helps you configure ExpressRoute Direct by using the Azure CLI
 services: expressroute
 author: cherylmc
@@ -9,7 +9,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 
@@ -270,7 +269,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    }
    ```
 
-   Use the same procedure to down the ports by using `AdminState = “Disabled”`.
+   Use the same procedure to down the ports by using `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Create a circuit
 

@@ -10,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: georgewallace
-ms.author: gwallace
-manager: gwallace
+author: tgore03
+ms.author: tagore
+
 ---
 
 # Azure Cloud Services Definition WorkerRole Schema
@@ -59,10 +59,10 @@ The basic format of the service definition file containing a worker role is as f
       </Environment>
       <EntryPoint>
          <NetFxEntryPoint assemblyName="<name-of-assembly-containing-entrypoint>" targetFrameworkVersion="<.net-framework-version>"/>
-         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]" "/>
+         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]"/>
       </EntryPoint>
     </Runtime>
-    <Startup priority="<for-internal-use-only>”>
+    <Startup priority="<for-internal-use-only>">
       <Task commandLine="" executionContext="[limited|elevated]" taskType="[simple|foreground|background]">
         <Environment>
          <Variable name="<variable-name>" value="<variable-value>">
@@ -413,3 +413,6 @@ The following table describes the attributes of the `SourceDirectory` element.
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
+

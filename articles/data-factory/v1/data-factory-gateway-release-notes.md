@@ -1,14 +1,14 @@
 ---
-title: Release notes for Data Management Gateway | Microsoft Docs
+title: Release notes for Data Management Gateway 
 description: Data Management Gateway tory release notes
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018

@@ -1,17 +1,11 @@
 ---
-title: Configuration FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about configuration and management issues for the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Configuration FAQs
+description: Get answers to frequently asked questions about configuration and management issues for Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
@@ -39,12 +33,12 @@ To learn how to purchase and set up a custom domain for your App Service web app
 
 ## How do I upload and configure an existing SSL certificate for my web app?
 
-To learn how to upload and set up an existing custom SSL certificate, see [Bind an existing custom SSL certificate to an Azure web app](app-service-web-tutorial-custom-ssl.md#upload).
+To learn how to upload and set up an existing custom SSL certificate, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I purchase and configure a new SSL certificate in Azure for my web app?
 
-To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](web-sites-purchase-ssl-web-site.md).
+To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I move Application Insights resources?

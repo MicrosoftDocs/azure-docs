@@ -3,7 +3,7 @@ title: resource() expression in Azure Monitor log query | Microsoft Docs
 description: The resource expression is used in a resource-centric Azure Monitor log query to retrieve data from multiple resources.
 ms.service:  azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018

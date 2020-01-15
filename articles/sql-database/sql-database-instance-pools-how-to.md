@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instance pools how-to guide (preview) | Microsoft Docs
+title: Instance pools how-to guide (preview) 
 description: This article describes how to create and manage Azure SQL Database instance pools (preview).
 services: sql-database
 ms.service: sql-database
@@ -86,11 +86,17 @@ The following restrictions apply to instance pools:
 
 - Only General Purpose and Gen5 are available in public preview.
 - Pool name can contain only lowercase, numbers and hyphen, and can't start with a hyphen.
-- To get the subnet ID, use `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - If you want to use AHB (Azure Hybrid Benefit), it is applied at the instance pool level. You can set the license type during pool creation or update it anytime after creation.
 
 > [!IMPORTANT]
 > Deploying an instance pool is a long running operation that takes approximately 4.5 hours.
+
+To get network parameters:
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 To create an instance pool:
 
@@ -98,7 +104,7 @@ To create an instance pool:
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

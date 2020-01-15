@@ -1,14 +1,13 @@
 ---
-title: Configure SSL policy on Azure Application Gateway - PowerShell
+title: Configure SSL policy using PowerShell
+titleSuffix: Azure Application Gateway
 description: This article provides instructions to configure SSL Policy on Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/3/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
 
 # Configure SSL policy versions and cipher suites on Application Gateway

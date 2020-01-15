@@ -1,5 +1,5 @@
 ---
-title: Cluster setup for Apache Hadoop, Spark, Kafka, HBase, or R Server - Azure
+title: Cluster setup for Apache and R Server in Azure HDInsight
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 author: hrasheed-msft
@@ -33,7 +33,6 @@ The following table shows the different methods you can use to set up an HDInsig
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 ## Basic cluster setup
@@ -52,7 +51,7 @@ Follow instructions on the screen. Details are provided below for:
 
 ## Resource group name
 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
 ## <a name="cluster-types"></a> Cluster types and configuration
 
@@ -203,7 +202,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 If you are just trying out HDInsight, we recommend you use one Worker node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
-> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to increase the limit.
+> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the limit.
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Configuration + pricing** tab. In the portal, you can also see the cost associated with the different node sizes.
 

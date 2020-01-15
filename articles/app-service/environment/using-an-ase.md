@@ -1,15 +1,9 @@
 ---
-title: Use App Service environment - Azure
-description: How to create, publish, and scale apps in an Azure App Service environment
-services: app-service
-documentationcenter: na
+title: Use and manage ASE
+description: How to create, publish, and scale apps in an Azure App Service environment. Find the common tasks in one document.
 author: ccompy
-manager: stefsch
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
@@ -173,8 +167,8 @@ To delete an ASE:
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

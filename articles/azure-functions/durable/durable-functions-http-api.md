@@ -1,13 +1,9 @@
 ---
 title: HTTP APIs in Durable Functions - Azure Functions
 description: Learn how to implement HTTP APIs in the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
 ---
 
@@ -104,7 +100,7 @@ Here is an example response payload for an orchestration instance with `abc123` 
 }
 ```
 
-The http response is intended to be compatible with the *Polling Consumer Pattern*. It also includes the following notable response headers:
+The HTTP response is intended to be compatible with the *Polling Consumer Pattern*. It also includes the following notable response headers:
 
 * **Location**: The URL of the status endpoint. This URL contains the same value as the `statusQueryGetUri` field.
 * **Retry-After**: The number of seconds to wait between polling operations. The default value is `10`.
@@ -612,14 +608,14 @@ The responses for this API do not contain any content.
 Sends a one-way operation message to a [Durable Entity](durable-functions-types-features-overview.md#entity-functions). If the entity doesn't exist, it will be created automatically.
 
 > [!NOTE]
-> Durable Entities are available starting in Durable Functions 2.0.
+> Durable entities are available starting in Durable Functions 2.0.
 
 ### Request
 
 The HTTP request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
-POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -630,8 +626,8 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field             | Parameter type  | Description |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | The type of the entity. |
-| **`entityKey`**   | URL             | The unique name of the entity. |
+| **`entityName`**  | URL             | The name (type) of the entity. |
+| **`entityKey`**   | URL             | The key (unique ID) of the entity. |
 | **`op`**          | Query string    | Optional. The name of the user-defined operation to invoke. |
 | **`{content}`**   | Request content | The JSON-formatted event payload. |
 
@@ -644,17 +640,20 @@ Content-Type: application/json
 5
 ```
 
+> [!NOTE]
+> By default with [class-based entities in .NET](durable-functions-dotnet-entities.md#defining-entity-classes), specifying the `op` value of `delete` will delete the state of an entity. If the entity defines an operation named `delete`, however, that user-defined operation will be invoked instead.
+
 ### Response
 
 This operation has several possible responses:
 
 * **HTTP 202 (Accepted)**: The signal operation was accepted for asynchronous processing.
 * **HTTP 400 (Bad request)**: The request content was not of type `application/json`, was not valid JSON, or had an invalid `entityKey` value.
-* **HTTP 404 (Not Found)**: The specified `entityType` was not found.
+* **HTTP 404 (Not Found)**: The specified `entityName` was not found.
 
 A successful HTTP request does not contain any content in the response. A failed HTTP request may contain JSON-formatted error information in the response content.
 
-## Query entity
+## Get entity
 
 Gets the state of the specified entity.
 
@@ -663,7 +662,7 @@ Gets the state of the specified entity.
 The HTTP request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
-GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -691,6 +690,100 @@ If the `Counter` entity simply contained a number of steps saved in a `currentVa
 {
     "currentValue": 5
 }
+```
+
+## List entities
+
+You can query for multiple entities by the entity name or by the last operation date.
+
+### Request
+
+The HTTP request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
+
+| Field                       | Parameter type  | Description |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | Optional. When specified, filters the list of returned entities by their entity name (case-insensitive). |
+| **`fetchState`**            | Query string    | Optional parameter. If set to `true`, the entity state will be included in the response payload. |
+| **`lastOperationTimeFrom`** | Query string    | Optional parameter. When specified, filters the list of returned entities that processed operations after the given ISO8601 timestamp. |
+| **`lastOperationTimeTo`**   | Query string    | Optional parameter. When specified, filters the list of returned entities that processed operations  before the given ISO8601 timestamp. |
+| **`top`**                   | Query string    | Optional parameter. When specified, limits the number of entities returned by the query. |
+
+
+### Response
+
+A successful HTTP 200 response contains a JSON-serialized array of entities and optionally the state of each entity.
+
+By default the operation returns the first 100 entities that match the query criteria. The caller can specify a query string parameter value for `top` to return a different maximum number of results. If more results exist beyond what is returned, a continuation token is also returned in the response header. The name of the header is `x-ms-continuation-token`.
+
+If you set continuation token value in the next request header, you can get the next page of results. This name of the request header is also `x-ms-continuation-token`.
+
+### Example - list all entities
+
+The following example HTTP request lists all entities in the task hub:
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+The response JSON may look like the following (formatted for readability):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### Example - filtering the list of entities
+
+The following example HTTP request lists just the first two entities of type `counter` and also fetches their state:
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+The response JSON may look like the following (formatted for readability):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
 ```
 
 ## Next steps

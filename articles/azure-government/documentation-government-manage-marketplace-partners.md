@@ -99,7 +99,7 @@ Make sure that the image that your solution template relies on is available in A
 Check out the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images available.
 
 #### Resource providers and API versions
-You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#azure-portal) documentation.
+You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) documentation.
 
 #### Extensions
 Make sure that any virtual machine extensions that your solution template relies on are available in Azure Government. Check out the [Azure Government virtual machine extensions](documentation-government-extension.md) documentation to obtain the list of extensions available.

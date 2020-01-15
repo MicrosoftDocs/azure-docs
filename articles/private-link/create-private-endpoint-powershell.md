@@ -2,12 +2,12 @@
 title: 'Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs'
 description: Learn about Azure Private Link
 services: private-link
-author: KumudD
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Create a private endpoint using Azure PowerShell
@@ -46,7 +46,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### Add a Subnet
 
-Azure deploys resources to a subnet within a Virtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
+Azure deploys resources to a subnet within a Virtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -56,9 +56,12 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
+> [!CAUTION]
+> It's easy to confuse the `PrivateEndpointNetworkPoliciesFlag` parameter with another available flag, `PrivateLinkServiceNetworkPoliciesFlag`, because they are both long words and have similar appearance.  Make sure you are using the right one, `PrivateEndpointNetworkPoliciesFlag`.
+
 ### Associate the Subnet to the Virtual Network
 
-You can write the subnet configuration to the Virtual Network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). This command creates the subnet:
+You can write the subnet configuration to the Virtual Network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). This command creates the subnet:
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -160,10 +163,10 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 } 
 } 
 ``` 
-  
+  
 ## Connect to a VM from the internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myVM* VM:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myVM* VM:
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -171,7 +174,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Open a command prompt on your local computer. Run the mstsc command. Replace <publicIpAddress> with the public IP address returned from the last step: 
+Open a command prompt on your local computer. Run the mstsc command. Replace <publicIpAddress> with the public IP address returned from the last step: 
 
 
 > [!NOTE]
@@ -183,15 +186,15 @@ mstsc /v:<publicIpAddress>
 1. If prompted, select **Connect**. 
 2. Enter the user name and password you specified when creating the VM.
   > [!NOTE]
-  > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
+  > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
   
 3. Select **OK**. 
 4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
 ## Access SQL Database Server privately from the VM
 
-1. In the Remote Desktop of myVM, open PowerShell.
-2. Enter `nslookup myserver.database.windows.net`. 
+1. In the Remote Desktop of myVM, open PowerShell.
+2. Enter `nslookup myserver.database.windows.net`. 
 
     You'll receive a message similar to this:
     ```azurepowershell

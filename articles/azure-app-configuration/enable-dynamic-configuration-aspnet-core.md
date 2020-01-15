@@ -1,10 +1,11 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in an ASP.NET Core app | Microsoft Docs
+title: "Tutorial: Use App Configuration dynamic configuration in ASP.NET Core"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 
 ms.assetid: 
@@ -13,7 +14,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -33,7 +34,7 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your application to update its configuration in response to changes in an app configuration store.
+> * Set up your application to update its configuration in response to changes in an App Configuration store.
 > * Inject the latest configuration in your application's controllers.
 
 ## Prerequisites
@@ -42,7 +43,15 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+
 ## Reload data from App Configuration
+
+1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
+
+    ```CLI
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```
 
 1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to add the `config.AddAzureAppConfiguration()` method.
 
@@ -67,7 +76,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
             .UseStartup<Startup>();
     ```
 
-    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the app configuration store when a refresh operation is triggered. In order to actually trigger a refresh operation, a refresh middleware needs to be configured for the application to refresh the configuration data when any change occurs.
+    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. In order to actually trigger a refresh operation, a refresh middleware needs to be configured for the application to refresh the configuration data when any change occurs.
 
 2. Add a *Settings.cs* file that defines and implements a new `Settings` class.
 
@@ -111,7 +120,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
     }
     ```
     
-    The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration settings have expired. For the cached values that have expired, the values for the settings are updated with the app configuration store, and the remaining values remain unchanged.
+    The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration settings have expired. For the cached values that have expired, the values for the settings are updated with the App Configuration store, and the remaining values remain unchanged.
     
     > [!NOTE]
     > The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.
@@ -184,7 +193,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
 5. Select **Configuration Explorer**, and update the values of the following keys:
 
@@ -199,7 +208,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
     ![Quickstart app refresh local](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     
     > [!NOTE]
-    > Since the configuration settings are cached with a default expiration time of 30 seconds, any changes made to the settings in the app configuration store would only be reflected in the web app when the cache has expired.
+    > Since the configuration settings are cached with a default expiration time of 30 seconds, any changes made to the settings in the App Configuration store would only be reflected in the web app when the cache has expired.
 
 ## Clean up resources
 
@@ -207,7 +216,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
+In this tutorial, you enabled your ASP.NET Core web app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [CLI samples](./cli-samples.md)
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

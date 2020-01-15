@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Spark cluster in HDInsight using Azure PowerShell'
+title: 'Quickstart: Create HDInsight Spark cluster with Azure PowerShell'
 description: This quickstart shows how to use Azure PowerShell to create an Apache Spark cluster in Azure HDInsight, and run a simple Spark SQL query.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -23,6 +23,8 @@ In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluste
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisite
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 

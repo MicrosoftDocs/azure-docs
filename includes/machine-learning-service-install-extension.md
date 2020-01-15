@@ -1,8 +1,8 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/13/2019
+ms.date: 11/06/2019
 ms.author: larryfr
 ---
 

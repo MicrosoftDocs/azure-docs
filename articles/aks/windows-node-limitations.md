@@ -64,6 +64,10 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
 >
 
+## How do I rotate the service principal for my Windows node pool?
+
+During preview, Windows node pools do not support service principal rotation as a preview limitation. In order to update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
+
 ## How many node pools can I create?
 
 The AKS cluster can have a maximum of eight (8) node pools. You can have a maximum of 400 nodes across those node pools. [Node pool limitations][nodepool-limitations].
@@ -87,6 +91,10 @@ Azure Dev Spaces is currently only available for Linux-based node pools.
 ## Can my Windows Server containers use gMSA?
 
 Group managed service accounts (gMSA) support is not currently available in AKS.
+
+## Can I use Azure Monitor for containers with Windows nodes and containers?
+
+Yes you can, however Azure Monitor does not gather logs (stdout) from Windows containers. You can still attach to the live stream of stdout logs from a Windows container.
 
 ## What if I need a feature which is not supported?
 
@@ -113,4 +121,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
-[windows-container-compat]: https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility
+[windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909

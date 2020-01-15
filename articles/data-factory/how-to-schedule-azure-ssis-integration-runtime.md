@@ -1,5 +1,5 @@
 ---
-title: How to schedule Azure-SSIS Integration Runtime | Microsoft Docs
+title: How to schedule Azure-SSIS Integration Runtime 
 description: This article describes how to schedule the starting and stopping of Azure-SSIS Integration Runtime by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 
@@ -61,7 +61,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of your new resource group.   
          
-   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) article.
+   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) article.
    
 6. For **Version**, select **V2** .
 7. For **Location**, select one of the locations supported for ADF creation from the drop-down list.

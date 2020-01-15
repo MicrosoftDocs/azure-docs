@@ -8,6 +8,7 @@ manager: evansma
 editor: ''
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -34,4 +35,4 @@ While publishing your offer to the marketplace via Partner Center, you will need
 2. Read the documentation linked above to your selected lead destination to see how to set up the lead destination to receive leads from your marketplace offer. 
 3. Connect your offer to the lead destination while publishing the offer to the marketplace in Partner Center. See the documentation linked above for how to do this.
 4. Confirm the connection to the lead destination is set up properly. Once you have configured your lead destination properly and have hit Publish on your offer in Partner Center, we will validate the connection and send you a test lead. When you are viewing the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment. 
-5. Make sure the connection to the lead destination stays up-to-date so that you don’t lose any leads, so make sure you update these connections whenever something has changed on your end.
+5. Make sure the connection to the lead destination stays up-to-date so that you don't lose any leads, so make sure you update these connections whenever something has changed on your end.
