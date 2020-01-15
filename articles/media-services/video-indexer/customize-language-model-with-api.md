@@ -9,7 +9,7 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 13/14/2020
+ms.date: 01/14/2020
 ms.author: anzaman
 ---
 
