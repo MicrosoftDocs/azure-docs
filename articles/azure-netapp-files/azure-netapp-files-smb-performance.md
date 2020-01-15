@@ -1,5 +1,5 @@
 ---
-title: FAQs about SMB performance | Microsoft Docs
+title: FAQs about SMB performance for Azure NetApp Files| Microsoft Docs
 description: Answers frequently asked questions about SMB performance for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,17 +16,19 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: b-juche
 ---
-# FAQs about SMB performance
+# FAQs about SMB performance for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about SMB performance best practices for Azure NetApp Files.
 
-## Is SMB Multichannel enabled by default in SMB shares? 
+## Is SMB Multichannel enabled in SMB shares? 
 
 Yes, SMB Multichannel is enabled by default, a change put in place in early January 2020. All SMB shares pre-dating existing SMB volumes have had the feature enabled, and all newly created volumes will also have the feature enabled at time of creation. 
 
 Any SMB connection established before the feature enablement will need to be reset to take advantage of the SMB Multichannel functionality. To reset, you can disconnect and reconnect the SMB share.
 
-## Does Azure NetApp Files support receive-side-scaling (RSS)?
+## Is RSS supported?
+
+Yes, Azure NetApp Files supports receive-side-scaling (RSS)?
 
 With SMB Multichannel enabled, an SMB3 client establishes multiple TCP connections to the Azure NetApp Files SMB server over a network interface card (NIC) that is single RSS capable. 
 
@@ -50,7 +52,7 @@ No, Azure NetApp Files does not support SMB Direct.
 
 The SMB Multichannel feature enables an SMB3 client to establish a pool of connections over a single network interface card (NIC) or multiple NICs and to use them to send requests for a single SMB session. In contrast, by design, SMB1 and SMB2 require the client to establish one connection and send all the SMB traffic for a given session over that connection. This single connection limits the overall protocol performance that can be achieved from a single client.
 
-## Is there value in configuring multiple NICs on my client for SMB?
+## Should I configure multiple NICs on my client for SMB?
 
 No. The SMB client will match the NIC count returned by the SMB server.  Each storage volume is accessible from one and only one storage endpoint.  That means that only one NIC will be used for any given SMB relationship.  
 
@@ -99,19 +101,20 @@ For maximum performance, it is recommended that you configure advanced networkin
 
 Jumbo frames are not supported with Azure virtual machines.
 
-## What is SMB Signing, and is it supported by Azure NetApp Files? 
+## Is SMB Signing supported? 
 
 The SMB protocol provides the basis for file and print sharing and other networking operations such as remote Windows administration. To prevent man-in-the-middle attacks that modify SMB packets in transit, the SMB protocol supports the digital signing of SMB packets. 
 
 SMB Signing is supported for all SMB protocol versions that are supported by Azure NetApp Files. 
 
-## What is the performance impact of the SMB Signing use?  
+## What is the performance impact of SMB Signing?  
 
 SMB Signing has a deleterious effect upon SMB performance. Among other potential causes of the performance degradation, the digital signing of each packet consumes additional client-side CPU as the perfmon output below shows. In this case, Core 0 appears responsible for SMB, including SMB Signing.  A comparison with the non-multichannel sequential read throughput numbers in the previous section shows that SMB Signing reduces overall throughput from 875MiB/s to approximately 250MiB/s. 
 
 ![SMB Signing performance impact](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
-## Where can I find more information about Windows file sharing for Azure NetApp Files? 
 
-See the [Azure NetApp Files: Managed Enterprise File Shares for SMB Workloads](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) about using SMB file shares with Azure NetApp Files.
+## Next steps  
 
+- [FAQs About Azure NetApp Files](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+- See the [Azure NetApp Files: Managed Enterprise File Shares for SMB Workloads](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) about using SMB file shares with Azure NetApp Files.
