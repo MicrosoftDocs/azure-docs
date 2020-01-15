@@ -182,8 +182,6 @@
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-    - name: Migrate Java Enterprise Edition application to Azure
-      href: migrate-java-apps-wild-fly.md
   - name: Manage
     items:
     - name: Use Azure PowerShell to provision entities
@@ -205,10 +203,16 @@
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Create a namespace with topic, subscription, and rule
         href: service-bus-resource-manager-namespace-topic-with-rule.md
+  - name: Secure
+    items:
+    - name: Configure customer-managed keys for encryption at rest
+      href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:
-    - name: Exceptions
+    - name: Troubleshooting guide
       href: service-bus-messaging-exceptions.md
+    - name: Resource Manager exceptions
+      href: service-bus-resource-manager-exceptions.md
 - name: Reference
   items:
   - name: .NET

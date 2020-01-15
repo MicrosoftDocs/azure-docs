@@ -1,6 +1,5 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial deploy Custom Vision classifier to a device - Azure IoT Edge | Microsoft Docs 
+title: Tutorial - Deploy Custom Vision classifier to a device using Azure IoT Edge
 description: In this tutorial, learn how to make a computer vision model run as a container using Custom Vision and IoT Edge.
 services: iot-edge
 author: kgremban

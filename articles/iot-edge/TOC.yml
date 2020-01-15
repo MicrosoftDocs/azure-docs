@@ -125,6 +125,10 @@
       href: how-to-install-iot-edge-ubuntuvm.md
     - name: Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
+    - name: Install production certificates
+      href: how-to-install-production-certificates.md
+    - name: Create test certificates
+      href: how-to-create-test-certificates.md
     - name: Update the runtime version
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
@@ -157,6 +161,8 @@
       href: how-to-deploy-monitor.md
     - name: Azure CLI
       href: how-to-deploy-monitor-cli.md
+    - name: Visual Studio Code
+      href: how-to-deploy-monitor-vscode.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
@@ -235,7 +241,7 @@
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Edge for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: Azure IoT Hub Toolkit for VS Code
+  - name: Azure IoT Hub for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: DeviceExplorer tool
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer

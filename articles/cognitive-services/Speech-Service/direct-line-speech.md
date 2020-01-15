@@ -1,5 +1,5 @@
 ---
-title: Direct Line Speech - Speech Service
+title: Direct Line Speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for Voice assistants using Direct Line Speech with the Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -45,7 +45,7 @@ Sample code for creating a voice assistant is available on GitHub. These samples
 
 ## Customization
 
-Voice assistants built using Azure Speech Services can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
+Voice assistants built using Speech service can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
@@ -59,7 +59,7 @@ Direct Line Speech and its associated functionality for voice assistants are an 
 
 ## Next steps
 
-* [Get a Speech Services subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)
 * [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Get the Virtual Assistant Solution and Enterprise Template](https://github.com/Microsoft/AI)

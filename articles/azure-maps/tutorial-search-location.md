@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Search with Azure Maps'
-description: 'Tutorial: Search nearby point of interest using Azure Maps'
+title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
+description: In this tutorial, you will learn how to search for nearby locations (points of interest) on a map using Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -44,19 +44,21 @@ Create a new Maps account with the following steps:
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     * Click the **Create** button.
 
-![Create Maps account in portal](./media/tutorial-search-location/create-account.png)
+![Create Azure Maps account in Azure portal](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
 ## Get the primary key for your account
 
-Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs.
+Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs. We recommend using your account's primary key as the subscription key when calling Azure Maps services.
 
 1. Open your Maps account in the portal.
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
-![Get Primary Key in portal](./media/tutorial-search-location/get-key.png)
+![Get Primary Key in Azure portal](./media/tutorial-search-location/get-key.png)
+
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 

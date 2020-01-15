@@ -59,6 +59,8 @@
     href: linux-recovery-cannot-start-file-system-errors.md
   - name: Troubleshoot kernel-related boot problems
     href: https://support.microsoft.com/help/4091524
+  - name: Recover LVM configured VMs and no boot 
+    href: chroot-logical-volume-manager.md
   - name: Troubleshoot fstab errors
     href: linux-virtual-machine-cannot-start-fstab-errors.md
   - name: Detailed SSH troubleshooting
@@ -157,6 +159,8 @@
     href: troubleshoot-deploy-vm-linux.md
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
 - name: Device names are changed
   href: troubleshoot-device-names-problems.md
 - name: VM recovery access

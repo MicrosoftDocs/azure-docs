@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -46,7 +46,7 @@ While this application is written in C#, the API is a RESTful Web service compat
     using System.Text;
     ```
 
-2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search.
+2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     namespace EntitySearchSample

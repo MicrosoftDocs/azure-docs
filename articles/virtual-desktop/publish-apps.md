@@ -1,15 +1,15 @@
 ---
-title: Publish apps in Windows Virtual Desktop - Azure
+title: Publish built-in apps in Windows Virtual Desktop - Azure
 description: How to publish modern apps in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 12/03/2019
 ms.author: helohr
 ---
-# Publish apps in Windows Virtual Desktop
+# Publish built-in apps in Windows Virtual Desktop
 
 This article will tell you how to publish apps in your Windows Virtual Desktop environment.
 
@@ -22,7 +22,7 @@ To publish a built-in app:
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
    
    ```powershell
-   New-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -FilePath "shell:appsFolder\<PackageFamilyName>!App"
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:appsFolder\<PackageFamilyName>!App"
    ```
 
 >[!NOTE]
@@ -37,8 +37,11 @@ After you publish an app, it will have the default Windows app icon instead of i
 The process you use to publish Microsoft Edge is a little different from the publishing process for other apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
-New-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
+New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
 ```
 
+## Next steps
 
+- Learn about how to configure feeds to organize how apps are displayed for users at [Customize feed for Windows Virtual Desktop users](customize-feed-for-virtual-desktop-users.md).
+- Learn about the MSIX app attach feature at [Set up MSIX app attach](app-attach.md).
 

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/01/2019
-ms.author: kfollis
+ms.author: mblythe
 
 ---
 # Create and share dashboards in the Azure portal

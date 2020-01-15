@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C# (Xamarin) - Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C# (Xamarin) - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a cross-platform C# Xamarin application for the Universal Windows Platform (UWP), Android, and iOS by using the Cognitive Services Speech SDK. You transcribe speech to text in real time from your device's or simulator's microphone. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -7,19 +7,20 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * Make sure that you have access to a microphone for audio capture
 
 If you've already done this, great. Let's keep going.
 
@@ -130,7 +131,7 @@ Now add the C# code that defines the UWP-specific part of the application.
 
    ![Microphone access permission request](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Select **Start Speech recognition**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to Speech Services and transcribed to text, which appears in the window.
+1. Select **Start Speech recognition**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
 
    ![Speech recognition user interface](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

@@ -60,6 +60,10 @@ For Kafka clients to communicate with Kafka brokers, they must be able to reach 
 
 To increase the amount of space available for Kafka messages, you can increase the number of nodes. Currently, adding more disks to an existing cluster isn't supported.
 
+## Can a Kafka cluster work with Databricks? 
+
+Yes, Kafka clusters can work with Databricks so long as they are in the same VNet. To use a Kafka cluster with Databricks, create a VNet with an HDInsight Kafka cluster in it, then specify that VNet when you create your Databricks workspace and use VNet injection. For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). You will need to provide the bootstrap broker names of the Kafka cluster when creating the Databricks workspace. For information on retrieving the Kafka broker names, see [Get the Apache Zookeeper and Broker host information](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+
 ## How can I have maximum data durability?
 
 Data durability allows you to achieve the lowest risk of message loss. In order to achieve maximum data durability, we recommend the following settings:

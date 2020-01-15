@@ -43,4 +43,4 @@ In this tutorial, you set up all the prerequisites for the Azure API for FHIR.
 Now you're ready to learn about application registration.
 
 >[!div class="nextstepaction"]
->[Setup application registration configuration](register-confidential-azure-ad-client-app.md)
+>[Setup application registration configuration](tutorial-1-decision-flow.md)
