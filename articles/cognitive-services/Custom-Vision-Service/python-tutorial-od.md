@@ -136,9 +136,12 @@ scissors_image_regions = {
 
 Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
+> [!NOTE]
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo earlier.
+
 ```Python
 # Update this with the path to where you downloaded the images.
-base_image_url = "<path to the images>"
+base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
 
 # Go through the data table above and create the images
 print ("Adding images...")
