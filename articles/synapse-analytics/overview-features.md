@@ -33,7 +33,7 @@ Synapse capabilities enable you to use different database objects. The compariso
 | Procedures | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-procedure-transact-sql) | No |   |
 | Functions | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse) | No | [Yes](https://docs.microsoft.com/azure/databricks/spark/latest/spark-sql/udf-python) |
 | Triggers | No | No | No |
-| External tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest). See supported [data formats](#data-formats). | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest) | Yes. See supported [data formats](#data-formats). |
+| External tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest). See supported [data formats](#data-formats). | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest). See supported [data formats](#data-formats). | Yes. See supported [data formats](#data-formats). |
 | Caching queries | Yes, multiple forms (SSD-based caching, in-memory, resultset caching). In addition, Materialized View are supported | No | Yes, using CACHE TABLE |
 | Table variables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables | N/A, use temporary tables |
 
