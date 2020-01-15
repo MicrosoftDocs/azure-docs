@@ -14,7 +14,7 @@ The log streaming feature makes application logs available instantly using CLI w
 
 ## Prerequisites
 
-* Install the [Azure CLI extension](./spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
+* Install minimum version 2.0.75 of the [Azure CLI extension](./spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
 * Launch [Spring Cloud app](./spring-cloud-quickstart-launch-app-maven.md)
 
 ## Use CLI to tail logs
@@ -56,7 +56,13 @@ If multiple instances exist for the app named `auth-service`, you can view the i
 ```
 az spring-cloud app log tail -n  auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
-### Follow log for app
+You can get the app instance name from the Azure portal. 
+1. Navigate to your Resource Group and select your Spring Cloud service.
+1. From the Spring Cloud service overview select **Apps** in the left navigation pane.
+1. Select your app, and then click **App Instances** in the left navigation pane. 
+1. App instances will be displayed.
+
+### Follow switch to track new logs
 By default, CLI will only print the existing log to console without following new logs. If you need to track the new logs, use `-f(--follow)` to track the new logs:
 ```
 az spring-cloud app log tail -n  auth-service -f
