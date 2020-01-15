@@ -296,7 +296,7 @@ Before you get started, make sure to:
     > <br/> <br/>
     > Press **F5** to continue.
 
-1. Go back to your browser and exit the conversation using the <img src="../../../../media/scenarios/conversation_translator_web_exit_button.png" width="20" /> button in the upper right corner.
+1. Go back to your browser and exit the conversation using the ![exit button](../../../../media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner.
 
 ## Next steps
 
