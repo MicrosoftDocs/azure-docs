@@ -47,7 +47,8 @@ ping -S 10.0.0.5 hotmail.com
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
 ### Linux (Ubuntu 14/16)
-We recommend looking at the latest the documentation for your Linux distribution. 
+
+We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:
@@ -107,7 +108,8 @@ We recommend looking at the latest the documentation for your Linux distribution
    You should see the IP address you added as part of the list.
 
 ### Linux (Ubuntu 18.04+)
-Ubuntu 18.04 and above have changed to `netplan` for OS network management. We recommend looking at the latest the documentation for your Linux distribution. 
+
+Ubuntu 18.04 and above have changed to `netplan` for OS network management. We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:
@@ -145,8 +147,8 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
 	netplan try
     ```
 
->[!NOTE]
->`netplan try` will apply the changes temporarily, and will roll them back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds then re-connect. At that time, the changes will have been rolled back.
+> [!NOTE]
+> `netplan try` will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
 
 7. Assuming no issues with `netplan try`, apply the configuration changes:
 
