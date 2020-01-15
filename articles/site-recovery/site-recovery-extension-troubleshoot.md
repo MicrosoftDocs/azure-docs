@@ -1,15 +1,14 @@
 ---
-title: Troubleshoot issues with Azure Site Recovery agents | Microsoft Docs'
-description: Provides information about symptoms, causes, and resolutions of Azure Site Recovery agent failures.
-author: carmonmills
+title: Troubleshoot the Azure VM extension for disaster recovery with Azure Site Recovery
+description: Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: carmonm
+
 ---
 
-# Troubleshoot issues with the Azure Site Recovery agent
+# Troubleshoot Azure VM extension issues
 
 This article provides troubleshooting steps that can help you resolve Azure Site Recovery  errors related to VM agent and extension.
 
@@ -25,7 +24,7 @@ Error code: "151076"
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The Site Recovery extension fails to update or load](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-Error message: "Previous site recovery extension operation is taking more time than expected."<br>
+Error message: "Previous Site Recovery extension operation is taking more time than expected."<br>
 Error code: "150066"<br>
 
 **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    

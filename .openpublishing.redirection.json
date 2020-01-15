@@ -595,6 +595,22 @@
       "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
+
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/publish-kb-nodejs",
@@ -12565,6 +12581,11 @@
       "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-python.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
@@ -45650,9 +45671,20 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-byos.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/byos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/redhat/redhat-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-arm.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
     }
   ]
 }
+
