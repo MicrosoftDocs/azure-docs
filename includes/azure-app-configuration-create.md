@@ -1,21 +1,18 @@
 ---
-title: include file
-description: include file
-services: azure-app-configuration
 author: yegu
-
+ms.author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 12/03/2019
-ms.author: yegu
-ms.custom: include file
 ---
 
 1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the home page, select **Create a resource**. In the **Search the Marketplace** box, enter **App Configuration** and select Enter.
 
-    ![Search for App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
+    ![Search for App Configuration](media/azure-app-configuration-create/azure-portal-search.png)
 
 1. Select **App Configuration** from the search results, and then select **Create**.
+
+    ![Select Create](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
 
 1. On the **App Configuration** > **Create** pane, enter the following settings:
 
@@ -26,7 +23,7 @@ ms.custom: include file
     | **Resource group** | *AppConfigTestResources* | Select or create a resource group for your App Configuration store resource. This group is useful for organizing multiple resources that you might want to delete at the same time by deleting the resource group. For more information, see [Use resource groups to manage your Azure resources](/azure/azure-resource-manager/resource-group-overview). |
     | **Location** | *Central US* | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, create the resource in the same region as other components of your application. |
 
-    ![Create an App Configuration store resource](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
+    ![Create an App Configuration store resource](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
 1. Select **Create**. The deployment might take a few minutes.
 

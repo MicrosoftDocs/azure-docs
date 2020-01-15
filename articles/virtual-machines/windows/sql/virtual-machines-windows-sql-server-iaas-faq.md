@@ -158,8 +158,8 @@ This article provides answers to some of the most common questions about running
 
 1. **Where can I get the setup media to change the edition or version of SQL Server?**
 
-  Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers that do not have software assurance can use the setup media from a Marketplace SQL Server VM image that has their desired edition.
-
+   Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers that do not have software assurance can use the setup media from a Marketplace SQL Server VM image that has their desired edition.
+   
 1. **How are updates and service packs applied on a SQL Server VM?**
 
    Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-sql-automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
@@ -167,6 +167,12 @@ This article provides answers to some of the most common questions about running
 1. **Can I upgrade my SQL Server 2008 / 2008 R2 instance after registering it with the SQL Server VM resource provider?**
 
    Yes. You can use any setup media to upgrade the version and edition of SQL Server, and then you can upgrade your [SQL IaaS extension mode](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)) from _no agent_ to _full_. Doing so will give you access to all the benefits of the SQL IaaS extension such as portal manageability, automated backups, and automated patching. 
+
+1. **How can I get free extended security updates for my end of support SQL Server 2008 and SQL Server 2008 R2 instances?**
+
+   You can get [free extended security updates](virtual-machines-windows-sql-server-2008-eos-extend-support.md) by moving your SQL Server as-is to an Azure SQL virtual machine. For more information, see [end of support options](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+  
+   
 
 ## General
 

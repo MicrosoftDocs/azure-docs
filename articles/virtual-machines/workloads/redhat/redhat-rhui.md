@@ -1,5 +1,5 @@
 ---
-title: Red Hat Update Infrastructure
+title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -69,7 +69,7 @@ RedHat:RHEL:7.6:7.6.2019062116
 
 ## RHEL EUS and version-locking RHEL VMs
 
-Some customers may want to lock their RHEL VMs to a certain RHEL minor release after provisioning the VM. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. You can also undo the EUS version-locking operation.
+Extended Update Support (EUS) repositories are available to customers who may want to lock their RHEL VMs to a certain RHEL minor release after provisioning the VM. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. You can also undo the EUS version-locking operation.
 
 >[!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).

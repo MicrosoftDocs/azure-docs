@@ -435,7 +435,7 @@ The following sample shows:
 * A linked service of type [OnPremisesFileServer](#linked-service-properties).
 * An input dataset of type [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
 * An output dataset of type [FileShare](#dataset-properties).
-* A pipeline with a copy activity that uses [SqlSource](data-factory-azure-sql-connector.md##copy-activity-properties) and [FileSystemSink](#copy-activity-properties).
+* A pipeline with a copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) and [FileSystemSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure SQL table to an on-premises file system every hour. The JSON properties that are used in these samples are described in sections after the samples.
 

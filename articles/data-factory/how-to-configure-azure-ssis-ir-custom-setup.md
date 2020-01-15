@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 12/16/2019
+ms.date: 12/23/2019
 ---
 
 # Customize setup for the Azure-SSIS integration runtime
@@ -28,7 +28,7 @@ With express custom setups, you can run some common system configurations/Window
 
 With standard custom setups, you need to prepare a script and its associated files, and upload them all together into a blob container in your Azure Storage account. You then provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you provision or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR will then download the script and its associated files from your container and run your custom setup with elevated privileges. When your custom setup is finished, each node will upload the standard output of execution and other logs into your container.
 
-You can install both free/unlicensed and paid/licensed components with express/standard custom setups. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
+You can install both free/unlicensed and paid/licensed components with express/standard custom setups. If you're an ISV, see our documentation on [how to develop paid or licensed components for Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
 > The v2-series nodes of Azure-SSIS IR are not suitable for custom setup, so please use the v3-series nodes instead.  If you already use the v2-series nodes, please switch to use the v3-series nodes as soon as possible.
@@ -37,13 +37,13 @@ You can install both free/unlicensed and paid/licensed components with express/s
 
 The following limitations applies only to standard custom setups:
 
--   If you want to use `gacutil.exe` in your script to install assemblies in the Global Assembly Cache (GAC), you need to provide `gacutil.exe` as part of your custom setup, or use the copy provided in our Public Preview container below.
+- If you want to use `gacutil.exe` in your script to install assemblies in the Global Assembly Cache (GAC), you need to provide `gacutil.exe` as part of your custom setup, or use the copy provided in our Public Preview container below.
 
--   If you want to reference a subfolder in your script, `msiexec.exe` does not support the `.\` notation to reference the root folder. Use a command like `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` instead of `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
+- If you want to reference a subfolder in your script, `msiexec.exe` does not support the `.\` notation to reference the root folder. Use a command like `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` instead of `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
--   Administrative shares, i.e. hidden network shares automatically created by Windows, are currently not supported on the Azure-SSIS IR.
+- Administrative shares, i.e. hidden network shares automatically created by Windows, are currently not supported on the Azure-SSIS IR.
 
--   IBM iSeries Access ODBC Driver is not supported on the Azure-SSIS IR. You may see installation errors during your custom setup. Please contact IBM support for assistance.
+- IBM iSeries Access ODBC Driver is not supported on the Azure-SSIS IR. You may see installation errors during your custom setup. Please contact IBM support for assistance.
 
 ## Prerequisites
 
@@ -51,11 +51,11 @@ The following limitations applies only to standard custom setups:
 
 To customize your Azure-SSIS IR, you need the following things:
 
--   [Azure subscription](https://azure.microsoft.com/)
+- [Azure subscription](https://azure.microsoft.com/)
 
--   [Provision your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+- [Provisioning your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 
--   [An Azure Storage account](https://azure.microsoft.com/services/storage/). Not required for express custom setups. For standard custom setups, you upload and store your custom setup script and its associated files in a blob container. The custom setup process also uploads its execution logs to the same blob container.
+- [An Azure Storage account](https://azure.microsoft.com/services/storage/). Not required for express custom setups. For standard custom setups, you upload and store your custom setup script and its associated files in a blob container. The custom setup process also uploads its execution logs to the same blob container.
 
 ## Instructions
 
@@ -106,7 +106,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
       ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, you can add/remove custom setups by selecting the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** panel. 
+1. When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, you can add/remove custom setups by selecting the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** section of integration runtime setup panel. 
 
    If you want to add standard custom setups, enter the SAS URI of your container in the **Custom setup container SAS URI** field. 
    
@@ -124,9 +124,9 @@ To customize your Azure-SSIS IR, you need the following things:
 
 	  1. If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** field. The current integrated version is **1.0.43**.
    
-   Your added express custom setups will appear on the **Advanced Settings** panel. To remove them, you can select their check boxes and then select **Delete**.
+   Your added express custom setups will appear on the **Advanced Settings** section. To remove them, you can select their check boxes and then select **Delete**.
 
-   ![Standard and express custom setups](media/how-to-configure-azure-ssis-ir-custom-setup/advanced-settings-custom.png)
+   ![Advanced settings with custom setups](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
 
    When you provision or reconfigure your Azure-SSIS IR with PowerShell, you can add/remove custom setups by running the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet before you start your Azure-SSIS IR.
    
@@ -165,7 +165,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
       ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
-   1. Double-click the `UserScenarios` folder. In this folder are the following items:
+   1. Double-click the `UserScenarios` folder to find the following items:
 
       1. A `.NET FRAMEWORK 3.5` folder, which contains a custom setup to install an earlier version of the .NET Framework that might be required for custom components on each node of your Azure-SSIS IR.
 
@@ -191,11 +191,13 @@ To customize your Azure-SSIS IR, you need the following things:
 
       1. A `TERADATA` folder, which contains a custom setup script (`main.cmd`), its associated file (`install.cmd`), and installer packages (`.msi`). These files install the Teradata connectors, TPT API, and ODBC driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Teradata Connection Manager/Source/Destination to connect to Teradata server. First, download the Teradata Tools and Utilities 15.x zip file (for example,  `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) from [Teradata](http://partnerintelligence.teradata.com), then upload it together with the above `.cmd` and `.msi` files into your container.
 
+      1. A `ZULU OPENJDK` folder, which contains a custom setup script (`main.cmd`) and PowerShell file (`install_openjdk.ps1`) to install Zulu OpenJDK on each node of your Azure-SSIS IR. This setup lets you use Azure Data Lake Store/Flexible File connectors to process ORC/Parquet files, see [here](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java) for more info. First, download the latest Zulu OpenJDK - for example, `zulu8.33.0.1-jdk8.0.192-win_x64.zip` - from [here](https://www.azul.com/downloads/zulu/zulu-windows/), then upload it together with `main.cmd` and `install_openjdk.ps1` into your container.
+
       ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
    1. To try these custom setup samples, copy and paste the content from selected folder into your container.
    
-      When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** panel and enter the SAS URI of your container in the **Custom setup container SAS URI** field.
+      When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** section and enter the SAS URI of your container in the **Custom setup container SAS URI** field.
    
       When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for `SetupScriptContainerSasUri` parameter.
 

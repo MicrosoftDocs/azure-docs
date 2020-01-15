@@ -122,7 +122,7 @@ compute_client = ComputeManagementClient(
 
 ### Create the VM and supporting resources
 
-All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/management/overview.md).
 
 1. To create a resource group, add this function after the variables in the .py file:
 

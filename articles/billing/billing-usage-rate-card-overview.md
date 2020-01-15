@@ -67,4 +67,4 @@ Here are some of the scenarios that are made possible with the combination of th
 
   * [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+* To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md).

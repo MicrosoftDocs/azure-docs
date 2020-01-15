@@ -60,6 +60,7 @@ Distribution      | Serial console access
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Serial console access enabled by default.
 CentOS      | Serial console access enabled by default.
+Debian      | Serial console access enabled by default.
 Ubuntu      | Serial console access enabled by default.
 CoreOS      | Serial console access enabled by default.
 SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you're using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console.
@@ -98,7 +99,7 @@ All data that is sent back and forth is encrypted on the wire.
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.
 
 > [!CAUTION]
-> No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII.
+> No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. If you are inputting any dataor commands that contain secrets or PII, we would recommend using SSH unless serial console is absolutely necessary.
 
 ### Concurrent usage
 If a user is connected to the serial console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected to the same session.

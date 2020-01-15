@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL Data Warehouse
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL Data Warehouse. 
 
