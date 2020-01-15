@@ -56,6 +56,8 @@
       href: diagnostic-services.md
     - name: Automate your CI/CD pipeline in Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
+    - name: CI/CD with GitHub Actions
+      href: spring-cloud-howto-github-actions.md
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md 
 - name: Reference
