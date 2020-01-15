@@ -148,7 +148,7 @@
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
-    - name: Use groups to manage role assignments 
+    - name: Use groups to manage role assignments
       items:
       - name: Concepts, support, and licenses
         href: roles-groups-concept.md
@@ -156,9 +156,9 @@
         href: roles-groups-create-eligible.md
       - name: Assign roles to a group
         href: roles-groups-assign-role.md
-      - name: Remove roles from a group
+      - name: Remove role assignments from a group
         href: roles-groups-remove-assignment.md
-      - name: View role assignments for a group
+      - name: View a group's role assignments
         href: roles-groups-view-assignments.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md

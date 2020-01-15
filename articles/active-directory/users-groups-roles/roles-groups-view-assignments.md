@@ -39,6 +39,13 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>"
 
 ## Using Microsoft Graph API
 
-//Get object id of the group GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_Helpdesk_Administrator’ 
+    //Get object id of the group GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_Helpdesk_Administrator’ 
+    
+    //Get role assignments to a group GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
 
-//Get role assignments to a group GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
+## Next steps
+
+- [Create a role-eligible group](roles-groups-create-eligible.md)
+- [Assign a role to a group](roles-groups-assign-role.md)
+- [View a group's role assignments](roles-groups-view-assignments.md)
+- [Remove a group role assignment](roles-groups-remove-assignment.md)
