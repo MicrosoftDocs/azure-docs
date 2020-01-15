@@ -3,7 +3,7 @@ title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
 description: In this tutorial, you will learn how to search for points of interest on a map using Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 1/15/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
