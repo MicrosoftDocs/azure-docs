@@ -1715,7 +1715,7 @@ When the function exits successfully, any changes made to the input document via
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
 
 # [JavaScript](#tab/javascript)
 
