@@ -28,7 +28,8 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
-![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
     Leave `label` undefined for now.
 
