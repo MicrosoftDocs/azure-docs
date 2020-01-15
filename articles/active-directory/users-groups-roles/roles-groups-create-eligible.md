@@ -18,53 +18,51 @@ ms.collection: M365-identity-device-management
 
 # Create a group for assigning roles in Azure Active Directory
 
-You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to ‘true’. To This group attribute makes the group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
+You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with "Eligible for role assignment". This group attribute makes the group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
 
 ## Using Azure AD admin center
 
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select Azure Active Directory > Groups > All groups > New group
+1. Select **Groups** > **All groups** > **New group**.
+1. On the **New Group** tab, provide group type, name and description.
+1. Turn on **Eligible for role assignment**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
+1. Select the members and roles for the group. You don't have to assign roles when you create the group.
+1. After members and roles are selected, select **Create**.
 
-1. On the New Group tab, provide group type, name and description.
-
-1. Switch on the Eligible for role assignment toggle.
-
-    Note that this toggle switch will be visible only to Privileged Role Administrators and Global Administrator since these are only two roles that can create such groups.
-
-1. Once the toggle is on, select the members and roles for this group.
-
-1. After members and roles are selected, select Create.
-
-The group will be created with role assigned to it. You can also choose not to assign roles during creation and assign them later on.
+The group is created with any selected roles assigned to it. You can also choose not to assign roles during creation and assign them later on.
 
 ## Using PowerShell
 
-Note: Creating a group eligible for role assignment via PowerShell will not work now. We are working on fixing this issue. Use Azure portal to create groups that are eligible for role assignments. #First, you must download the Azure AD Preview PowerShell module. To install the Azure AD #PowerShell module, use the following commands:
-
-install-module azureadpreview
-import-module azureadpreview
+    install-module azureadpreview
+    import-module azureadpreview
 
 ### To verify that the module is ready to use, use the following command:
 
-get-module azureadpreview
+    get-module azureadpreview
 
 ### Create a group that can be assigned to role
 
-$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
+    $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
 
-Note that for this type of group, groupType will always be "Unified" and isPublic will always be false.
+For this type of group, groupType will always be "Unified" and isPublic will always be false.
 
 ### Using Microsoft Graph API
 
-//Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups
-{
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
-"displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [
-"Unified"
-],
-"mailEnabled": true,
-"securityEnabled": true
-"mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true,
-}
+    //Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups
+    {
+    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+    "displayName": "Contoso_Helpdesk_Administrators",
+    "groupTypes": [
+    "Unified"
+    ],
+    "mailEnabled": true,
+    "securityEnabled": true
+    "mailNickname": "contosohelpdeskadministrators",
+    "isAssignableToRole": true,
+    }
+
+## Next steps
+
+- [Assign a role to a group](roles-groups-assign-role.md)
+- [View a group's role assignments](roles-groups-view-assignments.md)
+- [Remove a group role assignment](roles-groups-remove-assignment.md)

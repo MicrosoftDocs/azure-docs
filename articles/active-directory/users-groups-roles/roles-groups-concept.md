@@ -18,13 +18,13 @@ ms.collection: M365-identity-device-management
 
 # Use groups to manage role assignments in Azure Active Directory (preview)
 
-Azure Active Directory (Azure AD) is introducing a public preview in which you can assign a role-enabled group to Azure AD built-in roles. Use it, for example, to assign the Helpdesk administrator role to a group of your Tier I helpdesk personnel. When members are added to the group, they are assigned to the role indirectly. Azure AD governance then takes care of the approval process and auditing of the group’s membership to ensure that only legitimate users are member of the group and thus the Helpdesk Administrator role.
+Azure Active Directory (Azure AD) is introducing a public preview in which you can assign a role-enabled group to Azure AD built-in roles. Use it, for example, to assign the Helpdesk administrator role to a group of your Tier I helpdesk personnel. When members are added to the group, they are assigned to the role indirectly. Azure AD governance then takes care of the approval process and auditing of the group’s membership to ensure that only legitimate users are members of the group and are assigned the Helpdesk Administrator role.
 
-You can use groups to grant admin access in Azure AD in a process that requires minimal effort from your Global administrators or Privileged role administrators who might have other pressing things to take care of.
+You can use groups to grant admin access in Azure AD, which requires minimal effort from your Global administrators or Privileged role administrators, freeing them for more pressing matters.
 
 ## How this feature works
 
-Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by switching on the toggle ‘enabled for role assignment’ when creating a new group. More details in subsequent sections. Then assign this group to one or more Azure AD roles in the same way as you assign to users.
+Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by turning on **Enabled for role assignment** when creating a new group. Then assign this group to one or more Azure AD roles in the same way as you assign roles to users.
 
 ## Why we enforce creation of a special group for assigning it to a role
 
@@ -37,13 +37,14 @@ If a group is assigned a role, any IT admin who can manage group membership coul
 - There can't be an owner of a role-enabled group. Only Global Administrator and Privileged Role Administrator can manage the membership of this group by default. We will bring the ability to delegate the management of such groups to other people in future.
 - No nesting. A group can't be added as a member of a role-enable group.
 
-Important: If you use Office 365 groups to assign to roles, they can expire. And because role-enabled  groups can't have owners, the expiration email will be sent to the alternate email address you provide. So, provide an email address that you monitor. Set Office 365 groups to expire in Azure Active Directory. Otherwise use a security group for assigning to roles.
+> [!IMPORTANT]
+> If you use Office 365 groups to assign to roles, they can expire. Because role-eligible groups can't have owners, the expiration email will be sent to the alternate email address you provide. Be sure to provide an email address that you monitor. Otherwise, use a security group for assigning to roles.
 
 ## Required license plan
 
-Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see Comparing generally available features of the Free, Basic, and Premium editions.
+Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium plans](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses).
 
-## Supported in this preview?
+## Supported in this preview
 
 Scenario | Azure AD portal | MS Graph API | PowerShell
 -------- | --------------- | ------------ | ----------
@@ -55,10 +56,10 @@ Put users into a group and assign it to a built-in Azure AD role (assuming the g
 Put service principals into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role). | Supported  | Supported  | Not supported
 Assign groups with isAssignableToRole set to true to built-in roles scoped to Admin Units.  | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020
 Delegate the management of group that has been assigned to a built-in role.  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
-Assign a new on-prem security group to an Azure AD role (no Office 365 group on-prem).  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
-Assign an existing on-prem security group to an Azure AD role (no Office 365 group on-premises). | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Assign a new on-premises security group to an Azure AD role (no Office 365 group on-prem).  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Assign an existing on-premises security group to an Azure AD role (no Office 365 group on-premises). | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
 Nest another group with isAssignableToRole set to true into a group that is assigned a role. | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020
-Assign a group (on-prem or cloud) to custom Azure AD role  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Assign a group (on-premises or cloud) to custom Azure AD role  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
 Use an existing Office 365 cloud group and assign it to a role  | Out of scope  | Out of scope  | Out of scope
 Use an existing security cloud group and assign it to a role | Out of scope  | Out of scope  | Out of scope
 
