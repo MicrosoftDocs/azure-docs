@@ -1,7 +1,7 @@
 ---
 title: 'Data storage and ingress in Preview - Azure Time Series Insights | Microsoft Docs'
 description: Learn about data storage and ingress in Azure Time Series Insights Preview.
-author: deepakpalled
+author: lyhughes
 ms.author: lyhughes
 manager: cshankar
 ms.workload: big-data
@@ -16,23 +16,45 @@ ms.custom: seodec18
 
 This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. It also discusses the underlying ingress process, best practices, and current preview limitations.
 
-## Data ingress
+# Data ingress
 
 Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
 
-### Ingress policies
+## Ingress policies
+
+### Event Sources
 
 Time Series Insights Preview supports the following event sources:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Time Series Insights Preview supports a maximum of two event sources per instance.
-  
-Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
+Time Series Insights Preview supports a maximum of two event sources per instance.  
 
 > [!WARNING] 
 > When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
+
+### Supported data format and types
+
+Azure Time Series Insights supports UTF8 encoded JSON submitted through Azure IoT Hub or Azure Event Hubs. 
+
+Below is the list of supported data types.
+
+| Data type | Additional Names | Description |
+|-----------|------------------|-------------|
+| array     |                  |  Ordered collection of values. Values must be of supported data type. See the note below regarding how arrays are stored           |
+| bool      |  Boolean     |   A data type having one of two states: true or false.       |
+| dateTime    |     date             |   Defines a date that is combined with a time of day with fractional seconds that is based on a 24-hour clock and relative to UTC (time zone offset 0). The format should be yyyy-MM-ddTHH:mm:ss.FFFFFFFK. An example is 2008-04-12T12:53Z.    |
+| double    |     real             |   A double-precision 64-bit IEEE 754 floating point          |
+| null    |                  | Control character indicating the absence of a value    |
+| object    |                  |   A collection of key-value pairs of any of the other data types. See the section below regarding object flattening   |
+| string    |                  |   Text values, comprised of Unicode characters.          |
+
+
+
+> [!NOTE] 
+For more information on how to shape your JSON events as well as details on nested object flattening see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+
 
 ## Ingress best practices
 
@@ -107,13 +129,13 @@ Time Series Insights Preview partitions and indexes data for optimum query perfo
 > [!IMPORTANT]
 > The upcoming general availability (GA) release of Time Series Insights will make data available in 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
-## Azure Storage
+# Azure Storage
 
 This section describes Azure Storage details relevant to Azure Time Series Insights Preview.
 
 For a thorough description of Azure Blob storage, read the [Storage blobs introduction](../storage/blobs/storage-blobs-introduction.md).
 
-### Your storage account
+## Your storage account
 
 When you create a Time Series Insights Preview pay-as-you-go environment, an Azure Storage general-purpose V1 blob account is created as your long-term cold store.  
 
