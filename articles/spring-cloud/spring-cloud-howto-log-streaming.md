@@ -1,6 +1,6 @@
 ---
-title:  az spring cloud
-description: Log streaming to view application logs instantly 
+title:  Azure Spring Cloud log streaming for instant availability
+description: How to use log streaming to view application logs instantly 
 author:  MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/14/2019
 ---
 
-# Log Streaming
+# Azure Spring Cloud log streaming for instant availability
 
 The log streaming feature makes application logs available instantly using CLI with limited range. To view logs out of range, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
