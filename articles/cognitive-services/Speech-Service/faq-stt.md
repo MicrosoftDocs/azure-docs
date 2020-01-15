@@ -72,9 +72,9 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
 
-**Q: How I am charged for dual channel audio?**
+**Q: How am I charged for dual channel audio?**
 
-**A**: If you submit each channel separately (each channel in its own file), you will be charged per duration of file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
+**A**: If you submit each channel separately (each channel in its own file), you will be charged for the duration of each file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file. For details on pricing please refer to the [Azure Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.

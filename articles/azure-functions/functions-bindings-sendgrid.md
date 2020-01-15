@@ -25,9 +25,6 @@ The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Se
 
 The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub repository.
 
-> [!NOTE]
-> Versions 2.x and higher do not create the topic or subscription configured in the `ServiceBusTrigger` instance. These versions are based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) which does not handle queue management.
-
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## Example
@@ -348,9 +345,9 @@ The following table lists the binding configuration properties available in the 
 
 | *function.json* property | Attribute/annotation property | Description | Optional |
 |--------------------------|-------------------------------|-------------|----------|
-| type || Must be set to `sendGrid`.| No |
-| direction || Must be set to `out`.| No |
-| name || The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. | No |
+| type |n/a| Must be set to `sendGrid`.| No |
+| direction |n/a| Must be set to `out`.| No |
+| name |n/a| The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. | No |
 | apiKey | ApiKey | The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.| No |
 | to| To | The recipient's email address. | Yes |
 | from| From | The sender's email address. |  Yes |

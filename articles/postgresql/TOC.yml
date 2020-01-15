@@ -100,6 +100,8 @@
         href: concepts-aad-authentication.md
       - name: Private Link
         href: concepts-data-access-and-security-private-link.md
+      - name: Data Encryption
+        href: concepts-data-encryption-postgresql.md
     - name: Business continuity
       items:
       - name: Business continuity intro
@@ -259,6 +261,10 @@
         href: howto-configure-privatelink-portal.md
       - name: Azure CLI
         href: howto-configure-privatelink-cli.md
+    - name: Data Encryption
+      items:
+      - name: Azure portal
+        href: howto-data-encryption-portal.md
     - name: Restart server
       items:
       - name: Azure portal
