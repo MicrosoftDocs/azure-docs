@@ -14,7 +14,7 @@ ms.author: ralphe
 
 **Choose your target environment**
 
-#### [.Net](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 [!INCLUDE [dotnet](./dotnet.md)]
 
 * * *

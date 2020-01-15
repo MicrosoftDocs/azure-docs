@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Multi-Device Conversation, C# (.Net Framework Windows) - Speech Service'
+title: 'Quickstart: Multi-Device Conversation, C# (.NET Framework Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to create a new multi-device conversation or join an existing one.
 services: cognitive-services
