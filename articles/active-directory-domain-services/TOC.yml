@@ -29,6 +29,8 @@
   items:
     - name: Create a managed domain using Azure PowerShell
       href: powershell-create-instance.md
+    - name: Create a managed domain using a template
+      href: template-create-instance.md
 - name: Concepts
   items:
     - name: Administration basics

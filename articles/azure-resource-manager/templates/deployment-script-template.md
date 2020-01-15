@@ -52,7 +52,7 @@ The benefits of deployment script:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps.md). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+- **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
 
 ## Resource schema
 
@@ -228,7 +228,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 ## Clean up deployment script resources
 
-Deployment script creates a storage account and a container instance that are used for executing deployment scripts and storing debug information. These two resources are created in the same resource group as the provisioned resources, and will be deleted by the script service when script expires. You can control the life cycle of these resources.  Until they are deleted, you are billed for both resources. For the price information, see [Container Instances pricing](/pricing/details/container-instances/) and [Azure Storage pricing](/pricing/details/storage/).
+Deployment script creates a storage account and a container instance that are used for executing deployment scripts and storing debug information. These two resources are created in the same resource group as the provisioned resources, and will be deleted by the script service when script expires. You can control the life cycle of these resources.  Until they are deleted, you are billed for both resources. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 The life cycle of these resources is controlled by the following properties in the template:
 
