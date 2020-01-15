@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 01/14/2020 
+ms.date: 01/14/2020
 ms.author: skamal
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
@@ -108,14 +108,14 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
                 console.log(err);
                 return res.status(500).send('CogSvcs IssueToken error');
             }
-    
+
             var tokenResultParsed = JSON.parse(tokenResult);
-            
+
             if (tokenResultParsed.error) {
                 console.log(tokenResult);
                 return res.send({error :  "Unable to acquire Azure AD token. Check the debugger for more information."})
             }
-    
+
             var token = tokenResultParsed.access_token;
 
             var subdomain = "";
@@ -169,8 +169,8 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                 }
         body
             div(class="container")
-                button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("wus")') WestUS Immersive Reader 
-                button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("eus")') EastUS Immersive Reader 
+                button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("wus")') WestUS Immersive Reader
+                button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("eus")') EastUS Immersive Reader
 
                 h1(id="ir-title") About Immersive Reader
                 div(id="ir-content" lang="en-us")
@@ -219,7 +219,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                 .then(function (response) {
                     const token = response["token"];
                     const subdomain = response["subdomain"];
-                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
+                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                     const data = {
                         title: $("#ir-title").text(),
                         chunks: [{
@@ -227,7 +227,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                             mimeType: "text/html"
                         }]
                     };
-                    // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
+                    // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                     const options = {
                         "onExit": exitCallback,
                         "uiZIndex": 2000
