@@ -117,7 +117,7 @@ It leaves you with 20.5 ms to get your system running without interfering with t
 
 ## Triggering Azure Kinect DK with custom source
 
-In order to trigger multiple Azure Kinect DK devices by an external device and control triggering time using 3.5 mm audio cable, the following needs to be considered:
+A custom sync source can be used to replace the master Azure Kinect DK. This is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5mm jack.
 
 - The SYNC signals are active high and pulse width should be greater than 8us.
 - We currently support 30 fps, 15 fps and 5 fps, so frequency of master VSYNC signal from your board (developed to generate signal) should also be one of above 3 options.
