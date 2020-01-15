@@ -120,7 +120,7 @@ It leaves you with 20.5 ms to get your system running without interfering with t
 A custom sync source can be used to replace the master Azure Kinect DK. This is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5mm jack.
 
 - The SYNC signals are active high and pulse width should be greater than 8us.
-- We currently support 30 fps, 15 fps and 5 fps, so frequency of master VSYNC signal from your board (developed to generate signal) should also be one of above 3 options.
+- Frequency support must be precisely 30 fps, 15 fps and 5 fps, the frequency of color camera's master VSYNC signal.
 - Kinect DK 1 should be connected to your board, Kinect DK 2 to your Kinect DK 1 and Kinect DK 3 to your Kinect DK 2, say daisy-chain.
 - SYNC signal from the board should be 5 V TTL/CMOS with maximum driving capacity no less than 8 mA.
 - The below plugs can be used with Kinect DK, and all sleeves and rings are shorted together inside Kinect DK and they are connected to ground of master Kinect DK. Tip is the sync signal.
