@@ -1,5 +1,5 @@
 ---
-title: Map a custom domain name to an Azure Blob Storage endpoint | Microsoft Docs
+title: Map a custom domain to an Azure Blob Storage endpoint | Microsoft Docs
 description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage or web endpoint in an Azure storage account.
 author: normesta
 ms.service: storage
@@ -10,25 +10,29 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ---
 
-# Map a custom domain name to an Azure Blob Storage endpoint
+# Map a custom domain to an Azure Blob Storage endpoint
 
-CNAME stands for Canonical Name and it's used to alias one name to another.
+You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
 
-## Map a custom domain with some downtime
+This article shows you two ways to do this. The first way requires fewer steps but your custom domain will be briefly unavailable to users while you complete the configuration. 
 
-The easiest way to map your domain is to first modify the DNS record for the domain. Then, in the Azure portal, you register the domain so that Azure can recognize the custom domain. 
+The second approach requires more steps, but incurs no downtime. It's useful in cases where your custom domain supports an application that can't have any downtime. 
 
-Your domain will be briefly unavailable to your users in between these two steps. Therefore, if your custom domain currently supports an application that can't have any downtime, this might not be the best option for you. 
+To learn more, see [Custom domain names with Azure Blob storage endpoints](storage-blob-custom-domain.md)
+
+## Map a custom domain with fewer steps but some downtime
 
 Follow these steps to map your custom domain to blob storage with some downtime.
 
-:one: &nbsp;&nbsp;Get the host name of your storage endpoint.
+:heavy_check_mark: Step 1: Get the host name of your storage endpoint.
 
-:two: &nbsp;&nbsp;Add a CNAME record to the domain registrar's website. 
+:heavy_check_mark: Step 2: Add a CNAME record to the domain registrar's website. 
 
-:three: &nbsp;&nbsp;Register the custom domain with Azure. 
+:heavy_check_mark: Step 3: Register the custom domain with Azure. 
 
-:four: &nbsp;&nbsp; Test your custom domain
+:heavy_check_mark: Step 4: Test your custom domain
+
+<a id="#endpoint" />
 
 ### Step 1: Get the host name of your storage endpoint 
 
@@ -53,17 +57,17 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 ### Step 2: Add a CNAME record to the domain registrar's website
 
+CNAME stands for Canonical Name and it's used to alias one name to another.
+
 Create a CNAME record that maps your custom domain to your blob endpoint.  Then, in Portal, you'll register the domain with Azure.
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
-   > [!TIP]
-   > You might find the page in a section named **Domain Name**, **DNS**, or **Name Server Management**.
+   You might find the page in a section named **Domain Name**, **DNS**, or **Name Server Management**.
 
 2. Find the section for managing CNAME records. 
 
-   > [!TIP]
-   > You might have to go to an advanced settings page and look for **CNAME**, **Alias**, or **Subdomains**.
+   You might have to go to an advanced settings page and look for **CNAME**, **Alias**, or **Subdomains**.
 
 3. Create a CNAME record. As part of that record, provide the following items: 
 
@@ -71,7 +75,7 @@ Create a CNAME record that maps your custom domain to your blob endpoint.  Then,
    
      The subdomain is required, root domains are not supported.
       
-   - The endpoint that you obtained in the [Get the destination endpoint](#endpoint) section earlier in this article. 
+   - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
 
 <a id="register" />
 
@@ -99,7 +103,7 @@ To confirm that your custom domain is mapped to your blob service endpoint, crea
 
 For example, to access a web form in the *myforms* container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
-## Map a custom domain with zero downtime
+## Map a custom domain with more steps but zero downtime
 
 This is a bit more involved.
 
@@ -132,6 +136,8 @@ The host name is the storage endpoint URL without the protocol identifier and th
   
    Set this value aside for later.
 
+<a id="#endpoint-2" />
+
 ### Step 1: Get the host name of your storage endpoint
 
 Put something here.
@@ -154,7 +160,11 @@ To confirm that your custom domain is mapped to your blob service endpoint, crea
 
 For example, to access a web form in the *myforms* container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
-## Deregister a custom domain
+## Remove a custom domain mapping
+
+To un-map a custom domain, deregister the custom domain. 
+
+### Deregister a custom domain
 
 To deregister a custom domain for your Blob storage endpoint, use one of the following procedures.
 
