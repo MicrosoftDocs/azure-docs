@@ -190,7 +190,7 @@ To work around this issue, try one of the following methods:
 2. Determine the **input buffer** for the head blocker.
 3. Tune the head blocker query.
 
-   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -257,7 +257,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -288,7 +288,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 To work around this issue, try to optimize the query.
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### Table of additional resource governance error messages
 
