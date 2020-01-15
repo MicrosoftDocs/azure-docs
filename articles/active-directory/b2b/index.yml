@@ -7,7 +7,7 @@ metadata:
    title: Application Management Documentation
    description: Learn how to use Azure AD business-to-business (B2B) collaboration to securely share your company's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.
    ms.service: active-directory
-   ms.subservice: manage-apps
+   ms.subservice: B2B
    ms.workload: identity
    ms.topic: landing-page
    ms.date: 08/27/2019

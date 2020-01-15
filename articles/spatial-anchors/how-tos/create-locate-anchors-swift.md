@@ -1,8 +1,8 @@
 ---
-title: How to create and locate anchors using Azure Spatial Anchors in Swift | Microsoft Docs
+title: Create & locate anchors in Swift
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Swift.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia

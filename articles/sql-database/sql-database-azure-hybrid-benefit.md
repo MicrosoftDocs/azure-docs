@@ -12,7 +12,7 @@ ms.date: 11/13/2019
 ---
 # Azure Hybrid Benefit
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance. 
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance. Please do use the Azure Hybrid Benefit Calculator using the link mentioned before for correct values. 
 
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
@@ -25,26 +25,34 @@ With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure i
 
 You can choose or change your licensing model by using the Azure portal or by using one of the following APIs:
 
-- To set or update the license type by using PowerShell:
+# [PowerShell](#tab/azure-powershell)
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+To set or update the license type by using PowerShell:
 
-- To set or update the license type by using the Azure CLI:
+- [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)
+- [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
+- [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
+- [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+# [Azure CLI](#tab/azure-cli)
 
-- To set or update the license type by using the REST API:
+To set or update the license type by using the Azure CLI:
 
-  - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
+- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
+- [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
+- [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
+
+# [REST API](#tab/rest)
+
+To set or update the license type by using the REST API:
+
+- [Databases - Create Or Update](/rest/api/sql/databases/createorupdate)
+- [Databases - Update](/rest/api/sql/databases/update)
+- [Managed Instances - Create Or Update](/rest/api/sql/managedinstances/createorupdate)
+- [Managed Instances - Update](/rest/api/sql/managedinstances/update)
+
+* * *
 
 ## Next steps
 

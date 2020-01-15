@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using PHP"
+title: "Quickstart: Send a search request to the REST API using PHP - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -32,7 +32,8 @@ To run this application, follow these steps.
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+4. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php

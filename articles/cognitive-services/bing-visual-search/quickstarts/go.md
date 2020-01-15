@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get image insights using Bing Visual Search REST API and Go"
+title: "Quickstart: Get image insights using the REST API and Go - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
+ms.date: 12/17/2019
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
@@ -22,13 +22,13 @@ This quickstart uses the Go programming language to call the Bing Visual Search 
 * Install the [Go binaries](https://golang.org/dl/).
 * The go-spew deep pretty printer is used to display results. You can install go-spew with the `$ go get -u https://github.com/davecgh/go-spew` command.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Project and libraries
 
 Create a Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The `go-spew` library is used to parse JSON results.
 
-```
+```go
 package main
 
 import (
@@ -50,7 +50,7 @@ import (
 
 The `BingAnswer` structure formats data returned in the JSON response, which is multilevel and complex. The following implementation covers some of the essentials:
 
-```
+```go
 type BingAnswer struct {
 	Type         string `json:"_type"`
 	Instrumentation struct {
@@ -105,9 +105,9 @@ type BingAnswer struct {
 
 ## Main function and variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data. The `fileName` variable identifies the image file for the POST. The following sections explain the details of the code:
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data. The `fileName` variable identifies the image file for the POST. `endpoint` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
-```
+```go
 func main() {
 	// Verify the endpoint URI and replace the token string with a valid subscription key.se
 	endpoint := "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch"
@@ -157,7 +157,7 @@ func main() {
 
 A POST request to the Visual Search endpoint requires leading and trailing boundaries enclosing the POST data. The leading boundary includes a batch number, the content type identifier `Content-Disposition: form-data; name="image"; filename=`, plus the filename of the image to POST. The trailing boundary is simply the batch number. These functions are not included in the `main` block:
 
-```
+```go
 func BuildFormDataStart(batNum string, fileName string) string{
 
 	startBoundary := "--batch_" + batNum + "\r\n"
@@ -176,7 +176,7 @@ func BuildFormDataEnd(batNum string) string{
 
 This code segment creates the POST request that contains image data:
 
-```
+```go
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
     file, err := os.Open(fileName)
 	if err != nil {
@@ -205,7 +205,7 @@ func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, stri
 
 The following code sends the request and reads the results:
 
-```
+```go
 resp, err := client.Do(req)
 	if err != nil {
 		panic(err)
@@ -224,7 +224,7 @@ resp, err := client.Do(req)
 
 The `Unmarshall` function extracts information from the JSON text returned by the Visual Search API. The `go-spew` pretty printer displays the results:
 
-```
+```go
 	// Create a new answer.  
     ans := new(BingAnswer)
     err = json.Unmarshal(resbody, &ans)
@@ -247,7 +247,7 @@ The `Unmarshall` function extracts information from the JSON text returned by th
 
 The results identify images similar to the image contained in the POST body. The useful fields are `WebSearchUrl` and `Name`:
 
-```
+```go
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
      (struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) {
       WebSearchUrl: (string) (len=129) "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=B9E6621161769D578A9E4DD9FD742128DE65225A&simid=608046863828453626",

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
@@ -22,9 +22,9 @@ A client application for QnA Maker is any conversational application that commun
 ## When to use QnA Maker
 
 * **When you have static information** - Use QnA Maker when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../concepts/data-sources-supported.md).
-* **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned to both. 
+* **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned. 
 * **When you want to filter static information based on meta-information** - add [metadata](../how-to/metadata-generateanswer-usage.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](../how-to/chit-chat-knowledge-base.md), content type or format, content purpose, and content freshness.
-* **When you want to manage a bot conversation that includes static information** - your knowledge takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../how-to/multiturn-conversation.md), the bot can easily provide this flow.  
+* **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../how-to/multiturn-conversation.md), the bot can easily provide this flow.  
 
 ## Use QnA Maker knowledge base in a chat bot
 
@@ -36,14 +36,17 @@ Once a QnA Maker knowledge base is published, a client application sends a quest
 |:--|:--|
 |1|The client application sends the user's _question_ (text in their own words), "How do I programmatically update my Knowledge Base?" to your knowledge base endpoint.|
 |2|QnA Maker uses the trained knowledge base to provide the correct answer and any follow-up prompts that can be used to refine the search for the best answer. QnA Maker returns a JSON-formatted response.|
-|3|The client application uses the JSON response to make decisions about how to continue the conversation. These decisions can include showing the top answer or presenting more choices to refine the search for the best answer. |
+|3|The client application uses the JSON response to make decisions about how to continue the conversation. These decisions can include showing the top answer and presenting more choices to refine the search for the best answer. |
 |||
 
 ## What is a knowledge base? 
 
-QnA Maker [imports your content](../concepts/data-sources-supported.md) into a knowledge base of question and answer sets. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer sets. You can edit these question and answer sets or add new ones.  
+QnA Maker [imports your content](../concepts/data-sources-supported.md) into a knowledge base of question and answer sets. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer sets. You can edit these question and answer sets or add new sets.  
 
-The content of the question and answer set includes all the alternate questions for a specific answer, metadata tags used to filter answer choices during the search, and follow-up prompts to continue the search refinement.
+The content of the question and answer set includes:
+* All the alternate forms of the question
+* Metadata tags used to filter answer choices during the search
+* Follow-up prompts to continue the search refinement
 
 ![Example question and answer with metadata](../media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
 
@@ -51,7 +54,7 @@ After you publish your knowledge base, a client application sends a user's quest
 
 ## Create, manage, and publish to a bot without code
 
-The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final markdown format supports rich presentation including images and links. 
+The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final _markdown_ format supports rich presentation including images and links. 
 
 Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download and continue development. 
 
@@ -77,9 +80,9 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 **Step 2**: Create a knowledge base in the [QnA Maker](https://www.qnamaker.ai) portal. Add [files and URLs](../concepts/data-sources-supported.md) to create the knowledge base.  
 
-**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL](../quickstarts/get-answer-from-kb-using-curl.md) or [Postman](../quickstarts/get-answer-from-kb-using-postman.md). 
+**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL or Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md). 
 
-**Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
+**Step 4**: From your client application, programmatically call your knowledge base's endpoint. The client application processes the JSON response to show the best answer to the user.  
 
 ## Next steps
 QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base. 

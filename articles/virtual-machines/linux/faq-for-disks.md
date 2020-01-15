@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions (FAQ) about Azure IaaS Linux VM disks 
+title: Frequently asked questions about Azure IaaS Linux VM disks
 description: Frequently asked questions about Azure IaaS Linux VM disks and premium disks (managed and unmanaged)
 author: roygara
 ms.service: virtual-machines-linux

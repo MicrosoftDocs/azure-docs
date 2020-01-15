@@ -2,7 +2,6 @@
 documentType: LandingData
 title: 'Monitoring and tuning'
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database - Monitoring and tuning
   meta.description: Learn how to monitor and tune your Azure SQL database.
   services: sql-database

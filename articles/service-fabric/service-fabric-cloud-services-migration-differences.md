@@ -1,21 +1,11 @@
 ---
-title: Differences between Cloud Services and Service Fabric | Microsoft Docs
+title: Differences between Cloud Services and Service Fabric 
 description: A conceptual overview for migrating applications from Cloud Services to Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
 
-ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-
 ---
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.
 Microsoft Azure Service Fabric is the next-generation cloud application platform for highly scalable, highly reliable distributed applications. It introduces many new features for packaging, deploying, upgrading, and managing distributed cloud applications. 

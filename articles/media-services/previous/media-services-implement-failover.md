@@ -1,6 +1,6 @@
 ---
 title: Implement failover streaming with Azure Media Services | Microsoft Docs
-description: This topic shows how to implement a failover streaming scenario.
+description: This article shows how to implement a failover streaming scenario with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako

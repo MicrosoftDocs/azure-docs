@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -43,12 +43,13 @@ The following diagram illustrates simple Azure EA hierarchies.
 
 ## Enterprise user roles
 
-To administer the Azure services in your enrollment, there are four distinct enterprise administrative user roles:
+To administer the Azure services in your enrollment, there are five distinct enterprise administrative user roles:
 
 - Enterprise administrator
 - Department administrator
 - Account owner
 - Service administrator
+- Notification contact
 
 Roles are used to complete tasks in two different Microsoft Azure portals. The Azure EA portal (https://ea.azure.com) is used to help you to manage billing and costs. The Azure portal (https://portal.azure.com) is used to manage Azure services.
 
@@ -96,9 +97,15 @@ Each account requires a unique Work, School, or Microsoft Account. For more info
 
 The service administrator has permissions to manage services in the Azure portal and assign users to the coadministrator role.
 
+### Notification contact
+
+The notification contact receives usage notifications related to the enrollment.
+
 ## Activate your enrollment
 
 To activate your service, the initial enterprise administrator opens the Azure EA portal at [https://ea.azure.com](https://ea.azure.com) and signs in using the email address from the invitation email.
+
+If you’ve been set up as the EA administrator, you don’t need to receive the activation email to log on to the Azure EA portal. You can proceed to [https://ea.azure.com](https://ea.azure.com) and log on with your email address (either work, school, or live ID) and password.
 
 If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure EA portal.
 

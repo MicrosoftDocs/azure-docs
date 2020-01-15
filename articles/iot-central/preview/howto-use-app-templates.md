@@ -3,7 +3,7 @@ title: Export an Azure IoT Central application | Microsoft Docs
 description: As a solution manager, I want to export an application template to be able to reuse it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -27,6 +27,9 @@ You have two options:
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
 
 Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
+
+> [!NOTE]
+> You can **Copy your application** to **Europe** and **US** locations only.
 
 ![Application settings page](media/howto-use-app-templates/appcopy2.png)
 
@@ -78,6 +81,9 @@ To use an application template to create a new IoT Central application, you need
 ![Create an application from a template](media/howto-use-app-templates/create-app.png)
 
 Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
+
+> [!NOTE]
+> When an application is created using **Shareable Link** the available locations are **Europe** and **US**.
 
 ### Manage application templates
 

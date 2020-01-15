@@ -1,15 +1,15 @@
 ---
-title: Self-service password reset deployment plan - Azure Active Directory
+title: Self-service password reset deployment - Azure Active Directory
 description: Strategy for successful implementation of Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 

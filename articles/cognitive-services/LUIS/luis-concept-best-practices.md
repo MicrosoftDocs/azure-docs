@@ -1,7 +1,7 @@
 ---
-title: Best practices - LUIS
+title: Best practices for building your LUIS app
 titleSuffix: Azure Cognitive Services
-description: Learn the LUIS best practices to get the best results from your LUIS app's model.
+description: Learn the best practices to get the best results from your LUIS app's model.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ---
-# Best practices for building a language understanding app with Cognitive Services
+# Best practices for building a language understanding (LUIS) app
 Use the app authoring process to build your LUIS app: 
 
 * Build language models (intents and entities)
@@ -78,7 +78,7 @@ Model decomposition has a typical process of:
 * add descriptors (features) to subcomponents
 * add descriptors (features) to intent 
 
-Once you have create the intent and added example utterances, the following example describes entity decomposition. 
+Once you have created the intent and added example utterances, the following example describes entity decomposition. 
 
 Start by identifying complete data concepts you want to extract in an utterance. This is your machine-learned entity. Then decompose the phrase into its parts. This includes identifying subcomponents (as entities), along with descriptors and constraints. 
 

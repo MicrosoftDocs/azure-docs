@@ -2,7 +2,7 @@
 title: View and manage service providers
 description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
 ms.date: 11/15/2019
-ms.topic: overview
+ms.topic: conceptual
 ---
 # View and manage service providers
 

@@ -29,7 +29,7 @@ You can use custom headers to capture several types of information. For example:
 * Client system details (electronic health record, patient portal)
 
 > [!IMPORTANT]
-> Be aware that the information sent in custom headers is stored in a Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any sensitive information before adding it to custom headers.  
+> Be aware that the information sent in custom headers is stored in a Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any information before adding it to custom headers. You should not pass any PHI information through customer headers.
 
 You must use the following naming convention for your HTTP headers: X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
 
@@ -70,3 +70,8 @@ client.OnBeforeRequest += (object sender, BeforeRequestEventArgs e) =>
 };
 client.Get("Patient");
 ```
+## Next steps
+In this article, you learned how to add data to audit logs by using custom headers in the Azure API for FHIR. Next, learn about other additional settings you can configure in the Azure API for FHIR.
+ 
+>[!div class="nextstepaction"]
+>[Additional Settings](azure-api-for-fhir-additional-settings.md)

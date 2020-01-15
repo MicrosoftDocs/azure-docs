@@ -43,6 +43,7 @@ To configure Azure AD integration with Snowflake, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Snowflake supports **SP and IDP** initiated SSO
+* Snowflake supports [Automated user provisioning and deprovisioning](snowflake-provisioning-tutorial.md) (recommended)
 
 ## Adding Snowflake from the gallery
 

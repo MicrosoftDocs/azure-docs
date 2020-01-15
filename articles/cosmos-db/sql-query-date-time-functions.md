@@ -1,6 +1,6 @@
 ---
 title: Date and time functions in Azure Cosmos DB query language
-description: Learn about date and time SQL system functions in Azure Cosmos DB.
+description: Learn about date and time SQL system functions in Azure Cosmos DB to perform DateTime and timestamp operations.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

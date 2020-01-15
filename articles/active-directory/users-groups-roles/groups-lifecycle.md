@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 01/03/2020
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -59,7 +59,7 @@ The following are roles that can configure and use expiration for Office 365 gro
 
 Role | Permissions
 -------- | --------
-Global administrator or User administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
+Global administrator, Group administrator, or User administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
 For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](groups-restore-deleted.md).
@@ -83,11 +83,9 @@ For more information on permissions to restore a deleted group, see [Restore a d
     - Save your settings when you're done by selecting **Save**.
 
 > [!NOTE]
-> When you first set up expiration, any groups that are older than the expiration interval are set to 35 days until expiration unless the group is automatically renewed or the owner renews it.
->
-> When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
->
-> Expiration notices for groups used in Teams appear in the Teams Owners feed.
+> - When you first set up expiration, any groups that are older than the expiration interval are set to 35 days until expiration unless the group is automatically renewed or the owner renews it.
+> - When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
+> - Expiration notices for groups used in Teams appear in the Teams Owners feed.
 
 ## Email notifications
 

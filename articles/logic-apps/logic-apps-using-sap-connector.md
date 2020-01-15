@@ -1,12 +1,11 @@
 ---
-title: Connect to SAP systems - Azure Logic Apps
+title: Connect to SAP systems
 description: Access and manage SAP resources by automating workflows with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
@@ -15,7 +14,7 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 > [!IMPORTANT]
-> The earlier SAP Application Server and SAP Message Server connectors are scheduled for deprecation on November 30, 2019. 
+> The earlier SAP Application Server and SAP Message Server connectors are scheduled for deprecation on February 29, 2020. 
 > The current SAP connector consolidates these previous SAP connectors so that you don't have to change 
 > the connection type, is fully compatible with previous connectors, provides many additional capabilities, 
 > and continues to use the SAP .Net connector library (SAP NCo).
