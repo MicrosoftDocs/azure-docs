@@ -15,10 +15,10 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytic is a big data analytic service that enables you to query and analyze your data using the powerful query languages. You can use the following languages for data analysis:
 
-- T-SQL language - standard ANSI compliant dialect of SQL language used on SQL Server and Azure SQL Database. This language is available in SQL Pool and SQL On-Demand capability.
+- Transact-SQL language - standard ANSI-compliant dialect of SQL language used on SQL Server and Azure SQL Database. This language is available in SQL Pool and SQL On-Demand capability.
 - Spark SQL PySpark(Python), Scala(Java), and .NET Spark (C#) languages that are used on Apache Spark. These languages are available on Spark Pool capability.
 
- The languages used in these capabilities have different language elements and objects. In this page you can find high-level query language differences between Azure Synapse Capabilities.
+ The languages used in these capabilities have different language elements and objects. In this page, you can find high-level query language differences between Azure Synapse Capabilities.
 
 ## Database objects
 
@@ -34,7 +34,7 @@ Synapse capabilities enable you to use different database objects. The compariso
 | Functions | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse) | No | [Yes](https://docs.microsoft.com/azure/databricks/spark/latest/spark-sql/udf-python) |
 | Triggers | No | No | No |
 | External tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest) | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest) | Yes |
-| Caching queries | Yes, multiple forms (SSD based caching, in-memory, resultset caching). In addition, Materialized View are supported | No | Yes, using CACHE TABLE |
+| Caching queries | Yes, multiple forms (SSD-based caching, in-memory, resultset caching). In addition, Materialized View are supported | No | Yes, using CACHE TABLE |
 | Table variables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables | N/A, use temporary tables |
 
 ## Query language
@@ -48,20 +48,20 @@ Query languages used in Synapse capabilities can have different supported featur
 | UPDATE statement | Yes | Limited (temp tables only) |   |
 | DELETE statement | Yes | Limited (temp tables only) |   |
 | MERGE statement | Yes | Limited (temp tables only) |   |
-| Data load | Yes. Preferred utility is COPY statement, but the system supports both BULK load (BCP) and [CETAS] for data loading. | No |   |
+| Data load | Yes. Preferred utility is `COPY` statement, but the system supports both BULK load (BCP) and [CETAS](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7) for data loading. | No |   |
 | Data export | Yes. Using [CETAS](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7). | Yes. Using [CETAS](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7). |   |
 | Types | Yes, all Transact-SQL types except [cursor](https://msdn.microsoft.com/library/ms190498.aspx)[hierarchyid](https://msdn.microsoft.com/library/bb677290.aspx), [ntext, text, and image](https://msdn.microsoft.com/library/ms187993.aspx)[rowversion](https://msdn.microsoft.com/library/ms182776.aspx), [Spatial Types](https://msdn.microsoft.com/library/ff848797.aspx)[sql\_variant](https://msdn.microsoft.com/library/ms173829.aspx), [xml](https://msdn.microsoft.com/library/ms187339.aspx) | Yes, all Transact-SQL types except [cursor](https://msdn.microsoft.com/library/ms190498.aspx), [hierarchyid](https://msdn.microsoft.com/library/bb677290.aspx)[ntext, text, and image](https://msdn.microsoft.com/library/ms187993.aspx), [rowversion](https://msdn.microsoft.com/library/ms182776.aspx)[Spatial Types](https://msdn.microsoft.com/library/ff848797.aspx), [sql\_variant](https://msdn.microsoft.com/library/ms173829.aspx)[xml](https://msdn.microsoft.com/library/ms187339.aspx), and Table type | Yes, [Apache Spark types](https://spark.apache.org/docs/latest/sql-reference.html#data-types) |
 | Built-in functions (analysis) | Yes, all Transact-SQL Analytic, Conversion, Date&amp;Time, Logical, Math functions, except `CHOOSE`, `IIF`, and `PARSE`  | Yes, all Transact-SQL Analytic, Conversion, Date&amp;Time, Logical, Math functions, except `COMPRESS` and `DECOMPRESS` | Yes |
 | Built-in functions (text) | Yes. All Transact-SQL Collation, JSON, and string functions, except STRING\_ESCAPE and TRANSLATE | Yes. All Transact-SQL Collation, JSON, and string functions, except `STRING\_ESCAPE` | Yes |
 | Built-in table-value functions | Yes, Transact-SQL Rowset except [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql?view=sql-server-ver15), [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql), [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql), and [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql) | Yes, Transact-SQL Rowset except [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql?view=sql-server-ver15), [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql), and [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)  | Yes |
 | Aggregates |  Transact-SQL built-in aggregates except, except `CHECKSUM\_AGG`, `GROUPING`, `GROUPING\_ID` | Transact-SQL built-in aggregates except [STRING\_AGG](https://docs.microsoft.com/sql/t-sql/functions/string-agg-transact-sql) | [Yes](https://spark.apache.org/docs/latest/sql-getting-started.html#aggregations) |
-| Operators | Yes, all [Transact-SQL operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) except !\&gt; and !\&lt; | Yes, all [Transact-SQL operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql)  | Yes |
+| Operators | Yes, all [Transact-SQL operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) except `!\&gt;` and `!\&lt;` | Yes, all [Transact-SQL operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql)  | Yes |
 | Control of flow | Yes. All [Transact-SQL Control-of-flow statement](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow?view=sql-server-ver15) except `CONTINUE`, `GOTO`, `RETURN`, `USE`, and `WAITFOR` | Yes. All [Transact-SQL Control-of-flow statement](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow?view=sql-server-ver15) except `RETURN` and SELECT query in `WHILE (...)` condition | Yes |
 | DDL statements (CREATE, ALTER, DELETE) | Yes. All Transact-SQL DDL statement applicable to the supported object types | Yes. All Transact-SQL DDL statement applicable to the supported object types | Yes. All Apache Spark DDL statement |
 
 **Security**
 
-Azure Synapse Analytic enables you use built-in security features to secure your data and control access. The following table compares high-level differences between capabilities.
+Azure Synapse Analytic enables you to use built-in security features to secure your data and control access. The following table compares high-level differences between capabilities.
 
 |   | SQL Pool | SQL On-demand | Spark Pool |
 | --- | --- | --- | --- |
@@ -73,9 +73,9 @@ Azure Synapse Analytic enables you use built-in security features to secure your
 | AAD passthrough | Yes | Yes | Yes |
 | Security &amp; identity functions | Some Transact-SQL security functions and operators:  `CURRENT\_USER`, `HAS\_DBACCESS`, `IS\_MEMBER`, `IS\_ROLEMEMBER`, `SESSION\_USER`, `SUSER\_NAME`, `SUSER\_SNAME`, `SYSTEM\_USER`, `USER`, `USER\_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT\_USER`, `HAS\_DBACCESS`, `HAS\_PERMS\_BY\_NAME`, `IS\_MEMBER IS\_ROLEMEMBER`, `IS\_SRVROLEMEMBER`, `SESSION\_USER`, `SUSER\_NAME`, `SUSER\_SNAME`, `SYSTEM\_USER`, `USER`, `USER\_NAME`, `EXECUTE AS`, and `REVERT`  |   |
 
-SQL Pool and SQL On-Demand use standard Transact-SQL language to query data. For detailed differences look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
+SQL Pool and SQL On-Demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
 
-Spark Pool uses Apache Spark language. For more details about the Spark language capabilities look at the [Apache Spark documentation](https://spark.apache.org/docs/latest/sql-getting-started.htm).
+Spark Pool uses Apache Spark language. For more details about the Spark language capabilities, look at the [Apache Spark documentation](https://spark.apache.org/docs/latest/sql-getting-started.htm).
 
 ## Tools
 
@@ -84,7 +84,7 @@ You can use various tools to connect to synapse capabilities and query data.
 |   | SQL Pool | SQL On-demand | Spark Pool |
 | --- | --- | --- | --- |
 | Synapse Studio | Yes, SQL scripts | Yes, SQL scripts | Yes, Notebooks |
-| PowerBI | Yes | Yes |   |
+| Power BI | Yes | Yes |   |
 | Azure Analysis Service | Yes | Yes |   |
 | Azure Data Studio | Yes | Yes, version 1.14 or higher | No |
 | SQL Server Management Studio | Yes | Yes, version 18.4 or higher | No |
@@ -105,7 +105,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 
 ## Data file formats
 
-Data that is analyzed can be stored in various storage types. The following table list all available data formats that can be analyzed:
+Data that is analyzed can be stored in various storage types. The following table lists all available data formats that can be analyzed:
 
 |   | SQL Pool | SQL On-demand | Spark Pool |
 | --- | --- | --- | --- |
@@ -121,6 +121,6 @@ Data that is analyzed can be stored in various storage types. The following tabl
 
 ## Table replication
 
-Synapse workspace provides unified view over data and enable you to query the same data set using different capabilities. Whenever you create a table on external files, the table definition will be copied to other capabilities.
+Synapse workspace provides unified view over data and enables you to query the same data set using different capabilities. Whenever you create a table on external files, the table definition will be copied to other capabilities.
 
-Currently, only external tables created in Spark Pool that reference CSV and Parquet formats are synchronized to SQL Pool.
+Currently, only databases and external tables created in Spark Pool that reference CSV and Parquet formats are replicated to SQL On-Demand.
