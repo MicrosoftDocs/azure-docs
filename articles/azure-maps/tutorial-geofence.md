@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Set up a geofence by using Azure Maps
 
-This tutorial walks you through the basics steps to set up geofence by using Azure Maps. Consider this scenario, a construction Site Manager has to monitor potential hazardous equipment. She/He needs to ensure that the equipment stays in the chosen overall construction areas. This overall construction area is a hard parameter. Regulations require equipment to stay within this parameter and violations are reported to the Operations Manager.  
+This tutorial walks you through the basics steps to set up geofence by using Azure Maps. Consider this scenario, a construction Site Manager has to monitor potential hazardous equipment. The manager needs to ensure that the equipment stays in the chosen overall construction areas. This overall construction area is a hard parameter. Regulations require equipment to stay within this parameter and violations are reported to the Operations Manager.  
 
 We use the Data Upload API to store a geofence and use the Geofence API to check the equipment location relative to the geofence. Both the Data Upload API and the Geofence API are from Azure Maps. We also use Azure Event Grid to stream the geofence results and set up a notification based on the geofence results. To learn more about Event Grid, see [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -189,7 +189,7 @@ We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handl
 
 ## Create an Azure Maps Events subscription
 
-Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps. We need two different subscriptions, one for the enter event and one for the exit events.
+Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps. We need two different event subscriptions, one for the enter event and one for the exit events.
 
 Follow the steps below to create an event subscription for the geofence enter events. You can subscribe to geofence exit events in a similar manner.
 
