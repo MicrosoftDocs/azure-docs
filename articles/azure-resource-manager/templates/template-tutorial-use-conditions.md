@@ -150,7 +150,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
 
-Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
+Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../../storage/common/storage-account-create.md).
 
 ## Clean up resources
 

@@ -22,11 +22,7 @@ This article shows how to create a nested virtualization environment in Microsof
 
 ## Prerequisites
 
-To mount the problem VM, the Rescue VM must meet the following prerequisites:
-
--   The Rescue VM must be in the same location as the problem VM.
-
--   The Rescue VM must use the same type of Storage Account (Standard or Premium) as the problem VM.
+To mount the problem VM, the Rescue VM must use the same type of Storage Account (Standard or Premium) as the problem VM.
 
 ## Step 1: Create a Rescue VM and install Hyper-V role
 

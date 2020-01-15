@@ -22,6 +22,9 @@ ms.custom: mvc
 
 # Tutorial: Secure a web server on a Windows virtual machine in Azure with SSL certificates stored in Key Vault
 
+> [!NOTE]
+> Currently this doc only works for Generalized images. If attempting this tutorial using a Specialized disk you will recieve an error. 
+
 To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Windows virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
