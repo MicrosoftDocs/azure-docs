@@ -23,15 +23,15 @@ You can use the Video Indexer APIs to create, use, and edit custom Brands models
 
 ## Create a Brand
 
-The [Create brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) creates a new custom brand and adds it to the custom Brands model for the specified account.
+The [Create brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) creates a new custom brand and adds it to the custom Brands model for the specified account. 
 
-The page scribes the request parameters and the request body (must be set) that provides information on the new brand.
+> [!NOTE]
+> Setting **enabled** (in the body) to true puts the brand in the *Include* list for Video Indexer to detect. Setting **enabled** to false puts the brand in the *Exclude* list, so Video Indexer will not detect it.
 
-Setting **enabled** (in the body) to true puts the brand in the *Include* list for Video Indexer to detect. Setting **enabled** to false puts the brand in the *Exclude* list, so Video Indexer will not detect it.
+Some other parameters that you can set in the body:
 
-The **referenceUrl** value can be any reference websites for the brand such as a link to its Wikipedia page.
-
-The **tags** value is a list of tags for the brand. This shows up in the brand's *Category* field in the Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
+* The **referenceUrl** value can be any reference websites for the brand such as a link to its Wikipedia page.
+* The **tags** value is a list of tags for the brand. This shows up in the brand's *Category* field in the Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
 
 ## Delete a Brand
 
@@ -47,7 +47,7 @@ This lets you search for the details of a brand in the custom Brands model for t
 
 For details, see the [Get brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) API.
 
-The **enabled** flag being set to **true** signifies that the brand is in the *Include* list for Video Indexer to detect, and **enabled** being false signifies that the brand is in the *Exclude* list, so Video Indexer will not detect it.
+If the **enabled** flag is **true**, the brand is included in the *Include* list for Video Indexer to detect. If **enabled** is false, the brand is in the *Exclude* list, so Video Indexer cannot detect it.
 
 ## Update a specific brand
 
@@ -55,7 +55,7 @@ This lets you search for the details of a brand in the custom Brands model for t
 
 For details, see [update brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
-If the **enabled** value set to false, the brand will be put in the *Exclude* list.
+If the **enabled** flag is set to **true**, the brand is included in the *Include* list for Video Indexer to detect. If **enabled** is false, the brand is in the *Exclude* list, so Video Indexer cannot detect it.
 
 ## Get all of the Brands
 
