@@ -12,7 +12,7 @@
 - name: Quickstarts
   items:
   - name: Using SDK
-    href: use-sdk-learning-loop.md
+    href: sdk-learning-loop.md
 - name: Tutorials
   items:
   - name: Use Azure Notebook

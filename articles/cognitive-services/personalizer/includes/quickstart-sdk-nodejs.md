@@ -77,7 +77,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
-![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
+![Change model update frequency](../media/settings/configure-model-update-frequency-settings.png)
 
 When a Personalizer loop is first instantiated, there is no model since there has been no Reward API calls to train from. Rank calls will return equal probabilities for each item. Your application should still always rank content using the output of RewardActionId.
 
@@ -168,4 +168,4 @@ Run the application with the Node.js from your application directory.
 node sample.js
 ```
 
-![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](./media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
