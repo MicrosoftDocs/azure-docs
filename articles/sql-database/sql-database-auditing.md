@@ -242,7 +242,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 - Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
 
-- For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
+- For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
 
 > [!IMPORTANT] 
 >  The allow protected append blobs writes setting under time-based retention is currently available and visible only in the following regions:
