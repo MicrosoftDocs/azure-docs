@@ -383,7 +383,7 @@ If your offer requires the Premium edition of Microsoft Dynamics 365 Business Ce
 
 ### Key usage scenario
 
-You must pload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+You must upload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ### App tests automation
 

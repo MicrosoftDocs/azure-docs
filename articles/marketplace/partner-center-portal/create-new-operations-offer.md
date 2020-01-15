@@ -28,7 +28,7 @@ Select the **+ New offer** button, then select the **Dynamics 365 for Operations
 
 ### Offer ID and alias
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). This ID is limited to 50 characters and can't be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace, and is different than the offer name and other values that will be shown to customers. This value can't be changed after you select **Create**.
 
@@ -94,7 +94,7 @@ The **Properties** page lets you define the categories and industries used to gr
 
 ### Category
 
-Select a minimum of one and a maximum of three categories. These will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description. 
+Select a minimum of one and a maximum of three categories. These categories will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description.
 
 ### Industry
 
@@ -133,11 +133,11 @@ The name you enter here will be shown to customers as the title of your offer li
 
 ### Short description
 
-Provide a short description of your offer (up to 100 characters). This may be used in marketplace search results.
+Provide a short description of your offer (up to 100 characters). This description may be used in marketplace search results.
 
 ### Description
 
-Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures. 
+Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
 
 Some tips for writing your description:  
 
@@ -167,14 +167,6 @@ Use the following instructions to use the rich text editor:
 - To add or remove indentation to the text, use the options below:
 
      ![Using the rich text editor to indent](./media/text-editor5.png)
-
-
-
-
-
-
-
-
 
 ### Search keywords
 
@@ -236,7 +228,7 @@ The **Availability** page gives you options about where and how to make your off
 
 ### Markets
 
-This section lets you specify the markets in which your offer should be available. To do so, select **Edit markets.** This will display the **Market selection** popup window.
+This section lets you specify the markets in which your offer should be available. To do so, select **Edit markets,** which will display the **Market selection** popup window.
 
 By default, no markets are selected. Select at least one market to publish your offer. Click  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add. Once you've finished, select **Save**.
 
@@ -316,7 +308,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 Any custom products should use this type of test drive deployment template, which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
 
-- **Region** (required, single-selection dropdown list): Currently there are 26 Azure-supported regions where your test drive can be made available. The resources for your Logic app will be deployed in the region you select. If your Logic App has any custom resources stored in a specific region, make sure that region is selected here. The best way to do this is to fully deploy your Logic App locally on your Azure subscription in the portal and verify that it functions correctly before making this selection.
+- **Region** (required, single-selection dropdown list): Currently there are 26 Azure-supported regions where your test drive can be made available. The resources for your Logic app will be deployed in the region you select. If your Logic App has any custom resources stored in a specific region, make sure that region is selected here. The best way to ensure you have custom resources for your region available is to fully deploy your Logic App locally on your Azure subscription in the portal and verify that it functions correctly before making this selection.
 
 - **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. These test drives are already deployed, enabling customers to instantly access them without waiting for a deployment.
 
@@ -344,7 +336,7 @@ In order to deploy the Test Drive on your behalf, create and provide a separate,
 
 - **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app client secret** (required): Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. (Don't navigate away from the page before you do this, or else you won't have access to the value.)
+- **Azure AD app client secret** (required): Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. (Don't navigate away from the page before you make a note of the value or you won't have access to the value.)
 
 Remember to **Save** before moving on to the next section!
 
@@ -385,9 +377,9 @@ Answer **Yes** if the text in your solution can be translated into other languag
 
 ### Submit offer to preview
 
-Once you have completed all the required sections of the offer, select **publish** in the upper right corner of the portal. You will be re-directed to the **Review and publish** page. 
+Once you have completed all the required sections of the offer, select **publish** in the upper right corner of the portal. You will be redirected to the **Review and publish** page.
 
-If this is your first time publishing this offer, you can:
+If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
     - *Not started* - means the section has not been touched and should be completed.
