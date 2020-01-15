@@ -648,7 +648,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The `ServiceBusQueueOutput` and `ServiceBusTopicOutput` annotations are available to write a message as a function output. The parameter decorated with these annotations must be declared as an `OutputBinding<T>` where `T` is the type corresponding to the message's type.
 
 ---
 
