@@ -8,7 +8,7 @@ manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 01/15/2020
 ms.author: ralphe
 ---
 
@@ -17,7 +17,7 @@ ms.author: ralphe
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 
@@ -27,7 +27,7 @@ Before you get started, make sure to:
 
 1. Replace all the code with the following snippet:
 
-    ```C++
+    ```cpp
     #include "pch.h"
     
     #define WIN32_LEAN_AND_MEAN
@@ -44,14 +44,14 @@ Before you get started, make sure to:
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     using namespace Microsoft::CognitiveServices::Speech::Transcription;
     
-    // create a promise we will set when the user presses Ctrl-C
+    // Create a promise we will set when the user presses Ctrl-C
     std::promise<bool> promise;
-    // create the future we will use to wait for the promise to be fulfilled
+    // Create the future we will use to wait for the promise to be fulfilled
     std::future<bool> future = promise.get_future();
     
     void StartNewConversation()
     {
-        // set these
+        // Set these
         std::string subscriptionKey("YourSubscriptionKey");
         std::string region("YourServiceRegion");
         std::string speechLanguage("en-US");
@@ -64,8 +64,7 @@ Before you get started, make sure to:
         // Start the conversation so you and others can join
         conversation->StartConversationAsync().get();
     
-        // Get the conversation ID. It will be up to your scenario to determine how this is shared
-        // with other participants.
+        // Get the conversation ID. It will be up to your scenario to determine how this is shared with other participants.
         std::cout << "Created conversation: " << conversation->GetConversationId() << std::endl;
     
         // You can now call various commands to manage the room. For example:
@@ -75,7 +74,7 @@ Before you get started, make sure to:
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto conversationTranslator = ConversationTranslator::FromConfig(audioConfig);
     
-        // add any event handlers
+        // Add any event handlers
         conversationTranslator->SessionStarted += [](const SessionEventArgs& args)
         {
             std::cout << "Session started " << args.SessionId << std::endl;
@@ -181,7 +180,7 @@ Before you get started, make sure to:
             {
                 if (dwCtrlType == CTRL_C_EVENT)
                 {
-                    // signal that the user has pressed ctrl + C
+                    // Signal that the user has pressed ctrl + C
                     promise.set_value(true);
                     return TRUE;
                 }
@@ -206,7 +205,7 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak
+1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak
     - If you share the conversation code with the others and they join the conversation, you'll see their transcriptions as well.
 
 1. Once you're done speaking, press `Ctrl + C` on your keyboard to stop audio capture.
@@ -229,7 +228,7 @@ Before you get started, make sure to:
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto conversationTranslator = ConversationTranslator::FromConfig(audioConfig);
     
-        // attach event handlers here. For example:
+        // Attach event handlers here. For example:
         conversationTranslator->Transcribing += [](const ConversationTranslationEventArgs& args)
         {
             std::cout << "Received a partial transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
@@ -274,7 +273,7 @@ Before you get started, make sure to:
 1. Replace `StartNewConversation();` in your `int main()` function with:
 
     ```C++
-    // set this to the conversation you want to join
+    // Set this to the conversation you want to join
     JoinExistingConversation("YourConversationId");
     ```
 
@@ -286,10 +285,10 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
+1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
 
-1.  Once you're done speaking, press Ctrl + c to stop audio capture, and end the conversation.
+1.  Once you're done speaking, press <kbd> Ctrl + C</kbd> to stop audio capture, and end the conversation.
 
     > [!NOTE]
     > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.

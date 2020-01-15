@@ -8,7 +8,7 @@ manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/08/2019
+ms.date: 01/15/2020
 ms.author: ralphe
 ---
 
@@ -22,4 +22,4 @@ ms.author: ralphe
     1. Note the conversation code at the top of the page.
 
     > [!NOTE]
-    > If you use the copy button on the web page, make sure you remove the `translate.it/` at the start. You only need the 5 character conversation ID.
+    > If you use the copy button on the web page, make sure you remove the `translate.it/` at the start. You only need the 5 character conversation ID (example: ABCDE).

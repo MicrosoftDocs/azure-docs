@@ -8,7 +8,7 @@ manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 1/15/2020
 ms.author: ralphe
 ---
 # What is Multi-device Conversation?
@@ -31,9 +31,9 @@ Whereas [**Conversation Transcription**](conversation-transcription.md) works on
 ## Key features
 
 - **Real-time transcription** – Everyone will receive a transcript of the conversation, so they can follow along the text in real-time or save it for later.
-- **Real-time translation** – With more than 60 supported languages for text translation, all users can translate the conversation to their preferred language(s).
+- **Real-time translation** – With more than 60 [supported languages](language-support.md#text-languages) for text translation, users can translate the conversation to their preferred language(s).
 - **Readable transcripts** – The transcription and translation are easy to follow, with punctuation and sentence breaks.
-- **Voice or text input** – Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+- **Voice or text input** – Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](language-support.md#speech-to-text).
 - **Message relay** - The multi-device conversation service will distribute messages sent by one client to all the others, in the language(s) of their choice.
 - **Message identification** – Every message that users receive in the conversation will be tagged with the nickname of the user who sent it.
 
@@ -54,7 +54,7 @@ Real-time transcription and translation can help make conversations accessible f
 You can also provide captions for presentations and lectures both on-screen and on the audience members' own devices. After the audience joins with the conversation code, they can see the transcript in their preferred language, on their own device.
 
 > [!NOTE]
-> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://www.microsoft.com/en-us/download/details.aspx?id=55024).
+> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://www.microsoft.com/download/details.aspx?id=55024).
 
 ## How it works
 
