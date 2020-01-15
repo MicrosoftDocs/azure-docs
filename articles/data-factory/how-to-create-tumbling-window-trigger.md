@@ -226,5 +226,5 @@ To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipe
 
 ## Next steps
 
-* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)

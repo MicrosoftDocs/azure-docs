@@ -25,6 +25,7 @@ A _pipeline run_ in Azure Data Factory defines an instance of a pipeline executi
 Pipeline runs are typically instantiated by passing arguments to parameters that you define in the pipeline. You can execute a pipeline either manually or by using a _trigger_. This article provides details about both ways of executing a pipeline.
 
 ## Manual execution (on-demand)
+
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
 For example, say you have a basic pipeline named **copyPipeline** that you want to execute. The pipeline has a single activity that copies from an Azure Blob storage source folder to a destination folder in the same storage. The following JSON definition shows this sample pipeline:
@@ -80,12 +81,13 @@ You can manually run your pipeline by using one of the following methods:
 - Python SDK
 
 ### REST API
+
 The following sample command shows you how to run your pipeline by using the REST API manually:
 
-`"
+```
 POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
-`"
+```
 
 For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
 
@@ -97,7 +99,7 @@ The following sample command shows you how to manually run your pipeline by usin
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
-`"
+```
 
 You pass parameters in the body of the request payload. In the .NET SDK, Azure PowerShell, and the Python SDK, you pass values in a dictionary that's passed as an argument to the call:
 
@@ -119,18 +121,20 @@ The response payload is a unique ID of the pipeline run:
 For a complete sample, see [Quickstart: Create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### .NET SDK
+
 The following sample call shows you how to run your pipeline by using the .NET SDK manually:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
-`"
+```
 
 For a complete sample, see [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > You can use the .NET SDK to invoke Data Factory pipelines from Azure Functions, from your web services, and so on.
 
-<h2 id="triggers">Trigger execution</h2>
+## Trigger execution
+
 Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports three types of triggers:
 
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
@@ -139,8 +143,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Event-based trigger: A trigger that responds to an event.
 
-Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger). Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
-
+Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger).Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 ### Basic trigger definition
 
 ```json

@@ -398,4 +398,4 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 
 
 ## Next steps
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
