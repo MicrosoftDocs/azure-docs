@@ -32,7 +32,7 @@ Learn how to use the Python SDK for Azure Data Lake Storage Gen1 to perform basi
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **An Azure resource group**. For instructions, see [Create an Azure resource group](../azure-resource-manager/manage-resource-groups-portal.md).
+* **An Azure resource group**. For instructions, see [Create an Azure resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 ## Install the modules
 

@@ -52,7 +52,7 @@ Private Endpoints can be created using the portal, PowerShell, or Azure CLI:
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
 
-1. Navigate to the SQL server resource in the Azure portal.
+1. Navigate to the SQL server resource in the Azure portal as per steps shown in the screenshot below
 
     - (1) Select the Private endpoint connections in the left pane
     - (2) Shows a list of all Private Endpoint Connections (PECs)
@@ -142,8 +142,10 @@ The result shows that one IP address is up; which corresponds to the IP address 
 
 
 ### Check Connectivity using SQL Server Management Studio (SSMS)
+> [!NOTE]
+>Use the **Fully Qualified Domain Name(FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail by design.
 
-The last step is to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
+Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
 ````
 select client_net_address from sys.dm_exec_connections 

@@ -30,7 +30,7 @@ If you select the event, you should see the exact disk information:
 
 
 ### Azure Site Recovery limits
-The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. 
+The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application I/O combinations. Actual results can vary based on your application I/O mix.
 
 There are two limits to consider, data churn per disk and data churn per virtual machine. For example, let's look at the Premium P20 disk in the following table. Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks per VM, due to the limit of 25 MB/s of total churn per VM.
 
@@ -54,7 +54,7 @@ Azure Site Recovery has limits on data change rate, based on the type of disk. T
 
 If a spike is from an occasional data burst and the data change rate is greater than 10 MB/s (for Premium) and 2 MB/s (for Standard) for some time and comes down, replication will catch up. But if the churn is well beyond the supported limit most of the time, consider one of these options if possible:
 
-* **Exclude the disk that's causing a high data-change rate**: You can exclude the disk by using [PowerShell](./azure-to-azure-exclude-disks.md).To exclude the disk you have to disable the replication first. 
+* **Exclude the disk that's causing a high data-change rate**: You can exclude the disk by using [PowerShell](./azure-to-azure-exclude-disks.md).To exclude the disk you have to disable the replication first.
 * **Change the tier of the disaster recovery storage disk**: This option is possible only if the disk data churn is less than 20 MB/s. Let's say a VM with a P10 disk is having a data churn of greater than 8 MB/s but less than 10 MB/s. If the customer can use a P30 disk for target storage during protection, the problem can be solved. Note that this solution is only possible for machines that are using Premium Managed Disks. Follow the below steps:
     - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
     - Navigate to this replica managed disk
@@ -64,28 +64,28 @@ If a spike is from an occasional data burst and the data change rate is greater 
 ## <a name="Network-connectivity-problem"></a>Network connectivity problems
 
 ### Network latency to a cache storage account
-Site Recovery sends replicated data to the cache storage account. You might see network latency if uploading the data from a virtual machine to the cache storage account is slower than 4 MB in 3 seconds. 
+Site Recovery sends replicated data to the cache storage account. You might see network latency if uploading the data from a virtual machine to the cache storage account is slower than 4 MB in 3 seconds.
 
-To check for a problem related to latency, use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) to upload data from the virtual machine to the cache storage account. If the latency is high, check if you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA. 
+To check for a problem related to latency, use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) to upload data from the virtual machine to the cache storage account. If the latency is high, check if you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
 
 We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't go to the NVA. For more information, see [Network virtual appliance configuration](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
 
 ### Network connectivity
-For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these problems. To make sure all the URLs are connected, see [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these problems. To make sure all the URLs are connected, see [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
 ## Error ID 153006 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
 Some of the most common issues are listed below
 
-#### Cause 1: Known issue in SQL server 2008/2008 R2 
+#### Cause 1: Known issue in SQL server 2008/2008 R2
 **How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
-**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+#### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser)
 
 
 #### Cause 3: Known issue in SQL Server 2016 and 2017
-**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### Cause 4: You are using Storage spaces direct configuration
 **How to fix** : Azure Site Recovery cannot create application consistent recovery point for Storage spaces direct configuration. Please refer article to correctly [configure the replication policy](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
@@ -93,17 +93,17 @@ Some of the most common issues are listed below
 ### More causes due to VSS related issues:
 
 To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
-	
+
 	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 How to locate the errors in the file?
 Search for the string "vacpError"  by opening the vacp.log file in an editor
-		
+
 	Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 In the above example **2147754994** is the error code that tells you about the failure as shown below
 
-#### VSS writer is not installed - Error 2147221164 
+#### VSS writer is not installed - Error 2147221164
 
 *How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error ID 0x80040154  "Class not registered". </br>
 Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
@@ -121,13 +121,13 @@ Refer [article for VSS writer installation troubleshooting](https://docs.microso
 
 ####  VSS PROVIDER NOT_REGISTERED - Error 2147754756
 
-**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). 
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS).
 Check if the Azure Site Recovery  VSS Provider service is installed or not. </br>
 
 - Retry the Provider installation using the following commands:
 - Uninstall existing provider: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
 - Reinstall: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
- 
+
 Verify that the startup type of the VSS Provider service is set to **Automatic**.
     - Restart the following services:
         - VSS service

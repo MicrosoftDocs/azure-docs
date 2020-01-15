@@ -63,13 +63,13 @@ To manage logon groups for ABAP application servers, the SMLG transaction is use
 #### VMs running SAP Central Services cluster
 This reference architecture runs Central Services on VMs in the application tier. The Central Services is a potential single point of failure (SPOF) when deployed to a single VM—typical deployment when high availability is not a requirement.<br>
 
-To implement a high availability solution, either a shared disk cluster or a file share cluster can be used.To configure VMs for a shared disk cluster, use Windows Server Failover Cluster. Cloud Witness is recommended as a quorum witness. 
+To implement a high availability solution, either a shared disk cluster or a file share cluster can be used.To configure VMs for a shared disk cluster, use Windows Server Failover Cluster. Cloud Witness is recommended as a quorum witness.
  > [!NOTE]
  > Site Recovery does not replicate the cloud witness therefore it is recommended to deploy the cloud witness in the disaster recovery region.
 
-To support the failover cluster environment, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) performs the cluster shared volume function by replicating independent disks owned by the cluster nodes. Azure does not natively support shared disks and therefore requires solutions provided by SIOS. 
+To support the failover cluster environment, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) performs the cluster shared volume function by replicating independent disks owned by the cluster nodes. Azure does not natively support shared disks and therefore requires solutions provided by SIOS.
 
-Another way to handle clustering is to implement a file share cluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) recently modified the Central Services deployment pattern to access the /sapmnt global directories via a UNC path. However, it is still recommended to ensure that the /sapmnt UNC share is highly available. This can be done on the Central Services instance by using Windows Server Failover Cluster with Scale Out File Server (SOFS) and the Storage Spaces Direct (S2D) feature in Windows Server 2016. 
+Another way to handle clustering is to implement a file share cluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) recently modified the Central Services deployment pattern to access the /sapmnt global directories via a UNC path. However, it is still recommended to ensure that the /sapmnt UNC share is highly available. This can be done on the Central Services instance by using Windows Server Failover Cluster with Scale Out File Server (SOFS) and the Storage Spaces Direct (S2D) feature in Windows Server 2016.
  > [!NOTE]
  > Currently Site Recovery support only crash consistent point replication of virtual machines using storage spaces direct and Passive node of SIOS Datakeeper
 
@@ -79,14 +79,14 @@ Another way to handle clustering is to implement a file share cluster. [SAP](htt
 You can use Site Recovery to orchestrate the fail over of full SAP deployment across Azure regions.
 Below are the steps for setting up the disaster recovery 
 
-1. Replicate virtual machines 
+1. Replicate virtual machines
 2. Design a recovery network
 3.	Replicate a domain controller
-4.	Replicate data base tier 
-5.	Do a test failover 
-6.	Do a failover 
+4.	Replicate data base tier
+5.	Do a test failover
+6.	Do a failover
 
-Below is the recommendation for disaster recovery of each tier used in this example. 
+Below is the recommendation for disaster recovery of each tier used in this example.
 
  **SAP tiers** | **Recommendation**
  --- | ---

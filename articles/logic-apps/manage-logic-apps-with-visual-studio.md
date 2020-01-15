@@ -87,13 +87,13 @@ In Visual Studio, you can open logic apps previously created and deployed either
 
    ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   After the logic app opens in Logic Apps Designer, at the bottom of the designer, you can select **Code View** so that you can review the underlying logic app definition structure. If you want to create a deployment template for the logic app, learn [how to download an Azure Resource Manager template](#download-logic-app) for that logic app. Learn more about [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md).
+   After the logic app opens in Logic Apps Designer, at the bottom of the designer, you can select **Code View** so that you can review the underlying logic app definition structure. If you want to create a deployment template for the logic app, learn [how to download an Azure Resource Manager template](#download-logic-app) for that logic app. Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).
 
 <a name="download-logic-app"></a>
 
 ## Download from Azure
 
-You can download logic apps from the [Azure portal](https://portal.azure.com) and save them as [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates. You can then locally edit the templates with Visual Studio and customize logic apps for different deployment environments.  Downloading logic apps automatically *parameterizes* their definitions inside [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md), which also use JavaScript Object Notation (JSON).
+You can download logic apps from the [Azure portal](https://portal.azure.com) and save them as [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates. You can then locally edit the templates with Visual Studio and customize logic apps for different deployment environments.  Downloading logic apps automatically *parameterizes* their definitions inside [Resource Manager templates](../azure-resource-manager/templates/overview.md), which also use JavaScript Object Notation (JSON).
 
 1. In Visual Studio, open Cloud Explorer. Find and select the logic app that you want to download from Azure.
 
@@ -110,13 +110,13 @@ You can download logic apps from the [Azure portal](https://portal.azure.com) an
 
 1. When you're prompted for a location, browse to that location and save the Resource Manager template for the logic app definition in JSON (.json) file format.
 
-   Your logic app definition appears in the `resources` subsection inside the Resource Manager template. You can now edit the logic app definition and Resource Manager template with Visual Studio. You can also add the template as an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to a Visual Studio solution. Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Your logic app definition appears in the `resources` subsection inside the Resource Manager template. You can now edit the logic app definition and Resource Manager template with Visual Studio. You can also add the template as an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to a Visual Studio solution. Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
 ## Link to integration account
 
-To build logic apps for business-to-business (B2B) enterprise integration scenarios, you can link your logic app to a previously created [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that exists in the same region as your logic app. An integration account contains B2B artifacts, such as trading partners, agreements, schemas, and maps, and lets your logic app use B2B connectors for XML validation and flat file encoding or decoding. Although you can [create this link by using the Azure portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), you can also use Visual Studio after meeting the [prerequisites](#requirements), and your logic app exists as a JSON (.json) file inside an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+To build logic apps for business-to-business (B2B) enterprise integration scenarios, you can link your logic app to a previously created [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that exists in the same region as your logic app. An integration account contains B2B artifacts, such as trading partners, agreements, schemas, and maps, and lets your logic app use B2B connectors for XML validation and flat file encoding or decoding. Although you can [create this link by using the Azure portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), you can also use Visual Studio after meeting the [prerequisites](#requirements), and your logic app exists as a JSON (.json) file inside an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
 
 1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
 
@@ -146,7 +146,7 @@ When you set the **Integration Account** property in Visual Studio and save your
 
 ## Change deployment location
 
-In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) that you use to automate deployment, that logic app is set to a location type and a specific location. This location is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) that you use to automate deployment, that logic app is set to a location type and a specific location. This location is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md).
 
 To change your logic app's location type or location, you have to open your logic app's workflow definition (.json) file from Solution Explorer by using the Logic App Designer. You can't change these properties by using Cloud Explorer.
 

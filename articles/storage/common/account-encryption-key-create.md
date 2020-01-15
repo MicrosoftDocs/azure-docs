@@ -145,7 +145,7 @@ After you have created an account that relies on the account encryption key, see
 
 ## Verify the account encryption key
 
-To verify that the new storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a list of storage account properties and their values. Look for the `keyType` property and verify that it is set to `Account`.
+To verify that a service in a storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
 ```azurecli
 az storage account show /

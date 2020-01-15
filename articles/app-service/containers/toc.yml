@@ -176,7 +176,7 @@
     - name: Clone an app
       href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Move resources
-      href: ../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
+      href: ../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
 - name: Reference
   items:
   - name: Azure CLI
