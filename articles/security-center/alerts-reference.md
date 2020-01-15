@@ -146,7 +146,7 @@ Understanding the intention of an attack can help you investigate and report the
 
 The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration is often referred to as a "kill chain". 
 
-Security Center's supported kill chain intents are based on the [MITRE ATT&CK™ framework](https://attack.mitre.org/matrices/enterprise/eh) and described in the table below.
+Security Center's supported kill chain intents are based on the [MITRE ATT&CK™ framework](https://attack.mitre.org/matrices/enterprise) and described in the table below.
 
 |Intent|Description|
 |------|-------|
