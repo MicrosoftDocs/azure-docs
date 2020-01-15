@@ -41,7 +41,7 @@ This example uses the [Piggy Metrics](https://github.com/Azure-Samples/piggymetr
 
 Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string which you found under heading *Set up your GitHub repository and authenticate with Azure*.
 
-> ![Set secret data](./media/github-actions/actions2.png)
+ ![Set secret data](./media/github-actions/actions2.png)
 
 ## Provision Azure Spring Cloud service instance
 To provision your service instance, run the following commands using the Azure CLI.
@@ -188,11 +188,11 @@ GitHub Actions should be enabled automatically after you push `.github/workflow/
 
 To verify your action has been enabled, click **Actions** tab on the GitHub repository page:
 
-> ![Verify action enabled](./media/github-actions/actions3.png)
+ ![Verify action enabled](./media/github-actions/actions3.png)
 
 If your action runs in error, for example, you haven't set Azure credential, you can re-run checks after fixing the error. On GitHub repository page, click **Actions**, select the specific workflow task, then click Re-run checks button to re-run checks:
 
-> ![Re-run checks](./media/github-actions/actions4.png)
+ ![Re-run checks](./media/github-actions/actions4.png)
 
 ## Next steps
 * [Azure Active Directory service principals](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
