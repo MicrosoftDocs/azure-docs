@@ -50,6 +50,7 @@
 - name: How To
   items:
   - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
     href: legacy-components.md
     items:
      - name: Migrate from Azure Media Encoder
@@ -462,6 +463,9 @@
       href: ../media-services-specifications-live-timed-metadata.md
     - name: Smooth Streaming HEVC
       href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+  - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
+    href: legacy-components.md      
 - name: Resources
   items:
   - name: Azure Media Services community

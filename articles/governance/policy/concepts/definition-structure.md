@@ -86,7 +86,7 @@ compliance results. The exception is **resource groups**. Policies that enforce 
 a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
-[Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
+[Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
 
@@ -440,12 +440,12 @@ of a _template function_ is an error, policy evaluation fails. A failed evaluati
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)
+The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring)
 to compare the first three characters of **name** to **abc**. If **name** is shorter than three
 characters, the `substring()` function results in an error. This error causes the policy to become a
 **deny** effect.
 
-Instead, use the [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)
+Instead, use the [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if)
 function to check if the first three characters of **name** equal **abc** without allowing a
 **name** shorter than three characters to cause an error:
 
@@ -560,7 +560,7 @@ Example 4: Check that all object array members meet the condition expression
             "equals": "description"
         }
     },
-    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
 }
 ```
 
@@ -646,7 +646,7 @@ For complete details on each effect, order of evaluation, properties, and exampl
 ### Policy functions
 
 All [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+functions](../../../azure-resource-manager/templates/template-functions.md) are available to
 use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()

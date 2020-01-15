@@ -112,7 +112,7 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 
 ## Failback requirements
-If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md##before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
+If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
 
 
 

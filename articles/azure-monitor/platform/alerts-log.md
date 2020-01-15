@@ -84,7 +84,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 1. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, etc. Learn more about [Action Groups](action-groups.md).
 
     > [!NOTE]
-    > Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads triggered for log alerts via Azure action groups
+    > Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads triggered for log alerts via Azure action groups
 
     For **Log Alerts** some additional functionality is available to override the default Actions:
 
@@ -196,7 +196,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 
 ```
 
-The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 
 ### Log alert with cross-resource query using Azure Resource Template
@@ -293,7 +293,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 > [!IMPORTANT]
 > When using cross-resource query in log alert, the usage of [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
 
-The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Managing log alerts using PowerShell
 

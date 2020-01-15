@@ -1,6 +1,6 @@
 ---
 title: Scalability of Service Fabric services 
-description: Describes how to scale Service Fabric services
+description: Learn about scaling in Azure Service Fabric and the various techniques used to scale applications.
 author: masnider
 
 ms.topic: conceptual

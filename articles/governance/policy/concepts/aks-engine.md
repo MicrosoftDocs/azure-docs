@@ -43,7 +43,7 @@ must enable the **Microsoft.PolicyInsights** resource provider and create a role
 cluster service principal. 
 
 1. To enable the resource provider, follow the steps in
-   [Resource providers and types](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)
+   [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
    or run either the Azure CLI or Azure PowerShell command:
 
    - Azure CLI

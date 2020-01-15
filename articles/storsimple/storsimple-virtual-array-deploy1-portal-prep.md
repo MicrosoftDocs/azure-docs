@@ -143,7 +143,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 
 This step is optional and should be performed only if you did not enable the automatic creation of a storage account with your service.
 
-If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-quickstart-create-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-account-create.md) for step-by-step instructions.
 
 Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
 

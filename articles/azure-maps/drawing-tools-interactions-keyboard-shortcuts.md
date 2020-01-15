@@ -1,6 +1,6 @@
 ---
-title: Drawing tools interaction types and keyboard shortcuts in Azure Maps| Microsoft Docs
-description: How to draw and edit shapes using a mouse, touch screen, or keyboard in the Azure Maps Web SDK
+title: Drawing tools interaction types and keyboard shortcuts on map | Microsoft Azure Maps
+description: How to draw and edit shapes using a mouse, touch screen, or keyboard in the Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
