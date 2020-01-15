@@ -153,6 +153,7 @@ TODO: Above steps are for Kafka 3.6. For Kafka 4.0 there are separate properties
 
 ## Client setup (without authentication)
 
+
 If you don't need authentication, the steps to set up only SSL encryption are:
 
 1. Sign in to the client machine (hn1) and navigate to the `~/ssl` folder
