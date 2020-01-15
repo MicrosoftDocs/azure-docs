@@ -32,7 +32,7 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
     |---|---|
     | Beta | Off |
     
-    Leave the 'label' undefined for now.
+    Leave `label` undefined for now.
 
 ## Create an ASP.NET Core web app
 
