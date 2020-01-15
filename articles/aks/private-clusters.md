@@ -127,7 +127,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
 
 ## Limitations 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
-* No support for virtual nodes in a private cluster to spin private Cisco Application Centric Infrastructure (ACI) instances in a private Azure virtual network.
+* No support for virtual nodes in a private cluster to spin private Cisco Application Centric Infrastructure (Cisco ACI) instances in a private Azure virtual network.
 * No support for Azure DevOps integration out of the box with private clusters.
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No current support for Azure Dev Spaces.
