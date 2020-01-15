@@ -1,12 +1,8 @@
 ---
-title: Back up multiple Azure VMs with PowerShell
+title: 'Tutorial: Multiple Azure VM backup with PowerShell'
 description: This tutorial details backing up multiple Azure VMs to a Recovery Services vault using Azure PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 # Back up Azure VMs with PowerShell
@@ -83,7 +79,7 @@ To enable and backup up the Azure VM in this tutorial, we do the following:
 
 1. Specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Each VM for backup is an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
-3. Run an ad hoc backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
+3. Run an on-demand backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
     * The first initial backup job creates a full recovery point.
     * After the initial backup, each backup job creates incremental recovery points.
     * Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.

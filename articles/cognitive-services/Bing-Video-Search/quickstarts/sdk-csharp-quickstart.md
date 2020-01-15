@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search SDK for C#"
+title: "Quickstart: Search for videos using the SDK for C# - Bing Video Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests using the Bing Video Search SDK for C#.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 

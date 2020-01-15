@@ -1,8 +1,8 @@
 ---
 title: How to create Guest Configuration policies
-description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs.
-ms.date: 09/20/2019
-ms.topic: conceptual
+description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
+ms.date: 12/16/2019
+ms.topic: how-to
 ---
 # How to create Guest Configuration policies
 
@@ -12,9 +12,8 @@ create the configuration for auditing of the Azure machines. The DSC configurati
 condition that the machine should be in. If the evaluation of the configuration fails, the Policy
 effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
 
-[Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
-can only be used to audit settings inside machines. Remediation
-of settings inside machines isn't yet available.
+[Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
+settings inside machines. Remediation of settings inside machines isn't yet available.
 
 Use the following actions to create your own configuration for validating the state of an Azure
 machine.
@@ -26,14 +25,21 @@ machine.
 
 To create a Guest Configuration policy, the resource module must be added. This resource module can
 be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
-with the [Azure PowerShell Docker image](https://hub.docker.com/rsdk-powershell/).
+with the
+[Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> While the **GuestConfiguration** module works in the above environments, the steps to compile a
+> DSC configuration must be completed in Windows PowerShell 5.1.
 
 ### Base requirements
 
 The Guest Configuration resource module requires the following software:
 
-- PowerShell. If it isn't yet installed, follow [these instructions](/powershell/scripting/install/installing-powershell).
-- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
+- PowerShell. If it isn't yet installed, follow
+  [these instructions](/powershell/scripting/install/installing-powershell).
+- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-az-ps).
 
 ### Install the module
 
@@ -71,6 +77,16 @@ in the correct state. The boolean value returned by the function determines if t
 Manager status for the Guest Assignment should be Compliant/Not-Compliant. If the boolean is
 `$false` for any resource in the configuration, then the provider will run `Get-TargetResource`. If
 the boolean is `$true` then `Get-TargetResource` isn't called.
+
+#### Configuration requirements
+
+The only requirement for Guest Configuration to use a custom configuration is for the name of the
+configuration to be consistent everywhere it's used. This name requirement includes the name of the
+.zip file for the content package, the configuration name in the MOF file stored inside the content
+package, and the configuration name used in a Resource Manager template as the guest assignment
+name.
+
+#### Get-TargetResource requirements
 
 The function `Get-TargetResource` has special requirements for Guest Configuration that haven't been
 needed for Windows Desired State Configuration.
@@ -129,7 +145,7 @@ The following example creates a configuration named **baseline**, imports the **
 resource module, and uses the `ChefInSpecResource` resource set the name of the InSpec definition to
 **linux-patch-baseline**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -157,7 +173,7 @@ The following example creates a configuration named **AuditBitLocker**, imports 
 **GuestConfiguration** resource module, and uses the `Service` resource to audit for a running
 service:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -209,8 +225,9 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet:
 
 The completed package must be stored in a location that is accessible by the managed virtual
 machines. Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to
-not make the package public, you can include a [SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-in the URL. You could also implement
+not make the package public, you can include a
+[SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
+You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
 and not communicating with the service.
@@ -220,7 +237,7 @@ and not communicating with the service.
 In Azure Policy Guest Configuration, the optimal way to manage secrets used at run time is to store
 them in Azure Key Vault. This design is implemented within custom DSC resources.
 
-1. First, create a user-assigned managed identity in Azure.
+1. Create a user-assigned managed identity in Azure.
 
    The identity is used by machines to access secrets stored in Key Vault. For detailed steps, see
    [Create, list or delete a user-assigned managed identity using Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
@@ -236,12 +253,12 @@ them in Azure Key Vault. This design is implemented within custom DSC resources.
 
    For detailed steps, see
    [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   At scale, assign this identity using Azure Resource Manager via Azure Policy. For detailed steps,
+   Assign this identity using Azure Resource Manager via Azure Policy at scale. For detailed steps,
    see
    [Configure managed identities for Azure resources on an Azure VM using a template](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. Finally, within your custom resource use the client ID generated above to access Key Vault using
-   the token available from the machine.
+1. Use the client ID generated above within your custom resource to access Key Vault using the token
+   available from the machine.
 
    The `client_id` and url to the Key Vault instance can be passed to the resource as
    [properties](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) so
@@ -335,7 +352,8 @@ files.
 
 If you would like to use this command to scaffold a custom policy project, you can make changes to
 these files. An example would be modifying the 'If' section to evaluate whether a specific Tag is
-present for machines. For details on creating policies, see [Programmatically create policies](./programmatically-create.md).
+present for machines. For details on creating policies, see
+[Programmatically create policies](./programmatically-create.md).
 
 ### Using parameters in custom Guest Configuration policies
 
@@ -378,10 +396,10 @@ New-GuestConfigurationPolicy
 ```
 
 For Linux policies, include the property **AttributesYmlContent** in your configuration and
-overwrite the values accordingly. The Guest Configuration agent automatically creates the YaML file
+overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
 used by InSpec to store attributes. See the example below.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -533,7 +551,7 @@ sample. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
 
-## [PREVIEW] Troubleshooting Guest Configuration policy assignments
+## Troubleshooting Guest Configuration policy assignments (Preview)
 
 A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration
 assignments. The tool is in preview and has been published to the PowerShell Gallery as module name
@@ -547,4 +565,4 @@ recent information.
 
 - Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).

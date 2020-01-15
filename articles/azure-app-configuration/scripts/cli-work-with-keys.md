@@ -1,5 +1,6 @@
 ---
-title: Azure CLI Script Sample - Work with key-values in an Azure App Configuration Store | Microsoft Docs
+title: Azure CLI Script Sample - Work with key-values in App Configuration Store
+titleSuffix: Azure App Configuration
 description: Provides information on working with key-values in an Azure App Configuration store
 services: azure-app-configuration
 documentationcenter: ''
@@ -80,16 +81,16 @@ az appconfig kv list --name $appConfigName
 
 ## Script explanation
 
-This script uses the following commands to operate on key-values in an app configuration store. Each command in the table links to command specific documentation.
+This script uses the following commands to operate on key-values in an App Configuration store. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Creates or updates a key-value. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Lists key-values in an app configuration store. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Deletes a key-value. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Creates or updates a key-value. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lists key-values in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Deletes a key-value. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional App Configuration CLI script samples can be found in the [Azure App Configuration documentation](../cli-samples.md).
+Additional App Configuration CLI script samples can be found in the [Azure App Configuration CLI samples](../cli-samples.md).

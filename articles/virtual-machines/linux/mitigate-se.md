@@ -1,5 +1,5 @@
 ---
-title: Guidance for mitigating speculative execution in Azure | Microsoft Docs
+title: Guidance for mitigating speculative execution in Azure 
 description: Guidance for mitigating speculative execution side-channel vulnerabilities in Azure.
 services: virtual-machines-linux
 documentationcenter: ''

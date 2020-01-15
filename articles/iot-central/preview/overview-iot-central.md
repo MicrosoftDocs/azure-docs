@@ -1,9 +1,9 @@
 ---
 title: What is Azure IoT Central | Microsoft Docs
-description: Azure IoT Central is an end-to-end SaaS solution you can use to build and manage your custom IoT solution. This article provides an overview of the features of Azure IoT Central.
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -36,17 +36,13 @@ This article outlines, for IoT Central:
 > [!Note]
 > These known issues only apply to the IoT Central preview applications.
 
-- Rules don't support all actions (only email).
-- For complex types - rules, analytics, and device groups aren't supported.
 - Continuous data export doesn't support the Avro format (incompatibility).
-- Simulated devices don't support all complex types.
 - GeoJSON isn't currently supported.
 - Map tile isn't currently supported.
 - Jobs don't support complex types.
 - Array schema types aren't supported.
-- Application template export and application copy aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
-- It's only available the north Europe and central US regions.
+- It's only available in the United States and Europe locations.
 - Device capability models must have all the interfaces defined inline in the same file.
 
 ## Personas
@@ -136,11 +132,15 @@ As a solution builder, you can define custom rules and actions that operate over
 
 Administrators manage access to your application with [user roles and permissions](howto-administer.md).
 
+## Quotas
+
+Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+
 ## Next steps
 
 Now that you have an overview of IoT Central, here are suggested next steps:
 
-- Understand the differences between [IoT Central and Azure IoT solution accelerators](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)

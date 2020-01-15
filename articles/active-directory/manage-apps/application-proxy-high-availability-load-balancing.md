@@ -1,5 +1,5 @@
 ---
-title: High availability and load balancing for Azure AD Application Proxy | Microsoft Docs
+title: High availability and load balancing - Azure AD Application Proxy
 description: How traffic distribution works with your Application Proxy deployment. Includes tips for how to optimize connector performance and use load balancing for back-end servers.
 services: active-directory
 documentationcenter: ''

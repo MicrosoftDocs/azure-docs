@@ -1,12 +1,9 @@
 ---
-title: Add authentication to custom APIs - Azure Logic Apps | Microsoft Docs
-description: Set up authentication for calling custom APIs from Azure Logic Apps
+title: Add authentication for securing calls to custom APIs
+description: How to set up authentication for securing calls to custom APIs from Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ---
@@ -294,9 +291,7 @@ For example:
 
 #### Certificate authentication
 
-To validate the incoming requests from your logic app to your web app or API app, 
-you can use client certificates. To set up your code, learn 
-[how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
+To validate the incoming requests from your logic app to your web app or API app, you can use client certificates. To set up your code, learn [how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 In the **Authorization** section, include these properties:
 
@@ -308,12 +303,12 @@ In the **Authorization** section, include these properties:
 } 
 ```
 
-| Property | Required | Description | 
-| -------- | -------- | ----------- | 
-| type | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. | 
-| password | Yes | The password for accessing the client certificate (PFX file) | 
-| pfx | Yes | The base64-encoded contents of the client certificate (PFX file) | 
-|||| 
+| Property | Required | Description |
+| -------- | -------- | ----------- |
+| `type` | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. |
+| `password` | No | The password for accessing the client certificate (PFX file) |
+| `pfx` | Yes | The base64-encoded contents of the client certificate (PFX file) |
+||||
 
 <a name="basic"></a>
 

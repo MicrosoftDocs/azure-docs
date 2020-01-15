@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
+ms.date: 11/19/2019
 ---
 # Train Clustering Model
 
@@ -47,11 +47,9 @@ After training has completed:
 
 +  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
 
-+ To save the trained model for later re-use, right-click the module, select **Trained model**, and click **Save As Trained Model**.
++ To save the trained model for later reuse, right-click the module, select **Trained model**, and click **Save As Trained Model**.
 
 + To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
-
-
 
 ## Next steps
 

@@ -97,6 +97,11 @@ During event subscription creation, if you're seeing an error message such as "T
 
 ### Event delivery security
 
+#### Azure AD
+
+You can secure your webhook endpoint by using Azure Active Directory to authenticate and authorize Event Grid to publish events to your endpoints. You will need to create an Azure Active Directory Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure AAD with Event Grid](secure-webhook-delivery.md).
+
+#### Query parameters
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
 When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).

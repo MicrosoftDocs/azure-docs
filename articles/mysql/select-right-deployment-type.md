@@ -1,11 +1,11 @@
 ---
-title: Selecting the right deployment type for Azure Database for MySQL
+title: Selecting the right deployment type - Azure Database for MySQL
 description: This article describes what factors to consider before you deploy Azure Database for MySQL as either infrastructure as a service (IaaS) or platform as a service (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 12/02/2019
 ---
 
 # Choose the right MySQL Server option in Azure
@@ -33,7 +33,7 @@ The main differences between these options are listed in the following table:
 | MySQL patching     | Automatic  | Managed by customers |
 | High availability | The high availability (HA) model is based on built-in failover mechanisms for when a node-level interruption occurs. In such cases, the service automatically creates a new instance and attaches storage to this instance. | Customers architect, implement, test, and maintain high availability. Capabilities might include always-on failover clustering, always-on group replication, log shipping, or transactional replication.|
 | Zone redundancy | Currently not supported | Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.|
-| Hybrid scenarios | With [Data-in Replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), you can synchronize data from an external MySQL server into the Azure Database for MySQL service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers.<br/><br/> With the [read replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) feature, you can replicate data from an Azure Database for MySQL master server to up to five read-only replica servers. The replicas are either within the same Azure region or across regions. Read-only replicas are asynchronously updated using binlog replication technology.| Managed by customers
+| Hybrid scenarios | With [Data-in Replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), you can synchronize data from an external MySQL server into the Azure Database for MySQL service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers.<br/><br/> With the [read replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) feature, you can replicate data from an Azure Database for MySQL master server to up to five read-only replica servers. The replicas are either within the same Azure region or across regions. Read-only replicas are asynchronously updated using binlog replication technology.| Managed by customers
 | Backup and restoration | Automatically creates [server backups](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) and stores them in user-configured storage that is either locally redundant or geo-redundant. The service takes full, differential, and transaction log backups | Managed by customers |
 | Monitoring database operations | Offers customers the ability to [set alerts](https://docs.microsoft.com/azure/mysql/concepts-monitoring) on the database operation and act upon reaching thresholds. | Managed by customers |
 | Advanced Threat Protection | Provides [Advanced Threat Protection](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). This protection detects anomalous activities that indicate unusual and potentially harmful attempts to access or exploit databases. | Customers must build this protection for themselves.

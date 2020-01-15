@@ -223,7 +223,7 @@ In order to enable Azure Active Directory users to log in to New Relic, they mus
     c. Click **Add this user**.
 
 >[!NOTE]
->You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
+>You can use any other New Relic user account creation tools or APIs provided by New Relic to provision Azure AD user accounts.
 > 
 
 ### Test single sign-on 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 # Authoring and publishing regions and the associated keys
@@ -23,9 +23,9 @@ There are three LUIS authoring portals, based on region. You must author and pub
 
 |LUIS|Authoring region|Azure region name|
 |--|--|--|
-|[www.luis.ai][www.luis.ai]|U.S.<br>not Europe<br>not Australia| `westus`|
-|[au.luis.ai][au.luis.ai]|Australia| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai]|Europe|`westeurope`|
+|[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|U.S.<br>not Europe<br>not Australia| `westus`|
+|[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Australia| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europe|`westeurope`|
 
 Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 

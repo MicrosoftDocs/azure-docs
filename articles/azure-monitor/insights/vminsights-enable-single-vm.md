@@ -4,9 +4,9 @@ description: Learn how to evaluate Azure Monitor for VMs on a single Azure virtu
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/09/2019
+author: bwren
+ms.author: bwren
+ms.date: 11/14/2019
 
 ---
 
@@ -29,7 +29,7 @@ To enable monitoring of your Azure VM:
 
 1. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Enable Azure Monitor for VMs for a VM](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 1. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 
@@ -58,7 +58,7 @@ To enable monitoring of your Azure virtual machine scale set:
 
     The list preselects the default workspace and location that the VM is deployed to in the subscription. 
 
-    ![Enable Azure Monitor for VMs for a virtual machine scale set](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Enable Azure Monitor for VMs for a virtual machine scale set](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal.png)
 
     >[!NOTE]
     >To create a new Log Analytics workspace to store the monitoring data from the virtual machine scale set, see [Create a Log Analytics workspace](../learn/quick-create-workspace.md). Your Log Analytics workspace must belong to one of the [supported regions](vminsights-enable-overview.md#log-analytics).
@@ -74,6 +74,5 @@ Now that you've enabled monitoring for your VM or virtual machine scale set, the
 
 ## Next steps
 
-* To learn how to use the Health feature, see [Understand the health of your Azure Monitor VMs](vminsights-health.md). 
 * To view discovered application dependencies, see [Use Azure Monitor for VMs Map](vminsights-maps.md). 
 * To identify bottlenecks, overall utilization, and your VM's performance, see [View Azure VM performance](vminsights-performance.md).

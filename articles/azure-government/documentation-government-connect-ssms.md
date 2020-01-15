@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Government with SQL Server Management Studio | Microsoft Docs
-description: Manage your subscription in Azure Government by connecting with SSMS.
+description: Manage your subscription in Azure Government by connecting with SQL Server Management Studio (SSMS).
 services: azure-government
 cloud: gov
 documentationcenter: ''

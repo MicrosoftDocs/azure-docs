@@ -55,7 +55,7 @@ Consider using the round-robin distribution for your table in the following scen
 
 - When getting started as a simple starting point since it is the default
 - If there is no obvious joining key
-- If there is not good candidate column for hash distributing the table
+- If there is no good candidate column for hash distributing the table
 - If the table does not share a common join key with other tables
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table

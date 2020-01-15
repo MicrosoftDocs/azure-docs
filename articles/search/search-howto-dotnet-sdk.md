@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Cognitive Search from a .NET Application
+title: Use Azure Cognitive Search in .NET
 titleSuffix: Azure Cognitive Search
 description: Learn how to use Azure Cognitive Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
 

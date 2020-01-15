@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Linux VM in the Azure portal | Microsoft Docs
+title: Quickstart - Create a Linux VM in the Azure portal 
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

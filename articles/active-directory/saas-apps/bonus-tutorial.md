@@ -204,7 +204,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to sign in to Bonusly, they must be provisioned into Bonusly. In the case of Bonusly, provisioning is a manual task.
 
 > [!NOTE]
-> You can use any other Bonusly user account creation tools or APIs provided by Bonusly to provision AAD user accounts. 
+> You can use any other Bonusly user account creation tools or APIs provided by Bonusly to provision Azure AD user accounts. 
 
 **To configure user provisioning, perform the following steps:**
 

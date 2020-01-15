@@ -255,8 +255,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an ILB, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
-
 If you want more information about load balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)

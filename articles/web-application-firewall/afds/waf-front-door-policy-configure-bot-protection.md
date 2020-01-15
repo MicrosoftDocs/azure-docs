@@ -1,5 +1,5 @@
 ---
-title: Configure bot protection for Web Application Firewall with Azure Front Door (Preview)
+title: Configure bot protection for WAF with Azure Front Door (Preview)
 description: Learn Web Application Firewall (WAF).
 author: vhorne
 ms.service: web-application-firewall

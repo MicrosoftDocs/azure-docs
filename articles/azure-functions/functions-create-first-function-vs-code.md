@@ -1,16 +1,9 @@
 ---
 title: Create your first function in Azure using Visual Studio Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.author: glenga
 ms.custom: mvc, devcenter
 ---
 

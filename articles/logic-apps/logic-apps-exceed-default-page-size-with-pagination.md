@@ -1,12 +1,9 @@
 ---
-title: Get more items or records with pagination - Azure Logic Apps
+title: Get more items or records with pagination
 description: Set up pagination to exceed the default page size limit for connector actions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
 ---

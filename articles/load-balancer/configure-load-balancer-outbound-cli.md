@@ -1,6 +1,6 @@
 ---
 title: Configure load balancing and outbound rules using Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This article shows how to configure load balancing and outbound rules in a Standard Load Balancer using the Azure CLI.
 services: load-balancer
 documentationcenter: na

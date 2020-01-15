@@ -41,7 +41,6 @@ Audio or video files
 ### Output files
 An indexing job can generate closed caption files in the following formats:  
 
-* **SAMI**
 * **TTML**
 * **WebVTT**
 

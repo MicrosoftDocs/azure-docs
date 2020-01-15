@@ -1,5 +1,5 @@
 ---
-title: Windows VM sizes in Azure | Microsoft Docs
+title: Windows VM sizes in Azure 
 description: Lists the different sizes available for Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -29,14 +29,14 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Compute optimized](sizes-compute.md)        | Fsv2           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
 | [Memory optimized](sizes-memory.md)         | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](sizes-storage.md)        | Lsv2                | High disk throughput and IO ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases.  |
-| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3 | Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.       |
+| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3, NVv4 (Preview)| Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.       |
 | [High performance compute](sizes-hpc.md) | HB, HC,  H | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). |
 
 
 <br> 
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
-- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 

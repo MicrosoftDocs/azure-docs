@@ -10,12 +10,12 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
 
 ---
 
-# Use Firewall rules
+# Azure Event Hubs - use firewall rules
 
 For scenarios in which Azure Event Hubs should be only accessible from certain well-known sites, firewall rules enable you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
 
@@ -43,7 +43,6 @@ IP filter rules are applied in order, and the first rule that matches the IP add
 > Trusted Microsoft services are not supported when IP Filtering (Firewalls) are implemented, and will be made available soon.
 >
 > Common Azure scenarios that don't work with IP Filtering (note that the list is **NOT** exhaustive) -
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
@@ -151,5 +150,5 @@ For constraining access to Event Hubs to Azure virtual networks, see the followi
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: event-hubs-service-endpoints.md

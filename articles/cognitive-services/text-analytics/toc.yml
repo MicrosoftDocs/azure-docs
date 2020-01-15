@@ -27,9 +27,9 @@
       - name: Using PHP
         href: quickstarts/php.md
       - name: Using Go
-        href: quickstarts/php.md
+        href: quickstarts/go.md
       - name: Using Ruby
-        href: quickstarts/php.md
+        href: quickstarts/ruby.md
 
 - name: Tutorials
   items:

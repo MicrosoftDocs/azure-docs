@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using Python"
+title: "Quickstart: Send a search request to the REST API using Python - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Python, and receive a JSON response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -27,7 +27,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and a search query. You can find your endpoint in the Azure dashboard.
+1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and a search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     import http.client, urllib.parse

@@ -1,5 +1,5 @@
 ---
-title: Use incremental snapshots for backup and recovery of unmanaged Azure Windows VM disks | Microsoft Docs
+title: Use incremental snapshots for backup and recovery of unmanaged Azure Windows VM disks 
 description: Create a custom solution for backup and recovery of your Azure Windows virtual machine disks using incremental snapshots.
 services: virtual-machines-windows
 documentationcenter: na

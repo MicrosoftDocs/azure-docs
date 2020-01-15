@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid Azure Key Vault event schema
+title: Azure Event Grid event schema for Azure Key Vault
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 services: event-grid
 author: msmbaldwin
@@ -11,27 +11,27 @@ ms.author: mbaldwin
 
 # Azure Event Grid event schema for Azure Key Vault (preview)
 
-This article provides the properties and schema for [Azure Key Vault](../key-vault/index.yml) events, currently in preview. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for events in [Azure Key Vault](../key-vault/index.yml), currently in preview. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
-An Azure Key Vault account emits the following event types:
+An Azure Key Vault account generates the following event types:
 
-| Event full Name | Event display name | description |
+| Event full name | Event display name | Description |
 | ---------- | ----------- |---|
-| Microsoft.KeyVault.CertificateNewVersionCreated | Certificate New Version Created | Triggered when new certificate or new certificate version is created |
-| Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when current version of certificate is about to expire (default  is 30 days before expiration date) |
-| Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when certificate is expired |
-| Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when new key or new key version is created |
-| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when current version of key is about to expire (default  is 30 days before expiration date) |
-| Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when key is expired |
-| Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when new secret or new secret version is created |
-| Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when current version of secret is about to expire (default  is 30 days before expiration date) |
-| Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when secret is expired |
+| Microsoft.KeyVault.CertificateNewVersionCreated | Certificate New Version Created | Triggered when a new certificate or new certificate version is created. |
+| Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The default is 30 days before the expiration date.) |
+| Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the certificate is expired. |
+| Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when a new key or new key version is created. |
+| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. (The default is 30 days before the expiration date.) |
+| Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when a key is expired. |
+| Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
+| Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The default is 30 days before the expiration date.) |
+| Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when a secret is expired. |
 
 ## Event examples
 
-The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**.
+The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
 ```JSON
 [
@@ -62,24 +62,23 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | ---------- | ----------- |---|
-| id | string | The ID of the object that triggered this event. |
-| vaultName | string | Key vault name of the object that triggered this event. |
+| id | string | The ID of the object that triggered this event |
+| vaultName | string | The key vault name of the object that triggered this event |
 | objectType | string | The type of the object that triggered this event |
 | objectName | string | The name of the object that triggered this event |
 | version | string | The version of the object that triggered this event |
-| nbf | number | Not before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| nbf | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 | exp | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 
 
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* To learn more about Key Vault / Event Grid integration, see [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
-* To see a tutorial on Key Vault / Event Grid integration, see [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
-
-- [Azure Key Vault overview](../key-vault/key-vault-overview.md)
-- [Azure Event Grid overview](overview.md)
-- [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
-- [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
-- [Azure Automation overview](../automation/index.yml)
+* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
+* For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* To learn more about Key Vault integration with Event Grid, see [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md).
+* For a tutorial on Key Vault integration with Event Grid, see [Receive and respond to key vault notifications with Azure Event Grid (preview)](../key-vault/event-grid-tutorial.md).
+* To get additional guidance for Key Vault and Azure Automation, see:
+    - [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+    - [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
+    - [Receive and respond to key vault notifications with Azure Event Grid (preview)](../key-vault/event-grid-tutorial.md)
+    - [Azure Automation overview](../automation/index.yml)

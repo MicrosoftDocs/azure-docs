@@ -1,5 +1,5 @@
 ---
-title: Configure a Web Application Firewall rate limit rule for Front Door - Azure PowerShell
+title: Configure WAF rate limit rule for Front Door - Azure PowerShell
 description: Learn how to configure a rate limit rule for an existing Front Door endpoint.
 author: vhorne
 ms.service: web-application-firewall

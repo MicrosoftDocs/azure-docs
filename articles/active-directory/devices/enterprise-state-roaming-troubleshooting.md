@@ -1,12 +1,12 @@
 ---
-title: 'Troubleshooting Enterprise State Roaming settings in Azure Active Directory| Microsoft Docs'
+title: Troubleshoot Enterprise State Roaming in Azure Active Directory
 description: Provides answers to some questions IT administrators might have about settings and app data sync.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

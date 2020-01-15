@@ -1,5 +1,5 @@
 ---
-title:  "Quickstart: Send a search request to the Bing Entity Search REST API using Node.js"
+title:  "Quickstart: Send a search request to the REST API using Node.js - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -36,7 +36,7 @@ While this application is written in JavaScript, the API is a RESTful Web servic
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search query.
+2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';

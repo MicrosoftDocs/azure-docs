@@ -1,32 +1,33 @@
 ---
-title: Build highly available Azure Storage applications on zone-redundant storage (ZRS) | Microsoft Docs
+title: Build highly available applications with zone-redundant storage (ZRS)
+titleSuffix: Azure Storage
 description: Zone-redundant storage (ZRS) offers a simple way to build highly available applications. ZRS protects against hardware failures in the datacenter, and against some regional disasters.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Zone-redundant storage (ZRS) for building highly available Azure Storage applications
+# Build highly available applications with zone-redundant storage (ZRS)
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
 
-ZRS currently supports standard general-purpose v2 and FileStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2, FileStorage and BlockBlobStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
-ZRS is available for block blobs, non-disk page blobs, standard file shares, tables, and queues.
+General-purpose v2 ZRS accounts support block blobs, non-disk page blobs, standard file shares, tables, and queues.
 
 For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
-- Europe West
 - Europe North
+- Europe West
 - France Central
 - Japan East
 - UK South
@@ -35,7 +36,7 @@ For general-purpose v2 accounts, ZRS is generally available in the following reg
 - US East 2
 - US West 2
 
-For FileStorage accounts (premium file shares), ZRS is generally available in the following regions:
+For FileStorage accounts (premium file shares) and BlockBlobStorage accounts (premium block blobs), ZRS is generally available in the following regions:
 
 - Europe West
 - US East
