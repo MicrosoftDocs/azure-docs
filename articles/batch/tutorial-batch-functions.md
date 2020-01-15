@@ -2,7 +2,7 @@
 title: Trigger a Batch job using Azure Functions
 description: Tutorial - Apply OCR to scanned documents as they're added to a storage blob
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 
 ms.assetid: 
