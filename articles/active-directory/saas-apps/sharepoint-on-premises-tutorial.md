@@ -73,13 +73,16 @@ in our scenario this value is set to **No**.
 In this section, you configure Azure AD single sign-on with SharePoint on-premises.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in SharePoint on-premises needs to be established.
 
-To configure and test Azure AD single sign-on with SharePoint on-premises, you need to complete the following building blocks:
+To configure and test Azure Active Directory single sign-on with SharePoint on-premises, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Configure SharePoint on-premises Single Sign-On](#configure-sharepoint-on-premises-single-sign-on)** - to configure the Single Sign-On settings on application side.
-1. **[Create an Azure Active Directory test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Azure Active Directory User.
-1. **[Create an Azure AD Security Group in the Azure portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - to enable a new security group in Azure AD for single sign-on.
-1. **[Grant Access to Guest accounts the Azure AD Security Group in the Azure portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - to assign the particular group to Azure AD for authentication.
+1. **[Configure SharePoint on-premises](#configure-Sharepoint-on-premises)** - to configure the Single Sign-On settings on application side.
+1. **[Create an Azure AD test user in the Azure portal](Create-an-Azure-AD-test-user-in-the-Azure-Portal)** - create new user in Azure AD for single sign-on.
+1. **[Create an Azure AD Security Group in the Azure portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - create new security group in Azure AD for single sign-on.
+1. **[Grant permissions to Azure Active Directory user in SharePoint on-premises](#assign-the-azure-ad-security-group-in-the-azure-portal)** - give permissions to Azure AD user.
+1. **[Grant permissions to Azure AD group in SharePoint on-premises](#assign-the-azure-ad-security-group-in-the-azure-portal)** - give permissions to Azure AD group.
+1. **[Grant access to a Guest Account to SharePoint on-premises in the Azure portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - give permissions to Guest account in Azure AD for SharePoint on-premises.
+1. **[Configuring the trusted identity provider for multiple web applications](Configuring-the-trusted-identity-provider-for-multiple-web-applications)** - how to use the same trusted identity provider for multiple web applications
 
 ### Configure Azure AD single sign-on
 
@@ -162,8 +165,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 
 	![Configuring your authentication provider](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
-   
-### Create an Azure AD test user
+### Create an Azure AD test user in the Azure portal
 
 The objective of this section is to create a test user in the Azure Portal.
 
@@ -197,26 +199,21 @@ The objective of this section is to create a test user in the Azure Portal.
 
 	![Create an Azure AD Security Group](./media/sharepoint-on-premises-tutorial/newgroup3.png)
 
-### **Grant permissions to Azure Active Directory account in SharePoint on-premises**
+### Grant permissions to Azure Active Directory account in SharePoint on-premises
 
-### Fixing People Picker
-
-Users can now sign into SharePoint 201x using identities from Azure AD, but there are still opportunities for improvement to the user experience. For instance, searching for a user presents multiple search results in the people picker. There is a search result for each of the claims types that are created in the claim mapping. To choose a user using the people picker, you must type their user name exactly and choose the **name** claim result.
+To Grant access to the Azure Active Directory User in the on-premise SharePoint you need to share the site collection or add the Azure Active Directory User to one of the site collection's group.Users can now sign into SharePoint 201x using identities from Azure AD, but there are still opportunities for improvement to the user experience. For instance, searching for a user presents multiple search results in the people picker. There is a search result for each of the claims types that are created in the claim mapping. To choose a user using the people picker, you must type their user name exactly and choose the **name** claim result.
 
   ![Claims search results](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 There is no validation on the values you search for, which can lead to misspellings or users accidentally choosing the wrong claim type. This can prevent users from successfully accessing resources.
 
-To assist with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Azure AD Graph to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
+**To fix the people picker** with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Azure AD Graph to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
 
   > [!NOTE]
   > without AzureCP you can add Groups by adding the Azure AD group's ID but this is not user's friendly and reliable. There is how it looks.
   ![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/adding_groupbyID.png)
   
-
-
-
-**Grant permissions to Azure Active Directory group in SharePoint on-premises**
+### Grant permissions to Azure AD group in SharePoint on-premises
 
 In order to assign Azure Active Directory Security Groups to SharePoint on-premise, it will be necessary to use an custom claims provider for SharePoint Server. In our example, we have used AzureCP.
 
@@ -232,7 +229,7 @@ In order to assign Azure Active Directory Security Groups to SharePoint on-premi
 
 
 
-### Grant access to SharePoint on-premises to a Guest account
+### Grant access to a Guest account to SharePoint on-premises in the Azure portal
 
 it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified for something like **MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com**. To get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your Azure Portal.
 
