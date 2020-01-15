@@ -42,11 +42,11 @@ Two Azure resources are defined in the template:
 * **Microsoft.Storage/storageAccounts**: create an Azure Storage account.
 * **"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**: create an Azure Event Grid subscription for the storage account. 
 
-You can find more Azure Key Vault template samples [here](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Eventgrid).
+You can find more Azure Key Vault template samples [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/blob-event-quickstart-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 2. Select or enter the following values.
     
     - **Subscription**: select an Azure subscription.
