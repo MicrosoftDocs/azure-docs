@@ -186,5 +186,6 @@ The following is an example script. You should replace the Resource Group, locat
 ## Next steps
 * Step-by-step guides and program details for Cloud Access are available in the [Red Hat Cloud Access documentation.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
 * Learn more about the [Azure Red Hat Update Infrastructure](./redhat-rhui.md).
-* To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
+* To learn more about all the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
+* Additional documentation on the RHEL Gold Images can be found at the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
