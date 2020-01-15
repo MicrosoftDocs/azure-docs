@@ -79,6 +79,8 @@ Iot Central uses digital twins to synchronize devices and data in the real world
 
 IoT devices typically generate large amounts of time series data, such as temperature readings from sensors. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) can connect to an IoT hub, read the telemetry stream from your devices, store that data, and enable you to query and visualize it.
 
+[Azure Maps](/azure/azure-maps) is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications. You can use a REST API, a web-based JavaScript control, or an Android SDK to build your applications.
+
 ## Next steps
 
 For a hands-on experience, try one of the quickstarts:
