@@ -75,7 +75,7 @@ After setting up the hardware and connecting the sync out jack of the master to 
 
 > [!NOTE]
 > The Subordinate device is the one that connected to "Sync In" pin.
-> Master is "Synch Out"
+> The master is the one connected "Synch Out".
 
 1. Open two instances of [Azure Kinect Viewer](azure-kinect-viewer.md)
 2. Open subordinate Azure Kinect DK device first. Navigate to Azure Kinect viewer, and in the Open Device section choose subordinate device:
