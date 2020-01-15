@@ -6,7 +6,7 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 15/01/2020
+ms.date: 01/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ---
