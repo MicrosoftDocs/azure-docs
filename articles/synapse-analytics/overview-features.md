@@ -43,7 +43,7 @@ Query languages used in Synapse capabilities can have different supported featur
 
 |   | SQL Pool | SQL On-demand | Spark Pool |
 | --- | --- | --- | --- |
-| SELECT statement | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql) and [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) are not supported. | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql) and [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) are not supported. | Yes |
+| SELECT statement | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql) and [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) are not supported. | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph), and [OFFSET/FETCH](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15#using-offset-and-fetch-to-limit-the-rows-returned), and query hints are not supported. | Yes |
 | INSERT statement | Yes | Limited (temp tables only) |   |
 | UPDATE statement | Yes | Limited (temp tables only) |   |
 | DELETE statement | Yes | Limited (temp tables only) |   |
@@ -83,8 +83,8 @@ You can use various tools to connect to synapse capabilities and query data.
 
 |   | SQL Pool | SQL On-demand | Spark Pool |
 | --- | --- | --- | --- |
-| Synapse Studio | Yes, SQL scripts | Yes, SQL scripts | Yes, Notebooks |
-| Power BI | Yes | Yes |   |
+| Synapse Studio | Yes, SQL scripts | Yes, SQL scripts | Yes, [Notebooks](synapse-analytics/spark/apache-spark-notebook-create-spark-use-sql.md#create-a-notebook) |
+| Power BI | Yes | [Yes](sql-analytics/tutorial-power-bi-professional.md) |   |
 | Azure Analysis Service | Yes | Yes |   |
 | Azure Data Studio | Yes | Yes, version 1.14 or higher | No |
 | SQL Server Management Studio | Yes | Yes, version 18.4 or higher | No |
