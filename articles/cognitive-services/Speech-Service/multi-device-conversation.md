@@ -21,9 +21,9 @@ With **multi-device conversation**, you can:
 - Easily transcribe audio from each client and send the transcription to the others, with optional translation.
 - Easily send text messages between clients, with optional translation.
 
-You can build a feature or solution that works across an array of devices, including mobile (Android or iOS), PC, and Linux. Each device can independently send messages (either transcriptions of audio or instant messages) to all other devices.
+You can build a feature or solution that works across an array of devices, including mobile (Android or iOS), Windows or Linux. Each device can independently send messages (either transcriptions of audio or instant messages) to all other devices.
 
-Whereas **Conversation Transcription** works on a single device with a multichannel microphone array, **Multi-device Conversation** is suited for scenarios with multiple devices, each with a single microphone.
+Whereas [**Conversation Transcription**](conversation-transcription.md) works on a single device with a multichannel microphone array, **Multi-device Conversation** is suited for scenarios with multiple devices, each with a single microphone.
 
 >[!IMPORTANT]
 > Multi-device conversation does **not** support sending audio files between clients: only the transcription and/or translation.
@@ -32,19 +32,19 @@ Whereas **Conversation Transcription** works on a single device with a multichan
 
 - **Cross-platform support** – Clients can be mobile apps (Android or iOS), Windows UWP apps, or web apps.
 - **Real-time transcription** – Everyone will receive a transcript of the conversation, so they can follow along the text in real-time or save it for later.
-- **Real-time translation** – With more than 60 supported languages for text translation, everyone can translate the conversation into their preferred language(s).
+- **Real-time translation** – With more than 60 supported languages for text translation, all users can translate the conversation to their preferred language(s).
 - **Readable transcripts** – The transcription and translation are easy to follow, with punctuation and sentence breaks.
-- **Voice or text input** – Each user can speak or type on their own device, depending on language support.
-- **Message relay** - The service will distributes messages sent by one client to all the others, in the language(s) of their choice.
+- **Voice or text input** – Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+- **Message relay** - The multi-device conversation service will distributes messages sent by one client to all the others, in the language(s) of their choice.
 - **Multi-speaker diarization** – If every speaker uses a separate device, the service will attribute messages to devices from which they are sent.
 
 ## Use cases
 
 ### Lightweight conversations
 
-Creating and joining a conversation is easy. One user will act as the 'host' and create a conversation, which generates a random 5-letter conversation code and a QR code. All other users ('participants') can join the conversation by typing in the conversation code or scanning the QR code. 
+Creating and joining a conversation is easy. One user will act as the 'host' and create a conversation, which generates a random 5-letter conversation code and a QR code. All other users can join the conversation by typing in the conversation code or scanning the QR code. 
 
-Since users join via the randomly generated code and are not using any personal accounts, multi-device conversations is suited for scenarios in which individuals may not already have each other's contact information, and makes it easy to create quick, on-the-spot conversations.
+Since users join via the randomly generated code and are not using any personal accounts, multi-device conversations is suitable for scenarios in which individuals may not already have each other's contact information, and makes it easy to create quick, on-the-spot conversations.
 
 ### Inclusive meetings
 
@@ -54,21 +54,25 @@ Real-time transcription and translation can help make conversations more accessi
 
 In scenarios where one person is giving a speech or presenting content to an audience, you can provide captions for the speaker, and also allow members of the audience to follow the speech in their own language, on their own device.
 
+> [!NOTE]
+> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://www.microsoft.com/en-us/download/details.aspx?id=55024).
+
 ## How it works
 
-All clients will use the Speech SDK to create or join a conversation. The Speech SDK interacts with a backend service for multi-device conversation, which manages the lifetime of a conversation, including the list of participants, each client’s chosen language(s), and messages sent.  
+All clients will use the Speech SDK to create or join a conversation. The Speech SDK interacts with the multi-device conversation service, which manages the lifetime of a conversation, including the list of participants, each client’s chosen language(s), and messages sent.  
 
-Each client can send audio or instant messages. The service will transcribe audio into text, and instant messages will be sent as-is. If clients have chosen different languages, then the service will translate all messages into the specified language(s) of each client.
+Each client can send audio or instant messages. The service will transcribe audio into text, but instant messages will be sent as-is. If clients have chosen different languages, then the service will translate all messages to the specified language(s) of each client.
 
 ![Multi-device Conversation Overview Diagram](media/scenarios/multi-device-conversation.png)
 
 ## Overview of Conversation, Host, and Participant
 
-A **conversation** is a session that the clients connect to and is started by the **host** user. 
+A **conversation** is a session that one user starts for the other participating users to join. All clients connect to the conversation using the 5-letter **conversation code**.
 
-Metadata of the conversation includes: 
--	Timestamps of the start and end of the conversation, as defined by when the **host** user starts and leaves the conversation
--	List of participants in the conversation, including each participant's chosen nickname and language
+Each conversation creates metadata which includes:
+-	Timestamps of when the conversation started and ended
+-	List of all participants in the conversation, which includes each user's chosen nickname and primary language for speech or text input.
+
 
 There are two types of users in a conversation:  **host** and **participant**.
 
@@ -76,34 +80,34 @@ The **host** is the user who starts a conversation, and who acts as the administ
 - Each conversation can only have one host
 - The host must be connected to the conversation for the duration of the conversation. If the host leaves the conversation, the conversation will end for all other participants.
 - The host has a few extra controls to manage the conversation: 
-    - Lock the conversation (prevent additional participants from joining)
-    - Mute all participants (prevent other participants from sending all kinds of messages to the conversation)
+    - Lock the conversation - this prevents additional participants from joining
+    - Mute all participants - this prevent other participants from sending any messages to the conversation, whether transcribed from speech or instant messages
     - Mute individual participants
     - Unmute all participants
     - Unmute individual participants
 
 A **participant** is a user who joins a conversation.
-- Participants can leave and rejoin the same conversation at any time, without ending the conversation for other participants.
+- A participant can leave and rejoin the same conversation at any time, without ending the conversation for other participants.
 - Participants cannot lock the conversation or mute/unmute other participants.
 
 > [!NOTE]
-> Each conversation can have up to 100 participants, of which 10 can be speaking at any given time.
+> Each conversation can have up to 100 participants, of which 10 can be simultaneously speaking at any given time.
 
 ## Language support
 
-When creating or joining a conversation, each participant must choose a primary language. This is the language which they will speak in, send instant messages in, and also the language that incoming messages will be translated to.
+When creating or joining a conversation, each user must choose a **primary language**. This is the language which they will speak and send instant messages in, and also the language that other users' messages will be translated to.
 
 There are two kinds of languages: **speech-to-text** and **text-only**:
-- If the user chooses a language that is supported for **speech-to-text**, then s/he will be able to use speech input in the conversation. 
+- If the user chooses a **speech-to-text** supported language as their primary language, then they will be able to use both speech and text input in the conversation. Speech-to-text languages are those which are available for speech recognition.
 
-- If the user chooses a **text-only** language, then they will only be able to type and send instant messages in the conversation. 
+- If the user chooses a **text-only** language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages which are supported for text translation, but not speech recognition.
 
 Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
-Below is a summary of what the user will be able to do in a multi-device conversation, according to their chosen language.
+Below is a summary of what the user will be able to do in a multi-device conversation, based to their chosen primary language.
 
 
-|  | Speech-to-text | Text translation |
+| What the user can do in the conversation | Speech-to-text | Text-only |
 |-----------------------------------|----------------|------|
 | Use speech input | ✔️ | ❌ |
 | Send instant messages | ✔️ | ✔️ |
