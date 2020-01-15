@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/13/2020
-ms.author: aahill
+ms.author: aahi
 ms.reviewer: sumeh, assafi
 ---
 
