@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/20/2020
+ms.date: 01/14/2020
 ms.author: danlep
 ---
 
@@ -17,7 +17,7 @@ Enable a [managed identity for Azure resources](../active-directory/managed-iden
 
 In this article, you learn how to use the Azure CLI to enable a user-assigned or system-assigned managed identity on an ACR task. You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you'd like to use it locally, version 2.0.68 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-For illustration purposes, the example commands in this article use the [az acr task create][az-acr-task-create] command to create a basic image build task with a managed identity enabled. However, for more realistic scenarios to access secured resources from an ACR task using a managed identity, see:
+For illustration purposes, the example commands in this article use [az acr task create][az-acr-task-create] to create a basic image build task that enables a managed identity. However, for sample scenarios to access secured resources from an ACR task using a managed identity, see:
 
 * [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
 * [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
