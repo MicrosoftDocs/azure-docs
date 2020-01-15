@@ -153,7 +153,7 @@ Azure IoT Hub is the heart of any IoT application as it handles secure communica
 
 In this section, you use a script to create an Azure IoT hub and an Azure Storage account. Then in the Azure portal, you configure a route that forwards data received by the hub to an Azure Storage container. These steps take about 10 minutes to complete.
 
-1. Connect to the development VM, open a PowerShell window, and navigate to the **C:\source\IoTEdgeAndMlSample\IoTHub directory**.
+1. Connect to the development VM, open a PowerShell window, and navigate to the **IoTHub** directory.
 
     ```powershell
     cd C:\source\IoTEdgeAndMlSample\IoTHub
