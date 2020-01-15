@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MySQL Data Encryption with customer-managed key
-description: Azure Database for MySQL ata encryption with customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest, and allows organizations to implement separation of duties in the management of keys and data.
+description: Azure Database for MySQL data encryption with customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest, and allows organizations to implement separation of duties in the management of keys and data.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
@@ -45,8 +45,8 @@ The Data encryption Keys (DEK), encrypted with the Key Encryption Keys, are stor
 For a MySQL server to be able to use customer-managed keys stored in AKV for encryption of the DEK, a Key Vault administrator needs to give the following access rights to the server using its unique identity:
 
 * **get** - for retrieving the public part and properties of the key in the Key Vault
-* **wrapKey** - to be able to protect (encrypt) DEK
-* **unwrapKey** - to be able to unprotect (decrypt) DEK
+* **wrapKey** - to be able to encrypt DEK
+* **unwrapKey** - to be able to decrypt DEK
 
 Key Vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
 

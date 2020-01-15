@@ -10,7 +10,7 @@ ms.date: 01/13/2020
 
 # Data Encryption for Azure Database for MySQL server using Azure portal
 
-In this article, you will learn how to set up and manage to use the Azure portal to set up data dncryption for your Azure Database for MySQL.
+In this article, you will learn how to set up and manage to use the Azure portal to set up data encryption for your Azure Database for MySQL.
 
 ## Prerequisites for CLI
 
