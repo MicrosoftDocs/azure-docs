@@ -1,5 +1,5 @@
 ---
-title: Access the Additional security verification page for two-factor verification - Azure AD
+title: What is the Additional verification page? - Azure AD
 description: How to get to the Additional security verification page for two-factor verification.
 services: active-directory
 author: eross-msft
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Access the Additional security verification page for two-factor verification
+# What is the Additional verification page
 
 You've gotten an email from someone in IT or your boss saying that the organization has added additional security verification to your account. So what does that mean? It means your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra verification, also known as two-factor verification, is done through a combination of your user name, your password, and a mobile device or phone.
 

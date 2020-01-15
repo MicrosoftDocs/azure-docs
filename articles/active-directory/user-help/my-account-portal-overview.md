@@ -1,5 +1,5 @@
 ---
-title: Access the My Account portal to manage your info - Azure AD
+title: What is the My Account portal? - Azure AD
 description: How to get to the My Account portal and its features, including setting up and managing your Security info, Devices, Password, Organizations, Privacy, and My Sign-ins.
 services: active-directory
 author: eross-msft
@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Access the My Account portal to manage your info
+# What is the My Account portal?
 
 The **My Account** portal helps you to manage your work or school account by setting up and managing your security info, managing your connected organizations and devices, viewing how your organization uses your data.
 
