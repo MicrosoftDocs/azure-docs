@@ -159,7 +159,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```
 
 1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
-
+    
+    #### [.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -167,6 +168,14 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         app.UseMvc();
     }
     ```
+    #### [.NET Core 3.x](#tab/core3x)
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+    }
+    ```
+---
 
 1. Add a *MyFeatureFlags.cs* file:
 
