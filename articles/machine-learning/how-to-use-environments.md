@@ -176,7 +176,7 @@ Manage environments so that you can update, track, and reuse them across compute
 
 The environment is automatically registered with your workspace when you submit a run or deploy a web service. You can also manually register the environment by using the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#register-workspace-) method. This operation makes the environment into an entity that's tracked and versioned in the cloud. The entity can be shared between workspace users.
 
-The following code registers the environment, `myenv`, to the workspace, `ws`.
+The following code registers the `myenv` environment to the `ws` workspace.
 
 ```python
 myenv.register(workspace=ws)
