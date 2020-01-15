@@ -74,7 +74,7 @@ There are multiple options for cross-calibrating devices, but in the [GitHub gre
 After setting up the hardware and connecting the sync out jack of the master to sync in of the subordinate, we can use the [Azure Kinect Viewer](azure-kinect-viewer.md) to validate the devices setup. It also can be done for more than two devices.
 
 > [!NOTE]
-> Subordinate device is the one that connected to "Sync In" pin
+> The Subordinate device is the one that connected to "Sync In" pin.
 > Master is "Synch Out"
 
 1. Open two instances of [Azure Kinect Viewer](azure-kinect-viewer.md)
