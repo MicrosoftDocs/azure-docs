@@ -83,7 +83,7 @@ You can use various tools to connect to synapse capabilities and query data.
 
 |   | SQL Pool | SQL On-demand | Spark Pool |
 | --- | --- | --- | --- |
-| Synapse Studio | Yes, SQL scripts | Yes, SQL scripts | Yes, [Notebooks](synapse-analytics/spark/apache-spark-notebook-create-spark-use-sql.md#create-a-notebook) |
+| Synapse Studio | Yes, SQL scripts | Yes, SQL scripts | Yes, [Notebooks](spark/apache-spark-notebook-create-spark-use-sql.md#create-a-notebook) |
 | Power BI | Yes | [Yes](sql-analytics/tutorial-power-bi-professional.md) |   |
 | Azure Analysis Service | Yes | Yes |   |
 | Azure Data Studio | Yes | Yes, version 1.14 or higher | No |
