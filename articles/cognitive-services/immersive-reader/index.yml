@@ -31,26 +31,32 @@ landingContent:
         links:
           - text: ASP.NET Core
             url: quickstart.md
+          - text: Node.js
+            url: quickstart-nodejs.md
           - text: Swift (iOS)
             url: ios-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Node.js
-            url: tutorial-nodejs.md
           - text: Python
             url: tutorial-python.md
-          - text: Swift (iOS)
-            url: tutorial-ios-picture-immersive-reader.md
 
   - title: Explore Immersive Reader
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Authenticate with Azure Active Directory
-            url: azure-active-directory-authentication.md
+          - text: Create an Immersive Reader Resource
+            url: how-to-create-immersive-reader.md
+          - text: Set the cookie policy
+            url: how-to/set-cookie-policy.md
+          - text: Display math
+            url: how-to/display-math.md
+          - text: Launch the Immersive Reader with HTML content
+            url: how-to-launch-with-html.md
+          - text: Customize Immersive Reader button
+            url: how-to-customize-launch-button.md
+          - text: Cache the authentication token
+            url: how-to-cache-token.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
             url: reference.md
-          - text: iOS SDK
-            url: ios-reference.md
