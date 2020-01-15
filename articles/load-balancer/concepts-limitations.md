@@ -128,7 +128,7 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
-For more information, see [Load balancer limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). For Standard Load Balancer details, see [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
+For more information, see [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). For Standard Load Balancer details, see [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
 
 ## <a name = "limitations"></a>Limitations
