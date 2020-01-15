@@ -137,7 +137,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!NOTE]
 > You may see the error *'AADSTS50011: No reply address is registered for the application'* after granting consent to the app using the preceding URL. This happen because this application and the URL do not have a redirect URI - please ignore the error.
 
-#### Step 5: Run the application
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 4: Run the application
+
+> [!div renderon="docs"]
+> #### Step 5: Run the application
 
 If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
 
