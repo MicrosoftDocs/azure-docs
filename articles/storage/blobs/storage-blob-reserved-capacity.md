@@ -62,7 +62,7 @@ Reservations are available today for 100 TB or 1 PB blocks, with higher discount
 
 You can purchase Azure Storage reserved capacity through the [Azure portal](https://portal.azure.com). Pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](/azure/billing/billing-monthly-payments-reservations).
 
-For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../billing/billing-understand-storage-charges.md).
+For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Follow these steps to purchase reserved capacity:
 
@@ -97,7 +97,7 @@ You can exchange or refund a reservation, with certain limitations. These limita
 
 To exchange or refund a reservation, navigate to the reservation details in the Azure portal. Select **Exchange** or **Refund**, and follow the instructions to submit a support request. When the request has been processed, Microsoft will send you an email to confirm completion of the request.
 
-For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### Exchange a reservation
 
@@ -123,5 +123,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Understand how the reservation discount is applied to Azure Storage](../../billing/billing-understand-storage-charges.md)
+- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Understand how the reservation discount is applied to Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md)

@@ -173,7 +173,7 @@ The services and solutions in the following table store their data in a Log Anal
 |:---|:---|
 | [Azure Automation](/azure/automation/) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking.md) and [Update Management](../automation/automation-update-management.md). |
 | [Azure Information Protection ](https://docs.microsoft.com/azure/information-protection/) | Classify and optionally protect documents and emails. See [Central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Azure Security Center](/azure/security-center/) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](/security-center/security-center-enable-data-collection.md) |
+| [Azure Security Center](/azure/security-center/) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](/azure/sentinel/connect-data-sources). |
 | [Key Vault Analytics](insights/azure-key-vault.md) | Analyze Azure Key Vault AuditEvent logs. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, event hubs, or log analytics in Intune (preview)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |

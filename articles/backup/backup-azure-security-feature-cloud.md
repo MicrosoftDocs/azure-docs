@@ -245,7 +245,7 @@ While backing up Azure Virtual Machines, you also have the option to encrypt you
 
 ### Backup of managed disk VM encrypted using customer managed keys
 
-Azure Backup allows you to back up Azure Virtual Machines containing disks encrypted using customer managed keys. For details, refer to [Encryption of managed disks with customer managed keys](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview).
+Azure Backup allows you to back up Azure Virtual Machines containing disks encrypted using customer managed keys. For details, refer to [Encryption of managed disks with customer managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
 
 ### Backup of encrypted VMs
 
