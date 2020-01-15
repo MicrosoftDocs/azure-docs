@@ -171,6 +171,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-run-batch-predictions.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-use-parallel-run-step",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
       "redirect_document_id": false

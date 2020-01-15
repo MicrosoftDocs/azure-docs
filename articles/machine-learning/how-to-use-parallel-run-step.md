@@ -357,7 +357,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
 
-For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-parallel-run.md).
+For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-parallel-run-step.md).
 
 For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
 

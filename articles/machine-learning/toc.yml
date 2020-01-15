@@ -343,7 +343,7 @@
       href: how-to-retrain-designer.md
     - name: Use parallel run step
       displayName: score scoring batch consume pipeline parallelrunstep inference
-      href: how-to-use-paralle-run-step.md
+      href: how-to-use-parallel-run-step.md
     - name: Debug & troubleshoot parallel run step
       displayName: debug_batch consume pipeline parallelrunstep inference
       href: how-to-debug-parallel-run-step.md

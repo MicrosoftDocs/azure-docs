@@ -18,7 +18,7 @@ ms.custom: Ignite2019
 
 In this how-to, you learn how to use the designer to train a model and set up a batch prediction pipeline and web service. Batch prediction allows for continuous and on-demand scoring of trained models on large data sets, optionally configured as a web service that can be triggered from any HTTP library. 
 
-For setting up batch scoring services using the SDK, see the accompanying [how-to](how-to-run-batch-predictions.md).
+For setting up batch scoring services using the SDK, see the accompanying [how-to](how-to-use-parallel-run-step.md).
 
 In this how-to, you learn the following tasks:
 
