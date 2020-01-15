@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 1/15/2020
 ms.author: ralphe
 ---
-# What is Multi-device Conversation?
+# What is Multi-device Conversation (Preview)?
 
 **Multi-device conversation** makes it easy to create a speech or text conversation between multiple clients and coordinate the messages sent between them.
 
