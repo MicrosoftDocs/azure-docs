@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -167,8 +167,11 @@ In the following tables, the term alphanumeric refers to:
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows), 1-64 (Linux) | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows), 1-64 (Linux) | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+
+> [!NOTE]
+> Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
 
 ## Microsoft.ContainerInstance
 
@@ -398,10 +401,9 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | clusters | global | 4-22 | Lowercase letters and numbers.<br><br>Start with letter. |
-> | /clusters / attachedDatabaseConfigurations | Cluster | Not specified |  |
-> | /clusters / databases | cluster | Not specified |  |
-> | /clusters / databases / dataConnections | database | Not specified |  |
-> | /clusters / databases / eventhubconnections | database | Not specified |  |
+> | /clusters / databases | cluster | 1-260 | Alphanumerics, hyphens, spaces, and periods. |
+> | /clusters / databases / dataConnections | database | 1-40 | Alphanumerics, hyphens, spaces, and periods. |
+> | /clusters / databases / eventhubconnections | database | 1-40 | Alphanumerics, hyphens, spaces, and periods. |
 
 ## Microsoft.Logic
 
@@ -458,32 +460,9 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | mediaservices | resource group | 3-24 | Lowercase letters and numbers. |
-> | mediaServices / accountFilters | Media service | |  |
-> | mediaServices / assets | Media service |  |  |
-> | mediaServices / assets / assetFilters | Asset |  |  |
-> | mediaServices / contentKeyPolicies | Media service |  |  |
 > | mediaservices / liveEvents | Media service | 1-32 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
-> | mediaServices / mediaGraphs | Media service |  |  |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
-> | mediaServices / streamingLocators | Media service |  |  |
-> | mediaServices / streamingPolicies | Media service |  |  |
-> | mediaServices / transforms | Media service |  |  |
-> | mediaServices / transforms / jobs | Transform |  |  |
-
-## Microsoft.Migrate
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | assessmentProjects | resource group |  |  |
-> | assessmentProjects / groups | Assessment project |  |  |
-> | assessmentProjects / groups / assessments | Group |  |  |
-> | assessmentProjects / hypervcollectors | Assessment project |  |  |
-> | assessmentProjects / vmwarecollectors | Assessment project |  |  |
-> | projects | resource group |  |  |
-> | projects/groups | Project |  |  |
-> | projects/groups/assessments | Group |  |  |
 
 ## Microsoft.Network
 
@@ -579,28 +558,6 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | workspaces | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
-> | /workspaces / dataSources | workspaces | Not specified |  |
-> | /workspaces / linkedServices | workspaces | Not specified |  |
-> | /workspaces / savedSearches | workspaces | Not specified |  |
-> | /workspaces / storageInsightConfigs | workspaces | Not specified |  |
-
-## Microsoft.OperationsManagement
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /ManagementConfigurations | resource group | Not specified | Must start with a lower case letter and contain only lower case letters or numbers<br>`^[a-z][a-z0-9]*$` |
-> | /solutions | resource group | Not specified | Must start with a lower case letter and contain only lower case letters or numbers<br>`^[a-z][a-z0-9]*$` |
-
-## Microsoft.Peering
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /peerAsns | resource group | Not specified |  |
-> | /peerings | resource group | Not specified |  |
-> | /peeringServices | resource group | Not specified |  |
-> | /peeringServices / prefixes | peeringServices | Not specified |  |
 
 ## Microsoft.PowerBI
 
@@ -621,25 +578,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /vaults | resource group | Not specified |  |
-> | /vaults / backupFabrics / backupProtectionIntent | backupFabrics | Not specified |  |
-> | /vaults / backupFabrics / protectionContainers | backupFabrics | Not specified |  |
-> | /vaults / backupFabrics / protectionContainers / protectedItems | protectionContainers | Not specified |  |
-> | /vaults / backupPolicies | vaults | Not specified |  |
-> | /vaults / certificates | vaults | Not specified |  |
-> | /vaults / replicationAlertSettings | vaults | Not specified |  |
-> | /vaults / replicationFabrics | vaults | Not specified |  |
-> | /vaults / replicationFabrics / replicationNetworks / replicationNetworkMappings | replicationNetworks | Not specified |  |
-> | /vaults / replicationFabrics /replicationProtectionContainers | replicationFabrics | Not specified |  |
-> | /vaults / replicationFabrics / replicationProtectionContainers / replicationMigrationItems | replicationProtectionContainers | Not specified |  |
-> | /vaults / replicationFabrics / replicationProtectionContainers / replicationProtectedItems | replicationProtectionContainers | Not specified |  |
-> | /vaults / replicationFabrics / replicationProtectionContainers / replicationProtectionContainerMappings | replicationProtectionContainers | Not specified |  |
-> | /vaults / replicationFabrics / replicationRecoveryServicesProviders | replicationFabrics | Not specified |  |
-> | /vaults / replicationFabrics / replicationStorageClassifications / replicationStorageClassificationMappings | replicationStorageClassifications | Not specified |  |
-> | /vaults / replicationFabrics / replicationvCenters | replicationFabrics | Not specified |  |
-> | /vaults / replicationPolicies | vaults | Not specified |  |
-> | /vaults / replicationRecoveryPlans | vaults | Not specified |  |
-> | /vaults / replicationVaultSettings | vaults | Not specified |  |
+> | vaults | resource group | 2-50 | Alphanumerics and hyphens.<br><br>Start with letter. |
+> | vaults / backupPolicies | vault | 3-150 | Alphanumerics and hyphens.<br><br>Start with letter. Can't end with hyphen. |
 
 ## Microsoft.Relay
 
@@ -660,39 +600,16 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | /deployments | resource group | Not specified |  |
 > | /deploymentScripts | resource group | 1-90 |  |
-
-## Microsoft.Search
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /searchServices | resource group | Not specified |  |
-
-## Microsoft.Security
-
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | /advancedThreatProtectionSettings | resource group | Not specified |  |
-> | /assessmentMetadata | resource group | Not specified |  |
-> | /automations | resource group | Not specified |  |
-> | /autoProvisioningSettings | resource group | Not specified |  |
-> | /deviceSecurityGroups | resource group | Not specified |  |
-> | /informationProtectionPolicies | resource group | Not specified |  |
-> | /iotSecuritySolutions | resource group | Not specified |  |
-> | /locations / applicationWhitelistings | locations | Not specified |  |
-> | /locations / jitNetworkAccessPolicies | locations | Not specified |  |
-> | /pricings | resource group | Not specified |  |
-> | /securityContacts | resource group | Not specified |  |
-> | /settings | resource group | Not specified |  |
-> | /workspaceSettings | resource group | Not specified |  |
+> | /resourcegroups | subscriptions | 1-90 | `^[-\w\._\(\)]+$` |
+> | /tagNames | subscriptions | Not specified |  |
+> | /tagNames/tagValues | tagNames | Not specified |  |
 
 ## Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with a letter. End with a letter or number. |
+> | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with a letter. End with a letter or number.<br><br>For more information, see [Create namespace](/rest/api/servicebus/create-namespace). |
 > | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start and end with alphnumeric. |
 > | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
 > | namespaces / migrationConfigurations | namespace |  | Should always be **$default**. |
@@ -722,83 +639,28 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /instancePools | resource group | Not specified |  |
-> | /locations / instanceFailoverGroups | locations | Not specified |  |
-> | /managedInstances | resource group | Not specified |  |
-> | /managedInstances / administrators | managedInstances | Not specified |  |
-> | /managedInstances / databases | managedInstances | Not specified |  |
-> | /managedInstances / databases / backupShortTermRetentionPolicies | databases | Not specified |  |
-> | /managedInstances / databases / schemas / tables / columns / sensitivityLabels | columns | Not specified |  |
-> | /managedInstances / databases / securityAlertPolicies | databases | Not specified |  |
-> | /managedInstances / databases / vulnerabilityAssessments | databases | Not specified |  |
-> | /managedInstances / databases / vulnerabilityAssessments / rules / baselines | rules | Not specified |  |
-> | /managedInstances / encryptionProtector | managedInstances | Not specified |  |
-> | /managedInstances / keys | managedInstances | Not specified |  |
-> | /managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | restorableDroppedDatabases | Not specified |  |
-> | /managedInstances / securityAlertPolicies | managedInstances | Not specified |  |
-> | /managedInstances / vulnerabilityAssessments | managedInstances | Not specified |  |
-> | /servers | resource group | Not specified |  |
-> | /servers / administrators | servers | Not specified |  |
-> | /servers / advisors | servers | Not specified |  |
-> | /servers / auditingPolicies | servers | Not specified |  |
-> | /servers / auditingSettings | servers | Not specified |  |
-> | /servers / backupLongTermRetentionVaults | servers | Not specified |  |
-> | /servers / communicationLinks | servers | Not specified |  |
-> | /servers / connectionPolicies | servers | Not specified |  |
-> | /servers / databases | servers | Not specified |  |
-> | /servers / databases / advisors | databases | Not specified |  |
-> | /servers / databases / auditingPolicies | databases | Not specified |  |
-> | /servers / databases / auditingSettings | databases | Not specified |  |
-> | /servers / databases / backupLongTermRetentionPolicies | databases | Not specified |  |
-> | /servers / databases / backupShortTermRetentionPolicies | databases | Not specified |  |
-> | /servers / databases / connectionPolicies | databases | Not specified |  |
-> | /servers / databases / dataMaskingPolicies | databases | Not specified |  |
-> | /servers / databases / dataMaskingPolicies / rules | dataMaskingPolicies | Not specified |  |
-> | /servers / databases / extendedAuditingSettings | databases | Not specified |  |
-> | /servers / databases / extensions | databases | Not specified |  |
-> | /servers / databases / geoBackupPolicies | databases | Not specified |  |
-> | /servers / databases / schemas / tables / columns / sensitivityLabels | columns | Not specified |  |
-> | /servers / databases / securityAlertPolicies | databases | Not specified |  |
-> | /servers / databases / syncGroups | databases | Not specified |  |
-> | /servers / databases / syncGroups / syncMembers | syncGroups | Not specified |  |
-> | /servers / databases / transparentDataEncryption | databases | Not specified |  |
-> | /servers / databases / vulnerabilityAssessments | databases | Not specified |  |
-> | /servers / databases / vulnerabilityAssessments / rules / baselines | rules | Not specified |  |
-> | /servers / databases / workloadGroups | databases | Not specified |  |
-> | /servers / databases / workloadGroups / workloadClassifiers | workloadGroups | Not specified |  |
-> | /servers / disasterRecoveryConfiguration | servers | Not specified |  |
-> | /servers / dnsAliases | servers | Not specified |  |
-> | /servers / elasticPools | servers | Not specified |  |
-> | /servers / encryptionProtector | servers | Not specified |  |
-> | /servers / extendedAuditingSettings | servers | Not specified |  |
-> | /servers / failoverGroups | servers | Not specified |  |
-> | /servers / firewallRules | servers | Not specified |  |
-> | /servers / jobAgents | servers | Not specified |  |
-> | /servers / jobAgents / credentials | jobAgents | Not specified |  |
-> | /servers / jobAgents / jobs | jobAgents | Not specified |  |
-> | /servers / jobAgents / jobs / executions | jobs | Not specified |  |
-> | /servers / jobAgents / jobs / steps | jobs | Not specified |  |
-> | /servers / jobAgents / targetGroups | jobAgents | Not specified |  |
-> | /servers / keys | servers | Not specified |  |
-> | /servers / privateEndpointConnections | servers | Not specified |  |
-> | /servers / securityAlertPolicies | servers | Not specified |  |
-> | /servers / syncAgents | servers | Not specified |  |
-> | /servers / virtualNetworkRules | servers | Not specified |  |
-> | /servers / vulnerabilityAssessments | servers | Not specified |  |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |
+> | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
+> | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |
+> | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?`<br><br>Can't end with period. |
 
 ## Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /storageAccounts | resource group | 3-24 |  |
-> | /storageAccounts / blobServices | storageAccounts | Not specified |  |
-> | /storageAccounts / blobServices / default / containers | default | 3-63 |  |
-> | /storageAccounts / blobServices / default / containers / immutabilityPolicies | containers | Not specified |  |
-> | /storageAccounts / fileServices | storageAccounts | Not specified |  |
-> | /storageAccounts / fileServices / default / shares | default | 3-63 |  |
-> | /storageAccounts / managementPolicies | storageAccounts | Not specified |  |
-> | /storageAccounts / privateEndpointConnections | storageAccounts | Not specified |  |
+> | storageAccounts | global | 3-24 | Lowercase letters and numbers. |
+> | storageAccounts / blobServices | storage account |  | Must be `default`. |
+> | storageAccounts / blobServices / containers | storage account | 3-63 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. Can't use consecutive hyphens. |
+> | storageAccounts / fileServices | storageAccounts |  | Must be `default`. |
+> | storageAccounts / fileServices / shares | storage account | 3-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can't use consecutive hyphens. |
+> | storageAccounts / managementPolicies | storageAccounts |  | Must be `default`. |
+> | blob | container | 1-1024 | Any URL characters, case sensitive |
+> | queue | storage account | 3-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can't use consecutive hyphens. |
+> | table | storage account | 3-63 | Alphanumerics.<br><br>Start with letter. |
 
 ## Microsoft.StorageSync
 
@@ -890,17 +752,6 @@ In the following tables, the term alphanumeric refers to:
 > | /sites / virtualNetworkConnections / gateways | virtualNetworkConnections | Not specified |  |
 > | /sourcecontrols | resource group | Not specified |  |
 
-## providers
+## Next steps
 
-> [!div class="mx-tableFixed"]
-> | Entity | Scope | Length | Valid Characters |
-> | --- | --- | --- | --- |
-> | providers/Microsoft.Authorization/locks | Microsoft.Authorization | Not specified |  |
-> | providers/Microsoft.OperationsManagement/ManagementAssociations | Microsoft.OperationsManagement | Not specified | Must start with a lower case letter and contain only lower case letters or numbers<br>`^[a-z][a-z0-9]*$` |
-> | providers/Microsoft.Security/serverVulnerabilityAssessments | Microsoft.Security | Not specified |  |
-
-
-
-> | /subscriptions/resourcegroups | subscriptions | 1-90 | `^[-\w\._\(\)]+$` |
-> | /subscriptions/tagNames | subscriptions | Not specified |  |
-> | /subscriptions/tagNames/tagValues | tagNames | Not specified |  |
+For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
