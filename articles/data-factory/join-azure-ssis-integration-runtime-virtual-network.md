@@ -135,7 +135,7 @@ If you want to bring your own static public IP addresses for Azure-SSIS IR while
 - They and the virtual network should be under the same subscription and in the same region.
 
 ### <a name="dns_server"></a> Set up the DNS server 
-If you need to use your own DNS server in a virtual network joined by your Azure-SSIS IR to resolve your private host name, make sure it can also resolve public Azure host names (for example, an Azure Storage blob named `<your storage account>.blob.core.windows.net`). 
+If you need to use your own DNS server in a virtual network joined by your Azure-SSIS IR to resolve your private host name, make sure it can also resolve global Azure host names (for example, an Azure Storage blob named `<your storage account>.blob.core.windows.net`). 
 
 One recommended approach is below: 
 
@@ -179,7 +179,7 @@ You need to do below things to make whole scenario working
 
 Inbound traffic between Azure Batch management services and the Azure-SSIS IR can't be routed to firewall appliance otherwise the traffic will be broken due to asymmetric routing problem. Routes must be defined for inbound traffic so the traffic can reply back the same way it came in. You can define specific UDRs to route traffic between Azure Batch management services and the Azure-SSIS IR with next hop type as **Internet**.
 
-For example, if your Azure-SSIS IR is located at `UK South` and you want to inspect outbound traffic through Azure Firewall, you would firstly get an IP range list of service tag `BatchNodeManagement.UKSouth` from the [service tags IP range download link](https://www.microsoft.com/en-us/download/details.aspx?id=56519) or through the [Service Tag Discovery API](https://aka.ms/discoveryapi). Then apply the following UDRs of related IP range routes with the next hop type as **Internet** along with the 0.0.0.0/0 route with the next hop type as **Virtual appliance**.
+For example, if your Azure-SSIS IR is located at `UK South` and you want to inspect outbound traffic through Azure Firewall, you would firstly get an IP range list of service tag `BatchNodeManagement.UKSouth` from the [service tags IP range download link](https://www.microsoft.com/download/details.aspx?id=56519) or through the [Service Tag Discovery API](https://aka.ms/discoveryapi). Then apply the following UDRs of related IP range routes with the next hop type as **Internet** along with the 0.0.0.0/0 route with the next hop type as **Virtual appliance**.
 
 ![Azure Batch UDR settings](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -333,21 +333,21 @@ Use the portal to configure a classic virtual network before you try to join an 
 
    1. On the left menu, select **Access control (IAM)**, and select the **Role assignments** tab. 
 
-   !["Access control" and "Add" buttons](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
+       !["Access control" and "Add" buttons](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
    1. Select **Add role assignment**.
 
    1. On the **Add role assignment** page, for **Role**, select **Classic Virtual Machine Contributor**. In the **Select** box, paste **ddbf3205-c6bd-46ae-8127-60eb93363864**, and then select **Microsoft Azure Batch** from the list of search results. 
 
-   ![Search results on the "Add role assignment" page](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+       ![Search results on the "Add role assignment" page](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
    1. Select **Save** to save the settings and close the page. 
 
-   ![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
+       ![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
    1. Confirm that you see **Microsoft Azure Batch** in the list of contributors. 
 
-   ![Confirm Azure Batch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
+       ![Confirm Azure Batch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
 1. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.) 
 
