@@ -23,12 +23,12 @@ The custom skill is simple by design (it concatenates two strings) so that you c
 
 + [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ Set up your environment. We followed [this tutorial end-to-end](https://docs.microsoft.com/en-us/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function in Python in Visual Studio Code. This tutorial leads you through installation of the following tools and components: 
++ Set up your environment. We followed [this tutorial end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function in Python in Visual Studio Code. This tutorial leads you through installation of the following tools and components: 
 
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2)
+  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
   
 
@@ -51,10 +51,10 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 1. Select the Python version, (version 3.7.5 is supported by Azure Functions)
 1. Select a template for your project's first function. Select **HTTP trigger** to create an HTTP triggered function in the new function app.
 1. Provide a function name. In this case, let's use **LayoutExtractor** 
-1. Select **Function** as the Authorization level. This means that we will provide a [function key](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) to call the function's HTTP endpoint. 
+1. Select **Function** as the Authorization level. This means that we will provide a [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) to call the function's HTTP endpoint. 
 1. Select how you would like to open your project. For this step, select **Add to workspace** to create the function app in the current workspace.
 
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. 
+Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../azure-functions/functions-host-json.md) and [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. 
 
 A new HTTP triggered function is also created in the **LayoutExtractor** folder of the function app project. Inside it there will be a file called "\__init__.py", with this content:
 
