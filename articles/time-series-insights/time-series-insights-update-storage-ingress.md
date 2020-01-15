@@ -203,6 +203,6 @@ Time Series Insights Preview events are mapped to Parquet file contents as follo
 
 ## Next steps
 
-- Read [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+- Read [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
 - Read about the new [data modeling](./time-series-insights-update-tsm.md).
