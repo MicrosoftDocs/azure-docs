@@ -59,7 +59,7 @@
     - name: Troubleshoot region or SKU subscription issues
       href: supportability/sku-series-unavailable.md
     - name: Capture a browser trace for troubleshooting
-      href: azure-portal-browser-trace.md
+      href: capture-browser-trace.md
 
 - name: Reference
   items:

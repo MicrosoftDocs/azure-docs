@@ -26,39 +26,39 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 or select ![Screenshot of browser settings icon](media/azure-portal-browser-trace/chromium-icon-settings.png) > **More tools** > **Developer tools**.
+1. Press F12 or select ![Screenshot of browser settings icon](media/capture-browser-trace/chromium-icon-settings.png) > **More tools** > **Developer tools**.
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
 
     1. Select the **Network** tab, then select **Preserve log**.
 
-          ![Screenshot of "Preserve log"](media/azure-portal-browser-trace/chromium-network-preserve-log.png)
+          ![Screenshot of "Preserve log"](media/capture-browser-trace/chromium-network-preserve-log.png)
 
     1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**. Select **Console settings** again to close the settings pane.
 
-          ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/chromium-console-preserve-log.png)
+          ![Screenshot of "Preserve Log"](media/capture-browser-trace/chromium-console-preserve-log.png)
 
 1. Select the **Network** tab, then select **Stop recording network log** and **Clear**.
 
-    ![Screenshot of "Stop recording network log" and "Clear"](media/azure-portal-browser-trace/chromium-stop-clear-session.png)
+    ![Screenshot of "Stop recording network log" and "Clear"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
 1. Select **Record network log**, then reproduce the issue in the portal.
 
-    ![Screenshot of "Start profiling session"](media/azure-portal-browser-trace/chromium-start-session.png)
+    ![Screenshot of "Start profiling session"](media/capture-browser-trace/chromium-start-session.png)
 
     You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/azure-portal-browser-trace/chromium-browser-trace-results.png)
+    ![Screenshot of browser trace results](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Stop recording network log**, then select **Export HAR** and save the file.
 
-    ![Screenshot of "Export HAR"](media/azure-portal-browser-trace/chromium-network-export-har.png)
+    ![Screenshot of "Export HAR"](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Stop Steps Recorder, and save the file.
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click, then select **Save as...**, and save the console output to a text file.
 
-    ![Screenshot of console output](media/azure-portal-browser-trace/chromium-console-select.png)
+    ![Screenshot of console output](media/capture-browser-trace/chromium-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
@@ -72,39 +72,39 @@ The following steps show how to use the developer tools in Microsoft Edge (EdgeH
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 or select ![Screenshot of browser settings icon](media/azure-portal-browser-trace/edge-icon-settings.png) > **More tools** > **Developer tools**.
+1. Press F12 or select ![Screenshot of browser settings icon](media/capture-browser-trace/edge-icon-settings.png) > **More tools** > **Developer tools**.
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
 
     1. Select the **Network** tab, then clear the option **Clear entries on navigate**.
 
-          ![Screenshot of "Clear entries on navigate"](media/azure-portal-browser-trace/edge-network-clear-entries.png)
+          ![Screenshot of "Clear entries on navigate"](media/capture-browser-trace/edge-network-clear-entries.png)
 
     1. Select the **Console** tab, then select **Preserve Log**.
 
-          ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/edge-console-preserve-log.png)
+          ![Screenshot of "Preserve Log"](media/capture-browser-trace/edge-console-preserve-log.png)
 
 1. Select the **Network** tab, then select **Stop profiling session** and **Clear session**.
 
-    ![Screenshot of "Stop profiling session" and "Clear session"](media/azure-portal-browser-trace/edge-stop-clear-session.png)
+    ![Screenshot of "Stop profiling session" and "Clear session"](media/capture-browser-trace/edge-stop-clear-session.png)
 
 1. Select **Start profiling session**, then reproduce the issue in the portal.
 
-    ![Screenshot of "Start profiling session"](media/azure-portal-browser-trace/edge-start-session.png)
+    ![Screenshot of "Start profiling session"](media/capture-browser-trace/edge-start-session.png)
 
     You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/azure-portal-browser-trace/edge-browser-trace-results.png)
+    ![Screenshot of browser trace results](media/capture-browser-trace/edge-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Stop profiling session**, then select **Export as HAR** and save the file.
 
-    ![Screenshot of "Export as HAR"](media/azure-portal-browser-trace/edge-network-export-har.png)
+    ![Screenshot of "Export as HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
 1. Stop Steps Recorder, and save the file.
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Right-click, then select **Copy**, and save the console output to a text file.
 
-    ![Screenshot of console output](media/azure-portal-browser-trace/edge-console-select.png)
+    ![Screenshot of console output](media/capture-browser-trace/edge-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
@@ -116,49 +116,49 @@ The following steps show how to use the developer tools in Apple Safari. For mor
 
     1. Select **Safari**, then select **Preferences**.
 
-        ![Screenshot of Safari preferences](media/azure-portal-browser-trace/safari-preferences.png)
+        ![Screenshot of Safari preferences](media/capture-browser-trace/safari-preferences.png)
 
     1. Select the **Advanced** tab, then select **Show Develop menu in menu bar**.
 
-        ![Screenshot of Safari advanced preferences](media/azure-portal-browser-trace/safari-show-develop-menu.png)
+        ![Screenshot of Safari advanced preferences](media/capture-browser-trace/safari-show-develop-menu.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
 
-1. Start recording the steps you take in the portal. For more information, see [How to record the screen on your Mac](https://support.apple.comHT208721).
+1. Start recording the steps you take in the portal. For more information, see [How to record the screen on your Mac](https://support.apple.com/HT208721).
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
 1. Select **Develop**, then select **Show Web Inspector**.
 
-    ![Screenshot of "Show Web Inspector"](media/azure-portal-browser-trace/safari-show-web-inspector.png)
+    ![Screenshot of "Show Web Inspector"](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
 
     1. Select the **Network** tab, then select **Preserve Log**.
 
-          ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/safari-network-preserve-log.png)
+          ![Screenshot of "Preserve Log"](media/capture-browser-trace/safari-network-preserve-log.png)
 
     1. Select the **Console** tab, then select **Preserve Log**.
 
-          ![Screenshot of "Preserve Log"](media/azure-portal-browser-trace/safari-console-preserve-log.png)
+          ![Screenshot of "Preserve Log"](media/capture-browser-trace/safari-console-preserve-log.png)
 
 1. Select the **Network** tab, then select **Clear Network Items**.
 
-    ![Screenshot of "Clear Network Items"](media/azure-portal-browser-trace/safari-clear-session.png)
+    ![Screenshot of "Clear Network Items"](media/capture-browser-trace/safari-clear-session.png)
 
 1. Reproduce the issue in the portal. You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/azure-portal-browser-trace/safari-browser-trace-results.png)
+    ![Screenshot of browser trace results](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Export** and save the file.
 
-    ![Screenshot of "Export"](media/azure-portal-browser-trace/safari-network-export-har.png)
+    ![Screenshot of "Export"](media/capture-browser-trace/safari-network-export-har.png)
 
 1. Stop the screen recorder, and save the file.
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Use Command-C to copy the output and save it to a text file.
 
-    ![Screenshot of console output](media/azure-portal-browser-trace/safari-console-select.png)
+    ![Screenshot of console output](media/capture-browser-trace/safari-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
