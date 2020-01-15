@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL analytics - SSMS | Microsoft Docs
-description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
+title: Connect to SQL Analytics with SQL Server Management Studio (SSMS) | Microsoft Docs
+description: Use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics. 
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -21,22 +21,22 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
+You can use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics through either the SQL on-demand or SQL pool resources. 
 
-## Supported tools for SQL analytics on-demand
-Azure Data Studio is a fully supported tool.
-SQL Server Management Studio is supported partially from version 18.4 and with limited features such as connecting and querying. 
+## Supported tools for SQL on-demand
+Azure Data Studio is a fully supported tool. SSMS is supported partially from version 18.5 and with limited features such as connecting and querying. 
 
 ## Prerequisites
-To use this tutorial, you need:
+Before you begin, make sure you've completed the following prerequisites:  
 
-* An existing SQL analytics. To create one, see [Create a SQL analytics][Create a SQL analytics].
-* SQL Server Management Studio (SSMS) installed. [Install SSMS][Install SSMS] for free if you don't already have it.
-* The fully qualified SQL server name. To find this, see [Connect to SQL analytics][Connect to SQL analytics].
-## 1. Connect to your SQL analytics
+* Have an existing data warehouse. To create one, see [Create a data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal#create-a-data-warehouse).
+* Install SQL Server Management Studio (SSMS). You can [install SSMS][Install SSMS] for free if you don't already have it.
+* Have the fully qualified SQL server name. To find this, see [Connect to SQL analytics](connect-overview.md).
+
+## 1. Connect to SQL Analytics
 
 
-### SQL analytics pool
+### SQL pool
 1. Open SSMS.
 2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
    
@@ -53,7 +53,7 @@ To use this tutorial, you need:
    
     ![Explore AdventureWorksDW][3a]
 
-### SQL analytics on-demand
+### SQL on-demand
 1. Open SSMS.
 2. Open the Object Explorer. To do this, select **File** > **Connect Object Explorer**.
    
@@ -80,7 +80,7 @@ Now that a connection has been established to your database, you'll write a quer
 2. Select **New Query**. A new query window opens.
    
     ![New query][4a]
-3. Copy this TSQL query into the query window:
+3. Copy this T-SQL query into the query window:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
@@ -100,7 +100,7 @@ Now that a connection has been established to your database, you'll write a quer
 2. Select **New Query**. A new query window opens.
    
     ![New query][4]
-3. Copy this TSQL query into the query window:
+3. Copy this T-SQL query into the query window:
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
@@ -118,8 +118,7 @@ Now that you can connect and query, try [visualizing the data with Power BI][vis
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL analytics][Authenticate to SQL analytics].
 
 <!--Arcticles-->
-[Connect to SQL analytics]: connect-overview.md
-[Create a SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
+[Create a SQL analytics]: https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal
 [Authenticate to SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: get-started-power-bi-professional.md 
 
