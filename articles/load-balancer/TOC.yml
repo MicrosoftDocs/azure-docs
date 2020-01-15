@@ -51,6 +51,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Components and limitations
+    href: concepts-limitations.md 
   - name: Health monitoring
     items:
     - name: Health probes
