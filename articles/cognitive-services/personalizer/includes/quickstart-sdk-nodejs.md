@@ -146,9 +146,9 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request a rank
 
-To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response.
+To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](../concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response.
 
-This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](concept-feature-evaluation.md) [actions and features](concepts-features.md) can be a non-trivial matter.
+This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -156,7 +156,7 @@ This quickstart has simple context features of time of day and user food prefere
 
 To complete the reward request, the program gets the user's selection from the command line, assigns a numeric value to each selection, then sends the unique rank event ID and the numeric value to the reward method.
 
-This quickstart assigns a simple number as a reward, either a zero or a 1. In production systems, determining when and what to send to the [reward](concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
+This quickstart assigns a simple number as a reward, either a zero or a 1. In production systems, determining when and what to send to the [reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 
