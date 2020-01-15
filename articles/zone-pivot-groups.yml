@@ -85,7 +85,15 @@ groups:
   - id: programming-language-go
     title: Go
   - id: programming-language-ruby
-    title: Ruby
+    title: Ruby  
+- id: URL-test-interface
+  title: URL Test tool
+  prompt: Choose one of the following
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman
 - id: programming-languages-set-six
   title: Programming languages
   prompt: Choose a programming language
@@ -99,12 +107,4 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-powershell
-    title: PowerShell    
-- id: URL-test-interface
-  title: URL Test tool
-  prompt: Choose one of the following
-  pivots:
-  - id: url-test-tool-curl
-    title: cURL
-  - id: url-test-tool-postman
-    title: Postman
+    title: PowerShell  
