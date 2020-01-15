@@ -24,7 +24,7 @@ This article answers frequently asked questions (FAQs) about SMB performance bes
 
 Yes, SMB Multichannel is enabled by default, a change put in place in early January 2020. All SMB shares pre-dating existing SMB volumes have had the feature enabled, and all newly created volumes will also have the feature enabled at time of creation. 
 
-Any SMB connection established prior to the feature enablement will need to be reset to take advantage of the SMB Multichannel functionality. To reset, simply disconnect and reconnect the SMB share.
+Any SMB connection established prior to the feature enablement will need to be reset to take advantage of the SMB Multichannel functionality. To reset, you can disconnect and reconnect the SMB share.
 
 ## Does Azure NetApp Files support receive-side-scaling (RSS)?
 
@@ -74,7 +74,7 @@ The command `netstat -na | findstr 445` proved that additional connections were 
 
 ![Random I/O tests](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-Note that the Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As shown below, the D16 instance type has a limited rate of 32,000 for cached storage IOPS and 25,600 for uncached storage IOPS.  However, the graph above shows significantly more I/O over SMB.
+The Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As shown below, the D16 instance type has a limited rate of 32,000 for cached storage IOPS and 25,600 for uncached storage IOPS.  However, the graph above shows significantly more I/O over SMB.
 
 ![Random I/O comparison](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
@@ -84,7 +84,7 @@ Tests similar to the random I/O tests described above were performed with 64-KiB
 
 ![Sequential I/O tests](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Note that Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D16 instance type has an imposed network limit of 8000 Mibps (1,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
+Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D16 instance type has an imposed network limit of 8000 Mibps (1,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
 
 ![Sequential I/O comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
