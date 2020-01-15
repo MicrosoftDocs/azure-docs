@@ -127,7 +127,7 @@ The purpose of this section is to show you how to include a health check step in
       "type": "Microsoft.DeploymentManager/steps",
       "apiVersion": "2018-09-01-preview",
       "name": "healthCheckStep",
-	  "location": "[parameters('azureResourceLocation')]",
+      "location": "[parameters('azureResourceLocation')]",
       "properties": {
         "stepType": "healthCheck",
         "attributes": {
