@@ -21,7 +21,7 @@ This article describes the "CRITICAL SERVICE FAILED" error that you may experien
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
+[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 

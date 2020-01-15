@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/21/2019
+ms.date: 01/09/2020
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -25,10 +25,6 @@ The quickstart uses two pre-written Python applications:
 
 * A back-end application that calls the direct methods on the simulated device. To call a direct method on a device, this application connects to service-side endpoint on your IoT hub.
 
-> [!IMPORTANT]
-> In this article, the back-end application uses the Python V1 service client and the device application uses the Python V2 device client. The V1 service client is located in the [v1-deprecated branch](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated) of the Azure IoT Python SDK GitHub repository. The Pip package for the V1 service client, *azure-iothub-service-client*, has strict, platform-specific requirements -- including the version of Python installed on your development machine. These requirements are noted in the **Prerequisites** section.
->
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -43,13 +39,7 @@ az extension add --name azure-cli-iot-ext
 
 If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
-**For Windows**, the following prerequisites are required to install the V1 IoT Hub service client Pip package:
-
-* Make sure you have [Python version **3.6.x**](https://www.python.org/downloads/) installed.
-
-* Make sure you have the [Microsoft Visual C++ Redistributable for Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
-
-**For non-Windows platforms**, see the [Python Pip package distribution table](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table) in the V1 SDK documentation. Make sure the Python 3.x version specified for your platform and any associated requirements are installed on your development machine. Installing Python 3.x rather than 2.7 enables async operations in the V2 device client, which is also used in this quickstart.
+Have [Python version 3.7 or later](https://www.python.org/downloads/) installed on your development machine. For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) in the SDK documentation.
 
 ## Create an IoT hub
 
@@ -128,7 +118,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![Run the simulated device](./media/quickstart-control-device-python/simulated-device-1.png)
 
 ## Call the direct method
 
@@ -143,7 +133,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-service-client future
+    pip install azure-iot-hub
     ```
 
 1. In the local terminal window, run the following commands to run the back-end application:
@@ -154,15 +144,11 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Run the back-end application](./media/quickstart-control-device-python/BackEndApplication.png)
+    ![Run the back-end application](./media/quickstart-control-device-python/backend-application.png)
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-python/SimulatedDevice-2.png)
-
-    > [!NOTE]
-    > If you get an error on the import of *iothub_service_client*, make sure you've installed the exact version of Python and any other associated artifacts specified for your platform in [Prerequisites](#prerequisites). If, after verifying the prerequisites, you still get an error, you may need to build the service client for your platform. To learn how to build the SDK for your platform, see the [devbox setup instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) in the V1 SDK documentation.
-    >
+    ![Change in simulated client](./media/quickstart-control-device-python/simulated-device-2.png)
 
 ## Clean up resources
 

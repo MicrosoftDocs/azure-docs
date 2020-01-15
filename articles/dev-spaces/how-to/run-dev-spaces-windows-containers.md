@@ -141,7 +141,12 @@ azds prep --public
 azds up
 ```
 
-The `azds prep --public` command generates the Helm chart and Dockerfiles for your application. The `azds up` command runs your service in the namespace.
+The `azds prep --public` command generates the Helm chart and Dockerfiles for your application.
+
+> [!TIP]
+> The [Dockerfile and Helm chart](../how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+
+The `azds up` command runs your service in the namespace.
 
 ```console
 $ azds up

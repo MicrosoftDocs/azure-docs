@@ -79,7 +79,7 @@ The Azure portal indicates which authorization scheme is in use when you navigat
 
 ### Data access from PowerShell or Azure CLI
 
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](storage-auth-aad-script.md).
+Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md).
 
 ## Next steps
 
