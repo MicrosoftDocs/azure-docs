@@ -171,6 +171,10 @@ Upon successful completion, your machine is connected to Azure. You can view you
 
 ![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
+### Considerations for Location
+
+In most cases, the location specified should be the Azure region geographically closest to your server's location. Data at rest will be stored within the Azure Geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your server is connected to is affected by an outage, the connected server is not affected but management operations via Azure may be unable to complete. For resilience in the event of a regional outage, if you have multiple locations which provide a geographically-redundant service, it is best to connect the servers in each location to a different Azure region.  
+
 ### Proxy server configuration
 
 #### Linux
