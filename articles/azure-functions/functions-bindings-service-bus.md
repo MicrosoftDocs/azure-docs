@@ -345,15 +345,17 @@ These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`
 
 # [JavaScript](#tab/javascript)
 
-In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
+Access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
 
 # [Python](#tab/python)
 
-**TODO**
+The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
 
 # [Java](#tab/java)
 
-**TODO**
+The incoming Service Bus message is available via a `ServiceBusQueueMessage` or `ServiceBusTopicMessage` parameter.
+
+[See the example for details](#trigger).
 
 ---
 
