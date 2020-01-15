@@ -77,12 +77,12 @@ To configure and test Azure Active Directory single sign-on with SharePoint on-p
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Configure SharePoint on-premises](#configure-Sharepoint-on-premises)** - to configure the Single Sign-On settings on application side.
-1. **[Create an Azure AD test user in the Azure portal](Create-an-Azure-AD-test-user-in-the-Azure-Portal)** - create new user in Azure AD for single sign-on.
+1. **[Create an Azure AD test user in the Azure portal](#Create-an-Azure-AD-test-user-in-the-Azure-Portal)** - create new user in Azure AD for single sign-on.
 1. **[Create an Azure AD Security Group in the Azure portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - create new security group in Azure AD for single sign-on.
-1. **[Grant permissions to Azure Active Directory user in SharePoint on-premises](#assign-the-azure-ad-security-group-in-the-azure-portal)** - give permissions to Azure AD user.
-1. **[Grant permissions to Azure AD group in SharePoint on-premises](#assign-the-azure-ad-security-group-in-the-azure-portal)** - give permissions to Azure AD group.
-1. **[Grant access to a Guest Account to SharePoint on-premises in the Azure portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - give permissions to Guest account in Azure AD for SharePoint on-premises.
-1. **[Configuring the trusted identity provider for multiple web applications](Configuring-the-trusted-identity-provider-for-multiple-web-applications)** - how to use the same trusted identity provider for multiple web applications
+1. **[Grant permissions to Azure Active Directory Account in SharePoint on-premises](#Grant-permissions-to-Azure-Active-Directory-account-in-SharePoint-on-premises)** - give permissions to Azure AD user.
+1. **[Grant permissions to Azure AD group in SharePoint on-premises](#Grant-permissions-to-Azure-AD-group-in-SharePoint-on-premises)** - give permissions to Azure AD group.
+1. **[Grant access to a Guest Account to SharePoint on-premises in the Azure portal](#Grant-access-to-a-Guest-account-to-SharePoint-on-premises-in-the-Azure-portal)** - give permissions to Guest account in Azure AD for SharePoint on-premises.
+1. **[Configuring the trusted identity provider for multiple web applications](#Configuring-the-trusted-identity-provider-for-multiple-web-applications)** - how to use the same trusted identity provider for multiple web applications
 
 ### Configure Azure AD single sign-on
 
