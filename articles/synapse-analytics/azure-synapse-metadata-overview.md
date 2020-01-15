@@ -1,22 +1,18 @@
 ---
-title: What is Azure Synapse Analytics' shared Meta Data Model #Required; update as needed page title displayed in search results. Include the brand.
-description: Azure Synapse Analytics provides a shared meta data model where creating a database or table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data or requiring user action. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: MikeRys #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/02/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: mrys #Required; update with your microsoft alias of author; optional team alias.
+title: What is Azure Synapse Analytics' shared Meta Data Model 
+description: Azure Synapse Analytics provides a shared meta data model where creating a database or table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data or requiring user action. 
+services: synapse-analytics
+author: MikeRys 
+ms.service: synapse-analytics
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/02/2019
+ms.author: mrys
 ms.reviewer: jrasnick
 ---
 
 
 # What is Azure Synapse Analytics' shared Meta Data Model? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark Pools, SQL Analytics On-Demand engine and SQL Pools. 
 
@@ -61,14 +57,3 @@ If a meta data object gets deleted or changed with Spark, the changes will be pi
 - [Learn more about the Synchronization with SQL Analytics On-Demand]()
 - [Learn more about the Synchronization with SQL Analyiics Pools]()
 
-<!---Some context for the following links goes here--->
-<!--- [link to next logical step for the customer](quickstart-view-occupancy.md)--->
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
-
-
---->

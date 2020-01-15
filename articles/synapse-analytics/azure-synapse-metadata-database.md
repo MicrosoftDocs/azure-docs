@@ -1,17 +1,17 @@
 ---
-title: Azure Synapse Analytics' shared Database #Required; update as needed page title displayed in search results. Include the brand.
-description: Azure Synapse Analytics provides a shared meta data model where creating a database in Spark will make it accessible from its SQL Analytics On-Demand and SQL Analytics Pool engines. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: MikeRys #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/23/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: mrys #Required; update with your microsoft alias of author; optional team alias.
+title: Azure Synapse Analytics shared Database 
+description: Azure Synapse Analytics provides a shared meta data model where creating a database in Spark will make it accessible from its SQL Analytics On-Demand and SQL Analytics Pool engines. 
+services: sql-data-warehouse 
+author: MikeRys
+ms.service: sql-data-warehouse 
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/23/2019
+ms.author: mrys 
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics' shared Database
+# Azure Synapse Analytics shared Database
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark Pools, SQL Analytics On-Demand engine and SQL Analytics Pools. 
 
