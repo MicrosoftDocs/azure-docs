@@ -166,8 +166,8 @@ Azure Migrate needs permissions to discover on-premises VMs.
 
 ### Verify Hyper-V host settings
 
-1. Verify [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) for server assessment.
-2. Make sure the [required ports](migrate-support-matrix-hyper-v.md#assessment-port-requirements) are open on Hyper-V hosts.
+1. Verify [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) for server assessment.
+2. Make sure the [required ports](migrate-support-matrix-hyper-v.md#port-access) are open on Hyper-V hosts.
 
 ### Enable PowerShell remoting on hosts
 
@@ -209,17 +209,17 @@ When you set up the appliance, you finish setting up CredSSP by [enabling it on 
 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
-1. [Verify](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) appliance requirements.
-2. [Review](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) the Azure URLs that the appliance will need to access.
+1. [Verify](migrate-appliance.md#appliance---hyper-v) appliance requirements.
+2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
 3. Review the data that the appliance will collect during discovery and assessment.
-4. [Note](migrate-support-matrix-hyper-v.md#assessment-port-requirements) port access requirements for the appliance.
+4. [Note](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
 
 
 ## Prepare for Hyper-V migration
 
-1. [Review](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) Hyper-V host requirements for migration.
-2. [Review](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) the requirements for Hyper-V VMs that you want to migrate to Azure.
-3. [Note](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
+1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
+2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
+
 
 ## Next steps
 

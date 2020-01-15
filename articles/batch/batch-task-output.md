@@ -2,7 +2,7 @@
 title: Persist results or logs from completed jobs and tasks to a data store - Azure Batch | Microsoft Docs
 description: Learn about different options for persisting output data from Batch tasks and jobs. You can persist data to Azure Storage, or to another data store.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 
 ---

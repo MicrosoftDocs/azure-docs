@@ -68,7 +68,7 @@ The ContainerInventory table contains information about both stopped and running
  
 ## How do I resolve *Missing Subscription registration* error?
 
-If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## Is there support for RBAC enabled AKS clusters?
 
