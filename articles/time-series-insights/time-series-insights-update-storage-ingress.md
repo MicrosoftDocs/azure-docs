@@ -36,7 +36,7 @@ Time Series Insights Preview supports a maximum of two event sources per instanc
 > [!WARNING] 
 > * You may experience high initial latency when attaching an event source to your Preview environment. 
 > Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
-> * High latency will subside after event source data is first ingested. Please contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
+> * High latency will subside after event source data is first ingested. Contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
 
 ### Supported data format and types
 
@@ -57,14 +57,14 @@ Below is the list of supported data types.
 
 
 > [!NOTE] 
-For more information on how to shape your JSON events as well as details on nested object flattening see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+For more information on how to shape your JSON events as well as details on nested object flattening, see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
 
 ## Ingress best practices
 
 We recommend that you employ the following best practices:
 
-* Configure Time Series Insights and an IoT hub or event hub in the same region. This will reduce ingestion latency incurred due to the network.
+* Configure Time Series Insights and your IoT Hub or Event Hub in the same region in order to reduce network incurred ingestion latency.
 * Plan for your scale needs by calculating your anticipated ingestion rate and verifying that it falls within the supported rate listed below
 * Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
@@ -76,7 +76,7 @@ In general, ingress rates are viewed as the factor of the number of devices that
 
 *  **Number of devices** × **Event emission frequency** × **Size of each event**.
 
-By default, Time Series Insights preview can ingest incoming data at a rate of up to 1 megabyte per second (MBps) **per TSI environment**. Please contact us if this does not meet your requirements, we can support up to 16 MBps for an environment by submitting a support ticket in the Azure portal.
+By default, Time Series Insights preview can ingest incoming data at a rate of up to 1 megabyte per second (MBps) **per TSI environment**. Contact us if this does not meet your requirements, we can support up to 16 MBps for an environment by submitting a support ticket in the Azure portal.
  
 Example 1: Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Event Hub with 4 partitions as the TSI event source.
 The ingestion rate for their TSI environment would be: 100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps.
@@ -85,14 +85,14 @@ Contoso Shipping’s ingestion rate would be within the preview scale limitation
  
 Example 2: Contoso Fleet Analytics has 60,000 devices that emit an event every second. They are using an IoT Hub 24 partition count of 4 as the TSI event source. The size of an event is 200 bytes.
 The environment ingestion rate would be: 20,000 devices * 200 bytes/event * 1 event/sec = 4 MBps.
-The per partition rate would be 1 MBPs.
+The per partition rate would be 1 MBps.
 Contoso Fleet Analytics would need to submit a request to TSI via the Azure portal for a dedicated environment to achieve this scale.
 
 #### Hub Partitions and Per Partition Limits
 
 When planning your TSI environment, it's important to consider the configuration of the event source(s) that you'll be connecting to TSI. Both Azure IoT Hub and Event Hubs utilize partitions to enable horizontal scale for event processing.  A partition is an ordered sequence of events that is held in a hub. The partition count is set during the IoT or Event Hubs’ creation phase, and is not changeable. For more information on determining the partition count, see the Event Hubs' FAQ How many partitions do I need? For TSI environments using IoT Hub, generally most IoT Hubs only need 4 partitions. Whether or not you're creating a new hub for your TSI environment, or using an existing one, you'll need to calculate your per partition ingestion rate to determine if it is within the preview limits. TSI preview currently has a **per partition** limit of 0.5 MB/s. Use the examples below as a reference, and please note the following IoT Hub-specific consideration if you're an IoT Hub user.
 
-#### IoT Hub specific considerations
+#### IoT Hub-specific considerations
 
 When a device is created in IoT Hub it is assigned to a partition, and the partition assignment will not change. By doing so, IoT Hub is able to guarantee event ordering. However, this has implications for TSI as a downstream reader in certain scenarios. When messages from multiple devices are forwarded to the hub using the same gateway device ID they will arrive in the same partition, thus potentially exceeding the per partition scale limitation. 
 
@@ -107,7 +107,7 @@ We recommend the following:
 > [!WARNING]
 > For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub devices in use to be sure that the rate falls below the 0.5 MBps per partition limitation in preview.
 
-  ![IoT Hub Partiton Diagram](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
+  ![IoT Hub Partition Diagram](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
 
 Refer to the following links for more information on throughput units and partitions:
 
