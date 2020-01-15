@@ -1,103 +1,50 @@
 ---
-title: Support for physical server assessment/migration with Azure Migrate
-description: Summarizes support for physical server assessment/migration with Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Support for physical server assessment with Azure Migrate
+description: Learn about support for physical server assessment with Azure Migrate.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 01/08/2020
 ---
 
-# Support matrix for physical server assessment and migration
+# Support matrix for physical server assessment 
 
 You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes support settings and limitations for assessing and migrating on-premises physical servers.
 
 
+## Overview
 
-## Physical server scenarios
+To assess on-premises machines for migration to Azure with this article, you add the Azure Migrate: Server Assessment tool to an Azure Migrate project. You deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends configuration and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group
 
-The table summarizes supported scenarios for physical servers.
-
-**Deployment** | **Details***
---- | ---
-**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.<br/><br/> [Run](tutorial-assess-physical.md) an assessment.
-**Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical-virtual-machines.md) migration to Azure.
-
-
-## Azure Migrate projects
+## Limitations
 
 **Support** | **Details**
 --- | ---
-**Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-**Physical servers** | Assess up to 35,000 physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
-**Geography** | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
+**Assessment limits**| Discover and assess up to 35,000 physical servers in a single [project](migrate-support-matrix.md#azure-migrate-projects).
+**Project limits** | You can create multiple projects in an Azure subscription. A project can include VMware VMs, Hyper-V VMs, and physical servers, up to the assessment limits.
+**Discovery** | The Azure Migrate appliance can discover up to 250 physical servers.
+**Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 machines in a single assessment.
 
-  **Geography** | **Metadata storage location**
-  --- | ---
-  Azure Government | US Gov Virginia
-  Asia Pacific | East Asia or Southeast Asia
-  Australia | Australia East or Australia Southeast
-  Brazil | Brazil South
-  Canada | Canada Central or Canada East
-  Europe | North Europe or West Europe
-  France | France Central
-  India | Central India or South India
-  Japan |  Japan East or Japan West
-  Korea | Korea Central or Korea South
-  United Kingdom | UK South or UK West
-  United States | Central US or West US 2
+[Learn more](concepts-assessment-calculation.md) about assessments.
 
 
- > [!NOTE]
- > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
 
 
-## Assessment-physical server requirements
+## Physical server requirements
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone or deployed in a cluster. |
-| **Permissions**           | **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery.The user account needs to be added to these groups-Remote Desktop Users, Performance Monitor Users and Performance Log users. <br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Permissions**           | **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery. The user account needs to be added to these groups-Remote Desktop Users, Performance Monitor Users and Performance Log users. <br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems are supported except the following:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
-## Assessment-appliance requirements
+## Azure Migrate appliance requirements
 
-For assessment, Azure Migrate runs a lightweight appliance to discover physical servers, and send server metadata and performance data to Azure Migrate. The appliance can run either on a physical server or a VM, and you set it up using a PowerShell script that you download from the Azure portal. The following table summarizes the appliance requirements.
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. You set it up using a PowerShell script that you download from the Azure portal.
 
-| **Support**                | **Details**               
-| :-------------------       | :------------------- |
-| **Appliance deployment**   |  The appliance installer script can be downloaded from the portal (in a zipped folder). <br/> You can unzip the folder and run the PowerShell script (AzureMigrateInstaller.ps1) either on a dedicated physical server or a virtual machine to set up the appliance.<br/>  The machine chosen to install the appliance must be running Windows Server 2016.<br/> The machine needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
-| **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 machines in a project.
-| **Discovery**              | A single appliance can discover up to 250 servers.
-| **Assessment group**       | You can add up to 35,000 machines in a single group.
-| **Assessment**             | You can assess up to 35,000 machines in a single assessment.
+- Learn about [appliance requirements](migrate-appliance.md#appliance---physical) for physical servers.
+- Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
 
-
-## Assessment-appliance URL access
-
-To assess VMs, the Azure Migrate appliance needs internet connectivity.
-
-- When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
-- If you're using a URL-based proxy, allow access to the URLs in the table, making sure that the proxy resolves any CNAME records received while looking up the URLs.
-- If you have an intercepting proxy, you might need to import the server certificate from the proxy server to the appliance.
-
-
-**URL** | **Details**  
---- | ---
-*.portal.azure.com | Navigation to the Azure portal
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Sign in to your Azure subscription
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Creation of Azure Active Directory applications for appliance to service communications.
-management.azure.com | Creation of Azure Active Directory applications for appliance to service communications.
-dc.services.visualstudio.com | Logging and monitoring
-*.vault.azure.net | Manage secrets in Azure Key Vault when communicating between the appliance and service.
-aka.ms/* | Allow access to aka links.
-https://download.microsoft.com/download/* | Allows downloads from the Microsoft Download site.
-
-
-
-## Assessment-port requirements
+## Port access
 
 The following table summarizes port requirements for assessment.
 
@@ -109,4 +56,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for physical server assessment](tutorial-prepare-physical.md) for physical server assessment and migration.
+[Prepare for physical server assessment](tutorial-prepare-physical.md).

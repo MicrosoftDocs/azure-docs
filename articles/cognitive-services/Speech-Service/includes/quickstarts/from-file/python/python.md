@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 01/14/2020
 ms.author: chlandsi
 ---
 
@@ -16,7 +16,7 @@ ms.author: chlandsi
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
@@ -48,8 +48,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 > [!NOTE]
 > The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
-````Python
-
+```python
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
@@ -66,7 +65,6 @@ audio_input = speechsdk.AudioConfig(filename=audio_filename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 
 print("Recognizing first result...")
-
 
 # Starts speech recognition, and returns after a single utterance is recognized. The end of a
 # single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -86,8 +84,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
-
-````
+```
 
 ### Install and use the Speech SDK with Visual Studio Code
 
@@ -109,14 +106,14 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 1. Copy, paste, and save the [Python code](#sample-code) to the newly created file.
 1. Insert your Speech service subscription information.
 1. If selected, a Python interpreter displays on the left side of the status bar at the bottom of the window.
-   Otherwise, bring up a list of available Python interpreters. Open the command palette (Ctrl+Shift+P) and enter **Python: Select Interpreter**. Choose an appropriate one.
+   Otherwise, bring up a list of available Python interpreters. Open the command palette <kbd>Ctrl+Shift+P</kbd> and enter **Python: Select Interpreter**. Choose an appropriate one.
 1. You can install the Speech SDK Python package from within Visual Studio Code. Do that if it's not installed yet for the Python interpreter you selected.
-   To install the Speech SDK package, open a terminal. Bring up the command palette again (Ctrl+Shift+P) and enter **Terminal: Create New Integrated Terminal**.
+   To install the Speech SDK package, open a terminal. Bring up the command palette again <kbd>Ctrl+Shift+P</kbd> and enter **Terminal: Create New Integrated Terminal**.
    In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech` or the appropriate command for your system.
 1. To run the sample code, right-click somewhere inside the editor. Select **Run Python File in Terminal**.
    The first 15 seconds of speech input from your audio file will be recognized and logged in the console window.
 
-   ```text
+   ```console
    Recognizing first result...
    We recognized: What's the weather like?
    ```

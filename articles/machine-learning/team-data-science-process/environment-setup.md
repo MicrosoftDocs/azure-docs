@@ -21,7 +21,7 @@ The Team Data Science Process uses various data science environments for the sto
 
 The following articles describe how to set up the various data science environments used by the Team Data Science Process.
 
-* [Azure storage-account](../../storage/common/storage-quickstart-create-account.md)
+* [Azure storage-account](../../storage/common/storage-account-create.md)
 * [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md)
 * [Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md)
 
