@@ -90,7 +90,7 @@ After setting up the hardware and connecting the sync out jack of the master to 
 5. In the section "External Sync", choose option "Master" and start the device.
 
 > [!NOTE]
-> Make sure to always start the subordinate device first!
+> The master device must always be started last the get precise image capture alignment between all devices.
 > Make sure to place your Azure Kinect DK devices in a way so master color camera is between depth cameras.
 
 When Master Azure Kinect Device is started, the synchronized image from both of the Azure Kinect devices should appear.
