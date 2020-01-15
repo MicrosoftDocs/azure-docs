@@ -15,11 +15,11 @@ The log streaming feature makes application logs available instantly using CLI w
 ## Prerequisites
 
 * Install minimum version 2.0.75 of the [Azure CLI extension](./spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
-* Launch [Spring Cloud app](./spring-cloud-quickstart-launch-app-maven.md)
+* An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./spring-cloud-quickstart-launch-app-cli.md)
 
 ## Use CLI to tail logs
 
-To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name
+To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name.
 ```
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
@@ -33,30 +33,21 @@ az spring-cloud app log tail -n  auth-service
 ```
 This will return logs:
 ```
-    at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118) ~[spring-web-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar!/:9.0.22]
-    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar!/:9.0.22]
-    at org.springframework.cloud.sleuth.instrument.web.ExceptionLoggingFilter.doFilter(ExceptionLoggingFilter.java:50) ~[spring-cloud-sleuth-core-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
-    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar!/:9.0.22]
-    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar!/:9.0.22]
+...
+2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
+2020-01-15 01:54:40.482  INFO [auth-service,,,] 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020-01-15 01:54:40.760  INFO [auth-service,,,] 1 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/uaa]  : Initializing Spring embedded WebApplicationContext
+2020-01-15 01:54:40.760  INFO [auth-service,,,] 1 --- [main] o.s.web.context.ContextLoader  : Root WebApplicationContext: initialization completed in 7203 ms
 
-    ...
-
-    2020-01-14 20:51:08.678  INFO [auth-service,,,] 1 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-    2020-01-14 20:56:08.679  INFO [auth-service,,,] 1 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-    2020-01-14 21:01:08.679  INFO [auth-service,,,] 1 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-    2020-01-14 21:06:08.680  INFO [auth-service,,,] 1 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-
-    ...
-
+...
 ```
 
 ### Tail log for app with multiple instances
-If multiple instances exist for the app named `auth-service`, you can view the instance log with following command. The name `auth-service-default-12-75cc4577fc-pw7hb` identifies one of the instance of the app.
+If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. If the service auth-service has an instance named with auth-service-default-12-75cc4577fc-pw7hb, you can query with the following command.
 ```
 az spring-cloud app log tail -n  auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
-You can get the app instance name from the Azure portal. 
+You can also get the app instances from the Azure portal. 
 1. Navigate to your Resource Group and select your Spring Cloud service.
 1. From the Spring Cloud service overview select **Apps** in the left navigation pane.
 1. Select your app, and then click **App Instances** in the left navigation pane. 
