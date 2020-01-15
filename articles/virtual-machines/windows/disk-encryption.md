@@ -51,20 +51,23 @@ The following list explains the diagram in even more detail:
 To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
 ### Supported regions
-- Available as a GA offering in East US, West US 2, and South Central US.
-- Available as a public preview in West Central US, East US 2, Canada Central, and North Europe.
+
+Only the following regions are currently supported:
+
+- Available as a GA offering in the East US, West US 2, and South Central US regions.
+- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
 
 ### Restrictions
 
-For now, we also have the following restrictions:
+For now, customer-managed keys have the following restrictions:
 
+- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
-- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 
 ### PowerShell
 
