@@ -171,6 +171,8 @@
     href: api.md
   - name: Python API Reference
     href: python-api.md
+  - name: CycleCloud CLI
+    href: cli.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
@@ -191,7 +193,7 @@
       href: htcondor.md
     - name: IBM Spectrum LSF
       href: lsf.md
-  - href: Log Locations
+  - name: Log Locations
     href: log_locations.md
   - name: Error Messages
     href: error_messages.md
