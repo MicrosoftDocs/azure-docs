@@ -3,7 +3,7 @@ title: Use Azure Image Builder with an image gallery for Windows VMs (preview)
 description: Create Windows VM images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 01/14/2020
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
@@ -16,7 +16,7 @@ We will be using a .json template to configure the image. The .json file we are 
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [overide](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
+Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 
 Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
@@ -150,7 +150,7 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 ## Create the image version
 
-Your template must be submitted to the service, this will download any dependent artifacts (scripts etc), and store them in the staging Resource Group, prefixed, *IT_*.
+Your template must be submitted to the service, this will download any dependent artifacts, like scripts, and store them in the staging Resource Group, prefixed with *IT_*.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2019-05-01-preview" -imageTemplateName $imageTemplateName -svclocation $location
@@ -233,54 +233,24 @@ If you want to now try re-customizing the image version to create a new version 
 
 This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
+Delete the resource group template first, otherwise the staging resource group (*IT_*) used by AIB will not be cleaned up.
 
-Delete the image builder template.
+Get ResourceID of the image template. 
 
-```azurecli-interactive
-az resource delete \
-    --resource-group $sigResourceGroup \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforWinSIG01
+```powerShell
+$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
 ```
 
-Get the image version created by image builder, this always starts with `0.`, and then delete the image version
+Delete image template.
 
-```azurecli-interactive
-sigDefImgVersion=$(az sig image-version list \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'name' -o json | grep 0. | tr -d '"')
-az sig image-version delete \
-   -g $sigResourceGroup \
-   --gallery-image-version $sigDefImgVersion \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID
-```   
-
-
-Delete the image definition.
-
-```azurecli-interactive
-az sig image-definition delete \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID
+```powerShell
+Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 ```
 
-Delete the gallery.
+delete the resource group.
 
-```azurecli-interactive
-az sig delete -r $sigName -g $sigResourceGroup
-```
-
-Delete the resource group.
-
-```azurecli-interactive
-az group delete -n $sigResourceGroup -y
+```powerShell
+Remove-AzResourceGroup $imageResourceGroup -Force
 ```
 
 ## Next Steps
