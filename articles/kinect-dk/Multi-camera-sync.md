@@ -115,7 +115,7 @@ The table above is the raw timing of the sensor and should match up with your sc
 
 It leaves you with 20.5 ms to get your system running without interfering with the depth cameras.
 
-## Trigger Azure Kinect DK devices externally using 3.5 mm audio cable
+## Triggering Azure Kinect DK with custom source
 
 In order to trigger multiple Azure Kinect DK devices by an external device and control triggering time using 3.5 mm audio cable, the following needs to be considered:
 
