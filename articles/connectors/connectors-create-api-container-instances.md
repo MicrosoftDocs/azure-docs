@@ -1,5 +1,5 @@
 ---
-title: Deploy & manage Azure Container Instances - Azure Logic Apps
+title: Deploy & manage Azure Container Instances
 description: Automate tasks and workflows that create and manage container deployments in Azure Container Instances by using Azure Logic Apps
 services: logic-apps, container-instances
 ms.service: logic-apps
@@ -10,7 +10,7 @@ ms.manager: gwallace
 ms.reviewer: estfan, macolso
 ms.topic: article
 tags: connectors
-ms.date: 11/11/2019
+ms.date: 01/14/2020
 ---
 
 # Deploy and manage Azure Container Instances by using Azure Logic Apps
