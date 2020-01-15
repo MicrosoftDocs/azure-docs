@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
 ---
 
@@ -36,6 +36,7 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video (
 - The URL provided in the `videoURL` param needs to be encoded.
 - Indexing Media Services assets has the same limitation as indexing from URL.
 - Video Indexer has a max duration limit of 4 hours for a single file.
+- You can upload up to 60 movies per minute.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
@@ -309,7 +310,7 @@ The status codes listed in the following table may be returned by the Upload ope
 
 |Status code|ErrorType (in response body)|Description|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
+|409|VIDEO_INDEXING_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
 |400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
 
 ## Next steps

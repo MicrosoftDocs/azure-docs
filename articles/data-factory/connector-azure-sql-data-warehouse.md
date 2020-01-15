@@ -464,7 +464,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
@@ -648,7 +648,7 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
@@ -767,4 +767,4 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varchar                               | String, Char[]                 |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
