@@ -1,5 +1,5 @@
 ---
-title: Custom domains with Azure Blob storage
+title: Custom domain support for Azure Blob storage
 titleSuffix: Azure Storage
 description: Learn about custom domain support for Blob Storage or web endpoints in an Azure storage account.
 author: normesta
@@ -11,7 +11,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ---
 
-# Custom domains with Azure Blob storage
+# Custom domain support for Azure Blob storage
 
 You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Azure Blob storage is *\<storage-account-name>.blob.core.windows.net*. You can also use the web endpoint that's generated as a part of the [static websites feature](storage-blob-static-website.md). If you map a custom domain and subdomain, such as *www\.contoso.com*, to the blob or web endpoint for your storage account, your users can use that domain to access blob data in your storage account.
 
