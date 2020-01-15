@@ -21,7 +21,7 @@ With **multi-device conversation**, you can:
 - Easily transcribe audio from each client and send the transcription to the others, with optional translation.
 - Easily send text messages between clients, with optional translation.
 
-You can build a feature or solution that works across an array of devices, including mobile (Android or iOS), Windows or Linux. Each device can independently send messages (either transcriptions of audio or instant messages) to all other devices.
+You can build a feature or solution that works across an array of devices. Each device can independently send messages (either transcriptions of audio or instant messages) to all other devices.
 
 Whereas [**Conversation Transcription**](conversation-transcription.md) works on a single device with a multichannel microphone array, **Multi-device Conversation** is suited for scenarios with multiple devices, each with a single microphone.
 
@@ -30,7 +30,6 @@ Whereas [**Conversation Transcription**](conversation-transcription.md) works on
 
 ## Key features
 
-- **Cross-platform support** – Clients can be mobile apps (Android or iOS), Windows UWP apps, or web apps.
 - **Real-time transcription** – Everyone will receive a transcript of the conversation, so they can follow along the text in real-time or save it for later.
 - **Real-time translation** – With more than 60 supported languages for text translation, all users can translate the conversation to their preferred language(s).
 - **Readable transcripts** – The transcription and translation are easy to follow, with punctuation and sentence breaks.
