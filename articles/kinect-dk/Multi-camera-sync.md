@@ -97,7 +97,9 @@ When Master Azure Kinect Device is started, the synchronized image from both of 
 ### Avoiding interference from other depth cameras
 
 Interference happens when the depth sensors ToF lasers are on at the same time as another depth camera.
-The depth camera laser on time is less than 160us, 160us ends up having a safety margin (over the 125 us in the table below) to ensure variations is sensors don’t cause issues with software. There are nine pulses & images that the sensor uses to capture the depth engine. The exact timing changes based on the depth mode you are using.
+To avoid this, cameras that have overlapping areas of interest need to have their timing shifted by the "laser on time" so they are not on at the same time.  For each capture the laser turns on 9 times and is active for only 125us and is then idle for 1450us or 2390us depending on the mode of operation. As a result, depth cameras need their "laser on time" shifted by a minimum of 125us and that on time needs to fall into the idle time of the other depth sensors in use. 
+
+Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. This allows 9 more depth camera's to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
 
 Using the table below the exposure time can be calculated as:
 
