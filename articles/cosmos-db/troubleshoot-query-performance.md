@@ -4,25 +4,28 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have consolidated the most common performance tips here. You should use this document as a starting place for troubleshooting for Azure Cosmos DB’s core (SQL) API.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have included the most common performance tips here. You should use this document as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB’s core (SQL) API. You use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or consume significant amounts of throughput.
 
 You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
+
 This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Obtaining query metrics:
 
-When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query.  These are also available through the Azure Portal as shown below:
+When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query. These are also available through the Azure portal as shown below:
 
 ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
 
 After obtaining query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
+
+The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
 
 You can reference the below section to understand the relevant query optimizations for your scenario:
 
@@ -72,7 +75,7 @@ Query:
 
  ```sql
 SELECT VALUE c.description
-FROM   c
+FROM c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
  ```
 
@@ -102,7 +105,7 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-Retrieved Document Count (60,951) is significantly greater than Output Document Count (7) so this query needed to do a scan.
+Retrieved Document Count (60,951) is significantly greater than Output Document Count (7) so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) does not utilize the index.
 
 ## Ensure that the indexing policy includes necessary paths
 
@@ -166,9 +169,9 @@ If the expression can be translated into a range of string values, then it can u
 
 Here is the list of string functions that can utilize the index:
 
--	STARTSWITH(str_expr, str_expr)
--	LEFT(str_expr, num_expr) = str_expr
--	SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
+- STARTSWITH(str_expr, str_expr)
+- LEFT(str_expr, num_expr) = str_expr
+- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
 
 Some common system functions that do not use the index and must load each document are below:
 
@@ -184,7 +187,7 @@ Other parts of the query may still utilize the index despite the system function
 
 ## Optimize queries with both a filter and an ORDER BY clause
 
-While queries with a filter and an ORDER BY clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+While queries with a filter and an ORDER BY clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the ORDER BY clause. This query modification will ensure that it utilizes the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Original
 
@@ -214,10 +217,12 @@ Indexing policy:
 
 ### Optimized
 
-Updated query:
+Updated query (includes both properties in the ORDER BY clause):
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c.foodGroup, c._ts ASC
+SELECT * FROM c 
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+ORDER BY c.foodGroup, c._ts ASC
 ```
 
 Updated indexing policy:
@@ -252,30 +257,15 @@ Updated indexing policy:
 
 ## Optimize queries that use DISTINCT
 
-It will be more efficient to find the DISTINCT set of results if the duplicate results are consecutive. Adding an ORDER BY clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to ORDER BY multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+It will be more efficient to find the `DISTINCT` set of results if the duplicate results are consecutive. Adding an ORDER BY clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to ORDER BY multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Original
 
 Query:
 
 ```sql
-SELECT DISTINCT c.foodGroup FROM c
-```
-
-Indexing policy:
-
-```json
-{  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[]
- }
-
+SELECT DISTINCT c.foodGroup 
+FROM c
 ```
 
 **RU Charge:** 32.39 RU's
@@ -285,13 +275,15 @@ Indexing policy:
 Updated query:
 
 ```sql
-SELECT DISTINCT c.foodGroup FROM c ORDER BY c.foodGroup
+SELECT DISTINCT c.foodGroup 
+FROM c 
+ORDER BY c.foodGroup
 ```
 
 **RU Charge:** 3.38 RU's
 
 ## Optimize JOIN expressions by using a subquery
-Multi-value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
+Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
 
 Consider the following query:
 
@@ -305,7 +297,9 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-For this query, the index will match any document that has a tag with the name "infant formula",nutrtionValue greater than 0, and serving amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The WHERE clause will then apply the filter predicate on each <c, t, n, s> tuple.
+**RU Charge:** 167.62 RU's
+
+For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The WHERE clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
 For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
 
@@ -318,6 +312,8 @@ JOIN (SELECT VALUE t FROM t IN c.tags WHERE t.name = 'infant formula')
 JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutritionValue < 10)
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
+
+**RU Charge:** 22.17 RU's
 
 Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The JOIN expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
@@ -334,23 +330,27 @@ If you have a large number of provisioned RU’s (over 30,000) or a large amount
 For example, if we create a container with the partition key foodGroup, the following queries would only need to check a single physical partition:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
 These queries would also be optimized by including the partition key in the query:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+SELECT * FROM c
+WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
 ```
 
 Queries that have range filters on the partition key or don’t have any filters on the partition key, will need to “fan-out” and check every physical partition’s index for results.
 
 ```sql
-SELECT * FROM c WHERE c.description = "Mushroom, oyster, raw"
+SELECT * FROM c
+WHERE c.description = "Mushroom, oyster, raw"
 ```
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+SELECT * FROM c
+WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
 ## Optimize queries that have a filter on multiple properties
@@ -360,11 +360,13 @@ While queries with filters on multiple properties will normally utilize a range 
 Here are some examples of queries which could be optimized with a composite index:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
 ```
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 
 Here is the relevant composite index:
@@ -404,9 +406,10 @@ Queries that are run from a different region than the Azure Cosmos DB account wi
 
 ## Increasing provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests(use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors in the Metrics blade of the Azure Portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors.md) in the Metrics blade of the Azure portal.
 
 ## Increasing MaxConcurrency
+
 Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjusting the MaxConcurrency to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
 ## Increasing MaxBufferedItemCount
