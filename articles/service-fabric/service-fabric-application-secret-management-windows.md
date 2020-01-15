@@ -1,5 +1,5 @@
 ---
-title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Windows clusters
+title: Set up an encryption cert on Windows clusters
 description: Learn how to set up an encryption certificate and encrypt secrets on Windows clusters.
 author: vturecek
 

@@ -181,7 +181,7 @@ return new NoContentResult();
 
 The first line makes a `DELETE /api/Todo/{id}` call to the back-end API app.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
@@ -308,7 +308,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
 This code adds the standard HTTP header `Authorization: Bearer <access-token>` to all remote API calls. In the ASP.NET Core MVC request execution pipeline, `OnActionExecuting` executes just before the respective action method (such as `GetAll()`) does, so each of your outgoing API call now presents the access token.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
@@ -392,7 +392,7 @@ The new change adds the `resolve` mapping that calls `/.auth/me` and sets the ac
 
 ### Deploy updates and test
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .

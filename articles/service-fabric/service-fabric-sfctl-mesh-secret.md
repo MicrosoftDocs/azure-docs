@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI- sfctl mesh secret 
-description: Describes the Service Fabric CLI sfctl mesh secret commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for getting and deleting Service Fabric Mesh secret resources.
 author: jeffj6123
 
 ms.topic: reference

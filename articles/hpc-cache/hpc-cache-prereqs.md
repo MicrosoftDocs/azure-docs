@@ -75,7 +75,7 @@ NFS back-end storage must be a compatible hardware/software platform. Contact th
 
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
-Create the account and container before attempting to add it as a storage target.
+Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
 To create a compatible storage account, use these settings:
 

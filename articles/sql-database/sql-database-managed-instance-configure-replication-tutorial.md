@@ -35,7 +35,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - An [Azure subscription](https://azure.microsoft.com/free/). 
 - Experience with deploying two managed instances within the same virtual network. 
 - A SQL Server subscriber, either on-premises or an Azure VM. This tutorial uses an Azure VM.  
-- [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
+- [SQL Server Management Studio (SSMS) 18.0 or greater](/sql/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
 - Port 445, and 1433 allow SQL traffic on both the Azure Firewall and the Windows Firewall. 
 
