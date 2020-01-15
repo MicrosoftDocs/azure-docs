@@ -151,7 +151,7 @@ Once the Postman app is installed, follow these steps to upload the construction
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copy your status URI and replace {subscription-key} with your primary key. The status URI format should be like the one below:
+6. Copy your status URI and append the subscription-key. The status URI format should be like the one below. Notice that in the format below, you would change the {subscription-key}, including the { }, with your subscription key.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
