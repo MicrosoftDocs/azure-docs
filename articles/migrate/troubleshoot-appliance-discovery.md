@@ -71,7 +71,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
+    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
     - In the Azure portal and check whether the project exists in the resource group.
     - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
@@ -82,7 +82,7 @@ If you receive the error 60030 or 60031, "An Azure Key Vault management operatio
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
+- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about the required Azure roles and permissions.
 
 ## Error 60028: Discovery couldn't be initiated
 
@@ -97,7 +97,7 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 - Ensure that the user account initiating the discovery is same as the one used to register the appliance.
 - Provide Azure Active Directory application access permissions to the user account for which the discovery operation is failing.
 - Delete the resource group previously created for the Azure Migrate project. Create another resource group to start again.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
+- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about Azure Active Directory application permissions.
 
 
 ## Error 50004: Can't connect to host or cluster
