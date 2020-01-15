@@ -133,6 +133,8 @@
     items:
     - name: API versions
       href: search-api-versions.md
+    - name: Preview features
+      href: search-api-preview.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
     - name: Upgrade the SDK
@@ -328,7 +330,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
+    href: /cli/azure/search?view=azure-cli-latest
   - name: Azure PowerShell
     href: /powershell/module/az.search 
   - name: Resource Manager template
@@ -336,19 +338,19 @@
   - name: .NET
     items:
     - name: microsoft.azure.search
-      href: /dotnet/api/?term=microsoft.azure.search
+      href: /dotnet/api/overview/azure/search?view=azure-dotnet
     - name: microsoft.azure.management.search
-      href: /dotnet/api/?term=microsoft.azure.management.search
+      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: REST
     items:
     - name: Search 2019-05-06
       href: /rest/api/searchservice
     - name: Search 2019-05-06-Preview
-      href: search-api-preview.md
+      href: /rest/api/searchservice/2019-05-06-preview-index
     - name: Management 2015-08-15
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
-      href: /rest/api/searchmanagement
+      href: /rest/api/searchmanagement/2019-10-01-preview-index
   - name: Python
     items:
     - name: Management API
