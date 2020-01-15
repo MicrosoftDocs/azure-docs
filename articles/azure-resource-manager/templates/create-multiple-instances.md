@@ -65,11 +65,11 @@ The resource to create several times takes the following format:
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     }
   ],
   "outputs": {}
@@ -151,13 +151,13 @@ For example, to serially deploy storage accounts two at a time, use:
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 4,
         "mode": "serial",
         "batchSize": 2
-      }
+      },
+      "properties": {}
     }
   ],
   "outputs": {}
@@ -433,11 +433,11 @@ You specify that a resource is deployed after another resource by using the `dep
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     },
     {
       "type": "Microsoft.Compute/virtualMachines",

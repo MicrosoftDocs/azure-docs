@@ -118,11 +118,11 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
     "type": "endpoints",
     "location": "[resourceGroup().location]",
     "dependsOn": [
-            "[variables('profileName')]"
+      "[variables('profileName')]"
     ],
     "properties": {
-        "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
-        ...
+      "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
+      ...
     }
 ```
 

@@ -28,8 +28,8 @@ To nest a template, add a [deployments resource](/azure/templates/microsoft.reso
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2017-05-10",
       "name": "nestedTemplate1",
+      "apiVersion": "2017-05-10",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -71,10 +71,10 @@ The following example deploys a storage account through a nested template.
               "apiVersion": "2019-04-01",
               "name": "[parameters('storageAccountName')]",
               "location": "West US",
-              "kind": "StorageV2",
               "sku": {
                 "name": "Standard_LRS"
-              }
+              },
+              "kind": "StorageV2"
             }
           ]
         }
@@ -386,10 +386,10 @@ The following example template shows how to use copy with a nested template.
       "apiVersion": "2019-04-01",
       "name": "[concat(variables('storageName'), copyIndex())]",
       "location": "West US",
-      "kind": "StorageV2",
       "sku": {
         "name": "Standard_LRS"
-      }
+      },
+      "kind": "StorageV2"
       // Copy works here when scope is inner
       // But, when scope is default or outer, you get an error
       //"copy":{
