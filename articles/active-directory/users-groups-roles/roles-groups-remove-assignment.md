@@ -28,6 +28,8 @@ This section describes how an IT admin can remove Azure AD role assigned to grou
 
 1. Select the group from which you want to remove the role assignment and select **Remove assignment**.
 
+   ![Remove a role assignment from a selected group.](./media/roles-groups-remove-assignment/remove-assignment.png)
+
 1. When asked to confirm your action, select **Yes**.
 
 ## Using PowerShell

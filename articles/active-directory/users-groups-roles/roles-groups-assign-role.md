@@ -26,11 +26,11 @@ Assigning a group to a user is similar to users and service principals with one 
 
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 
-1. Select **Azure Active Directory** > **Roles and administrators**.
-
-1. Select the role you want to assign.
+1. Select **Azure Active Directory** > **Roles and administrators**, and select the role you want to assign.
 
 1. On the ***role name*** page, select > **Add assignment**.
+
+   ![Add the new role assignment](./media/roles-groups-assign-role/add-assignment.png)
 
 1. Select the group. Only groups that are eligible for role assignment are displayed.
 

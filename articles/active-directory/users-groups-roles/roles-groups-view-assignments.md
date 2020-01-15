@@ -27,6 +27,8 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 1. Select **Assigned roles**. You can now see all the Azure AD roles assigned to this group.
 
+   ![View all roles assigned to a selected group](./media/roles-groups-view-assignments/view-assignments.png)
+
 ## Using PowerShell
 
 ### Get object id of the group
