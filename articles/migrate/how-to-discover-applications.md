@@ -1,11 +1,8 @@
 ---
-title: Discover apps, roles, and features installed on on-premises servers using Azure Migrate Server Assessment
-description: Describes how to discover apps, roles, and features on on-premises servers using Azure Migrate Server Assessment.
-author: snehaamicrosoft
-ms.service: azure-migrate
+title: Discover apps, roles, and features on on-premises servers with Azure Migrate 
+description: Learn how to discover apps, roles, and features on on-premises servers with Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: snehaa
 ---
 
 # Discover machine apps, roles, and features
@@ -25,14 +22,14 @@ App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs
 1. Review the [support limitations](migrate-support-matrix-vmware.md#application-discovery) for app-level discovery.
 2. Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 3. If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
-4. Check the [VMware requirements](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) for discovering and assessing VMware VMs with the Azure Migrate appliance.
-4. Check the [requirements](migrate-support-matrix-vmware.md#assessment-appliance-requirements) for deploying the Azure Migrate appliance.
+4. Check the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) for discovering and assessing VMware VMs with the Azure Migrate appliance.
+4. Check the [requirements](migrate-appliance.md) for deploying the Azure Migrate appliance.
 
 ## Prepare for app discovery
 
-1. [Prepare for appliance deployment](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware). Preparation includes verifying appliance settings, and setting up an account that the appliance will use to access vCenter Server.
+1. [Prepare for appliance deployment](tutorial-prepare-vmware.md). Preparation includes verifying appliance settings, and setting up an account that the appliance will use to access vCenter Server.
 2. Make sure you have a user account (one each for Windows and Linux servers) with administrator permissions for machines on which you want to discover apps, roles, and features.
-3. [Deploy the VMware appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create the appliance as a VMware VM. You configure the appliance and then register it with Azure Migrate.
+3. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create the appliance as a VMware VM. You configure the appliance and then register it with Azure Migrate.
 2. As you deploy the appliance, to start continuous discovery you specify the following:
     - The name of the vCenter Server to which you want to connect.
     - Credentials that you created for the appliance to connect to vCenter Server.
