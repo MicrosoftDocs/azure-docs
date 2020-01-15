@@ -17,11 +17,12 @@ manager: peterpr
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
+In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 70&deg; F.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a telemetry-based rule
 > * Add an action
 
@@ -43,13 +44,13 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Rules view](media/tutorial-configure-rules/newrule.png)
 
-5. To define your rule, use the information in the following table:
+4. To define your rule, use the information in the following table:
 
     | Setting                                      | Value                             |
     | -------------------------------------------- | ------------------------------    |
     | Name                                         | Air conditioner temperature alert |
     | Enable rule for all devices of this template | On                                |
-    | Condition                                    | Temperature is greater than 90    |
+    | Condition                                    | Temperature is greater than 70    |
     | Aggregation                                  | None                              |
 
     ![Temperature rule condition](media/tutorial-configure-rules/temperaturerule.png)
@@ -91,12 +92,14 @@ In this tutorial, you learned how to:
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]
+>
 > * Create a telemetry-based rule
 > * Add an action
 
 Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator.md).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
+
 * [Create a telemetry rule and set up notifications](howto-create-telemetry-rules.md).
 * [Create an event rule and set up notifications](howto-create-event-rules.md).
 
