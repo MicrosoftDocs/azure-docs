@@ -10,7 +10,7 @@ ms.date: 01/13/2020
 
 # Data Encryption for Azure Database for MySQL server using Azure portal
 
-In this article, you will learn how to set up and manage to use the Azure portal to set up Data Encryption for your Azure Database for MySQL.
+In this article, you will learn how to set up and manage to use the Azure portal to set up data encryption for your Azure Database for MySQL.
 
 ## Prerequisites for CLI
 
@@ -46,7 +46,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 3. **Save** the settings.
 
-## Setting Data Encryption for Azure Database for MySQL
+## Setting data encryption for Azure Database for MySQL
 
 1. On the **Azure Database for MySQL**, select the **Data Encryption** to set the customer-managed key setup.
 
@@ -60,7 +60,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 4. To ensure all files (including **temp files**) are full encrypted, a server **restart** is **required**.
 
-## Restoring or creating replica of the server, which has Data Encryption enabled
+## Restoring or creating replica of the server, which has data encryption enabled
 
 Once an Azure Database for MySQL is encrypted with customer's managed key stored in the Key Vault, any newly created copy of the server either though local or geo-restore operation or a replica (local/cross-region) operation. So for an encrypted MySQL server, you can follow the steps below to create an encrypted restored server.
 
@@ -91,4 +91,4 @@ Once an Azure Database for MySQL is encrypted with customer's managed key stored
 
 ## Next steps
 
- To learn more about Data Encryption, see [what is Azure data encryption](concepts-data-encryption-mysql.md).
+ To learn more about data encryption, see [what is Azure data encryption](concepts-data-encryption-mysql.md).
