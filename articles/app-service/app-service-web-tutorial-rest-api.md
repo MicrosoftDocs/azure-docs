@@ -155,16 +155,16 @@ In production, your browser app would have a public URL instead of the localhost
 
 ### Enable CORS 
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _&lt;appname>_ placeholder.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _&lt;appname>_ placeholder.
 
 ```azurecli-interactive
-az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
+az webapp cors add --allowed-origins http://localhost:5000 --name <appname> --resource-group MyResourceGroup
 ```
 
-You can set more than one client URL in `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). You can also enable all client URLs with `"['*']"`.
+You can set more than one client URL seppareted by spaces in `--allowed-origins` (`URL1 URL2"`). You can also enable all client URLs with `*`.
 
 > [!NOTE]
-> If your app requires credentials such as cookies or authentication tokens to be sent, the browser may require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, set `properties.cors.supportCredentials` to `true` in your CORS config. This cannot be enabled when `allowedOrigins` includes `'*'`.
+> If your app requires credentials such as cookies or authentication tokens to be sent, the browser may require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, use the Azure Portal or set `cors.supportCredentials` to `true` in your CORS config. This cannot be enabled when `allowedOrigins` includes `*`.
 
 ### Test CORS again
 
@@ -180,8 +180,6 @@ You can use your own CORS utilities instead of App Service CORS for more flexibi
 
 > [!NOTE]
 > Don't try to use App Service CORS and your own CORS code together. When used together, App Service CORS takes precedence and your own CORS code has no effect.
->
->
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
