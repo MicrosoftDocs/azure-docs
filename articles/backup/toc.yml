@@ -158,6 +158,8 @@
       href: manage-afs-backup.md
     - name: Back up Azure File Shares with CLI
       href: backup-afs-cli.md
+    - name: Manage Azure File share backups with CLI
+      href: manage-afs-backup-cli.md
   - name: Back up Azure VMs
     items:
     - name: About Azure VM backup

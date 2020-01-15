@@ -15,6 +15,7 @@ This article describes common tasks for managing and monitoring the Azure file s
 * [Stop protection on a file share](#stop-protection-on-a-file-share)
 * [Resume protection on a file share](#resume-protection-on-a-file-share)
 * [Delete backup data](#delete-backup-data)
+* [Unregister storage account](#unregister-storage-account)
 
 ## Monitor jobs
 
@@ -142,6 +143,28 @@ To delete Backup Data for Azure File Share:
 2. The **Delete Backup Data** blade will open. Type the name of the File share to confirm deletion. Optionally, provide a **Reason** to delete or **Comment**. Click **Delete** once you're sure about deleting the backup data.
 
 ![Confirm delete data](./media/manage-afs-backup/confirm-delete-data.png)
+
+## Unregister storage account
+
+If you want to protect your file shares in a particular storage account using a different recovery services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) in that storage account. Then unregister the account from the current recovery services vault used for protection.
+
+The following procedure assumes that the protection has been stopped for all file shares in the storage account you want to unregister.
+
+To unregister the storage account:
+
+1. Open the recovery services vault where your storage account is registered.
+2. Click the **Backup Infrastructure** option under the **Manage** section of the **Overview** blade.
+
+![Click Backup Infrastructure](./media/manage-afs-backup/backup-infrastructure.png)
+
+3. The **Backup Infrastructure** blade opens. Click **Storage Accounts** under the **Azure Storage Accounts** section on this blade.
+
+![Click Storage Accounts](./media/manage-afs-backup/storage-accounts.png)
+
+4. Once you click **Storage Accounts**, a list of storage accounts registered with the vault will be displayed.
+5. Right-click the storage account you want to unregister and choose **Unregister**.
+
+![Select unregister](./media/manage-afs-backup/select-unregister.png)
 
 ## Next steps
 
