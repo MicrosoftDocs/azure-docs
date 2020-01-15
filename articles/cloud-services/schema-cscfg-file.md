@@ -1,13 +1,13 @@
 ---
-title: "Azure Cloud Services Definition Schema (.cscfg File) | Microsoft Docs"
+title: Azure Cloud Services Definition Schema (.cscfg File) | Microsoft Docs
 services: cloud-services
-ms.custom: ""
-ms.date: "12/07/2016"
-ms.service: "cloud-services"
-ms.topic: "reference"
+ms.custom: 
+ms.date: 12/07/2016
+ms.service: cloud-services
+ms.topic: reference
 caps.latest.revision: 35
-author: "georgewallace"
-ms.author: "gwallace"
+author: tgore03
+ms.author: tagore
 ---
 
 # Azure Cloud Services Config Schema (.cscfg File)

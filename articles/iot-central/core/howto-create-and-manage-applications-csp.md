@@ -29,7 +29,7 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 ![Create Manager for CSPs](media/howto-create-application-csp/image3.png)
 
-To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Legacy application** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
 ![Create Application Page for CSPs](media/howto-create-application-csp/image4.png)
 
@@ -70,7 +70,7 @@ To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides
 Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
 
 > [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **US** locations.
+> The preview application templates are currently only available in the **Europe** and **United States** locations.
 
 To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
@@ -81,13 +81,12 @@ You can see the regions in which Azure IoT Central is available on the [Products
 
 ## Application template
 
-You can choose one of the available application templates for your new Azure IoT Central application. An application template can contain predefined items such as device templates and dashboards to help you get started.
+You can choose the below application template for your new Azure IoT Central application.
 
 | Application template | Description |
 | -------------------- | ----------- |
-| Custom application   | Creates an empty application for you to populate with your own device templates and devices. |
-| Sample Contoso       | Creates an application that includes a device template for a simple connected device. Use this template to get started exploring Azure IoT Central. |
-| Sample Devkits       | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you are a device developer experimenting with code on one of these devices. |
+| Legacy application   | Creates an empty application for you to populate with your own device templates and devices. |
+
 
 ## Next steps
 

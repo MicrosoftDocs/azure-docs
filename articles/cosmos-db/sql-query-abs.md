@@ -1,10 +1,10 @@
 ---
 title: ABS in Azure Cosmos DB query language
-description: Learn about SQL system function ABS in Azure Cosmos DB.
+description: Learn about how the Absolute(ABS) SQL system function in Azure Cosmos DB returns the positive value of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
 ---

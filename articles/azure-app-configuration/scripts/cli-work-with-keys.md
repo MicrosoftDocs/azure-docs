@@ -1,5 +1,6 @@
 ---
-title: Azure CLI Script Sample - Work with key-values in an Azure App Configuration Store | Microsoft Docs
+title: Azure CLI Script Sample - Work with key-values in App Configuration Store
+titleSuffix: Azure App Configuration
 description: Provides information on working with key-values in an Azure App Configuration store
 services: azure-app-configuration
 documentationcenter: ''

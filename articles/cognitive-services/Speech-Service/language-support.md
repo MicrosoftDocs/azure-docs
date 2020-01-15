@@ -1,7 +1,7 @@
 ---
-title: Language support - Speech Service
+title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Speech Service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
+description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Language and region support for the Speech Services
+# Language and region support for the Speech service
 
-Language support varies by Speech Service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
 
 ## Speech-to-text
 
@@ -76,7 +76,7 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
-For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
+For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
 Locale | Language | Gender | Full service name mapping | Short voice name
 --------|----------|--------|---------|------------
@@ -85,6 +85,8 @@ Locale | Language | Gender | Full service name mapping | Short voice name
 `en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
 `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+To learn how you can configure and adjust neural voices, see [Speech synthesis markup language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
@@ -264,5 +266,5 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Next steps
 
-* [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

@@ -42,11 +42,11 @@ The recommendations in this document are aligned with the [Identity Secure Score
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts.
 
-Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) for all administrators in your organization using [Azure AD Security Defaults](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) or [Conditional Access](../../active-directory/conditional-access/plan-conditional-access.md). If you haven't implemented MFA, do it now! It's that important.
+Attackers who get control of privileged accounts can do tremendous damage, so it's critical to protect these accounts first. Enable and require [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) for all administrators in your organization using [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) or [Conditional Access](../../active-directory/conditional-access/plan-conditional-access.md). If you haven't implemented MFA, do it now! It's that important.
 
 All set? Let's get started on the checklist.
 
-## Step 1 - Strengthen your credentials 
+## Step 1 - Strengthen your credentials
 
 Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (45 min):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -55,7 +55,7 @@ Most enterprise security breaches originate with an account compromised with one
 
 Given the frequency of passwords being guessed, phished, stolen with malware, or reused, it's critical to back the password with some form of strong credential – learn more about [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 
-To easily enable the basic level of identity security, you can use the one-click enablement with [Azure AD Security Defaults](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Security defaults enforce Azure MFA for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
+To easily enable the basic level of identity security, you can use the one-click enablement with [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Security defaults enforce Azure MFA for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
 
 ### Start banning commonly attacked passwords and turn off traditional complexity, and expiration rules.
 
@@ -81,7 +81,7 @@ If your organization uses a hybrid identity solution with pass-through authentic
 Learn more about how [password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) works.
 
 > [!NOTE]
-> If you enable password hash sync and are using Azure AD Domain services, Kerberos (AES 256) hashes and optionally NTLM (RC4, no salt) hashes will also be encrypted and synchronized to Azure AD. 
+> If you enable password hash sync and are using Azure AD Domain services, Kerberos (AES 256) hashes and optionally NTLM (RC4, no salt) hashes will also be encrypted and synchronized to Azure AD.
 
 ### Implement AD FS extranet smart lockout
 
@@ -101,19 +101,24 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 1. Block [legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online and Exchange Online to use modern authentication](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. If you have Azure AD Premium, use [Conditional Access policies](../../active-directory/conditional-access/conditions.md) to block legacy authentication, otherwise use [Azure AD Security Defaults](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
+3. If you have Azure AD Premium, use [Conditional Access policies](../../active-directory/conditional-access/conditions.md) to block legacy authentication, otherwise use [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### Block invalid authentication entry points
 
 Using the assume breach mentality, you should reduce the impact of compromised user credentials when they happen. For each app in your environment consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md), you can control how authorized users access their apps and resources based on specific conditions you define.
 
-### Block end-user consent
+### Restrict user consent operations
 
-By default, all users in Azure AD are allowed to grant applications that leverage OAuth 2.0 and the Microsoft identity [consent framework](../../active-directory/develop/consent-framework.md) permissions to access company data. While consenting does allow users to easily acquire useful applications that integrate with Microsoft 365 and Azure, it can represent a risk if not used and monitored carefully. [Disabling all future user consent operations](../../active-directory/manage-apps/methods-for-removing-user-access.md) can help reduce your surface area and mitigate this risk. If end-user consent is disabled previous consent grants will still be honored, but all future consent operations must be performed by an administrator. Before disabling this functionality it's recommended to ensure that users will understand how to request admin approval for new applications; doing this should help reduce user friction, minimize support volume, and make sure users don't sign up for applications using non-Azure AD credentials.
+It’s important to understand the various [Azure AD application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), the [types of permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent), and their implications on your organization’s security posture. By default, all users in Azure AD can grant applications that leverage the Microsoft identity platform to access your organization’s data. While allowing users to consent by themselves does allow users to easily acquire useful applications that integrate with Microsoft 365, Azure and other services, it can represent a risk if not used and monitored carefully.
+
+Microsoft recommends [disabling future user consent operations](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) to help reduce your surface area and mitigate this risk. If end-user consent is disabled, previous consent grants will still be honored but all future consent operations must be performed by an administrator. Admin consent can be requested by users through an integrated [admin consent request workflow](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) or through your own support processes. Before disabling this functionality, it's recommended you review your audit log to understand which applications users are consenting to and plan the change accordingly. For applications you wish to allow all users to access, consider [granting consent on behalf of all users](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), making sure users who have not yet consented individually will be able to access the app. If you do not want these applications to be available to all users in all scenarios, use [application assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) and [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to restrict user access to apps.
+
+Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consented permissions on a regular basis.
+
 
 ### Implement Azure AD Privileged Identity Management
 
-Another impact of "assume breach" is the need to minimize the likelihood a compromised account can operate with a privileged role. 
+Another impact of "assume breach" is the need to minimize the likelihood a compromised account can operate with a privileged role.
 
 [Azure AD Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) helps you minimized account privileges by helping you:
 
@@ -162,13 +167,15 @@ Microsoft Azure services and features provide you with configurable security aud
 
 Azure AD Identity Protection provides two important reports you should monitor daily:
 1. Risky sign-in reports will surface user sign-in activities you should investigate, the legitimate owner may not have performed the sign-in.
-2. Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event. 
+2. Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event.
 
 ![Users flagged for risk](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### Audit apps and consented permissions
 
-Users can be tricked into navigating to a compromised web site or apps that will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) the permissions given by users.
+Users can be tricked into navigating to a compromised web site or apps that will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) the permissions given by users or disable the ability of users to give consent by default.
+
+In addition to auditing the permissions given by users, it can help to try and specifically [locate risky or unwanted OAuth applications](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), which is an functionality available to premium environments.
 
 ## Step 5 - Enable end-user self-service
 
