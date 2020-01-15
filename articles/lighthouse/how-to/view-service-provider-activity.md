@@ -9,9 +9,6 @@ ms.topic: conceptual
 
 Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through Azure delegated resource management, along with those done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
-> [!NOTE]
-> Customers can view the role assignments that grant permissions to service providers [in the **Delegations** section of the **Service providers** page.](view-manage-service-providers.md#view-delegations). However, they won't see any users from the service provider's tenant when viewing role assignments for the delegated scope in the Azure portal or via APIs.
-
 ## View activity log data
 
 You can [view the activity log](../../azure-monitor/platform/activity-log-view.md) from the **Monitor** menu in the Azure portal. To limit results to a specific subscription, you can use the filters to select a specific subscription. You can also [view and retrieve activity log events](../../azure-monitor/platform/activity-log-view.md) programmatically.
@@ -22,6 +19,9 @@ You can [view the activity log](../../azure-monitor/platform/activity-log-view.m
 In the activity log, you'll see the name of the operation and its status, along with the date and time it was performed. The **Event initiated by** column shows which user performed the operation, whether it was a user in a service provider's tenant acting through Azure delegated resource management, or a user in the customer's own tenant. Note that the name of the user is shown, rather than the tenant or the role that the user has been assigned for that subscription.
 
 Logged activity is available in the Azure portal for the past 90 days. To learn how to store this data for longer than 90 days, see [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/activity-log-collect.md)
+
+> [!NOTE]
+> Users from the service provider appear in the activity log, but these users and their role assignments are not shown in **Access Control (IAM)** or when retrieving role assignment info via APIs.
 
 ## Set alerts for critical operations
 
