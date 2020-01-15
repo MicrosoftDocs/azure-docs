@@ -30,6 +30,7 @@ There are a few important things to consider before starting your multi- camera 
 There are many reasons to use multiple Azure Kinect DK devices. Some examples are
 - Fill in occlusions
 - 3D object scanning 
+- To increased the effective frame rate to something larger than the 30 FPS one camera can do; 60 FPS as an example
 - Multiple 4K color images capture of the same scene, all aligned at the start of exposure within 100 us
 - Large area coverage
 
