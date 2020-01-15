@@ -59,7 +59,7 @@ jobs:
 ## Use a dynamic label on sync
 The previous action simply updated the App Configuration instance whenever `appsettings.json` is updated. This action inserts a dynamic label on each sync, ensuring that each sync can be uniquely identified.  This allows code changes to quickly be mapped to config changes.
 
-The first section of this code specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section runs a job which creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section runs a job which creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
 
 ```json
 on: 
@@ -169,20 +169,20 @@ Given a depth of 2, the example above now returns the following key:value pair:
 
 | Key | Value |
 | --- | --- |
-| Object:Inner | InnerKey:InnerValue |
+| Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## Understand Action Inputs
 Input parameters specify data used by the action during runtime.  The following table contains input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, see  GitHub's [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs).
 
 > [!Note]
-> Input IDs with uppercase letters are converted to lowercase during runtime.
+> Input IDs are case insensitive.
 
 
 | Input Name | Required? | Value |
 |----|----|----|
-| configurationfile | Yes | Path to the configuration file in the repository, relative to the root of the repository.  Glob patterns are supported and can include multiple files. |
+| configurationFile | Yes | Path to the configuration file in the repository, relative to the root of the repository.  Glob patterns are supported and can include multiple files. |
 | format | Yes | File format of the configuration file.  Valid formats are: JSON, YAML, properties. |
-| connectionstring | Yes | Connection string for the App Configuration instance. The connection string should be stored as a secret in the GitHub repository, and only the secret name should be used in the workflow. |
+| connectionString | Yes | Connection string for the App Configuration instance. The connection string should be stored as a secret in the GitHub repository, and only the secret name should be used in the workflow. |
 | separator | Yes | Separator used when flattening the configuration file to key-value pairs.  Valid values are: . , ; : - _ __ / |
 | prefix | No | Prefix to be added to the start of keys. |
 | label | No | Label used when setting key-value pairs. If unspecified, a null label is used. |
