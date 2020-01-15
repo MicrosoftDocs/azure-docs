@@ -18,7 +18,7 @@ Before you start, make sure to review [Azure Kinect DK Hardware specification](h
 There are a few important things to consider before starting your multi- camera setup. 
 
 - We recommend using a manual exposure setting if you want to control the precise timing of each device. Automatic exposure allows each the color camera to dynamically change exposure, as a result it is impossible for the timing between the two devices to stay exactly the same.
-- Device timestamp changes to ‘Start of Frame’ from ‘Center of Frame’ when using master or subordinate modes.
+- The device timestamp reported for images changes meaning to ‘Start of Frame’ from ‘Center of Frame’ when using master or subordinate modes.
 - Avoid letting the IR ToF lasers of one camera interferer with another. Use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to ensure each IR laser fires in its own 160us window or has a different field of view.
 - Do ensure you are using the most recent firmware version.
 - Do not repeatedly set the same exposure setting in the image capture loop. 
