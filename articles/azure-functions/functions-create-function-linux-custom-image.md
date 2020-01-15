@@ -71,7 +71,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-python"
+    ::: zone pivot="programming-language-python"
     ```
     func init LocalFunctionsProject --worker-runtime python --docker
     ```
@@ -119,7 +119,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-python"
+    ::: zone pivot="programming-language-python"
     ```
     func start
     ```
@@ -190,7 +190,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-python"
+    ::: zone pivot="programming-language-python"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
     # FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
@@ -445,7 +445,7 @@ SSH enables secure communication between a container and a client. With SSH enab
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-python"
+    ::: zone pivot="programming-language-python"
     ```Dockerfile
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
@@ -557,7 +557,7 @@ Update *function.json* to match the following by adding the queue binding:
 
 ::: zone-end
 
-::: zone pivot="programming-language-node-python"
+::: zone pivot="programming-language-python"
 
 Update *function.json* to match the following by adding the queue binding:
 
@@ -565,7 +565,7 @@ Update *function.json* to match the following by adding the queue binding:
 
 ::: zone-end
 
-::: zone pivot="programming-language-node-powershell"
+::: zone pivot="programming-language-powershell"
 
 Update *function.json* to match the following by adding the queue binding:
 
@@ -591,11 +591,11 @@ After the binding is defined, the name of the binding, in this case `msg`, appea
 :::code language="typescript" source="code/create-function-linux-custom-image/use-queue-typescript.ts" highlight="8-10":::
 ::: zone-end
 
-::: zone pivot="programming-language-node-python"
+::: zone pivot="programming-language-python"
 :::code language="python" source="code/create-function-linux-custom-image/use-queue-python.py" highlight="6,18":::
 ::: zone-end
 
-::: zone pivot="programming-language-node-powershell"
+::: zone pivot="programming-language-powershell"
 :::code language="powershell" source="code/create-function-linux-custom-image/use-queue-powershell.ps1" highlight="16-17":::
 ::: zone-end
 
