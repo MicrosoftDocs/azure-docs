@@ -463,7 +463,7 @@ The following Compute categories are available through the Instance API:
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | This feature is currently disabled | 2019-02-01
+customData | This feature is currently disabled, and we will update this documentation when it becomes available | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
