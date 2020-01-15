@@ -1,7 +1,7 @@
 ---
-title: 'Custom skill example using Forms Layout (Python)'
+title: 'Custom skill example (Python)'
 titleSuffix: Azure Cognitive Search
-description: Demonstrates using the Forms Recognizer in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
+description: Creates a custom skill using Azure Functions and Python, using in an AI-enriched indexing pipeline in Azure Cognitive Search. This skill 
 
 manager: nitinme
 author: luiscabrer
@@ -13,11 +13,9 @@ ms.date: 01/14/2020
 
 # Example: Create a custom skill using Python
 
-In this Azure Cognitive Search skillset example, you will learn how to create a web API custom skill using Python and Visual Studio Code.
+In this Azure Cognitive Search skillset example, you will learn how to create a web API custom skill using Python and Visual Studio Code. The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) that implements the [custom skill interface](cognitive-search-custom-skill-interface.md).
 
-The skill is a simple that concatenates two strings, but you can modify it to meet your custom needs.
-
-The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) that implements the [custom skill interface](cognitive-search-custom-skill-interface.md).
+The custom skill is simple by design (it concatenates two strings) so that you can focus on the tools and technologies used for custom skill development in Python. Once you succeed with a simple skill, you can branch out with more complex scenarios.
 
 ## Prerequisites
 
