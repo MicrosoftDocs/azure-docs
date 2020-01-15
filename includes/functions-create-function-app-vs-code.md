@@ -61,13 +61,13 @@ Visual Studio Code creates the function app project in a new workspace. This pro
 
 ::: zone pivot="programming-language-csharp"
 
-An [HttpTrigger.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function. 
+An [HttpTrigger.cs class library file](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project) that implements the function. 
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-An HttpTrigger folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+An HttpTrigger folder that contains the [function.json definition file](../articles/azure-functions/functions-reference-node.md#folder-structure) and the [index.js file](../articles/azure-functions/functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
 
 ::: zone-end
 
@@ -75,6 +75,6 @@ An HttpTrigger folder that contains the [function.json definition file](function
 
 The project-level requirements.txt file lists packages required by the function app.
 
-An HttpTrigger folder  contains the [function.json definition file](functions-reference-python.md#programming-model) and the 
+An HttpTrigger folder  contains the [function.json definition file](../articles/azure-functions/functions-reference-python.md#programming-model) and the 
 
 ::: zone-end
