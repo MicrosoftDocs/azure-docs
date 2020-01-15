@@ -15,6 +15,10 @@ ms.reviewer: sumeh, assafi
 
 [Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
+> [!NOTE]
+> * This quickstart uses version 3 of the Text Analytics SDK, which provides improved Sentiment Analysis and Named Entity Recognition (NER).
+> * The code in this article uses un-secured credentials storage for simplicity reasons. For production scenarios, we recommend sending strings in batches for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
@@ -68,7 +72,7 @@ const endpoint = `<paste-your-text-analytics-endpoint-here>`;
 
 ## Object model
 
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch.
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch.
 
 Text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
 
@@ -77,10 +81,10 @@ The response object is a list containing the analysis information for each docum
 ## Code examples
 
 * [Client Authentication](#client-authentication)
-* [Sentiment Analysis](#sentiment-analysis)
+* [Sentiment Analysis](#sentiment-analysis) (v3 public preview)
 * [Language detection](#language-detection)
-* [Entity recognition](#entity-recognition)
-* [Entity recognition - Personal information](#personal-information-entity-recognition)
+* [Named Entity recognition](#entity-recognition) (v3 public preview)
+* [Named Entity recognition - Personal information](#personal-information-entity-recognition) (v3 public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -92,7 +96,7 @@ Create a new `TextAnalyticsClient` object with your key and endpoint as paramete
 const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredential(key));
 ```
 
-## Sentiment analysis
+## Sentiment analysis (v3 public preview)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length and confidence scores.
 
@@ -175,7 +179,7 @@ ID: 0
         Primary Language French
 ```
 
-## Entity Recognition
+## Named Entity Recognition
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
 
@@ -225,7 +229,7 @@ Document ID: 1
         Offset: 71, Length: 2   Score: 0.8
 ```
 
-## Personal information entity recognition
+## Named Entity Recognition - Personal information (v3 public preview)
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
 

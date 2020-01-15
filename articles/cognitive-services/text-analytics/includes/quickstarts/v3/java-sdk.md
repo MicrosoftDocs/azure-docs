@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 01/15/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi
 ---
@@ -15,9 +15,9 @@ ms.reviewer: tasharm, assafi
 
 [Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~com.azure) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics java SDK for simplicity. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/batch/AnalyzeSentimentBatchDocuments.java) instead of [Sentiment()](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/AnalyzeSentiment.java).
+> * This quickstart uses version 3 of the Text Analytics SDK, which provides improved Sentiment Analysis and Named Entity Recognition (NER).
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
 
 ## Prerequisites
 
@@ -99,10 +99,10 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
-* [Sentiment Analysis](#sentiment-analysis)
+* [Sentiment Analysis](#sentiment-analysis) (v3 public preview)
 * [Language detection](#language-detection)
-* [Entity recognition](#entity-recognition)
-* [Entity recognition - Personal information](#personal-information-entity-recognition)
+* [Named Entity recognition](#entity-recognition) (v3 public preview)
+* [Named Entity recognition - Personal information](#personal-information-entity-recognition) (v3 public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -186,7 +186,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
 ```console
 Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
-## Entity recognition
+## Named Entity recognition (v3 public preview)
 
 Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its `recognizeEntities()` function. The returned `RecognizeEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not.
 
@@ -218,7 +218,7 @@ Recognized NamedEntity Text: Seattle, Type: Location, Subtype: N/A, Offset: 26, 
 Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offset: 34, Length: 9, Score: 0.800.
 ```
 
-## Personal information entity recognition
+## Named Entity Recognition - Personal information (v3 public preview)
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
 

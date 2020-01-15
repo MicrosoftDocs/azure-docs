@@ -8,11 +8,11 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-<!-- these links are for v3 -->
 [Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the `azure.ai.textanalytics.aio` namespace and calling `analyze_sentiment()` instead of `analyze_sentiment()` from the `azure.ai.textanalytics` namespace. For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
+> * This quickstart uses version 3 of the Text Analytics SDK, which provides improved Sentiment Analysis and Named Entity Recognition (NER).
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the `azure.ai.textanalytics.aio` namespace and calling `analyze_sentiment()`, instead of `analyze_sentiment()` from the `azure.ai.textanalytics` namespace.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## Object model
 
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch.  To analyze a single doc there are a collection of functions in the sdk separate from the Text Analytics client which we will be using in the examples below.   
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch.  To analyze a single doc there are a collection of functions in the sdk separate from the Text Analytics client which we will be using in the examples below.   
 
 When batch processing text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. When processing single documents, only a `text` input is needed as can be see in the examples below.  
 
@@ -61,10 +61,10 @@ The response object is a list containing the analysis information for each docum
 
 These code snippets show you how to do the following with the Text Analytics client library for Python:
 
-* [Sentiment Analysis](#sentiment-analysis)
+* [Sentiment Analysis](#sentiment-analysis) (v3 public preview)
 * [Language detection](#language-detection)
-* [Entity recognition](#entity-recognition)
-* [Entity recognition - Personal information](#personal-information-entity-recognition)
+* [Named Entity recognition](#entity-recognition) (v3 public preview)
+* [Named Entity recognition - Personal information](#personal-information-entity-recognition) (v3 public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -149,7 +149,7 @@ language_detection_example(endpoint, key)
 Language:  French
 ```
 
-## Entity recognition
+## Named Entity recognition (v3 public preview)
 
 Create a new function called `entity_recognition_example` that takes takes the endpoint and key as arguments, then calls the `single_recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
@@ -185,7 +185,7 @@ Named Entities:
 	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
 ```
 
-## Personal Identifiable Information (PII) Entity recognition
+## Named Entity Recognition - Personal information (v3 public preview)
 
 Create a new functions called `entity_pii_example()` that takes takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the PII entities.
 

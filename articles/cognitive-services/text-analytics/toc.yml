@@ -14,7 +14,7 @@
   items:
     - name: Client library
       items:
-      - name: Analyze Text using the client library v3 (Public preview)
+      - name: Analyze Text using the client library v3
         href: quickstarts/text-analytics-sdk.md
       - name: Analyze Text using the client library v2
         href: quickstarts/text-analytics-sdk-v2.md
