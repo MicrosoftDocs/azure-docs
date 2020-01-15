@@ -333,7 +333,7 @@ These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`
 
 # [C# Script](#tab/csharp-script)
 
-In C# and C# script, you can use the following parameter types for the queue or topic message:
+The following parameter types are available for the queue or topic message:
 
 * `string` - If the message is text.
 * `byte[]` - Useful for binary data.
