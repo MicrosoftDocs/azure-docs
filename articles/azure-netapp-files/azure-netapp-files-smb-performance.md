@@ -24,7 +24,7 @@ This article answers frequently asked questions (FAQs) about SMB performance bes
 
 Yes, SMB Multichannel is enabled by default, a change put in place in early January 2020. All SMB shares pre-dating existing SMB volumes have had the feature enabled, and all newly created volumes will also have the feature enabled at time of creation. 
 
-Any SMB connection established prior to the feature enablement will need to be reset to take advantage of the SMB Multichannel functionality. To reset, you can disconnect and reconnect the SMB share.
+Any SMB connection established before the feature enablement will need to be reset to take advantage of the SMB Multichannel functionality. To reset, you can disconnect and reconnect the SMB share.
 
 ## Does Azure NetApp Files support receive-side-scaling (RSS)?
 
@@ -92,7 +92,7 @@ Azure places network rate limits on each virtual machine type/size. The rate lim
 
 For maximum performance, it is recommended that you configure advanced networking where possible. Keep the following considerations in mind:  
 
-* The Azure portal enables advanced networking by default for virtual machines supporting this feature; however, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable advanced networking can hobble the performance of a machine.  
+* The Azure portal enables advanced networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable advanced networking can hobble the performance of a machine.  
 * If advanced networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
 
 ## Are jumbo frames supported?
