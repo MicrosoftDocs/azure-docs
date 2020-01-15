@@ -40,11 +40,35 @@ Reservation discounts are not currently available for the following disks:
 
 ## Buy a Disk Reservation
 
-You can purchase Azure disk reservations through the [Azure portal](https://portal.azure.com/). You can either pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase reservations with monthly payments](../../billing/billing-monthly-payments-reservations.md).
+You can purchase Azure disk reservations through the [Azure portal](https://portal.azure.com/). You can either pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase reservations with monthly payments](../../cost-management-billing/reservations/monthly-payments-reservations.md).
 
 Follow these steps to purchase reserved capacity:
 
-<Portal Purchase Workflow>
+1. Navigate to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) blade in the Azure portal.
+1. Select **Azure Managed Disks** to purchase a reservation.
+
+![disks-reserved-instance-purchase-reservation.png](media/disks-reserved-capacity/disks-reserved-instance-purchase-reservation.png)    
+
+1. Fill in the required fields as described in the following table:
+
+   |Field  |Description  |
+   |---------|---------|
+   |**Scope**   |  Indicates how many subscriptions can use the billing benefit associated with the reservation. It also controls how the reservation is applied to specific subscriptions. <br/><br/> If you select **Shared**, the reservation discount is applied to Azure Storage capacity in any subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope includes all individual subscriptions with pay-as-you-go rates created by the account administrator.  <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Storage capacity in the selected subscription. <br/><br/> If you select **Single resource group**, the reservation discount is applied to Azure Storage capacity in the selected subscription and the selected resource group within that subscription. <br/><br/> You can change the reservation scope after you purchase the reservation.  |
+   |**Subscription**  | The subscription that's used to pay for the Azure Storage reservation. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. <br/><br/> Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.    |
+   | **Disks** | The SKU you are looking to create. |
+   | **Region** | The region where the reservation is in effect. |
+   | **Billing frequency** | Indicates how often the account is billed for the reservation. Options include *Monthly* or *Upfront*. |
+
+    ![premium-ssd-reserved-instances-purchase-selection.png](media/disks-reserved-capacity/premium-ssd-reserved-instances-purchase-selection.png)
+
+1. After you select the parameters for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing. Select **Next** to proceed to the **Purchase reservations** blade.
+
+1. In the **Purchase reservations** pane, you can name your reservation and select the total quantity of reservations you wish to make. The number of reservations map to the number of disks. For example, if you wanted to reserve a hundred disks, you'd change **Quantity** to 100.
+1. Review the total cost of the reservation.
+
+![premium-ssd-reserved-instances-selecting-sku-total-purchase.png](media/disks-reserved-capacity/premium-ssd-reserved-instances-selecting-sku-total-purchase.png)
+
+After you purchase a reservation, it is automatically applied to any existing Azure Disk storage resources that matches the terms of the reservation. If you haven't created any Azure Disk storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 ## Exchange or refund a reservation
 
@@ -52,7 +76,7 @@ With certain limitations, you can exchange or refund a reservation.
 
 To exchange or refund a reservation, navigate to the reservation details in the Azure portal. Select **Exchange or Refund**, and follow the instructions to submit a support request. When the request has been processed, Microsoft will send you an email to confirm completion of the request.
 
-For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)
 
 ### Exchange a reservation
 
@@ -75,4 +99,4 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
+- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
