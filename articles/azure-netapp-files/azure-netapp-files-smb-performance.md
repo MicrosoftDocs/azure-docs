@@ -22,7 +22,7 @@ This article answers frequently asked questions (FAQs) about SMB performance bes
 
 ## Is SMB Multichannel enabled by default in SMB shares? 
 
-Yes, SMB Multichannel is enabled by default, a change put in place early January 2020. All SMB shares pre-dating existing SMB volumes have had the feature enabled, and all newly created volumes will also have the feature enabled at time of creation. 
+Yes, SMB Multichannel is enabled by default, a change put in place in early January 2020. All SMB shares pre-dating existing SMB volumes have had the feature enabled, and all newly created volumes will also have the feature enabled at time of creation. 
 
 Any SMB connection established prior to the feature enablement will need to be reset to take advantage of the SMB Multichannel functionality. To reset, simply disconnect and reconnect the SMB share.
 
@@ -42,7 +42,6 @@ To see if your Azure virtual machine NICs support RSS, run the command
 
 ![RSS support for Azure virtual machine](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
-
 ## Does Azure NetApp Files support SMB Direct?
 
 No, Azure NetApp Files does not support SMB Direct. 
@@ -58,7 +57,6 @@ No. The SMB client will match the NIC count returned by the SMB server.  Each st
 As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine has two network interfaces --  15 and 12.  As shown below under the command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICS, only interface 12 is used in connection with the SMB share; interface 15 is not in use.
 
 ![RSS-capable NICS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
-
 
 ## Is NIC Teaming supported in Azure?
 
@@ -82,14 +80,13 @@ Note that the Azure virtual machine does not affect SMB (nor NFS) storage I/O li
 
 ### Sequential IO 
 
-Tests similar to the random I/O tests described above were performed with 64-KiB sequential I/O. Although the increases in client connection count per RSS network interface beyond 4’ had no noticeable effect on random I/O, the same does not apply to sequential I/O. As the following graph shows, with each increase came a corresponding increase in read throughput. Write throughput remained flat due to network bandwidth restrictions placed by Azure for each instance type/size. 
+Tests similar to the random I/O tests described above were performed with 64-KiB sequential I/O. Although the increases in client connection count per RSS network interface beyond 4’ had no noticeable effect on random I/O, the same does not apply to sequential I/O. As the following graph shows, each increase is associated with a corresponding increase in read throughput. Write throughput remained flat due to network bandwidth restrictions placed by Azure for each instance type/size. 
 
 ![Sequential I/O tests](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
 Note that Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D16 instance type has an imposed network limit of 8000 Mibps (1,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
 
 ![Sequential I/O comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
-
 
 ## Is advanced networking recommended?
 
