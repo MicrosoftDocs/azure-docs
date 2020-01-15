@@ -62,9 +62,10 @@ Databricks&nbsp;File&nbsp;System| No authentication | | ✓* | ✓ * |✓*
 
 ### Storage guidance
 
-We recommend creating a datastore for an Azure blob container. As part of the workspace creation process a default blob datastore and file share datastore are created for you. 
-
+We recommend creating a datastore for an Azure blob container.  
 Both standard and premium storage are available for blobs. Although premium storage is more expensive, its faster throughput speeds might improve the speed of your training runs, particularly if you train against a large dataset. For information about the cost of storage accounts, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+
+When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. They store the connection information for the blob container and the file share that are provisioned in the storage account attached to the workspace. The `workspaceblobstore` container is set as the default datastore.
 
 <a name="access"></a>
 
@@ -189,8 +190,6 @@ datastores = ws.datastores
 for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
-
-When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. They store the connection information for the blob container and the file share that are provisioned in the storage account attached to the workspace. The `workspaceblobstore` container is set as the default datastore.
 
 To get the workspace's default datastore, use this line:
 
