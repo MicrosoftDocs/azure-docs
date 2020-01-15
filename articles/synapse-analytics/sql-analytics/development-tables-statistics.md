@@ -733,7 +733,7 @@ FULLSCAN
 Compute statistics by scanning all rows. FULLSCAN and SAMPLE 100 PERCENT have the same results. FULLSCAN cannot be used with the SAMPLE option.
 
 SAMPLE number PERCENT
-Specifies the approximate percentage or number of rows in the table or indexed view for the query optimizer to use when it creates statistics. Number can be from 0 through 100. The actual percentage or number of rows the query optimizer samples might not match the percentage or number specified. 
+Specifies the approximate percentage or number of rows in the table or indexed view for the query optimizer to use when it creates statistics. Number can be from 0 through 100. 
 
 SAMPLE cannot be used with the FULLSCAN option.
 
