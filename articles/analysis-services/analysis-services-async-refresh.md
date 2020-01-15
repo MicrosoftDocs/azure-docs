@@ -112,7 +112,7 @@ CommitMode is equal to partialBatch. It's used when doing an initial load of lar
 |`notStarted`    |   Operation not yet started.      |
 |`inProgress`     |   Operation in progress.      |
 |`timedOut`     |    Operation timed out based on user specified timeout.     |
-|`canceled`     |   Operation canceled by user or system.      |
+|`cancelled`     |   Operation canceled by user or system.      |
 |`failed`     |   Operation failed.      |
 |`succeeded`      |   Operation succeeded.      |
 
