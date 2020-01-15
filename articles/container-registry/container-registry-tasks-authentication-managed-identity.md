@@ -17,7 +17,7 @@ Enable a [managed identity for Azure resources](../active-directory/managed-iden
 
 In this article, you learn how to use the Azure CLI to enable a user-assigned or system-assigned managed identity on an ACR task. You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you'd like to use it locally, version 2.0.68 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-For illustration purposes, the example commands in this article use [az acr task create][az-acr-task-create] to create a basic image build task that enables a managed identity. However, for sample scenarios to access secured resources from an ACR task using a managed identity, see:
+For illustration purposes, the example commands in this article use [az acr task create][az-acr-task-create] to create a basic image build task that enables a managed identity. For sample scenarios to access secured resources from an ACR task using a managed identity, see:
 
 * [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
 * [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
@@ -96,9 +96,9 @@ az role assignment create --assignee <servicePrincipalID> --scope <registryID> -
 
 ### 4. (Optional) Add credentials to the task
 
-If your task pulls or pushes images to another Azure container registry, add credentials to the task for the identity to authenticate. Run the [az acr task credential add][az-acr-task-credential-add] command and pass the `--use-identity` parameter to add the identity's credentials to the task. 
+If your task pulls or pushes images to another custom registry, add credentials to the task for the identity to authenticate. For example, run the [az acr task credential add][az-acr-task-credential-add] command and pass the `--use-identity` parameter to add the identity's credentials to the task. 
 
-For example, to add credentials for a system-assigned identity to authenticate with the registry *targetregistry*, pass `use-identity [system]`:
+To add credentials for a system-assigned identity to authenticate with the Azure container registry *targetregistry*, pass `use-identity [system]`:
 
 ```azurecli
 az acr task credential add \

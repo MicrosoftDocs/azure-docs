@@ -63,32 +63,26 @@ In a real-world scenario, secrets would likely be set and maintained in a separa
 
 ## Define task steps in YAML file
 
-The steps for this example task are defined in a [YAML file](container-registry-tasks-reference-yaml.md). Create a file named `dockerhubtask.yaml` in a local working directory and paste the following contents. Be sure to replace the key vault name in the file with the name of your key vault.
+The steps for this example task are defined in a [YAML file](container-registry-tasks-reference-yaml.md). Create a file named `dockerhubtask.yaml` in a local working directory and paste the following contents. Be sure to replace the `hubuser/hubrepo` alias with the name of your private repo in Docker Hub.
 
 ```yml
 version: v1.1.0
-# Replace mykeyvault with the name of your key vault
-secrets:
-  - id: username
-    keyvault: https://mykeyvault.vault.azure.net/secrets/UserName
-  - id: password
-    keyvault: https://mykeyvault.vault.azure.net/secrets/Password
+# Replace hubuser/hubrepo with name of private repo in Docker Hub
+alias: 
+  values:
+    REPO: hubuser/hubrepo
 steps:
-# Log in to Docker Hub
-  - cmd: bash echo '{{.Secrets.password}}' | docker login --username '{{.Secrets.username}}' --password-stdin 
 # Build image
-  - build: -t {{.Values.PrivateRepo}}:$ID https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
+  - build: -t $REPO:$ID https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
 # Push image to private repo in Docker Hub
   - push:
-    - {{.Values.PrivateRepo}}:$ID
+    - $REPO:$ID
 ```
 
 The task steps do the following:
-
-* Manage secret credentials to authenticate with Docker Hub.
-* Authenticate with Docker Hub by passing the secrets to the `docker login` command.
 * Build an image using a sample Dockerfile in the [Azure-Samples/acr-tasks](https://github.com/Azure-Samples/acr-tasks.git) repo.
-* Push the image to the private Docker Hub repository.
+* Tag the image for a private Docker Hub repository
+* Push the image to the Docker Hub repository.
 
 ## Option 1: Create task with user-assigned identity
 
@@ -138,59 +132,93 @@ Run the following [az keyvault set-policy][az-keyvault-set-policy] command to se
 az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
 ```
 
-## Manually run the task
+## Add Docker Hub credentials to the task
 
-To verify that the task in which you enabled a managed identity runs successfully, manually trigger the task with the [az acr task run][az-acr-task-run] command. The `--set` parameter is used to pass the private repo name to the task. In this example, the placeholder repo name is *hubuser/hubrepo*.
+Now use the [az acr task credential add][az-acr-task-credential-add] command to enable the task to authenticate with Docker Hub using the credentials accessed from the key vault. The managed identity has access to the credentials in the vault.
+
+Run the command corresponding to the type of managed identity you enabled in the task. If you enabled a user-assigned identity, pass `--use-identity` with the client ID of the identity. If you enabled a system-assigned identity, pass `--use-identity [system]`.
 
 ```azurecli
-az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo 
+# Add credentials to task accessed with user-assigned identity
+az acr task credential add \
+  --name dockerhubtask \
+  --registry myregistry \
+  --login-server docker.io \
+  --username https://mykeyvault.vault.azure.net/secrets/UserName \
+  --password  https://mykeyvault.vault.azure.net/secrets/Password \
+  --use-identity $clientID
+
+# Add credentials to task accessed with system-assigned identity
+az acr task credential add \
+  --name dockerhubtask \
+  --registry myregistry \
+  --login-server docker.io \
+  --username https://mykeyvault.vault.azure.net/secrets/UserName \
+  --password  https://mykeyvault.vault.azure.net/secrets/Password \
+  --use-identity [system]
+```
+
+## Manually run the task
+
+To verify that the task in which you enabled a managed identity runs successfully, manually trigger the task with the [az acr task run][az-acr-task-run] command.
+
+```azurecli
+az acr task run --name dockerhubtask --registry myregistry 
 ```
 
 When the task runs successfully, output shows successful authentication to Docker Hub, and the image is successfully built and pushed to the private repo:
 
 ```console
-Queued a run with ID: cf24
+Queued a run with ID: cfr
 Waiting for an agent...
-2019/06/20 18:05:55 Using acb_vol_b1edae11-30de-4f2b-a9c7-7d743e811101 as the home volume
-2019/06/20 18:05:58 Creating Docker network: acb_default_network, driver: 'bridge'
-2019/06/20 18:05:58 Successfully set up Docker network: acb_default_network
-2019/06/20 18:05:58 Setting up Docker configuration...
-2019/06/20 18:05:59 Successfully set up Docker configuration
-2019/06/20 18:05:59 Logging in to registry: myregistry.azurecr.io
-2019/06/20 18:06:00 Successfully logged into myregistry.azurecr.io
-2019/06/20 18:06:00 Executing step ID: acb_step_0. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
-2019/06/20 18:06:00 Launching container with name: acb_step_0
+2020/01/15 22:01:45 Alias support enabled for version >= 1.1.0, please see https://aka.ms/acr/tasks/task-aliases for more information.
+2020/01/15 22:01:47 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/01/15 22:01:47 Successfully set up Docker network: acb_default_network
+2020/01/15 22:01:47 Setting up Docker configuration...
+2020/01/15 22:01:48 Successfully set up Docker configuration
+2020/01/15 22:01:48 Logging in to registry: myregistry.azurecr.io
+2020/01/15 22:01:49 Successfully logged into myregistry.azurecr.io
+2020/01/15 22:01:49 Logging in to registry: docker.io
+2020/01/15 22:01:51 Successfully logged into docker.io
+2020/01/15 22:01:51 Executing step ID: acb_step_0. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
+2020/01/15 22:01:51 Scanning for dependencies...
+2020/01/15 22:01:52 Successfully scanned dependencies
+2020/01/15 22:01:52 Launching container with name: acb_step_0
 [...]
-Login Succeeded
-2019/06/20 18:06:02 Successfully executed container: acb_step_0
-2019/06/20 18:06:02 Executing step ID: acb_step_1. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
-2019/06/20 18:06:02 Scanning for dependencies...
-2019/06/20 18:06:04 Successfully scanned dependencies
-2019/06/20 18:06:04 Launching container with name: acb_step_1
-Sending build context to Docker daemon    129kB
-[...]
-2019/06/20 18:06:07 Successfully pushed image: hubuser/hubrepo:cf24
-2019/06/20 18:06:07 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 2.064353)
-2019/06/20 18:06:07 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.594061)
-2019/06/20 18:06:07 Populating digests for step ID: acb_step_1...
-2019/06/20 18:06:09 Successfully populated digests for step ID: acb_step_1
-2019/06/20 18:06:09 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 2.743923)
-2019/06/20 18:06:09 The following dependencies were found:
-2019/06/20 18:06:09
+Sending build context to Docker daemon  157.2kB
+Step 1/1 : FROM hello-world
+ ---> fce289e99eb9
+Successfully built fce289e99eb9
+Successfully tagged myrepo/hello-world:cfr
+2020/01/15 22:01:54 Successfully executed container: acb_step_0
+2020/01/15 22:01:54 Executing step ID: acb_step_1. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
+2020/01/15 22:01:54 Pushing image: myrepo/hello-world:cfr, attempt 1
+The push refers to repository [docker.io/myrepo/hello-world]
+af0b15c8625b: Preparing
+af0b15c8625b: Layer already exists
+cfr: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
+2020/01/15 22:01:56 Successfully pushed image: myrepo/hello-world:cfr
+2020/01/15 22:01:56 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 2.890404)
+2020/01/15 22:01:56 Populating digests for step ID: acb_step_0...
+2020/01/15 22:01:59 Successfully populated digests for step ID: acb_step_0
+2020/01/15 22:01:59 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.852518)
+2020/01/15 22:01:59 The following dependencies were found:
+2020/01/15 22:01:59 
 - image:
     registry: registry.hub.docker.com
-    repository: hubuser/hubrepo
-    tag: cf24
+    repository: myrepo/hello-world
+    tag: cfr
     digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/hello-world
     tag: latest
-    digest: sha256:0e11c388b664df8a27a901dce21eb89f11d8292f7fca1b3e3c4321bf7897bffe
+    digest: sha256:4df8ca8a7e309c256d60d7971ea14c27672fc0d10c5f303856d7bc48f8cc17ff
   git:
-    git-head-revision: b0ffa6043dd893a4c75644c5fed384c82ebb5f9e
+    git-head-revision: d6a675eb39338cb3632fab648e11b8e9a9a943cb
 
-Run ID: cf24 was successful after 15s
+
+Run ID: cfr was successful after 22s
 ```
 
 To confirm the image is pushed, check for the tag (`cf24` in this example) in the private Docker Hub repo.
