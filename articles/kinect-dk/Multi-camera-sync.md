@@ -61,7 +61,7 @@ Cable requirements:
 - Maximum cable length should be less than 10 meters
 - Both stereo and mono cable types are supported
 
-When using multiple depth cameras in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
+When using multiple depth cameras in synchronized captures, depth camera captures should be offset from one another by 160μs or more to avoid depth cameras interference.
 
 ### Cross-device calibration
 
