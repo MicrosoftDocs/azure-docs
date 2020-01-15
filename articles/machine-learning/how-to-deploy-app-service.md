@@ -46,7 +46,7 @@ For more information on features provided by Azure App Service, see the [App Ser
     > * `model` - The registered model that will be deployed.
     > * `inference_config` - The inference configuration for the model.
     >
-    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prepare for deployment
 
@@ -64,7 +64,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
 
-    For more information on entry scripts, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+    For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -90,7 +90,7 @@ These entities are encapsulated into an __inference configuration__. The inferen
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > When deploying to Azure App Service, you do not need to create a __deployment configuration__.
@@ -100,7 +100,7 @@ For more information on inference configuration, see [Deploy models with Azure M
 To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -118,7 +118,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with th e value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with th e value returned previously from `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -165,7 +165,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     This command returns information similar to the following JSON document:
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",

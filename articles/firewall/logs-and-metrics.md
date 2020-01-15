@@ -15,7 +15,7 @@ You can monitor Azure Firewall using firewall logs. You can also use activity lo
 
 You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
 
-Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection. 
+Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection.
 
 ## Diagnostic logs
 
@@ -28,7 +28,7 @@ Metrics are lightweight and can support near real-time scenarios making them use
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -51,7 +51,7 @@ Metrics are lightweight and can support near real-time scenarios making them use
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -78,7 +78,7 @@ You have three options for storing your logs:
 
    Activity log entries are collected by default, and you can view them in the Azure portal.
 
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
+   You can use [Azure activity logs](../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
 
 ## Metrics
 

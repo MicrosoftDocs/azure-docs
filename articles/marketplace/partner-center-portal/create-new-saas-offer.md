@@ -369,7 +369,8 @@ The **Technical configuration** tab defines the technical details (URL path, web
 
 - **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
- Note that the Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
+>[!Note]
+>The Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
 
 ## Plan overview
 

@@ -213,17 +213,19 @@ To configure `ContentDefinition`, do the following:
     ![Example XML snippet with LoadUri element highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## Step 6: Upload the policy to your tenant
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 
-2. Select **Identity Experience Framework**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 
-3. Select **All Policies**.
+1. Select **Identity Experience Framework**.
 
-4. Select **Upload Policy**.
+1. Select **All Policies**.
 
-5. Select the **Overwrite the policy if it exists** check box.
+1. Select **Upload Policy**.
 
-6. Upload the *TrustFrameworkExtensions.xml* file, and ensure that it passes validation.
+1. Select the **Overwrite the policy if it exists** check box.
+
+1. Upload the *TrustFrameworkExtensions.xml* file, and ensure that it passes validation.
 
 ## Step 7: Test the custom policy by using Run Now
 1. Select **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
@@ -341,7 +343,3 @@ If you select the **Sign up now** link on the sign-in page, the browser displays
 ## (Optional) Download the complete policy files and code
 * After you complete the [Get started with custom policies](active-directory-b2c-get-started-custom.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
 * You can download the complete code from [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-
