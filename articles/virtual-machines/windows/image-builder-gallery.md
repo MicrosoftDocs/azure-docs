@@ -28,13 +28,13 @@ Be aware how many times you layer customizations. You can run the Sysprep comman
 ## Register the features
 To use Azure Image Builder during the preview, you need to register the new feature.
 
-```azurecli-interactive
+```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
 Check the status of the feature registration.
 
-```azurecli-interactive
+```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
@@ -42,7 +42,7 @@ Wait until `RegistrationState` is `Registered` before moving to the next step.
 
 Check your provider registrations. Make sure each returns `Registered`.
 
-```azurecli-interactive
+```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -51,7 +51,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 If they do not say registered, run the following:
 
-```azurecli-interactive
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -72,7 +72,7 @@ $imageResourceGroup="aibwinsig"
 # Location
 $location="westus"
 
-# Get your current subscription ID
+# Get your current subscription ID. You can use Get-AzSubscription to list your subscriptions.
 $subscriptionID=$currentAzContext.Subscription.Id
 
 # Name of the image to be created
