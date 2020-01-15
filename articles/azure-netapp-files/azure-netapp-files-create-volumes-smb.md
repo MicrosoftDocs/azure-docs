@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -51,8 +51,6 @@ A subnet must be delegated to Azure NetApp Files.
     |    NetBIOS name       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    Secure LDAP        |    636       |    TCP           |
-    |    Secure LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 * The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  

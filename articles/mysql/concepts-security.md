@@ -32,6 +32,8 @@ IP firewall rules grant access to servers based on the originating IP address of
 ### Virtual network firewall rules
 Virtual network service endpoints extend your virtual network connectivity over the Azure backbone. Using virtual network rules you can enable your Azure Database for MySQL server to allow connections from selected subnets in a virtual network. For more information, see the [virtual network service endpoint overview](concepts-data-access-and-security-vnet.md).
 
+### Private IP
+Private Link allows you to connect to your Azure Database for MySQL in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet. For more information,see the [private link overview](concepts-data-access-security-private-link.md)
 
 ## Access management
 
