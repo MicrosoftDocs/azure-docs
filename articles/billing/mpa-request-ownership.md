@@ -146,7 +146,7 @@ Azure Reservations don't automatically move with subscriptions. [Contact Azure s
 
 Access for existing users, groups, or service principals that was assigned using [Azure RBAC (role-based access control)](../role-based-access-control/overview.md) is not affected during the transition.The partner won’t get any new RBAC access to the subscriptions.  
 
-The partners should work with the customer to get access to  subscriptions.  The partners needs to get  either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
+The partners should work with the customer to get access to  subscriptions.  The partners needs to get  either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) access to manage resources or open support tickets.
 
 ### Azure support plan
 
@@ -169,7 +169,7 @@ SaaS products don't transfer with the subscriptions. Ask the user to [Contact Az
 Some of the customer transition requests may require an additional review process with Microsoft due to the nature of the current enterprise enrollment structure of the customer. Partner will be notified of such requirements when trying to send an invite to customers. Partners are requested to work with their Partner Development Manager and Customer’s account team to complete this review process.
 
 ### Azure subscription directory 
-The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship. 
+The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship. Additionally, the customer account performing the transfer must exist within the same directory as the subscriptions that are to be transferred. 
 
 If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 

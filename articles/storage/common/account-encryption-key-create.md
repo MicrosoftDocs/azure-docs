@@ -71,7 +71,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 You must configure a new storage account to use the account encryption key for queues and tables at the time that you create the storage account. The scope of the encryption key cannot be changed after the account is created.
 
-The storage account must be of type general-purpose v2 and must be configured for locally redundant storage (LRS). You can create the storage account and configure it to rely on the account encryption key by using either Azure CLI or an Azure Resource Manager template.
+The storage account must be of type general-purpose v2. You can create the storage account and configure it to rely on the account encryption key by using either Azure CLI or an Azure Resource Manager template.
 
 > [!NOTE]
 > Only Queue and Table storage can be optionally configured to encrypt data with the account encryption key when the storage account is created. Blob storage and Azure Files always use the account encryption key to encrypt data.
