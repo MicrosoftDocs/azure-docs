@@ -44,12 +44,12 @@ The developer VM is not strictly necessary – all the development tools can be 
 
 It takes about 30 minutes to create and configure the virtual machine.
 
-1. Clone or download the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository.
+1. Clone or download the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository to your local computer.
 
-1. Open Powershell as an administrator and navigate to the **\IoTEdgeAndMlSample\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
+1. Open Powershell as an administrator and navigate to the **\IoTEdgeAndMlSample-Master\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
 
     ```powershell
-    cd c:\srcdir\IoTEdgeAndMlSample\DevVM
+    cd c:\srcdir\IoTEdgeAndMlSample-Master\DevVM
     ```
 
    The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
@@ -121,10 +121,10 @@ To help you reduce cost, the development VM has been created with an automatic s
 
 Now that you have connected to the development machine, add some useful extensions to Visual Studio Code to make the development experience easier.
 
-1. Connect to the development VM, open a PowerShell window, and navigate to the DevVM directory.
+1. Connect to the development VM, open a PowerShell window, and navigate to the **C:\source\IoTEdgeAndMlSample\DevVM** directory. This directory was created by the script that created the VM.
 
     ```powershell
-    cd C:\srcdir\IoTEdgeAndMlSample\DevVM
+    cd C:\source\IoTEdgeAndMlSample\DevVM
     ```
 
 1. Run the Visual Studio Code extensions script.
@@ -153,10 +153,10 @@ Azure IoT Hub is the heart of any IoT application as it handles secure communica
 
 In this section, you use a script to create an Azure IoT hub and an Azure Storage account. Then in the Azure portal, you configure a route that forwards data received by the hub to an Azure Storage container. These steps take about 10 minutes to complete.
 
-1. Connect to the development VM, open a PowerShell window, and navigate to the DevVM directory.
+1. Connect to the development VM, open a PowerShell window, and navigate to the **C:\source\IoTEdgeAndMlSample\IoTHub directory**.
 
     ```powershell
-    cd C:\srcdir\IoTEdgeAndMlSample\IoTHub
+    cd C:\source\IoTEdgeAndMlSample\IoTHub
     ```
 
 1. Run the creation script. Use the same values for subscription ID, location, and resource group as you did when creating the development VM.
