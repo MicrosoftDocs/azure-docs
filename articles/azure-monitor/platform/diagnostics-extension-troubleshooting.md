@@ -4,8 +4,8 @@ description: Troubleshoot problems when using Azure diagnostics in Azure Virtual
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
 
 ---

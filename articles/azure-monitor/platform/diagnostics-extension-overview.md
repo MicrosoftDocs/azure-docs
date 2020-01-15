@@ -4,22 +4,25 @@ description: Use Azure diagnostics for debugging, measuring performance, monitor
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
 
 ---
 
 # Azure Diagnostics extension overview
-The Azure Diagnostics extension is an agent in Azure collects monitoring data from the guest operating system and workloads of Azure compute resources into Azure Monitor. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and installation options. Links are provided to other documentation for detailed information.
+The Azure Diagnostics extension is an agent in Azure that collects monitoring data from the guest operating system and workloads of Azure compute resources into Azure Monitor. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and installation options. Links are provided to other documentation for detailed information.
 
 
 ## Resources supported
 The Azure Diagnostics extension can be used with any Azure compute resource which includes the following:
 
-- Azure virtual machines (Windows and Linux)
-- Azure Service Fabric
-- Azure Cloud Service (classic) Web and Worker Roles 
+| Resource | Documentation |
+|:---|:---|
+| Azure Cloud Service (classic) Web and Worker Roles | [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)<br>[Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)<br>[Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)<br> |
+| Azure virtual machines | 
+| Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+  
 
 ## Data collected
 The Azure Diagnostics extension can collect the following types of data:
@@ -46,8 +49,8 @@ The Azure Diagnostic extension collects data into the locations in the following
 | Azure Storage | Writes logs and performance data to tables and blobs in an Azure Storage account. You can either view this data using one of multiple tools or collect it into Log Analytics workspace. See [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md). |
 | Azure Monitor Metrics | Collect performance data to the metrics database in Azure Monitor. See [Send Guest OS metrics to the Azure Monitor metric database](collect-custom-metrics-guestos-resource-manager-vm.md) for virtual machines.  |
 | Event hubs | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
-| Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 | Azure Monitor Logs | Collect data from Azure Storage to a Log Analytics workspace in Azure Monitor. See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table). |
+| Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
 
 ## Installation options
@@ -58,9 +61,6 @@ The Azure Diagnostic extension collects data into the locations in the following
 ## Linux Agent
 A [Linux version of the extension](../../virtual-machines/extensions/diagnostics-linux.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version.
 
-
-
-(1) To get a list of ETW providers, run `c:\Windows\System32\logman.exe query providers` in a console window on the machine you'd like to gather information from.
 
 ## Data storage
 
@@ -76,39 +76,15 @@ You also have the choice of sending your data to Azure Monitor metrics time-seri
 To learn more on how to configure this sink, refer to the [Azure diagnostics schema documentation.](diagnostics-extension-schema-1dot3.md)
 
 ## Costs
-Each of the options above may incur costs. Be sure to research them to avoid unexpected bills.  Application Insights, Event hub, and Azure Storage have separate costs associated with ingestion and the time stored. In particular, Azure Storage will hold any data forever so you may want to purge older data after a certain time period to keep your costs down.    
+There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
 
 ## Versioning and configuration schema
 See [Azure Diagnostics Version History and Schema](diagnostics-extension-schema.md).
 
 
 ## Next steps
-Choose which service you're trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
 
-## Cloud Services using Azure Diagnostics
-* If using Visual Studio, see [Use Visual Studio to trace a Cloud Services application](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) to get started. Otherwise, see
-* [How to monitor Cloud services using Azure Diagnostics](../../cloud-services/cloud-services-how-to-monitor.md)
-* [Set up Azure Diagnostics in a Cloud Services Application](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-For more advanced topics, see
-
-* [Using Azure Diagnostics with Application Insights for Cloud Services](../../azure-monitor/app/cloudservices.md)
-* [Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Use PowerShell to set up diagnostics on Cloud Services](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-## Virtual Machines
-* If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) to get started. Otherwise, see
-* [Set up Azure Diagnostics on an Azure Virtual Machine](/azure/virtual-machines/extensions/diagnostics-windows)
-
-For more advanced topics, see
-
-* [Use PowerShell to set up diagnostics on Azure Virtual Machines](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-## Service Fabric
-Get started at [Monitor a Service Fabric application](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Many other Service Fabric diagnostics articles are available in the navigation tree on the left once you get to this article.
-
-## General articles
 * Learn to [use Performance Counters in Azure Diagnostics](../../cloud-services/diagnostics-performance-counters.md).
 * If you have trouble with diagnostics starting or finding your data in Azure storage tables, see [TroubleShooting Azure Diagnostics](diagnostics-extension-troubleshooting.md)
 

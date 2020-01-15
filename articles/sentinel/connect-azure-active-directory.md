@@ -39,7 +39,7 @@ Azure Sentinel enables you to collect data from [Azure Active Directory](../acti
 
 1. Next to the logs you want to stream into Azure Sentinel, click **Connect**.
 
-1. You can select whether you want the alerts from Azure AD to automatically generate incidents in Azure Sentinel automatically. Under **Create incidents** select **Enable** to enable the default analytic rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
+1. You can select whether you want the alerts from Azure AD to automatically generate incidents in Azure Sentinel. Under **Create incidents** select **Enable** to enable the default analytic rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
 
 1. To use the relevant schema in Log Analytics for the Azure AD alerts, search for **SigninLogs** and **AuditLogs**.
 

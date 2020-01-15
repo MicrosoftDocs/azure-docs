@@ -30,7 +30,7 @@ ms.author: victorh
 | Maximum URL length|32KB| |
 | Maximum header size for HTTP/2 |4KB| |
 | Maximum file upload size, Standard |2 GB | |
-| Maximum file upload size WAF |Medium WAF gateways, 100 MB<br>Large WAF gateways, 500 MB| |
+| Maximum file upload size WAF |v1 Medium WAF gateways, 100 MB<br>v1 Large WAF gateways, 500 MB<br>v2 WAF, 750 MB| |
 | WAF body size limit, without files|128 KB||
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions|100||

@@ -9,6 +9,8 @@ ms.date: 09/27/2018
 
 By following these best practices, you can help maximize the performance and cost-effective use of your private Docker registry in Azure.
 
+See also [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md) for strategies to tag and version images in your registry. 
+
 ## Network-close deployment
 
 Create your container registry in the same Azure region in which you deploy containers. Placing your registry in a region that is network-close to your container hosts can help lower both latency and cost.
@@ -26,7 +28,7 @@ To learn how to use geo-replication, see the three-part tutorial, [Geo-replicati
 
 By leveraging repository namespaces, you can allow sharing a single registry across multiple groups within your organization. Registries can be shared across deployments and teams. Azure Container Registry supports nested namespaces, enabling group isolation.
 
-For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Production and Marketing groups each use their own namespaces.
+For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Products and Marketing groups each use their own namespaces.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0

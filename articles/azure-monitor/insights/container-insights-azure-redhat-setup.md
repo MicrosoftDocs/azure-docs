@@ -1,12 +1,8 @@
 ---
 title: Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Red Hat OpenShift.
-ms.service:  azure-monitor
-ms.subservice: 
+description: This article describes how to configure monitoring of a Kubernetes cluster with Azure Monitor hosted on Azure Red Hat OpenShift.
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/21/2019
+ms.date: 01/13/2020
 ---
 
 # Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers
@@ -14,7 +10,7 @@ ms.date: 11/21/2019
 Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) to achieve a similar monitoring experience.
 
 >[!NOTE]
->Support for Red Hat OpenShift is a feature in public preview at this time.
+>Support for Azure Red Hat OpenShift is a feature in public preview at this time.
 >
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
@@ -26,10 +22,8 @@ Azure Monitor for containers can be enabled for new, or one or more existing dep
 
 Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
-- Live data
-- Prometheus metrics scraping
+- Live Data (preview)
 - [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
-- Health feature
 
 ## Prerequisites
 

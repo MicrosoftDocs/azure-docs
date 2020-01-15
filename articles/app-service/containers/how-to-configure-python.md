@@ -1,18 +1,8 @@
 ---
-title: Configure Python apps - Azure App Service
-description: This tutorial describes options for authoring and configuring Python apps for Azure App Service on Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Configure Linux Python apps
+description: Learn how to configure a pre-built Python container for your app. This article shows the most common configuration tasks. 
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: mvc
 ms.custom: seodec18
@@ -56,7 +46,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Container characteristics
 
-Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) or [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python apps deployed to App Service on Linux run within a Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations inside the version-specific directories.
 
 This container has the following characteristics:
 

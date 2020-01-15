@@ -1,6 +1,6 @@
 ---
-title: Show traffic with Azure Maps | Microsoft Docs
-description: How to display traffic data on the Azure Maps Web SDK.
+title: Show traffic on a map | Microsoft Azure Maps
+description: In this article you will learn, how to display traffic data on a map using the Microsoft Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019

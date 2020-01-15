@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB create SQL (Core) API database and container
+title: PowerShell script to create Azure Cosmos DB SQL (Core) API database and container
 description: Azure PowerShell script - Azure Cosmos DB create SQL (Core) API database and container
 author: markjbrown
 ms.service: cosmos-db

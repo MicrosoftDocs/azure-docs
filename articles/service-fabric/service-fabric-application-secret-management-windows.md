@@ -1,21 +1,11 @@
 ---
-title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Windows clusters | Microsoft Docs
+title: Set up an encryption cert on Windows clusters
 description: Learn how to set up an encryption certificate and encrypt secrets on Windows clusters.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
 
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-
 ---
 # Set up an encryption certificate and encrypt secrets on Windows clusters
 This article shows how to set up an encryption certificate and use it to encrypt secrets on Windows clusters. For Linux clusters, see [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]

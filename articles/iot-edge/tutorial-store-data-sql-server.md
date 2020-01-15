@@ -1,7 +1,6 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial store data with SQL module - Azure IoT Edge | Microsoft Docs 
-description: Learn how to store data locally on your IoT Edge device with a SQL Server module
+title: Tutorial - Store data with SQL module using Azure IoT Edge
+description: This tutorial shows how to store data locally on your IoT Edge device with a SQL Server module
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -36,7 +35,8 @@ In this tutorial, you learn how to:
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Linux device running Azure IoT Edge](quickstart-linux.md)
+* An AMD64 [Linux device running Azure IoT Edge](quickstart-linux.md).
+  * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can sign up to try [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/) in preview. 
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.

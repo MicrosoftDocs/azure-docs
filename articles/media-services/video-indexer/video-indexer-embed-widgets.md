@@ -1,7 +1,7 @@
 ---
 title: Embed Video Indexer widgets in your applications
 titleSuffix: Azure Media Services
-description: Learn how to embed Video Indexer widgets in your application.
+description: This article demonstrates how to embed Azure Media Services Video Indexer widgets in your application.
 services: media-services
 author: Juliako
 manager: femila

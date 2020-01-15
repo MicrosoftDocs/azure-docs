@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Creating parameters | Microsoft docs
+title: Azure Monitor workbooks creating parameters
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
 author: mrbullwinkle

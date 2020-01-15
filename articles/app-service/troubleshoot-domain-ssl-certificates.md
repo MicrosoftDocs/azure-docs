@@ -1,16 +1,10 @@
 ---
-title: Troubleshoot domain and SSL certificates - Azure App Service | Microsoft Docs
-description: Troubleshoot domain and SSL certificate problems in Azure App Service
-services: app-service\web
-documentationcenter: ''
+title: Troubleshoot domain and SSL certificates
+description: Find solutions to the common problems that you might encounter when you configure a domain or SSL certificate in Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli

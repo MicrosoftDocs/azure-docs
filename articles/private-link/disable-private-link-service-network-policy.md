@@ -2,7 +2,7 @@
 title: 'Disable network policies for Azure Private Link service source IP address '
 description: Learn how to disable network policies for Azure private Link
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019

@@ -59,7 +59,7 @@ landingContent:
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
           - text: Using C# SDK
-            url: sdk-python-quickstart-authoring-app.md
+            url: sdk-csharp-quickstart-authoring-app.md
           - text: Using Python SDK
             url: sdk-python-quickstart-authoring-app.md
 
@@ -90,7 +90,7 @@ landingContent:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
           - text: Using C# SDK
-            url: sdk-python-quickstart-authoring-app.md#train-the-app
+            url: sdk-csharp-quickstart-authoring-app.md#train-the-app
           - text: Using Python SDK
             url: sdk-python-quickstart-authoring-app.md#train-the-app
 

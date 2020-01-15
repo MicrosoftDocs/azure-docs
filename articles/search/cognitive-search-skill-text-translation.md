@@ -1,7 +1,7 @@
 ---
-title: Text Translation cognitive skill (preview)
+title: Text Translation cognitive skill
 titleSuffix: Azure Cognitive Search
-description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure Cognitive Search. This skill is currently in public preview.
+description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure Cognitive Search. 
 
 manager: nitinme
 author: careyjmac
@@ -12,10 +12,6 @@ ms.date: 11/04/2019
 ---
 
 #	Text Translation cognitive skill
-
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 The **Text Translation** skill evaluates text and, for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) available in Cognitive Services.
 
