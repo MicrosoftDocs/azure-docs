@@ -70,7 +70,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties and it's ready to run once admin consent is granted. 
+> We have configured your project with values of your app's properties and it's ready to run. 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
