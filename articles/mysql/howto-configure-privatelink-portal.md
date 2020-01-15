@@ -208,7 +208,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Name:    myServer.mysql.privatelink.database.azure.com
     Address:  10.1.3.4
 
-3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/wb-installing-windows.html) to do the operation.
+3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

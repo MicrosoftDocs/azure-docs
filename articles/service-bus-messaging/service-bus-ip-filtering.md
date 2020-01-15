@@ -149,6 +149,6 @@ For constraining access to Service Bus to Azure virtual networks, see the follow
 
 <!-- Links -->
 
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: service-bus-service-endpoints.md
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services

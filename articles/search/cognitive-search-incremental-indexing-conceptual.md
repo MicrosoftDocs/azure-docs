@@ -155,7 +155,7 @@ Usage information and examples can be found in [Configure caching for incrementa
 
 ### Datasources
 
-+ Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-datasource) supports a new parameter on a request `ignoreResetRequirement`, which should be set to `true` when your update action should not invalidate the cache.
++ Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request `ignoreResetRequirement`, which should be set to `true` when your update action should not invalidate the cache.
 
 Use the `ignoreResetRequirement` sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
 
