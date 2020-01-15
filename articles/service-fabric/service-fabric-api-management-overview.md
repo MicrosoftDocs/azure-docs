@@ -77,7 +77,7 @@ In this example, a new stateless service instance is created for each user of an
   - A request to `/api/users/foo` is routed to service instance `fabric:/app/users/foo`
   - A request to `/api/users/bar` is routed to service instance `fabric:/app/users/bar`
 
-![Service Fabric with Azure API Management topology overview][sf-apim-dynamic-stateless.md]
+![Service Fabric with Azure API Management topology overview][sf-apim-dynamic-stateless]
 
 ## Send traffic to multiple stateful services
 
