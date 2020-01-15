@@ -667,8 +667,6 @@
       href: sql-database-advisor-portal.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
-    - name: Troubleshoot connectivity
-      href: sql-database-troubleshoot-common-connection-issues.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues

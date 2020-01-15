@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -20,13 +20,13 @@ To learn more about the gateway and how it's use by Azure Analysis Services, see
 **Minimum Requirements:**
 
 * .NET 4.5 Framework
-* 64-bit version of Windows 7 / Windows Server 2008 R2 (or later)
+* 64-bit version of Windows 8 / Windows Server 2012 R2 (or later)
 
 **Recommended:**
 
 * 8 Core CPU
 * 8 GB Memory
-* 64-bit version of Windows 2012 R2 (or later)
+* 64-bit version of Windows 8 / Windows Server 2012 R2 (or later)
 
 **Important considerations:**
 
