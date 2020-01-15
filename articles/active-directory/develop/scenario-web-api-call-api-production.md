@@ -31,4 +31,4 @@ Now that you know the basics of how to call web APIs from your own web API, you 
 
 | Sample | Platform | Description |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 Web API, Desktop (WPF) | ASP.NET Core 2.2 Web API calls Microsoft Graph, which is called from a WPF application by using the Microsoft identity platform (v2.0). |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 Web API, Desktop (WPF) | ASP.NET Core 2.2 Web API calls Microsoft Graph, which you call from a WPF application by using the Microsoft identity platform (v2.0). |
