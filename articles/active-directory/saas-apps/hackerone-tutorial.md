@@ -153,13 +153,13 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     a. Click **Run test**.
 
-6. Once the test completes successfully and the **Status** field shows **Last test status: success**, click the **Request Verification** button to submit to HackerOne for approval.
+6. When the test finishes successfully and the **Status** field shows **Last test status: success**, select the **Request Verification** button to submit to HackerOne for approval.
 
-    ![Submit for Approval](./media/hackerone-tutorial/tutorial_hackerone_006.png)
+    ![Submit to HackerOne for approval](./media/hackerone-tutorial/tutorial-hackerone-006.png)
 
-7. After HackerOne approves the settings, you can click on the **Migrate Users** button to require SSO authentication for all users.
+7. After HackerOne approves the settings, you can select the **Migrate Users** button to require SSO authentication for all users.
 
-    ![Enable SAML](./media/hackerone-tutorial/tutorial_hackerone_007.png)
+    ![Enable SAML](./media/hackerone-tutorial/tutorial-hackerone-007.png)
 
 ### Create an Azure AD test user
 
