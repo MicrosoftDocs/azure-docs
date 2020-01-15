@@ -18,12 +18,13 @@ ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
+
+# Tutorial: Use shared-device mode in your Android application
+
 > [!NOTE]
 > This feature is in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-# Tutorial: Use shared-device mode in your Android application
 
 ## Developer guide
 
@@ -209,7 +210,7 @@ For information on how to do this, refer to [Register your application](https://
 > When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.
 
 ![App registration screen](media/tutorial-v2-shared-device-mode/register-app.png)
-You should select **Make this change for me** and then provide the values the QuickStart asks for in the Azure portal. When that's done, we will generate all the configuration files you need.
+You should select **Make this change for me** and then provide the values the quickstart asks for in the Azure portal. When that's done, we will generate all the configuration files you need.
 
 ![App config info screen](media/tutorial-v2-shared-device-mode/config-info.png)
 
@@ -252,6 +253,8 @@ The device is now in shared mode.
 ## View the shared device in the Azure portal
 
 Once you’ve put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure portal.
+
+![All devices blade in the Azure portal](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
 
 ## Running the sample app
 

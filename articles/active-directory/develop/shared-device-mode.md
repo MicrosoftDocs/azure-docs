@@ -17,12 +17,13 @@ ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
+
+# Shared device mode for Android devices
+
 > [!NOTE]
 > This feature is in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-# Shared device mode for Android devices
 
 Firstline workers, such as retail associates, flight crew members, and field service workers, often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
 
@@ -106,4 +107,4 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ## Next steps
 
-See the [shared device sign-out sample](https://github.com/brandwe/GlobalSignoutSample) for shared device mode app example code that shows how to write a firstline worker app that runs on a shared mode Android device.
+Try the [Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md) tutorial that shows how to run a firstline worker app on a shared mode Android device.
