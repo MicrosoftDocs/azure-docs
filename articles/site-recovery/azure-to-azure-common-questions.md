@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 # Common questions: Azure-to-Azure disaster recovery
 
-This article provides answers to common questions about disaster recovery of Azure VMs to another Azure region by using [Site Recovery](site-recovery-overview.md). 
+This article provides answers to common questions about disaster recovery of Azure VMs to another Azure region by using [Site Recovery](site-recovery-overview.md).
 
 
 ## General
@@ -21,7 +21,7 @@ Every instance that is protected with Azure Site Recovery is free for the first 
 ### During the first 31 days, will I incur any other Azure charges?
 Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions and data transfer. A recovered virtual machine might also incur Azure compute charges. Get complete details on pricing [here](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### Where can I find best practices for Azure VM disaster recovery? 
+### Where can I find best practices for Azure VM disaster recovery?
 1. [Understand Azure-to-Azure architecture](azure-to-azure-architecture.md)
 2. [Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)
 3. [Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)
