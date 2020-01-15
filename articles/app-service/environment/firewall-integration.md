@@ -14,14 +14,11 @@ ms.custom: seodec18
 
 The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
 
-There are a number of inbound dependencies that an ASE has. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses) document. You can create Network Security Group rules with that information to secure inbound traffic.
+There are a number of inbound endpoints that are used to mange an ASE. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses) document. There is also a Service Tag named AppServiceManagement which can be used with Network Security Groups (NSGs) to secure inbound traffic.
 
-The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
+The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
-
-> [!NOTE]
-> At this moment, we can't fully lockdown the outbound connection currently.
 
 ## System architecture
 
@@ -37,6 +34,12 @@ The traffic to and from an ASE must abide by the following conventions
 * All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
 
 ![ASE with Azure Firewall connection flow][5]
+
+## Locking down inbound management traffic
+
+If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. This is all that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
+
+ASEs that are made through the portal with a new subnet are made with an NSG that contains the allow rule for the AppServiceManagement tag.  
 
 ## Configuring Azure Firewall with your ASE 
 
