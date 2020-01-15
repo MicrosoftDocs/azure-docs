@@ -9,10 +9,10 @@ ms.author: aahi
 <a name="HOLTop"></a>
 
 <!-- these links are for v3 -->
-[Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_detect_language) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the [azure.ai.textanalytics.aio](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.aio.html#module-azure.ai.textanalytics.aio) namespace and calling [analyze_sentiment()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.aio.html#azure.ai.textanalytics.aio.TextAnalyticsClient.analyze_sentiment) instead of [analyze_sentiment()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.TextAnalyticsClient.analyze_sentiment) from the [azure.ai.textanalytics](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_detect_language) namespace. For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
+> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the `azure.ai.textanalytics.aio` namespace and calling `analyze_sentiment()` instead of `analyze_sentiment()` from the `azure.ai.textanalytics` namespace. For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ These code snippets show you how to do the following with the Text Analytics cli
 
 ## Sentiment analysis
 
-Create a new function called `sentiment_analysis_example()` that takes takes the endpoint and key as arguments, then calls the [single_analyze_sentiment()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_analyze_sentiment) function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
+Create a new function called `sentiment_analysis_example()` that takes takes the endpoint and key as arguments, then calls the `single_analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
 
 ```python
@@ -123,7 +123,7 @@ negative=0.017
 
 ## Language detection
 
-Create a new function called `language_detection_example()` that takes takes the endpoint and key as arguments, then calls the [single_detect_languages()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_detect_language) function. The returned response object will contain the detected language in `detected_languages` if successful, and an `error` if not.
+Create a new function called `language_detection_example()` that takes takes the endpoint and key as arguments, then calls the `single_detect_languages()` function. The returned response object will contain the detected language in `detected_languages` if successful, and an `error` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
@@ -151,7 +151,7 @@ Language:  French
 
 ## Entity recognition
 
-Create a new function called `entity_recognition_example` that takes takes the endpoint and key as arguments, then calls the [single_recognize_entities()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_recognize_entities) function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
+Create a new function called `entity_recognition_example` that takes takes the endpoint and key as arguments, then calls the `single_recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```python
 from azure.ai.textanalytics import single_recognize_entities
@@ -187,7 +187,7 @@ Named Entities:
 
 ## Personal Identifiable Information (PII) Entity recognition
 
-Create a new functions called `entity_pii_example()` that takes takes the endpoint and key as arguments, then calls the [single_recognize_pii_entities()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_recognize_pii_entities) function and gets the result. Then iterate through the results and print the PII entities.
+Create a new functions called `entity_pii_example()` that takes takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the PII entities.
 
 ```python
 from azure.ai.textanalytics import single_recognize_pii_entities
@@ -217,7 +217,7 @@ Personally Identifiable Information Entities:
 
 ## Entity Linking
 
-Create a new function called `entity_linking_example()` that takes takes the endpoint and key as arguments, then calls the [single_recognize_linked_entities()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_recognize_linked_entities) function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
+Create a new function called `entity_linking_example()` that takes takes the endpoint and key as arguments, then calls the `single_recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
 ```python
 from azure.ai.textanalytics import single_recognize_linked_entities
@@ -297,7 +297,7 @@ Linked Entities:
 
 ## Key phrase extraction
 
-Create a new function called `key_phrase_extraction_example()` that takes takes the endpoint and key as arguments, then calls the [single_extract_key_phrases()](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html#azure.ai.textanalytics.single_extract_key_phrases) function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
+Create a new function called `key_phrase_extraction_example()` that takes takes the endpoint and key as arguments, then calls the `single_extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
 ```python
 from azure.ai.textanalytics import single_extract_key_phrases
