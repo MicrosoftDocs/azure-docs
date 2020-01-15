@@ -15,7 +15,7 @@ ms.subservice: blobs
 
 You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
 
-For general information about using custom domains with Azure Storage endpoints, see [Custom domain names with Azure Blob storage endpoints](storage-blob-custom-domain.md).
+For general information, see [Custom domain names with Azure Blob storage endpoints](storage-blob-custom-domain.md).
 
 <a id="map-a-domain" />
 
@@ -24,17 +24,17 @@ For general information about using custom domains with Azure Storage endpoints,
 > [!IMPORTANT]
 > Your custom domain will be briefly unavailable to users while you complete the configuration. If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, then follow the steps in the [Map a custom domain with zero downtime](#zero-down-time) section of this article to ensure that users can access your domain while the DNS mapping takes place.
 
-If you are unconcerned that the domain is briefly unavailable to your users, follow these steps to map your custom domain to blob storage with some downtime.
+If you are unconcerned that the domain is briefly unavailable to your users, follow these steps.
 
 :heavy_check_mark: Step 1: Get the host name of your storage endpoint.
 
-:heavy_check_mark: Step 2: Add a CNAME record to the domain registrar's website. 
+:heavy_check_mark: Step 2: Create a canonical name (CNAME) record with your domain provider.
 
 :heavy_check_mark: Step 3: Register the custom domain with Azure. 
 
-:heavy_check_mark: Step 4: Test your custom domain
+:heavy_check_mark: Step 4: Test your custom domain.
 
-<a id="#endpoint" />
+<a id="endpoint" />
 
 ### Step 1: Get the host name of your storage endpoint 
 
@@ -57,11 +57,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 <a id="create-cname-record" />
 
-### Step 2: Add a CNAME record to the domain registrar's website
+### Step 2: Create a canonical name (CNAME) record with your domain provider
 
-CNAME stands for Canonical Name and it's used to alias one name to another.
-
-Create a CNAME record that maps your custom domain to your blob endpoint.  Then, in Portal, you'll register the domain with Azure.
+Create a CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
@@ -73,9 +71,7 @@ Create a CNAME record that maps your custom domain to your blob endpoint.  Then,
 
 3. Create a CNAME record. As part of that record, provide the following items: 
 
-   - The subdomain alias such as `www` or `photos`. 
-   
-     The subdomain is required, root domains are not supported.
+   - The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported.
       
    - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
 
@@ -114,17 +110,17 @@ For example, to access a web form in the *myforms* container in the *photos.cont
 
 If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, then follow these steps to ensure that users can access your domain while the DNS mapping takes place. 
 
-:heavy_check_mark: Step 1: Get the host name of your storage endpoint
+:heavy_check_mark: Step 1: Get the host name of your storage endpoint.
 
-:heavy_check_mark: Step 2: Add an intermediary CNAME record to the domain registrar's website
+:heavy_check_mark: Step 2: Create a intermediary canonical name (CNAME) record with your domain provider.
 
-:heavy_check_mark: Step 3: Register the custom domain with Azure
+:heavy_check_mark: Step 3: Pre-register the custom domain with Azure.
 
-:heavy_check_mark: Step 4: Add a CNAME record to the domain registrar's website
+:heavy_check_mark: Step 4: Create a CNAME record with your domain provider.
 
-:heavy_check_mark: Step 5: Test your custom domain
+:heavy_check_mark: Step 5: Test your custom domain.
 
-<a id="#endpoint-2" />
+<a id="endpoint-2" />
 
 ### Step 1: Get the host name of your storage endpoint 
 
@@ -145,11 +141,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
   
    Set this value aside for later.
 
-### Step 2: Add an intermediary CNAME record to the domain registrar's website
+### Step 2: Create a intermediary canonical name (CNAME) record with your domain provider
 
-CNAME stands for Canonical Name and it's used to alias one name to another.
-
-Create a CNAME record that maps your custom domain to your blob endpoint.  Then, in Portal, you'll register the domain with Azure.
+Create a temporary CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
@@ -173,7 +167,7 @@ Create a CNAME record that maps your custom domain to your blob endpoint.  Then,
 
    If the registration is successful, the portal notifies you that your storage account was successfully updated. Your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account.
 
-### Step 3: Register your custom domain with Azure
+### Step 3: Pre-register your custom domain with Azure
 
 When you pre-register your custom domain with Azure, you permit Azure to recognize your custom domain without having to modify the DNS record for the domain. That way, when you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.
 
@@ -195,11 +189,9 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
   
    After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
-### Step 4: Add a CNAME record to the domain registrar's website
+### Step 4: Create a CNAME record with your domain provider
 
-CNAME stands for Canonical Name and it's used to alias one name to another.
-
-Create a CNAME record that maps your custom domain to your blob endpoint.  Then, in Portal, you'll register the domain with Azure.
+Create a temporary CNAME record to point to your host name.
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
