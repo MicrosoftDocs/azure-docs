@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: peterclu
 ms.author: peterlu
-ms.date: 01/06/2020
+ms.date: 01/16/2020
 ---
 
 # Import your data into Azure Machine Learning designer (preview)
@@ -23,7 +23,7 @@ To learn more about the differences between datasets and datastores, see [Data a
 
 ## Import data using datasets
 
-We recommend that you use [Azure Machine Learning datasets](concept-data.md#datasets) when you import data into the designer. When you register a dataset in Azure Machine Learning, you can take full advantage of advanced features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md) to accelerate your machine learning workflows.
+We recommend that you use [Azure Machine Learning datasets](concept-data.md#datasets) when you import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
 
 
 ### Register a dataset
@@ -51,7 +51,7 @@ Registered datasets can be found in the module palette, under **Datasets** > **M
 
 ## Import data using the Import Data module
 
-You can also use the [Import Data](algorithm-module-reference/import-data.md) module to import data directly from Azure Machine Learning [datastores](concept-data.md#datastores) or HTTP URLs. However, we recommend you create a dataset first to take full advantage of features such as versioning and monitoring.
+You can also use the [Import Data](algorithm-module-reference/import-data.md) module to import data directly from either Azure Machine Learning [datastores](concept-data.md#datastores) or HTTP URLs. We recommend you create a dataset first to take full advantage of advanced data features like versioning and monitoring.
 
 > [!NOTE]
 > Pipelines converted from the visual interface will default to the **Import Data** module. If you are using a converted visual interface pipeline, we recommend creating a dataset and importing data via the dataset method.
@@ -78,22 +78,15 @@ For more information on how to use the Import Data module, see its [algorithm mo
 
 ## Supported data sources
 
-The designer supports the following datasources:
+There are two methods for importing data in the designer, this section lists the supported data sources for datastores and [tabular datasets](how-to-create-register-datasets.md#dataset-types).
 
-* Azure Blob Container
-* Azure File Share
-* Azure Data Lake
-* Azure Data Lake Gen2
-* Azure SQL Database
-* Azure Database for PostgreSQL
-* Databricks File System
-* Azure Database for MySQL
-* Local file (TSV, CSV)
-* Web file (TSV, CSV)
+For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).
 
-If you import data in a format such as ARFF that includes metadata, the designer uses this metadata to define the heading and data type of each column. If you import data such as TSV or CSV format that doesn't include this metadata, the designer infers the data type for each column by sampling the data.
-
-You can explicitly specify or column headings and data types using the [Edit Metadata](algorithm-module-reference/edit-metadata.md) module.
+The designer supports tabular datasets created from the following sources:
+ * Delimited files
+ * JSON files
+ * Parquet files
+ * SQL queries
 
 ## Supported data types
 
@@ -105,7 +98,7 @@ The designer recognizes the following data types:
 * Boolean
 * Date
 
-The designer uses an internal data type called ***data table*** to pass data between modules. You can explicitly convert your data into data table format using the [Convert to Dataset][convert-to-dataset] module.
+The designer uses an internal data type to pass data between modules. You can explicitly convert your data into data table format using the [Convert to Dataset](algorithm-module-reference/convert-to-dataset.md) module.
 
 Any module that accepts formats other than data table will convert the data to data table silently before passing it to the next module.
 
@@ -114,3 +107,5 @@ Any module that accepts formats other than data table will convert the data to d
 Modules in Azure Machine Learning designer are limited by the size of the compute target. For larger datasets, you should use a larger Azure Machine Learning compute resource. For more information on Azure Machine Learning compute, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
 ## Next steps
+
+Learn the basics of the designer with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
