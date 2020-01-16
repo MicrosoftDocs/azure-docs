@@ -245,7 +245,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   }
   ```
 
-  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+  You can set the `Connection` property to specify the app setting that contains the storage account connection string to use, as shown in the following example:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -308,7 +308,7 @@ In C# and C# script, access the message data by using a method parameter such as
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-In JavaScript, use `context.bindings.<name>` to access the queue item payload. If the payload is JSON, it's deserialized into an object.
+In JavaScript, use `context.bindings.<name>` to access the queue item payload. If the payload is JSON, it's deserialized into an object. This payload is also passed as the second parameter to the function.
 
 ## Trigger - message metadata
 
@@ -316,7 +316,7 @@ The queue trigger provides several [metadata properties](./functions-bindings-ex
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload as a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
+|`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload is a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
 |`DequeueCount`|`int`|The number of times this message has been dequeued.|
 |`ExpirationTime`|`DateTimeOffset`|The time that the message expires.|
 |`Id`|`string`|Queue message ID.|
@@ -407,7 +407,7 @@ Here's the *function.json* file:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -468,7 +468,7 @@ Here's the *function.json* file:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -502,7 +502,7 @@ module.exports = function(context) {
 
 ### Output - Java example
 
- The following example shows a Java function that creates a queue message for when triggered by a  HTTP request.
+ The following example shows a Java function that creates a queue message when triggered by an HTTP request.
 
 ```java
 @FunctionName("httpToQueue")
@@ -510,7 +510,7 @@ module.exports = function(context) {
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
        result.setValue(message + " has been added.");
        return message;
  }
@@ -554,7 +554,7 @@ A Storage queue binding is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-To set a individual message on the queue, you pass a single value to the `set` method.
+To set an individual message on the queue, you pass a single value to the `set` method.
 
 ```python
 import azure.functions as func
