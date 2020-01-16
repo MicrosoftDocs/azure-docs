@@ -1,4 +1,4 @@
-- name: Security Center Documentation
+- name: Security Center documentation
   href: index.yml
 - name: Overview
   items:
@@ -32,6 +32,10 @@
 
 - name: Concepts
   items:
+  - name: Secure Score in Security Center
+    href: security-center-secure-score.md
+  - name: The enhanced Secure Score
+    href: secure-score-security-controls.md
   - name: Permissions
     href: security-center-permissions.md
   - name: Data security
@@ -77,8 +81,6 @@
 
 - name: How-to guides
   items:
-  - name: Improve your secure score
-    href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Scan your VMs for vulnerabilities
