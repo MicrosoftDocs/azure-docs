@@ -18,23 +18,22 @@ A common question is “Which machine learning algorithm should I use?” The al
 
  - **What you want to do with your data?** Specifically, what is the business question you want to answer by learning from your past data?
 
- - **What are the requirements of your data science scenario?** Specifically, what is the accuracy, training time, linearity, number of parameters, number of features your solution supports?
+ - **What are the requirements of your data science scenario?** Specifically, what is the accuracy, training time, linearity, number of parameters, and number of features your solution supports?
 
  ![Considerations for choosing algorithms: What do you want to know? What are the scenario requirements?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
 
 ## Business scenarios and the Machine Learning Algorithm Cheat Sheet
 
-The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first consideration: **what you want to do with your data**? With the Machine Learning Algorithm Cheat Sheet, you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
+The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first consideration: **What you want to do with your data**? On the Machine Learning Algorithm Cheat Sheet, look for task you want to do, and then find a [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for the predictive analytics solution. 
 
-Machine Learning designer provides a comprehensive portfolio of algorithms, such as [Multiclass Decision Forest](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri), [Recommendation systems](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri), [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri), [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri), and [K-Means Clustering](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri). Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm for your use.
-
-However, there are a few additional requirements that, together with the Azure Machine Learning Algorithm Cheat Sheet, you need to keep in mind when choosing a machine learning algorithm for your solution. The rest of this article helps you with the second aspect listed above: **requirements of your data science scenario**. This article walks you through additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
-
+Machine Learning designer provides a comprehensive portfolio of algorithms, such as [Multiclass Decision Forest](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri), [Recommendation systems](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri), [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri), [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri), and [K-Means Clustering](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri). Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm.
 
 > [!NOTE]
 > To download the machine learning algorithm cheat sheet, go to [Azure Machine learning algorithm cheat sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 > 
 > 
+
+Along with guidance in the Azure Machine Learning Algorithm Cheat Sheet, keep in mind other requirements when choosing a machine learning algorithm for your solution. Following are additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
 
 ## Additional requirements for a data science scenario
 
@@ -50,13 +49,13 @@ Make choices and possibly trade-offs for the following requirements:
 
 ## Accuracy
 
-Accuracy in machine learning is a general term used to measure the effectiveness of a model as the proportion of true results to total cases. In Machine Learning designer, the [Evaluate Model module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) computes a set of industry-standard evaluation metrics. You can use this module to measure the accuracy of a trained model.
+Accuracy in machine learning measures the effectiveness of a model as the proportion of true results to total cases. In Machine Learning designer, the [Evaluate Model module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) computes a set of industry-standard evaluation metrics. You can use this module to measure the accuracy of a trained model.
 
-Getting the most accurate answer possible isn’t always necessary. Sometimes an approximation is adequate, depending on what you want to use it for. If that is the case, you may be able to cut your processing time dramatically by sticking with more approximate methods. Another advantage of more approximate methods is that they naturally tend to avoid overfitting.
+Getting the most accurate answer possible isn’t always necessary. Sometimes an approximation is adequate, depending on what you want to use it for. If that is the case, you may be able to cut your processing time dramatically by sticking with more approximate methods. Approximate methods also naturally tend to avoid overfitting.
 
 There are three ways to use the Evaluate Model module:
 
-- Generate scores over your training data, and evaluate the model based on these scores
+- Generate scores over your training data in order to evaluate the model
 - Generate scores on the model, but compare those scores to scores on a reserved testing set
 - Compare scores for two different but related models, using the same set of data
 
@@ -64,13 +63,13 @@ For a complete list of metrics and approaches you can use to evaluate the accura
 
 ## Training time
 
-In supervised learning, training means using historical data to build a machine learning model that minimizes loss. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy; one typically accompanies the other. 
+In supervised learning, training means using historical data to build a machine learning model that minimizes loss [what does this mean?]. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy; one typically accompanies the other. 
 
-In addition, some algorithms are more sensitive to the number of data points than others. When time is limited it can drive the choice of algorithm, especially when the data set is large.
+In addition, some algorithms are more sensitive to the number of data points than others. You might choose an specific algorithm because you have a time limitation, especially when the data set is large.
 
-In Machine Learning designer, creating and using a machine learning model is typically a three-step process.
+In Machine Learning designer, creating and using a machine learning model is typically a three-step process:
 
-1.	Configure a model, by choosing a particular type of algorithm, and defining its parameters or hyperparameters. 
+1.	Configure a model, by choosing a particular type of algorithm, and then defining its parameters or hyperparameters. 
 
 2.	Provide a dataset that is labeled and has data compatible with the algorithm. Connect both the data and the model to [Train Model module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/train-model?WT.mc_id=docs-article-lazzeri).
 
@@ -86,7 +85,7 @@ For example, linear classification algorithms assume that classes can be separat
 - [Two-class logistic regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
 - [Support vector machines](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
 
-Linear regression algorithms assume that data trends follow a straight line. This assumption isn't bad for some problems, but on others it reduces accuracy. Despite their drawbacks, linear algorithms are popular as a first line of attack. They tend to be algorithmically simple and fast to train.
+Linear regression algorithms assume that data trends follow a straight line. This assumption isn't bad for some problems, but for others it reduces accuracy. Despite their drawbacks, linear algorithms are popular as a first strategy. They tend to be algorithmically simple and fast to train.
 
 ## Number of parameters
 
@@ -100,7 +99,7 @@ While this is a great way to make sure you’ve spanned the parameter space, the
 
 In machine learning, a feature is a quantifiable variable of the phenomenon you are trying to analyze. For certain types of data, the number of features can be very large compared to the number of data points. This is often the case with genetics or textual data. 
 
-The large number of features can bog down some learning algorithms, making training time unfeasibly long. [Support vector machines](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) are particularly well suited to scenarios with high number of features: for this reason, they have been used in many applications, from information retrieval to text and image classification. Support vector machines can be used for both classification and regression tasks.
+A large number of features can bog down some learning algorithms, making training time unfeasibly long. [Support vector machines](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) are particularly well suited to scenarios with a high number of features. For this reason, they have been used in many applications from information retrieval to text and image classification. Support vector machines can be used for both classification and regression tasks.
 
 Feature selection refers to the process of applying statistical tests to inputs, given a specified output. The goal is to determine which columns are more predictive of the output. The [Filter Based Feature Selection module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) in Machine Learning designer provides multiple feature selection algorithms to choose from. The module includes correlation methods such as Pearson correlation and chi-squared values.
 
