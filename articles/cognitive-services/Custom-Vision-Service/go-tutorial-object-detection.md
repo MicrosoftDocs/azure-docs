@@ -106,6 +106,9 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
 
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
+
 To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that in this tutorial the regions are hard-coded inline. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
 ```Go
