@@ -30,7 +30,7 @@ Complete the following steps before you compile and run the sample code:
    | --- | --- |
    | uuid | String | 
 
-1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` as the **Redirect URI**.
 
 1. Install the required project dependencies.
 
@@ -110,7 +110,7 @@ namespace CsharpTsiMsalGaSample
         // Azure Active Directory application configuration
         internal static string AadClientApplicationId = "#PLACEHOLDER#";
         internal static string[] AadScopes = new string[] { "https://api.timeseries.azure.com//user_impersonation" };
-        internal static string AadRedirectUri = "#PLACEHOLDER#";
+        internal static string AadRedirectUri = "http://localhost:8080/";
         internal static string AadAuthenticationAuthority = "https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/";
 
         private static async Task<string> AcquireAccessTokenAsync()
