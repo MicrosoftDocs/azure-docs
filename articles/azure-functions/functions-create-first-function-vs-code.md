@@ -23,37 +23,35 @@ The steps in this article and the article that follows support the following lan
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension currently lets you create functions in C#, JavaScript, Java, PowerShell, Python, and TypesScript. It also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). If not already installed, the extension also installs the [Azure Functions Core Tools](functions-run-local.md#v2). The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+::: zone pivot="programming-language-csharp"
 
-+ Language-specific requirements:
++ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
 
-    ::: zone pivot="programming-language-csharp"
+::: zone-end
 
-    The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
+::: zone pivot="programming-language-javascript"
 
-    ::: zone-end
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
-    ::: zone pivot="programming-language-javascript"
+::: zone-end
 
-    [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-
-    ::: zone-end
+::: zone pivot="programming-language-python"
     
-    ::: zone pivot="programming-language-python"
-        
-    + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
++ [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
 
-    + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
++ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
-    ::: zone-end
+::: zone-end
 
-    ::: zone pivot="programming-language-powershell"
+::: zone pivot="programming-language-powershell"
 
-    * [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-    * The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
 
-    ::: zone-end
+::: zone-end
+
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension currently lets you create functions in C#, JavaScript, Java, PowerShell, Python, and TypesScript. It also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). If not already installed, the extension also installs the [Azure Functions Core Tools](functions-run-local.md#v2). The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 + An [Azure account](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 

@@ -24,8 +24,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | C# | Create a local Functions project in C#. |
-    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. | 
-    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
     | Provide a namespace | My.Functions | C# class libraries must have a namespace.  |
     | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
@@ -38,7 +37,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
-    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. | 
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |
     | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
     | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
@@ -51,7 +50,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | PowerShell | Create a local PowerShell Functions project. |
-    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |
+    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
     | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
@@ -63,7 +63,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | Python | Create a local Python Functions project. |
-    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |    | Select a Python alias to create a virtual environment | Python alias | Choose the discovered alias of your installed version of Python 3.6 or 3.7. Your app runs in virtual environment based on this installation.  |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |
+    | Select a Python alias to create a virtual environment | Python alias | Choose the discovered alias of your installed version of Python 3.6 or 3.7. Your app runs in virtual environment based on this installation.  |
     | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
     | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
