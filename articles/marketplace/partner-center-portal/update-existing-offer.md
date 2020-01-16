@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 01/16/2020
 ---
 
 # Update an existing offer in the Commercial Marketplace
@@ -43,17 +43,35 @@ To make changes to a plan within an existing offer that you've already published
 
 ## Compare changes to marketplace offers
 
-When you make changes to a published or preview offer, you can audit the changes before making them live with **Compare**.
+You can audit the changes you make to a [published](#compare-changes-to-published-offer) or [preview](#compare-changes-to-a-preview-offer) offer before making them live using **Compare**.
 
 >[!NOTE]
 > A published offer is an offer that's been successfully published to Preview or Live state.
 
-See below for general auditing tips:
+See below for general auditing information:
 
 - You can use **Compare** at any point during the editing process.
 - Select a field on the **Compare** page to navigate to the value you want to modify.
 - If you're ready to publish your updates, select **Review and publish**.
-- To see the values for all fields, even fields not updated, toggle **Show all fields**.  
+- To see the values for all fields, even fields not updated, select the **All fields** filter. You can modify filters within these fields by selecting **Modified fields**, then selecting one of the filters below:
+    - **Removed values** filter displays fields that you published and you're now completely removing.
+    - **Added values** filter displays fields that you did not originally publish and are now adding.
+    - **Edited values** filter displays fields that had been published but you've now updated the contents.
+
+        >[!NOTE]
+        > If a  filter above isn't available, that indicates you didn't make an update of that type.
+
+    - To see only values that haven't been updated, select the **Unchanged fields** filter. The field values shown for the published and draft version will be the same.
+
+    ![Filters for comparing updates to your published or preview offer](./media/compare-changes-marketplace.png)
+
+>[!NOTE]
+> The following pages don't currently support **Compare**:
+>- CSP Reseller Audience
+>- Test Drive Technical Configuration
+>- Test Drive Marketplace Listing
+>- Co-sell
+>- Supplemental files
 
 ### Compare changes to published offer
 
@@ -64,7 +82,9 @@ Follow the instructions below to compare your changes from the published offer:
     - If you want to compare changes on all pages, change the page from **Select a page to compare**.  
     - If you want to compare changes to the offer across all pages, select **All pages**.
 
-As the default, **Compare** contrasts your new changes to the live marketplace offer. You can also compare changes to a preview offer.
+As the default, **Compare** contrasts your new changes to the live marketplace offer.
+
+Remember to republish your offer after making updates for the changes to take effect.
 
 ### Compare changes to a preview offer
 
@@ -79,15 +99,7 @@ Follow the instructions below to compare new changes with your preview marketpla
 >[!NOTE]
 >If your offer hasn't become live yet but you've published to preview, you don’t have the option to compare with a live offer.
 
-The following pages don't currently support **Compare**:
-
-- CSP Reseller Audience
-- Test Drive Technical Configuration
-- Test Drive Marketplace Listing
-- Co-sell
-- Supplemental files
-
-Remember to re-publish your offer after making updates for the changes to take effect.
+Remember to republish your offer after making updates for the changes to take effect.
 
 ## Delete a draft offer
 
@@ -118,7 +130,7 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 To stop selling an offer after you've already published it, select **Stop selling** from the **Offer overview** page. To stop selling a plan, select **Stop selling** from the **Plan overview** page. (The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer.)
 
-Once you confirm that you want to stop selling the offer or plan, within a few hours it will no longer be visible in the marketplace and no new customers can download it. 
+Once you confirm that you want to stop selling the offer or plan, within a few hours it will no longer be visible in the marketplace and no new customers can download it.
 
 Any customers who previously acquired the offer or plan can still use it. They can download it again, but will not get updates if you update and re-publish the offer or plan at a later time. 
 
