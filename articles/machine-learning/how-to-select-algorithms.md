@@ -14,7 +14,7 @@ ms.date: 01/20/2020
 ---
 # How to select algorithms for Azure Machine Learning
 
-A common question is “Which machine learning algorithm should I use?” The answer to this popular question mainly depends on two different aspects of your data science scenario:
+A common question is “Which machine learning algorithm should I use?” The algorithm you select depends primarily on two different aspects of your data science scenario:
 
  - **What you want to do with your data?** Specifically, what is the business question you want to answer by learning from your past data?
 
@@ -26,8 +26,7 @@ A common question is “Which machine learning algorithm should I use?” The an
 
 The [Azure Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) helps you with the first consideration: **what you want to do with your data**? With the Machine Learning Algorithm Cheat Sheet, you can start your machine learning journey and choose the right [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) algorithm for your predictive analytics solutions. 
 
-Machine Learning designer provides a comprehensive portfolio of algorithms, such as Multiclass Decision Forest, Recommendation systems, Neural Network Regression, Multiclass Neural Network, and K-Means Clustering. Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri
-) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm for your use.
+Machine Learning designer provides a comprehensive portfolio of algorithms, such as [Multiclass Decision Forest](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri), [Recommendation systems](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri), [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri), [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri), and [K-Means Clustering](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri). Each algorithm is designed to address a different type of machine learning problem. See the [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm for your use.
 
 However, there are a few additional requirements that, together with the Azure Machine Learning Algorithm Cheat Sheet, you need to keep in mind when choosing a machine learning algorithm for your solution. The rest of this article helps you with the second aspect listed above: **requirements of your data science scenario**. This article walks you through additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
 
@@ -42,6 +41,7 @@ However, there are a few additional requirements that, together with the Azure M
 Once you know what you want to do with your data, you need to determine additional requirements for your solution. 
 
 Make choices and possibly trade-offs for the following requirements:
+
 - Accuracy
 - Training time
 - Linearity
@@ -56,15 +56,15 @@ Getting the most accurate answer possible isn’t always necessary. Sometimes an
 
 There are three ways to use the Evaluate Model module:
 
- - Generate scores over your training data, and evaluate the model based on these scores
- - Generate scores on the model, but compare those scores to scores on a reserved testing set
- - Compare scores for two different but related models, using the same set of data
+- Generate scores over your training data, and evaluate the model based on these scores
+- Generate scores on the model, but compare those scores to scores on a reserved testing set
+- Compare scores for two different but related models, using the same set of data
 
 For a complete list of metrics and approaches you can use to evaluate the accuracy of machine learning models, see [Evaluate Model module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
 
 ## Training time
 
-In supervised learning, training means using historical data to build a machine learning model that minimizes loss. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy—one typically accompanies the other. 
+In supervised learning, training means using historical data to build a machine learning model that minimizes loss. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy; one typically accompanies the other. 
 
 In addition, some algorithms are more sensitive to the number of data points than others. When time is limited it can drive the choice of algorithm, especially when the data set is large.
 
