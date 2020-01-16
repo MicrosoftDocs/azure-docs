@@ -10,20 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: ralphe
+zone_pivot_groups: programming-languages-set-seven
 ---
 
 # Quickstart: Multi-device Conversation
 
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/header.md)]
 
-# [C#](#tab/csharp)
-
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/csharp/header.md)]
 [!INCLUDE [csharp](../includes/quickstarts/multi-device-conversation/csharp/csharp.md)]
+::: zone-end
 
-# [C++](#tab/cpp)
-
+::: zone pivot="programming-language-cpp"
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/cpp/header.md)]
 [!INCLUDE [cpp](../includes/quickstarts/multi-device-conversation/cpp/cpp.md)]
-
-***
+::: zone-end
