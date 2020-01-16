@@ -57,13 +57,13 @@ To change the default limit for run duration and storage retention, follow these
 
 1. Go to the [Azure portal](https://portal.azure.com). In the portal search box, find and select **Logic apps**.
 
-1. Select and then open your logic app in the Logic App Designer. 
+1. Select and then open your logic app in the Logic App Designer.
 
 1. On the logic app's menu, select **Workflow settings**.
 
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
-1. Enter or drag the slider for the number of days that you want. 
+1. Enter or drag the slider for the number of days that you want.
 
    > [!NOTE]
    > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
@@ -79,7 +79,7 @@ Here are the limits for a single logic app run:
 | ---- | ----- | ----- |
 | Trigger concurrency | * Unlimited when the concurrency control is turned off <p><p>* 25 is the default limit when the concurrency control is turned on, which can't be undone after you turn on the control. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximum waiting runs | When the concurrency control is turned on, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). |
+| Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | SplitOn items | * 100,000 without trigger concurrency <p><p>* 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
 | Until iterations | 5,000 | |
@@ -117,8 +117,8 @@ Here are the throughput limits for the Premium SKU:
 To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
 > [!NOTE]
-> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU 
-> doesn't have any service-level agreement (SLA) or capabilities for scaling up. 
+> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU
+> doesn't have any service-level agreement (SLA) or capabilities for scaling up.
 > Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
 <a name="gateway-limits"></a>
@@ -206,12 +206,12 @@ Additional costs apply to integration accounts that you add beyond the integrati
 
 ### Artifact limits per integration account
 
-Here are the limits on the number of artifacts for each integration account tier. 
+Here are the limits on the number of artifacts for each integration account tier.
 For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for integration accounts, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
-> Use the Free tier only for exploratory scenarios, 
-> not production scenarios. This tier restricts 
+> Use the Free tier only for exploratory scenarios,
+> not production scenarios. This tier restricts
 > throughput and usage, and has no service-level agreement (SLA).
 
 | Artifact | Free | Basic | Standard |
@@ -261,13 +261,13 @@ Here are the message size limits that apply to B2B protocols:
 
 ## Disabling or deleting logic apps
 
-When you disable a logic app, no new runs are instantiated. 
-All in-progress and pending runs continue until they finish, 
+When you disable a logic app, no new runs are instantiated.
+All in-progress and pending runs continue until they finish,
 which might take time to complete.
 
-When you delete a logic app, no new runs are instantiated. 
-All in-progress and pending runs are canceled. 
-If you have thousands of runs, cancellation might 
+When you delete a logic app, no new runs are instantiated.
+All in-progress and pending runs are canceled.
+If you have thousands of runs, cancellation might
 take significant time to complete.
 
 <a name="configuration"></a>
@@ -277,14 +277,14 @@ take significant time to complete.
 The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depend on the region where your logic app exists. *All* logic apps that are in the same region use the same IP address ranges.
 
 > [!NOTE]
-> Some Power Automate calls, such as **HTTP** and **HTTP + OpenAPI** requests, 
-> go directly through the Azure Logic Apps service and come from the IP addresses 
-> that are listed here. For more information about IP addresses used by Power Automate, see 
+> Some Power Automate calls, such as **HTTP** and **HTTP + OpenAPI** requests,
+> go directly through the Azure Logic Apps service and come from the IP addresses
+> that are listed here. For more information about IP addresses used by Power Automate, see
 > [Limits and configuration in Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 * To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with *all* the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
 
-* To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region. 
+* To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
 
 * To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
@@ -295,7 +295,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 * For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
 
 > [!IMPORTANT]
-> If you have firewall configurations that you set up before September 1, 2018, 
+> If you have firewall configurations that you set up before September 1, 2018,
 > make sure that they match the current IP addresses in these lists for the regions where your logic apps exist.
 
 <a name="inbound"></a>

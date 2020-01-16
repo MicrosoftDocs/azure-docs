@@ -5,7 +5,7 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 11/12/2019
+ms.date: 1/14/2020
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
@@ -26,6 +26,13 @@ Sample output:
 ![SQL Data Warehouse version](./media/release-notes/t47-1-version.png)
 
 Use the version identified to confirm which release has been applied to your Azure SQL DW.
+
+## January 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Workload Management Portal Metrics (Preview)**|With the release of [Workload Isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) for preview this past October, users can create their own [workload groups](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) to efficiently manage system resources and ensure business SLAs are met.  As part of the overall [workload management](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) enhancements for Azure Synapse Analytics, new [workload management monitoring metrics](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) are now available.</br> </br> Monitoring your workload now has greater insights with the following metrics: </br> - Effective cap resource percent  </br> - Effective min resource percent </br> - Workload group active queries </br> - Workload group allocation by max resource percent </br> - Workload group allocation by system percent </br> - Workload group query timeouts </br> - Workload group queued queries </br></br> Use these metrics to identify [workload group bottlenecks](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) or workload groups that are configured with [underutilized workload isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  These metrics can be used in the Azure Portal that allows splitting by workload group.  Filter and pin your favorite graphs to a dashboard for quick access to insights.|
+|**Portal Monitoring Metrics**| The following metrics were added to the portal for monitoring overall query activity: </br> - Active queries </br> - Queued queries </br> </br>These metrics are described along with the existing metrics in the [Monitoring resource utilization and query activity documentation](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
 
 ## October 2019
 
