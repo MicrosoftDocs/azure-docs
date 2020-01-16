@@ -20,7 +20,7 @@ ms.author: TomSh
 
 ---
 # Azure security technical capabilities
-This article provides an introduction to security services in Azure that help you protect you data, resources, and applications in the cloud and meet the security needs of your business.
+This article provides an introduction to security services in Azure that help you protect your data, resources, and applications in the cloud and meet the security needs of your business.
 
 ## Azure platform
 
@@ -497,7 +497,7 @@ Resource Manager provides several benefits:
 - You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
 > [!Note]
-> Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
+> Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 

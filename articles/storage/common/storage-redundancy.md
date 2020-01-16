@@ -48,7 +48,7 @@ All data for all types of storage accounts are replicated, including block blobs
 For pricing information for each redundancy option, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redudant storage (LRS) and zone redudant storage (ZRS) in certain regions.
+> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
 
 ## Changing replication strategy
 
@@ -72,7 +72,7 @@ If you migrate your storage account from RA-GRS to GRS or LRS, that account is b
 - [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
 - [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
 - [Geo-zone-redundant storage (GZRS) for highly availability and maximum durability (preview)](storage-redundancy-gzrs.md)
-- [Azure Storage scalability and performance targets](storage-scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md)
 - [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure Storage redundancy options and read access geo redundant storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

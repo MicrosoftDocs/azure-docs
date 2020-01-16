@@ -68,7 +68,7 @@ If the **edgeAgent** module is running without the **edgeHub** module, use the f
    ```JSON
    {
        "routes": {
-           "route": "FROM /* INTO $upstream"
+           "route": "FROM /messages/* INTO $upstream"
        }
    }
    ```

@@ -93,7 +93,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | **Data type** | **How to connect** | **Data connector?** | **Comments** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Connect AWS](connect-aws.md) | V | |
-| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
@@ -101,7 +101,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | Syslog | [Connect Syslog](connect-syslog.md) | V | |
 | Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | V | |

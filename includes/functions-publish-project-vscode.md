@@ -32,8 +32,8 @@ This section assumes that you are creating a new function app in Azure.
 
     When you press Enter, the following Azure resources are created in your subscription:
 
-    * **[Resource group](../articles/azure-resource-manager/resource-group-overview.md)**: Contains all of the created Azure resources. The name is based on your function app name.
-    * **[Storage account](../articles/storage/common/storage-quickstart-create-account.md)**: A standard Storage account is created with a unique name that is based on your function app name.
+    * **[Resource group](../articles/azure-resource-manager/management/overview.md)**: Contains all of the created Azure resources. The name is based on your function app name.
+    * **[Storage account](../articles/storage/common/storage-account-create.md)**: A standard Storage account is created with a unique name that is based on your function app name.
     * **[Hosting plan](../articles/azure-functions/functions-scale.md)**: A consumption plan is created in the West US region to host your serverless function app.
     * **Function app**: Your project is deployed to and runs in this new function app.
 

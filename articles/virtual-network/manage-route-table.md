@@ -59,10 +59,10 @@ In the search box at the top of the portal, enter *route tables* in the search b
 1. Select the route table in the list that you want to view details for. Under **SETTINGS**, you can view the **Routes** in the route table and the **Subnets** the route table is associated to.
 1. To learn more about common Azure settings, see the following information:
 
-    * [Activity log](../azure-monitor/platform/activity-logs-overview.md)<br>
+    * [Activity log](../azure-monitor/platform/platform-logs-overview.md)<br>
     * [Access control (IAM)](../role-based-access-control/overview.md)<br>
-    * [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 ### View details of route table - commands
