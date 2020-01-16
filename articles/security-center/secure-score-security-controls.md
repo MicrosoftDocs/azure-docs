@@ -125,8 +125,6 @@ In some cases you'll see a control max score greater than zero, but the impact i
 
 ## Next steps
 
-Since this feature is in preview, we'd appreciate your feedback on your experiences with it. You can send us your comments, thoughts, and feedback [here](https://aka.ms/securescorefeedback).
-
 This article described the enhanced Secure Score and the new Security Controls it introduces. For related material, see the following articles:
 
 - [Learn about the different elements of a recommendation](security-center-recommendations.md)
