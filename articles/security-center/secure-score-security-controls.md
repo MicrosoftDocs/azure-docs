@@ -112,7 +112,7 @@ The table below lists the Security Controls in Azure Security Center. For each c
 With the changes introduced in this enhanced Secure Score, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
 
 ### If I address only three out of four recommendations in a Security Control, will my Secure Score change?
-No; it won't change until you remediate all of the recommendation for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
+No; it won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
 
 ### Will this enhanced Secure Score replace the existing Secure Score? 
 Yes, but for a while they'll be running side by side to ease the transition.
