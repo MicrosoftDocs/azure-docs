@@ -67,14 +67,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## Create a private AKS cluster
 
-### Default basic networking 
+### Default basic networking
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster
 ```
-Where *--enable-private-cluster* is a mandatory flag for a private cluster. 
+Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 
-### Advanced networking  
+### Advanced networking
 
 ```azurecli-interactive
 az aks create \
@@ -86,9 +86,9 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24 
+    --service-cidr 10.2.0.0/24
 ```
-Where *--enable-private-cluster* is a mandatory flag for a private cluster. 
+Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
@@ -103,36 +103,36 @@ The API server endpoint has no public IP address. Consequently, you must create 
    ```
 
 1. Do either of the following:
-   * Create a VM in the same virtual network as the AKS cluster.  
+   * Create a VM in the same virtual network as the AKS cluster.
    * Create a VM in a different virtual network, and peer this virtual network with the AKS cluster virtual network.
 
      If you create a VM in a different virtual network, set up a link between this virtual network and the private DNS zone. To do so:
-    
-     a. Go to the MC_* resource group in the Azure portal.  
-     b. Select the private DNS zone.   
-     c. In the left pane, select the **Virtual network** link.  
-     d. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-     e. Go back to the MC_* resource group in the Azure portal.  
-     f. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
-     g. In the left pane, select **Peerings**.  
-     h. Select **Add**, add the virtual network of the VM, and then create the peering.  
+
+     a. Go to the MC_* resource group in the Azure portal.
+     b. Select the private DNS zone.
+     c. In the left pane, select the **Virtual network** link.
+     d. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.
+     e. Go back to the MC_* resource group in the Azure portal.
+     f. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.
+     g. In the left pane, select **Peerings**.
+     h. Select **Add**, add the virtual network of the VM, and then create the peering.
      i. Go to the virtual network where you have the VM, select **Peerings**, select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
 
 1. Access the VM via Secure Shell (SSH).
 1. Install the Kubectl tool, and run the Kubectl commands.
 
 
-## Dependencies  
-* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
+## Dependencies
+* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.
 
-## Limitations 
+## Limitations
 * [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
-* No support for virtual nodes in a private cluster to spin private Cisco Application Centric Infrastructure (Cisco ACI) instances in a private Azure virtual network.
+* No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) instances in a private Azure virtual network.
 * No support for Azure DevOps integration out of the box with private clusters.
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No current support for Azure Dev Spaces.
-* No support for converting existing AKS clusters into private clusters.  
-* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
+* No support for converting existing AKS clusters into private clusters.
+* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning.
 * Azure Monitor for containers Live Data isn't currently supported.
 * *Bring your own DNS* isn't currently supported.
 
