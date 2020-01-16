@@ -44,7 +44,7 @@
       href: ../manage/understand-vm-reservation-charges.md
     - name: Azure Storage reserved capacity discounts
       href: understand-storage-charges.md
-    - name: Azure Disk Storage reserved instance discounts
+    - name: Azure Disk Storage reservation discounts
       href: understand-disk-reservations.md
     - name: Cosmos DB reserved capacity discounts
       href: understand-cosmosdb-reservation-charges.md

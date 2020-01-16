@@ -27,7 +27,7 @@ Service plans:
 
 - **Reserved Virtual Machine Instance** - A reservation only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
 - **Azure Storage reserved capacity** - A reservation covers storage capacity for standard storage accounts for Blob storage or Azure Data Lake Gen2 storage. The reservation does not cover bandwidth or transaction rates.
-- **Azure Disk Storage reserved instance** - A reservation only covers premium SSDs of P30 size or greater. It does not cover any other disk types or sizes smaller than P30.
+- **Azure Disk Storage reservations** - A reservation only covers premium SSDs of P30 size or greater. It does not cover any other disk types or sizes smaller than P30.
 - **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
 - **SQL Database reserved vCore** - Only the compute costs are included with a reservation. The license is billed separately.
 - **SQL Data Warehouse** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the SQL Data Warehouse usage.

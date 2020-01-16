@@ -1,6 +1,6 @@
 ---
-title: Understand Azure reserved disk instances discount
-description: Learn how Azure reserved disk instance discount is applied to your premium SSD managed disks.
+title: Understand Azure reserved disks discount
+description: Learn how Azure reserved disks discount is applied to your premium SSD managed disks.
 author: roygara
 ms.service: cost-management-billing
 ms.devlang: na
@@ -11,7 +11,7 @@ ms.date: 01/13/2020
 ms.author: rogarana
 ---
 
-# Understand how your reservation discount is applied to Azure Disk
+# Understand how your reservation discount is applied to Azure Disk Storage
 
 After you purchase Azure disk reserved capacity, the reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk capacity only, disk snapshots are charged at pay-as-you-go rates.
 
