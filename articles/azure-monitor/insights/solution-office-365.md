@@ -102,7 +102,7 @@ ms.date: 01/08/2019
 > 
 > ###	Q: What will happen on March 30? Do I need to offboard beforehand?
 > 
-> - You won’t be able to receive data from the **Office365** solution, and it will be removed from any workspaces where it's installed. The solution will no longer be available in the Marketplace
+> - You won’t be able to receive data from the **Office365** solution. The solution will no longer be available in the Marketplace
 > - For Azure Sentinel customers, the Log Analytics workspace solution **Office365** will be included in the Azure Sentinel **SecurityInsights** solution.
 > - If you don’t offboard your solution manually, your data will be disconnected automatically on March 30.
 > 
