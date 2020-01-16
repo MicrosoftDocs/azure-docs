@@ -11,7 +11,7 @@ ms.author: sivethe
 
 # Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
@@ -21,7 +21,7 @@ The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version 
 
 ## Query language support
 
-Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands and options.
+Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
 
 ## Database commands
 
@@ -371,55 +371,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |Sparse	|No |
 |Background|	Yes |
 
-## Logical operators
-
-|Command  |Supported |
-|---------|---------|
-|$or	|	Yes|
-|$and	|	Yes|
-|$not	|	Yes|
-|$nor	|	Yes|
-
-## Element Operators
-
-|Command  |Supported |
-|---------|---------|
-|$exists|	Yes|
-|$type	|	Yes|
-
-## Evaluation query operators
-
-|Command  |Supported |
-|---------|---------|
-|$expr	|	No|
-|$jsonSchema	|	No|
-|$mod	|	Yes|
-|$regex |	Yes|
-|$text	| No|
-|$where	|No|
-
-## Array operators
-
-|Command  |Supported | Example |
-|---------|---------|---------|
-| $all | Yes| ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-| $elemMatch | Yes| ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-| $size | Yes | ```{ "Location.coordinates": { $size: 2 } }``` |
-
-## Comment operator
-
-|Command  |Supported | Example |
-|---------|---------|---------|
-$comment |Yes|  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-
-## Projection operators
-
-|Command  |Supported |
-|---------|---------|
-|$elemMatch	|Yes|
-|$meta|	No|
-|$slice	| Yes|
-
 ## Operators
 
 Following operators are supported with corresponding examples of their use. Consider this sample document used in the queries below:
@@ -461,6 +412,56 @@ $exists | `{ "Status": { $exists: true } }`|  | -
 $type | `{ "Status": { $type: "string" } }`|  | -
 $mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
 $regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+
+### Logical operators
+
+|Command  |Supported |
+|---------|---------|
+|$or	|	Yes|
+|$and	|	Yes|
+|$not	|	Yes|
+|$nor	|	Yes|
+
+### Element Operators
+
+|Command  |Supported |
+|---------|---------|
+|$exists|	Yes|
+|$type	|	Yes|
+
+### Evaluation query operators
+
+|Command  |Supported |Notes|
+|---------|---------|---------|
+|$expr	|	No|
+|$jsonSchema	|	No|
+|$mod	|	Yes|
+|$regex |	Yes|
+|$text	| No| Not supported. Use $regex instead.|
+|$where	|No|
+
+### Array operators
+
+|Command  |Supported | Example |
+|---------|---------|---------|
+| $all | Yes| ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
+| $elemMatch | Yes| ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
+| $size | Yes | ```{ "Location.coordinates": { $size: 2 } }``` |
+
+### Comment operator
+
+|Command  |Supported | Example |
+|---------|---------|---------|
+$comment |Yes|  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
+
+### Projection operators
+
+|Command  |Supported |
+|---------|---------|
+|$elemMatch	|Yes|
+|$meta|	No|
+|$slice	| Yes|
+
 
 ### Notes
 
@@ -572,12 +573,6 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
-## Additional operators
-
-Operator | Example | Notes
---- | --- | --- |
-$text |  | Not supported. Use $regex instead.
-
 ## Unique indexes
 
 Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique’ constraint.
@@ -588,7 +583,7 @@ Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. 
 
 ## User and role management
 
-Cosmos DB does not yet support users and roles. However, Cosmos DB supports role based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Cosmos DB does not yet support users and roles. However, Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Replication
 
