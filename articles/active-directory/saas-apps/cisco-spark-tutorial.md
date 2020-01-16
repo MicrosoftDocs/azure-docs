@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/15/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -155,21 +155,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Cisco Webex
 
-1. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
+1. To automate the configuration within Cisco Webex, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Select **Settings** and under the **Authentication** section, click **Modify**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Cisco Webex** will direct you to the Cisco Webex application. From there, provide the admin credentials to sign into Cisco Webex. The browser extension will automatically configure the application for you and automate steps 3-8.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Cisco Webex manually, sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
+
+4. Select **Settings** and under the **Authentication** section, click **Modify**.
 
     ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
-3. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
+5. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 
-4. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
+6. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
 
 	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
-5. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
+7. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 
-6. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
+8. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
 
 ### Create Cisco Webex test user
 

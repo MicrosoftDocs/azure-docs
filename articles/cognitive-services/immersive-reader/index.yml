@@ -39,6 +39,8 @@ landingContent:
         links:
           - text: Python
             url: tutorial-python.md
+          - text: Use multiple Immersive Reader resources
+            url: tutorial-multiple-resources.md
 
   - title: Explore Immersive Reader
     linkLists:

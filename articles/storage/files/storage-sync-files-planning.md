@@ -4,7 +4,7 @@ description: Learn what to consider when planning for an Azure Files deployment.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -342,13 +342,13 @@ In the following table, we have provided both the size of the namespace as well 
 | Namespace size - files & directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (initial sync)/ 2 (typical churn)      |
-| 5        | 2.3     | 2        | 16 (initial sync)/ 4 (typical churn)    |
-| 10       | 4.7     | 4        | 32  (initial sync)/ 8 (typical churn)   |
-| 30       | 14.0    | 8        | 48 (initial sync)/ 16 (typical churn)   |
-| 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
-| 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
+| 5        | 2.4     | 2        | 16 (initial sync)/ 4 (typical churn)    |
+| 10       | 4.8     | 4        | 32  (initial sync)/ 8 (typical churn)   |
+| 30       | 14.3    | 8        | 48 (initial sync)/ 16 (typical churn)   |
+| 50       | 23.8    | 16       | 64  (initial sync)/ 32 (typical churn)  |
+| 100*     | 47.7   | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*More than 100 million files & directories is not supported at this time. This is a soft limit.
+\*More than 100 million files & directories has not been tested. This is a soft limit.
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 
