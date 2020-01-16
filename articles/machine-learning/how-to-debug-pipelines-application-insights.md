@@ -106,7 +106,7 @@ logger.info("Info for application insights", custom_dimensions)
 
 The OpenCensus AuzreLogHandler is used to route Python logs to Application Insights. As a result, Python logging nuances should be considered. Wen a logger is created, it has a default log level and will show logs greater than or equal to that level. A good reference for using Python logging features is the [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
 
-The `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable is needed for the OpenCensus library. We recommend setting this environment variable instead of passing it in as a pipeline parameter to avoid passing around plaintext connection strings. # TODO: How to
+The `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable is needed for the OpenCensus library. We recommend setting this environment variable instead of passing it in as a pipeline parameter to avoid passing around plaintext connection strings.
 
 ## Querying logs in Application Insights
 

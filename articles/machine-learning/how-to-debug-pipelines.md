@@ -144,8 +144,7 @@ logger.addHandler(handler)
 # Python logging with OpenCensus AzureLogHandler
 logger.warning("I am an OpenCensus warning statement, find me in Application Insights!")
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
-```
-TODO: if this code block is too large, import it from a separate repo 
+``` 
 
 ## Debug and troubleshoot in Application Insights
 For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot Machine Learning Pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
