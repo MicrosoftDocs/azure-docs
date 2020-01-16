@@ -47,6 +47,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added a new method called get_access_token() to AksWebservice that will return AksServiceAccessToken object, which contains access token, refresh after timestamp, expiry on timestamp and token type. 
     + Deprecated existing get_token() method in AksWebservice as the new method returns all of the information this method returns.
     + Modified output of az ml service get-access-token command. Renamed token to accessToken and refreshBy to refreshAfter. Added expiryOn and tokenType properties.
+    + Fixed get_active_runs
   + **azureml-explain-model**
     + updated shap to 0.33.0 and interpret-community to 0.4.*
   + **azureml-interpret**
