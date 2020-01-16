@@ -110,7 +110,7 @@ For more information, see the [az ml computetarget create ask](https://docs.micr
 
 **Time estimate:** Approximately 5 minutes.
 
-If you already have AKS cluster in your Azure subscription, and it is lower than version 1.15, you can use it to deploy your image.
+If you already have AKS cluster in your Azure subscription, and it is version 1.16 or lower, you can use it to deploy your image.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.

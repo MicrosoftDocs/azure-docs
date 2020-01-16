@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Blueprints
 
-You may run into errors when creating or assigning blueprints. This article describes various errors
-that may occur and how to resolve them.
+You may run into errors when creating, assigning, or removing blueprints. This article describes
+various errors that may occur and how to resolve them.
 
 ## Finding error details
 
@@ -71,6 +71,26 @@ parameter looks like `[[resourceGroup().tags.myTag]`. The escape character cause
 treat the value as a string when processing the blueprint. Blueprints then places the function on
 the artifact allowing it to be dynamic as expected. For more information, see
 [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/templates/template-expressions.md).
+
+## Delete errors
+
+### <a name="assign-delete-timeout"></a>Scenario: Assignment deletion timeout
+
+#### Issue
+
+Deletion of a blueprint assignment doesn't complete.
+
+#### Cause
+
+A blueprint assignment may become stuck in a non-terminal state when deleted. This state is caused
+when resources created by the blueprint assignment are still pending deletion or don't return a
+status code to Azure Blueprints.
+
+#### Resolution
+
+Blueprint assignments in a non-terminal state are automatically marked **Failed** after a _6 hour_
+timeout. Once the timeout has adjusted the state of the blueprint assignment, the delete can be
+retried.
 
 ## Next steps
 

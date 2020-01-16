@@ -178,8 +178,6 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**Server endpoint has a health status of “No Activity” and the server state on the registered servers blade is “Online”**  
 
 A server endpoint health status of "No Activity" means the server endpoint has not logged sync activity in the past two hours.
@@ -318,7 +316,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### Common sync errors
-<a id="-2147023673"></a>**The sync session was canceled.**  
+<a id="-2147023673"></a>**The sync session was cancelled.**  
 
 | | |
 |-|-|
@@ -388,6 +386,22 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
 3. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 4. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134351804"></a>**Sync failed because the request is not authorized to perform this operation.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (decimal)** | -2134351804 |
+| **Error string** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Remediation required** | Yes |
+
+This error occurs because the Azure File Sync agent is not authorized to access the Azure file share. You can troubleshoot this error by working through the following steps:
+
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
 
