@@ -41,7 +41,7 @@ For more information, see [Plan IP addressing for your cluster](configure-azure-
 There might be various reasons for the pod being stuck in that mode. You might look into:
 
 * The pod itself, by using `kubectl describe pod <pod-name>`.
-* The logs, by using `kubectl log <pod-name>`.
+* The logs, by using `kubectl logs <pod-name>`.
 
 For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
