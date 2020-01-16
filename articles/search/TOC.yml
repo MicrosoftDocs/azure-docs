@@ -249,6 +249,8 @@
       items:
       - name: Integrate custom skills
         href: cognitive-search-custom-skill-interface.md
+      - name: Example - Azure Functions (Python)
+        href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
         href: cognitive-search-create-custom-skill-example.md
       - name: Example - Containers
