@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 #Customer intent: As a professional data scientist, I want to develop, deploy, and manage Azure Machine Learning projects locally in Visual Studio Code.
 ---
 
@@ -48,8 +48,9 @@ The first thing you have to do to build an application in Azure Machine Learning
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
 1. Right-click your Azure subscription and select **Create Workspace**. 
-
-    ![Create a workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
+    
+    > [!div class="mx-imgBorder"]
+    > ![Create a workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
 
 1. By default a name is generated containing the date and time of creation. In the command palette, change the name to "TeamWorkspace" and press **Enter**.
 1. Select **Create a new resource group** in the command palette. 
