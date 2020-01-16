@@ -49,6 +49,8 @@ The SKU for an Azure AD DS managed domain is changed using the Azure portal.
 
     ![Choose the required SKU from the drop-down menu in the Azure portal](media/change-sku/change-sku-selection.png)
 
+It can take a minute or two to change the SKU type.
+
 ## Next steps
 
 If you have a resource forest and need to create additional trusts after the SKU change, see [Create an outbound forest trust to an on-premises domain in Azure AD DS (preview)][create-trust].
