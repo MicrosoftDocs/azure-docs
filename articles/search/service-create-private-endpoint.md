@@ -13,13 +13,17 @@ ms.date: 01/13/2020
 
 # Create a Private Endpoint for a secure connection to Azure Cognitive Search (Preview)
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+In this article, use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address. Next, configure an Azure virtual machine in the same virtual network, and use it to access the search service via a private endpoint.
 
 > [!Important]
-> Private Endpoint support for Azure Cognitive Search is available as a limited-access preview and not currently intended for production use. Please fill out and submit the [access request form](https://aka.ms/SearchPrivateLinkRequestAccess) if you would like to access the preview. The form requests information about you, your company, and general application architecture. Once we review your request, you'll receive a confirmation email with additional instructions.
+> Private Endpoint support for Azure Cognitive Search is available [upon request](https://aka.ms/SearchPrivateLinkRequestAccess) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 >
-> Once you are granted access to the preview, you'll be able to configure Private Endpoints for your service using the Azure portal and REST API version [2019-10-06-Preview](search-api-preview.md).
+> Once you are granted access to the preview, you'll be able to configure Private Endpoints for your service using the Azure portal or the [Management REST API version 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
 >   
+
+## Why use Private Endpoint for secure access?
+
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enables you to:
 
@@ -32,16 +36,18 @@ Private endpoints for your search service enables you to:
 > * Available only for search services on the **Basic** tier. 
 > * Available in the West US 2, West Central US, East US, South Central US, Australia East, and Australia Southeast regions.
 > * When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
-> * When the service endpoint is private, you must use the search API to upload documents to the index.
+> * When the service endpoint is private, you must use the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) to upload documents to the index.
 > * You must use the following link to see the private endpoint support option in the Azure portal: https://portal.azure.com/?feature.enablePrivateEndpoints=true
 
-In this article, you'll learn how to use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address, configure an Azure virtual machine in the same virtual network, and use it to access the search service via a private endpoint.
 
 
-## Create a VM
+## Request access 
+
+Click [request access](https://aka.ms/SearchPrivateLinkRequestAccess) to sign up for this preview feature. The form requests information about you, your company, and  general network topology. Once we review your request, you'll receive a confirmation email with additional instructions.
+
+## Create the virtual network
+
 In this section, you will create a virtual network and subnet to host the VM that will be used to access your search service's private endpoint.
-
-### Create the virtual network
 
 1. From the Azure portal home tab, select **Create a resource** > **Networking** > **Virtual network**.
 
@@ -61,7 +67,7 @@ In this section, you will create a virtual network and subnet to host the VM tha
 1. Leave the rest as default and select **Create**.
 
 
-## Create your search service with a private endpoint
+## Create a search service with a private endpoint
 
 In this section, you will create a new Azure Cognitive Search service with a Private Endpoint. 
 
@@ -115,9 +121,9 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
 
 1. Select **Keys** from the left content menu.
 
-1. Copy the **Primary admin key** for later.
+1. Copy the **Primary admin key** for later, when connecting to the service.
 
-### Create a virtual machine
+## Create a virtual machine
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
@@ -166,9 +172,9 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
 1. When you see the **Validation passed** message, select **Create**. 
 
 
-## Connect to a VM from the internet
+## Connect to the VM
 
-Connect to the VM *myVm* from the internet as follows:
+Download and then connect to the VM *myVm* as follows:
 
 1. In the portal's search bar, enter *myVm*.
 
@@ -192,9 +198,11 @@ Connect to the VM *myVm* from the internet as follows:
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
 
-## Access the search service privately from the VM
+## Test connections
 
 In this section, you will verify private network access to the search service and connect privately to the using the Private Endpoint.
+
+Recall from the introduction that all interactions with the search service require the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/). The portal and .NET SDK are not supported in this preview.
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
@@ -209,14 +217,14 @@ In this section, you will verify private network access to the search service an
     Address:  10.0.0.5
     Aliases:  [search service name].search.windows.net
     ```
-1. Follow this [Quickstart](search-get-started-postman.md) from the VM to create a new search index in your service in Postman using the REST API.  Use the key you copied in a previous step to authenticate to the service.
 
-1. Try several of these same requests in Postman on your local workstation.
+1. From the VM, connect to the search service and create an index. You can follow this [quickstart](search-get-started-postman.md) to create a new search index in your service in Postman using the REST API. Setting up requests from Postman requires the search service endpoint (https://[search service name].search.windows.net) and the admin api-key you copied in a previous step.
 
-1. If you are able to complete the Quickstart from the VM, but receive an error that the remote server does not exist on your local workstation, you have successfully configured a private endpoint for your search service.
+1. Completing the quickstart from the VM is your confirmation that the service is fully operational.
 
 1. Close the remote desktop connection to *myVM*. 
 
+1. To verify that your service is not accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server does not exist, you have successfully configured a private endpoint for your search service.
 
 ## Clean up resources 
 When you're done using the Private Endpoint, search service, and the VM, delete the resource group and all of the resources it contains:
