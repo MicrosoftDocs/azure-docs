@@ -22,7 +22,7 @@ Cloud apps or actions is a key part of a Conditional Access policy. Conditional 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
 
-![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-client-apps/conditional-access-define-policy-specify-cloud-apps.png)
+![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-define-policy-specify-cloud-apps.png)
 
 ## Microsoft cloud applications
 
@@ -117,7 +117,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 ## User actions
 
-User actions are tasks that can be performed by a user. The only currently supported action is Register security information (preview), which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration (preview)](../authentication/concept-registration-mfa-sspr-combined.md).
+User actions are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration (preview)](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## Next steps
 
