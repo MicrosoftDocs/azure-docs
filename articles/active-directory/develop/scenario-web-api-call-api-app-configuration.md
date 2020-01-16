@@ -16,26 +16,26 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web API that calls web APIs - code configuration
+# A web API that calls web APIs: Code configuration
 
 After you've registered your web API, you can configure the code for the application.
 
-The code to configure your web API so that it calls downstream web APIs builds on top of the code used to protect a web API. For more info, see [Protected web API - app configuration](scenario-protected-web-api-app-configuration.md).
+The code that you use to configure your web API so that it calls downstream web APIs builds on top of the code that's used to protect a web API. For more information, see [Protected web API: App configuration](scenario-protected-web-api-app-configuration.md).
 
 ## Code subscribed to OnTokenValidated
 
-On top of the code configuration for any protected web APIs, you need to subscribe to the validation of the bearer token that's received when your API is called:
+On top of the code configuration for any protected web APIs, you need to subscribe to the validation of the bearer token that you receive when your API is called:
 
 ```csharp
 /// <summary>
-/// Protects the web API with Microsoft Identity Platform (a.k.k AAD v2.0)
+/// Protects the web API with the Microsoft identity platform, or Azure Active Directory (Azure AD) developer platform
 /// This supposes that the configuration files have a section named "AzureAD"
 /// </summary>
-/// <param name="services">Service collection to which to add authentication</param>
+/// <param name="services">The service collection to which to add authentication</param>
 /// <param name="configuration">Configuration</param>
 /// <returns></returns>
 public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollection services,
@@ -46,14 +46,14 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
     services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
     {
         // When an access token for our own web API is validated, we add it 
-        // to MSAL.NET's cache so that it can be used from the controllers.
+        // to the MSAL.NET cache so that it can be used from the controllers.
         options.Events = new JwtBearerEvents();
 
         options.Events.OnTokenValidated = async context =>
         {
             context.Success();
 
-            // Adds the token to the cache, and also handles the incremental consent 
+            // Adds the token to the cache and handles the incremental consent 
             // and claim challenges
             AddAccountToCacheFromJwt(context, scopes);
             await Task.FromResult(0);
@@ -63,18 +63,18 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 }
 ```
 
-## On-behalf-of flow
+## On-Behalf-Of flow
 
 The AddAccountToCacheFromJwt() method needs to:
 
-- Instantiate an MSAL confidential client application.
-- Call `AcquireTokenOnBehalf` to exchange the bearer token that was acquired by the client for the web API, against a bearer token for the same user, but for our API to call a downstream API.
+- Instantiate a Microsoft Authentication Library (MSAL) confidential client application.
+- Call the `AcquireTokenOnBehalf` method. This call exchanges the bearer token that was acquired by the client for the web API against a bearer token for the same user, but it has the API call a downstream API.
 
 ### Instantiate a confidential client application
 
-This flow is only available in the confidential client flow so the protected web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via the `WithClientSecret` or `WithCertificate` methods, respectively.
+This flow is available only in the confidential client flow, so that the protected web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder class](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via either the `WithClientSecret` or `WithCertificate` method.
 
-![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![List of IConfidentialClientApplication methods](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```csharp
 IConfidentialClientApplication app;
@@ -92,18 +92,20 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
-Finally, instead of a client secret or a certificate, confidential client applications can also prove their identity using client assertions.
-This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
+Finally, instead of proving their identity via a client secret or a certificate, confidential client applications can prove their identity by using client assertions.
+For more information about this advanced scenario, see [Confidential client assertions](msal-net-client-assertions.md).
 
-### How to call on-behalf-of
+### How to call On-Behalf-Of
 
-The on-behalf-of (OBO) call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) method on the `IConfidentialClientApplication` interface.
+You make the On-Behalf-Of (OBO) call by calling the [AcquireTokenOnBehalf method](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) on the `IConfidentialClientApplication` interface.
 
-The `UserAssertion` is built from the bearer token received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one that takes a JWT bearer token, and one that takes any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`).
+The `UserAssertion` class is built from the bearer token that's received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
+* One that takes a JSON Web Token (JWT) bearer token
+* One that takes any kind of user assertion, another kind of security token, whose type is then specified in an additional parameter named `assertionType`
 
-![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![UserAssertion properties and methods](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-In practice, the OBO flow is often used to acquire a token for a downstream API and store it in the MSAL.NET user token cache so that other parts of the web API can later call on the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs. This call has the effect of refreshing the tokens, if needed.
+In practice, the OBO flow is often used to acquire a token for a downstream API and store it in the MSAL.NET user token cache. You do this so that other parts of the web API can later call on the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs. This call has the effect of refreshing the tokens, if needed.
 
 ```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -125,7 +127,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
         // Create the application
         var application = BuildConfidentialClientApplication(httpContext, principal);
 
-        // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
+        // .Result to make sure that the cache is filled in before the controller tries to get access tokens
         var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
                                                         userAssertion)
                                 .ExecuteAsync()
@@ -139,13 +141,13 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-You can also see an example of on behalf of flow implementation in [NodeJS and Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+You can also see an example of OBO flow implementation in [Node.js and Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## Protocol
 
-For more information about the on-behalf-of protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+For more information about the OBO protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Acquiring a token for the app](scenario-web-api-call-api-acquire-token.md)
+> [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
