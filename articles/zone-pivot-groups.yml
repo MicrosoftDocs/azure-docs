@@ -86,7 +86,7 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
-- id: programming-languages-set-six
+- id: programming-languages-set-seven
   title: Programming languages
   prompt: Choose a programming language
   pivots:

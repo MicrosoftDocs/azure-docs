@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/15/2020
 ms.author: qiohu
-zone_pivot_groups: programming-languages-set-six
+zone_pivot_groups: programming-languages-set-seven
 ---
 
 # Automatic language detection for speech to text
