@@ -65,6 +65,21 @@ As a builder, you can also customize the Azure IoT Central application UI for th
 - Configuring custom dashboards to help operators discover insights and resolve issues faster.
 - Configuring custom analytics to explore time series data from your connected devices.
 
+## Pricing
+
+You can create IoT Central application using a 7-day free trial, or use a Paid subscription.
+
+- **Trial** applications are free for seven days and support up to five devices. They can be converted to Paid at any time before they expire.
+- **Paid** applications are charged on a per device basis, you can choose either **Standard 1** or **Standard 2** paid plan  with the first two devices being free. 
+
+|  | Standard 1 | Standard 2 |
+| ----------- | ------- |  ------- |
+| Price per device | $0.40  | $0.70 |
+| Monthly message device allocation | 5,000 messages | 30,000 messages |
+| Included free quantity for IoT Central application | 2 free devices(10,000 included messages) | 2 free devices(60,000 included messages) |
+| Overage pricing beyond the monthly message allocation | $0.000015 per message | $0.000015 per message |
+| Use case | For devices sending few messages per hour | For devices sending a message every few minutes |
+
 ## Connect your devices
 
 After the builder defines the types of devices that can connect to the application, a device developer creates the code to run on the devices. As a device developer, you use Microsoft's open-source [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) to create your device code. These SDKs have broad language, platform, and protocol support to meet your needs to connect your devices to your Azure IoT Central application. The SDKs help you implement the following device capabilities:

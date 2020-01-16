@@ -74,6 +74,21 @@ This device template includes:
 - Cloud properties that aren't stored on the device.
 - Customizations, dashboards, and forms that are part of your IoT Central application.
 
+### Pricing
+
+You can create IoT Central application using a 7-day free trial, or use a Paid subscription.
+
+- **Trial** applications are free for seven days and support up to five devices. They can be converted to Paid at any time before they expire.
+- **Paid** applications are charged on a per device basis, you can choose either **Standard 1** or **Standard 2** paid plan  with the first two devices being free. 
+
+|  | Standard 1 | Standard 2 |
+| ----------- | ------- |  ------- |
+| Price per device | $0.40  | $0.70 |
+| Monthly message device allocation | 5,000 messages | 30,000 messages |
+| Included free quantity for IoT Central application | 2 free devices(10,000 included messages) | 2 free devices(60,000 included messages) |
+| Overage pricing beyond the monthly message allocation | $0.000015 per message | $0.000015 per message |
+| Use case | For devices sending few messages per hour | For devices sending a message every few minutes |
+
 ### Create device templates
 
 [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play, is a device capability model schema that describes device capabilities. In an IoT Central preview application, device templates use these IoT Plug and Play device capability models.

@@ -38,7 +38,7 @@ To create your application:
 
 1. Azure IoT Central automatically suggests an application name based on the template you've selected. You can accept this name or enter your own friendly application name, such as **Continuous Patient Monitoring**. Azure IoT Central also generates a unique URL prefix for you based on the application name. You're free to change this URL prefix to something more memorable if you'd like.
 
-2. You can select whether you would like to create a **Trial** application or a **Pay-As-You-Go** application. **Trial** applications are free for seven days before they expire and allow up to five free devices. They can be converted to Pay-As-You-Go at any time before they expire. If you create a Trial application, you need to enter your contact information and choose whether to receive information and tips from Microsoft. **Pay-As-You-Go** applications support up to two free devices and require you to put in your Azure subscription information.
+2. You can select whether you would like to create a **Trial** application or a **Paid** application. **Trial** applications are free for seven days before they expire and allow up to five free devices. They can be converted to Paid at any time before they expire. If you create a Trial application, you need to enter your contact information and choose whether to receive information and tips from Microsoft. **Paid** applications support up to two free devices and require you to put in your Azure subscription information.
 
 3. Select **Create** at the bottom of the page to deploy your application.
 
