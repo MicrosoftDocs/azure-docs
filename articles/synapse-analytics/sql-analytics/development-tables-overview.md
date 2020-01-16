@@ -98,7 +98,7 @@ For more information, see  [Temporary tables](development-tables-temporary.md).
 
 [External tables](development-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Storage. 
 
-In the SQL pool resource, when used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL pool. As such, external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+Import data from external tables into SQL pool using the [CREATE TABLE AS SELECT](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 For SQL on-demand, you can use [CETAS](development-tables-cetas.md) to save the query result to an external table in Azure Storage.
 
