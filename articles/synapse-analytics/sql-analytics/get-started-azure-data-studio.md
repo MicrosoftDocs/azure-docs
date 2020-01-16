@@ -22,7 +22,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [Azure Data Studio](get-started-azure-data-studio.md) to connect to and query SQL Analytics in Azure Synapse Analytics. 
+You can use [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) to connect to and query SQL Analytics in Azure Synapse Analytics. 
 
 ## Connect 
 
@@ -59,7 +59,7 @@ Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL
 
 ![New Query](media/sql-analytics-query-ads/5-new-query.png)
 
-For example, you can use this Transact-SQL statement to [query Parquet files](query-parquet-files.md): 
+For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md): 
 
 ```sql
 SELECT COUNT(*) 
