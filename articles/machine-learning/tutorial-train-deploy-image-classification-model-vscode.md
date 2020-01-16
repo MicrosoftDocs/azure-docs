@@ -70,7 +70,8 @@ One or more experiments can be created in your workspace to track and analyze in
 1. Right-click the **Experiments** node.
 1. Select **Create Experiment** from the context menu.
 
-    ![Create an experiment](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create an experiment](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
 
 1. In the command palette prompt, name your experiment "MNIST" and press **Enter** to create the new experiment. 
 
@@ -87,7 +88,8 @@ To create a compute target:
 1. Expand the **TeamWorkspace** node. 
 1. Under the workspace node, right-click the **Compute** node and choose **Create Compute**. 
 
-    ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Select **Azure Machine Learning Compute (AmlCompute)**. Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute that can be used with other users in your workspace.
 1. Choose a VM size. In the command palette prompt, select **Standard_F2s_v2**. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
@@ -106,7 +108,8 @@ To create a run configuration:
 1. Expand the **TeamWorkspace** node. 
 1. Under the workspace node, right-click the **TeamWkspc-com** compute node and choose **Create Run Configuration**.
 
-    ![Create a run configuration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create a run configuration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
 
 1. In the command palette prompt, name your run configuration "MNIST-rc" and press **Enter** to create your compute.
 1. Then, select **TensorFlow Single-Node Training** as the training job type.
@@ -182,14 +185,16 @@ To run an Azure Machine Learning experiment:
 1. Right-click the **MNIST** experiment.
 1. Select **Run Experiment**.
 
-    ![Run an experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
+    > [!div class="mx-imgBorder"]
+    > ![Run an experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
 
 1. In the command palette, select the **TeamWkspc-com** compute target.
 1. Then, select the **MNIST-rc** run configuration.
 1. At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
 1. When the dialog requesting to open an external website appears, select **Open**.
 
-    ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
+    > [!div class="mx-imgBorder"]
+    > ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
 
 When the model is done training, the status label next to the run node updates to "Completed".
 
@@ -204,12 +209,14 @@ To register your model:
 1. Expand the **TeamWorkspace > Experiments > MNIST** node.
 1. Get the model outputs generated from training the model. Right-click the **Run 1** run node and select **Download outputs**. 
 
-    ![Download model outputs](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
+    > [!div class="mx-imgBorder"]
+    > ![Download model outputs](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
 
 1. Choose the directory to save the downloaded outputs to. By default, the outputs are placed in the directory currently opened in Visual Studio Code.
 1. Right-click the **Models** node and choose **Register Model**.
 
-    ![Register a model](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+    > [!div class="mx-imgBorder"]
+    > ![Register a model](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
 
 1. On the command palette, name your model "MNIST-TensorFlow-model" and press **Enter**.
 1. A TensorFlow model is made up of several files. Select **Model folder** as the model path format in the command palette. 
@@ -252,7 +259,8 @@ To deploy a web service as an ACI :
 1. Expand the **TeamWorkspace > Models** node. 
 1. Right-click the **MNIST-TensorFlow-model** and select **Deploy Service from Registered Model**.
 
-    ![Deploy the model](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+    > [!div class="mx-imgBorder"]
+    > ![Deploy the model](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
 
 1. On the command palette, select **Azure Container Instances**.
 1. Name your service "mnist-tensorflow-svc" and press **Enter** in the command palette.
