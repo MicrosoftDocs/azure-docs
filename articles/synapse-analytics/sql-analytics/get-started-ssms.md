@@ -23,7 +23,8 @@ ms.reviewer: jrasnick
 
 You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query SQL Analytics in Azure Synapse Analytics through either SQL on-demand or SQL pool resources. 
 
-SSMS is partiallysupported starting in version 18.5 with limited features such as connecting and querying. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported.
+## Supported tools for SQL on-demand
+SSMS is partially supported starting in version 18.5 with limited features such as connecting and querying. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported.
 
 ## Prerequisites
 
@@ -75,7 +76,8 @@ To connect to SQL Analytics using SQL on-demand, follow these steps:
 ## 2. Run a sample query
 
 ### SQL pool
-Now that a database connection has been established, you'll write a query.
+
+Now that a database connection has been established, you can query the data.
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
@@ -95,7 +97,7 @@ Now that a database connection has been established, you'll write a query.
 
 ### SQL on-demand
 
-Now that you've established a database connection, you'll write a query.
+Now that you've established a database connection, you can query the data.
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
