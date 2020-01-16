@@ -18,18 +18,18 @@
 2. Navigate to **Azure Active Directory -> All users**.
 3. Select **Multi-Factor Authentication** to open the multi-factor authentication page.
 
-   ![Sign in](./media/vpn-gateway-vwan-mfa-aad/mfa1.jpg)
+   ![Sign in](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa1.jpg)
 
 ## <a name="users"></a> Select users
 
 1. On the **multi-factor authentication** page, select the user(s) for which you want to enable MFA.
 2. Select **Enable**.
 
-   ![Select](./media/vpn-gateway-vwan-mfa-aad/mfa2.jpg)
+   ![Select](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa2.jpg)
 
 ## <a name="enableauth"></a>Enable authentication
 
 1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
 2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
 
-   ![Directory ID](./media/vpn-gateway-vwan-mfa-aad/user1.jpg)
+   ![Directory ID](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)
