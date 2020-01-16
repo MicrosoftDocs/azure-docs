@@ -98,9 +98,11 @@ It takes about 30 minutes to create and configure the virtual machine.
     Restart-AzureRmVM  [VM name]
     ```
 
-### Connect to the development VM
+## Connect to the development VM
 
 Now that we have created a VM we need to finish installing the software needed to complete the tutorial.
+
+1. Verify that the VM is running by checking its status in the Azure portal.
 
 1. Double-click on the RDP file, `[VM Name].rdp`, that the script created on your desktop.
 
@@ -128,6 +130,12 @@ Now that you have connected to the development machine, add some useful extensio
 
     ```powershell
     cd C:\source\IoTEdgeAndMlSample\DevVM
+    ```
+
+1. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
+
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process
     ```
 
 1. Run the Visual Studio Code extensions script.
