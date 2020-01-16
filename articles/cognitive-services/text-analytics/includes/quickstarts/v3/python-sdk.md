@@ -70,6 +70,9 @@ These code snippets show you how to do the following with the Text Analytics cli
 
 ## Sentiment analysis
 
+> [!NOTE]
+> The below code is for Sentiment Analysis v3, which is in public preview.
+
 Create a new function called `sentiment_analysis_example()` that takes takes the endpoint and key as arguments, then calls the `single_analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
 
@@ -151,6 +154,9 @@ Language:  French
 
 ## Named Entity recognition (public preview)
 
+> [!NOTE]
+> The below code is for Named Entity Recognition v3, which is in public preview.
+
 Create a new function called `entity_recognition_example` that takes takes the endpoint and key as arguments, then calls the `single_recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```python
@@ -186,6 +192,9 @@ Named Entities:
 ```
 
 ## Named Entity Recognition - Personal information (public preview)
+
+> [!NOTE]
+> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
 
 Create a new functions called `entity_pii_example()` that takes takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the PII entities.
 

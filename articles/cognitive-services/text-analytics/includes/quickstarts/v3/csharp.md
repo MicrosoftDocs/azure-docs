@@ -90,6 +90,9 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis (public preview)
 
+> [!NOTE]
+> The below code is for Sentiment Analysis v3, which is in public preview.
+
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<AnalyzeSentimentResult>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
 
 ```csharp
@@ -152,6 +155,9 @@ Language:
 
 ## Named Entity recognition (public preview)
 
+> [!NOTE]
+> The below code is for Named Entity Recognition v3, which is in public preview.
+
 Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```csharp
@@ -179,6 +185,9 @@ Named Entities:
 ```
 
 ## Named Entity Recognition - Personal information (public preview)
+
+> [!NOTE]
+> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
 
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 

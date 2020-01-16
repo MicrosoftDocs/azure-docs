@@ -123,6 +123,9 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis
 
+> [!NOTE]
+> The below code is for Sentiment Analysis v3, which is in public preview.
+
 Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
 ```java
@@ -188,6 +191,9 @@ Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
 ## Named Entity recognition (public preview)
 
+> [!NOTE]
+> The below code is for Named Entity Recognition v3, which is in public preview.
+
 Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its `recognizeEntities()` function. The returned `RecognizeEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not.
 
 ```java
@@ -219,6 +225,9 @@ Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offs
 ```
 
 ## Named Entity Recognition - Personal information (public preview)
+
+> [!NOTE]
+> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
 

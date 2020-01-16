@@ -98,6 +98,9 @@ const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredentia
 
 ## Sentiment analysis (public preview)
 
+> [!NOTE]
+> The below code is for Sentiment Analysis v3, which is in public preview.
+
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length and confidence scores.
 
 ```javascript
@@ -181,6 +184,9 @@ ID: 0
 
 ## Named Entity Recognition
 
+> [!NOTE]
+> The below code is for Named Entity Recognition v3, which is in public preview.
+
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
 
 ```javascript
@@ -230,6 +236,9 @@ Document ID: 1
 ```
 
 ## Named Entity Recognition - Personal information (public preview)
+
+> [!NOTE]
+> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
 
