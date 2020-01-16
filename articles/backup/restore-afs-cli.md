@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ---
 
-# Backup Azure File Shares with CLI
+# Restore Azure File Shares with CLI
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to restore an entire file share or specific files from a restore point created by the [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) service using Azure CLI. You can also perform these steps with [Azure PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-afs-automation) or in the [Azure portal](backup-afs.md).
 
