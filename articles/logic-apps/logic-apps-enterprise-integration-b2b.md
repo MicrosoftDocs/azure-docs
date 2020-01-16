@@ -82,9 +82,7 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
      `@triggerOutputs()['headers']`
 
-      The expression resolves to the **Headers** token:
-
-   ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
+      The expression resolves to the **Headers** token.
 
 1. Now add the **Decode X12 message** action. Under the **AS2 Decode** action, select **New step**.
 
