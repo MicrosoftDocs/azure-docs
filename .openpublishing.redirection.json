@@ -1,6 +1,76 @@
 {
   "redirections": [
     {
+      "source_path": "articles/power-bi-workspace-collections/app-token-flow.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/app-token-flow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/connect-datasource.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/connect-datasource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/create-report-from-dataset.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/create-report-from-dataset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/embed-report.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/embed-report",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/faq.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/get-started-sample.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/get-started-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/get-started.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/interact-with-reports.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/interact-with-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/row-level-security.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/row-level-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/save-reports.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/save-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/scenarios.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/toggle-mode.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/toggle-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/what-are-power-bi-workspace-collections.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/what-are-power-bi-workspace-collections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/whats-new.md",
+      "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/users-groups-roles/groups-update-rule.md",
       "redirect_url": "/articles/active-directory/users-groups-roles/groups-create-rule",
       "redirect_document_id": false
@@ -40958,6 +41028,11 @@
     {
       "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
       "redirect_url": "/azure/hdinsight/hdinsight-debug-ambari-tez-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-debug-jobs.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
       "redirect_document_id": false
     },
     {
