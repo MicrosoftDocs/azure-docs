@@ -95,7 +95,7 @@ Actions represent the content choices from which you want Personalizer to select
 
 ## Create the learning loop
 
-The Personalizer learning loop is a cycle of [Rank](#request-a-rank) and [Reward](#send-a-reward) calls. In this quickstart, each rank call, to personalize the content, is followed by a reward call to tell Personalizer how well the service performed.
+The Personalizer learning loop is a cycle of [Rank](#request-the-best-action) and [Reward](#send-a-reward) calls. In this quickstart, each rank call, to personalize the content, is followed by a reward call to tell Personalizer how well the service performed.
 
 The following code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to select the best action, presenting the selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in its selection.
 
