@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Analytics with Azure Data Studio | Microsoft Docs
-description: Use Azure Data Studio to connect to and query SQL on-demand.
+title: "Azure Data Studio: Connect & query SQL Analytics" 
+description: Use Azure Data Studio to connect to and query SQL Analytics in Azure Synapse. 
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -22,42 +22,44 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use the Azure Data Studio application to connect to and query SQL Analytics. 
+You can use [Azure Data Studio](get-started-azure-data-studio.md) to connect to and query the SQL Analytics feature in Azure Synapse. 
 
-## 1. Connect using Azure Data Studio
-To get started with [Azure Data Studio](get-started-azure-data-studio.md), open the application and select **New Connection**. You'll be prompted to enter the connection details for your SQL on-demand database. 
+## Connect 
+
+To connect to SQL Analytics, open Azure Data Studio and select **New Connection**.
 
 ![Open Azure Data Studio](media/sql-analytics-query-ads/1-start.png)
+
+Choose **Microsoft SQL Server** as the **Connection type**. 
 
 The connection requires the following parameters:
 
 * **Server:** Server in the form `<`Server Name`>`.database.windows.net
 * **Database:** Database name
 
-To use SQL Server Authentication, you need to add the username/password parameters:
+Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**. 
+
+To use **SQL Login** as the authentication type, add the username/password parameters:
 
 * **User:** Server user in the form `<`User`>`
 * **Password:** Password associated with the user
 
-As an example, your connection might look like the following Connection Details screenshot:
+This screenshot shows the **Connection Details** for **Windows Authentication**:
+
+![Windows Authentication](media/sql-analytics-query-ads/3-windows-auth.png)
+
+This screenshot shows the **Connection Details** using **SQL Login**: 
 
 ![SQL Login](media/sql-analytics-query-ads/2-database-details.png)
 
 
-To use Windows authentication or Azure Active Directory, you'll select one or the other as the authentication type. The following screenshot shows the Connection Details for Windows Authentication:
+## Query
 
-![Windows Authentication](media/sql-analytics-query-ads/3-windows-auth.png)
-
-After successful login, you should see a dashboard such as the one in the following screenshot:
-
-![Dashboard](media/sql-analytics-query-ads/4-dashboard.png)
-
-## 2. Query using SQL on-demand
-After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance. To start a query, you'll need to select **"New query"** from the dashboard view.
+Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference)  statements against the instance. Select **New query** from the dashboard view to get started.
 
 ![New Query](media/sql-analytics-query-ads/5-new-query.png)
 
-To [query Parquet](query-parquet-files.md) files, you can use the following example:
+For example, you can use this Transact-SQL statement to [query Parquet files](query-parquet-files.md): 
 
 ```sql
 SELECT COUNT(*) 
@@ -69,7 +71,12 @@ OPENROWSET(
 ```
 
 ## Next steps 
-For more details about the available options in sqlcmd, see the [Connect to SQL Analytics using sqlcmd](get-started-connect-sqlcmd.md) article.
+Explore other ways to connect to SQL Analytics: 
+
+- [SSMS](get-started-ssms.md)
+- [Power BI](get-started-power-bi-professional.md)
+- [Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](get-started-connect-sqlcmd.md)
 
 
  
