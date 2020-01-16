@@ -208,6 +208,6 @@ Typically, this error is generated when there's a transient problem or an Azure 
 
 Check the [Azure status](https://status.azure.com/status) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
 
-## Next Steps
+## Next steps
 
 For more information about troubleshooting errors in cluster creation, see [Troubleshoot cluster creation failures with Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
