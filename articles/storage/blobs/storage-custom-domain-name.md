@@ -13,14 +13,11 @@ ms.subservice: blobs
 
 # Map a custom domain to an Azure Blob Storage endpoint
 
-You can map a custom domain directly to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
+You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
 
-> [!NOTE]
-> The mapping works only with HTTP (not HTTPS), and only with subdomains (for example: `www.contoso.com`). 
->
->If you want to use HTTPS, or have your web endpoint available on the root domain (for example: `contoso.com`), then map your custom domain by using Azure CDN instead. 
->
->See [Use Azure CDN to access blobs by using custom domains over HTTPS](storage-https-custom-domain-cdn.md).
+The mapping works only with HTTP (not HTTPS), and only with subdomains (for example: `www.contoso.com`). 
+
+If you want to use HTTPS, or have your web endpoint available on the root domain (for example: `contoso.com`), then you'll have to map your custom domain by using Azure CDN. See [Use Azure CDN to access blobs by using custom domains over HTTPS](storage-https-custom-domain-cdn.md).
 
 <a id="map-a-domain" />
 
