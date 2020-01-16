@@ -1,6 +1,6 @@
 ---
 title: Update an existing Commercial Marketplace offer
-description: How to make updates to an existing Commercial Marketplace offer, including editing, deleting a draft, cancelling a publish request, stop selling an offer or plan, and syncing private audiences. 
+description: How to make updates to an existing Commercial Marketplace offer, including editing, deleting a draft, canceling a publish request, stop selling an offer or plan, and syncing private audiences. 
 author: ChJenk 
 manager: evansma
 ms.author: v-chjen 
@@ -28,7 +28,7 @@ When you're ready to publish your updated offer, select **Publish** from any pag
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
 - Provide additional information to the certification testing team to ensure that testing goes smoothly.
-- Submit the updated offer for publishing by selecting **Submit**.  We'll email you when a preview version of the updated offer is available for you to review and sign-off.
+- Submit the updated offer for publishing by selecting **Submit**.  We'll email you when a preview version of the updated offer is available for you to review and sign off.
 
 **IMPORTANT**: You must review your offer preview, once it's available, and select **Go-live** to publish your updated offer to your intended audience (public or private).
 
@@ -117,14 +117,14 @@ After you confirm that you want to delete the draft plan, the plan will no longe
 
 To cancel an offer with the **Publish in progress** status:
 
-- Select the offer name to open the **Offer overview** page. 
+- Select the offer name to open the **Offer overview** page.
 - Select **Cancel publish** from the top right-hand corner of the page.
-- Confirm that you want to stop the offer from being published. 
+- Confirm that you want to stop the offer from being published.
 
 If you want to publish the offer at a later time, you'll need to start the publishing process over.
 
 > [!NOTE]
-> You can stop an offer from being published only if the offer hasn't yet progressed to the publisher sign-off step. After selecting **Go live** you will not have the option to cancel publish any longer.
+> You can stop an offer from being published only if the offer hasn't yet progressed to the publisher sign off step. After selecting **Go live** you will not have the option to cancel publish any longer.
 
 ## Stop selling an offer or plan
 
@@ -132,7 +132,7 @@ To stop selling an offer after you've already published it, select **Stop sellin
 
 Once you confirm that you want to stop selling the offer or plan, within a few hours it will no longer be visible in the marketplace and no new customers can download it.
 
-Any customers who previously acquired the offer or plan can still use it. They can download it again, but will not get updates if you update and re-publish the offer or plan at a later time. 
+Any customers who previously acquired the offer or plan can still use it. They can download it again, but will not get updates if you update and republish the offer or plan at a later time. 
 
 After your request to stop selling the offer/plan has been completed, you'll still see it in the Commercial Marketplace portal on Partner Center. To delete the draft, select **Delete draft** from either the **Offer overview** or **Plan overview** page. 
 
