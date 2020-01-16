@@ -567,6 +567,9 @@
       - name: Functions
         href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
         maintainContext: true
+      - name: Generate
+        href: /azure/databricks/spark/latest/spark-sql/language-manual/generate
+        maintainContext: true
       - name: Insert
         href: /azure/databricks/spark/latest/spark-sql/language-manual/insert
         maintainContext: true
@@ -1672,6 +1675,12 @@
           items:
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
+            maintainContext: true
+          - name: Databricks Runtime 6.3
+            href: /azure/databricks/release-notes/runtime/6.3
+            maintainContext: true
+          - name: Databricks Runtime 6.3 ML
+            href: /azure/databricks/release-notes/runtime/6.3ml
             maintainContext: true
           - name: Databricks Runtime 6.2
             href: /azure/databricks/release-notes/runtime/6.2
