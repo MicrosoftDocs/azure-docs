@@ -56,7 +56,8 @@ Now that you have signed into Azure with your account credentials, Use the steps
 1. Select the **Azure** icon in the Activity Bar.
 1. Select the **Run Experiment** icon at the top of the Azure Machine Learning View.
 
-    ![Run Experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
+    > [!div class="mx-imgBorder"]
+    > ![Run Experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
 
 1. When the command palette expands, follow the prompts.
 
