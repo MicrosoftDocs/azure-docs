@@ -3,7 +3,7 @@ title: Starting an Azure Automation runbook with a webhook
 description: A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ---
 # Starting an Azure Automation runbook with a webhook
@@ -120,7 +120,7 @@ The client can't determine when the runbook job completes or its completion stat
 
 ## <a name="renew-webhook"></a>Renew a webhook
 
-When a webhook is created, it has a validity time of one year. After that year time the webhook automatically expires. Once a webhook is expired it can't be reactivated, it must be removed and recreated. If a webhook has not reached its expiry time, it can be extended.
+When a webhook is created, it has a validity time of ten years. After that time period, the webhook automatically expires. Once a webhook is expired it can't be reactivated, it must be removed and recreated. If a webhook has not reached its expiry time, it can be extended.
 
 To extend a webhook, navigate to the runbook that contains the webhook. Select **Webhooks** under **Resources**. Click the webhook that you want to extend, this action opens the **Webhook** page.  Choose a new expiration date and time and click **Save**.
 
