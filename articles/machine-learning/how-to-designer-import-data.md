@@ -21,13 +21,13 @@ In this article, you learn how to import your own data in the designer to create
 
 ## Use Azure Machine Learning datasets
 
-We recommend that you use [Azure Machine Learning datasets](concept-data.md#datasets) when you import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
+We recommend that you use [datasets](concept-data.md#datasets) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
 
 ### Register a dataset
 
 You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#use-the-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#use-the-ui).
 
-However, you can also register the output for any designer module as a dataset.
+You can also register the output for any designer module as a dataset.
 
 1. Select the module that outputs the data you want to register.
 
@@ -41,21 +41,21 @@ Your registered datasets can be found in the module palette, under **Datasets** 
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Any [file datasets](how-to-create-register-datasets.md#dataset-types) registered to your machine learning workspace will appear in the module palette. You aren't limited to only datasets created in the designer.
+Any [file dataset](how-to-create-register-datasets.md#dataset-types) registered to your machine learning workspace will appear in the module palette. You aren't limited to using datasets created in the designer.
 
 > [!NOTE]
 > The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
 
 ## Import data using the Import Data module
 
-We recommend that you use datasets to import data in the designer. However, you can also use the [Import Data](algorithm-module-reference/import-data.md) module. The Import Data module skips registering your datasets and imports data directly from [datastores](concept-data.md#datastores) or HTTP URLs. 
+While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) module. The Import Data module skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](concept-data.md#datastores) or HTTP URL.
 
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
 
 ## Supported sources
 
-This section lists the designer's supported data sources. You can bring data into the designer from either a datastore or from [tabular datasets](how-to-create-register-datasets.md#dataset-types).
+This section lists the data sources supported by the designer. Data comes into into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
 
 ### Datastore sources
 For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).
