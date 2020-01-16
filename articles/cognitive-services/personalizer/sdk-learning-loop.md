@@ -10,10 +10,10 @@ zone_pivot_groups: programming-languages-set-six
 
 Display personalized content in this python quickstart with the Personalizer service.
 
-Get started with the Personalizer client library for Python. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the Personalizer client library. Follow these steps to install the package and try out the example code for basic tasks.
 
- * Rank a list of actions for personalization.
- * Report reward score indicating success of top ranked action.
+ * Rank API -  Selects the best item, from content items, based on real-time information you provide about content and context.
+ * Reward API - You determine the reward score based on your business needs, then send it to Personalizer with this API. That score can be a single value such as 1 for good, and 0 for bad, or an algorithm you create based on your business needs.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
