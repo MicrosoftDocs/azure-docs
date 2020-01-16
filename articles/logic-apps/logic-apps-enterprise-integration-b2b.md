@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 01/22/2020
 ---
 
 # Receive and send B2B messages by using Azure Logic Apps and Enterprise Integration Pack
