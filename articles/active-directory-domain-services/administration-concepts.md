@@ -31,7 +31,7 @@ User accounts can be created in Azure AD DS in multiple ways. Most user accounts
 * The user account can be synchronized in from Azure AD. This includes cloud-only user accounts created directly in Azure AD, and hybrid user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
     * The majority of user accounts in Azure AD DS are created through the synchronization process from Azure AD.
 * The user account can be manually created in an Azure AD DS managed domain, and doesn't exist in Azure AD.
-    * If you need to create service accounts for applications that only run in Azure AD DS, you can manually create them in the managed domain. As synchronization is one-way from Azure AD, user accounts created in Azure AD DS aren't synchronized back to Azure AD.
+    * If you need to create service accounts for applications that only run in Azure AD DS, you can manually create them in the managed domain. As synchronization is one way from Azure AD, user accounts created in Azure AD DS aren't synchronized back to Azure AD.
 
 ## Password policy
 
@@ -73,7 +73,7 @@ For more information about forest types in Azure AD DS, see [What are resource f
 
 ## Azure AD DS SKUs
 
-In Azure AD DS, the available performance and features are based on the SKU you select for the managed domain. This SKU is selected when you create the managed domain, and you can switch SKUs as your business needs change. The following table outlines the available SKUs and the differences between them:
+In Azure AD DS, the available performance and features are based on the SKU. You select a SKU when you create the managed domain, and you can switch SKUs as your business needs change after the managed domain has been deployed. The following table outlines the available SKUs and the differences between them:
 
 | SKU name   | Maximum object count | Performance | Backup frequency | Maximum number of outbound forest trusts |
 |------------|----------------------|-------------|------------------|----|
@@ -81,7 +81,7 @@ In Azure AD DS, the available performance and features are based on the SKU you 
 | Enterprise | Unlimited            | 2 vCPUs     | Every 3 days     | 5  |
 | Premium    | Unlimited            | 4 vCPUS     | Daily            | 10 |
 
-Customers that used Azure AD DS before these SKUs were previously billed based on the number of objects (user and computer accounts) in their Azure AD DS managed domain. There is no longer variable pricing based on the number of objects in the managed domain.
+Before these Azure AD DS SKUs, a billing model based on the number of objects (user and computer accounts) in the Azure AD DS managed domain was used. There is no longer variable pricing based on the number of objects in the managed domain.
 
 For more, see the [Azure AD DS pricing page][pricing].
 
@@ -89,13 +89,17 @@ For more, see the [Azure AD DS pricing page][pricing].
 
 --- INSERT PERFORMANCE INFO FROM RIC ---
 
+If your business or application needs change and you need additional compute power for your Azure AD DS managed domain, you can switch to a different SKU.
+
 ### Backup frequency
 
-The backup frequency determines how often a snapshot of the managed domain is taken. This is an automated process managed by the Azure platform. In the event of an issue with your managed domain or accidental deletion, Azure support can assist you in restoring from backup. As you move up the available SKUs, the frequency of those backup snapshots increases. Review your business needs and recovery point objective (RPO) to determine the required backup frequency for your managed domain. As synchronization only occurs one-way from Azure AD, any issues or accidental deletions in an Azure AD DS managed domain won't impact Azure AD on on-premises AD DS environments and functionality.
+The backup frequency determines how often a snapshot of the managed domain is taken. Backups are an automated process managed by the Azure platform. In the event of an issue with your managed domain or accidental resource deletion, Azure support can assist you in restoring from backup. As synchronization only occurs one way *from* Azure AD, any issues or accidental resource deletions in an Azure AD DS managed domain won't impact Azure AD or on-premises AD DS environments and functionality.
+
+As the SKU level increases, the frequency of those backup snapshots increases. Review your business needs and recovery point objective (RPO) to determine the required backup frequency for your managed domain. If your business or application needs change and you need more frequent backups, you can switch to a different SKU.
 
 ### Outbound forests
 
-As detailed in the previous section, you can create a one-way outbound forest trust from an Azure AD DS managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application needs to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business needs change, you can switch to a different SKU.
+The previous section detailed one-way outbound forest trusts from an Azure AD DS managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application needs to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business needs change and you need to create additional forest trusts, you can switch to a different SKU.
 
 ## Next steps
 
