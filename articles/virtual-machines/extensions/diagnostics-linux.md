@@ -86,7 +86,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 
 The URL for the sample configuration, and its contents, are subject to change. Download a copy of the portal settings JSON file and customize it for your needs. Any templates or automation you construct should use your own copy, rather than downloading that URL each time.
 
-And here is a Powershell sample
+#### PowerShell sample
 
 ```Powershell
 // Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
