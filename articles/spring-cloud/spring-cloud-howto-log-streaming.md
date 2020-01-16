@@ -13,7 +13,7 @@ Azure Spring Cloud enables log streaming in Azure CLI to get real-time applicati
 
 ## Prerequisites
 
-* Install [Azure CLI extension](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) for Spring Cloud.
+* Install [Azure CLI extension](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) for Spring Cloud, minimum version 0.2.0 .
 * An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./spring-cloud-quickstart-launch-app-cli.md).
 
 ## Use CLI to tail logs
