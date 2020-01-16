@@ -97,6 +97,15 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 There are two ways to change the Service Administrator. You can change in the **Azure portal** or **Account Center**.
 
+We haven't enabled ‘Change service admin’ feature for non-AIRS subscription in the Azure portal yet. Please considering hiding the Azure portal part below until it is fully ready. 
+
+Customer complaints: 
+
+IcM 137502562
+IcM 170030431
+
+Feel free to contact seungcha@microsoft.com amberb@microsoft.com and tahuan@microsoft.com if any questions
+
 ### Azure portal
 
 1. Make sure your scenario is supported by checking the limitations for changing Service Administrators.
