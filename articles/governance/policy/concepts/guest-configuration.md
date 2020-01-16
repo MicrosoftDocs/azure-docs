@@ -109,23 +109,9 @@ Windows Server Nano Server isn't supported in any version.
 To communicate with the Guest Configuration resource provider in Azure, machines require outbound
 access to Azure datacenters on port **443**. If you're using a private virtual network in Azure that
 doesn't allow outbound traffic, configure exceptions with [Network Security
-Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. A
-service tag doesn't currently exist for Azure Policy Guest Configuration.
-
-For IP address lists, you can download [Microsoft Azure Datacenter IP
-Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and
-has the currently deployed ranges and any upcoming changes to the IP ranges. You only need to allow
-outbound access to the IPs in the regions where your VMs are deployed.
-
-> [!NOTE]
-> The Azure Datacenter IP address XML file lists the IP address ranges that are used in the
-> Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges. An updated file
-> is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the
-> IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one
-> week. It's a good idea to download the new XML file every week. Then, update your site to
-> correctly identify services running in Azure. Azure ExpressRoute users should note that this file
-> is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week
-> of each month.
+Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
+The [service tag](../../../virtual-network/service-tags-overview.md)
+"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
 
 ## Guest Configuration definition requirements
 
@@ -176,8 +162,8 @@ _\[Preview\]: Audit Windows VMs that do not match Azure security baseline settin
 complete set of audit rules based on settings from Active Directory Group Policy.
 
 Most of the settings are available as parameters. This functionality allows you to customize what is
-audited to align the policy with your organizational requirements or to map the policy to third
-party information such as industry regulatory standards.
+audited to align the policy with your organizational requirements or to map the policy to
+third-party information such as industry regulatory standards.
 
 Some parameters support an integer value range. For example, the Maximum Password Age parameter can
 be set using a range operator to give flexibility to machine owners. You could audit that the

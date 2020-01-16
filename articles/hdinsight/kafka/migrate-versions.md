@@ -53,7 +53,7 @@ New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](
 
 ![Upgrade Kafka client compatibility](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
 
-Note that it does not mean that the client supports older brokers.  For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix.)
+Note that it does not mean that the client supports older brokers.  For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
 
 ## General migration process
 

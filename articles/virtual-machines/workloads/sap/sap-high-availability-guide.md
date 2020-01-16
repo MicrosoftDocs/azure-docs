@@ -31,8 +31,8 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -195,7 +195,7 @@ These SAP Notes are related to the topic of SAP in Azure:
 | [1999351] |Virtualization on Windows: Enhanced Monitoring |
 | [2243692] |Use of Azure Premium SSD Storage for SAP DBMS Instance |
 
-Learn more about the [limitations of Azure subscriptions][azure-subscription-service-limits-subscription], including general default limitations and maximum limitations.
+Learn more about the [limitations of Azure subscriptions][azure-resource-manager/management/azure-subscription-service-limits-subscription], including general default limitations and maximum limitations.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the Azure classic deployment model
 The Azure Resource Manager and Azure classic deployment models are different in the following areas:

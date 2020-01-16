@@ -2,13 +2,13 @@
 title: Use the Shared Image Gallery to create a custom pool - Azure Batch | Microsoft Docs
 description: Create a Batch pool with the Shared Image Gallery to provision custom images to compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
+ms.author: jushiman
 ---
 
 # Use the Shared Image Gallery to create a custom pool

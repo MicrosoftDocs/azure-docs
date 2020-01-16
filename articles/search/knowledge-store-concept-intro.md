@@ -27,7 +27,7 @@ Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azur
 
 ## Benefits of knowledge store
 
-A knowledge store gives you structure, context, and actual content - gleaned from unstructured and semi-structured data files like blobs, image files that have undergone analysis, or even structured data, reshaped into new forms. In a [step-by-step walkthrough](knowledge-store-howto.md), you can see first-hand how a dense JSON document is partitioned out into substructures, reconstituted into new structures, and otherwise made available for downstream processes like machine learning and data science workloads.
+A knowledge store gives you structure, context, and actual content - gleaned from unstructured and semi-structured data files like blobs, image files that have undergone analysis, or even structured data, reshaped into new forms. In a [step-by-step walkthrough](knowledge-store-create-rest.md), you can see first-hand how a dense JSON document is partitioned out into substructures, reconstituted into new structures, and otherwise made available for downstream processes like machine learning and data science workloads.
 
 Although it's useful to see what an AI enrichment pipeline can produce, the real potential of a knowledge store is the ability to reshape data. You might start with a basic skillset, and then iterate over it to add increasing levels of structure, which you can then combine into new structures, consumable in other apps besides Azure Cognitive Search.
 
@@ -122,7 +122,7 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 + [Storage Explorer](knowledge-store-view-storage-explorer.md) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 
-+ [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. Visualizations are easier if enriched documents contain numeric data. For text, you can build word clouds, use custom visualizations, or consider [Q&A](https://docs.microsoft.com/power-bi/consumer/end-user-q-and-a) for natural language exploration.
++ [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 
 + [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) for further manipulation.
 
