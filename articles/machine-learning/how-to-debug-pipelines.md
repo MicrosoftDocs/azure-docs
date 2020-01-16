@@ -63,7 +63,6 @@ Click on the module for the specific step. Navigate to the **Logs** tab. Other l
 > Runs for *published pipelines* can be found in the **Endpoints** tab in your workspace. 
 > Runs for *non-published pipelines* can be found in **Experiments** or **Pipelines**.
 
-
 ### Troubleshooting tips
 
 The following table contains common problems during pipeline development, with potential solutions.
