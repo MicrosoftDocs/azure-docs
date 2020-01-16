@@ -62,7 +62,7 @@ The sample program creates a test file in your *Documents* folder, uploads the f
 1. Install the dependencies:
 
     ```console
-    pip install azure-storage-blob
+    pip install azure-storage-blob==2.1.0
     ```
 
 1. Go to the sample application:

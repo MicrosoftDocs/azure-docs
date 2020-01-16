@@ -259,7 +259,7 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |
-| [Batch prediction](how-to-run-batch-predictions.md) | ✔ | Make predictions on large quantities of data asynchronously. |
+| [Batch prediction](how-to-use-parallel-run-step.md) | ✔ | Make predictions on large quantities of data asynchronously. |
 | [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
 | [Azure IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy models to IoT Edge devices. |
 
