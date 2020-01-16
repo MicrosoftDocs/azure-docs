@@ -14,7 +14,7 @@ The log streaming feature makes application logs available instantly using CLI w
 
 ## Prerequisites
 
-* Install minimum version 2.0.75 of the [Azure CLI extension](./spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
+* Install minimum version 0.2.0 of the [Azure CLI extension](./spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
 * An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./spring-cloud-quickstart-launch-app-cli.md)
 
 ## Use CLI to tail logs
