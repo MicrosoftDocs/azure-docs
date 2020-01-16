@@ -10,11 +10,11 @@ zone_pivot_groups: programming-languages-set-seven
 Get started with the Language Understanding (LUIS) client library. Follow these steps to install the SDK and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Get intent with C# SDK](../includes/sdk-csharp-authoring.md)]
+[!INCLUDE [Get intent with C# SDK](./includes/sdk-csharp-authoring.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python SDK](../includes/sdk-python-authoring.md)]
+[!INCLUDE [Get intent with Python SDK](./includes/sdk-python-authoring.md)]
 ::: zone-end
 
 ## Next steps

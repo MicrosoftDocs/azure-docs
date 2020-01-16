@@ -31,7 +31,7 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+Get your [starter key](../luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
 
 ### Create an environment variable
 
@@ -148,7 +148,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
 1. Create a variable to manage your authoring key pulled from an environment variable named `COGNITIVESERVICES_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions.md) are:
+1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](../luis-reference-regions.md) are:
 
     * Australia - `australiaeast`
     * Europe - `westeurope`
@@ -203,7 +203,7 @@ The **CreateUtterance** and **CreateLabel** methods are utility methods to help 
 
 ## Train the app
 
-Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](luis-container-howto.md), or [published](luis-how-to-publish-app.md) to the staging or product slots.
+Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](../luis-container-howto.md), or [published](../luis-how-to-publish-app.md) to the staging or product slots.
 
 The [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions?view=azure-dotnet) method needs the app ID and the version ID.
 

@@ -29,7 +29,7 @@ Use the Language Understanding (LUIS) authoring client library for Python to:
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+Get your [starter key](../luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
 
 ### Create an environment variable
 
@@ -160,7 +160,7 @@ Call [examples.batch](https://docs.microsoft.com/python/api/azure-cognitiveservi
 
 ## Train the app
 
-Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](luis-container-howto.md), or [published](luis-how-to-publish-app.md) to the staging or product slots.
+Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](../luis-container-howto.md), or [published](../luis-how-to-publish-app.md) to the staging or product slots.
 
 The [train.train_version](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) method needs the app ID and the version ID.
 
