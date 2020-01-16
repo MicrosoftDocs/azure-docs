@@ -20,7 +20,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
 1. Create a new HTML file.
 
-2. Load in the Azure Maps Web SDK. This can be done using one of two options;
+2. Load in the Azure Maps Web SDK. You can choose one of two options;
 
     a. Use the globally hosted CDN version of the Azure Maps Web SDK by adding the URL endpoints to the stylesheet and script references in the `<head>` element of the file:
 
@@ -29,7 +29,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-    b. Alternatively, load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM package and host it with your app. This package also includes TypeScript definitions.
+    b. Load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM package and host it with your app. This package also includes TypeScript definitions.
 
     > **npm install azure-maps-control**
 
@@ -41,7 +41,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     ```
 
     >[!Note]
-    > Typescript definitions can be imported into your application by adding:
+    > Typescript definitions can be imported into your application by adding the following line of code inside your Javascript code:
     > ```Javascript
     > import * as atlas from 'azure-maps-control';
     > ```
@@ -69,7 +69,13 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </body>
     ```
 
-5. To initialize the map control, define a new section in the html body and create a script. Pass in the `id` of the map `<div>` or an `HTMLElement` (for example, `document.getElementById('myMap')`) as the first parameter when creating an instance of the `Map` class. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the map using [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). If you need to create an account or find your key, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. The **language** option specifies the language to be used for map labels and controls. For more information on supported languages, see [supported languages](supported-languages.md). If using a subscription key for authentication.
+5. To initialize the map control, define a new script tag in the html body. Pass in the `id` of the map `<div>` or an `HTMLElement` (for example, `document.getElementById('myMap')`) as the first parameter when creating an instance of the `Map` class. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the map using [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
+
+If you need to create an account or find your key, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
+
+The **language** option specifies the language to be used for map labels and controls. For more information on supported languages, see [supported languages](supported-languages.md). 
+
+    If you are using a subscription key for authentication, use the following:
 
     ```HTML
     <script type="text/javascript">
@@ -85,7 +91,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </script>
     ```
 
-    If using Azure Active Directory (AAD) for authentication:
+    If you are using Azure Active Directory (AAD) for authentication, use the following:
 
     ```HTML
     <script type="text/javascript">
@@ -167,21 +173,20 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </html>
     ```
 
-8. Open the file in your web browser and view the rendered map. It should look like the following code:
+8. Open the file in your web browser and view the rendered map. It should look like the following picture:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="How to use the map control" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-    </iframe>
+![Map image showing rendered result](./media/how-to-use-map-control/map-of-seattle.png)
 
 ## Localizing the map
 
-Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace, which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "Auto":
+Azure Maps provides two different ways of setting the language and regional view for the rendered map. The first option is to add this information to the global `atlas` namespace, which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
 atlas.setView('Auto');
 ```
 
-The second option is to pass this information into the map options when loading the map like:
+The second option is to pass this information into the map options when loading the map like this:
 
 ```javascript
 map = new atlas.Map('myMap', {
@@ -198,7 +203,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, these settings can be update after the map has loaded by using the `setStyle` function of the map. 
+> With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, these settings can be updated after the map loads using the `setStyle` function of the map. 
 
 Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "Auto".
 
@@ -208,7 +213,7 @@ A complete list of supported languages and regional views is documented [here](s
 
 ## Azure Government cloud support
 
-The Azure Maps Web SDK supports the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same, however the following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
+The Azure Maps Web SDK supports the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same. The following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
 
 When using the interactive map control, add the following line of code before creating an instance of the `Map` class. 
 
@@ -216,7 +221,7 @@ When using the interactive map control, add the following line of code before cr
 atlas.setDomain('atlas.azure.us');
 ```
 
-Be sure to use an Azure Maps authentication details from the Azure Government cloud platform when authenticating the map and services.
+Be sure to use Azure Maps authentication details from the Azure Government cloud platform when authenticating the map and services.
 
 When using the services module, the domain for the services needs to be set when creating an instance of an API URL endpoint. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
 
