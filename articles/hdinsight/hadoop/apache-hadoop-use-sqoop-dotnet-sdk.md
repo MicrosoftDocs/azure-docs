@@ -114,15 +114,15 @@ From SQL Server to Azure Storage. This example is dependent on the above export 
 
 1. Replace the code above in the `//sqoop start //sqoop end` block with the following code:
 
-```csharp
-var tableName = "mobiledata";
-var exportDir = "/tutorials/usesqoop/importeddata";
-
-var parameters = new SqoopJobSubmissionParameters
-{
-    Command = "import --connect " + connectionString + " --table " + tableName + " --target-dir " +  exportDir + " --fields-terminated-by \\t --lines-terminated-by \\n -m 1"
-};
-```
+    ```csharp
+    var tableName = "mobiledata";
+    var exportDir = "/tutorials/usesqoop/importeddata";
+    
+    var parameters = new SqoopJobSubmissionParameters
+    {
+        Command = "import --connect " + connectionString + " --table " + tableName + " --target-dir " +  exportDir + " --fields-terminated-by \\t --lines-terminated-by \\n -m 1"
+    };
+    ```
 
 1. To run the program, select the **F5** key.
 
