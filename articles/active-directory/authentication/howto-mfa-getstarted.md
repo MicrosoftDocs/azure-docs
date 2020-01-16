@@ -82,18 +82,18 @@ We recommend that organizations use Conditional Access to define their network u
 ### Configuring a named location
 
 1. Open **Azure Active Directory** in the Azure portal
-2. Click **Conditional Access**
-3. Click **Named Locations**
-4. Click **New Location**
+2. Select **Security**
+3. Under **Manage**, choose **Named Locations**
+4. Select **New Location**
 5. In the **Name** field, provide a meaningful name
-6. Select whether you are defining the location using IP ranges or Countries/Regions
-   1. If using IP Ranges
-      1. Decide whether to mark the location as Trusted. Signing in from a trusted location lowers a user's sign-in risk. Only mark this location as trusted if you know the IP ranges entered are established and credible in your organization.
+6. Select whether you are defining the location using *IP ranges* or *Countries/Regions*
+   1. If using *IP Ranges*
+      1. Decide whether to *Mark as trusted location*. Signing in from a trusted location lowers a user's sign-in risk. Only mark this location as trusted if you know the IP ranges entered are established and credible in your organization.
       2. Specify the IP Ranges
-   2. If using Countries/Regions
+   2. If using *Countries/Regions*
       1. Expand the drop-down menu and select the countries or regions you wish to define for this named location.
-      2. Decide whether to Include unknown areas. Unknown areas are IP addresses that can't be mapped to a country/region.
-7. Click **Create**
+      2. Decide whether to *Include unknown areas*. Unknown areas are IP addresses that can't be mapped to a country/region.
+7. Select **Create**
 
 ## Plan authentication methods
 

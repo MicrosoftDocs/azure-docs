@@ -66,7 +66,7 @@ To turn on the policy:
 
 ## Resellers
 
-Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) can select a reseller while creating subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
+Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/partner-center) can select a reseller while creating subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
 
 ## Check access to a Microsoft Partner Agreement
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]

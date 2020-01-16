@@ -4,167 +4,417 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
+# Troubleshoot query issues when using Azure Cosmos DB
 
-# Troubleshoot query performance for Azure Cosmos DB
-This article covers how to identify, diagnose, and troubleshoot Azure Cosmos DB SQL query issues. In order to achieve optimal performance for Azure Cosmos DB queries, follow the troubleshooting steps below. 
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have included the most common performance tips here. You should use this document as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB’s core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or consume significant amounts of throughput.
 
-## Collocate clients in same Azure region 
-The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/#services) article.
+You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
 
-## Check consistency level
-[Consistency level](consistency-levels.md) can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](consistency-levels-choosing.md).
+This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
-## Log the executed SQL query 
+### Obtaining query metrics:
 
-You can log the executed SQL query in a storage account or the diagnostic log table. [SQL query logs through diagnostic logs](cosmosdb-monitor-resource-logs.md) allows you to log the obfuscated query in a storage account of your choice. This allows you to look at the logs and find query that is using higher RUs. Later you can use the activity ID to match the actual query in the QueryRuntimeStatistics. The query is obfuscated for security purpose and the query parameter names, and their values in where clauses are different than actual names and values. You can use logging to storage account to keep the long-term retention of the executed queries.  
+When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query. These are also available through the Azure portal as shown below:
 
-## Log query metrics
+[ ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-Use `QueryMetrics` to troubleshoot slow or expensive queries. 
+After obtaining query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
 
-  * Set `FeedOptions.PopulateQueryMetrics = true` to have `QueryMetrics` in the response.
-  * `QueryMetrics` class has an overloaded `.ToString()` function that can be invoked to get the string representation of `QueryMetrics`. 
-  * The metrics can be utilized to derive the following insights, among others: 
-  
-      * Whether any specific component of the query pipeline took abnormally long to complete (in order of hundreds of milliseconds or more). 
+The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
 
-          * Look at `TotalExecutionTime`.
-          * If the `TotalExecutionTime` of the query is less than the end to end execution time, then the time is being spent in client side or network. Double check that the client and Azure region are collocated.
-      
-      * Whether there were false positives in the documents analyzed (if Output Document Count is much less than Retrieved Document Count).  
+You can reference the below section to understand the relevant query optimizations for your scenario:
 
-          * Look at `Index Utilization`.
-          * `Index Utilization` = (Number of returned documents / Number of loaded documents)
-          * If the number of returned documents is much less than the number loaded, then false positives are being analyzed.
-          * Limit the number of documents being retrieved with narrower filters.  
+### Query's RU charge is too high
 
-      * How individual round-trips fared (see the `Partition Execution Timeline` from the string representation of `QueryMetrics`). 
-      * Whether the query consumed high request charge. 
+#### Retrieved Document Count is significantly greater than Output Document Count
 
-For more details see [How to get SQL query execution metrics](profile-sql-api-query.md) article.
-      
-## Tune Query Feed Options Parameters 
-Query performance can be tuned via the request's [Feed Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) Parameters. Try setting the below options:
+- [Ensure that the indexing policy includes necessary paths](#ensure-that-the-indexing-policy-includes-necessary-paths)
 
-  * Set `MaxDegreeOfParallelism` to -1 first and then compare performance across different values. 
-  * Set `MaxBufferedItemCount` to -1 first and then compare performance across different values. 
-  * Set `MaxItemCount` to -1.
+- [Understand which system functions utilize the index](#understand-which-system-functions-utilize-the-index)
 
-When comparing performance of different values, try values such as 2, 4, 8, 16, and others.
- 
-## Read all results from continuations
-If you think you are not getting all the results, make sure to drain the continuation fully. In other words, keep reading results while the continuation token has more documents to yield.
+- [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
 
-Fully draining can be achieved with either of the following patterns:
+- [Optimize queries that use DISTINCT](#optimize-queries-that-use-distinct)
 
-  * Continue processing results while continuation is not empty.
-  * Continue processing while query has more results. 
+- [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
 
-    ```csharp
-    // using AsDocumentQuery you get access to whether or not the query HasMoreResults
-    // If it does, just call ExecuteNextAsync until there are no more results
-    // No need to supply a continuation token here as the server keeps track of progress
-    var query = client.CreateDocumentQuery<Family>(collectionLink, options).AsDocumentQuery();
-    while (query.HasMoreResults)
-    {
-        foreach (Family family in await query.ExecuteNextAsync())
+<br>
+
+#### Retrieved Document Count is approximately equal to Output Document Count
+
+- [Avoid cross partition queries](#avoid-cross-partition-queries)
+
+- [Optimize queries that have a filter on multiple properties](#optimize-queries-that-have-a-filter-on-multiple-properties)
+
+- [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+
+<br>
+
+### Query's RU charge is acceptable but latency is still too high
+
+- [Improving proximity between your app and Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+
+- [Increasing provisioned throughput](#increasing-provisioned-throughput)
+
+- [Increasing MaxConcurrency](#increasing-maxconcurrency)
+
+- [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+
+## Optimizations for queries where Retrieved Document Count significantly exceeds Output Document Count:
+
+ The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
+
+ Below is an example of scan query that wasn't entirely served by the index.
+
+Query:
+
+ ```sql
+SELECT VALUE c.description
+FROM c
+WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
+ ```
+
+Query Metrics:
+
+```
+Retrieved Document Count                 :          60,951
+Retrieved Document Size                  :     399,998,938 bytes
+Output Document Count                    :               7
+Output Document Size                     :             510 bytes
+Index Utilization                        :            0.00 %
+Total Query Execution Time               :        4,500.34 milliseconds
+  Query Preparation Times
+    Query Compilation Time               :            0.09 milliseconds
+    Logical Plan Build Time              :            0.05 milliseconds
+    Physical Plan Build Time             :            0.04 milliseconds
+    Query Optimization Time              :            0.01 milliseconds
+  Index Lookup Time                      :            0.01 milliseconds
+  Document Load Time                     :        4,177.66 milliseconds
+  Runtime Execution Times
+    Query Engine Times                   :          322.16 milliseconds
+    System Function Execution Time       :           85.74 milliseconds
+    User-defined Function Execution Time :            0.00 milliseconds
+  Document Write Time                    :            0.01 milliseconds
+Client Side Metrics
+  Retry Count                            :               0
+  Request Charge                         :        4,059.95 RUs
+```
+
+Retrieved Document Count (60,951) is significantly greater than Output Document Count (7) so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) does not utilize the index.
+
+## Ensure that the indexing policy includes necessary paths
+
+Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most System Functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
+
+If we run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, we observe a much lower RU charge when the property in the `WHERE` clause is indexed.
+
+### Original
+
+Query:
+
+```sql
+SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+```
+
+Indexing policy:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
         {
-            families.Add(family);
+            "path": "/*"
         }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/description/*"
+        }
+    ]
+}
+```
+
+**RU Charge:** 409.51 RU's
+
+### Optimized
+
+Updated indexing policy:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+**RU Charge:** 2.98 RU's
+
+You can add additional properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately utilize the new available index. The query will utilize the new index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+
+## Understand which system functions utilize the index
+
+If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot.
+
+Here is the list of string functions that can utilize the index:
+
+- STARTSWITH(str_expr, str_expr)
+- LEFT(str_expr, num_expr) = str_expr
+- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
+
+Some common system functions that do not use the index and must load each document are below:
+
+| **System Function**                     | **Ideas   for Optimization**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| CONTAINS                                | Use Azure Search for full text search                        |
+| UPPER/LOWER                             | Instead of using the system function to normalize data each time for comparisons, instead normalize the casing upon insertion. Then a query such as ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` simply becomes ```SELECT * FROM c WHERE c.name = 'BOB'``` |
+| Mathematical functions (non-aggregates) | If you need to frequently compute a value in your query, consider storing this value as a property in your JSON document. |
+
+------
+
+Other parts of the query may still utilize the index despite the system functions not using the index.
+
+## Optimize queries with both a filter and an ORDER BY clause
+
+While queries with a filter and an `ORDER BY` clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the `ORDER BY` clause. This query modification will ensure that it utilizes the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+
+### Original
+
+Query:
+
+```sql
+SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c._ts ASC
+```
+
+Indexing policy:
+
+```json
+{
+
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[]
+}
+```
+
+**RU Charge:** 44.28 RU's
+
+### Optimized
+
+Updated query (includes both properties in the `ORDER BY` clause):
+
+```sql
+SELECT * FROM c 
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+ORDER BY c.foodGroup, c._ts ASC
+```
+
+Updated indexing policy:
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/foodGroup",
+                    "order":"ascending"
+        },
+                {  
+                    "path":"/_ts",
+                    "order":"ascending"
+                }
+            ]
+        ]
     }
-    ```
 
-## Choose system functions that utilize index
-If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot. 
+```
 
-Here is the list of string functions that can utilize the index: 
-    
-  * STARTSWITH(str_expr, str_expr) 
-  * LEFT(str_expr, num_expr) = str_expr 
-  * SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0 
-    
-    Here are few query examples: 
-    
-    ```sql
+**RU Charge:** 8.86 RU's
 
-    -- If there is a range index on r.name, STARTSWITH will utilize the index while ENDSWITH won't 
-    SELECT * 
-    FROM c 
-    WHERE STARTSWITH(c.name, 'J') AND ENDSWITH(c.name, 'n')
+## Optimize queries that use DISTINCT
 
-    ```
-    
-    ```sql
+It will be more efficient to find the `DISTINCT` set of results if the duplicate results are consecutive. Adding an `ORDER BY` clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to `ORDER BY` multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
-    -- LEFT will utilize the index while RIGHT won't 
-    SELECT * 
-    FROM c 
-    WHERE LEFT(c.name, 2) = 'Jo' AND RIGHT(c.name, 2) = 'hn'
+### Original
 
-    ```
+Query:
 
-  * Avoid system functions in the filter (or the WHERE clause) that are not served by the index. Some examples of such system functions include Contains, Upper, Lower.
-  * When possible, write queries to use a filter on partition key.
-  * To achieve performant queries avoid calling UPPER/LOWER in the filter. Instead, normalize casing of values upon insertion. For each of the values insert the value with desired casing, or insert both the original value and the value with the desired casing. 
+```sql
+SELECT DISTINCT c.foodGroup 
+FROM c
+```
 
-    For example:
-    
-    ```sql
+**RU Charge:** 32.39 RU's
 
-    SELECT * FROM c WHERE UPPER(c.name) = "JOE"
+### Optimized
 
-    ```
-    
-    For this case, store "JOE" capitalized or store both "Joe" the original value and "JOE". 
-    
-    If the JSON data casing is normalized the query becomes:
-    
-    ```sql
+Updated query:
 
-    SELECT * FROM c WHERE c.name = "JOE"
+```sql
+SELECT DISTINCT c.foodGroup 
+FROM c 
+ORDER BY c.foodGroup
+```
 
-    ```
+**RU Charge:** 3.38 RU's
 
-    The second query will be more performant as it does not require performing transformations on each of the values in order to compare the values to "JOE".
+## Optimize JOIN expressions by using a subquery
+Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause.
 
-For more system function details see [System Functions](sql-query-system-functions.md) article.
+Consider the following query:
 
-## Check Indexing policy
-To verify that the current [Indexing Policy](index-policy.md) is optimal:
+```sql
+SELECT Count(1) AS Count
+FROM c
+JOIN t IN c.tags
+JOIN n IN c.nutrients
+JOIN s IN c.servings
+WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
+AND n.nutritionValue < 10) AND s.amount > 1
+```
 
-  * Ensure all JSON paths used in queries are included in the indexing policy for faster reads.
-  * Exclude paths not used in queries for more performant writes.
+**RU Charge:** 167.62 RU's
 
-For more details see [How To Manage Indexing Policy](how-to-manage-indexing-policy.md) article.
+For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
-## Spatial data: Check ordering of points
-Points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
 
-## Optimize JOIN expressions
-`JOIN` expressions can expand into large cross products. When possible, query against a smaller search space via a more narrow filter.
+This query is equivalent to the preceding one but uses subqueries:
 
-Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause. For a detailed example see [Optimize Join Expressions](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) article.
+```sql
+SELECT Count(1) AS Count
+FROM c
+JOIN (SELECT VALUE t FROM t IN c.tags WHERE t.name = 'infant formula')
+JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutritionValue < 10)
+JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
+```
 
-## Optimize ORDER BY expressions 
-`ORDER BY` query performance may suffer if the fields are sparse or not included in the index policy.
+**RU Charge:** 22.17 RU's
 
-  * For sparse fields such as time, decrease the search space as much as possible with filters. 
-  * For single property `ORDER BY`, include property in index policy. 
-  * For multiple property `ORDER BY` expressions, define a [composite index](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) on fields being sorted.  
+Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
-## Many large documents being loaded and processed
-The time and RUs that are required by a query are not only dependent on the size of the response, they are also dependent on the work that is done by the query processing pipeline. Time and RUs increase proportionally with the amount of work done by the entire query processing pipeline. More work is performed for large documents, thus more time and RUs are required to load and process large documents.
+## Optimizations for queries where Retrieved Document Count is approximately equal to Output Document Count:
 
-## Low provisioned throughput
-Ensure provisioned throughput can handle workload. Increase RU budget for impacted collections.
+If the Retrieved Document Count is approximately equal to the Output Document Count, it means the query did not have to scan many unnecessary documents. For many queries, such as those that use the TOP keyword, Retrieved Document Count may exceed Output Document Count by 1. This should not be cause for concern.
 
-## Try upgrading to the latest SDK version
-To determine the latest SDK see [SDK Download and release notes](sql-api-sdk-dotnet.md) article.
+## Avoid cross partition queries
+
+Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
+
+If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over ~100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
+
+For example, if we create a container with the partition key foodGroup, the following queries would only need to check a single physical partition:
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+```
+
+These queries would also be optimized by including the partition key in the query:
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+```
+
+Queries that have range filters on the partition key or don’t have any filters on the partition key, will need to “fan-out” and check every physical partition’s index for results.
+
+```sql
+SELECT * FROM c
+WHERE c.description = "Mushroom, oyster, raw"
+```
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+```
+
+## Optimize queries that have a filter on multiple properties
+
+While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data, this optimization will not have a significant impact. It may prove useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](index-policy.md#composite-indexes)
+
+Here are some examples of queries which could be optimized with a composite index:
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
+```
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
+```
+
+Here is the relevant composite index:
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/foodGroup",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/_ts",
+                    "order":"ascending"
+                }
+            ]
+        ]
+}
+```
+
+## Common optimizations that reduce query latency (no impact on RU charge):
+
+In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. However, query latency may vary between query executions.
+
+## Improving proximity between your app and Azure Cosmos DB
+
+Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
+
+## Increasing provisioned throughput
+
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
+
+## Increasing MaxConcurrency
+
+Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjusting the MaxConcurrency to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
+
+## Increasing MaxBufferedItemCount
+
+Queries are designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching. Setting this value to -1 allows the system to automatically decide the number of items to buffer.
 
 ## Next steps
 Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
