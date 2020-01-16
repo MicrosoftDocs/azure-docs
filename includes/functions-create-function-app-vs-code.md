@@ -85,10 +85,16 @@ An HttpTrigger folder that contains the [function.json definition file](../artic
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+An HttpTrigger folder  contains the [function.json definition file](../articles/azure-functions/functions-reference-python.md#programming-model) and the 
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 The project-level requirements.txt file lists packages required by the function app.
 
-An HttpTrigger folder  contains the [function.json definition file](../articles/azure-functions/functions-reference-python.md#programming-model) and the 
+An HttpTrigger folder  contains the [function.json definition file](../articles/azure-functions/functions-reference-python.md#programming-model)  and the \_\_init\_\_.py file, which contains the function code.
 
 ::: zone-end
