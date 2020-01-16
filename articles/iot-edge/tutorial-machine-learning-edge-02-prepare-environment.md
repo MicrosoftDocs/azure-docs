@@ -76,16 +76,23 @@ It takes about 30 minutes to create and configure the virtual machine.
 
    The script runs for several minutes as it executes the following steps:
 
+   * Installs the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
    * Prompts you to sign in to Azure.
    * Confirms the information for the creation of your VM. Press **y** or **Enter** to continue.
    * Creates the resource group if it does not exist.
    * Deploys the virtual machine.
    * Enables Hyper-V on the VM.
    * Installs software need for development and clone the sample repository.
+   * Restarts the VM.
+   * Create an RDP file on your desktop for connecting to the VM.
 
-1. Determine the name of the VM that the script created by checking the Azure portal or with the PowerShell **Get-AzureRmVM** command. It will have a name ending with random characters such as `IoTMLDemo-o4pv3`.
+1. If the VM does not restart, it will prompt for the VM name. The name of the VM is provided in script output.
 
-1. Restart the VM.
+    ```powershell
+    VM IoTMLDemo-o4pv3 is running
+    ```
+
+   The script will restart the VM. Provide its name if prompted.
 
     ```powershell
     Restart-AzureRmVM  [VM name]
@@ -93,13 +100,9 @@ It takes about 30 minutes to create and configure the virtual machine.
 
 ### Connect to the development VM
 
-1. In the Azure portal, navigate to the VM in the resource group that the script created.
+Now that we have created a VM we need to finish installing the software needed to complete the tutorial.
 
-1. On the page for the VM, select **Connect**.
-
-1. On the right pane, select **Download RDP File**.
-
-1. In File Explorer, double-click on the RDP file that you downloaded.
+1. Double-click on the RDP file, `[VM Name].rdp`, that the script created on your desktop.
 
 1. You will be presented with a dialog saying the publisher of the remote connection is unknown. This is acceptable, so select **Connect**.
 
