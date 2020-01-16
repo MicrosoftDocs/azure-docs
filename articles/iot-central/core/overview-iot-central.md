@@ -70,15 +70,7 @@ As a builder, you can also customize the Azure IoT Central application UI for th
 You can create IoT Central application using a 7-day free trial, or use a Paid subscription.
 
 - **Trial** applications are free for seven days and support up to five devices. They can be converted to Paid at any time before they expire.
-- **Paid** applications are charged on a per device basis, you can choose either **Standard 1** or **Standard 2** paid plan  with the first two devices being free. 
-
-|  | Standard 1 | Standard 2 |
-| ----------- | ------- |  ------- |
-| Price per device | $0.40  | $0.70 |
-| Monthly message device allocation | 5,000 messages | 30,000 messages |
-| Included free quantity for IoT Central application | 2 free devices(10,000 included messages) | 2 free devices(60,000 included messages) |
-| Overage pricing beyond the monthly message allocation | $0.000015 per message | $0.000015 per message |
-| Use case | For devices sending few messages per hour | For devices sending a message every few minutes |
+- **Paid** applications are charged on a per device basis, you can choose either **Standard 1** or **Standard 2** paid plan  with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
 
 ## Connect your devices
 
