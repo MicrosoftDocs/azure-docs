@@ -98,6 +98,14 @@ groups:
     title: Node.js
   - id: programming-language-java
     title: Java
+- id: programming-languages-set-seven
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following

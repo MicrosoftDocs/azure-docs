@@ -19,6 +19,9 @@
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Portal
       href: blob-event-quickstart-portal.md
+    - name: Template
+      displayName: arm, resource manager template 
+      href: blob-event-quickstart-template.md      
   - name: Custom events
     items:
     - name: Azure CLI
