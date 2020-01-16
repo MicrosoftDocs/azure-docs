@@ -100,3 +100,4 @@ If you have questions or need help, [create a support request](https://go.micros
 ## Next steps
 
 - [What are Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Understand how your reservation discount is applied to Azure Disk Storage](../articles/cost-management-billing/reservations/understand-disk-reservations.md)
