@@ -11,7 +11,7 @@ ms.author: aahi
 [Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
-> * This quickstart uses version 3 of the Text Analytics SDK, which provides improved Sentiment Analysis and Named Entity Recognition (NER).
+> * This quickstart uses version 3 of the Text Analytics SDK, which includes a public preview for improved Sentiment Analysis and Named Entity Recognition (NER).
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the `azure.ai.textanalytics.aio` namespace and calling `analyze_sentiment()`, instead of `analyze_sentiment()` from the `azure.ai.textanalytics` namespace.
 
 ## Prerequisites
@@ -61,10 +61,10 @@ The response object is a list containing the analysis information for each docum
 
 These code snippets show you how to do the following with the Text Analytics client library for Python:
 
-* [Sentiment Analysis](#sentiment-analysis) (v3 public preview)
+* [Sentiment Analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (v3 public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (v3 public preview)
+* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (public preview)
+* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -149,7 +149,7 @@ language_detection_example(endpoint, key)
 Language:  French
 ```
 
-## Named Entity recognition (v3 public preview)
+## Named Entity recognition (public preview)
 
 Create a new function called `entity_recognition_example` that takes takes the endpoint and key as arguments, then calls the `single_recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
@@ -185,7 +185,7 @@ Named Entities:
 	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
 ```
 
-## Named Entity Recognition - Personal information (v3 public preview)
+## Named Entity Recognition - Personal information (public preview)
 
 Create a new functions called `entity_pii_example()` that takes takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the PII entities.
 

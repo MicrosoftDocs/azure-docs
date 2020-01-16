@@ -16,7 +16,7 @@ ms.reviewer: sumeh, assafi
 [Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 > [!NOTE]
-> * This quickstart uses version 3 of the Text Analytics SDK, which provides improved Sentiment Analysis and Named Entity Recognition (NER).
+> * This quickstart uses version 3 of the Text Analytics SDK, which includes a public preview for improved Sentiment Analysis and Named Entity Recognition (NER).
 > * The code in this article uses un-secured credentials storage for simplicity reasons. For production scenarios, we recommend sending strings in batches for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
 
 ## Prerequisites
@@ -81,10 +81,10 @@ The response object is a list containing the analysis information for each docum
 ## Code examples
 
 * [Client Authentication](#client-authentication)
-* [Sentiment Analysis](#sentiment-analysis) (v3 public preview)
+* [Sentiment Analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (v3 public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (v3 public preview)
+* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (public preview)
+* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -96,7 +96,7 @@ Create a new `TextAnalyticsClient` object with your key and endpoint as paramete
 const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredential(key));
 ```
 
-## Sentiment analysis (v3 public preview)
+## Sentiment analysis (public preview)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length and confidence scores.
 
@@ -229,7 +229,7 @@ Document ID: 1
         Offset: 71, Length: 2   Score: 0.8
 ```
 
-## Named Entity Recognition - Personal information (v3 public preview)
+## Named Entity Recognition - Personal information (public preview)
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
 

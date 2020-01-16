@@ -16,7 +16,7 @@ ms.reviewer: assafi
 [Reference documentation](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 > [!NOTE]
-> * This quickstart uses version 3 of the Text Analytics SDK, which provides improved Sentiment Analysis and Named Entity Recognition (NER).
+> * This quickstart uses version 3 of the Text Analytics SDK, which includes a public preview for improved Sentiment Analysis and Named Entity Recognition (NER).
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling `AnalyzeSentimentAsync()` instead of `AnalyzeSentiment()`.
 
 ## Prerequisites
@@ -79,16 +79,16 @@ Additional examples, including AAD authentication and the use of client default 
 
 ## Code examples
 
-* [Sentiment analysis](#sentiment-analysis) (v3 public preview)
+* [Sentiment analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (v3 public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (v3 public preview)
+* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (public preview)
+* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
 In your program's `main()` method, call the authentication method to instantiate the client.
 
-## Sentiment analysis (v3 public preview)
+## Sentiment analysis (public preview)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<AnalyzeSentimentResult>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
 
@@ -150,7 +150,7 @@ Language:
         French, ISO-6391: fr
 ```
 
-## Named Entity recognition (v3 public preview)
+## Named Entity recognition (public preview)
 
 Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
 
@@ -178,7 +178,7 @@ Named Entities:
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
-## Named Entity Recognition - Personal information (v3 public preview)
+## Named Entity Recognition - Personal information (public preview)
 
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 
