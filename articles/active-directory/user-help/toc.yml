@@ -64,8 +64,6 @@
     href: my-account-portal-sign-ins-page.md
 - name: Security info (preview) help
   items:
-  - name: Overview
-    href: user-help-security-info-overview.md
   - name: Add security info during sign-in
     href: security-info-setup-signin.md
   - name: Add or update security info methods
