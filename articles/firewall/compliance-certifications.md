@@ -5,13 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/15/2020
+ms.date: 01/17/2020
 ms.author: victorh
 ---
 
 # Azure Firewall compliance certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant.
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), and HITRUST compliant.
+
+The following certifications are for Global Azure and Azure Government.
 
 ## Global Azure certifications
 
@@ -99,6 +101,8 @@ The following Azure Firewall certifications are for Azure Government:
 
 
 ## Next steps
+
+For more information about Microsoft compliance, see the following information.
 
 - [Microsoft Compliance Guide](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide)
 - [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)
