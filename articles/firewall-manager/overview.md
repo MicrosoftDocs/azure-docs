@@ -26,7 +26,7 @@ Firewall Manager can provide security management for two network architecture ty
 
 For a detailed comparison of *secured virtual hub* and *hub virtual network* architectures, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md).
 
-![firewall-manager](media/overview/firewallmanagerv3.png)
+![firewall-manager](media/overview/firewallmanagerv4.png)
 
 ## Azure Firewall Manager Preview features
 
@@ -44,6 +44,8 @@ You can use Azure Firewall Manager Preview to centrally manage Azure Firewall po
 
 In addition to Azure Firewall, you can integrate third-party security as a service (SECaaS) providers to provide additional network protection for your VNet and branch Internet connections.
 
+This feature is available only with secured virtual hub deployments.
+
 - VNet to Internet (V2I) traffic filtering
 
    - Filter outbound virtual network traffic with your preferred third-party security provider.
@@ -57,7 +59,11 @@ For more information about trusted security providers, see [What are Azure Firew
 
 ### Centralized route management
 
-Easily route traffic to your secured hub for filtering and logging without the need to manually set up User Defined Routes (UDR) on spoke virtual networks. You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). You can also use third-party providers for V2I traffic filtering as long as Azure Firewall is not required for B2V or V2V. 
+Easily route traffic to your secured hub for filtering and logging without the need to manually set up User Defined Routes (UDR) on spoke virtual networks. 
+
+This feature is available only with secured virtual hub deployments.
+
+You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). You can also use third-party providers for V2I traffic filtering as long as Azure Firewall is not required for B2V or V2V. 
 
 ## Region availability
 
