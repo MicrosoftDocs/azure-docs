@@ -15,16 +15,16 @@ You can use conditional deployment to create a new resource or use an existing o
 
 ```json
 {
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[parameters('location')]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
+  "condition": "[equals(parameters('newOrExisting'),'new')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "2017-06-01",
+  "name": "[variables('storageAccountName')]",
+  "location": "[parameters('location')]",
+  "sku": {
+    "name": "[variables('storageAccountType')]"
+  },
+  "kind": "Storage",
+  "properties": {}
 }
 ```
 
@@ -38,31 +38,31 @@ You can pass in a parameter value that indicates whether a condition is allowed.
 
 ```json
 {
-    "type": "Microsoft.Sql/servers",
-    "name": "[parameters('serverName')]",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('location')]",
-    "properties": {
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "version": "12.0"
-    },
-    "resources": [
-        {
-            "condition": "[parameters('allowAzureIPs')]",
-            "type": "firewallRules",
-            "name": "AllowAllWindowsAzureIps",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-            ],
-            "properties": {
-                "endIpAddress": "0.0.0.0",
-                "startIpAddress": "0.0.0.0"
-            }
-        }
-    ]
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2015-05-01-preview",
+  "name": "[parameters('serverName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "administratorLogin": "[parameters('administratorLogin')]",
+    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+    "version": "12.0"
+  },
+  "resources": [
+    {
+      "condition": "[parameters('allowAzureIPs')]",
+      "type": "firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "AllowAllWindowsAzureIps",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "endIpAddress": "0.0.0.0",
+        "startIpAddress": "0.0.0.0"
+      }
+    }
+  ]
 }
 ```
 
