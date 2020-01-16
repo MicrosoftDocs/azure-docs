@@ -20,7 +20,7 @@ Get started with the Language Understanding (LUIS) client library. Follow these 
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Use the .Net SDK to query the prediction endpoint](sdk-csharp-quickstart-query-prediction-endpoint.md)
+>[Use the SDK to query the prediction endpoint](sdk-query-prediction-endpoint.md)
 
 * [What is the Language Understanding (LUIS) API?](what-is-luis.md)
 * [What's new?](whats-new.md)

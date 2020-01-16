@@ -90,7 +90,7 @@ landingContent:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
           - text: Using SDK
-            url: sdk-authoring
+            url: sdk-authoring.md
 
       - linkListType: how-to-guide
         links:
