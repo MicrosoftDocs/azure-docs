@@ -14,17 +14,14 @@ ms.date: 01/16/2020
 
 # Import your data into Azure Machine Learning designer (preview)
 
-In this article, you learn how to import your own data in the designer to create custom solutions. You can import data into the designer two ways: 
+In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data module** - Use the [Import Data](algorithm-module-reference/import-data.md) module to directly access data from online datasources.
 
-To learn more about the differences between datasets and datastores, see [Data access in Azure Machine Learning](concept-data.md).
-
 ## Use Azure Machine Learning datasets
 
 We recommend that you use [Azure Machine Learning datasets](concept-data.md#datasets) when you import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
-
 
 ### Register a dataset
 
@@ -58,7 +55,7 @@ For detailed information on how to use the Import Data module, see the [Import D
 
 ## Supported sources
 
-This section lists the supported data sources for the designer. You can bring data into the designer from either a datastore or from [tabular datasets](how-to-create-register-datasets.md#dataset-types).
+This section lists the designer's supported data sources. You can bring data into the designer from either a datastore or from [tabular datasets](how-to-create-register-datasets.md#dataset-types).
 
 ### Datastore sources
 For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).
@@ -81,7 +78,7 @@ The designer internally recognizes the following data types:
 * Boolean
 * Date
 
-The designer uses an internal data type to pass data between modules. You can explicitly convert your data into data table format using the [Convert to Dataset](algorithm-module-reference/convert-to-dataset.md) module.
+The designer uses an internal data type to pass data between modules. You can explicitly convert your data into data table format using the [Convert to Dataset](algorithm-module-reference/convert-to-dataset.md) module. Any module that accepts formats other than the internal format will convert the data silently before passing it to the next module.
 
 ## Data constraints
 
