@@ -48,18 +48,18 @@ If multiple instances exist for the app named `auth-service`, you can view the i
 az spring-cloud app log tail -n  auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 You can also get the app instances from the Azure portal. 
-1. Navigate to your Resource Group and select your Spring Cloud service.
-1. From the Spring Cloud service overview select **Apps** in the left navigation pane.
+1. Navigate to your resource group and select your Azure Spring Cloud instance.
+1. From the Azure Spring Cloud instance overview select **Apps** in the left navigation pane.
 1. Select your app, and then click **App Instances** in the left navigation pane. 
 1. App instances will be displayed.
 
-### Follow switch to track new logs
+### Follow option to track new logs
 By default, CLI will only print the existing log to console without following new logs. If you need to track the new logs, use `-f(--follow)` to track the new logs:
 ```
 az spring-cloud app log tail -n  auth-service -f
 ``` 
 ### More options
-To see all the logging options supported:
+To check all the logging options supported:
 ``` 
 az spring-cloud app log tail -h 
 ```
