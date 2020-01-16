@@ -16,7 +16,7 @@ ms.reviewer: sumeh, assafi
 [Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 > [!NOTE]
-> * This quickstart uses version 3 of the Text Analytics SDK, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * This quickstart uses version 3 of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 > * The code in this article uses un-secured credentials storage for simplicity reasons. For production scenarios, we recommend sending strings in batches for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
 
 ## Prerequisites
