@@ -7,12 +7,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 08/07/2019
+ms.date: 01/14/2019
 ms.author: aahi
 ---
 > [!IMPORTANT]
-> To find your key and endpoint on the Azure portal:
-> 1. Navigate to your azure resource at https://portal.azure.com/.
-> 2. Click on **Quick start**, located under **Resource Management**.
+> Go to the resource you created to find your key and endpoint. They'll be located on the resource's **Quick start** page, under **resource management**.
 >
-> Remember to remove your credentials from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
