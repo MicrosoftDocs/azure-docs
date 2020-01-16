@@ -141,6 +141,8 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+          name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
         - name: Grant tenant-wide admin consent
           href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)
