@@ -1,12 +1,12 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Describes the collection of technologies and services you can use to build an Azure IoT solution.
-author: robinsh
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/09/2018
-ms.author: robinsh
+ms.date: 01/15/2020
+ms.author: dobett
 ---
 
 # Azure technologies and services for creating IoT solutions
