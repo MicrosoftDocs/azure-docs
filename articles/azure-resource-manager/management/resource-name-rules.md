@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/15/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -334,7 +334,7 @@ In the following tables, the term alphanumeric refers to:
 > | labs | resource group | 1-50 | Alphanumerics, underscores, and hyphens. |
 > | labs / customimages | lab | 1-80 | Alphanumerics, underscores, hyphens, and parentheses. |
 > | labs / formulas | lab | 1-80 | Alphanumerics, underscores, hyphens, and parentheses. |
-> | labs / virtualmachines | lab | 1-15 (Windows), 1-64 (Linux) | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. Can't be all numbers. |
+> | labs / virtualmachines | lab | 1-15 (Windows)<br>1-64 (Linux) | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. Can't be all numbers. |
 
 ## Microsoft.DocumentDB
 
@@ -469,77 +469,41 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /applicationGateways | resource group | Not specified |  |
-> | /ApplicationGatewayWebApplicationFirewallPolicies | resource group | Not specified |  |
-> | /applicationSecurityGroups | resource group | Not specified |  |
-> | /azureFirewalls | resource group | Not specified |  |
-> | /bastionHosts | resource group | Not specified |  |
-> | /connections | resource group | Not specified |  |
-> | /ddosCustomPolicies | resource group | Not specified |  |
-> | /ddosProtectionPlans | resource group | Not specified |  |
-> | /dnsZones | resource group | Not specified |  |
-> | /dnsZones/ | dnsZones | Not specified |  |
-> | /expressRouteCircuits | resource group | Not specified |  |
-> | /expressRouteCircuits / authorizations | expressRouteCircuits | Not specified |  |
-> | /expressRouteCircuits / peerings | expressRouteCircuits | Not specified |  |
-> | /expressRouteCircuits / peerings / connections | peerings | Not specified |  |
-> | /expressRouteCrossConnections | resource group | Not specified |  |
-> | /expressRouteCrossConnections / peerings | expressRouteCrossConnections | Not specified |  |
-> | /expressRouteGateways | resource group | Not specified |  |
-> | /expressRouteGateways / expressRouteConnections | expressRouteGateways | Not specified |  |
-> | /ExpressRoutePorts | resource group | Not specified |  |
-> | /firewallPolicies | resource group | Not specified |  |
-> | /firewallPolicies / ruleGroups | firewallPolicies | Not specified |  |
-> | /frontDoors | resource group | 5-64 | Must start with alphanumeric character<br>`^[a-zA-Z0-9]+([-a-zA-Z0-9]?[a-zA-Z0-9])*$` |
-> | /FrontDoorWebApplicationFirewallPolicies | resource group | Not specified | Must contain only alphanumeric characters<br>`^[a-zA-Z0-9]*$` |
-> | /interfaceEndpoints | resource group | Not specified |  |
-> | /ipGroups | resource group | Not specified |  |
-> | /loadBalancers | resource group | Not specified |  |
-> | /loadBalancers / inboundNatRules | loadBalancers | Not specified |  |
-> | /localNetworkGateways | resource group | Not specified |  |
-> | /natGateways | resource group | Not specified |  |
-> | /NetworkExperimentProfiles | resource group | Not specified | `^[a-zA-Z0-9_\-\(\)\.]*[^\.]$` |
-> | /NetworkExperimentProfiles / Experiments | NetworkExperimentProfiles | Not specified | `^[a-zA-Z0-9_\-\(\)\.]*[^\.]$` |
-> | /networkInterfaces | resource group | Not specified |  |
-> | /networkInterfaces / tapConfigurations | networkInterfaces | Not specified |  |
-> | /networkProfiles | resource group | Not specified |  |
-> | /networkSecurityGroups | resource group | Not specified |  |
-> | /networkSecurityGroups / securityRules | networkSecurityGroups | Not specified |  |
-> | /networkWatchers | resource group | Not specified |  |
-> | /networkWatchers / connectionMonitors | networkWatchers | Not specified |  |
-> | /networkWatchers / packetCaptures | networkWatchers | Not specified |  |
-> | /p2svpnGateways | resource group | Not specified |  |
-> | /privateDnsZones | resource group | Not specified |  |
-> | /privateDnsZones/ | privateDnsZones | Not specified |  |
-> | /privateDnsZones / virtualNetworkLinks | privateDnsZones | Not specified |  |
-> | /privateEndpoints | resource group | Not specified |  |
-> | /privateLinkServices | resource group | Not specified |  |
-> | /privateLinkServices / privateEndpointConnections | privateLinkServices | Not specified |  |
-> | /publicIPAddresses | resource group | Not specified |  |
-> | /publicIPPrefixes | resource group | Not specified |  |
-> | /routeFilters | resource group | Not specified |  |
-> | /routeFilters / routeFilterRules | routeFilters | Not specified |  |
-> | /routeTables | resource group | Not specified |  |
-> | /routeTables / routes | routeTables | Not specified |  |
-> | /serviceEndpointPolicies | resource group | Not specified |  |
-> | /serviceEndpointPolicies / serviceEndpointPolicyDefinitions | serviceEndpointPolicies | Not specified |  |
-> | /trafficmanagerprofiles | resource group | Not specified |  |
-> | /trafficmanagerprofiles/ | trafficmanagerprofiles | Not specified |  |
-> | /virtualHubs | resource group | Not specified |  |
-> | /virtualHubs / routeTables | virtualHubs | Not specified |  |
-> | /virtualNetworkGateways | resource group | Not specified |  |
-> | /virtualNetworks | resource group | Not specified |  |
-> | /virtualnetworks / subnets | virtualnetworks | Not specified |  |
-> | /virtualNetworks / virtualNetworkPeerings | virtualNetworks | Not specified |  |
-> | /virtualNetworkTaps | resource group | Not specified |  |
-> | /virtualRouters | resource group | Not specified |  |
-> | /virtualRouters / peerings | virtualRouters | Not specified |  |
-> | /virtualWans | resource group | Not specified |  |
-> | /virtualWans / p2sVpnServerConfigurations | virtualWans | Not specified |  |
-> | /vpnGateways | resource group | Not specified |  |
-> | /vpnGateways / vpnConnections | vpnGateways | Not specified |  |
-> | /vpnServerConfigurations | resource group | Not specified |  |
-> | /vpnSites | resource group | Not specified |  |
+> | applicationGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | applicationSecurityGroups | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | azureFirewalls | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
+> | bastionHosts | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | connections | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | dnsZones | resource group | 1-63 characters<br>Must contain from 2 to 34 labels. Each label is a set of characters separated by a period. For example, "contoso.com" has 2 labels. | Alphanumerics, underscores, and hyphens. Each label must be separated by a period. |
+> | expressRouteCircuits | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | firewallPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | firewallPolicies / ruleGroups | firewall policy | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | frontDoors | global | 5-64 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | loadBalancers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | loadBalancers / inboundNatRules | load balancer | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | localNetworkGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | networkInterfaces | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | networkSecurityGroups | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | networkSecurityGroups / securityRules | network security group | 1-80 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | networkWatchers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | privateDnsZones | resource group | 1-63 characters<br>Must contain from 2 to 34 labels. Each label is a set of characters separated by a period. For example, "contoso.com" has 2 labels. | Alphanumerics, underscores, and hyphens. Each label must be separated by a period. |
+> | privateDnsZones / virtualNetworkLinks | private DNS zone | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | publicIPAddresses | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | publicIPPrefixes | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | routeFilters | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | routeFilters / routeFilterRules | route filter | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | routeTables | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | routeTables / routes | route table | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | serviceEndpointPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | trafficmanagerprofiles | global | 1-63 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
+> | virtualNetworkGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | virtualNetworks | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | virtualnetworks / subnets | virtual network | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | virtualNetworks / virtualNetworkPeerings | virtual network | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | virtualWans | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | vpnGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | vpnGateways / vpnConnections | VPN gateway | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | vpnSites | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 
 ## Microsoft.NotificationHubs
 
@@ -547,7 +511,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start and end with alphanumeric. |
-> | namespaces / AuthorizationRules | namespace | 1-256 |  |
+> | namespaces / AuthorizationRules | namespace | 1-256 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
 > | namespaces / notificationHubs | namespace | 1-260 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
 > | namespaces / notificationHubs / AuthorizationRules | notification hub | 1-256 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
 
@@ -564,7 +528,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaceCollections | region | 3-63 | name must consist only of numbers, letters, and hypens. Hypens may not appear consecutively or at the beginning of the name" |
+> | workspaceCollections | region | 3-63 | Alphanumerics and hyphens.<br><br>Can't start with hyphen. Can't use consecutive hyphens. |
 
 ## Microsoft.PowerBIDedicated
 
@@ -598,11 +562,10 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /deployments | resource group | Not specified |  |
-> | /deploymentScripts | resource group | 1-90 |  |
-> | /resourcegroups | subscriptions | 1-90 | `^[-\w\._\(\)]+$` |
-> | /tagNames | subscriptions | Not specified |  |
-> | /tagNames/tagValues | tagNames | Not specified |  |
+> | deployments | resource group | 1-64 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
+> | resourcegroups | subscription | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. Unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate).<br><br>Can't end with period. |
+> | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` |
+> | tagNames / tagValues | tag name | 1-256 | All characters. |
 
 ## Microsoft.ServiceBus
 
@@ -655,9 +618,9 @@ In the following tables, the term alphanumeric refers to:
 > | storageAccounts | global | 3-24 | Lowercase letters and numbers. |
 > | storageAccounts / blobServices | storage account |  | Must be `default`. |
 > | storageAccounts / blobServices / containers | storage account | 3-63 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. Can't use consecutive hyphens. |
-> | storageAccounts / fileServices | storageAccounts |  | Must be `default`. |
+> | storageAccounts / fileServices | storage account |  | Must be `default`. |
 > | storageAccounts / fileServices / shares | storage account | 3-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can't use consecutive hyphens. |
-> | storageAccounts / managementPolicies | storageAccounts |  | Must be `default`. |
+> | storageAccounts / managementPolicies | storage account |  | Must be `default`. |
 > | blob | container | 1-1024 | Any URL characters, case sensitive |
 > | queue | storage account | 3-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can't use consecutive hyphens. |
 > | table | storage account | 3-63 | Alphanumerics.<br><br>Start with letter. |
@@ -683,10 +646,10 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | streamingjobs | resource group | 3-63 | Alphanumerics, hyphens, and underscores. |
-> | streamingjobs / functions | Streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
-> | streamingjobs / inputs | Streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
-> | streamingjobs / outputs | Streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
-> | streamingjobs / transformations | Streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
+> | streamingjobs / functions | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
+> | streamingjobs / inputs | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
+> | streamingjobs / outputs | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
+> | streamingjobs / transformations | streaming job | 3-63 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.TimeSeriesInsights
 
@@ -694,9 +657,9 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | environments | resource group | 1-90 | Can't use:<br>`'<>%&:\?/#` |
-> | environments / accessPolicies | Environment | 1-90 | Can't use:<br> `'<>%&:\?/#` |
-> | environments / eventSources | Environment | 1-90 | Can't use:<br>`'<>%&:\?/#` |
-> | environments / referenceDataSets | Environment | 3-63 | Alphanumerics |
+> | environments / accessPolicies | environment | 1-90 | Can't use:<br> `'<>%&:\?/#` |
+> | environments / eventSources | environment | 1-90 | Can't use:<br>`'<>%&:\?/#` |
+> | environments / referenceDataSets | environment | 3-63 | Alphanumerics |
 
 ## Microsoft.Web
 
