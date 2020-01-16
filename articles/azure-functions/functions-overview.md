@@ -33,7 +33,7 @@ Some key features of Azure Functions include:
 
 - **Integrated security**: Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
 
-- **Simplified integration**: Easily integrate with Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) for some examples.
+- **Simplified integration**: Easily [integrate with Azure services and software-as-a-service (SaaS) offerings](#integrations).
 
 - **Flexible development**: Set up continuous integration and deploy your code through [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/deploy-local-git.md).
 
