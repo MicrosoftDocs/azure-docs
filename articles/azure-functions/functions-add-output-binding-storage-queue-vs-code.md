@@ -4,7 +4,7 @@ description: Learn how to add an output binding to connect your functions to an 
 ms.date: 06/25/2019
 ms.topic: quickstart
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Connect functions to Azure Storage using Visual Studio Code
@@ -48,7 +48,7 @@ In the [previous quickstart article](functions-create-first-function-vs-code.md)
 
 Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -76,7 +76,7 @@ Now, you can add the storage output binding to your project.
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -98,7 +98,7 @@ In Functions, each type of binding requires a `direction`, `type`, and a unique 
 
 After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
 

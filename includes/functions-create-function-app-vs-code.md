@@ -32,7 +32,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone-end
 
-    ::: zone pivot="programming-language-nodejs"
+    ::: zone pivot="programming-language-javascript"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -65,7 +65,7 @@ An [HttpTrigger.cs class library file](../articles/azure-functions/functions-dot
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
 An HttpTrigger folder that contains the [function.json definition file](../articles/azure-functions/functions-reference-node.md#folder-structure) and the [index.js file](../articles/azure-functions/functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
 

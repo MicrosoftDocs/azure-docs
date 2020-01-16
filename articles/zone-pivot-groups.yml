@@ -106,6 +106,20 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
+- id: programming-languages-set-functions
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell 
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-python
+    title: Python 
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following
