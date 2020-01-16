@@ -452,7 +452,9 @@
       href: how-to-use-logging.md
     - name: How to track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
-      displayName: "memory usage, memory consumption, object logging, object tracking, memory"
+    - name: How to configure OpenSSL for Linux
+      href: how-to-configure-openssl-linux.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)

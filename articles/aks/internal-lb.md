@@ -147,7 +147,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [advanced-networking]: configure-azure-cni.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md

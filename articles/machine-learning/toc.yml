@@ -314,15 +314,9 @@
     - name: Consume in real-time
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
-    - name: Run batch predictions
-      displayName: score scoring batch consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions.md
     - name: Designer batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
       href: how-to-run-batch-predictions-designer.md
-    - name: Debug & troubleshoot batch predictions
-      displayName: debug_batch consume pipeline parallelrunstep inference
-      href: how-to-debug-batch-predictions.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
@@ -347,6 +341,12 @@
     - name: 'Designer: Retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
+    - name: Use parallel run step
+      displayName: score scoring batch consume pipeline parallelrunstep inference
+      href: how-to-use-parallel-run-step.md
+    - name: Debug & troubleshoot parallel run step
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-parallel-run-step.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
