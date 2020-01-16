@@ -20,7 +20,7 @@ ms.date: 01/06/2020
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Use the environments to track and reproduce your projects' software dependencies as they evolve.
 
-Software dependency management is a common task for developers. You want to ensure that builds are reproducible without extensive manual software configuration. The Azure Machine Learning `Environments` class accounts for local development solutions such as pip and Conda, and it provides a solution for both local and distributed cloud development.
+Software dependency management is a common task for developers. You want to ensure that builds are reproducible without extensive manual software configuration. The Azure Machine Learning `Environment` class accounts for local development solutions such as pip and Conda, and it provides a solution for both local and distributed cloud development.
 
 The examples in this article show how to:
 
@@ -227,7 +227,7 @@ build.wait_for_completion(show_output=True)
 
 ## Enable Docker
 
- The [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) of the Azure Machine Learning `Environments` class allows you to finely customize and control the guest operating system on which you run your training.
+ The [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) of the Azure Machine Learning `Environment` class allows you to finely customize and control the guest operating system on which you run your training.
 
 When you `enable` Docker, the service builds a Docker image. It also creates a Python environment that uses your specifications within that Docker container. This functionality provides additional isolation and reproducibility for your training runs.
 
@@ -337,10 +337,6 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## See example notebooks
-
-For more information about the concepts and methods described in this article, see this [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments).
-
 ## Use the CLI to create and manage environments
 
 The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate basic functionality.
@@ -374,3 +370,4 @@ az ml environment download -n myenv -d downloaddir
 * To use a managed compute target to train a model, see [Tutorial: Train a model](tutorial-train-models-with-aml.md).
 * After you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [`Environment` class SDK reference](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py).
+* For more information about the concepts and methods described in this article, see this [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments).
