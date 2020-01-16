@@ -58,31 +58,33 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
    ![Find and select "AS2 Decode (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-1. For the **Body** property, enter the input that you want the AS2 action to decode, which is the `body` content that's received by the HTTP request trigger. You have these options:
+1. For the **Message to decode** property, enter the input that you want the AS2 action to decode, which is the `body` content that's received by the HTTP request trigger. You have these options:
 
-   * To select from the available trigger outputs, click inside the **Body** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body**, for example:
+   * To select from the available trigger outputs, click inside the **Message to decode** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body**, for example:
 
      ![Select "Body" value from trigger](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * To enter an expression that references the trigger's `body` output, click inside the **Body** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter this expression, and select **OK**:
+   * To enter an expression that references the trigger's `body` output, click inside the **Message to decode** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
 
-     `@triggerOutputs()['body']`
+     `triggerOutputs()['body']`
 
-      The expression resolves to the **Body** token. You can also use just `triggerBody()`.
+   * Directly in the **Message to decode** box, enter this expression:
 
-1. For the **Headers** property, enter any headers required for the AS2 action, which is the `headers` content that's received by the HTTP request trigger. You have these options:
+     `@triggerBody()`
 
-   * To select from the available trigger outputs, click inside the **Headers** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Headers**, for example:
+   The expression resolves to the **Body** token.
 
-     ![Select "Headers" value from trigger](./media/logic-apps-enterprise-integration-b2b/select-headers-content-from-trigger.png)
+   ![Resolved body output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
-   * To enter an expression that references the trigger's `headers` output, click inside the **Body** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter this expression, and select **OK**:
+1. For the **Message headers** property, enter any headers required for the AS2 action, which are described by the `headers` content that's received by the HTTP request trigger.
 
-   * In the **Headers** box, enter an expression that references the trigger's `headers` output, for example:
+   To enter an expression that references the trigger's `headers` output, click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
 
-     `@triggerOutputs()['headers']`
+   `triggerOutputs()['headers']`
 
-      The expression resolves to the **Headers** token.
+   The expression resolves to a token.
+
+   ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 1. Now add the **Decode X12 message** action. Under the **AS2 Decode** action, select **New step**.
 
@@ -100,7 +102,7 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
       `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
 
-      The expression resolves to the **base64ToString(...)** token:
+      The expression resolves to a token:
 
       ![Convert base64-encoded content to a string](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
 
@@ -122,7 +124,7 @@ To notify the trading partner that the message was received, you can return a re
 
    `@base64ToString(body('AS2_Decode')?['OutgoingMdn']?['Content'])`
 
-   The expression resolves to the **base64ToString(...)** token:
+   The expression resolves to a token:
 
    ![Resolved expression to access AS MDN](./media/logic-apps-enterprise-integration-b2b/response-action-resolved-expression.png)
 
