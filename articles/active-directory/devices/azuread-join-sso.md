@@ -21,7 +21,7 @@ It is probably not a surprise that an Azure Active Directory (Azure AD) joined d
 
 This article explains how this works.
 
-# Prerequisites
+## Prerequisites
 
  If Azure AD joined machines are not connected to your organization's network, a VPN or other network infrastructure is required. On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers.
 
