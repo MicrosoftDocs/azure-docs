@@ -344,7 +344,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+From the Java [functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) annotation on parameters whose value would come from Event Hub. Parameters with these annotations cause the function to run when an event arrives. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ---
 
@@ -611,7 +611,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+In the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the [EventHubOutput](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
 
 ---
 
@@ -644,7 +644,7 @@ Send messages by using a method parameter such as `out string paramName`. In C# 
 
 # [JavaScript](#tab/javascript)
 
-Access the output event by using `context.bindings.<name>`. `<name>` is the value specified in the `name` property of *function.json*.
+Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 
 # [Python](#tab/python)
 
