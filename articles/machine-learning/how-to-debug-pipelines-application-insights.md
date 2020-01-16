@@ -3,7 +3,7 @@ title: Debug and troubleshoot Machine Learning Pipelines in Application Insights
 titleSuffix: Azure Machine Learning
 description: Add logging to your training and batch scoring pipelines and view the logged results in Application Insights.
 services: machine-learning
-author: anrode
+author: aburek
 ms.author: anrode
 ms.service: machine-learning
 ms.subservice: core
@@ -77,7 +77,7 @@ Custom Dimensions make up a dictionary of key-value (stored as string, string) p
 | build_url/build_version | Can correlate logs to the code version that provided the step and pipeline logic. This link can further help to diagnose issues, or identify models with specific traits (log/metric values) |
 | run_type                       | Can differentiate between different model types, or training vs. scoring runs                                                                                                           |
 
-### Creating the custom dimensions dictionary
+### Creating a custom dimensions dictionary
 
 ```python
 run = Run.get_context(allow_offline=False)
@@ -114,11 +114,11 @@ The logs routed to Application Insights will show up under 'traces'. Be sure to 
 
 ![Application Insights Query result](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
 
-The result in Application Insights will show the log message and level, file path, and code line number the log is from, as well as any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-custom-dimensions-dictionary).
+The result in Application Insights will show the log message and level, file path, and code line number the log is from, as well as any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-a-custom-dimensions-dictionary).
 
 ## Additional helpful queries
 
-Some of the queries below use 'severityLevel'. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language).
+Some of the queries below use 'severityLevel'. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
