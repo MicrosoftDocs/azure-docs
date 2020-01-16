@@ -28,13 +28,13 @@ Be aware how many times you layer customizations. You can run the Sysprep comman
 ## Register the features
 To use Azure Image Builder during the preview, you need to register the new feature.
 
-```azurepowershell-interactive
+```powershell
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
 Check the status of the feature registration.
 
-```azurepowershell-interactive
+```powershell
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
@@ -42,7 +42,7 @@ Wait until `RegistrationState` is `Registered` before moving to the next step.
 
 Check your provider registrations. Make sure each returns `Registered`.
 
-```azurepowershell-interactive
+```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -51,7 +51,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 If they do not say registered, run the following:
 
-```azurepowershell-interactive
+```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -62,7 +62,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information. Replace the values for the variables, like `username` and `vmpassword`, with your own information.
 
-```azurepowershell-interactive
+```powershell
 # Get existing context
 $currentAzContext = Get-AzContext
 
@@ -72,7 +72,7 @@ $imageResourceGroup="aibwinsig"
 # Location
 $location="westus"
 
-# Get your current subscription ID. You can use Get-AzSubscription to list your subscriptions.
+# Get your current subscription ID. 
 $subscriptionID=$currentAzContext.Subscription.Id
 
 # Name of the image to be created
@@ -94,7 +94,7 @@ $runOutputName="winclientR01"
 
 Create a resource group and give Azure Image Builder permission to create resources in that resource group.
 
-```azurepowershell-interactive
+```powershell
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup -RoleDefinitionName Contributor
 ```
@@ -107,7 +107,7 @@ To use Image Builder with a shared image gallery, you need to have an existing i
 
 If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
 
-```azurepowershell-interactive
+```powershell
 # Image gallery name
 $sigGalleryName= "my22stSIG"
 
@@ -130,21 +130,19 @@ New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $im
 
 Download the .json template and configure it with your variables.
 
-```azurepowershell-interactive
+```powershell
 $templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json"
 $templateFilePath = "armTemplateWinSIG.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
-((Get-Content -path $templateFilePath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<rgName>',$imageResourceGroup) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<region>',$location) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<runOutputName>',$runOutputName) | Set-Content -Path $templateFilePath
-
-((Get-Content -path $templateFilePath -Raw) -replace '<imageDefName>',$imageDefName) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<sharedImageGalName>',$sigGalleryName) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<region1>',$location) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<region2>',$replRegion2) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<rgName>',$imageResourceGroup) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<runOutputName>',$runOutputName) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<imageDefName>',$imageDefName) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<sharedImageGalName>',$sigGalleryName) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<region1>',$location) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) -replace '<region2>',$replRegion2) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -152,13 +150,13 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 Your template must be submitted to the service, this will download any dependent artifacts, like scripts, and store them in the staging Resource Group, prefixed with *IT_*.
 
-```azurepowershell-interactive
+```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2019-05-01-preview" -imageTemplateName $imageTemplateName -svclocation $location
 ```
 
 To build the image you need to invoke 'Run' on the template.
 
-```azurepowershell-interactive
+```powershell
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview" -Action Run
 ```
 
@@ -172,7 +170,7 @@ For information on options for automating getting the image build status, see th
 Create a VM from the image version that was created by Azure Image Builder.
 
 Get the image version you created.
-```azurepowershell-interactive
+```powershell
 $imageVersion = Get-AzGalleryImageVersion `
    -ResourceGroupName $imageResourceGroup `
    -GalleryName $sigGalleryName `
@@ -182,7 +180,7 @@ $imageVersion = Get-AzGalleryImageVersion `
 
 Create the VM.
 
-```azurepowershell-interactive
+```powershell
 $vmResourceGroup = "myResourceGroup"
 $vmLocation = "South Central US"
 $vmName = "myVMfromImage"
