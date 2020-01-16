@@ -77,7 +77,7 @@ In Azure AD DS, the available performance and features are based on the SKU. You
 
 | SKU name   | Maximum object count | Performance | Backup frequency | Maximum number of outbound forest trusts |
 |------------|----------------------|-------------|------------------|----|
-| Basic      | Unlimited            | 1 vCPU      | Every 7 days     | 0  |
+| Standard   | Unlimited            | 1 vCPU      | Every 7 days     | 0  |
 | Enterprise | Unlimited            | 2 vCPUs     | Every 3 days     | 5  |
 | Premium    | Unlimited            | 4 vCPUS     | Daily            | 10 |
 
