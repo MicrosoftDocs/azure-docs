@@ -17,25 +17,19 @@ ms.date: 01/15/2020
 # Tutorial: Create your first image classification labeling project
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data. 
+This tutorial show you how to create a project to manage the process of tagging images.
 
-This tutorial shows you how to set up and manage a project as  the *project manager*.  To complete the tutorial, you will also play the role of a *labeler* to tag images.  
-
+If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data.
+ 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
 > * Create an Azure storage account and upload images to the account.
 > * Create an Azure Machine Learning workspace.
-> * Start a data labeling project:
->     * Create a datastore to connect your storage account to your workspace.
->     * Add labelers to your workspace.
->     * Create the project.
->     * Add your labelers to the project.
+> * Create an image labeling project
 > * Label your data.  Either you or your labelers can perform this task.
-> * Complete the project:
->     * Review labeled data.
->     * Export labeled data for training a model.
+> * Complete the project by reviewing and exporting the data.
 
 ## Prerequisites
 
@@ -134,7 +128,7 @@ You manage data labeling projects in Azure Machine Learning studio, a consolidat
 
 ### Create a datastore
 
-You use a datastore to access the images from your storage account.
+Azure Machine Learning datastores are used to store connection information, like your subscription ID and token authorization. Here you use a datastore to connect to the storage account where your image file are located.
 
 1. On the left side of your workspace, select **Datastores**.
 
@@ -177,6 +171,8 @@ Now that you have your list of labelers and access to the data you want to have 
 
     ![Create a project](media/tutorial-labeling/create-project.png)
 
+### Project details
+
 1. Use the following input for the **Project details** form:
 
     Field|Description 
@@ -185,6 +181,8 @@ Now that you have your list of labelers and access to the data you want to have 
     Labeling task type | Select **Image Classification Multi-class**.
     
     Select **Next** to continue creating the project.
+
+### Select or create a dataset
 
 1.   On the **Select or create a dataset** form, select the second choice, **Create a dataset**, then select the link **From datastore**.
 
@@ -203,9 +201,13 @@ Now that you have your list of labelers and access to the data you want to have 
 
 1. Select **Next** to continue creating the project.
 
+### Label classes
+
 1. On the **Label classes** form, type a label name, then select **+Add label** to type the next label.  For this project, the labels are **X**, **Y**, **Z**, and **Unknown**.
 
-    Select **Next** when have added all the labels.
+1. Select **Next** when have added all the labels.
+
+### Labeling instructions
 
 1. On the **Labeling instructions** form, you can provide a link to a website that provides detailed instructions for your labelers.  We'll leave it blank for this tutorial.
 
@@ -227,7 +229,7 @@ Add some or all of your labelers to this project.
 
 1. Select from the list of labelers you created earlier.  Once you've selected all the labelers you wish to use, select **Assign labelers** to add them to your default project team.
 
-## Ready to label 
+## Start labeling
 
 You have now set up your Azure resources, and configured a data labeling project. It's time to add labels to your data. 
 
@@ -253,7 +255,7 @@ If you have lots of images to label, hopefully you also have lots of labelers to
 
 Each time a labeler goes to the portal URL, they'll be presented with more images to label, until the queue is empty.  
 
-### Tag the data
+### Tag the images
 
 In this part of the tutorial, you'll switch roles from the *project administrator* to that of a *labeler*.  Use the URL you sent to the team.  This URL brings you to the labeling portal for your project.  If you had added instructions, you'd see them here when you arrive on the page.
 
@@ -313,13 +315,7 @@ Image labels can be exported in [COCO format](http://cocodataset.org/#format-dat
 
 ## Next steps
 
-In this tutorial, you played two roles.
+In this tutorial, you labeled images.  Now use your labeled data:
 
-* As a *project administrator*, you:
-    * Uploaded images to an Azure Storage account.
-    * Configured a labeling project so that all your labelers could tag the images with the appropriate label.
-    * Reviewed the labels.
-    * Exported the final labeled dataset to be used for modeling.
-* As a *labeler*, you labeled the images.  You may have also included other labelers to participate in labeling as well.
-
-Now use your labeled data  to [train a machine learning image recognition model](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [!div class="nextstepaction"]
+> [Train a machine learning image recognition model](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
