@@ -45,7 +45,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone-end
 
-        ::: zone pivot="programming-language-typescript"
+    ::: zone pivot="programming-language-typescript"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |

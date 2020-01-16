@@ -116,10 +116,10 @@ groups:
     title: JavaScript
   - id: programming-language-powershell
     title: PowerShell 
-  - id: programming-language-typescript
-    title: TypeScript
   - id: programming-language-python
     title: Python 
+  - id: programming-language-typescript
+    title: TypeScript
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following
