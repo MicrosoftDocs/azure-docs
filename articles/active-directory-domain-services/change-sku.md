@@ -37,11 +37,9 @@ To complete this article, you need the following resources and privileges:
 The SKU for an Azure AD DS managed domain is changed using the Azure portal.
 
 1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain from the list, such as *aadds.contoso.com*.
-1. On the **Overview** page is an option to **Choose SKU**, as shown in the following example:
+1. In the menu on the left-hand side of the Azure AD DS page, select **Settings > SKU**.
 
-    ![Select the option to change SKU from the Overview page of your Azure AD DS managed domain in the Azure portal](media/change-sku/overview-change-sku.png)
-
-    You can also select **Settings > SKU** from the menu on the left-hand side of the Azure AD DS page.
+    ![Select the SKU menu option for your Azure AD DS managed domain in the Azure portal](media/change-sku/overview-change-sku.png)
 
 1.  From the drop-down menu, select the SKU you wish for your Azure AD DS managed domain. If you have a resource forest, you can't select *Standard* SKU as forest trusts are only available on the *Enterprise* SKU or higher.
 

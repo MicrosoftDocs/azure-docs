@@ -87,7 +87,7 @@ For more information, see the [Azure AD DS pricing page][pricing].
 
 ### Managed domain performance
 
---- INSERT PERFORMANCE INFO FROM RIC ---
+Domain performance varies based on how authentication is implemented for an application. Azure AD DS lets you select the amount of processing resources available to each managed domain. Additional processing resources may help improve query response time and reduce time spent in sync operations. As the SKU level increases, the number of vCPUs available to the managed domain is increased. Monitor the performance of your applications and plan for the required resources.
 
 If your business or application needs change and you need additional compute power for your Azure AD DS managed domain, you can switch to a different SKU.
 
