@@ -91,7 +91,10 @@ The following example assigns a managed identity the permissions to pull from a 
 
 
 ```azurecli
-az role assignment create --assignee <servicePrincipalID> --scope <registryID> --role acrpull
+az role assignment create \
+  --assignee <servicePrincipalID> \
+  --scope <registryID> \
+  --role acrpull
 ```
 
 ### 4. (Optional) Add credentials to the task

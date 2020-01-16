@@ -124,12 +124,15 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## Grant identity access to key vault
+## Give identity access to key vault
 
 Run the following [az keyvault set-policy][az-keyvault-set-policy] command to set an access policy on the key vault. The following example allows the identity to read secrets from the key vault. 
 
 ```azurecli
-az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
 ```
 
 ## Add Docker Hub credentials to the task

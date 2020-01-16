@@ -111,7 +111,10 @@ baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
 
 ```azurecli
-az role assignment create --assignee $principalID --scope $baseregID --role acrpull
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
 ```
 
 ## Add target registry credentials to task
