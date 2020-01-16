@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/15/2020
 ---
 
 # Example: Create a custom skill using Python
@@ -19,18 +19,15 @@ The custom skill is simple by design (it concatenates two strings) so that you c
 
 ## Prerequisites
 
-+ Review [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
++ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
 
-+ [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
-
-+ Set up your environment. We followed [this tutorial end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function in Python in Visual Studio Code. This tutorial leads you through installation of the following tools and components: 
++ Set up your environment. We followed [this tutorial end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The tutorial leads you through installation of the following tools and components: 
 
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-  
 
 ## Create an Azure Function
 
@@ -239,7 +236,7 @@ concatenate the Title and the Author of the document into a single field which w
       "[... your existing skills remain here]",  
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "Our new Bing entity search custom skill",
+        "description": "Our new search custom skill",
         "uri": "https://[your-function-url-here]",        
           "context": "/document/merged_content/organizations/*",
           "inputs": [
