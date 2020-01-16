@@ -195,7 +195,7 @@ USE [master]
 GO
 
 -- Drop database if it exists
-IF EXISTS (SELECT *FROM sys.sysdatabases WHERE name = 'ReplTutorial')
+IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
     DROP DATABASE ReplTutorial
 END

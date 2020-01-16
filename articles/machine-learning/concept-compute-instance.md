@@ -50,7 +50,7 @@ These tools and environments are installed on the compute instance:
 |Intel MPI library||
 |Azure CLI ||
 |Azure Machine Learning samples ||
-|Azure Machine Learning EDAT engine ||            
+|Azure Machine Learning EDAT engine ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -72,11 +72,26 @@ These tools and environments are installed on the compute instance:
 |Other PyPI packages|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python & R SDK samples||
+
+Python packages are all installed in the **Python 3.6 - AzureML** environment.  
 
 Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
+### Installing packages
+
+You can install packages directly in a Jupyter notebook or Rstudio:
+
+* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* Python: Add install code and execute in a Jupyter notebook cell.
+
+Or you can access a terminal window in any of these ways:
+
+* RStudio: Select the **Terminal** tab on top left.
+* Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
+* Jupyter:  Select **New>Terminal** on top right in the Files tab.
+* SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
 
 ## Accessing files
 
