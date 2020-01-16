@@ -1,5 +1,5 @@
 ---
-title: How to teach with Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: How to teach with Conversation Learner - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to teach with Conversation Learner.
 services: cognitive-services

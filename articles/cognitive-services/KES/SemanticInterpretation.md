@@ -1,6 +1,6 @@
 ---
 title: Semantic interpretation - Knowledge Exploration Service API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn how to use semantic interpretation in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu

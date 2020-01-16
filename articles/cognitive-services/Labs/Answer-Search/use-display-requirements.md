@@ -1,6 +1,6 @@
 ---
 title: Use and display requirements - Project Answer Search
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Use and display requirements for the Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro

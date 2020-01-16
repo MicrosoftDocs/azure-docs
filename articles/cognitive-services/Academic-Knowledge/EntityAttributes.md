@@ -1,6 +1,6 @@
 ---
 title: Academic Graph entity attributes - Academic Knowledge API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn about the entity attributes you can use with the Academic Graph in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft

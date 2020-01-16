@@ -1,5 +1,5 @@
 ---
-title: Demo Conversation Learner model, password reset - Microsoft Cognitive Services | Microsoft Docs
+title: Demo Conversation Learner model, password reset - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to create a demo Conversation Learner model.
 services: cognitive-services

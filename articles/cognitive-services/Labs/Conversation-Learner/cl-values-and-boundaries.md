@@ -1,5 +1,5 @@
 ---
-title: Conversation Learner default configuration - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner default configuration - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn about the default Conversation Learner configuration.
 services: cognitive-services

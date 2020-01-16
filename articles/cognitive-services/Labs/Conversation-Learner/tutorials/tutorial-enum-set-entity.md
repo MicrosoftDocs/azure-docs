@@ -1,5 +1,5 @@
 ---
-title: When to use ENUM entities and SET ENTITY actions with a Conversation Learner Model - Azure Cognitive Services | Microsoft Docs
+title: When to use ENUM entities and SET ENTITY actions with a Conversation Learner Model - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn when it is appropriate to use ENUM entities and SET ENTITY actions with a Conversation Learner Model.
 services: cognitive-services
@@ -40,7 +40,7 @@ Imagine you overhear part of a conversation between people nearby and you only h
 
 Let's further clarify with the following example:
 
-Bot: Do you like Azure Cognitive Services?
+Bot: Do you like Cognitive Research Technologies?
 User: Yes
 Bot: Do you like ice cream?
 User: Yes

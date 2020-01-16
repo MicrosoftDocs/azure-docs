@@ -1,6 +1,6 @@
 ---
 title: What is Project URL Preview?
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Introduction to the Project URL Preview.
 services: cognitive-services
 author: mikedodaro

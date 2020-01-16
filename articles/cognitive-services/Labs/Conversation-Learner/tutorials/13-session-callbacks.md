@@ -1,5 +1,5 @@
 ---
-title: How to use session callbacks with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
+title: How to use session callbacks with a Conversation Learner model - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use session callbacks with a Conversation Learner model.
 services: cognitive-services

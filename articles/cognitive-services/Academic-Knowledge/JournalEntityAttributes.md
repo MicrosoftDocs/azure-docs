@@ -1,6 +1,6 @@
 ---
 title: Journal entity attributes - Academic Knowledge API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn the attributes you can use with the Journal entity in the Academic Knowledge API in Cognitive Services.
 services: cognitive-services
 author: darrine

@@ -1,5 +1,5 @@
 ---
-title: How to use alternative inputs with Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: How to use alternative inputs with Conversation Learner - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use alternative inputs with Conversation Learner.
 services: cognitive-services

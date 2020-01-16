@@ -1,5 +1,5 @@
 ---
-title: Entity Resolvers in a Conversation Learner Model - Azure Cognitive Services| Microsoft Docs
+title: Entity Resolvers in a Conversation Learner Model - Cognitive Research Technologies| Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use Entity Resolvers in Conversation Learner.
 services: cognitive-services

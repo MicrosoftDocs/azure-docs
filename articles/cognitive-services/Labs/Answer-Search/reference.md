@@ -1,6 +1,6 @@
 ---
 title: Project Answer Search reference
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro

@@ -1,6 +1,6 @@
 ---
 title: Author entity attributes - Academic Knowledge API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn the attributes you can use with the Author entity in the Academic Knowledge API.
 services: cognitive-services
 author: darrine

@@ -1,6 +1,6 @@
 ---
 title: Project URL Preview reference
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Reference for Project URL Preview endpoint.
 services: cognitive-services
 author: mikedodaro

@@ -1,6 +1,6 @@
 ---
 title: Evaluate method - Knowledge Exploration Service API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn how to use the Evaluate method in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
