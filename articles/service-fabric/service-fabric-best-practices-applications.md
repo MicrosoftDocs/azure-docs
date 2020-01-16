@@ -1,17 +1,9 @@
 ---
-title: Azure Service Fabric application design best practices | Microsoft Docs
-description: Best practices for developing Service Fabric applications.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric application design best practices 
+description: Best practices and design considerations for developing applications and services using Azure Service Fabric.
 author: markfussell
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
+
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
 ---

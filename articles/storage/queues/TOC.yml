@@ -13,8 +13,16 @@
       href: storage-quickstart-queues-portal.md
   - name: Develop with queues
     items:
-    - name: .NET
+    - name: .NET (v12)
       href: storage-quickstart-queues-dotnet.md
+    - name: .NET (v11)
+      href: storage-quickstart-queues-dotnet-legacy.md
+    - name: Java (v12)
+      href: storage-quickstart-queues-java.md
+    - name: Python (v12)
+      href: storage-quickstart-queues-python.md
+    - name: JavaScript (v12)
+      href: storage-quickstart-queues-nodejs.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
@@ -67,12 +75,8 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Designing HA Apps using RA-GRS
       href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Performance and scaling
-    items:
-    - name: Scalability and performance targets
-      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Performance and scalability checklist
-      href: storage-performance-checklist.md
+  - name: Performance and scalability checklist
+    href: storage-performance-checklist.md
   - name: Concurrency
     href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Monitor and troubleshoot
@@ -112,8 +116,10 @@
         items:
         - name: Portal
           href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: PowerShell or Azure CLI
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: PowerShell
+          href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Azure CLI
+          href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Manage access rights with RBAC
         items:
         - name: Portal
@@ -136,18 +142,20 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Use the Azure Storage REST API
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Manage Azure Storage encryption
-        items:
-        - name: Check the encryption key model for the account
-          href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Configure customer-managed encryption keys
-          items:  
-          - name: Portal
-            href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: PowerShell
-            href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: Azure CLI
-            href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Manage Azure Storage encryption
+      items:
+      - name: Create an account that supports customer-managed keys
+        href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Configure customer-managed keys
+        items:  
+        - name: Portal
+          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Azure CLI
+          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Check the encryption key model for the account
+        href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
       items:
       - name: .NET
@@ -204,6 +212,14 @@
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Reference
   items:
+  - name: Scalability and performance targets
+    items:
+    - name: Queue storage
+      href: scalability-targets.md
+    - name: Standard storage accounts
+      href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Storage resource provider
+      href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Azure PowerShell
     href: /powershell/module/az.storage
   - name: Azure CLI

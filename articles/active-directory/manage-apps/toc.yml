@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+  - name: Samples
+    items: 
+    - name: Azure PowerShell samples for Application Proxy
+      href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true
     items: 
@@ -137,6 +141,8 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+          name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
         - name: Grant tenant-wide admin consent
           href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)

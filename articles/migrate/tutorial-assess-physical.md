@@ -1,12 +1,8 @@
 ---
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
 ---
 
 # Assess physical servers with Azure Migrate: Server Assessment
@@ -136,7 +132,7 @@ In case of any issues, you can access the script logs at C:\ProgramData\Microsof
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Make sure that the appliance can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 
 ### Configure the appliance

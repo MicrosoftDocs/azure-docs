@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
 
 ---
@@ -35,6 +35,10 @@ When working with a certificate-based profile, make sure that the appropriate ce
 ### <a name="radius"></a>To create a RADIUS client profile
 
   ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  
+> [!NOTE]
+> The Server Secret can be exported in the P2S VPN client profile.  Instructions on how to export a client profile can be found [here](about-vpn-profile-download.md).
+>
 
 ### <a name="export"></a>To export and distribute a client profile
 
@@ -139,6 +143,26 @@ These steps help you configure your connection to connect automatically with Alw
 4. View the diagnosis results.
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## FAQ
+
+### How do I add DNS suffixes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## Next steps
 

@@ -4,8 +4,6 @@
   items:
     - name: What is Azure IoT Central
       href: overview-iot-central.md
-    - name: IoT Solution options
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - name: Tour of the UI
       href: overview-iot-central-tour.md
     - name: Get connected

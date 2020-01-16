@@ -3,8 +3,8 @@ title: Share Azure portal dashboards by using RBAC | Microsoft Docs
 description: This article explains how to share a dashboard in the Azure portal by using Role-Based Access Control.
 services: azure-portal
 documentationcenter: ''
-author: tfitzmac
-manager: timlt
+author: mblythe
+manager: mtillman
 editor: tysonn
 
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
@@ -14,10 +14,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: tomfitz
+ms.author: mblythe
 
 ---
 # Share Azure dashboards by using Role-Based Access Control
+
 After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using Azure [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
 
 All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
