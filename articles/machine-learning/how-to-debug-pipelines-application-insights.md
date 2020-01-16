@@ -1,7 +1,7 @@
 ---
 title: Debug and troubleshoot Machine Learning Pipelines in Application Insights
 titleSuffix: Azure Machine Learning
-description: Add logging to your training and batch scoring pipelines and view the logged results in application insights.
+description: Add logging to your training and batch scoring pipelines and view the logged results in Application Insights.
 services: machine-learning
 author: anrode
 ms.author: anrode
@@ -17,9 +17,9 @@ ms.custom: seodec18
 # Debug and troubleshoot Machine Learning Pipelines in Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. The benefit of having all logs for multiple pipeline runs in Application Insights is that you can track trends over time across similar pipeline runs, or compare pipeline runs with different parameters and data.
+The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. It can be used to show all logs for pipeline runs in once place. Application Insights will allow you to track trends over time or compare pipeline runs with different parameters and inputs.
 
-In addition, it can provide history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
+Having your logs in once place will provide a history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
 
 ## Prerequisites
 
@@ -32,16 +32,16 @@ In addition, it can provide history of exceptions and error messages. Since Appl
 
 ## Getting Started
 
-The following is a quickstart for using OpenCensus specific to this use case. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+This section is a quick-start for using OpenCensus specific to this use case. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-After you install the OpenCensus Python library, import the AzureLogHandler class. This helps to route logs to Application Insights. You will also need the Python Logging library.
+After installing the OpenCensus Python library, import the AzureLogHandler class to route logs to Application Insights. You'll also need to import the Python Logging library.
 
 ```python
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 import logging
 ```
 
-Then, create a Python logger, and add an AzureLogHandler to it. You will also need to set the required `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable or provide the instrumentation key inline.
+Next, create a Python logger with an AzureLogHandler added. Be sure to set the required `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable or provide the instrumentation key inline.
 
 ```python
 # Use OpenCensus Logging
@@ -60,21 +60,22 @@ except ValueError as ex:
 
 ## Logging with Custom Dimensions
  
-Plaintext strings as logs are helpful in the case where an engineer or data scientist is diagnosing one specific pipeline step, and is already has context of the experiment, parent pipeline, and step that is being evaluated.
-In other cases, like when someone is managing several models, a model's performance over time, or doesn't have the time to dive into each individual step and download the logs to view progress, Custom Dimensions can provide helpful context to a log message.
- 
-Custom Dimensions are a dictionary of key-value (stored as string, string) pairs that is sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be queried on.
- 
+Plaintext strings logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment already.
+
+In other cases, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run id.
+
+Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries)
+
 ### Helpful dimensions to include
 
 | Field                          | Reasoning/Example                                                                                                                                                                       |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| parent_run_id                  | Can query across logs for those with same parent_run_id to see logs over time for all steps, instead of having to dive into each individual step                                        |
-| step_id                        | Can query across logs for those with same step_id to see where an issue occurred with a narrow scope to just the individual step                                                        |
-| step_name                      | Can query across logs to find how a specific step has performed over time, or find a step_id for recent runs without diving into the portal UI                                          |
-| experiment_name                | Can query across logs to find how a specific experiment has performed over time, or find a parent_run_id or step_id for recent runs without diving into the portal UI                   |
-| experiment_url                 | Can provide a link directly back to the experiment run for further investigation with less clicks, or to use to drill into from a dashboard                                             |
-| build_url and/or build_version | Can correlate logs to the code version that provided the step and pipeline logic. This can further help to diagnose issues, or identify models with specific traits (log/metric values) |
+| parent_run_id                  | Can query logs for ones with the same parent_run_id to see logs over time for all steps, instead of having to dive into each individual step                                        |
+| step_id                        | Can query logs for ones with the same step_id to see where an issue occurred with a narrow scope to just the individual step                                                        |
+| step_name                      | Can query logs to see step performance over time. Also helps to find a step_id for recent runs without diving into the portal UI                                          |
+| experiment_name                | Can query across logs to see experiment performance over time. Also helps find a parent_run_id or step_id for recent runs without diving into the portal UI                   |
+| experiment_url                 | Can provide a link directly back to the experiment run for investigation. |
+| build_url/build_version | Can correlate logs to the code version that provided the step and pipeline logic. This link can further help to diagnose issues, or identify models with specific traits (log/metric values) |
 | run_type                       | Can differentiate between different model types, or training vs. scoring runs                                                                                                           |
 
 ### Creating the custom dimensions dictionary
@@ -104,9 +105,9 @@ logger.info("Info for application insights", custom_dimensions)
 
 ## OpenCensus Python logging considerations
 
-The OpenCensus AuzreLogHandler is used to normal traditional Python logs to Application Insights. Due to this behavior, normal Python logging nuances should be considered. For example, when a logger is created, it has a default log level and will show logs greater than or equal to that level. A good reference for understanding and effectively utilizing the Python logging features is the [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
+The OpenCensus AuzreLogHandler is used to route Python logs to Application Insights. As a result, Python logging nuances should be considered. Wen a logger is created, it has a default log level and will show logs greater than or equal to that level. A good reference for using Python logging features is the [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
 
-The `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable is needed for the OpenCensus library. Consider setting this environment variable instead of passing it in as a pipeline parameter to reduce the amount of parameters needed and avoid passing around plaintext connection strings. # TODO: How to
+The `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable is needed for the OpenCensus library. We recommend setting this environment variable instead of passing it in as a pipeline parameter to avoid passing around plaintext connection strings. # TODO: How to
 
 ## Querying logs in Application Insights
 
@@ -114,17 +115,15 @@ The logs routed to Application Insights will show up under 'traces'. Be sure to 
 
 ![Application Insights Query result](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
 
-The result in Application Insights will show the log message and level, file path and code line number the log is from, as well as any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-custom-dimensions-dictionary).
+The result in Application Insights will show the log message and level, file path, and code line number the log is from, as well as any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-custom-dimensions-dictionary).
 
 ## Additional helpful queries
 
-This section contains helpful queries besides just the 'traces' query we initially used as en example to verify that logs are being piped to your Application Insights instance.
-
-Some of the queries below use ‘severityLevel’. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language).
+Some of the queries below use 'severityLevel'. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language).
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Log results for specific custom dimension, for example 'parent_run_id' | `traces`<br>`| where customDimensions.['parent_run_id'] == '931024c2-3720-11ea-b247-c49deda841c1'` |
-| Log results for training runs over the last 7 days                     | `traces`<br>`| where timestamp > ago(7d) and customDimensions['run_type'] == 'training'`           |
-| Log results with severityLevel Error from the last 7 days              | `traces`<br>`| where timestamp > ago(7d) and severityLevel == 3`                                   |
-| Count of log results with severityLevel Error over the last 7 days     | `traces`<br>`| where timestamp > ago(7d) and severityLevel == 3`<br>`| summarize count()`          |
+| Log results for specific custom dimension, for example 'parent_run_id' | `traces | where customDimensions.['parent_run_id'] == '931024c2-3720-11ea-b247-c49deda841c1'` |
+| Log results for training runs over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions['run_type'] == 'training'`           |
+| Log results with severityLevel Error from the last 7 days              | `traces | where timestamp > ago(7d) and severityLevel == 3`                                   |
+| Count of log results with severityLevel Error over the last 7 days     | `traces | where timestamp > ago(7d) and severityLevel == 3 | summarize count()`          |

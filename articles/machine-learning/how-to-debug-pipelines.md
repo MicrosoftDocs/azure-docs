@@ -14,8 +14,7 @@ ms.date: 12/12/2019
 # Debug and troubleshoot machine learning pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer) and [Application Insights with OpenCensus](how-to-debug-pipelines-application-insights.md).
-
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
 
 ## Debug and troubleshoot in the Azure Machine Learning SDK
 The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected. 
@@ -104,7 +103,7 @@ You can also find the log files of specific runs in the pipeline run detail page
 
 #### Logging options and behavior
 
-This table provides different debug options that users have, an example line of code, destination for the given log/metric, and reference documentation. This is not an exhaustive list, as other options exist besides just the Azure Machine Learning, Python, and OpenCensus ones shown here.
+The table below provides information for different debug options for pipelines. It isn't an exhaustive list, as other options exist besides just the Azure Machine Learning, Python, and OpenCensus ones shown here.
 
 | Library                    | Type   | Example                                                          | Destination                                  | Resources                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -147,7 +146,7 @@ logger.addHandler(handler)
 logger.warning("I am an OpenCensus warning statement, find me in Application Insights!")
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ```
-TODO: if this code block is too big, import it from a separate repo 
+TODO: if this code block is too large, import it from a separate repo 
 
 ## Debug and troubleshoot in Application Insights
 For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot Machine Learning Pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
