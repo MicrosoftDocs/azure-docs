@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/16/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -474,7 +474,7 @@ In the following tables, the term alphanumeric refers to:
 > | azureFirewalls | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | bastionHosts | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | connections | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
-> | dnsZones | resource group | 1-63 characters<br>Must contain from 2 to 34 labels. Each label is a set of characters separated by a period. For example, "contoso.com" has 2 labels. | Alphanumerics, underscores, and hyphens. Each label must be separated by a period. |
+> | dnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has 2 labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | expressRouteCircuits | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | firewallPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | firewallPolicies / ruleGroups | firewall policy | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
@@ -486,7 +486,7 @@ In the following tables, the term alphanumeric refers to:
 > | networkSecurityGroups | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | networkSecurityGroups / securityRules | network security group | 1-80 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | networkWatchers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
-> | privateDnsZones | resource group | 1-63 characters<br>Must contain from 2 to 34 labels. Each label is a set of characters separated by a period. For example, "contoso.com" has 2 labels. | Alphanumerics, underscores, and hyphens. Each label must be separated by a period. |
+> | privateDnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has 2 labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | privateDnsZones / virtualNetworkLinks | private DNS zone | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPAddresses | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPPrefixes | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
@@ -563,7 +563,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
-> | resourcegroups | subscription | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. Unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate).<br><br>Can't end with period. |
+> | resourcegroups | subscription | 1-90 | Alphanumerics, underscores, parentheses, hyphens, periods, and unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate).<br><br>Can't end with period. |
 > | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` |
 > | tagNames / tagValues | tag name | 1-256 | All characters. |
 
@@ -666,54 +666,9 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | /certificates | resource group | Not specified |  |
-> | /connectionGateways | resource group | Not specified |  |
-> | /connections | resource group | Not specified |  |
-> | /csrs | resource group | Not specified |  |
-> | /customApis | resource group | Not specified |  |
-> | /hostingEnvironments | resource group | Not specified |  |
-> | /hostingEnvironments / workerPools | hostingEnvironments | Not specified |  |
-> | /managedHostingEnvironments | resource group | Not specified |  |
-> | /serverfarms | resource group | Not specified |  |
-> | /serverfarms / virtualNetworkConnections / gateways | virtualNetworkConnections | Not specified |  |
-> | /serverfarms / virtualNetworkConnections / routes | virtualNetworkConnections | Not specified |  |
-> | /sites | global | 1-60 | Contains alphanumerics and hyphens. |
-> | /sites / config | sites | Not specified |  |
-> | /sites / deployments | sites | Not specified |  |
-> | /sites / domainOwnershipIdentifiers | sites | Not specified |  |
-> | /sites / extensions | sites | Not specified |  |
-> | /sites / functions | sites | Not specified |  |
-> | /sites / functions / keys | functions | Not specified |  |
-> | /sites / host / default/ | default | Not specified |  |
-> | /sites / hostNameBindings | sites | Not specified |  |
-> | /sites / hybridconnection | sites | Not specified |  |
-> | /sites / hybridConnectionNamespaces / relays | hybridConnectionNamespaces | Not specified |  |
-> | /sites / instances / deployments | instances | Not specified |  |
-> | /sites / instances / extensions | instances | Not specified |  |
-> | /sites / premieraddons | sites | Not specified |  |
-> | /sites / publicCertificates | sites | Not specified |  |
-> | /sites / siteextensions | sites | Not specified |  |
-> | /sites / slots | Site | 2-59 | Contains alphanumerics and hyphens. |
-> | /sites / slots / config | slots | Not specified |  |
-> | /sites / slots / deployments | slots | Not specified |  |
-> | /sites / slots / domainOwnershipIdentifiers | slots | Not specified |  |
-> | /sites / slots / extensions | slots | Not specified |  |
-> | /sites / slots / functions | slots | Not specified |  |
-> | /sites / slots / functions / keys | functions | Not specified |  |
-> | /sites / slots / host / default/ | default | Not specified |  |
-> | /sites / slots /hostNameBindings | slots | Not specified |  |
-> | /sites / slots /hybridconnection | slots | Not specified |  |
-> | /sites / slots / hybridConnectionNamespaces / relays | hybridConnectionNamespaces | Not specified |  |
-> | /sites / slots / instances / deployments | instances | Not specified |  |
-> | /sites / slots / instances / extensions | instances | Not specified |  |
-> | /sites / slots / premieraddons | slots | Not specified |  |
-> | /sites / slots / publicCertificates | slots | Not specified |  |
-> | /sites / slots / siteextensions | slots | Not specified |  |
-> | /sites / slots / virtualNetworkConnections | slots | Not specified |  |
-> | /sites / slots / virtualNetworkConnections / gateways | virtualNetworkConnections | Not specified |  |
-> | /sites / virtualNetworkConnections | sites | Not specified |  |
-> | /sites / virtualNetworkConnections / gateways | virtualNetworkConnections | Not specified |  |
-> | /sourcecontrols | resource group | Not specified |  |
+> | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
+> | sites | global | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
+> | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
 
 ## Next steps
 
