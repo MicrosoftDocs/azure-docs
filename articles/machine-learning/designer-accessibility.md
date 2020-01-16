@@ -1,5 +1,5 @@
 ---
-title: Use accesibility features in the designer (preview)
+title: Use accessibility features in the designer (preview)
 titleSuffix: Azure Machine Learning
 description: Learn about the keyboard shortcuts and screen reader accessibility features available in the designer.
 services: machine-learning
@@ -37,12 +37,12 @@ The pipeline graph is organized as a list of lists. The top-level module list co
 
 To connect a module to another module:
 
-1. Use Ctrl + Shift + H when targetting a module in the module list to open the connection helper.
+1. Use Ctrl + Shift + H when targeting a module in the module list to open the connection helper.
 1. Edit the connection ports for the module.
 
 To adjust module properties:
 
-1. Use Ctrl + Shift + E when targetting a module to open the module properties.
+1. Use Ctrl + Shift + E when targeting a module to open the module properties.
 1. Edit the module properties.
 
 ## Navigation shortcuts
