@@ -110,7 +110,7 @@ You can visually manage any endpoints you create in Azure Machine Learning. In t
     
 1. Select **Run** to run the pipeline.
 
-## Consume endpoints
+## Consume an endpoint
 
 You can find information on how to consume pipeline endpoints and published pipeline in the **Endpoints** section.
 
@@ -122,6 +122,15 @@ You can also consume a published pipeline in the **Published pipelines** page. S
 
 To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
+## Versioning endpoints
+
+The designer assigns a version to each pipeline that you publish to an endpoint. You can specify the pipeline version that you want to execute as a parameter in your REST endpoint call.
+
+When you publish a pipeline, you can choose to make it the new default pipeline for that endpoint.
+
+![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+
+You can also set a new default pipeline in the Endpoints section. 
 
 ## Next steps
 
