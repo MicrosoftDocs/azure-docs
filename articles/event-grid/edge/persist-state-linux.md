@@ -176,4 +176,4 @@ To enable event persistence on an Event Subscription, set `persistencePolicy` to
             }
           }
         }
-    ```
+ ```

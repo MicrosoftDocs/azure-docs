@@ -28,6 +28,8 @@ Initial release of Azure Event Grid on IoT Edge. Included features:
 * Persisted state for metadata
 * Blob storage module integration
 
+Tags: `1.0.0-preview1`
+
 ## 1.0.0-preview2
 
 Preview 2 of Azure Event Grid on IoT Edge added:
@@ -39,3 +41,5 @@ Preview 2 of Azure Event Grid on IoT Edge added:
 * Publish to Service Bus Queues as a destination
 * Publish to Service Bus Topics as a destination
 * Publish to Storage Queues as a destination
+
+Tags: `1.0.0-preview2`, `1.0`, `latest`
