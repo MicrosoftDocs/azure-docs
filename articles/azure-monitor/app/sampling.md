@@ -9,6 +9,7 @@ ms.author: mbullwin
 ms.date: 03/14/2019
 
 ms.reviewer: vitalyg
+ms.custom: fasttrack-edit
 ---
 
 # Sampling in Application Insights
