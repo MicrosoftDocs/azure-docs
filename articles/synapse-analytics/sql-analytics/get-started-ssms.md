@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Analytics with SQL Server Management Studio (SSMS) | Microsoft Docs
-description: Use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics. 
+title: "SSMS: Connect and query SQL Analytics"
+description: Use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -21,49 +21,50 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics through either the SQL on-demand or SQL pool resources. 
+You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query SQL Analytics in Azure Synapse Analytics through either SQL on-demand or SQL pool resources. 
 
-## Supported tools for SQL on-demand
-Azure Data Studio is a fully supported tool. SSMS is supported partially from version 18.5 and with limited features such as connecting and querying. 
+### Supported tools for SQL on-demand
+SSMS is partially supported starting in version 18.5 with limited features such as connecting and querying. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported.
 
 ## Prerequisites
-Before you begin, make sure you've completed the following prerequisites:  
 
-* For SQL Pool, you need an existing data warehouse. To create one, see [Create a data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal#create-a-data-warehouse). For SQL on-demand, one is already provisioned in your workspace at creation time.  
-* Install SQL Server Management Studio (SSMS). You can [install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for free if you don't already have it.
-* Have the fully qualified SQL server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
+Before you begin, make sure you have the following prerequisites:  
 
-## 1. Connect to SQL Analytics
+* [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
+* For SQL Pool, you need an existing data warehouse. To create one, see [Create a data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal#create-a-data-warehouse). For SQL on-demand, one is already provisioned in your workspace at creation time. 
+* The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
 
+## Connect
 
 ### SQL pool
-1. Open SSMS.
-2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
-   
-    ![SQL Server Object Explorer](../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
-3. Fill in the fields in the Connect to Server window.
-   
+
+To connect to SQL Analytics using SQL pool, follow these steps: 
+
+1. Open SQL Server Management Studio (SSMS). 
+1. In the **Connect to Server** dialog box, fill in the fields and then select **Connect**: 
+  
     ![Connect to Server](../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Server name**: Enter the **server name** previously identified.
-   * **Authentication**: Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
+   * **Authentication**:  Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**.
    * **User Name** and **Password**: Enter your user name and password if SQL Server Authentication was selected above.
-   * Click **Connect**.
-4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+
+1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample AdventureWorksDW database. You can expand the database to see the tables:
    
     ![Explore AdventureWorksDW](../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
+
 ### SQL on-demand
-1. Open SSMS.
-2. Open the Object Explorer. To do this, select **File** > **Connect Object Explorer**.
-   
-    ![SQL Server Object Explorer](media/sql-analytics-query-ssms/connect-object-explorer.png)
-3. Fill in the fields in the Connect to Server window.
+
+To connect to SQL Analytics using SQL on-demand, follow these steps: 
+
+1. Open SQL Server Management Studio (SSMS).
+1. In the **Connect to Server** dialog box, fill in the fields and then select **Connect**: 
    
     ![Connect to Server](media/sql-analytics-query-ssms/connect-object-explorer1.png)
    
    * **Server name**: Enter the **server name** previously identified.
-   * **Authentication**: Select **SQL Server Authentication** or **Active Directory Integrated Authentication**:
+   * **Authentication**: Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**:
    * **User Name** and **Password**: Enter your user name and password if SQL Server Authentication was selected above.
    * Click **Connect**.
 
@@ -75,7 +76,8 @@ Before you begin, make sure you've completed the following prerequisites:
 ## 2. Run a sample query
 
 ### SQL pool
-Now that a database connection has been established, you'll write a query.
+
+Now that a database connection has been established, you can query the data.
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
@@ -95,7 +97,7 @@ Now that a database connection has been established, you'll write a query.
 
 ### SQL on-demand
 
-Now that you've established a database connection, you'll write a query.
+Now that you've established a database connection, you can query the data.
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
