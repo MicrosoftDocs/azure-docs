@@ -1,5 +1,5 @@
 ---
-title: Acquire token to call web API (desktop app) | Azure
+title: Acquire a token to call a web API (desktop app) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a Desktop app that calls web APIs (acquiring a token for the app |)
 services: active-directory

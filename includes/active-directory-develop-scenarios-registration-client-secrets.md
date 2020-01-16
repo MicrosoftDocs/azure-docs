@@ -18,11 +18,11 @@ ms.custom: include file
 
 ---
 
-## Registration of secrets or certificates
+## Register secrets or certificates
 
 As for any confidential client application, you need to register a secret or certificate. You can register your application secrets either through the interactive experience in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) or by using command-line tools (like PowerShell).
 
-### Registering client secrets by using the application registration portal
+### Register client secrets by using the application registration portal
 
 The management of client credentials happens on the **Certificates & secrets** page for an application:
 
@@ -35,7 +35,7 @@ For details, see [Quickstart: Configure a client application to access web APIs 
 
 
 
-### Registering client secrets by using PowerShell
+### Register client secrets by using PowerShell
 
 Alternatively, you can register your application with Azure AD by using command-line tools. The [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sample shows how to register an application secret or certificate with an Azure AD application:
 

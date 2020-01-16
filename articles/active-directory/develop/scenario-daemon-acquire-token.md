@@ -16,17 +16,17 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Daemon app that calls web APIs - acquire a token
 
-Once the confidential client application is constructed, you can acquire a token for the app by calling ``AcquireTokenForClient``, passing the scope, and forcing or not a refresh of the token.
+After you have constructed a confidential client application, you can acquire a token for the app by calling `AcquireTokenForClient`, passing the scope, and optionally forcing a refresh of the token.
 
 ## Scopes to request
 
-The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure AD to use the **application level permissions** declared statically during the application registration. Also, as seen previously, these API permissions must be granted by a tenant administrator
+The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
 
 # [.NET](#tab/dotnet)
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # [Python](#tab/python)
 
-In MSAL Python, the configuration file would look like the following code snippet:
+In MSAL Python, the configuration file looks like this code snippet:
 
 ```Json
 {
@@ -53,9 +53,9 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ---
 
-### Case of Azure AD (v1.0) resources
+### Azure AD (version 1.0) resources
 
-The scope used for client credentials should always be resourceId+"/.default"
+The scope used for client credentials should always be the resource ID followed by `/.default`.
 
 > [!IMPORTANT]
 > For MSAL asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
