@@ -1,6 +1,6 @@
 ---
-title: Create B2B enterprise integrations
-description: Receive B2B data in Azure Logic Apps with Enterprise Integration Pack
+title: Exchange messages for B2B enterprise integration scenarios
+description: Receive and send B2B messages between trading partners in Azure Logic Apps by using the Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,108 +10,129 @@ ms.topic: article
 ms.date: 07/08/2016
 ---
 
-# Receive B2B data with Azure Logic Apps and Enterprise Integration Pack
+# Receive and send B2B messages by using Azure Logic Apps and Enterprise Integration Pack
 
-After you create an integration account that has partners and agreements, 
-you are ready to create a business to business (B2B) workflow for your logic app 
-with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+When you have an integration account that defines trading partners and agreements, you can create an automated business to business (B2B) workflow that exchanges messages between trading partners by using [Azure Logic Apps](logic-apps-overview) with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). Azure Logic Apps works with connectors that support AS2, X12, EDIFACT, and RosettaNet industry-standard protocols. You can also combine these connectors with other [connectors available in Logic Apps](../connectors/apis-list.md), for example, Salesforce and Office 365 Outlook.
+
+This article shows how to create a logic app that receives an HTTP request by using a Request trigger, decodes the message content by using the AS2 and X12 actions, and then returns a response by using the Response action.
 
 ## Prerequisites
 
-To use the AS2 and X12 actions, you must have 
-an Enterprise Integration Account. Learn 
-[how to create an Enterprise Integration Account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+* An Azure subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-## Create a logic app with B2B connectors
+* A blank logic app where you create the B2B workflow by using the [Request](../connectors/connectors-native-reqres.md) trigger, which is followed by the AS2 and X12 actions in this example. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-Follow these steps to create a B2B logic app that uses 
-the AS2 and X12 actions to receive data from a trading partner:
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) that's associated with your Azure subscription and linked to your logic app. Both your logic app and integration account must exist in the same location or Azure region.
 
-1. Create a logic app, then 
-   [link your app to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account along with [AS2 and X12 agreements](logic-apps-enterprise-integration-agreement.md) for those partners.
 
-2. Add a **Request - When an HTTP request is received** 
-   trigger to your logic app.
+## Add Request trigger
 
-	![](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)
+This example uses the Logic App Designer in the Azure portal, but you can follow similar steps for the Logic App Designer in Visual Studio.
 
-3. To add the **Decode AS2** action, 
-   select **Add an action**.
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app in the Logic App Designer.
 
-	![](./media/logic-apps-enterprise-integration-b2b/transform-2.png)
+1. In the search box, enter `when a http request`, and select **When an HTTP request is received** to use as the trigger.
 
-4. To filter all actions to the one that you want, 
-   enter the word **as2** in the search box.
+   ![Select Request trigger to start your logic app workflow](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-5.png)
+1. In the **Request body JSON Schema** box, enter the JSON schema that describes the body content that you expect from the incoming request. For more information, see [Receive and respond to incoming HTTPS calls](../connectors/connectors-native-reqres.md).
 
-5. Select the **AS2 - Decode AS2 message** action.
+   ![Provide JSON schema for expected request body input](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
+1. When you're done, on the designer toolbar, select **Save**.
 
-6. Add the **Body** that you want to use as input. 
-   In this example, select the body of the HTTP request 
-   that triggers the logic app. Or enter an expression 
-   that inputs the headers in the **HEADERS** field:
+   This step generates the **HTTP POST URL** to use for sending the request that triggers the logic app. To copy this URL, select the copy icon next to the URL.
 
-	@triggerOutputs()['headers']
+   ![URL generated for Request trigger to receive calls](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-7. Add the required **Headers** for AS2, 
-   which you can find in the HTTP request headers. 
-   In this example, select the headers of the 
-   HTTP request that trigger the logic app.
+## Add B2B actions
 
-8. Now add the Decode X12 message action. Select **Add an action**.
+Now add the B2B actions that you want to use. This example uses AS2 and X12 actions.
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
+1. Under the trigger, select **New step**. To hide the trigger details, click on the trigger's title bar.
 
-9. To filter all actions to the one that you want, 
-   enter the word **x12** in the search box.
+   ![Add another step to your logic app workflow](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-10.png)
+1. Under **Choose an action**, in the search box, enter `as2 decode`, and select **AS2 Decode (v2)**.
 
-10. Select the **X12 - Decode X12 message** action.
+   ![Find and select "AS2 Decode (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
+1. For the **Body** property, enter the input that you want the AS2 action to decode, which is the `body` content that's received by the HTTP request trigger. You have these options:
 
-11. Now you must specify the input to this action. 
-    This input is the output from the previous AS2 action.
+   * To select from the available trigger outputs, click inside the **Body** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body**, for example:
 
-	The actual message content is in a JSON object and is base64 encoded, 
-	so you must specify an expression as the input. 
-	Enter the following expression in the **X12 FLAT FILE MESSAGE TO DECODE** input field:
-	
-	@base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])
+     ![Select "Body" value from trigger](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-	Now add steps to decode the X12 data received from the trading partner 
-	and output items in a JSON object. 
-	To notify the partner that the data was received, 
-	you can send back a response containing the AS2 
-	Message Disposition Notification (MDN) in an HTTP Response Action.
+   * To enter an expression that references the trigger's `body` output, click inside the **Body** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter this expression, and select **OK**:
 
-12.	To add the **Response** action, choose **Add an action**.
+     `@triggerOutputs()['body']`
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
+     You can also use just `triggerBody()`.
 
-13. To filter all actions to the one that you want, 
+1. For the **Headers** property, enter any headers required for the AS2 action, which is the `headers` content that's received by the HTTP request trigger. You have these options:
+
+   * To select from the available trigger outputs, click inside the **Headers** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Headers**, for example:
+
+     ![Select "Headers" value from trigger](./media/logic-apps-enterprise-integration-b2b/select-headers-content-from-trigger.png)
+
+   * To enter an expression that references the trigger's `headers` output, click inside the **Body** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter this expression, and select **OK**:
+
+   * In the **Headers** box, enter an expression that references the trigger's `headers` output, for example:
+
+     `@triggerOutputs()['headers']`
+
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
+
+1. Now add the **Decode X12 message** action. Under the **AS2 Decode** action, select **New step**.
+
+1. Under **Choose an action**, in the search box, enter `x12 decode`, and select **Decode X12 message**.
+
+   ![Find and select "Decode X12 message" action](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
+
+1. Now specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64 encoded. So, you have to convert this content to a string.
+
+   1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+
+      ![Create X12 connection to integration account](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
+
+   1. In the **X12 Flat file message to decode** box, enter this expression to convert the AS2 output:
+
+      `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
+
+      The expression resolves to the **base54ToString(...)** token:
+
+      ![Convert base64-encoded content to a string](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
+
+   Now you can add other steps that decodes the message content and outputs the content in JSON object format.
+
+## Add Response action
+
+To notify the partner that the data was received, you can return a response that that contains the AS2 Message Disposition Notification (MDN) by using the Response action.
+
+1. To add the **Response** action, choose **Add an action**.
+
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
+
+1. To filter all actions to the one that you want, 
     enter the word **response** in the search box.
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-15.png)
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-15.png)
 
-14. Select the **Response** action.
+1. Select the **Response** action.
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-16.png)
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-16.png)
 
-15. To access the MDN from the output of the **Decode X12 message** action, 
+1. To access the MDN from the output of the **Decode X12 message** action, 
     set the response **BODY** field with this expression:
 
-	@base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])
+   `@base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])`
 
-	![](./media/logic-apps-enterprise-integration-b2b/b2b-17.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-17.png)  
 
-16. Save your work.
+1. Save your work.
 
-	![](./media/logic-apps-enterprise-integration-b2b/transform-5.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/transform-5.png)  
 
 You are now done setting up your B2B logic app. 
 In a real world application, you might want to store the 
@@ -119,17 +140,7 @@ decoded X12 data in a line-of-business (LOB) app or data store.
 To connect your own LOB apps and use these APIs in your logic app, 
 you can add further actions or write custom APIs.
 
-## Features and use cases
 
-* The AS2 and X12 decode and encode actions let you 
-exchange data between trading partners 
-by using industry standard protocols in logic apps.
-* To exchange data with trading partners, 
-you can use AS2 and X12 with or without each other.
-* The B2B actions help you create partners and agreements easily 
-in your integration account and consume them in a logic app.
-* When you extend your logic app with other actions, 
-you can send and receive data between other apps and services like SalesForce.
+## Next steps
 
-## Learn more
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
