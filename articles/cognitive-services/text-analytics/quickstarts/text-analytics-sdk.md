@@ -19,9 +19,9 @@ Get started with the Text Analytics client library. Follow these steps to instal
 
 Use the Text Analytics client library v3 to perform:
 
-* Sentiment analysis
+* Sentiment analysis (v3 public preview)
 * Language detection
-* Named Entity recognition
+* Named Entity recognition (v3 public preview)
 * Key phrase extraction
 
 ::: zone pivot="programming-language-csharp"
