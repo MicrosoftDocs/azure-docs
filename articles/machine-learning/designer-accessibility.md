@@ -74,4 +74,4 @@ Use the following shortcuts with the access key. For more information on access 
 ## Next steps
 
 - [Turn on high contrast or change theme](../azure-portal/azure-portal-change-theme-high-contrast.md)
-- [Accessibility related tools at Microsoft](https://www.microsoft.com/en-us/accessibility)
+- [Accessibility related tools at Microsoft](https://www.microsoft.com/accessibility)
