@@ -35,7 +35,7 @@ Some key features of Azure Functions include:
 
 - **Simplified integration**: Easily integrate with Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) for some examples.
 
-- **Flexible development**: Set up continuous integration and deploy your code through [GitHub](./app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](./app-service/scripts/cli-continuous-deployment-vsts.md), and other [supported development tools](./app-service/deploy-local-git.md).
+- **Flexible development**: Set up continuous integration and deploy your code through [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/deploy-local-git.md).
 
 - **Open-source**: The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 
@@ -55,7 +55,7 @@ A series of templates is available to get you started with key scenarios includi
 
 - **Queue storage**: Respond [Azure Storage queue messages](./functions-bindings-storage-queue.md)
 
-- **Event Grid**: Respond [Azure Event Grid events via subscriptions and filters](./event-grid/resize-images-on-storage-blob-upload-event.md)
+- **Event Grid**: Respond [Azure Event Grid events via subscriptions and filters](../event-grid/resize-images-on-storage-blob-upload-event.md)
 
 - **Event Hub**: Respond to [high-volumes of Azure Event Hub events](./functions-bindings-event-hubs.md)
 
