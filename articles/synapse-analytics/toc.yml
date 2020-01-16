@@ -102,8 +102,8 @@
         items:
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
-        # - name: SQL script
-        #   href: article-template.md
+        - name: SQL script
+          href: authoring-sql-script.md
         # - name: Mapping Data Flow
         #   href: article-template.md
     - name: Maintenance schedule
