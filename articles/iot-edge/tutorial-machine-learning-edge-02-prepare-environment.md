@@ -86,17 +86,19 @@ It takes about 30 minutes to create and configure the virtual machine.
    * Restarts the VM.
    * Create an RDP file on your desktop for connecting to the VM.
 
-1. If the VM does not restart, it will prompt for the VM name. The name of the VM is provided in script output.
+   If you are prompted for the name of the VM to restart it, you can copy its name from the script output. The output also shows the path to the RDP file for connecting to the VM.
 
-    ```powershell
-    VM IoTMLDemo-o4pv3 is running
-    ```
+   ![Script output shows VM name and path to RDP file](media/tutorial-machine-learning-edge-02-prepare-environment/script-output.png)
 
-   The script will restart the VM. Provide its name if prompted.
+### Set auto-shutdown schedule
 
-    ```powershell
-    Restart-AzureRmVM  [VM name]
-    ```
+To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this setting depending on your location and schedule. To update the shutdown schedule:
+
+1. In the Azure portal, navigate to the VM that the script created.
+
+1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
+
+1. Adjust the **Scheduled shutdown** and **Time zone** as desired and select **Save**.
 
 ## Connect to the development VM
 
@@ -111,16 +113,6 @@ Now that we have created a VM we need to finish installing the software needed t
 1. Provide the administrator password that you provided to create the VM and click **OK**.
 
 1. You will be prompted to accept the certificate for the VM. Select **Yes**.
-
-### Set auto-shutdown schedule
-
-To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this setting depending on your location and schedule. To update the shutdown schedule:
-
-1. In the Azure portal, navigate to the VM that the script created.
-
-1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
-
-1. Adjust the **Scheduled shutdown** and **Time zone** as desired and select **Save**.
 
 ## Install Visual Studio Code extensions
 
