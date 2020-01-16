@@ -272,7 +272,7 @@ For RBAC users in the customer tenant, select a subscription in the customer ten
 
 Review the content and then select **Create** to schedule an export.
 
-To verify data in the export list, select the storage account name. On the storage account page, select **Containers** and then select the container. Navigate to the corresponding folder and select the CSV file. select **Download** to get the CSV file and open it. The exported data exported resembles cost data similar to usage details from the Azure portal.
+To verify data in the export list, select the storage account name. On the storage account page, select **Containers** and then select the container. Navigate to the corresponding folder and select the CSV file. Select **Download** to get the CSV file and open it. The exported data exported resembles cost data similar to usage details from the Azure portal.
 
 ![Example of exported data](./media/get-started-partners/example-export-data.png)
 
