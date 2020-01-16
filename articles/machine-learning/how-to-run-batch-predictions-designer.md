@@ -124,13 +124,15 @@ To make a REST call, you will need an OAuth 2.0 bearer-type authentication heade
 
 ## Versioning endpoints
 
-The designer assigns a version to each pipeline that you publish to an endpoint. You can specify the pipeline version that you want to execute as a parameter in your REST endpoint call.
+The designer assigns a version to each pipeline that you publish to an endpoint. You can specify the pipeline version that you want to execute as a parameter in your REST endpoint call. If you don't specify a version number, the default pipeline will execute.
 
 When you publish a pipeline, you can choose to make it the new default pipeline for that endpoint.
 
 ![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
 
-You can also set a new default pipeline in the Endpoints section. 
+You can also set a new default pipeline in the **Published pipelines** tab of your endpoint.
+
+![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## Next steps
 
