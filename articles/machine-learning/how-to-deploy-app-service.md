@@ -62,7 +62,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     > [!IMPORTANT]
     > The Azure Machine Learning SDK does not provide a way for the web service access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    > Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
+    > Another alternative that may work for your scenario is [batch predictions](how-to-use-parallel-run-step.md), which does provide access to datastores when scoring.
 
     For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
