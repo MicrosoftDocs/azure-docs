@@ -1,19 +1,16 @@
 ---
-title: "Quickstart: Language Understanding (LUIS) authoring client library for .NET"
-titleSuffix: Azure Cognitive Services
-description: Get started with the LUIS client library for .NET with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
+title: include file
+description: include file
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 12/11/2019
+ms.subservice: luis
+ms.topic: include
+ms.custom: include file
+ms.date: 01/14/2020
 ms.author: diberry
 ---
-# Quickstart: Language Understanding (LUIS) authoring 2.x client library for .NET
-
-Get started with the Language Understanding (LUIS) authoring 2.x client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
 Use the Language Understanding (LUIS) authoring client library for .NET to:
 
@@ -34,7 +31,7 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+Get your [starter key](../luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
 
 ### Create an environment variable
 
@@ -151,7 +148,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
 1. Create a variable to manage your authoring key pulled from an environment variable named `COGNITIVESERVICES_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions.md) are:
+1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](../luis-reference-regions.md) are:
 
     * Australia - `australiaeast`
     * Europe - `westeurope`
@@ -182,7 +179,7 @@ Create a [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azu
 
 ## Create entities for the app
 
-While entities are not required, they are found in most apps. The entity extracts information from the user utterance, necessary to fullfil the user's intention. There are several types of [prebuilt](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) and custom entities, each with their own data transformation object (DTO) models.  Common prebuilt entities to add to your app include [number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md).
+While entities are not required, they are found in most apps. The entity extracts information from the user utterance, necessary to fullfil the user's intention. There are several types of [prebuilt](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) and custom entities, each with their own data transformation object (DTO) models.  Common prebuilt entities to add to your app include [number](../luis-reference-prebuilt-number.md), [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
 
 This **AddEntities** method created a `Location` simple entity with two roles, a `Class` simple entity, a `Flight` composite entity and adds several prebuilt entities.
 
@@ -206,7 +203,7 @@ The **CreateUtterance** and **CreateLabel** methods are utility methods to help 
 
 ## Train the app
 
-Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](luis-container-howto.md), or [published](luis-how-to-publish-app.md) to the staging or product slots.
+Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](../luis-container-howto.md), or [published](../luis-how-to-publish-app.md) to the staging or product slots.
 
 The [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions?view=azure-dotnet) method needs the app ID and the version ID.
 
@@ -231,13 +228,3 @@ dotnet run
 ## Clean up resources
 
 If you want to clean up, you can delete the LUIS app. Deleting the app is done with the [Apps.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet) method. You can also delete the app from the [LUIS portal](https://www.luis.ai).
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Use the .Net SDK to query the prediction endpoint](sdk-csharp-quickstart-query-prediction-endpoint.md)
-
-* [What is the Language Understanding (LUIS) API?](what-is-luis.md)
-* [What's new?](whats-new.md)
-* [Intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), and [example utterances](luis-concept-utterance.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).
