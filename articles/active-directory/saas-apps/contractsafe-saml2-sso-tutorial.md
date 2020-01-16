@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Common default attributes](common/default-attributes.png)
 
-1. In addition to the default attributes, ContractSafe Saml2 SSO application expects few more attributes to be passed back in SAML response. These attributes are prepopulated, but you can review them as per your requirements. The following list shows the additional attributes.
+1. In addition to the default attributes, ContractSafe Saml2 SSO application expects few more attributes to be passed back in SAML response. These attributes are pre-populated, but you can review them as per your requirements. The following list shows the additional attributes.
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
