@@ -90,18 +90,18 @@ To prepare for physical server assessment, you need to verify the physical serve
 
 ### Verify physical server settings
 
-1. Verify [physical server requirements](migrate-support-matrix-physical.md#assessment-physical-server-requirements) for server assessment.
-2. Make sure the [required ports](migrate-support-matrix-physical.md#assessment-port-requirements) are open on physical servers.
+1. Verify [physical server requirements](migrate-support-matrix-physical.md#physical-server-requirements) for server assessment.
+2. Make sure the [required ports](migrate-support-matrix-physical.md#port-access) are open on physical servers.
 
 
 ### Verify appliance settings
 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
-1. [Verify](migrate-support-matrix-physical.md#assessment-appliance-requirements) appliance requirements.
-2. [Review](migrate-support-matrix-physical.md#assessment-appliance-url-access) the Azure URLs that the appliance will need to access.
-3. Review the data that the appliance will collect during discovery and assessment.
-4. [Note](migrate-support-matrix-physical.md#assessment-port-requirements) port access requirements for the appliance.
+1. [Verify](migrate-appliance.md#appliance---physical) appliance requirements for physical servers.
+2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
+3. [Review](migrate-appliance.md#collected-data---vmware) that that the appliance will collect during discovery and assessment.
+4. [Note](migrate-support-matrix-physical.md#port-access) port access requirements physical server assessment.
 
 
 ### Set up an account for physical server discovery
@@ -113,6 +113,15 @@ Azure Migrate needs permissions to discover on-premises servers.
         - Performance Monitor Users
         - Performance Log users
 - **Linux:** You need a root account on the Linux servers that you want to discover.
+
+## Prepare for physical server migration
+
+Review the requirements for migration of physical servers.
+
+- [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
+- Azure Migrate: Server Migration uses a replication server for physical server migration:
+    - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance, and the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
+    - Review the [URL](migrate-replication-appliance.md#url-access) and [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Planning for migration from classic to Azure Resource Manager 
+title: Planning for migration from classic to Azure Resource Manager
 description: Planning for migration of IaaS resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -128,8 +128,8 @@ The following were issues discovered in many of the larger migrations. This is n
   - Route Tables
 
     You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure PowerShell.
-	
-	 
+
+
 
     **Compute** *(Cores, Availability Sets)*
 
@@ -201,9 +201,9 @@ Things to consider:
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
 - [Role Based Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/template-deployment-overview.md).
-- [Tags](../../azure-resource-manager/resource-group-using-tags.md).
-- [Activity Control](../../azure-resource-manager/resource-group-audit.md)
+- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/templates/overview.md).
+- [Tags](../../azure-resource-manager/management/tag-resources.md).
+- [Activity Control](../../azure-resource-manager/management/view-activity-logs.md)
 - [Azure Policies](../../governance/policy/overview.md)
 
 ### Pitfalls to avoid

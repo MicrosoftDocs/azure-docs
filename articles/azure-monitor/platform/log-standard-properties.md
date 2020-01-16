@@ -75,7 +75,7 @@ The **\_ItemId** property holds a unique identifier for the record.
 ## \_ResourceId
 The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
 
-For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/resource-group-template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
+For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
 
 > [!NOTE]
 > Some data types already have fields that contain Azure resource ID or at least parts of it like subscription ID. While these fields are kept for backward compatibility, it is recommended to use the _ResourceId to perform cross correlation since it will be more consistent.

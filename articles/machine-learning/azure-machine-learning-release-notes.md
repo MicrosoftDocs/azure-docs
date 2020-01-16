@@ -1486,7 +1486,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 + ML Pipelines
   + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
-  + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
+  + Learn how to [run batch predictions using pipelines](how-to-use-parallel-run-step.md)
 + Azure Machine Learning compute target
   + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
   + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)
