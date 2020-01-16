@@ -18,7 +18,7 @@ This article explains how to:
 
 ## Before you start
 
-- Verify that you're running a version of vCenter/ESXi that's supported for backup - versions 6.5, 6.0, and 5.5.
+- Verify that you're running a version of vCenter/ESXi that's supported for backup. Refer to the support matrix [here](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Make sure you've set up Azure Backup Server. If you haven't, [do that](backup-azure-microsoft-azure-backup.md) before you start. You should be running Azure Backup Server with the latest updates.
 
 ## Create a secure connection to the vCenter Server
@@ -124,26 +124,41 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 
 ### Role permissions
 
-**6.5/6.0** | **5.5**
---- | ---
-Datastore.AllocateSpace | Datastore.AllocateSpace
-Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField |
-Host.Local.CreateVM | Network.Assign
-Network.Assign |
-Resource.AssignVMToPool |
-VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
-VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
-VirtualMachine.Config.HostUSBDevice |
-VirtualMachine.Config.QueryUnownedFiles |
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
-VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
-VirtualMachine.Provisioning.DiskRandomAccess |
-VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
-VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
+| **Privileges for vCenter 6.5 and above user account**        | **Privileges for vCenter 6.0 user account**               | **Privileges for vCenter 5.5 user account** |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                      |                                                           |                                             |
+| Datastore.Browse datastore                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
+| Datastore.Low-level file operations                          | Global.Manage custom attributes                           | Datastore.AllocateSpace                     |
+| Datastore cluster.Configure a datatstore cluster             | Global.Set custom attribute                               | VirtualMachine.Config.ChangeTracking        |
+| Global.Disable methods                                       | Host.Local operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
+| Global.Enable methods                                        | Network. Assign network                                   | VirtualMachine.State.CreateSnapshot         |
+| Global.Licenses                                              | Resource. Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Global.Log event                                             | Virtual machine.Configuration.Add new disk                | VirtualMachine.Interact.PowerOff            |
+| Global.Manage custom attributes                              | Virtual machine.Configuration.Advanced                    | VirtualMachine.Inventory.Create             |
+| Global.Set custom attribute                                  | Virtual machine.Configuration.Disk change tracking        | VirtualMachine.Config.AddNewDisk            |
+| Network.Assign network                                       | Virtual machine.Configuration.Host USB device             | VirtualMachine.Config.HostUSBDevice         |
+| Resource. Assign virtual machine to resource pool            | Virtual machine.Configuration.Query unowned files         | VirtualMachine.Config.AdvancedConfig        |
+| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Swapfile placement          | VirtualMachine.Config.SwapPlacement         |
+| Virtual machine.Configuration.Advanced                       | Virtual machine.Interaction.Power Off                     | Global.ManageCustomFields                   |
+| Virtual machine.Configuration.Disk change tracking           | Virtual machine.Inventory. Create new                     |                                             |
+| Virtual machine.Configuration.Disk lease                     | Virtual machine.Provisioning.Allow disk access            |                                             |
+| Virtual machine.Configuration.Extend virtual disk            | Virtual machine.Provisioning. Allow read-only disk access |                                             |
+| Virtual machine.Guest Operations.Guest Operation Modifications | Virtual machine.Snapshot management.Create snapshot       |                                             |
+| Virtual machine.Guest Operations.Guest Operation Program Execution | Virtual machine.Snapshot management.Remove Snapshot       |                                             |
+| Virtual machine.Guest Operations.Guest Operation Queries     |                                                           |                                             |
+| Virtual machine .Interaction .Device connection              |                                                           |                                             |
+| Virtual machine .Interaction .Guest operating system management by VIX API |                                                           |                                             |
+| Virtual machine .Inventory.Register                          |                                                           |                                             |
+| Virtual machine .Inventory.Remove                            |                                                           |                                             |
+| Virtual machine .Provisioning.Allow disk access              |                                                           |                                             |
+| Virtual machine .Provisioning.Allow read-only disk access    |                                                           |                                             |
+| Virtual machine .Provisioning.Allow virtual machine download |                                                           |                                             |
+| Virtual machine .Snapshot management. Create snapshot        |                                                           |                                             |
+| Virtual machine .Snapshot management.Remove Snapshot         |                                                           |                                             |
+| Virtual machine .Snapshot management.Revert to snapshot      |                                                           |                                             |
+| vApp.Add virtual machine                                     |                                                           |                                             |
+| vApp.Assign resource pool                                    |                                                           |                                             |
+| vApp.Unregister                                              |                                                           |                                             |
 
 ## Create a VMware account
 
@@ -326,21 +341,21 @@ To back up vSphere 6.7, do the following:
 - Set the registry keys as follows:
 
        ```text
-
+    
         Windows Registry Editor Version 5.00
-
+    
         [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
        "SystemDefaultTlsVersions"=dword:00000001
        "SchUseStrongCrypto"=dword:00000001
-
+    
        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
        "SystemDefaultTlsVersions"=dword:00000001
        "SchUseStrongCrypto"=dword:00000001
-
+    
        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
        "SystemDefaultTlsVersions"=dword:00000001
        "SchUseStrongCrypto"=dword:00000001
-
+    
        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
        "SystemDefaultTlsVersions"=dword:00000001
        "SchUseStrongCrypto"=dword:00000001

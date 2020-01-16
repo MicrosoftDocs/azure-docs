@@ -46,6 +46,9 @@ The following Windows distributions are currently supported during the preview o
 - Windows Server 2019 Datacenter
 - Windows 10 1809 and later
 
+> [!IMPORTANT]
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
+
 The following Azure regions are currently supported during the preview of this feature:
 
 - All Azure global regions
