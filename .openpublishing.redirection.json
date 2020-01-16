@@ -26692,8 +26692,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+      "source_path": "articles/active-directory/user-help-auth-app-add-account-overview.md",
       "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-work-school-account",
       "redirect_document_id": false
     },
     {

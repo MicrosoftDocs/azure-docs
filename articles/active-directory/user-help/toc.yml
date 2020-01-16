@@ -51,7 +51,7 @@
   - name: What is the My Account portal?
     href: my-account-portal-overview.md
   - name: Manage your security info
-    href: user-help-security-info-overview.md
+    href: security-info-setup-signin.md
   - name: Manage your connected devices
     href: my-account-portal-devices-page.md
   - name: Change your password

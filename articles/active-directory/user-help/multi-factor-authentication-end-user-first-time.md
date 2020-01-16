@@ -14,7 +14,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# What is the Additional verification page
+# What is the Additional verification page?
 
 You've gotten an email from someone in IT or your boss saying that the organization has added additional security verification to your account. So what does that mean? It means your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra verification, also known as two-factor verification, is done through a combination of your user name, your password, and a mobile device or phone.
 

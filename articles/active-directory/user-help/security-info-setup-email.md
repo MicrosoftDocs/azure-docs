@@ -24,7 +24,7 @@ You can follow these steps to add your password reset method. After you've set t
 >[!Note]
 >If you don't see an email option, it's possible that your organization doesn't allow you to use this option for your password reset method. In this case, you'll need to choose another method or contact your organization's help desk for more help.
 
-## Security verification versus password reset authentication
+## Security vs password reset verification
 
 Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
 

@@ -22,7 +22,7 @@ The **Change password** page of the **My Account** portal helps you to update an
 >[!Important]
 >This article is intended for users trying to update a known password for an existing work or school account. If you're a user trying to get into a personal account, such as for Xbox, Hotmail, or Outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article. If you're an administrator trying to find more information about how to test up self-service password reset for your employees or other users, see [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 
-## To update an existing password from the Change password page
+## Update a password from the Change password page
 
 1. Sign in to your work or school account, using your existing password, and then go to the **My Account** (https://myprofile.microsoft.com/) page.
 

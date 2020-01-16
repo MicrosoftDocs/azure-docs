@@ -26,7 +26,7 @@ If you're prompted to set this up immediately after you sign in to your work or 
 >[!Note]
 > If you don't see the authenticator app option, it's possible that your organization doesn't allow you to use this option for verification. In this case, you'll need to choose another method or contact your organization's help desk for more assistance.
 
-## Security verification versus password reset authentication
+## Security vs password reset verification
 
 Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
 

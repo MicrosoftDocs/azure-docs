@@ -25,7 +25,7 @@ Your administrator must turn on this feature for you to be able to register your
 >[!Important]
 >This article is intended for users trying to use sign up for self-service password reset. This means that you’ll be able to reset your own work or school password (such as, alain@contoso.com), without requiring your administrator’s help. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
-## Set up your security verification method for password reset
+## Set up your password reset verification method
 
 1. Open the web browser on your device and go to the [security info page](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
