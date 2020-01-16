@@ -119,10 +119,10 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. Keep it running for approximately 1 minute to know if the connections are partially blocked. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
+- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service then you can check how many succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it or contact [Microsoft Support](https://support.microsoft.com/).
