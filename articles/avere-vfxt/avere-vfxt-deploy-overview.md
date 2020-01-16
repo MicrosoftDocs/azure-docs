@@ -48,7 +48,7 @@ Here is an overview of all of the steps.
 
    * Optionally, create a new Blob container and configure it as back-end storage for the cluster
 
-   Cluster creation is described in detail in [Deploy the vFXT cluster](avere-vft-deploy.md).
+   Cluster creation is described in detail in [Deploy the vFXT cluster](avere-vfxt-deploy.md).
 
 1. Configure the cluster
 
