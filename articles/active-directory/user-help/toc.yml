@@ -2,7 +2,7 @@
   href: index.yml
 - name: Two-step verification help
   items:
-  - name: What is the Additional verification page
+  - name: What is the Additional verification page?
     href: multi-factor-authentication-end-user-first-time.md
   - name: Set up an authenticator app 
     href: multi-factor-authentication-setup-auth-app.md
@@ -70,8 +70,6 @@
     href: security-info-setup-signin.md
   - name: Add or update security info methods
     items:
-    - name: Overview
-      href: security-info-add-update-methods-overview.md
     - name: Set up an authenticator app 
       href: security-info-setup-auth-app.md
     - name: Set up text messaging        
@@ -90,8 +88,6 @@
     href: user-help-sign-in.md?toc=./toc.json
 - name: Manage devices help
   items:
-  - name: Overview
-    href: user-help-device-mgmt-overview.md
   - name: Join your work device
     href: user-help-join-device-on-network.md
   - name: Register your personal device for work
@@ -100,8 +96,6 @@
     href: user-help-device-remediation.md
 - name: My Apps portal help
   items:
-  - name: Overview
-    href: my-apps-portal-end-user-overview.md
   - name: Access and use the My Apps portal
     href: my-apps-portal-end-user-access.md
   - name: Update your profile and account info
@@ -114,8 +108,6 @@
     href: my-apps-portal-end-user-troubleshoot.md
 - name: My Apps (preview) portal help
   items:
-  - name: Overview
-    href: my-applications-portal-overview.md
   - name: Access and use the My Apps portal
     href: my-applications-portal-access.md
   - name: Access and use workspaces
