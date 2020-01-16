@@ -40446,6 +40446,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/python-quickstart-commandline-feedback-loop-sdk.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/sdk-learning-loop?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/quickstart-command-line-feedback-loop-nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/sdk-learning-loop?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/csharp-quickstart-commandline-feedback-loop.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/sdk-learning-loop?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/personalizer/personalizer-container-configuration.md",
       "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
       "redirect_document_id": false
