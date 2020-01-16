@@ -43,12 +43,17 @@ Complete the following steps before you compile and run the sample code:
 
 ## Project dependencies
 
+It's recommended that you use the newest version of Visual Studio and **NETCore.app**:
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
+* [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - Version 2.2.8
+
 The sample code has two required dependencies:
 
 * MSAL.NET [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) -  4.7.1 package.
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 12.0.3 package.
 
-Add the packages using NuGet 2.12+:
+Add the packages using [NuGet 2.12+](https://www.nuget.org/):
 
 1. `dotnet add package Newtonsoft.Json --version 12.0.3`
 1. `dotnet add package Microsoft.Identity.Client --version 4.7.1`
@@ -295,7 +300,6 @@ The sample code above demonstrates the following features:
 1. Common response codes including common error codes.
     
     The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
-
 
 ## Next steps
 
