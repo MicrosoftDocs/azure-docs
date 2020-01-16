@@ -83,8 +83,8 @@ The response object is a list containing the analysis information for each docum
 * [Client Authentication](#client-authentication)
 * [Sentiment Analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (public preview)
+* [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
+* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
