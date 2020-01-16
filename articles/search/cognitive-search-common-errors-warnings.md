@@ -176,10 +176,9 @@ This error occurs when the indexer is attempting to [project data into a knowled
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once before each indexing batch. This error means that something deleted the container after this step.  It is best to leave the storage account that you designated for your knowledge store alone until the indexer is finished running, but if you do for some reason encounter this error, rerunning the indexer should resolve it. |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
 | Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 | Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
-
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
