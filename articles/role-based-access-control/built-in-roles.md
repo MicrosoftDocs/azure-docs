@@ -3149,6 +3149,6 @@ The following table provides a brief description of each built-in role. Click th
 
 ## Next steps
 
-- [Match resource provider to service](../azure-resource-manager/azure-services-resource-providers.md)
+- [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Custom roles for Azure resources](custom-roles.md)
 - [Permissions in Azure Security Center](../security-center/security-center-permissions.md)

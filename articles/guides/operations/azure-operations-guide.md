@@ -173,7 +173,7 @@ Administrators can access Azure PowerShell and Azure CLI through a browser-acces
 
 ## Azure subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
 ### Select and enable an Azure subscription
 
@@ -201,7 +201,7 @@ For more information, see [Manage access using RBAC and the Azure portal](../../
 
 An important component of using Azure is the ability to view billing information. The Azure portal provides detailed insight into Azure billing information.
 
-For more information, see [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+For more information, see [How to download your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### Get billing information from billing APIs
 
@@ -211,7 +211,7 @@ In addition to viewing the billing in the portal, you can access the billing inf
 
 - You can use the Azure Rate Card API to list all the available resources, along with the metadata and pricing information about each of those resources.
 
-For more information, see [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md).
+For more information, see [Gain insights into your Microsoft Azure resource consumption](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### Forecast cost with the pricing calculator
 
@@ -323,19 +323,19 @@ You can deploy Azure virtual machines by using the Azure portal, by using automa
 
 Deploying a virtual machine by using the Azure portal requires only an active Azure subscription and access to a web browser. You can select many different operating system images with varying configurations. All storage and networking requirements are configured during the deployment. For more information, see “Create a virtual machine in the Azure portal” for [Windows](../../virtual-machines/windows/quick-create-portal.md) and [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### PowerShell
 
 Deploying an Azure virtual machine by using PowerShell allows for complete deployment automation of all related virtual machine resources, including storage and networking. For more information, see [Create a Windows VM using Resource Manager and PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### Command-line interface (CLI)
 
 As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you’re using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
 
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### Access and security for virtual machines
 
@@ -403,15 +403,15 @@ There are several options for deploying a storage account.
 
 #### Portal
 
-Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
+Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-account-create.md).
 
-In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### PowerShell
 
 Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### Command-line interface (CLI)
 
@@ -469,7 +469,7 @@ There are several options for deploying a virtual network.
 - Azure Resource Manager Templates
 
 > **When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
-> 
+>
 > **Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### Access and security for virtual networks
