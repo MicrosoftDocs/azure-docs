@@ -126,18 +126,18 @@ These tasks are necessary when you use MSAL for iOS and macOS:
 * [Enable keychain access groups](howto-v2-keychain-objc.md)
 * [Customize browsers and WebViews](customize-webviews.md)
 
-## Tasks for Xamarin Android
+## Tasks for Xamarin.Android
 
-If you use Xamarin Android, do the following tasks:
+If you use Xamarin.Android, do the following tasks:
 
 - [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshooting)
 
-For more information, see [Xamarin Android considerations](msal-net-xamarin-android-considerations.md).
+For more information, see [Xamarin.Android considerations](msal-net-xamarin-android-considerations.md).
 
-For considerations about the browsers on Android, see [Xamarin Android-specific considerations with MSAL.NET](msal-net-system-browser-android-considerations.md).
+For considerations about the browsers on Android, see [Xamarin.Android-specific considerations with MSAL.NET](msal-net-system-browser-android-considerations.md).
 
 #### Tasks for UWP
 
