@@ -293,7 +293,7 @@ Before you get started, make sure to:
     }
     ```
 
-2. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
+1. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
 
     ```C#
     // set this to the conversation you want to join
@@ -302,7 +302,7 @@ Before you get started, make sure to:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-1. Go back to Visual Studio and replace the string ```YourConversationId``` with the conversation ID you created in the previous step.
+4. Go back to Visual Studio and replace the string ```YourConversationId``` with the conversation ID you created in the previous step.
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 

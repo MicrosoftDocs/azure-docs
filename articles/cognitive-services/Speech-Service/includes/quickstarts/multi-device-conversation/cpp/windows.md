@@ -280,7 +280,7 @@ Before you get started, make sure to:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-1. Go back to Visual Studio and replace `YourConversationId` in your `int main()` function with the conversation ID from the previous step.
+4. Go back to Visual Studio and replace `YourConversationId` in your `int main()` function with the conversation ID from the previous step.
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors.
 

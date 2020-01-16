@@ -12,7 +12,7 @@ ms.date: 11/08/2019
 ms.author: ralphe
 ---
 
-1. You'll need to create a conversation that you can join:
+3. You'll need to create a conversation that you can join:
     1. Launch your browser and navigate to: <https://translator.microsoft.com/>.
     1. Click on "Start conversation".
     1. Sign in using any of the available options.

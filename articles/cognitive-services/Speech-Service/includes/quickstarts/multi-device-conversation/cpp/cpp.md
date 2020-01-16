@@ -12,6 +12,10 @@ ms.date: 11/08/2019
 ms.author: ralphe
 ---
 
+**Choose your target environment**
+
+#### [Windows](#tab/Windows)
+
 [!INCLUDE [windows](./windows.md)]
 
-* * *
+***
