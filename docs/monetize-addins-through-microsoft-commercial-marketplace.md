@@ -104,8 +104,10 @@ For information about authenticating with Azure AD, see [Authorize to Microsoft 
 
 ## Testing your SaaS offer
 
-To test your integration, you should submit an offer to a private audience for $0 in order to ensure that the end to end process is working. A private plan makes your offer visible only to a restricted audience of your choosing.
-When you have verified that your solution is working, you should then submit the offer privately again, this time to prepare to go live. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
+To test your integration, you can submit an offer for $0 to ensure that the end-to-end process is working. On the preview tab, your offer will be visible to a restricted audience that you select, before it goes live.
+When you have verified that your solution is working, submit the offer again with the correct price, this time to prepare to go live. After you test and get feedback, select **Go live** on the Preview tab to publish your offer to the marketplace public audience. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be in preview mode again.
+
+For more information about preview audiences, see [Preview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#preview) in the Create a SaaS offer documentation.
 
 ## Submission process for SaaS offer + add-in
 Submit your SaaS offer to Partner Center as a private plan first. This ensures that customers don't purchase your SaaS app before the add-in is available. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
