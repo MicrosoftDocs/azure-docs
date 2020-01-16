@@ -15,7 +15,7 @@ ms.date: 01/03/2020
 Now that you are able to connect to your FHIR server and POST data, you are ready to write a web application that will read FHIR data. In this final step of the tutorial, we will walk through writing and accessing the web application.
 
 ## Create web application
-In Azure, select **Create a resource** and select **Web App**. 
+In Azure, select **Create a resource** and select **Web App**. Make sure to name your web application whatever you specified in the redirect URI for your client application or go back and update the redirect URI with the new name. 
 
 ![Create Web Application](media/tutorial-web-app/create-web-app.png)
 
