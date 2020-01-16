@@ -65,7 +65,7 @@ For a complete list of metrics and approaches you can use to evaluate the accura
 
 In supervised learning, training means using historical data to build a machine learning model that minimizes loss [what does this mean?]. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy; one typically accompanies the other. 
 
-In addition, some algorithms are more sensitive to the number of data points than others. You might choose an specific algorithm because you have a time limitation, especially when the data set is large.
+In addition, some algorithms are more sensitive to the number of data points than others. You might choose a specific algorithm because you have a time limitation, especially when the data set is large.
 
 In Machine Learning designer, creating and using a machine learning model is typically a three-step process:
 
@@ -77,9 +77,9 @@ In Machine Learning designer, creating and using a machine learning model is typ
 
 ## Linearity
 
-Linearity in statistics and machine learning means that there is a linear relationship between a variable and a constant in your dataset. Lots of machine learning algorithms make use of linearity. 
+Linearity in statistics and machine learning means that there is a linear relationship between a variable and a constant in your dataset. For example, linear classification algorithms assume that classes can be separated by a straight line (or its higher-dimensional analog).
 
-For example, linear classification algorithms assume that classes can be separated by a straight line (or its higher-dimensional analog). In Azure Machine Learning designer, these include: 
+Lots of machine learning algorithms make use of linearity. In Azure Machine Learning designer, they include: 
 
 - [Multiclass logistic regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri)
 - [Two-class logistic regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
@@ -93,7 +93,7 @@ Parameters are the knobs a data scientist gets to turn when setting up an algori
 
 Alternatively, there is the [Tune Model Hyperparameters module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) in Machine Learning designer: The goal of this module is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
 
-While this is a great way to make sure you’ve spanned the parameter space, the time required to train a model increases exponentially with the number of parameters.The upside is that having many parameters typically indicates that an algorithm has greater flexibility. It can often achieve very good accuracy, provided you can find the right combination of parameter settings.
+While this is a great way to make sure you’ve spanned the parameter space, the time required to train a model increases exponentially with the number of parameters. The upside is that having many parameters typically indicates that an algorithm has greater flexibility. It can often achieve very good accuracy, provided you can find the right combination of parameter settings.
 
 ## Number of features
 
