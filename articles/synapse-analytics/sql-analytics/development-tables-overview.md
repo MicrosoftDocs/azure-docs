@@ -68,7 +68,7 @@ If you're migrating multiple databases from an on-prem solution to SQL pool, the
 
 To show the organization of the tables in SQL pool, you could use fact, dim, and int as prefixes to the table names. The table below shows some of the schema and table names for WideWorldImportersDW.  
 
-| WideWorldImportersDW table  | Table type | SQL Data Warehouse |
+| WideWorldImportersDW table  | Table type | SQL pool |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
 | Order | Fact | wwi.FactOrder |
