@@ -18,7 +18,7 @@ Azure Maps is a collection of geospatial services that use fresh mapping data to
 
 * REST APIs for rendering maps in multiple styles and in satellite imagery.
 * Searches for addresses, places, and points of interest around the world.
-* Different types of Routing: point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing
+* Different types of routing: point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing
 * Traffic flow and incidents view.
 * Mobility services for requesting public transit and alternative modes of transportation (like bike share, scooter share, and car share), and planning routes in real time. 
 * Establishing user location through geolocation, and converting location to time zones. 
