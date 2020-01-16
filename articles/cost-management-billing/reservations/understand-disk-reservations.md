@@ -45,5 +45,6 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [Reduce costs with Azure Disks Reservation](../../virtual-machines/linux/disks-reserved-capacity.md)
+- [Reduce costs with Azure Disks Reservation (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
+- [Reduce costs with Azure Disks Reservation (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
