@@ -181,7 +181,7 @@ To deploy the model, you need the following items:
     >
     > * The Azure Machine Learning SDK doesn't provide a way for web services or IoT Edge deployments to access your data store or datasets. If your deployed model needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    >   An alternative that might work for your scenario is [batch prediction](how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
+    >   An alternative that might work for your scenario is [batch prediction](how-to-use-parallel-run-step.md), which does provide access to data stores during scoring.
 
 * **Dependencies**, like helper scripts or Python/Conda packages required to run the entry script or model.
 

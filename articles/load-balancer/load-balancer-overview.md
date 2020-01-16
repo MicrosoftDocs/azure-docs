@@ -37,7 +37,7 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
 >[!NOTE]
-> Microsoft recommends Standard Load Balancer.
+> Microsoft recommends [Standard Load Balancer](./load-balancer-standard-overview.md).
 Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
 
 ## Why use Azure Load Balancer?
