@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Studio: Connect & query SQL Analytics" 
+title: "Azure Data Studio: Connect and query SQL Analytics" 
 description: Use Azure Data Studio to connect to and query SQL Analytics in Azure Synapse. 
 services: synapse analytics
 author: azaricstefan 
@@ -22,7 +22,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [Azure Data Studio](get-started-azure-data-studio.md) to connect to and query the SQL Analytics feature in Azure Synapse. 
+You can use [Azure Data Studio](get-started-azure-data-studio.md) to connect to and query SQL Analytics in Azure Synapse Analytics. 
 
 ## Connect 
 
@@ -55,7 +55,7 @@ This screenshot shows the **Connection Details** using **SQL Login**:
 
 ## Query
 
-Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference)  statements against the instance. Select **New query** from the dashboard view to get started.
+Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
 
 ![New Query](media/sql-analytics-query-ads/5-new-query.png)
 
