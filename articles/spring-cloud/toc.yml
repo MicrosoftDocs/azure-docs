@@ -54,7 +54,7 @@
       href: spring-cloud-service-registration.md
     - name: Analyze application logs and Metrics
       href: diagnostic-services.md
-    - name: Azure Spring Cloud log streaming for instant availability
+    - name: Stream Azure Spring Cloud app logs in real-time
       href: spring-cloud-howto-log-streaming.md  
     - name: Automate your CI/CD pipeline in Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
