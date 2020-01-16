@@ -37,7 +37,7 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ## Analyze metric data  
 
-You can analyze metrics for Azure Blockchain Service with Metrics explorer, navigate to Metrics tab under Monitoring section in ABS resource blade. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using the tool. The complete metrics for Azure Blockchain Service are in the namespace Azure Blockchain Service standard metrics.
+You can analyze metrics for Azure Blockchain Service with Metrics explorer, navigate to Metrics tab under Monitoring section in Azure Blockchain Service resource blade. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using the tool. The complete metrics for Azure Blockchain Service are in the namespace Azure Blockchain Service standard metrics.
 
 You can use **node** dimension when adding a filter or splitting the metrics, which basically provides metric values per transaction nodes and validator nodes of the ABS member.
 
