@@ -33,7 +33,6 @@ While you can publish to an existing function app in Azure, this section assumes
     + **Function app**: Your project is deployed to and runs in this new function app.
     + **[Application Insights]()**: An instance, which is connected to your function app, is created based on your function name.
 
-
     A notification is displayed after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
 1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click **HttpTrigger**, and then choose **Copy function URL**.

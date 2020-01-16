@@ -11,16 +11,16 @@ ms.subservice: ""
 ---
 
 # Create diagnostic setting in Azure using a Resource Manager template
-[Diagnostic settings](diagnostic-settings.md) in Azure Monitor specify where to send [Platform logs](platform-logs-overview.md) that are collected by Azure resources and the Azure platform they depend on. This article provides details and examples for using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure diagnostic settings to collect platform logs to different destinations. 
+[Diagnostic settings](diagnostic-settings.md) in Azure Monitor specify where to send [Platform logs](platform-logs-overview.md) that are collected by Azure resources and the Azure platform they depend on. This article provides details and examples for using an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to create and configure diagnostic settings to collect platform logs to different destinations.
 
 > [!NOTE]
 > Since you can't [create a diagnostic setting](diagnostic-settings.md) for the Azure Activity log using PowerShell or CLI like diagnostic settings for other Azure resources, create a Resource Manager template for the Activity log using the information in this article and deploy the template using PowerShell or CLI.
 
 ## Deployment methods
-You can deploy Resource Manager templates using any valid method including PowerShell and CLI. Diagnostic settings for Activity log must deploy to a subscription using `az deployment create` for CLI or `New-AzDeployment` for PowerShell. Diagnostic settings for resource logs must deploy to a resource group using `az group deployment create` for CLI or `New-AzResourceGroupDeployment` for PowerShell. 
+You can deploy Resource Manager templates using any valid method including PowerShell and CLI. Diagnostic settings for Activity log must deploy to a subscription using `az deployment create` for CLI or `New-AzDeployment` for PowerShell. Diagnostic settings for resource logs must deploy to a resource group using `az group deployment create` for CLI or `New-AzResourceGroupDeployment` for PowerShell.
 
-See [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) and 
-[Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) for details. 
+See [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) and
+[Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md) for details. 
 
 
 
@@ -29,7 +29,7 @@ See [Deploy resources with Resource Manager templates and Azure PowerShell](../.
 ## Resource logs
 For resource logs, add a resource of type `<resource namespace>/providers/diagnosticSettings` to the template. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Provide a `category` in the `logs` section for each of the categories valid for the resource that you want to collect. Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
 
-Following is a template that collects a resource log category for a particular resource to a Log Analytics workspace, storage account, and event hub. 
+Following is a template that collects a resource log category for a particular resource to a Log Analytics workspace, storage account, and event hub.
 
 ```json
 "resources": [
@@ -46,7 +46,7 @@ Following is a template that collects a resource log category for a particular r
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

@@ -15,29 +15,29 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Scenario: Web API that calls web APIs
+# Scenario: A web API that calls web APIs
 
-Learn all you need to build a web API that calls web APIs.
+Learn what you need to know to build a web API that calls web APIs.
 
 ## Prerequisites
 
-This scenario, protected web API that calls web APIs, builds on top of the "Protect a web API" scenario. To learn more about this foundational scenario, see [Protected Web API - Scenario](scenario-protected-web-api-overview.md) first.
+This scenario, in which a protected web API calls web APIs, builds on top of the "Protect a web API" scenario. To learn more about this foundational scenario, see [Scenario: Protected web API](scenario-protected-web-api-overview.md).
 
 ## Overview
 
-- A client (web, desktop, mobile, or single-page application) - not represented on the diagram below - calls a protected web API and provides a JWT bearer token in its "Authorization" Http header.
-- The protected web API validates the token and uses the MSAL `AcquireTokenOnBehalfOf` method to request (from Azure AD) another token so that it can, itself, call a second web API (named the downstream web API) on behalf of the user.
-- The protected web API uses this token to call a downstream API. It can also call `AcquireTokenSilent`later to request tokens for other downstream APIs (but still on behalf of the same user). `AcquireTokenSilent` refreshes the token when needed.
+- A web, desktop, mobile, or single-page application client (not represented in the accompanying diagram) calls a protected web API and provides a JSON Web Token (JWT) bearer token in its "Authorization" HTTP header.
+- The protected web API validates the token and uses the Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` method to request another token from Azure Active Directory (Azure AD) so that the protected web API can call a second web API, or downstream web API, on behalf of the user.
+- The protected web API can also call `AcquireTokenSilent`later to request tokens for other downstream APIs on behalf of the same user. `AcquireTokenSilent` refreshes the token when needed.
 
-![Web API calling a web API](media/scenarios/web-api.svg)
+![Diagram of a web API calling a web API](media/scenarios/web-api.svg)
 
 ## Specifics
 
-The part of app registration related to the API permissions is classical. The application configuration involves using the OAuth 2.0 on-behalf-of flow to exchange the JWT bearer token against a token for a downstream API. This token is added to the token cache, where it's available in the web API's controllers, and can acquire a token silently to call downstream APIs.
+The app registration part that's related to API permissions is classical. The app configuration involves using the OAuth 2.0 On-Behalf-Of flow to exchange the JWT bearer token against a token for a downstream API. This token is added to the token cache, where it's available in the web API's controllers, and it can then acquire a token silently to call downstream APIs.
 
 ## Next steps
 

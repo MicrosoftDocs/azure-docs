@@ -7,7 +7,17 @@
 - name: VM Extensions Documentation
   href: ./extensions/overview.md
 - name: Workloads
-  href: ./workloads/workloads.md
+  items: 
+  - name: Red Hat
+    href: /redhat/redhat-overview.md
+  - name: High performance computing
+    href: /hpc/overview.md
+  - name: SAP
+    href: /sap/get-started.md
+  - name: Oracle
+    href: /oracle/oracle-considerations.md
+  - name: Mainframe rehosting
+    href: /mainframe-rehosting/overview.md
 - name: Classic deployments
   items:
   - name: Linux VMs using classic deployment
