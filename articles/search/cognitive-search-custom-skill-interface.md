@@ -118,7 +118,7 @@ As shown in the previous example, you may return error and warning messages for 
 
 ## Consuming custom skills from skillset
 
-When you create a Web API enricher, you can describe HTTP headers and parameters as part of the request. The snippet below shows how request parameters and HTTP headers may be described as part of the skillset definition.
+When you create a Web API enricher, you can describe HTTP headers and parameters as part of the request. The snippet below shows how request parameters and *optional* HTTP headers may be described as part of the skillset definition. HTTP headers are not a requirement, but they allow you to add additional configuration capabilities to your skill and to set them from the skillset definition.
 
 ```json
 {
