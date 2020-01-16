@@ -253,8 +253,6 @@
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
-    - name: Custom domains
-      href: storage-blob-custom-domain.md
   - name: How to
     items:
     - name: Create and manage storage accounts
