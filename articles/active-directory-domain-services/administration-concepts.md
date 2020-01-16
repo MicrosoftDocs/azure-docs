@@ -83,7 +83,7 @@ In Azure AD DS, the available performance and features are based on the SKU. You
 
 Before these Azure AD DS SKUs, a billing model based on the number of objects (user and computer accounts) in the Azure AD DS managed domain was used. There is no longer variable pricing based on the number of objects in the managed domain.
 
-For more, see the [Azure AD DS pricing page][pricing].
+For more information, see the [Azure AD DS pricing page][pricing].
 
 ### Managed domain performance
 
