@@ -1,9 +1,9 @@
 ---
-title: "Quickstart: Language Understanding (LUIS) authoring client library for .NET"
-description: Get started with the LUIS client library for .NET with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
+title: "Quickstart: Language Understanding (LUIS) authoring client library"
+description: Get started with the LUIS client library with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
 ms.topic: quickstart
 ms.date: 01/14/2020
-zone_pivot_groups: programming-languages-set-seven
+zone_pivot_groups: programming-languages-set-eight
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library
 

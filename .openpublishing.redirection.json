@@ -40971,6 +40971,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/sdk-csharp-authoring.md",
+        "redirect_document_id": true
+      },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
       "redirect_document_id": true
