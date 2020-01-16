@@ -104,7 +104,7 @@ For SQL on-demand, you can use [CETAS](development-tables-cetas.md) to save the 
 
 ## Data types
 
-SQL pool support the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](development-tables-data-types.md).
+SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
 
