@@ -10,7 +10,7 @@ ms.date: 01/13/2020
 
 # Data Encryption for Azure Database for PostgreSQL Single server using portal
 
-In this article, you will learn how to set up and manage to use the Azure portal to set up Data Encryption for your Azure Database for PostgreSQL Single server.
+In this article, you will learn how to set up and manage to use the Azure portal to set up data encryption for your Azure Database for PostgreSQL Single server.
 
 ## Prerequisites for CLI
 
@@ -46,7 +46,7 @@ In this article, you will learn how to set up and manage to use the Azure portal
 
 3. **Save** the settings.
 
-## Setting Data Encryption for Azure Database for PostgreSQL Single server
+## Setting data encryption for Azure Database for PostgreSQL Single server
 
 1. On the **Azure Database for PostgreSQL**, select the **Data Encryption** to set the customer-managed key setup.
 

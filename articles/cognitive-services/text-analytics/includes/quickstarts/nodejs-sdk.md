@@ -45,7 +45,7 @@ Create variables for your resource's Azure endpoint and subscription key.
 
 ```javascript
 const subscription_key = '<paste-your-text-analytics-key-here>';
-const endpoint = `<paste-your-text-analytics-endpoint-here>`;
+const endpoint = '<paste-your-text-analytics-endpoint-here>';
 ```
 
 ### Install the client library
