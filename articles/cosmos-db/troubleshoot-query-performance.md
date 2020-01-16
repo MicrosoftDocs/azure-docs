@@ -21,7 +21,7 @@ This document will use examples that can be recreated using the [nutrition](http
 
 When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query. These are also available through the Azure portal as shown below:
 
-![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
+[ ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
 After obtaining query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
 
@@ -33,37 +33,37 @@ You can reference the below section to understand the relevant query optimizatio
 
 #### Retrieved Document Count is significantly greater than Output Document Count
 
-a. [Ensure that the indexing policy includes necessary paths](#ensure-that-the-indexing-policy-includes-necessary-paths)
+- [Ensure that the indexing policy includes necessary paths](#ensure-that-the-indexing-policy-includes-necessary-paths)
 
-b. [Understand which system functions utilize the index](#understand-which-system-functions-utilize-the-index)
+- [Understand which system functions utilize the index](#understand-which-system-functions-utilize-the-index)
 
-c. [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
 
-d. [Optimize queries that use DISTINCT](#optimize-queries-that-use-distinct)
+- [Optimize queries that use DISTINCT](#optimize-queries-that-use-distinct)
 
-e. [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
+- [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
 #### Retrieved Document Count is approximately equal to Output Document Count
 
-a. [Avoid cross partition queries](#avoid-cross-partition-queries)
+- [Avoid cross partition queries](#avoid-cross-partition-queries)
 
-b. [Optimize queries that have a filter on multiple properties](#optimize-queries-that-have-a-filter-on-multiple-properties)
+- [Optimize queries that have a filter on multiple properties](#optimize-queries-that-have-a-filter-on-multiple-properties)
 
-c. [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### Query's RU charge is acceptable but latency is still too high
 
-a. [Improving proximity between your app and Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+- [Improving proximity between your app and Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
 
-b. [Increasing provisioned throughput](#increasing-provisioned-throughput)
+- [Increasing provisioned throughput](#increasing-provisioned-throughput)
 
-c. [Increasing MaxConcurrency](#increasing-maxconcurrency)
+- [Increasing MaxConcurrency](#increasing-maxconcurrency)
 
-d. [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+- [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
 
 ## Optimizations for queries where Retrieved Document Count significantly exceeds Output Document Count:
 
@@ -109,9 +109,9 @@ Retrieved Document Count (60,951) is significantly greater than Output Document 
 
 ## Ensure that the indexing policy includes necessary paths
 
-Your indexing policy should cover any properties included in WHERE clauses, ORDER BY clauses, JOINs, and most System Functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
+Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most System Functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
 
-If we run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, we observe a much lower RU charge when the property in the WHERE clause is indexed.
+If we run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, we observe a much lower RU charge when the property in the `WHERE` clause is indexed.
 
 ### Original
 
@@ -187,7 +187,7 @@ Other parts of the query may still utilize the index despite the system function
 
 ## Optimize queries with both a filter and an ORDER BY clause
 
-While queries with a filter and an ORDER BY clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the ORDER BY clause. This query modification will ensure that it utilizes the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+While queries with a filter and an `ORDER BY` clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the `ORDER BY` clause. This query modification will ensure that it utilizes the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Original
 
@@ -217,7 +217,7 @@ Indexing policy:
 
 ### Optimized
 
-Updated query (includes both properties in the ORDER BY clause):
+Updated query (includes both properties in the `ORDER BY` clause):
 
 ```sql
 SELECT * FROM c 
@@ -257,7 +257,7 @@ Updated indexing policy:
 
 ## Optimize queries that use DISTINCT
 
-It will be more efficient to find the `DISTINCT` set of results if the duplicate results are consecutive. Adding an ORDER BY clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to ORDER BY multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+It will be more efficient to find the `DISTINCT` set of results if the duplicate results are consecutive. Adding an `ORDER BY` clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to `ORDER BY` multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ### Original
 
@@ -283,7 +283,7 @@ ORDER BY c.foodGroup
 **RU Charge:** 3.38 RU's
 
 ## Optimize JOIN expressions by using a subquery
-Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
+Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause.
 
 Consider the following query:
 
@@ -299,7 +299,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **RU Charge:** 167.62 RU's
 
-For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The WHERE clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
+For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
 For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
 
@@ -315,7 +315,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 **RU Charge:** 22.17 RU's
 
-Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The JOIN expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
+Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
 ## Optimizations for queries where Retrieved Document Count is approximately equal to Output Document Count:
 
