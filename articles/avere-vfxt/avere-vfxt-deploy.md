@@ -4,7 +4,7 @@ description: Steps to deploy the Avere vFXT cluster in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
@@ -17,7 +17,7 @@ This procedure walks you through using the deployment wizard available from the 
 * Creates the cluster node VMs and configures them as the Avere cluster.
 * If requested, creates a new Azure Blob container and configures it as a cluster core filer.
 
-After following the instructions in this document, you will have a virtual network, a subnet, a controller, and a vFXT cluster as shown in the following diagram. This diagram shows the optional Azure Blob core filer, which includes a new Blob storage container (in a new storage account, not shown) and a service endpoint for Microsoft storage inside the subnet.
+After following the instructions in this document, you will have a virtual network, a subnet, a cluster controller, and a vFXT cluster as shown in the following diagram. This diagram shows the optional Azure Blob core filer, which includes a new Blob storage container (in a new storage account, not shown) and a service endpoint for Microsoft storage inside the subnet.
 
 ![diagram showing three concentric rectangles with Avere cluster components. The outer rectangle is labeled 'Resource group' and contains a hexagon labeled 'Blob storage (optional)'. The next rectangle in is labeled 'Virtual network: 10.0.0.0/16' and does not contain any unique components. The innermost rectangle is labeled 'Subnet:10.0.0.0/24' and contains a VM labeled 'Cluster controller', a stack of three VMs labeled 'vFXT nodes (vFXT cluster)', and a hexagon labeled 'Service endpoint'. There is an arrow connecting the service endpoint (which is inside the subnet) and the blob storage (which is outside the subnet and vnet, in the resource group). The arrow passes through the subnet and virtual network boundaries.](media/avere-vfxt-deployment.png)
 
@@ -26,7 +26,7 @@ Before using the creation template, make sure you have addressed these prerequis
 1. [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deploys using an existing virtual network and creating blob storage
+1. [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deployments that use an existing virtual network and create blob storage
 
 For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
 
@@ -36,7 +36,7 @@ Access the creation template in the Azure portal by searching for Avere and sele
 
 ![Browser window showing the Azure portal with bread crumbs "New > Marketplace > Everything". In the Everything page, the search field has the term "avere" and the second result, "Avere vFXT for Azure ARM Template" is outlined in red to highlight it.](media/avere-vfxt-template-choose.png)
 
-After reading the details on the Avere vFXT for Azure ARM Template page, click **Create** to begin.
+After reading the details on the Avere vFXT for Azure ARM Template page, click its **Create** button to begin.
 
 ![Azure marketplace with the first page of the deployment template showing](media/avere-vfxt-deploy-first.png)
 
@@ -144,11 +144,11 @@ To find the information:
 
 1. On left side, click **Deployments**, and then **microsoft-avere.vfxt-template**.
 
-   ![Resource group portal page with Deployments selected on the left and microsoft-avere.vfxt-template showing in a table under Deployment name](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![Resource group portal page with Deployments selected on the left and microsoft-avere.vfxt-template showing in a table under Deployment name](media/avere-vfxt-outputs-deployments.png)
 
 1. On left side, click **Outputs**. Copy the values in each of the fields.
 
-   ![outputs page showing SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, and MGMT_IP values in fields to the right of the labels](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![outputs page showing SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, and MGMT_IP values in fields to the right of the labels](media/avere-vfxt-outputs-values.png)
 
 ## Next steps
 
