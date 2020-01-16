@@ -86,14 +86,17 @@ This option is currently in preview. [Learn more](how-to-create-group-machine-de
 
 **Requirement** | **Details**
 --- | ---
-**VM support** | Currently supported for VMware VMs only.
-**Windows VM support** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit)
-**Linux VM support** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Windows account** | The user account needs Guest access.
-**Linux account** | The Root privilege is required on the account.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **Deployment** | Before you deploy dependency visualization you should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project. You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines.
-**Agents** | No agent needed on the VMs.
-**Internet connectivity** | If machines aren't connected to the internet, you need to install the Log Analytics gateway on them.
+**VM support** | Currently supported for VMware VMs only.
+**Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit)
+**Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**Windows account** |  Visualization needs a user account with Guest access.
+**Linux account** | Visualization needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
+**VM agents** | No agent needed on the VMs.
+**VMware tools** | VMware tools must be installed and running on VMs you want to analyze.
+**vCenter credentials** | A vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
+**Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
+
 
 
 ## Next steps
