@@ -378,7 +378,7 @@ With the image deployed to the function app on Azure, you can now invoke the fun
         "/subscriptions/1234aaf4-1234-abcd-a79a-245ed34eabcd/resourceGroups/AzureFunctionsContainers-rg/providers/Microsoft.Web/sites/msdocsfunctionscontainer/host/default/listKeys?api-version=2018-11-01"
         ```
 
-        [!TIP]
+        > [!TIP]
         > For convenience, you can instead assign the URL to an environment variable and use it in the `az rest` command.
     
     1. Run the following `az rest` command (available in the Azure CLI version 2.0.77 and later), replacing `<uri>` with the URI string from the last step, including the quotes:
@@ -648,19 +648,19 @@ You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-
     
     # [bash](#tab/bash)
     
-    ```bash
+    ```azurecli
     az storage queue list --output tsv
     ```
     
     # [PowerShell](#tab/powershell)
     
-    ```powershell
+    ```azurecli
     az storage queue list --output tsv
     ```
     
     # [Cmd](#tab/cmd)
     
-    ```cmd
+    ```azurecli
     az storage queue list --output tsv
     ```
     
