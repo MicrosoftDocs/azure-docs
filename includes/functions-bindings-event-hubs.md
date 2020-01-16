@@ -611,7 +611,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-In the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the [EventHubOutput](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
+In the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
 
 ---
 
@@ -656,7 +656,7 @@ There are two options for outputting an Event Hub message from a function:
 
 # [Java](#tab/java)
 
-There are two options for outputting an Event Hub message from a function by using the [EventHubOutput](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation:
+There are two options for outputting an Event Hub message from a function by using the [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation:
 
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Event Hub message.
 
