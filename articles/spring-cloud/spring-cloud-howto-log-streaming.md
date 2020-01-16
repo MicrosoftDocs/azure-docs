@@ -9,7 +9,7 @@ ms.date: 01/14/2019
 ---
 
 # Stream Azure Spring Cloud app logs in real-time
-Azure Spring Cloud enables log streaming in Azure CLI to permit you get real-time application console logs for troubleshooting. You also could [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
+Azure Spring Cloud enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ az configure --defaults spring-cloud=<service instance name>
 In following examples, the resource group and service name will be omitted in the commands.
 
 ### Tail log for app with single instance
-If an app named auth-service has only one instance, you can view the log of the app instance with following command:
+If an app named auth-service has only one instance, you can view the log of the app instance with the following command:
 ```
 az spring-cloud app log tail -n auth-service
 ```
@@ -42,7 +42,7 @@ This will return logs:
 ```
 
 ### Tail log for app with multiple instances
-If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. For example, you can stream the log of some instance of one app by specify the app name and instance name.
+If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. For example, you can stream the log of an instance of one app by specifying the app name and instance name:
 
 ```
 az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
@@ -54,7 +54,7 @@ You can also get the app instances from the Azure portal.
 1. App instances will be displayed.
 
 ### Continuously stream new logs
-By default, ‘az spring-cloud ap log tail’ prints nly existing logs streamed to app console and then exits. If you want to stream new logs, add -f (--follow):  
+By default, ‘az spring-cloud ap log tail’ prints only existing logs streamed to app console and then exits. If you want to stream new logs, add -f (--follow):  
 
 ```
 az spring-cloud app log tail -n auth-service -f
