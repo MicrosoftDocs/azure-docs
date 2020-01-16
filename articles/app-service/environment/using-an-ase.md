@@ -79,7 +79,7 @@ When you scale an App Service plan, the needed infrastructure is automatically a
 
 In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there is no such buffer, and resources are allocated upon need.
 
-In an ASE, you can scale an App Service plan up to 100 instances. An ASE can have up to 250 total instances across all of the ASPs that are in the ASE. 
+In an ASE, you can scale an App Service plan up to 100 instances. An ASE can have up to 200 total instances across all of the ASPs that are in the ASE. 
 
 ## IP addresses ##
 
@@ -158,7 +158,7 @@ If you integrate with Log Analytics, you can see the logs by selecting Logs from
 
 ## Upgrade preference ##
 
-If you have multiple ASEs, you may want to have some ASEs get upgraded before others. Within the ASE HostingEnvironment Resource Manager object, you can set a value for UpgradePreferences. The upgradePreferences setting can be configured through template, ARMClient, or https://resources.azure.com.  The three value choices are:
+If you have multiple ASEs, you may want to have some ASEs get upgraded before others. Within the ASE HostingEnvironment Resource Manager object, you can set a value for UpgradePreference. The upgradePreference setting can be configured through template, ARMClient, or https://resources.azure.com.  The three value choices are:
 
 * None - None is the default and means that Azure will upgrade your ASE in no particular batch
 * Early - Early means that your ASE will be upgraded in the first half of the App Service upgrades
