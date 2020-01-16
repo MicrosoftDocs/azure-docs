@@ -102,7 +102,7 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 * [Sentiment Analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
+* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -124,7 +124,7 @@ In your program's `main()` method, call the authentication method to instantiate
 ## Sentiment analysis
 
 > [!NOTE]
-> The below code is for Sentiment Analysis v3, which is in public preview.
+> The below code is for sentiment analysis v3, which is in public preview.
 
 Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
@@ -224,10 +224,10 @@ Recognized NamedEntity Text: Seattle, Type: Location, Subtype: N/A, Offset: 26, 
 Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offset: 34, Length: 9, Score: 0.800.
 ```
 
-## Named Entity Recognition - Personal information (public preview)
+## Named Entity Recognition - personal information (public preview)
 
 > [!NOTE]
-> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
+> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
 

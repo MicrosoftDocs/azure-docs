@@ -84,7 +84,7 @@ The response object is a list containing the analysis information for each docum
 * [Sentiment Analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
+* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -99,7 +99,7 @@ const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredentia
 ## Sentiment analysis (public preview)
 
 > [!NOTE]
-> The below code is for Sentiment Analysis v3, which is in public preview.
+> The below code is for sentiment analysis v3, which is in public preview.
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length and confidence scores.
 
@@ -235,10 +235,10 @@ Document ID: 1
         Offset: 71, Length: 2   Score: 0.8
 ```
 
-## Named Entity Recognition - Personal information (public preview)
+## Named Entity Recognition - personal information (public preview)
 
 > [!NOTE]
-> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
+> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
 

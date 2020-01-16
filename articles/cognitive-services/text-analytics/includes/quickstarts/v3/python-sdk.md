@@ -8,7 +8,7 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-[Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
 > * This quickstart uses version 3 of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
@@ -64,14 +64,14 @@ These code snippets show you how to do the following with the Text Analytics cli
 * [Sentiment Analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
+* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
 ## Sentiment analysis
 
 > [!NOTE]
-> The below code is for Sentiment Analysis v3, which is in public preview.
+> The below code is for sentiment analysis v3, which is in public preview.
 
 Create a new function called `sentiment_analysis_example()` that takes takes the endpoint and key as arguments, then calls the `single_analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
@@ -191,10 +191,10 @@ Named Entities:
 	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
 ```
 
-## Named Entity Recognition - Personal information (public preview)
+## Named Entity Recognition - personal information (public preview)
 
 > [!NOTE]
-> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
+> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
 
 Create a new functions called `entity_pii_example()` that takes takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the PII entities.
 

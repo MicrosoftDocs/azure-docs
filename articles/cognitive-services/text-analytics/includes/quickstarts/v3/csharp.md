@@ -82,7 +82,7 @@ Additional examples, including AAD authentication and the use of client default 
 * [Sentiment analysis](#sentiment-analysis) (public preview)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
-* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
+* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -184,10 +184,10 @@ Named Entities:
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
-## Named Entity Recognition - Personal information (public preview)
+## Named Entity Recognition - personal information (public preview)
 
 > [!NOTE]
-> The below code is for detecting Personal information using Named Entity Recognition v3, which is in public preview.
+> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
 
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 
