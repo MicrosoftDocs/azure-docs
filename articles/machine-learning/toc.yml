@@ -401,3 +401,6 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
+  - name: Designer accessibility features
+    displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
+    href: designer-accessibility.md
