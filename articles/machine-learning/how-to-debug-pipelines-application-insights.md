@@ -5,12 +5,11 @@ description: Add logging to your training and batch scoring pipelines and view t
 services: machine-learning
 author: anrode
 ms.author: anrode
-ms.reviewer: anrode
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/16/2020
 
 ms.custom: seodec18
 ---
