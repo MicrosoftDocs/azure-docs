@@ -166,6 +166,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-debug-batch-predictions.md",
+      "redirect_url": "/azure/machine-learning/how-to-debug-parallel-run-step",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-run-batch-predictions.md",
+      "redirect_url": "/azure/machine-learning/how-to-use-parallel-run-step",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
       "redirect_document_id": false
@@ -40433,6 +40443,21 @@
     {
       "source_path": "articles/application-insights/app-insights-analytics-import.md",
       "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/python-quickstart-commandline-feedback-loop-sdk.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/sdk-learning-loop?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/quickstart-command-line-feedback-loop-nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/sdk-learning-loop?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/csharp-quickstart-commandline-feedback-loop.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/sdk-learning-loop?pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {

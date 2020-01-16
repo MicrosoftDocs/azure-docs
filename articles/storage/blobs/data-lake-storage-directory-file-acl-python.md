@@ -59,7 +59,7 @@ except Exception as e:
  
 - Replace the `storage_account_name` placeholder value with the name of your storage account.
 
-- Replace the `storage-account-key` placeholder value with your storage account access key.
+- Replace the `storage_account_key` placeholder value with your storage account access key.
 
 ## Create a file system
 
