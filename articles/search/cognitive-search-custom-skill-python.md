@@ -1,7 +1,7 @@
 ---
 title: 'Custom skill example (Python)'
 titleSuffix: Azure Cognitive Search
-description: Creates a custom skill using Azure Functions and Python, using in an AI-enriched indexing pipeline in Azure Cognitive Search. This skill 
+description: For Python developers, learn the tools and techniques for building a custom skill using Azure Functions and Visual Studio. Custom skills contain user-defined models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
 
 manager: nitinme
 author: luiscabrer
