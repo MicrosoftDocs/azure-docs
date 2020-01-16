@@ -1,13 +1,10 @@
 ---
-title: 'Quickstart: Multi-Device Conversation, C++ (Windows) - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a new multi-device conversation or join an existing one.
 services: cognitive-services
 author: ralphe
 manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ---
@@ -208,7 +205,7 @@ Before you get started, make sure to:
 1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak
     - If you share the conversation code with the others and they join the conversation, you'll see their transcriptions as well.
 
-1. Once you're done speaking, press <kbd>Ctrl + C</kbd> on your keyboard to stop audio capture.
+1. Once you're done speaking, press <kbd>Ctrl+C</kbd> on your keyboard to stop audio capture.
 
     > [!NOTE]
     > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
@@ -272,7 +269,7 @@ Before you get started, make sure to:
 
 1. Replace `StartNewConversation();` in your `int main()` function with:
 
-    ```C++
+    ```cpp
     // Set this to the conversation you want to join
     JoinExistingConversation("YourConversationId");
     ```
@@ -288,14 +285,14 @@ Before you get started, make sure to:
 1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
 
-1.  Once you're done speaking, press <kbd> Ctrl + C</kbd> to stop audio capture, and end the conversation.
+1.  Once you're done speaking, press <kbd>Ctrl+C</kbd> to stop audio capture, and end the conversation.
 
     > [!NOTE]
     > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
     > <br/> <br/>
     > Press <kbd>F5</kbd> to continue.
 
-1. Go back to your browser and exit the conversation using the ![exit button](../../../../media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner.
+1. Go back to your browser and exit the conversation using the exit button in the upper right corner.
 
 ## Next steps
 

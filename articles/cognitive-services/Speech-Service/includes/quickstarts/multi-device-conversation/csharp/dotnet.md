@@ -1,13 +1,10 @@
 ---
-title: 'Quickstart: Multi-Device Conversation, C# (.NET Framework Windows) - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a new multi-device conversation or join an existing one.
 services: cognitive-services
 author: ralphe
 manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ---
@@ -32,13 +29,13 @@ Before you get started, make sure to:
     using System;
     using System.Threading.Tasks;
     
-    namespace helloworld
+    namespace HelloWorld
     {
         class Program
         {
-            public static void Main(string[] args)
+            static async Task Main(string[] args)
             {
-                CreateConversationAsync().Wait();
+                await CreateConversationAsync();
             }
     
             static async Task CreateConversationAsync()
@@ -211,7 +208,7 @@ Before you get started, make sure to:
 1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you share the conversation code with the others and they join the conversation, you'll see their transcriptions as well.
 
-1. Once you're done speaking, press <kbd>Ctrl + C</kbd> to stop audio capture, and end the conversation.
+1. Once you're done speaking, press <kbd>Ctrl+C</kbd> to stop audio capture, and end the conversation.
 
 ## Build and run the application to join an existing conversation
 
@@ -229,7 +226,7 @@ Before you get started, make sure to:
         // Create the task completion source that will be used to wait until the user presses Ctrl + c
         var completionSource = new TaskCompletionSource<bool>();
 
-        // Register to listen for Ctrl + C
+        // Register to listen for Ctrl+C
         Console.CancelKeyPress += (s, e) =>
         {
             completionSource.TrySetResult(true);
@@ -279,7 +276,7 @@ Before you get started, make sure to:
             Console.WriteLine("Started transcribing. Press Ctrl-C to stop");
 
             // At this point, you should start receiving transcriptions for what you are saying using
-            // the default microphone. Press Ctrl + C to stop audio capture
+            // the default microphone. Press Ctrl+C to stop audio capture
             await completionSource.Task.ConfigureAwait(false);
 
             // Stop audio capture
@@ -291,11 +288,11 @@ Before you get started, make sure to:
     }
     ```
 
-2. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
+1. Replace `CreateConversationAsync();` in your `public static async Task Main(string[] args)` function with:
 
     ```csharp
     // Set this to the conversation you want to join
-    JoinConversationAsync("YourConversationId").Wait();
+    JoinConversationAsync("YourConversationId");
     ```
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
@@ -309,9 +306,9 @@ Before you get started, make sure to:
 1. Once you see the `Started transcribing` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
 
-1. Once you're done speaking, press <kbd>Ctrl + C</kbd> to stop audio capture, and end the conversation.
+1. Once you're done speaking, press <kbd>Ctrl+C</kbd> to stop audio capture, and end the conversation.
 
-1. Go back to your browser and exit the conversation using the ![exit button](../../../../media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner.
+1. Go back to your browser and exit the conversation using the exit button in the upper right corner.
 
 ## Next Steps
 

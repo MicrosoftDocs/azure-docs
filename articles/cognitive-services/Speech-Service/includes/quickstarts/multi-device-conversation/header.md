@@ -1,7 +1,4 @@
 ---
-title: 'Quickstart: Multi-Device Conversation - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a new multi-device conversation or join an existing one.
 services: cognitive-services
 author: ralphe
 manager: cpoulain
