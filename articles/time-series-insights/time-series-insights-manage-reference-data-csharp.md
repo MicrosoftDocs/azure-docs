@@ -13,7 +13,7 @@ ms.date: 01/16/2020
 ms.custom: seodec18
 ---
 
-# Manage GA reference data for an Azure Time Series Insights environment by using C#
+# Manage GA reference data for an Azure Time Series Insights environment using C#
 
 This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
@@ -297,7 +297,7 @@ The sample code above demonstrates the following features:
 
 1. Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
 1. Sequential CREATE, READ, UPDATE, and DELETE operations against the GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-1. Common response codes including common error codes.
+1. Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
     
     The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
 
