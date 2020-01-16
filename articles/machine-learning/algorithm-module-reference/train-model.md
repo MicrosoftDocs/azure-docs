@@ -63,8 +63,8 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 
 After the model is trained:
 
-+ To view the model parameters and feature weights, right-click the output and select **Visualize**.
-+ To use the model in other pipelines, right-click the model and select **Save Model**. Type a name for the model. 
+
++ To use the model in other pipelines, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane. 
 
     This saves the model as a snapshot that is not updated by repeated runs of the pipeline.
 + To use the model in predicting new values, connect it to the [Score Model](./score-model.md) module, together with new input data.

@@ -26,14 +26,14 @@ Even if you do most of your work in Azure Machine Learning, there are times when
 
 + Download the CSV file to open it with Excel, or import it into a relational database.  
 + Save the CSV file to cloud storage and connect to it from Power BI to create visualizations.  
-+ Use the CSV format to prepare data for use in R and Python. Just right-click the output of the module to generate the code needed to access the data directly from Python or a Jupyter notebook. 
++ Use the CSV format to prepare data for use in R and Python. 
 
-When you convert a dataset to CSV, the file is saved in your Azure ML workspace. You can use an Azure storage utility to open and use the file directly, or you can right-click the module output and download the CSV file to your computer, or use it in R or Python code.  
+When you convert a dataset to CSV, the file is saved in your Azure ML workspace. You can use an Azure storage utility to open and use the file directly, or you can click on the histogram icon under the **Outputs** tab in the right panel to view output fo the module and download the CSV file from the Results folder to your computer, or use it in R or Python code.  
 
 ## How to configure Convert to CSV
 
 
-1.  Add the [Convert to CSV](./convert-to-csv.md) module to your pipeline. You can find this module in the **Data Format Conversions** group in the designer. 
+1.  Add the [Convert to CSV](./convert-to-csv.md) module to your pipeline. You can find this module in the **Data Transformation** group in the designer. 
 
 2. Connect it to any module that outputs a dataset.   
   
@@ -42,14 +42,14 @@ When you convert a dataset to CSV, the file is saved in your Azure ML workspace.
 ### Results
   
 
-Double-click the output of [Convert to CSV](./convert-to-csv.md), and select one of these options.  
+Select the **Outputs** tab in the right panel of [Convert to CSV](./convert-to-csv.md), and click on one of these icons under the **Port outputs**.  
 
- + **Result Dataset -> Download**: Immediately opens a copy of the data in CSV format that you can save to a local folder. If you do not specify a folder, a default file name is applied and the CSV file is saved in the local **Downloads** library.
++ **Register dataset**: Click the icon and save the CSV file back to the Azure ML workspace as a separate dataset, and you can find it as a module in the module tree in the **My Datasets** category or in the asset **Datasets**.
 
+ + **View output**: Click the eye-like icon, and follow the instruction to browse the **Results_dataset** folder, and download the data.csv file.
 
- + **Result Dataset -> Save as Dataset**: Saves the CSV file back to the Azure ML workspace as a separate dataset.
+ 
 
- + **Generate Data Access Code**: Azure ML generates two sets of code for you to access the data, either by using Python or by using R. To access the data, copy the code snippet into your application. (*Generate Data Access Code will come soon.*)
 
 ## Next steps
 

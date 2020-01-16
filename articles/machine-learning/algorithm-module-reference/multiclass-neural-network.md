@@ -81,9 +81,9 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-- To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md)  and select **Visualize**.  
 
-- To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
+
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Trained model** and click on the **Register dataset** icon, then you can save a reusable module of trained model.
 
 
 ## Next steps

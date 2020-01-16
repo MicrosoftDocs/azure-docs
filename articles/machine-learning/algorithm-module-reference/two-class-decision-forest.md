@@ -88,11 +88,8 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
-  
-    Click each tree to drill down into the splits and see the rules for each node.
 
-+ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the pipeline.
++ To save a snapshot of the model, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane.
 
 + To use the model for scoring, add the **Score Model** module to a pipeline.
 

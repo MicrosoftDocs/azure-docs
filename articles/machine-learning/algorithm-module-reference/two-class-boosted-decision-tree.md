@@ -62,10 +62,12 @@ You can train this type of model using [Train Model](././train-model.md).
    
 ## Results
 
-After model training is complete, right-click the output of [Train Model](./train-model.md) to view the results:
+After training is complete:
 
-+ To see the tree that was created on each iteration, select **Visualize**. 
-+ To drill down into the splits and see the rules for each node, click each tree.
+
++ To save a snapshot of the model, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane.
+
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps

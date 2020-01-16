@@ -69,9 +69,10 @@ For this model type, it is recommended that you normalize the dataset before usi
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md), and select **Visualize**.
 
-+ To use the trained models to make predictions, connect the trained model to the [Score Model](score-model.md) module.
++ To save a snapshot of the model, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane.
+
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps

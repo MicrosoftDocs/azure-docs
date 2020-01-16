@@ -45,9 +45,9 @@ The module takes an untrained clustering model that you have already configured 
 After training has completed:
 
 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
 
-+ To save the trained model for later reuse, right-click the module, select **Trained model**, and click **Save As Trained Model**.
+
++ To save the trained model for later reuse, select the module, select **Outputs** in right panel, and click on **Register dataset**.
 
 + To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
 

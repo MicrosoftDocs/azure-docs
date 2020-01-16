@@ -75,8 +75,7 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 ## Results
 
 After training is complete:
-
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md) and select **Visualize**.   
+ 
   
 + To make predictions on new data, use the trained model and new data as input to the [Score Model](./score-model.md) module. 
 
