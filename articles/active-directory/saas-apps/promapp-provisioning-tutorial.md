@@ -18,9 +18,9 @@ ms.date: 11/11/2019
 ms.author: Zhchia
 ---
 
-# Tutorial: Configure Promapp for automatic user provisioning
+# Tutorial: Configure Nintex Promapp for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Promapp and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Promapp.
+The objective of this tutorial is to demonstrate the steps to be performed in Nintex Promapp and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users to Nintex Promapp.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -32,25 +32,25 @@ The objective of this tutorial is to demonstrate the steps to be performed in Pr
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Promapp tenant](https://www.promapp.com/licensing/)
-* A user account in Promapp with Admin permissions.
+* [A Nintex Promapp tenant](https://www.nintex.com/workflow-automation/process-mapping/)
+* A user account in Nintex Promapp with Admin permissions.
 
-## Assigning users to Promapp
+## Assigning users to Nintex Promapp
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Promapp. Once decided, you can assign these users and/or groups to Promapp by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users in Azure AD need access to Nintex Promapp. Once decided, you can assign these users and/or groups to Nintex Promapp by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
-## Important tips for assigning users to Promapp
+## Important tips for assigning users to Nintex Promapp
 
-* It is recommended that a single Azure AD user is assigned to Promapp to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Nintex Promapp to test the automatic user provisioning configuration. Additional users may be assigned later.
 
-* When assigning a user to Promapp, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Nintex Promapp, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Promapp for provisioning
+## Setup Nintex Promapp for provisioning
 
-1. Sign in to your [Promapp Admin Console](https://freetrial.promapp.com/axelerate/Login.aspx). Under the user name navigate to **My Profile**.
+1. Sign in to your [Nintex Promapp Admin Console](https://www.nintex.com/trial/#promapp). Under the user name navigate to **My Profile**.
 
 	![Promapp Admin Console](media/promapp-provisioning-tutorial/admin.png)
 
@@ -62,15 +62,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Promapp Add Name](media/promapp-provisioning-tutorial/addname.png)
 
-4.	Copy the access token and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Promapp application in the Azure portal.
+4.	Copy the access token and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Nintex Promapp application in the Azure portal. 
 
 	![Promapp Create Token](media/promapp-provisioning-tutorial/token.png)
 
-## Add Promapp from the gallery
+## Add Nintex Promapp from the gallery
 
-Before configuring Promapp for automatic user provisioning with Azure AD, you need to add Promapp from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Nintex Promapp for automatic user provisioning with Azure AD, you need to add Nintex Promapp from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Promapp from the Azure AD application gallery, perform the following steps:**
+**To add Nintex Promapp from the Azure AD application gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
@@ -88,14 +88,14 @@ Before configuring Promapp for automatic user provisioning with Azure AD, you ne
 
 	![Promapp in the results list](common/search-new-app.png)
 
-## Configuring automatic user provisioning to Promapp 
+## Configuring automatic user provisioning to Nintex Promapp 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Promapp based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Promapp by following the instructions provided in the [Promapp Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/promapp-tutorial). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
+> You may also choose to enable SAML-based single sign-on for Nintex Promapp by following the instructions provided in the [Nintex Promapp Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/promapp-tutorial). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
 
-### To configure automatic user provisioning for Promapp in Azure AD:
+### To configure automatic user provisioning for Nintex Promapp in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://api.promapp.com/api/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Promapp. If the connection fails, ensure your Promapp account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://api.promapp.com/api/scim` in **Tenant URL**. Input the **SCIM Access Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Nintex Promapp. If the connection fails, ensure your Nintex Promapp account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -127,17 +127,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Promapp User Mappings](media/promapp-provisioning-tutorial/usermappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Promapp in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Promapp for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Nintex Promapp in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Nintex Promapp for update operations. Select the **Save** button to commit any changes.
 
 	![Promapp User Attributes](media/promapp-provisioning-tutorial/userattributes.png)
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. To enable the Azure AD provisioning service for Promapp, change the **Provisioning Status** to **On** in the **Settings** section.
+12. To enable the Azure AD provisioning service for Nintex Promapp, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-13. Define the users and/or groups that you would like to provision to Promapp by choosing the desired values in **Scope** in the **Settings** section.
+13. Define the users and/or groups that you would like to provision to Nintex Promapp by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -145,7 +145,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Promapp.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Current Status and Statistics to Date** sections to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Nintex Promapp.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
@@ -157,4 +157,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
