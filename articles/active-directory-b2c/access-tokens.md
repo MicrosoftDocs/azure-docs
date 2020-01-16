@@ -48,7 +48,7 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_acce
 If you request more scopes than what is granted for your client application, the call succeeds if at least one permission is granted. The **scp** claim in the resulting access token is populated with only the permissions that were successfully granted. The OpenID Connect standard specifies several special scope values. The following scopes represent the permission to access the user’s profile:
 
 - **openid** - Requests an ID token.
-- **offline_access** - Requests a refresh token using [Auth Code flows](active-directory-b2c-reference-oauth-code.md).
+- **offline_access** - Requests a refresh token using [Auth Code flows](authorization-code-flow.md).
 
 If the **response_type** parameter in an `/authorize` request includes `token`, the **scope** parameter must include at least one resource scope other than `openid` and `offline_access` that will be granted. Otherwise, the `/authorize` request fails.
 

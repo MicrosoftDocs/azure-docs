@@ -34,7 +34,7 @@ This differs from the model followed by most other Azure services, which typical
 
 Azure AD B2C stores user data in either United States, Europe, or the Asia Pacific region.
 
-Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](active-directory-b2c-get-started.md):
+Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](tutorial-create-tenant.md):
 
 ![Screenshot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 

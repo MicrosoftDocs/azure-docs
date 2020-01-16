@@ -21,7 +21,7 @@ In this article, you create a custom attribute in your Azure Active Directory B2
 
 ## Prerequisites
 
-Follow the steps in the article [Azure Active Directory B2C: Get started with custom policies](active-directory-b2c-get-started-custom.md).
+Follow the steps in the article [Azure Active Directory B2C: Get started with custom policies](custom-policy-get-started.md).
 
 ## Use custom attributes to collect information about your customers in Azure AD B2C by using custom policies
 Your Azure AD B2C directory comes with a built-in set of attributes. Examples are **Given Name**, **Surname**, **City**, **Postal Code**, and **userPrincipalName**. You often need to create your own attributes like these examples:
@@ -63,7 +63,7 @@ Instructions are included in the **Next steps** section in this article.
 
 ## Modify your custom policy to add the **ApplicationObjectId**
 
-When you followed the steps in [Azure Active Directory B2C: Get started with custom policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [sample files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, and **PasswordReset.xml**. In this step, you make more modifications to those files.
+When you followed the steps in [Azure Active Directory B2C: Get started with custom policies](custom-policy-get-started.md), you downloaded and modified [sample files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, and **PasswordReset.xml**. In this step, you make more modifications to those files.
 
 * Open the **TrustFrameworkBase.xml** file and add the `Metadata` section as shown in the following example. Insert the object ID that you previously recorded for the `ApplicationObjectId` value and the application ID that you recorded for the `ClientId` value:
 

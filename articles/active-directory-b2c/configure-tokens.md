@@ -50,7 +50,7 @@ You can configure the token lifetime on any user flow.
 
 ## Next steps
 
-Learn more about how to [use access tokens](active-directory-b2c-access-tokens.md).
+Learn more about how to [use access tokens](access-tokens.md).
 
 
 

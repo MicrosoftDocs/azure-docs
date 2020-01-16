@@ -21,7 +21,7 @@ You can enable Keep Me Signed In (KMSI) functionality for users of your web and 
 
 Users should not enable this option on public computers.
 
-![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/custom-policy-keep-me-signed-in/kmsi.PNG)
 
 ## Prerequisites
 
@@ -83,13 +83,13 @@ You can define local account sign-in as a claims provider using the **ClaimsProv
 
 Add the application identifiers to the *TrustFrameworkExtensions.xml* file.
 
-1. In the *TrustFrameworkExtensions.xml* file, find the **TechnicalProfile** element with the identifier of `login-NonInteractive` and the **TechnicalProfile** element with an identifier of `login-NonInteractive-PasswordChange` and replace all values of `IdentityExperienceFrameworkAppId` with the application identifier of the Identity Experience Framework application as described in [Getting started](active-directory-b2c-get-started-custom.md).
+1. In the *TrustFrameworkExtensions.xml* file, find the **TechnicalProfile** element with the identifier of `login-NonInteractive` and the **TechnicalProfile** element with an identifier of `login-NonInteractive-PasswordChange` and replace all values of `IdentityExperienceFrameworkAppId` with the application identifier of the Identity Experience Framework application as described in [Getting started](custom-policy-get-started.md).
 
     ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
-2. Replace all values of `ProxyIdentityExperienceFrameworkAppId` with the application identifier of the Proxy Identity Experience Framework application as described in [Getting started](active-directory-b2c-get-started-custom.md).
+2. Replace all values of `ProxyIdentityExperienceFrameworkAppId` with the application identifier of the Proxy Identity Experience Framework application as described in [Getting started](custom-policy-get-started.md).
 3. Save the extensions file.
 
 ## Create a KMSI enabled user journey

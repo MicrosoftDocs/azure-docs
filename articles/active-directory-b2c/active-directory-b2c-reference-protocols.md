@@ -25,7 +25,7 @@ Every app that uses Azure AD B2C needs to be registered in your B2C directory in
 
 * An **Application ID** that uniquely identifies your app.
 * A **Redirect URI** or **package identifier** that can be used to direct responses back to your app.
-* A few other scenario-specific values. For more information, learn [how to register your application](active-directory-b2c-app-registration.md).
+* A few other scenario-specific values. For more information, learn [how to register your application](tutorial-register-applications.md).
 
 After you register your app, it communicates with Azure Active Directory (Azure AD) by sending requests to the endpoint:
 
@@ -67,9 +67,9 @@ For additional bearer token security considerations, see [RFC 6750 Section 5](ht
 More information about the different types of tokens that are used in Azure AD B2C are available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
 
 ## Protocols
-When you're ready to review some example requests, you can start with one of the following tutorials. Each corresponds to a particular authentication scenario. If you need help determining which flow is right for you, check out [the types of apps you can build by using Azure AD B2C](active-directory-b2c-apps.md).
+When you're ready to review some example requests, you can start with one of the following tutorials. Each corresponds to a particular authentication scenario. If you need help determining which flow is right for you, check out [the types of apps you can build by using Azure AD B2C](application-types.md).
 
-* [Build mobile and native applications by using OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
+* [Build mobile and native applications by using OAuth 2.0](authorization-code-flow.md)
 * [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
 * [Build single-page apps using the OAuth 2.0 implicit flow](active-directory-b2c-reference-spa.md)
 

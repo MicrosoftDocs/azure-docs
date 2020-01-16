@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users from a Salesforce organiz
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 - If you haven't already done so, sign up for a [free Developer Edition account](https://developer.salesforce.com/signup). This article uses the [Salesforce Lightning Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
 - [Set up a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) for your Salesforce organization.
 

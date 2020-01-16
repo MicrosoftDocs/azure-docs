@@ -21,7 +21,7 @@ After you complete this article, you'll have a sign-up and sign-in custom policy
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](active-directory-b2c-get-started-custom.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
 ## Page UI customization
 

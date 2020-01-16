@@ -41,7 +41,7 @@ Developers consuming the custom policy feature set should adhere to the followin
 - Perform methodical scenario testing.
 - Follow software development and staging best practices with a minimum of one development and testing environment and one production environment.
 - Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service.
-- Set up active monitoring, and monitor the responsiveness of production environments. For more information about integrating with Application Insights, see [Azure Active Directory B2C: Collecting Logs](active-directory-b2c-custom-guide-eventlogger-appins.md).
+- Set up active monitoring, and monitor the responsiveness of production environments. For more information about integrating with Application Insights, see [Azure Active Directory B2C: Collecting Logs](analytics-with-application-insights.md).
 - Keep contact email addresses current in the Azure subscription, and stay responsive to the Microsoft live-site team emails.
 - Take timely action when advised to do so by the Microsoft live-site team.
 

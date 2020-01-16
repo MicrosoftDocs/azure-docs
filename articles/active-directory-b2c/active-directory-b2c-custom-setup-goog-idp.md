@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users with a Google account by 
 
 ## Prerequisites
 
-- Complete the steps in the [Get started with custom policies in Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Complete the steps in the [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
 - If you don't already have a Google account, create one at [Create your Google Account](https://accounts.google.com/SignUp).
 
 ## Register the application

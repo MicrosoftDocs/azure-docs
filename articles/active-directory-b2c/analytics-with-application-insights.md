@@ -35,7 +35,7 @@ Application Insights can unify the events by using a correlation ID to record a 
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](active-directory-b2c-get-started-custom.md). This article assumes that you're using the custom policy starter pack. But the starter pack isn't required.
+Complete the steps in [Get started with custom policies](custom-policy-get-started.md). This article assumes that you're using the custom policy starter pack. But the starter pack isn't required.
 
 ## Create an Application Insights resource
 
@@ -51,7 +51,7 @@ When you're using Application Insights with Azure AD B2C, all you need to do is 
 8. Click **Create**.
 4. After you create the Application Insights resource, open it, expand **Essentials**, and copy the instrumentation key.
 
-![Application Insights Overview and Instrumentation Key](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
+![Application Insights Overview and Instrumentation Key](./media/analytics-with-application-insights/app-insights.png)
 
 ## Add new ClaimType definitions
 
@@ -223,7 +223,7 @@ Save and upload the *TrustFrameworkExtensions.xml* file. Then, call the relying 
 2. Select **Usage** > **Events**.
 3. Set **During** to **Last hour** and **By** to **3 minutes**.  You might need to select **Refresh** to view results.
 
-![Application Insights USAGE-Events Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
+![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
 ## Next steps
 

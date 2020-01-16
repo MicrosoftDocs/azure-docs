@@ -116,7 +116,7 @@ User count data is refreshed every 24 to 48 hours. Authentications are updated s
 
 ## Next steps
 ### Monthly bill estimates for Azure AD
-When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful when you plan for changes in tenant behavior that might impact overall cost. You can review actual costs in your [linked Azure subscription](active-directory-b2c-how-to-enable-billing.md).
+When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful when you plan for changes in tenant behavior that might impact overall cost. You can review actual costs in your [linked Azure subscription](billing.md).
 
 ### Options for other output formats
 The following code shows examples of sending output to JSON, a name value list, and XML:

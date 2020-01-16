@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
+Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](application-types.md). This document describes the format, security characteristics, and contents of each type of token.
 
 ## Token types
 
@@ -147,5 +147,5 @@ For a full list of validations your application should perform, refer to the [Op
 
 ## Next steps
 
-Learn more about how to [use access tokens](active-directory-b2c-access-tokens.md).
+Learn more about how to [use access tokens](access-tokens.md).
 

@@ -62,4 +62,4 @@ When an application calls the RP policy file, the Identity Experience Framework 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with custom policies](active-directory-b2c-get-started-custom.md)
+> [Get started with custom policies](custom-policy-get-started.md)

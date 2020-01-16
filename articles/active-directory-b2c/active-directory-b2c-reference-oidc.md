@@ -128,7 +128,7 @@ After you validate the ID token, you can begin a session with the user. You can 
 
 If you need your web application to only run user flows, you can skip the next few sections. These sections are applicable only to web applications that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
 
-You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](active-directory-b2c-access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 

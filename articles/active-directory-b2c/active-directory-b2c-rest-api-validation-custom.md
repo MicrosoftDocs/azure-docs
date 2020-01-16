@@ -35,7 +35,7 @@ We can verify that the name provided by the user in the profile edit is not part
 
 ## Prerequisites
 
-- An Azure AD B2C tenant configured to complete a local account sign-up/sign-in, as described in [Getting started](active-directory-b2c-get-started-custom.md).
+- An Azure AD B2C tenant configured to complete a local account sign-up/sign-in, as described in [Getting started](custom-policy-get-started.md).
 - A REST API endpoint to interact with. For this walkthrough, we've set up a demo site called [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) with a REST API service.
 
 ## Step 1: Prepare the REST API function
@@ -130,7 +130,7 @@ To add the claims exchange to the self-asserted technical profile:
 
 ## Next steps
 
-[Modify the profile edit and user registration to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Modify the profile edit and user registration to gather additional information from your users](custom-policy-custom-attributes.md)
 
 [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](active-directory-b2c-rest-api-step-custom.md)
 

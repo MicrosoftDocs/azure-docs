@@ -34,7 +34,7 @@ The scenario that is represented in this article includes the following actions:
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies](active-directory-b2c-get-started-custom.md).
+- Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
 - A REST API endpoint to interact with. This article uses a simple Azure function as an example. To create the Azure function, see [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
 ## Prepare the API
@@ -253,7 +253,7 @@ If everything is set up correctly, the token includes the new claim `city`, with
 
 You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
 
-[Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Modify the profile edit to gather additional information from your users](custom-policy-custom-attributes.md)
 
 [Reference: RESTful technical profile](restful-technical-profile.md)
 
