@@ -29,7 +29,7 @@ The steps in this article and the article that follows support the following lan
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 

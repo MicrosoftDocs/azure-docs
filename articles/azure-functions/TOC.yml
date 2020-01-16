@@ -18,11 +18,11 @@
   - name: Create function - Java
     href: functions-create-first-java-maven.md
   - name: Create function - JavaScript
-    href: /azure/azure-functions/functions-create-first-function-vs-code?tabs=nodejs
+    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript
   - name: Create function - PowerShell
     href: functions-create-first-function-powershell.md
   - name: Create function - Python
-    href: /azure/azure-functions/functions-create-first-function-vs-code?tabs=python
+    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python
   - name: Connect to services
     items:
     - name: Storage - C#
