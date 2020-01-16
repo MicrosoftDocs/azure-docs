@@ -23,10 +23,7 @@ The steps in this article and the article that follows support the following lan
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later.  
-To verify your version of Azure Functions Core Tools, open the Visual Studio Code Command Palette (**F1**), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func --version`. 
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension currently lets you create functions in C#, JavaScript, Java, PowerShell, Python, and TypesScript. It also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension currently lets you create functions in C#, JavaScript, Java, PowerShell, Python, and TypesScript. It also installs the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). If not already installed, the extension also installs the [Azure Functions Core Tools](functions-run-local.md#v2). The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 + Language-specific requirements:
 

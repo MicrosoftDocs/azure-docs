@@ -19,33 +19,59 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Following the prompts, provide the following information for your desired language:
 
-
+    ::: zone pivot="programming-language-csharp"
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    ::: zone pivot="programming-language-csharp"
     | Select a language for your function app project | C# | Create a local Functions project in C#. |
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript"
-    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
-    ::: zone-end
-    ::: zone pivot="programming-language-powershell"
-    | Select a language for your function app project | PowerShell | Create a local PowerShell Functions project. |
-    ::: zone-end
-    ::: zone pivot="programming-language-python"
-    | Select a language for your function app project | Python | Create a local Python Functions project. |
-    | Select a Python alias to create a virtual environment | Python alias | Choose the discovered alias of your installed version of Python 3.6 or 3.7. Your app runs in virtual environment based on this installation.  |
-    ::: zone-end
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. | 
     | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
     | Provide a function name | HttpTrigger | Press Enter to use the default name. |
-    ::: zone pivot="programming-language-csharp"
     | Provide a namespace | My.Functions | C# class libraries must have a namespace.  |
-    ::: zone-end
     | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
     | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
 
+    ::: zone-end
 
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files. It also creates the following language-specific files.
+    ::: zone pivot="programming-language-javascript"
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. | 
+    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
+    | Provide a function name | HttpTrigger | Press Enter to use the default name. |
+    | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
+    | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
+
+    ::: zone-end
+
+    ::: zone pivot="programming-language-powershell"
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | PowerShell | Create a local PowerShell Functions project. |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
+    | Provide a function name | HttpTrigger | Press Enter to use the default name. |
+    | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
+    | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
+
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | Python | Create a local Python Functions project. |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. |    | Select a Python alias to create a virtual environment | Python alias | Choose the discovered alias of your installed version of Python 3.6 or 3.7. Your app runs in virtual environment based on this installation.  |
+    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
+    | Provide a function name | HttpTrigger | Press Enter to use the default name. |
+    | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys).  |
+    | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
+
+    ::: zone-end
+
+Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files. It also creates the following language-specific files.
 
 ::: zone pivot="programming-language-csharp"
 
