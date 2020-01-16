@@ -101,8 +101,8 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis) (v3 public preview)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#entity-recognition) (v3 public preview)
-* [Named Entity recognition - Personal information](#personal-information-entity-recognition) (v3 public preview)
+* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (v3 public preview)
+* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (v3 public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 

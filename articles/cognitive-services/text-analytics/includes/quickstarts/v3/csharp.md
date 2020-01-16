@@ -81,8 +81,8 @@ Additional examples, including AAD authentication and the use of client default 
 
 * [Sentiment analysis](#sentiment-analysis) (v3 public preview)
 * [Language detection](#language-detection)
-* [Entity recognition ](#entity-recognition) (v3 public preview)
-* [Entity recognition - Personal information ](#personal-information-entity-recognition) (v3 public preview)
+* [Named Entity recognition](#named-entity-recognition-v3-public-preview) (v3 public preview)
+* [Named Entity recognition - Personal information](#named-entity-recognition---personal-information-v3-public-preview) (v3 public preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 

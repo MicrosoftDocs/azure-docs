@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/07/2019
+ms.date: 01/15/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-six
 ---
@@ -21,7 +21,7 @@ Use the Text Analytics client library v3 to perform:
 
 * Sentiment analysis
 * Language detection
-* Entity recognition
+* Named Entity recognition
 * Key phrase extraction
 
 ::: zone pivot="programming-language-csharp"
