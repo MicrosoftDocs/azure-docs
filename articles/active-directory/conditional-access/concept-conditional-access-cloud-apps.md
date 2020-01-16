@@ -45,7 +45,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- Microsoft Intune Enrollment
+- [Microsoft Intune Enrollment](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Search in Bing
