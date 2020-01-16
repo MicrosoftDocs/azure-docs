@@ -18,7 +18,7 @@ If you want users to be prompted for a second factor of authentication before gr
 
 The prerequisite for this configuration is a configured Azure AD tenant using the steps in [Configure a tenant](openvpn-azure-ad-tenant.md).
 
-[!INCLUDE [MFA steps for Virtual WAN](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## <a name="enablesign"></a> Configure sign-in settings
 
