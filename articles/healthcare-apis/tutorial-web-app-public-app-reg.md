@@ -26,7 +26,7 @@ Once your client application is registered, copy the Application (client) ID fro
 
 ![Copy App ID](media/tutorial-web-app/app-id.png)
 
-Next, set the correct authentication options. Select **Authentication** from the left-hand side. Check the **Access Token** and **ID token** boxes. You can also setup the redirect URI in preparation for when you create your web application in the fourth part of this tutorial. To do this, add https://\<WEB-APP-NAME>.azurewebsites.net to the redirect URI list. If you choose a different name during the step where you [write your web app](tutorial-web-app-wrote-web-app.md), you will need to come back and update this.
+Next, set the correct authentication options. Select **Authentication** from the left-hand side. Check the **Access Token** and **ID token** boxes. You can also setup the redirect URI in preparation for when you create your web application in the fourth part of this tutorial. To do this, add https://\<WEB-APP-NAME>.azurewebsites.net to the redirect URI list. If you choose a different name during the step where you [write your web app](tutorial-web-app-write-web-app.md), you will need to come back and update this.
 
 ![App authentication settings](media/tutorial-web-app/app-authentication.png)
 
