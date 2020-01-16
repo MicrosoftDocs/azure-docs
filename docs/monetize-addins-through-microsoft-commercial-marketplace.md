@@ -107,7 +107,7 @@ For information about authenticating with Azure AD, see [Authorize to Microsoft 
 To test your integration, you should submit an offer for $0 in order to ensure that the end to end process is working. The preview tab makes your offer visible only to a restricted audience of your choosing, prior to going fully live.
 When you have verified that your solution is working, you should then submit the offer again with the correct price, this time to prepare to go live. After you test and get feedback, select 'Go live' in the Preview tab so that your offer can be published live to the marketplace public audience. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be in preview mode again.
 
-To read more about preview audiences, read the documentation [here](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-saas-offer#preview).
+To read more about preview audiences, read the documentation [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#preview).
 
 ## Submission process for SaaS offer + add-in
 Submit your SaaS offer to Partner Center as a private plan first. This ensures that customers don't purchase your SaaS app before the add-in is available. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
