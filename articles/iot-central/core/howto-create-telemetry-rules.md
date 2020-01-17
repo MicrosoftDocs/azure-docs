@@ -38,7 +38,7 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. Enter a name that helps you to identify the rule in this device template.
 
-1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices for this template**.
+1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices of this template**.
 
    ![Rule Detail](media/howto-create-telemetry-rules/rule_detail1.png)
 
