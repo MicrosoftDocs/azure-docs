@@ -43,7 +43,7 @@ This example shows how to use a Recovery Services vault to do a VM test failover
    > [!NOTE]
    > If the test failover settings are pre-configured for the replicated item, the dropdown menu to select an Azure virtual network isn't visible.
 
-1. To start the failover, select **OK**. To track the progress from the vault, go to **Monitoring** > **Site Recovery jobs**, and then select the **Test Failover** job.
+1. To start the failover, select **OK**. To track the progress from the vault, go to **Monitoring** > **Site Recovery jobs** and select the **Test Failover** job.
 1. After the failover finishes, the replica Azure VM appears in the Azure portal's **Virtual Machines**. Make sure that the VM is running, sized appropriately, and connected to the appropriate network.
 1. To delete the VMs that were created during the test failover, select **Cleanup test failover** on the replicated item or the recovery plan. In **Notes**, record and save any observations associated with the test failover.
 

@@ -44,10 +44,10 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 
 ## Verify target resource settings
 
-Use these steps to check your Azure subscription for the target region.
+Check your Azure subscription for the target region.
 
-1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
-1. Make sure your subscription has enough resources to support VM sizes that match your source VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
+- Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
+- Make sure your subscription has enough resources to support VM sizes that match your source VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
 ## Set up outbound network connectivity for VMs
 
