@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 * [Microsoft Azure](https://ms.portal.azure.com).
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-<h2 id="Get-started">Get started</h2>
+## Get started
 
 Before submitting a Spark job definition, you need to be the Storage Blob Data Owner of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually. 
 
@@ -99,7 +99,7 @@ Before submitting a Spark job definition, another job you need to do is uploadin
 
 ## Submit a Spark job definition on a Synapse Spark Pool
 
-After creating a Spark job definition, you can submit it on a Synapse Spark Pool. Make sure you've gone through steps in [Get started](#Get-started) before trying samples in this part.
+After creating a Spark job definition, you can submit it on a Synapse Spark Pool. Make sure you've gone through steps in [Get started](#get-started) before trying samples in this part.
 
 
 ### Scenario 1: Submit Spark job definition 
