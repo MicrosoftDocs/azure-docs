@@ -89,7 +89,7 @@ After setting up the hardware and connecting the sync out port of the master to 
 3. Open subordinate Azure Kinect DK device first. Navigate to Azure Kinect viewer, and in the Open Device section choose subordinate device:
 
 
-      ![Subordinate camera start](./media/open-devices.png)
+      ![Open device](./media/open-devices.png)
 
 4. In the section "External Sync", choose option "Sub" and start the device. Images will not be sent to the subordinate after hitting start due to the device waiting for the sync pulse from the master device.
 
