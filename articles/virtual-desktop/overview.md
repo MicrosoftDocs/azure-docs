@@ -85,13 +85,13 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 
 |Address|Outbound port|Purpose|
 |---|---|---|
-|*.wvd.microsoft.com|TCP:443|Service traffic|
-|*.blob.core.windows.net|TCP:443|Agent, SXS stack updates, and Agent traffic|
-|*.core.windows.net|TCP:443|Agent traffic|
-|*.servicebus.windows.net|TCP:443|Agent traffic|
-|prod.warmpath.msftcloudes.com|TCP:443|Agent traffic|
-|catalogartifact.azureedge.net|TCP:443|Azure Marketplace|
-|kms.core.windows.net|TCP:1688|Windows 10 activation|
+|*.wvd.microsoft.com|TCP port 443|Service traffic|
+|*.blob.core.windows.net|TCP port 443|Agent, SXS stack updates, and Agent traffic|
+|*.core.windows.net|TCP port 443|Agent traffic|
+|*.servicebus.windows.net|TCP port 443|Agent traffic|
+|prod.warmpath.msftcloudes.com|TCP port 443|Agent traffic|
+|catalogartifact.azureedge.net|TCP port 443|Azure Marketplace|
+|kms.core.windows.net|TCP port 1688|Windows 10 activation|
 
 >[!IMPORTANT]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
