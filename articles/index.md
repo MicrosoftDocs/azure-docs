@@ -735,13 +735,13 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/blockchain/workbench/">
-                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <img src="media/index/blockchain-workbench-alt.svg" alt="" />
                                                 <p>Azure Blockchain Workbench</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/blockchain/tokens/">
-                                                <img src="media/index/blockchain-workbench-alt.svg" alt="" />
+                                                <img src="media/index/blockchain-tokens.svg" alt="" />
                                                 <p>Azure Blockchain Tokens</p>
                                             </a>
                                         </li>
