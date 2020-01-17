@@ -5,8 +5,7 @@
   - name: What is Azure Synapse
     href: overview-what-is.md
   - name: Who can benefit from Azure Synapse
-    href: overview-who-can-benefit-azure-synapse-analytics.md+
-
+    href: overview-who-can-benefit-azure-synapse-analytics.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
