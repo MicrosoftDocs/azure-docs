@@ -8,30 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 01/17/2020
 ms.author: dapine
 ---
 
-# General questions
+# Speech service containers frequently asked questions (FAQ)
+
+When using the Speech service with containers, rely on this collection of frequently asked questions before escalating to support. This article captures general and technical questions.
+
+## General questions
 
 **Q: How do containers work and what is the best way to set them up?**
 
-**A:** When setting up the production cluster, there are several things to consider. 
-First, setting up single language, multiple containers, on the same machine, should not be a big issue. If you are hitting problems there, it may be hardware related so we would love to have the CPU and memory specs (lscpu and free commands output). Let me explain:
+**A:** When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a big issue. If you are experiencing problems, it may be a hardware related issue - so we would first look at resource, i.e.; CPU and memory specifications.
 
-The `ja-JP` container is on our latest model. Acoustic model is the most demanding piece CPU-wise, while language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2 cores). Meanwhile, the memory listed below (in Tiger's email) is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For ja-JP that's additional 2 GB; for `en-US`, it may be more (6-7 GB).
+Consider for a moment, the `ja-JP` container and latest model. The acoustic model is the most demanding piece CPU-wise, while language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2x cores). Meanwhile, the memory listed below is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For `ja-JP` that's an additional 2 GB; for `en-US`, it may be more (6-7 GB).
 
-If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is entirely possible that file cache is completely full, and OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns you described below.
+If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is completely full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.
 
-Furthermore, we prepackage executables for machines with AVX2 instructions set. A machine with AVX512 instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:
+Furthermore, we prepackage executables for machines with the *AVX2* instruction set. A machine with the *AVX512* instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:
 
+```console
 2020-01-16 16:46:54.981118943 [W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache] Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
+```
 
-Finally, you can set how many decoders you want inside a *single* container using `DECODER MAX_COUNT`.
+Finally, you can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
 
-So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it.
-
-**Q: Why is punctuation is missing from the transcription?**
+**Q: Why is punctuation missing from the transcription?**
 
 **A:** The `speech_recognition_language=<YOUR_LANGUAGE>` should be explicitly configured in the request if they are using Carbon client.
 
@@ -50,7 +53,7 @@ if not recognize_once(
 ```
 Here is the output:
 
-```
+```console
 RECOGNIZED: SpeechRecognitionResult(
     result_id=2111117c8700404a84f521b7b805c4e7, 
     text="まだ早いまだ早いは猫である名前はまだないどこで生
@@ -59,7 +62,7 @@ RECOGNIZED: SpeechRecognitionResult(
     reason=ResultReason.RecognizedSpeech)
 ```
 
-**Q: When using the speech-to-text service, I'm seeing this error - why?**
+**Q: When using the speech-to-text service, why am I getting this error?**
 
 ```
 Error in STT call for file 9136835610040002161_413008000252496:
@@ -69,9 +72,9 @@ Error in STT call for file 9136835610040002161_413008000252496:
 }
 ```
 
-**A:** This typically happens when you feed the audio faster than SR container can take it. Client buffers fill up, and the cancellation is triggered. you need to control the concurrency AND the RTF at which you send the audio.
+**A:** This typically happens when you feed the audio faster than the Speech recognition container can take it. Client buffers fill up, and the cancellation is triggered. You need to control the concurrency and the RTF at which you send the audio.
 
-**Q: When testing the text-to-speech container, I'm experiencing issues with the C++ examples - why?**
+**Q: When testing the text-to-speech container, why am I getting errors with the C++ examples?**
 
 **A:** If the container version is older than 1.3, then this code should be used:
 
@@ -87,7 +90,8 @@ Older containers don't have the required endpoint for Carbon to work with the `F
 ```cpp
 const auto host = "http://localhost:5000";
 auto config = SpeechConfig::FromHost(host);
-config->SetSpeechSynthesisVoiceName("Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
+config->SetSpeechSynthesisVoiceName(
+    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
 auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
@@ -97,18 +101,21 @@ Below is an example of using the `FromEndpoint` API:
 ```cpp
 const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
 auto config = SpeechConfig::FromEndpoint(endpoint);
-config->SetSpeechSynthesisVoiceName("Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
+config->SetSpeechSynthesisVoiceName(
+    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
 auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
- The `SetSpeechSynthesisVoiceName` function is called because, the containers with an updated text-to-speech engine require the voice name to be set.
+ The `SetSpeechSynthesisVoiceName` function is called because the containers with an updated text-to-speech engine require the voice name.
 
-**Q: How to use a custom acoustic model and language model along with container services options in Azure. (Currently able to pass only one model ID either custom language model or custom acoustic model)?**
+**Q: How can I use a custom acoustic model and language model along with container services options in Azure?**
 
-**A:** Decision to not support both acoustic and language models concurrently until a unified id is created to reduce API breaks. So unfortunately this is not supported now.
+We are currently only able to pass one model ID, either custom language model or custom acoustic model.
 
-**Q: What are these errors when using Custom-speech-to-text container?**
+**A:** The decision to *not* support both acoustic and language models concurrently was made. This will remain in effect, until a unified identifier is created to reduce API breaks. So, unfortunately this is not supported right now.
+
+**Q: When using the custom speech-to-text container, what are these errors?**
 
 ```
 Failed to fetch manifest: Status: 400 Bad Request Body:
@@ -118,17 +125,17 @@ Failed to fetch manifest: Status: 400 Bad Request Body:
 }
 ```
 
-**A:** It looks like you're training with the latest custom model, which we currently don't support. If you train with an older version it should be possible to use. We are still working on supporting the latest versions.
+**A:** If you're training with the latest custom model, we currently don't support that. If you train with an older version it should be possible to use. We are still working on supporting the latest versions.
 
-Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models are not encrypted and we do not want to expose ONNX models.
-Language models are fine.
-Customer need to explicitly select an order non-ONNX model for custom training. Accuracy will not be affected. Model size may be larger (by 100MB).
+Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models not being encrypted and we don't want to expose ONNX models, however; language models are fine. The customer will need to explicitly select an older non-ONNX model for custom training. Accuracy will not be affected. The model size may be larger (by 100MB).
 
-Support model > 20190220 (v4.5 Unified)
+> Support model > 20190220 (v4.5 Unified)
 
-**Q: Failure with custom speech-to-text container?**
+**Q: What are these errors with the custom speech-to-text container?**
 
-```
+**Error 1:**
+
+```plaintext
 HTTPAPI result code = HTTPAPI_OK.
 HTTP status code = 400.
 Reason:  Synthesis failed.
@@ -136,27 +143,24 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**A:** Need to provide the correct voice name in the request for it to work
-it might be case sensitive, if not try the full service name mapping.
+**A1:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping. You have to use `en-US-JessaRUS`, as `en-US-JessaNeural` is not available right now in container version of text-to-speech.
 
-You have to use `en-US-JessaRUS`, as `en-US-JessaNeural` is not available right now in container version of Text-to-speech.
+**Error 2:**
 
-**Q: Failure with custom speech-to-text container?**
-
-```
+```json
 {
     "code": "InvalidProductId",
     "message": "The subscription SKU \"CognitiveServices.S0\" is not supported in this service instance."
 }
 ```
 
-**A:** You reed to create a Speech resource (not a cognitive service resource).
+**A2:** You reed to create a Speech resource, not a Cognitive Services resource.
 
-**Q: Do you support punctuation?**
+**Q: Do Speech containers support punctuation?**
 
-**A:** We have capitalization (ITN) in the on-prem container. Punctuation is language dependent, and not supported for some languages, including Chinese and Japanese.
+**A:** We have capitalization (ITN) available in the on-prem container. Punctuation is language dependent, and not supported for some languages, including Chinese and Japanese.
 
-We *do* have the implicit, basic punctuation support in the existing containers, but it is off by default. What that means is that you can get `.` character in your example, but not `。`. To enable that logic, here's what you would do in Python using our Speech SDK (it would be very similar in other languages):
+We *do* have implicit and basic punctuation support for the existing containers, but it is `off` by default. What that means is that you can get the `.` character in your example, but not the `。` character. To enable this implicit logic, here's an example of how to do so in Python using our Speech SDK (it would be very similar in other languages):
 
 ```python
 speech_config.set_service_property(
@@ -166,7 +170,7 @@ speech_config.set_service_property(
 )
 ```
 
-**Q: What API protocol do you support, REST or WS?**
+**Q: What API protocols are supported, REST or WS?**
 
 **A:** For speech containers, we currently only support the websocket based protocol, the SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment.
 
@@ -471,7 +475,7 @@ Content-Length: 0
 Please refer to the docs https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto#speech-to-text-2
 
 
-# Technical questions
+## Technical questions
 
 ## Next steps
 
