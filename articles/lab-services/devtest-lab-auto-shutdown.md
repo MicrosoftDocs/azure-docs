@@ -13,15 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 01/17/2020
 ms.author: spelluru
 
 ---
 
-# Manage autoshutdown policies for a lab in Azure DevTest Labs
+# Configure autoshutdown for lab and compute virtual machines in Azure DevTest Labs
+
+This article explains how to configure autoshutdown settings for lab VMs in DevTest Labs and compute VMs. 
+
+## Configure autoshutdown for lab VMs (DevTest Labs)
 Azure DevTest Labs enables you to control cost and minimize waste in your labs by managing policies (settings) for each lab. This article shows you how to configure autoshutdown policy for a lab account and configure autoshutdown settings for a lab in the lab account. To view how to set every lab policy, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-## Set auto shutdown policy for a lab
+### Set auto shut down policy for a lab
 As a lab owner, you can configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
 
 1. On the home page for your lab, select **Configuration and policies**.
@@ -30,7 +34,7 @@ As a lab owner, you can configure a shutdown schedule for all the VMs in your la
 
     ![Auto shut down policy options](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-## Configure auto shutdown settings
+### Configure auto shutdown settings
 The autoshutdown policy helps to minimize lab waste by allowing you to specify the time that this lab's VMs shut down.
 
 To view (and change) the policies for a lab, follow these steps:
@@ -69,7 +73,7 @@ If you set your lab to this policy, lab users can't override or opt out of the l
 
 ![Auto shut down policy option - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## Notifications
+### Notifications
 Once autoshutdown set up by the lab owner, notifications will be sent to the lab users 30 minutes before the autoshutdown triggered if any of their VMs will be affected. This option gives lab users a chance to save their work before the shutdown. The notification also provides links for each VM for the following actions:
 
 - Skip the autoshutdown for this time
@@ -79,7 +83,7 @@ Notification is sent through the configured web hook endpoint or an email addres
 
 We recommend you to use web hooks because they're extensively supported by various apps (for example, Slack, Azure Logic Apps, and so on.) and allows you to implement your own way for sending notifications. As an example, this article walks you through how to get autoshutdown notification from emails by using Azure Logic Apps. First, let's quickly go through the basic steps to enable autoshutdown notification in your lab.   
 
-## Create a logic app that receives email notifications
+### Create a logic app that receives email notifications
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) provides many out-of-the-box connectors that makes it easy to integrate a service with other clients, like Office 365 and twitter. At the high level, the steps to set up a Logic App for email notification can be divided into four phases: 
 
 - Create a logic app. 
@@ -182,5 +186,16 @@ To get started, create a logic app in your Azure subscription by using the follo
 
     ![WebHook URL](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
+## Configure autoshutdown for compute VMs
+
+1. On the **Virtual machine** page, select **Auto-shutdown** on the left menu. 
+2. On the **Auto-shutdown** page, select **On** to enable this policy, and **Off** to disable it.
+3. If you enable this policy, specify the **time** (and **time zone**) at which the VM should be shut down.
+4. Specify **Yes** or **No** for the option to send a notification 30 minutes prior to the specified autoshutdown time. If you choose **Yes**, enter a webhook URL endpoint or email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to delay the shutdown. For more information, see the [Notifications](#notifications) section. 
+9. Select **Save**.
+
+    ![Configure autoshutdown for a compute VM](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
 ## Next steps
 To learn how to set all policies, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
+
