@@ -1,6 +1,6 @@
 ---
 title: Search locations using the Azure Maps Search Service | Microsoft Azure Maps
-description: Learn how to search for a location using the Microsoft Azure Maps Search Service.
+description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/15/2020
@@ -61,7 +61,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 4. Click **Send** and review the response body.
 
-    The "pizza" query returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result returns a street address, latitude and longitude values, view port, and entry points for the location.
+    The ambiguous query string for "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result returns a street address, latitude and longitude values, view port, and entry points for the location.
   
     The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage. The default behavior is to search the entire world, potentially returning unnecessary results.
 
