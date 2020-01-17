@@ -16,7 +16,7 @@ This article explains how to manage and act on your Azure Enterprise Agreement (
 
 ## Change a PO number for an overage invoice
 
-The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the Enterprise administrator sets one before the invoice date. An Enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
+The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
 
 ### To update the Azure services purchase order number:
 
@@ -105,8 +105,8 @@ During the transition to a combined invoice, you'll receive a partial Marketplac
 
 A customer's billing frequency is annual, quarterly, or monthly. The billing cycle is determined when a customer signs their agreement. Monthly billing is smallest billing interval.
 
-- **Approval** from an Enterprise administrator is required to change a billing cycle from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
-- **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an Enterprise administrator or from your "Bill to Contact".
+- **Approval** from an enterprise administrator is required to change a billing cycle from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
+- **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an enterprise administrator or from your "Bill to Contact".
 - **Submit** your approval to [Azure Enterprise portal support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the Issue Category: **Billing and Invoicing**.
 
 The change becomes effective at the end of the current billing quarter.
@@ -139,7 +139,7 @@ To apply your monetary commitment to overages, you must meet the following crite
 - The billing period that you want to offset must be fully closed.
 - Your Azure Commitment Discount (ACD) is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume monetary commitment, so doesn't apply to Azure Marketplace charges. Marketplace charges are billed separately.
 
-To complete an overage offset, you or the account team can open a support request. An emailed approval from your Enterprise administrator or Bill to Contact is required.
+To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
 
 ## View price sheet information
 
@@ -206,7 +206,7 @@ Enterprise administrators can view a summary of their usage data, monetary commi
 
 ## Service usage report
 
-The service usage report page allows Enterprise administrators to view a summary of their service usage data. Usage is presented at the summary level across all accounts and subscriptions. To view detailed usage, you can filter the report by accounts or subscriptions.
+The service usage report page allows enterprise administrators to view a summary of their service usage data. Usage is presented at the summary level across all accounts and subscriptions. To view detailed usage, you can filter the report by accounts or subscriptions.
 
 > [!NOTE]
 > There may be a latency of up to five days between the incurred usage date and when that usage is reflected on this report.
@@ -224,7 +224,7 @@ The service usage report page allows Enterprise administrators to view a summary
 
 ## Download CSV reports
 
-The monthly report download page allows Enterprise administrators to download several reports as CSV files. Downloadable reports include:
+The monthly report download page allows enterprise administrators to download several reports as CSV files. Downloadable reports include:
 
 - Balance and charge report
 - Usage detail report
@@ -281,7 +281,7 @@ All rows in the Azure Service Commitment summary table remain static month-over-
 
 ### Download the balance and charge report
 
-1. Sign in to the Azure Enterprise portal as an Enterprise administrator.
+1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Select **Reports** on the left pane.
 1. Select the **Report Download** tab.
 1. Select the appropriate month under the **Balance and Charge** column and select to download the report.
@@ -292,7 +292,7 @@ The usage detail report offers a monthly summary of an enrollments consumption o
 
 ### Download the usage detail report
 
-1. Sign in to the Azure Enterprise portal as an Enterprise administrator.
+1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Select **Reports** on the left navigation.
 1. Select the **Download Usage** tab.
 1. Select the appropriate month under the **Usage Detail** column and select to download the report.
@@ -325,13 +325,13 @@ For reporting on specific date ranges or accounts, you can use the advanced repo
 1. Select **Refresh** button until the report status updates to 'Download'.
 1. Download report.
 
-## Reporting for non-Enterprise administrators
+## Reporting for non-enterprise administrators
 
 Enterprise administrators can give department administrators (DA) and account owners (AO) permissions to view charges on an enrollment. Account owners with access are able to download CSV reports specific to their account and subscriptions. They can also view the information visually under the reporting section of the Azure Enterprise portal.
 
 ### To enable access:
 
- 1. Sign in to the Azure Enterprise portal as an Enterprise administrator.
+ 1. Sign in to the Azure Enterprise portal as an enterprise administrator.
  1. Select **Manage** on the left navigation.
  1. Select the **Enrollment** tab.
  1. Under the **Enrollment Detail** section, select the pencil icon next to **DA View Charges** or **AO View Charges**.
@@ -520,13 +520,13 @@ To download the price list:
 
 ### Enabling Azure Marketplace purchases
 
-Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. If the Enterprise administrator disables purchases, and there are Azure subscriptions that already have Azure Marketplace subscriptions, those Azure Marketplace subscriptions won't be canceled or affected.
+Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. If the enterprise administrator disables purchases, and there are Azure subscriptions that already have Azure Marketplace subscriptions, those Azure Marketplace subscriptions won't be canceled or affected.
 
 Although customers can convert their direct Azure subscriptions to Azure EA by associating them to their enrollment in the Azure Enterprise portal, this action doesn't automatically convert the child subscriptions.
 
 To enable Azure Marketplace purchases:
 
-1. Sign in to the Azure Enterprise portal as an Enterprise administrator.
+1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Navigate to **Manage**.
 1. Under **Enrollment Detail**, select the pencil icon next to the **Azure Marketplace** line item.
 1. Toggle **Enabled/Disabled** or Free **BYOL SKUs Only** as appropriate.
@@ -652,7 +652,7 @@ This section addresses common questions about reports.
 
 ### Why is my cost showing as $0?
 
-For **direct enrollment** customers, Enterprise administrators can provide account owners and department administrators with access to cost/pricing information on the usage reports. Follow these steps:
+For **direct enrollment** customers, enterprise administrators can provide account owners and department administrators with access to cost/pricing information on the usage reports. Follow these steps:
 
 1. In the Azure Enterprise portal, select **Manage** on the left navigation.
 1. Select the blue pencil next to DA (department administrator) view charges.
@@ -661,9 +661,9 @@ For **direct enrollment** customers, Enterprise administrators can provide accou
 1. Select **Enabled** and save.
 
 > [!NOTE]
-> If you're an account owner or department administrator, contact your Enterprise administrator to enable the pricing feature.
+> If you're an account owner or department administrator, contact your enterprise administrator to enable the pricing feature.
 
-For **indirect enrollment** customers, contact your partner to check that they've enabled the pricing feature for you. This can only be done by the partner. After you're enabled, you can view the cost and pricing on your enrollment as an Enterprise administrator.
+For **indirect enrollment** customers, contact your partner to check that they've enabled the pricing feature for you. This can only be done by the partner. After you're enabled, you can view the cost and pricing on your enrollment as an enterprise administrator.
 
 Partners, if you wish to enable the view charges feature for an account owner or a department administrator, follow the steps under **direct enrollment**.
 
@@ -677,7 +677,7 @@ The Azure Marketplace charges report shows only the usage-based charges. One-tim
 
 ### Why is there no information on my API report?
 
-API keys expire every six months. If you're having an issue, an Enterprise administrator should generate a new API key. Remember to follow the steps on the API Report FAQ.
+API keys expire every six months. If you're having an issue, an enterprise administrator should generate a new API key. Remember to follow the steps on the API Report FAQ.
 
 ### Why isn't my Power BI report working?
 
