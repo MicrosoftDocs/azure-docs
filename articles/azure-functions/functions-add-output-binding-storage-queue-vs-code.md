@@ -48,13 +48,7 @@ In the [previous quickstart article](functions-create-first-function-vs-code.md)
 
 Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
 
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -76,13 +70,7 @@ Now, you can add the storage output binding to your project.
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -104,6 +92,46 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone-end
 
+::: zone pivot="programming-language-typescript"
+
+Add code that uses the `msg` output binding object on `context.bindings` to create a queue message. Add this code before the `context.res` statement.
+
+```typescript
+// Add a message to the Storage queue.
+context.bindings.msg = "Name passed to the function: " + name;
+```
+
+At this point, your function should look as follows:
+
+```javascript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log('HTTP trigger function processed a request.');
+    const name = (req.query.name || (req.body && req.body.name));
+
+    if (name) {
+        // Add a message to the Storage queue.
+        context.bindings.msg = "Name passed to the function: " + name; 
+        // Send a "hello" response.
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+
+export default httpTrigger;
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
@@ -116,7 +144,17 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
+
+::: zone-end
 
 A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
