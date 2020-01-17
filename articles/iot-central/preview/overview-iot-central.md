@@ -76,11 +76,10 @@ This device template includes:
 
 ### Pricing
 
-You can create IoT Central application using a 7-day free trial, or use a Paid subscription.
+You can create IoT Central application using a 7-day free trial, or use a standard subscription.
 
-- **Trial** applications are free for seven days and support up to five devices. They can be converted to Paid at any time before they expire.
-- **Paid** applications are charged on a per device basis, you can choose either **Standard 1** or **Standard 2** paid plan  with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
-
+- Applications you create using the **free** plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
+- Applications you create using the **Standard** plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
 
 ### Create device templates

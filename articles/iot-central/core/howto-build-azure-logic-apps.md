@@ -20,7 +20,7 @@ You can use the IoT Central connector in Microsoft Flow. Both Azure Logic Apps a
 
 ## Prerequisites
 
-- A Paid application
+- An application created using a standard pricing plan
 - An Azure account and subscription to create and manage Logic apps
 
 ## Trigger a workflow when a rule is triggered

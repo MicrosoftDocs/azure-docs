@@ -24,9 +24,9 @@ You have two options:
 
 ## Copy your application
 
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Paid application that you'll be charged for. You can't create a Trial application by copying an application.
+You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a standard application that you'll be billed for. You can't create a Trial application by copying an application.
 
-Select **Copy**. In the dialog box, enter the details for the new Paid application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new standard application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
 
 > [!NOTE]
 > You can **Copy your application** to **Europe** and **US** locations only.
