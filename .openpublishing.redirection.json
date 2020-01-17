@@ -1757,6 +1757,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
+      "redirect_url": "/azure/cosmos-db/how-to-multi-master",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
       "redirect_document_id": false
