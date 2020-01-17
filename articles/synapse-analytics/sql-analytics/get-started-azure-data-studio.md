@@ -30,8 +30,12 @@ To get started with [Azure Data Studio][ads], open the application and select **
 
 The connection requires the following parameters:
 
-* **Server:** Server in the form `<`Server Name`>`.database.windows.net
+* **Server:** Server in the form `<`Synapse workspace name`>`-ondemand.sql.azuresynapse.net
 * **Database:** Database name
+
+> [!NOTE]
+> If you would like to use **SQL on-demand** URL should look like `<`Synapse workspace name`>`-ondemand.sql.azuresynapse.net.
+> If you would like to use **SQL pool** URL should look like `<`Synapse workspace name`>`.sql.azuresynapse.net
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 
@@ -43,11 +47,11 @@ For example, your connection might look like the following screenshot:
 ![SQL Login][2]
 
 
-To use Windows authentication or Azure Active Directory, you need to choose the needed authentication type.
+To use Azure Active Directory, you need to choose the needed authentication type.
 
-Example of the Windows authentication connection:
+Example of the AAD authentication connection:
 
-![Windows Authentication][3]
+![AAD Authentication][3]
 
 After successful login, you should see a dashboard like this:
 ![Dashboard][4]
@@ -75,7 +79,7 @@ For more about details about the options available in sqlcmd see [sqlcmd documen
 <!--Image references-->
 [1]: media/sql-analytics-query-ads/1-start.png
 [2]: media/sql-analytics-query-ads/2-database-details.png
-[3]: media/sql-analytics-query-ads/3-windows-auth.png
+[3]: media/sql-analytics-query-ads/3-aad-auth.png
 [4]: media/sql-analytics-query-ads/4-dashboard.png
 [5]: media/sql-analytics-query-ads/5-new-query.png
 
