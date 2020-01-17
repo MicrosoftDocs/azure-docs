@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users of a Twitter account by u
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 - If you don't already have a Twitter account, create one at [Twitter sign-up page](https://twitter.com/signup).
 
 ## Create an application

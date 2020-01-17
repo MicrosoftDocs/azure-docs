@@ -41,7 +41,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Azure AD B2C](active-directory-b2c-get-started-custom.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
+* Complete the steps in [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
 * Basic understanding of the Security Assertion Markup Language (SAML) protocol.
 * A web application configured as a SAML service provider (SP). For this tutorial, you can use a [SAML test application][samltest] that we provide.
 

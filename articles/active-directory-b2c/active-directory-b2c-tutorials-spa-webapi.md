@@ -212,7 +212,7 @@ In this tutorial, you learned how to:
 Now that you've seen an SPA request a resource from a protected web API, gain a deeper understanding of how these application types interact with each other and with Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Application types that can be used in Active Directory B2C >](active-directory-b2c-apps.md)
+> [Application types that can be used in Active Directory B2C >](application-types.md)
 
 <!-- Links - EXTERNAL -->
 [github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp

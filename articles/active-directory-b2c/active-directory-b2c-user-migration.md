@@ -205,7 +205,7 @@ After you run the pre-migration process with user passwords, the accounts are re
 
 If you migrate users with a random password, they must reset their password. To help them reset the password, send a welcome email with a link to reset the password.
 
-To get the link to your password reset policy, follow these steps. This procedure assumes you've previously created a password reset [custom policy](active-directory-b2c-get-started-custom.md).
+To get the link to your password reset policy, follow these steps. This procedure assumes you've previously created a password reset [custom policy](custom-policy-get-started.md).
 
 1. Select the directory containing your Azure AD B2C tenant by using the **Directory + subscription** filter in the upper-right section of the [Azure portal](https://portal.azure.com).
 1. Select **Azure AD B2C** in the left-hand menu (or from within **All services**).

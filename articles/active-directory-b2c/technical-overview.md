@@ -256,7 +256,7 @@ For additional details on audit logs, see [Accessing Azure AD B2C audit logs](ac
 
 Azure AD B2C allows you to discover when people sign up or sign in to your web app, where your users are located, and what browsers and operating systems they use. By integrating Azure Application Insights into Azure AD B2C by using custom policies, you can gain insight into how people sign up, sign in, reset their password or edit their profile. With such knowledge, you can make data-driven decisions for your upcoming development cycles.
 
-Find out more about usage analytics in [Track user behavior in Azure Active Directory B2C using Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md).
+Find out more about usage analytics in [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
 ## Next steps
 

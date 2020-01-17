@@ -155,7 +155,7 @@ As a result Azure AD B2C sends the above parameters to the HTML content page:
 
 ### Application Insights technical profile
 
-With Azure Application Insights and claim resolvers you can gain insights on user behavior. In the Application Insights technical profile, you send input claims that are persisted to Azure Application Insights. For more information, see [Track user behavior in Azure AD B2C journeys by using Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md). The following example sends the policy ID, correlation ID, language, and the client ID to Azure Application Insights.
+With Azure Application Insights and claim resolvers you can gain insights on user behavior. In the Application Insights technical profile, you send input claims that are persisted to Azure Application Insights. For more information, see [Track user behavior in Azure AD B2C journeys by using Application Insights](analytics-with-application-insights.md). The following example sends the policy ID, correlation ID, language, and the client ID to Azure Application Insights.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

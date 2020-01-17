@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit
 
 You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your mobile and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries.
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](active-directory-b2c-apps.md), including web applications and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](application-types.md), including web applications and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
 
 This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens.
 
@@ -93,7 +93,7 @@ error=access_denied
 | state |See the full description in the preceding table. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## 2. Get a token
-Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](active-directory-b2c-access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
@@ -221,6 +221,6 @@ Error responses look like this:
 ## Use your own Azure AD B2C directory
 To try these requests yourself, complete the following steps. Replace the example values we used in this article with your own values.
 
-1. [Create an Azure AD B2C directory](active-directory-b2c-get-started.md). Use the name of your directory in the requests.
-2. [Create an application](active-directory-b2c-app-registration.md) to obtain an application ID and a redirect URI. Include a native client in your app.
+1. [Create an Azure AD B2C directory](tutorial-create-tenant.md). Use the name of your directory in the requests.
+2. [Create an application](tutorial-register-applications.md) to obtain an application ID and a redirect URI. Include a native client in your app.
 3. [Create your user flows](active-directory-b2c-reference-policies.md) to obtain your user flow names.

@@ -17,7 +17,7 @@ ms.custom: fasttrack-edit
 
 # Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C
 
-To use an Azure Active Directory (Azure AD) as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
+To use an Azure Active Directory (Azure AD) as an [identity provider](authorization-code-flow.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
 
 ## Create an Azure AD app
 

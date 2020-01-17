@@ -29,7 +29,7 @@ The following sections present an example of how to enable multiple issuers in a
 
 You need the following Azure AD B2C resources in place before continuing with the steps in this article:
 
-* [User flows](tutorial-create-user-flows.md) or [custom policies](active-directory-b2c-get-started-custom.md) created in your tenant
+* [User flows](tutorial-create-user-flows.md) or [custom policies](custom-policy-get-started.md) created in your tenant
 
 ## Get token issuer endpoints
 

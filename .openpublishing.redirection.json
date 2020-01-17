@@ -5382,6 +5382,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-access-tokens.md",
+      "redirect_url": "/azure/active-directory-b2c/access-tokens",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-apps.md",
+        "redirect_url": "/azure/active-directory-b2c/application-types",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-configure-signup-self-asserted-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-configure-user-input",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-create-custom-attributes-profile-edit-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-custom-attributes",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+        "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-developer-notes-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-developer-notes",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-get-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
+        "redirect_url": "/azure/active-directory-b2c/billing",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-kmsi-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-keep-me-signed-in",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-oauth-code.md",
+        "redirect_url": "/azure/active-directory-b2c/authorization-code-flow",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-app-registration.md",
       "redirect_url": "/azure/active-directory-b2c/tutorial-register-applications",
       "redirect_document_id": false

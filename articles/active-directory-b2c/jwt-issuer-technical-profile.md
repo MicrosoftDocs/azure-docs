@@ -59,8 +59,8 @@ The CryptographicKeys element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you cofigured in [Get started with custom policies](active-directory-b2c-get-started-custom.md). |
-| issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](active-directory-b2c-get-started-custom.md) |
+| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you cofigured in [Get started with custom policies](custom-policy-get-started.md). |
+| issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](custom-policy-get-started.md) |
 
 
 

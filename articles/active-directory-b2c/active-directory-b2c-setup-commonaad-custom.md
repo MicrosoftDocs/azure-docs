@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users using the multi-tenant en
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## Register an application
 

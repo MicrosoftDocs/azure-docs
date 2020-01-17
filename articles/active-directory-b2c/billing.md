@@ -41,14 +41,14 @@ Here's how to make the switch to MAU billing for an existing Azure AD B2C resour
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the subscription owner.
 1. Select the **Directory + subscription** filter in the top menu, and then select the Azure AD B2C directory that you want to upgrade to MAU billing.<br/>
-    ![Directory and subscription filter in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-01-select-b2c-directory.png)
+    ![Directory and subscription filter in Azure portal](./media/billing/portal-mau-01-select-b2c-directory.png)
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. On the **Overview** page of the Azure AD B2C tenant, select the link under **Resource name**. You're directed to the Azure AD B2C resource in your Azure AD tenant.<br/>
-    ![Azure AD B2C resource link highlighted in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-02-b2c-resource-link.png)
+    ![Azure AD B2C resource link highlighted in Azure portal](./media/billing/portal-mau-02-b2c-resource-link.png)
 1. On the **Overview** page of the Azure AD B2C resource, under **Billable Units**, select the **Per Authentication (Change to MAU)** link.<br/>
-    ![Change to MAU link highlighted in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-03-change-to-mau-link.png)
+    ![Change to MAU link highlighted in Azure portal](./media/billing/portal-mau-03-change-to-mau-link.png)
 1. Select **Confirm** to complete the upgrade to MAU billing.<br/>
-    ![MAU-based billing confirmation dialog in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-04-confirm-change-to-mau.png)
+    ![MAU-based billing confirmation dialog in Azure portal](./media/billing/portal-mau-04-confirm-change-to-mau.png)
 
 ### What to expect when you transition to MAU billing from per-authentication billing
 
@@ -81,7 +81,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 ### Prerequisites
 
 * [Azure subscription](https://azure.microsoft.com/free/)
-* [Azure AD B2C tenant](active-directory-b2c-get-started.md) that you want to link to a subscription
+* [Azure AD B2C tenant](tutorial-create-tenant.md) that you want to link to a subscription
   * You must be a tenant administrator
   * The tenant must not already be linked to a subscription
 
@@ -96,7 +96,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Select an active Azure **Subscription** of which you are an administrator.
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
-    ![The Azure AD B2C Resource creation page in Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-01-create-b2c-resource-page.png)
+    ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
 After you complete these steps for an Azure AD B2C tenant, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details, if applicable.
 
@@ -112,7 +112,7 @@ You can use this resource to:
 * Submit a support request
 * Move your Azure AD B2C tenant resource to another Azure subscription or resource group
 
-![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-02-b2c-resource-overview.png)
+![B2C Resource settings page in the Azure portal](./media/billing/portal-02-b2c-resource-overview.png)
 
 ### Regional restrictions
 

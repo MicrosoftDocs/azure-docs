@@ -21,7 +21,7 @@ In this article, you add a new user provided entry (a claim) to your sign-up use
 
 ## Prerequisites
 
-Complete the steps in the article [Getting Started with Custom Policies](active-directory-b2c-get-started-custom.md). Test the sign-up or sign-in user journey to sign up a new local account before proceeding.
+Complete the steps in the article [Getting Started with Custom Policies](custom-policy-get-started.md). Test the sign-up or sign-in user journey to sign up a new local account before proceeding.
 
 ## Add claims
 
@@ -75,7 +75,7 @@ The following elements are used to define the claim:
 
 #### DropdownSingleSelect
 
-![Single-select dropdown control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Single-select dropdown control showing several options](./media/custom-policy-configure-user-input/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -92,7 +92,7 @@ The following elements are used to define the claim:
 
 #### CheckboxMultiSelect
 
-![Multi-select checkbox control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Multi-select checkbox control showing several options](./media/custom-policy-configure-user-input/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -266,7 +266,7 @@ The following elements are used to define the claim:
 
 The signup screen should look similar to this:
 
-![Screenshot of modified sign-up option](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
+![Screenshot of modified sign-up option](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
 
 The token sent back to your application includes the `city` claim.
 
@@ -302,4 +302,4 @@ Verified email is enabled by default in the `<TechnicalProfile Id="LocalAccountS
 
 ## Next steps
 
-Learn how to [Use custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).
+Learn how to [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md).
