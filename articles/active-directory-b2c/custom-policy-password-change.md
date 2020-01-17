@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. If the session expires by the time the user gets to the password change flow, they're prompted to sign in again. This article shows you how to configure password change in [custom policies](active-directory-b2c-overview-custom.md). It's also possible to configure [self-service password reset](active-directory-b2c-reference-sspr.md) for user flows.
+In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. If the session expires by the time the user gets to the password change flow, they're prompted to sign in again. This article shows you how to configure password change in [custom policies](custom-policy-overview.md). It's also possible to configure [self-service password reset](active-directory-b2c-reference-sspr.md) for user flows.
 
 ## Prerequisites
 
@@ -178,4 +178,4 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
-- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).
+- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](custom-policy-password-complexity.md).

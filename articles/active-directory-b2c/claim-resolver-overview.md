@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # About claim resolvers in Azure Active Directory B2C custom policies
 
-Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](active-directory-b2c-overview-custom.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
+Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
 
 To use a claim resolver in an input or output claim, you define a string **ClaimType**, under the [ClaimsSchema](claimsschema.md) element, and then you set the **DefaultValue** to the claim resolver in the input or output claim element. Azure AD B2C reads the value of the claim resolver and uses the value in the technical profile.
 

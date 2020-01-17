@@ -41,7 +41,7 @@ User accounts for applications must always be created through a sign-up user flo
 
 We currently support several social identity providers including Amazon, Facebook, GitHub (preview), Google, LinkedIn, Microsoft Account (MSA), QQ (preview), Twitter, WeChat (preview), and Weibo (preview). We evaluate adding support for other popular social identity providers based on customer demand.
 
-Azure AD B2C also supports [custom policies](active-directory-b2c-overview-custom.md). Custom policies allow you to create your own policy for any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML. Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C also supports [custom policies](custom-policy-overview.md). Custom policies allow you to create your own policy for any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML. Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 

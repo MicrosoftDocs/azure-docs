@@ -126,7 +126,7 @@ A custom policy is defined by several XML files that refer to each other in a hi
 
 The powerful flexibility of custom policies is most appropriate for when you need to build complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 
-Learn more about custom policies in [Custom policies in Azure Active Directory B2C](active-directory-b2c-overview-custom.md).
+Learn more about custom policies in [Custom policies in Azure Active Directory B2C](custom-policy-overview.md).
 
 ## Protocols and tokens
 
@@ -219,7 +219,7 @@ For more information about Azure AD roles, including Azure AD B2C administration
 
 Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides additional security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](active-directory-b2c-reference-mfa.md).
+See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
 
 ### Smart account lockout
 
@@ -233,7 +233,7 @@ For more information about managing password protection settings, see [Manage th
 
 During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
 
-You can configure password complexity requirements in both [user flows](active-directory-b2c-reference-password-complexity.md) and [custom policies](active-directory-b2c-reference-password-complexity-custom.md).
+You can configure password complexity requirements in both [user flows](active-directory-b2c-reference-password-complexity.md) and [custom policies](custom-policy-password-complexity.md).
 
 ## Auditing and logs
 

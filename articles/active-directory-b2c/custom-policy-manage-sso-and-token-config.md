@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Manage SSO and token customization using custom policies in Azure Active Directory B2C
 
-This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C).
+This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
 ## Token lifetimes and claims configuration
 

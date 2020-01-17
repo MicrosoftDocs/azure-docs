@@ -29,7 +29,7 @@ Password complexity can be configured in the following types of user flows:
 - Sign-up or Sign-in user flow
 - Password Reset user flow
 
-If you are using custom policies, you can ([configure password complexity in a custom policy](active-directory-b2c-reference-password-complexity-custom.md)).
+If you are using custom policies, you can ([configure password complexity in a custom policy](custom-policy-password-complexity.md)).
 
 ## Configure password complexity
 

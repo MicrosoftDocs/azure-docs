@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users from an Amazon account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C).
+This article shows you how to enable sign-in for users from an Amazon account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
 ## Prerequisites
 
