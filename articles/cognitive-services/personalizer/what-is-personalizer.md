@@ -87,9 +87,11 @@ Since Personalizer uses collective information in near real-time to return the s
 
 ## Next steps
 
-* [What's new in Personalizer?](whats-new.md)
+
 * [How Personalizer works](how-personalizer-works.md)
 * [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
 * [Learn about features and actions for the Rank request](concepts-features.md)
 * [Learn about determining the score for the Reward request](concept-rewards.md)
+* [Quickstarts]()
+* [Tutorial]()
 * [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
