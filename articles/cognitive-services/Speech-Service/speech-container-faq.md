@@ -18,7 +18,10 @@ When using the Speech service with containers, rely on this collection of freque
 
 ## General questions
 
-**Q: How do containers work and what is the best way to set them up?**
+<details>
+<summary>
+<b>Q: How do containers work and what is the best way to set them up?</b>
+</summary>
 
 **A:** When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a big issue. If you are experiencing problems, it may be a hardware related issue - so we would first look at resource, i.e.; CPU and memory specifications.
 
@@ -26,13 +29,54 @@ Consider for a moment, the `ja-JP` container and latest model. The acoustic mode
 
 If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is completely full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.
 
-Furthermore, we prepackage executables for machines with the *AVX2* instruction set. A machine with the *AVX512* instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:
+Furthermore, we pre-package executables for machines with the [advanced vector extension (AVX2)](speech-container-howto.md#advanced-vector-extension-support) instruction set. A machine with the AVX512 instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:
 
 ```console
-2020-01-16 16:46:54.981118943 [W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache] Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
+2020-01-16 16:46:54.981118943 
+[W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache] 
+Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
 Finally, you can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
+</details>
+
+**Q: Capacity planning & cost estimation of on-prem Speech container solution?**
+
+**A:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with 2 CPU cores, for a single recognition. We do not recommend keeping more than 2 concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
+
+Though we could have each container instance running with more decoders. For example, we may be able to set up 10 decoders per container instance on an 8 core machine, to handle 20x. (there's a param `DECODER_MAX_COUNT`). For the extreme case, reliability and latency suffers, with throughput increased significantly. For a microphone, it will be at 1x real-time. The overall usage should be at about 1 core for a single recognition.
+
+For scenario of processing 1K hours/day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
+
+For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6GHz or better, with AVX2 instruction set enabled).
+
+| Instance | vCPU(s) | RAM | Temp storage | Pay as you go<br>with AHB | 1 year reserve with<br>AHB (% Savings) | 3 year reserved with<br>AHB (% Savings) |
+|----------|---------|-----|--------------|------------------------|---|---|
+| `DS13 v2` | 8 | 56 GiB | 112 GiB   | $0.598/hour            | $0.3528/hour (~41%) | $0.2333/hour (~61%) |
+
+Based on the design reference (2 clusters of 5 VMs to handle 1K hours/day audio batch processing), 1-year hardware cost will be:
+
+> 2 (clusters) * 5 (VMs per cluster) * $0.3528/hour * 365 (days) * 24 (hours) = $31K / year
+
+When mapping to physical machine, a general estimation is 1 vCPU = 1 Physical CPU Core. In reality, 1vCPU is actually more powerful than a single core.
+
+For on-prem, all of these additional factors come into play:
+
+- On what type the physical CPU is and how many cores on it
+- How many CPUs running together on the same box/machine
+- How VMs are set up
+- How hyper-threading / multi-threading is used
+- How memory is shared
+- The OS, etc.
+
+Normally it is not as well tuned as Azure the environment. Considering other overhead, I would say a safe estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have 8 cores. With on-prem deployment, the cost will be higher than using Azure VMs. This also depends on depreciation rate.
+
+Service cost is same as the online service: $1/hour for speech-to-text.
+So speech service cost is:
+
+> $1 * 1000 * 365 = $365K
+
+Maintain cost paid to MS depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure cost (such as storage, network, load balancer) are not included.
 
 **Q: Why is punctuation missing from the transcription?**
 
@@ -56,9 +100,10 @@ Here is the output:
 ```console
 RECOGNIZED: SpeechRecognitionResult(
     result_id=2111117c8700404a84f521b7b805c4e7, 
-    text="まだ早いまだ早いは猫である名前はまだないどこで生
-          まれたかとんと見当を検討をなつかぬ。何でも薄暗いじめじめした所でながら泣いていた事だけは記憶している。まだは今ここで初めて人間と言うも
-          のを見た。しかも後で聞くと、それは書生という人間中で一番同額同額。",
+    text="まだ早いまだ早いは猫である名前はまだないどこで生まれたかとんと見当を検討をなつかぬ。
+    何でも薄暗いじめじめした所でながら泣いていた事だけは記憶している。
+    まだは今ここで初めて人間と言うものを見た。
+    しかも後で聞くと、それは書生という人間中で一番同額同額。",
     reason=ResultReason.RecognizedSpeech)
 ```
 
@@ -172,45 +217,7 @@ speech_config.set_service_property(
 
 **Q: What API protocols are supported, REST or WS?**
 
-**A:** For speech containers, we currently only support the websocket based protocol, the SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment.
-
-**Q: Capacity planning & cost estimation of on-prem Speech container solution?**
-
-**A:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with 2 CPU cores, for a single recognition. We do not recommend keeping more than 2 concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
-
-Though we could have each container instance running with more decoders. For example, we may be able to set up 10 decoders per container instance on an 8 core machine, to handle 20x. (there's a param `DECODER_MAX_COUNT`). For the extreme case, reliability and latency suffers, with throughput increased significantly. For a microphone, it will be at 1x real-time. The overall usage should be at about 1 core for a single recognition.
-
-For scenario of processing 1K hours/day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
-
-For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6GHz or better, with AVX2 instruction set enabled).
-
-| Instance | vCPU(s) | RAM | Temp storage | Pay as you go<br>with AHB | 1 year reserve with<br>AHB (% Savings) | 3 year reserved with<br>AHB (% Savings) |
-|----------|---------|-----|--------------|------------------------|---|---|
-| `DS13 v2` | 8 | 56 GiB | 112 GiB   | $0.598/hour            | $0.3528/hour (~41%) | $0.2333/hour (~61%) |
-
-Based on the design reference (2 clusters of 5 VMs to handle 1K hours/day audio batch processing), 1-year hardware cost will be:
-
-> 2 (clusters) * 5 (VMs per cluster) * $0.3528/hour * 365 (days) * 24 (hours) = $31K / year
-
-When mapping to physical machine, a general estimation is 1 vCPU = 1 Physical CPU Core. In reality, 1vCPU is actually more powerful than a single core.
-
-For on-prem, all of these additional factors come into play:
-
-- On what type the physical CPU is and how many cores on it
-- How many CPUs running together on the same box/machine
-- How VMs are set up
-- How hyper-threading / multi-threading is used
-- How memory is shared
-- The OS, etc.
-
-Normally it is not as well tuned as Azure the environment. Considering other overhead, I would say a safe estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have 8 cores. With on-prem deployment, the cost will be higher than using Azure VMs. This also depends on depreciation rate.
-
-Service cost is same as the online service: $1/hour for speech-to-text.
-So speech service cost is:
-
-> $1 * 1000 * 365 = $365K
-
-Maintain cost paid to MS depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure cost (such as storage, network, load balancer) are not included.
+**A:** For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
 **Q: Could not run container on CentOS**
 
@@ -471,7 +478,7 @@ Server: Kestrel
 Content-Length: 0
 ```
 
-**A:** We do not support REST API in container, we only support Websockets through SpeechSDK.
+**A:** We do not support REST API in container, we only support websockets through the Speech SDK.
 Please refer to the docs https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto#speech-to-text-2
 
 
