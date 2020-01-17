@@ -30,7 +30,7 @@ There are a few important things to consider before starting your multi- camera 
 There are many reasons to use multiple Azure Kinect DK devices. Some examples are
 - Fill in occlusions
 - 3D object scanning 
-- To increased the effective frame rate to something larger than the 30 FPS one camera can do; 60 FPS as an example
+- To increase the effective frame rate to something larger than the 30 FPS one camera can do; 60 FPS as an example
 - Multiple 4K color images capture of the same scene, all aligned at the start of exposure within 100 us
 - Large area coverage
 
@@ -59,11 +59,22 @@ Cable requirements:
 
 When using multiple depth cameras in synchronized captures, depth camera captures should be offset from one another by 160μs or more to avoid depth cameras interference.
 
+> [!NOTE]
+> Make sure to remove the cover in order to reveal the sync ports.
+
 ### Cross-device calibration
 
-In a single device depth and RGB cameras factory calibrated. However, when multiple devices are used, the calibration needs to be considered to determine how to transform an image from the domain of the camera it was captured into the domain of the camera you want to process images in.
+In a single device depth and RGB cameras factory calibrated. However, when multiple devices are used, new calibration requirements need to be considered to determine how to transform an image from the domain of the camera it was captured in, to the domain of the camera you want to process images in.
 There are multiple options for cross-calibrating devices, but in the GitHub green screen code sample we are using OpenCV methods
 There are multiple options for cross-calibrating devices, but in the [GitHub green screen code sample](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/green_screen) we are using OpenCV method.
+
+### USB Memory on Ubuntu
+
+If you are setting up multi- camera synchronization on Linux, by default the USB controller is only allocated 16MB of kernel memory for handling of USB transfers. This is typically enough to support a single Azure Kinect DK, however more memory is needed to support multiple devices. To increase the memory, follow the below steps:
+- Edit /etc/default/grub
+- Replace the line that says GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" with GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=32". In this example we set the USB memory to 32MB twice that of the default, however to can be set much larger. Choose a value that is right for your solution.
+- Run sudo update-grub
+- Restart the computer
 
 ### Verify two Azure Kinect DK devices synchronization
 
@@ -73,17 +84,18 @@ After setting up the hardware and connecting the sync out jack of the master to 
 > The Subordinate device is the one that connected to "Sync In" pin.
 > The master is the one connected "Synch Out".
 
-1. Open two instances of [Azure Kinect Viewer](azure-kinect-viewer.md)
-2. Open subordinate Azure Kinect DK device first. Navigate to Azure Kinect viewer, and in the Open Device section choose subordinate device:
+1. Get the serial number for each device.
+2. Open two instances of [Azure Kinect Viewer](azure-kinect-viewer.md)
+3. Open subordinate Azure Kinect DK device first. Navigate to Azure Kinect viewer, and in the Open Device section choose subordinate device:
 
   ![Subordinate camera start](./media/open-device.png)
 
-3. In the section "External Sync", choose option "Sub" and start the device. Images will not be sent to the subordinate after hitting start due to the device waiting for the sync pulse from the master device.
+4. In the section "External Sync", choose option "Sub" and start the device. Images will not be sent to the subordinate after hitting start due to the device waiting for the sync pulse from the master device.
 
   ![Subordinate camera start](./media/sub-start.png)
 
-4. Navigate to another instance of the Azure Kinect viewer and open the master Azure Kinect DK device.
-5. In the section "External Sync", choose option "Master" and start the device.
+5. Navigate to another instance of the Azure Kinect viewer and open the master Azure Kinect DK device.
+6. In the section "External Sync", choose option "Master" and start the device.
 
 > [!NOTE]
 > The master device must always be started last the get precise image capture alignment between all devices.
@@ -97,7 +109,7 @@ To avoid this, cameras that have overlapping areas of interest need to have thei
 
 Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. This allows 9 more depth camera's to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
 
-Using the table below the exposure time can be calculated as:
+Using the [depth sensor raw timing table](hardware-specification.md#Depth-sensor-raw-timing) the exposure time can be calculated as:
 
 > [!NOTE]
 > Exposure Time = (IR Pulses * Pulse Width) + (Idle Periods * Idle Time)

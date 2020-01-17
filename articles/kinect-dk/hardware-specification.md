@@ -99,6 +99,14 @@ Below is the mapping for the acceptable RGB camera manual exposure values:
 |   0| 1000000| 120000| 116670 |
 |   1| 2000000| 130000| 133330 |
 
+## Depth sensor raw timing
+
+Depth Mode | IR <br>Pulses | Pulse <br>Width  | Idle <br>Periods| Idle Time | Exposure <br> Time
+-|-|-|-|-|-
+NFOV Unbinned <br>  NFOV 2xx Binned <br> WFOV 2x2 Binned | 9 | 125 us | 8 | 1450 us | 12.8 ms 
+WFOV Unbinned                                            | 9 | 125 us | 8 | 2390 us | 20.3 ms
+
+
 ## Camera field of view
 
 The next image shows the depth and RGB camera field-of-view, or the angles that the sensors "see". This diagram shows the RGB camera in a 4:3 mode.
