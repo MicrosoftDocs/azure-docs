@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
+ms.date: 01/17/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -43,7 +43,7 @@ Here are the limits for a single logic app run:
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Run duration | 90 days | 366 days | To change the default limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | 366 days | To change the default limit, see [change storage retention](#change-retention). |
+| Storage retention | 90 days from the run's start time | 366 days | - If your logic app times out, retention history uses the timestamp from when the run started. <br>- If runs are removed from your logic app's runs history, the current timestamp is used. <p><p>To change the default limit, see [change storage retention](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
