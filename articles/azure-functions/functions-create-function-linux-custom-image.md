@@ -33,28 +33,22 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later.
 - The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later. 
 - The [Azure Functions 2.x runtime](functions-versions.md).
-
 ::: zone pivot="programming-language-csharp"
-- [.NET Core](2.2.x or later)](https://dotnet.microsoft.com/download)
+- [.NET Core 2.2.x or later](https://dotnet.microsoft.com/download)
 ::: zone-end
-
 ::: zone pivot="programming-language-javascript"
 - [Node.js](https://nodejs.org/en/download/)
 ::: zone-end
-
 ::: zone pivot="programming-language-powershell"
 - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 ::: zone-end
-
 ::: zone pivot="programming-language-python"
 - [Python 3.6 - 64 bit](https://www.python.org/downloads/release/python-3610/) or [Python 3.7 - 64 bit](https://www.python.org/downloads/release/python-376/)
 ::: zone-end
-
 ::: zone pivot="programming-language-typescript"
 - [Node.js](https://nodejs.org/en/download/)
 - [TypeScript](http://www.typescriptlang.org/#download-links)
 ::: zone-end
-
 - [Docker](https://docs.docker.com/install/)
 - A [Docker ID](https://hub.docker.com/signup)
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -130,11 +124,6 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ```
-    npm start
-    ```
-    ::: zone-end
-
     ::: zone pivot="programming-language-powershell"
     ```
     func start
@@ -151,6 +140,11 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     npm install
     ```
+
+    ```
+    npm start
+    ```
+    ::: zone-end
 
 1. Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like "Hello, Functions" (varied slightly depending on your chosen programming language).
 
