@@ -84,7 +84,7 @@ It takes about 30 minutes to create and configure the virtual machine.
    * Enables Hyper-V on the VM.
    * Installs software need for development and clone the sample repository.
    * Restarts the VM.
-   * Create an RDP file on your desktop for connecting to the VM.
+   * Creates an RDP file on your desktop for connecting to the VM.
 
    If you are prompted for the name of the VM to restart it, you can copy its name from the script output. The output also shows the path to the RDP file for connecting to the VM.
 
@@ -104,8 +104,6 @@ To help you reduce cost, the development VM has been created with an automatic s
 
 Now that we have created a VM we need to finish installing the software needed to complete the tutorial.
 
-1. Verify that the VM is running by checking its status in the Azure portal.
-
 1. Double-click on the RDP file that the script created on your desktop.
 
 1. You will be presented with a dialog saying the publisher of the remote connection is unknown. This is acceptable, so select **Connect**.
@@ -122,12 +120,6 @@ Now that you have connected to the development machine, add some useful extensio
 
     ```powershell
     cd C:\source\IoTEdgeAndMlSample\DevVM
-    ```
-
-1. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
-
-    ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process
     ```
 
 1. Run the Visual Studio Code extensions script.
@@ -175,7 +167,7 @@ The script takes about two minutes to run. Once complete, the script outputs the
 
 ## Review route to storage in IoT Hub
 
-As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a Blob container in a storage account. Let’s use the Azure portal to review the route created by our script.
+As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a blob container in a storage account. Let’s use the Azure portal to review the route created by our script.
 
 1. Open the [Azure portal](https://portal.azure.com) and go to the resource group you're using for this tutorial.
 
