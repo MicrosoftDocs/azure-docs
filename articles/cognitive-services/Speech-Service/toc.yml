@@ -525,6 +525,9 @@
     displayName: "support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice"
   - name: Regions
     href: regions.md
+  - name: Sovereign Clouds
+    href: sovereign-clouds.md    
+    displayName: "fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china"
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance
