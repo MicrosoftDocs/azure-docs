@@ -232,48 +232,68 @@
     items:
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
-- name: Conversation transcription
+- name: Conversation scenarios
   expanded: false
-  items:
-  - name: Overview
+  items:      
+  - name: Conversation transcription
     items:
-    - name: What is conversation transcription?
-      href: conversation-transcription.md
-  - name: How-to guides
-    items:
-    - name: Real time Conversation Transcription
-      href: how-to-use-conversation-transcription.md
-    - name: Asynchronous Conversation Transcription
-      href: how-to-async-conversation-transcription.md
-  - name: Reference
-    items:
-    - name: Speech SDK
+    - name: Overview
       items:
-      - name: C++
-        href: https://aka.ms/csspeech/cppref
-        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-      - name: C#
-        href: https://aka.ms/csspeech/csharpref
-        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
-      - name: Java
-        href: https://aka.ms/csspeech/javaref
-        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
-      - name: JavaScript
-        href: https://aka.ms/csspeech/javascriptref
-        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
-      - name: Objective-C
-        href: https://aka.ms/csspeech/objectivecref
-        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
-      - name: Python
-        href: https://aka.ms/csspeech/pythonref
-        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
-      - name: Release notes
-        href: releasenotes.md
-        displayName: "release notes,updates,what's new,what is new,changes"
-    - name: REST APIs
+      - name: What is conversation transcription?
+        href: conversation-transcription.md
+    - name: How-to guides
       items:
-      - name: Conversation transcription REST APIs
-        href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+      - name: Real time Conversation Transcription
+        href: how-to-use-conversation-transcription.md
+      - name: Asynchronous Conversation Transcription
+        href: how-to-async-conversation-transcription.md
+    - name: Reference
+      items:
+      - name: Speech SDK
+        items:
+        - name: C++
+          href: https://aka.ms/csspeech/cppref
+          displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
+        - name: C#
+          href: https://aka.ms/csspeech/csharpref
+          displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
+        - name: Java
+          href: https://aka.ms/csspeech/javaref
+          displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
+        - name: JavaScript
+          href: https://aka.ms/csspeech/javascriptref
+          displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
+        - name: Objective-C
+          href: https://aka.ms/csspeech/objectivecref
+          displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
+        - name: Python
+          href: https://aka.ms/csspeech/pythonref
+          displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
+        - name: Release notes
+          href: releasenotes.md
+          displayName: "release notes,updates,what's new,what is new,changes"
+      - name: REST APIs
+        items:
+        - name: Conversation transcription REST APIs
+          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+  - name: Multi-device conversation
+    items:
+    - name: Overview
+      items:
+      - name: What is multi-device conversation?
+        href: multi-device-conversation.md
+    - name: Quickstarts
+      items:
+      - name: Start and join a conversation
+        href: quickstarts/multi-device-conversation.md
+    - name: Reference
+      items:
+      - name: Speech SDK
+        items:
+        - name: C++
+          href: https://aka.ms/csspeech/cppref
+        - name: C#
+          href: https://aka.ms/csspeech/csharpref
 - name: Voice assistants
   expanded: false
   items:
