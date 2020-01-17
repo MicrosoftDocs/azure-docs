@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Assigning variables in SQL Analytics
+# Assigning variables with SQL Analytics
 
 In this article, you'll find tips for assigning T-SQL variables with SQL Analytics.
 
