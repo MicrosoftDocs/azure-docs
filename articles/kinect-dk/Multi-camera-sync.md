@@ -109,7 +109,7 @@ To avoid this, cameras that have overlapping areas of interest need to have thei
 
 Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. This allows 9 more depth camera's to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
 
-Using the [depth sensor raw timing table](hardware-specification.md#Depth-sensor-raw-timing) the exposure time can be calculated as:
+Using the [depth sensor raw timing table](hardware-specification.md) the exposure time can be calculated as:
 
 > [!NOTE]
 > Exposure Time = (IR Pulses * Pulse Width) + (Idle Periods * Idle Time)
