@@ -59,6 +59,7 @@ from azureml.core import Workspace, Run
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
+from azureml.train.dnn import TensorFlow
 ```
 
 ### Initialize a workspace
@@ -154,7 +155,7 @@ est = TensorFlow(source_directory=script_folder,
                  script_params=script_params,
                  compute_target=compute_target,
                  use_gpu=True,
-                 pip_packages=['azureml-dataprep[pandas,fuse]')
+                 pip_packages=['azureml-dataprep[pandas,fuse]'])
 ```
 
 > [!TIP]
