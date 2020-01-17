@@ -67,10 +67,11 @@ SQL Pools and SQL On-Demand enable you to use built-in security features to secu
 | --- | --- | --- |
 | Logins | N/A (only contained users are supported in DW databases) | Yes |
 | Users | Yes. **Note:** only one AAD user can be unrestricted admin | Yes |
+| Azure Active Directory (AAD) authentication | Yes, AAD users | Yes, AAD logins and users |
 | Permissions - Object-level | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported |
 | Permissions - Schema-level | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
 | Roles/groups | Yes | Yes |
-| AAD passthrough | Yes | Yes |
+| Storage AAD passthrough authentication | Yes | Yes |
 | Security &amp; identity functions | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`  |
 
 SQL Pool and SQL On-Demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
@@ -81,7 +82,7 @@ You can use various tools to connect to synapse capabilities and query data.
 
 |   | SQL Pool | SQL On-demand |
 | --- | --- | --- |
-| Synapse Studio | Yes, SQL scripts | Yes, SQL scripts | Yes, [Notebooks](spark/apache-spark-notebook-create-spark-use-sql.md#create-a-notebook) |
+| Synapse Studio | Yes, SQL scripts | Yes, SQL scripts |
 | Power BI | Yes | [Yes](sql-analytics/tutorial-power-bi-professional.md) |
 | Azure Analysis Service | Yes | Yes |
 | Azure Data Studio | Yes | Yes, version 1.14 or higher |
