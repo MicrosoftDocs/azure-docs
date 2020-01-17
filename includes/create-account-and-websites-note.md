@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: tanmaygore
+ms.author: tagore
 ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: gwallace
 ---
 
 > [!NOTE]
