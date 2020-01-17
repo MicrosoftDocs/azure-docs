@@ -59,10 +59,10 @@ DROP DATABASE IF EXISTS demo
 
 ### Create credentials
 
-We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
+We need to create a credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
-> [!NOTES]
-> Note that you need to create credential for access to the storage account. Although SQL on-demand can access storages from different regions, having storage and Azure Synapse workspace in same region will provide better performance experience.
+> [!NOTE]
+> You need to create a credential for access to the storage account. Although SQL on-demand can access storages from different regions, having storage and Azure Synapse workspace in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for Census data containers**, run:
 
