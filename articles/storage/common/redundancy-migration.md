@@ -1,5 +1,5 @@
 ---
-title: Changing the redundancy configuration for a storage account 
+title: Changing the redundancy option for a storage account 
 titleSuffix: Azure Storage
 description: 
 services: storage
@@ -13,14 +13,14 @@ ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Changing the redundancy configuration for a storage account
+# Changing the redundancy option for a storage account
 
-You can change your storage account's redundancy configuration by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure Storage client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+You can change your storage account's redundancy option by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure Storage client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
 > [!NOTE]
 > Currently, you cannot use the Azure portal or the Azure Storage client libraries to convert your account to ZRS, GZRS, or RA-GZRS. To migrate your account to ZRS, see [Zone-redundant storage (ZRS) for building highly available Azure Storage applications](storage-redundancy-zrs.md) for details. To migrate GZRS or RA-GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](storage-redundancy-zrs.md) for details.
 
-Costs associated with changing your storage account's redundancy configuration depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. You are only charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Costs associated with changing your storage account's redundancy option depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. You are only charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 
@@ -90,7 +90,7 @@ There is no data loss associated with the migration. During the migration proces
 
 **Are any updates required to the application(s) once the migration is complete?**
 
-Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS, and any other account configuration options remain unchanged and intact.
+Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS, and any other account option options remain unchanged and intact.
 
 **Can I request a live migration of my general-purpose v1 account(s) to ZRS?**
 
@@ -175,7 +175,7 @@ During a live migration, you can use your storage account while your data is mig
 
 Only general-purpose v2 accounts support GZRS/RA-GZRS, so before submitting a request for a live migration to GZRS/RA-GZRS, you must upgrade your account to general-purpose v2. For more information, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
-Once the migration is complete, the storage account's replication setting will be updated to **Geo-zone-redundant storage (GZRS)** or **Read-access geo-zone-redundant storage (RA-GZRS)**. Service endpoints, access keys, shared access signatures (SAS), and any other account configuration options remain unchanged and intact.
+Once the migration is complete, the storage account's replication setting will be updated to **Geo-zone-redundant storage (GZRS)** or **Read-access geo-zone-redundant storage (RA-GZRS)**. Service endpoints, access keys, shared access signatures (SAS), and any other account option options remain unchanged and intact.
 
 Keep in mind the following restrictions on live migration:
 
@@ -220,4 +220,8 @@ A support representative will contact you to provide assistance.
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure paired regions](../../best-practices-availability-paired-regions.md).
 
+## See also
 
+- [Azure Storage redundancy](storage-redundancy.md)
+- [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
+- [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md)
