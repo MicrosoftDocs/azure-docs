@@ -22,7 +22,7 @@ ms.reviewer: tasharm, assafi
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* Java Development Kit (JDK) with version 8 or above
+* [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
 
 ## Setting up
 
