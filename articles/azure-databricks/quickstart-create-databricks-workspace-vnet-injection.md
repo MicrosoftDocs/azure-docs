@@ -36,17 +36,24 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     |Setting|Suggested value|Description|
     |-------|---------------|-----------|
-    |Name|databricks-quickstart|Select a name for your virtual network.|
-    |Address space|10.1.0.0/16|The virtual network's address range in CIDR notation. The CIDR range must be between /16 and /24|
     |Subscription|\<Your subscription\>|Select the Azure subscription that you want to use.|
     |Resource group|databricks-quickstart|Select **Create New** and enter a new resource group name for your account.|
-    |Location|\<Select the region that is closest to your users\>|Select a geographic location where you can host your virtual network. Use the location that's closest to your users.|
+    |Name|databricks-quickstart|Select a name for your virtual network.|
+    |Region|\<Select the region that is closest to your users\>|Select a geographic location where you can host your virtual network. Use the location that's closest to your users.|
+
+    ![Basics for a virtual network on Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+
+3. Select **Next: IP Addresses >** and apply the following settings. Then select **Review + create**.
+    
+    |Setting|Suggested value|Description|
+    |-------|---------------|-----------|
+    |IPv4 address space|10.2.0.0/16|The virtual network's address range in CIDR notation. The CIDR range must be between /16 and /24|
     |Subnet name|default|Select a name for the default subnet in your virtual network.|
-    |Subnet Address range|10.1.0.0/24|The subnet's address range in CIDR notation. It must be contained by the address space of the virtual network. The address range of a subnet which is in use can't be edited.|
+    |Subnet Address range|10.2.0.0/24|The subnet's address range in CIDR notation. It must be contained by the address space of the virtual network. The address range of a subnet which is in use can't be edited.|
 
-    ![Create a virtual network on Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+    ![Set IP configurations for a virtual network on Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
-3. Once the deployment is complete, navigate to your virtual network and select **Address space** under **Settings**. In the box that says *Add additional address range*, insert `10.179.0.0/16` and select **Save**.
+4. On the **Review + create** tab, select **Create** to deploy the virtual network. Once the deployment is complete, navigate to your virtual network and select **Address space** under **Settings**. In the box that says *Add additional address range*, insert `10.179.0.0/16` and select **Save**.
 
     ![Azure virtual network address space](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -65,6 +72,13 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     |Resource group|databricks-quickstart|Select the same resource group you used for the virtual network.|
     |Location|\<Select the region that is closest to your users\>|Choose the same location as your virtual network.|
     |Pricing Tier|Choose between Standard or Premium.|For more information on pricing tiers, see the [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).|
+
+    ![Create an Azure Databricks workspace basics](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+
+3. Once you've finished entering settings on the **Basics** page, select **Next: Networking >** and apply the following settings:
+
+    |Setting|Suggested value|Description|
+    |-------|---------------|-----------|
     |Deploy Azure Databricks workspace in your Virtual Network (VNet)|Yes|This setting allows you to deploy an Azure Databricks workspace in your virtual network.|
     |Virtual Network|databricks-quickstart|Select the virtual network you created in the previous section.|
     |Public Subnet Name|public-subnet|Use the default public subnet name.|
@@ -72,7 +86,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     |Private Subnet Name|private-subnet|Use the default private subnet name.|
     |Private Subnet CIDR Range|10.179.0.0/18|Use a CIDR range up to and including /26.|
 
-    ![Create an Azure Databricks workspace on Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+    ![Add VNet information to Azure Databricks workspace on Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-vnet-config.png)
 
 3. Once the deployment is complete, navigate to the Azure Databricks resource. Notice that virtual network peering is disabled. Also notice the resource group and managed resource group in the overview page. 
 

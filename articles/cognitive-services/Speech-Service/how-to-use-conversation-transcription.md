@@ -132,7 +132,7 @@ public class MyConversationTranscriber
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             var meetingId = Guid.NewGuid().ToString();
-            using (var conversation = new Conversation(config, meetingId))
+            using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
                 using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
