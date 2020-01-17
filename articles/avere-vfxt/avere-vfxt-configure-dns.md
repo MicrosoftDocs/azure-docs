@@ -4,7 +4,7 @@ description: Configuring a DNS server for round-robin load balancing with Avere 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
 ---
 
