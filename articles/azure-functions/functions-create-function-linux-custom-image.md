@@ -30,25 +30,26 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 ## Prerequisites
 
-- The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later.
-- The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later. 
-- The [Azure Functions 2.x runtime](functions-versions.md).
-::: zone pivot="programming-language-csharp"
-- [.NET Core 2.2.x or later](https://dotnet.microsoft.com/download)
-::: zone-end
-::: zone pivot="programming-language-javascript"
-- [Node.js](https://nodejs.org/en/download/)
-::: zone-end
-::: zone pivot="programming-language-powershell"
-- [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
-::: zone-end
-::: zone pivot="programming-language-python"
-- [Python 3.6 - 64 bit](https://www.python.org/downloads/release/python-3610/) or [Python 3.7 - 64 bit](https://www.python.org/downloads/release/python-376/)
-::: zone-end
-::: zone pivot="programming-language-typescript"
-- [Node.js](https://nodejs.org/en/download/)
-- [TypeScript](http://www.typescriptlang.org/#download-links)
-::: zone-end
+- The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later
+- The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later
+- The [Azure Functions 2.x runtime](functions-versions.md)
+- An appropriate language runtime:
+    ::: zone pivot="programming-language-csharp"
+    - [.NET Core 2.2.x or later](https://dotnet.microsoft.com/download)
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript"
+    - [Node.js](https://nodejs.org/en/download/)
+    ::: zone-end
+    ::: zone pivot="programming-language-powershell"
+    - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)
+    ::: zone-end
+    ::: zone pivot="programming-language-python"
+    - [Python 3.6 - 64 bit](https://www.python.org/downloads/release/python-3610/) or [Python 3.7 - 64 bit](https://www.python.org/downloads/release/python-376/)
+    ::: zone-end
+    ::: zone pivot="programming-language-typescript"
+    - [Node.js](https://nodejs.org/en/download/)
+    - [TypeScript](http://www.typescriptlang.org/#download-links)
+    ::: zone-end
 - [Docker](https://docs.docker.com/install/)
 - A [Docker ID](https://hub.docker.com/signup)
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -464,7 +465,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
     ::: zone pivot="programming-language-python"
     ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
     ```
     ::: zone-end
 
