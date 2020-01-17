@@ -401,7 +401,7 @@ Encryption at rest is the cryptographic protection of data when it is persisted 
 
 ### Protect sensitive data in use from high-privileged, unauthorized users
 
-Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users are prevented from extracting the data from the memory of the SQL Server process. High-privileged users, such as Microsoft operators or DBAs in your organization,shouldn't be able to view the plaintext data when querying the database.
+Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users are prevented from viewing sensitive data in your database. High-privilege users, such as Microsoft operators or DBAs in your organization should be able to manage the database, but prevented from viewing and potentially exfiltrating sensitive data from the memory of the SQL Server process or by querying the database.
 
 **How to implement**:
 
