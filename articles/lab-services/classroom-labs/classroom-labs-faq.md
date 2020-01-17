@@ -47,7 +47,7 @@ See [Azure IP Ranges and Service Tags — Public Cloud](https://www.microsoft.co
 ## Users
 
 ### How many users can be in a classroom lab?
-You can add up to 400 users in a classroom lab. 
+You can add up to 400 users to a classroom lab. 
 
 ## Blog post
 Subscribe to the [Azure Lab Services blog](https://azure.microsoft.com/blog/tag/azure-lab-services/).
