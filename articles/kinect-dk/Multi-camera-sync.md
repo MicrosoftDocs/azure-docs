@@ -34,8 +34,6 @@ There are many reasons to use multiple Azure Kinect DK devices. Some examples ar
 - Multiple 4K color images capture of the same scene, all aligned at the start of exposure within 100 us
 - Large area coverage
 
-Let's take a closer look at some of those reasons.
-
 ### Solve for occlusion
 
 Occlusion means that there is something you want to see, but cannot due to some interference. In our case Azure Kinect Dk device has two cameras (depth and color cameras) that do not share the same origin, so one camera can see part of an object that other cannot. Therefore, when transforming depth to color image, you may see a shadow around an object.
@@ -48,9 +46,6 @@ Using additional Azure Kinect DK devices will solve this issue and fill out an o
 ## Set up multiple Azure Kinect DK devices
 
 Make sure to review [the multi- camera hardware setup article](https://support.microsoft.com/help/4494429) that describes different options for hardware setup. 
-
-> [!NOTE]
-> Make sure to remove the cover in order to reveal the sync ports.
 
 ### Synchronization cables
 
@@ -106,15 +101,6 @@ Using the table below the exposure time can be calculated as:
 
 > [!NOTE]
 > Exposure Time = (IR Pulses * Pulse Width) + (Idle Periods * Idle Time)
-
-Depth Mode | IR <br>Pulses | Pulse <br>Width  | Idle <br>Periods| Idle Time | Exposure <br> Time
--|-|-|-|-|-
-NFOV Unbinned <br>  NFOV 2xx Binned <br> WFOV 2x2 Binned | 9 | 125 us | 8 | 1450 us | 12.8 ms 
-WFOV Unbinned                                            | 9 | 125 us | 8 | 2390 us | 20.3 ms
-
-The table above is the raw timing of the sensor and should match up with your scope measurements. As you can tell, the IR on time is ~125 us. Due to variations in timing for the firmware, and it minimum timing resolution of 11us, we recommend being no closer than 160us. The idle time between each IR pulse for NFOV is ~1450us. This idle time gives us enough laser off time to interleave nine more sensors allowing us a total of 10 depth cameras linked together all being 160us of phase off each other. 
-
-It leaves you with 20.5 ms to get your system running without interfering with the depth cameras.
 
 ## Triggering Azure Kinect DK with custom source
 
