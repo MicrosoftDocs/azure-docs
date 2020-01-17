@@ -80,7 +80,7 @@
    - name: Hardware specification
      href: hardware-specification.md
    - name: Multi-camera synchronization
-     href: multi-camera-synch.md   
+     href: multi-camera-sync.md   
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
    - name: Azure Kinect support
