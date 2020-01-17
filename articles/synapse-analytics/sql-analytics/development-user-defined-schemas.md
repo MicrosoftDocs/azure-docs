@@ -22,9 +22,7 @@ Traditional analytics architecture often uses separate databases to create appli
 Instead, SQL Analytics runs the entire analytics workload within one database. Cross database joins aren't permitted. SQL Analytics expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
-> SQL Analytics doesn't support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern need to be revised.
-> 
-> 
+> SQL Analytics pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. SQL Analytics on-demand supports cross database queries.
 
 ## User-defined schema recommendations
 Included are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
