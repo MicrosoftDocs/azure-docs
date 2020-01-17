@@ -137,7 +137,7 @@ The primary object in a LUIS app's model is the intent. The intent aligns's with
 
 Use the [model.add_intent](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) method with the name of the unique intent then pass the app ID, version ID, and new intent name.
 
-[!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringAddIntents&highlight=1-5)]
+[!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringAddIntents&highlight=2-6)]
 
 ## Create entities for the app
 
