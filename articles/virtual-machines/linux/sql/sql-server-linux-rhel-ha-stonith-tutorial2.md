@@ -431,7 +431,7 @@ Assign the custom role `Linux Fence Agent Role-<username>` that was created in t
 8. Click **Save**
 9. Repeat the steps above for the all cluster node.
 
-### Create and enable the STONITH devices
+### Create the STONITH devices
 
 Run the following commands on node 1:
 
