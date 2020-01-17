@@ -25,13 +25,13 @@ Customer scenarios where we visualize this having the most impact:
 
 1) Firewall exceptions or proxy redirects 
 
-In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). We're now providing you with a better alternative.
-With connection strings, we're reducing this effort to a one-step process. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
+In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 2) Sovereign or Hybrid cloud environments
 
-In disconnected private environments, users can now send data from Azure Insights to a defined Azure Government Region. For more information, see [here](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig). 
-With connection strings, configuring the sdk allows you to define endpoint settings for either intranet servers or hybrid cloud settings. 
+In disconnected private environments, users can now send data to a defined [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+Connection strings allow you to define endpoint settings for your intranet servers or hybrid cloud settings. 
 
 ## Getting Started
 
