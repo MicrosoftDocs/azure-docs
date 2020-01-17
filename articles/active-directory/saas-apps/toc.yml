@@ -369,6 +369,8 @@
       items:
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: DataCamp
+        href: datacamp-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
       - name: Dealpath
@@ -1366,10 +1368,14 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
       - name: Templafy
         href: templafy-tutorial.md
+      - name: Terraform Enterprise
+        href: terraform-enterprise-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
