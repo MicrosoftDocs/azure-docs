@@ -1,4 +1,5 @@
 ---
+
 title: PowerShell script: Create an Azure notification hub | Microsoft Docs
 description: Learn how to use PowerShell to create an Azure notification hub. 
 author: dimazaid
@@ -20,11 +21,12 @@ ms.author: dimazaid
 
 This sample PowerShell script creates a sample Azure notification hub.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 ## Prerequisites
+
+* This sample requires Azure PowerShell Az 1.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed. 
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). 
+
+* Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 * **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
