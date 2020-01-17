@@ -48,7 +48,7 @@ ms.custom: seodec18
 
 - Added keyword recognition sample for Android [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
 - Added TTS sample for server scenario [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp). 
-- Added Multi-device conversation quickstarts in C++ and C# .NET [here](quickstarts/multi-device-conversation)
+- Added Multi-device conversation quickstarts in C++ and C# .NET [here](quickstarts/multi-device-conversation).
 
 
 **Other changes**
