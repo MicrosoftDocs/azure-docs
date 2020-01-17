@@ -4,8 +4,8 @@ description: Get page view and session counts, web client data, Single Page Appl
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
 
 ---
@@ -16,7 +16,7 @@ Find out about the performance and usage of your web page or app. If you add [Ap
 
 Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs in conjunction with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
-## Adding the Javascript SDK
+## Adding the JavaScript SDK
 
 1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key, follow the [create a new resource instructions](create-new-resource.md).
 2. Copy the instrumentation key from the resource where you want your JavaScript telemetry to be sent.
@@ -25,7 +25,10 @@ Application Insights can be used with any web pages - you just add a short piece
     * [JavaScript Snippet](#snippet-based-setup)
 
 > [!IMPORTANT]
-> You only need to use one of the methods below for adding the Application Insights JavaScript SDK to your application. If you use the npm based setup, don't use the snippet based setup. The same goes for the reverse scenario when using the snippet based approach, don't also use the npm based setup. 
+> > Only use one method to add the JavaScript SDK to your application. If you use the NPM Setup, don't use the Snippet and vice versa.
+
+> [!NOTE]
+> NPM Setup installs the JavaScript SDK as a dependency to your project, enabling IntelliSense, whereas the Snippet fetches the SDK at runtime. Both support the same features. However, developers who desire more custom events and configuration generally opt for NPM Setup whereas users looking for quick enablement of out-of-the-box web analytics opt for the Snippet.
 
 ### npm based setup
 
@@ -205,7 +208,7 @@ This version comes with the bare minimum number of features and functionalities 
 
 ## Examples
 
-For runnable examples, see [Application Insights Javascript SDK Samples](https://github.com/topics/applicationinsights-js-demo)
+For runnable examples, see [Application Insights JavaScript SDK Samples](https://github.com/topics/applicationinsights-js-demo)
 
 ## Upgrading from the old Version of Application Insights
 
@@ -258,4 +261,3 @@ The Application Insights JavaScript SDK is open-source to view the source code o
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-

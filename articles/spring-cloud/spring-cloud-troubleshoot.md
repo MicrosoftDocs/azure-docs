@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting guide for Azure Spring Cloud | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Troubleshoot common Azure Spring Cloud issues
