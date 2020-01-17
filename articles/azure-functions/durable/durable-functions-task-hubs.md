@@ -91,7 +91,7 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 }
 ```
 
-The following code is a precompiled C# example of how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
+The following code demonstrates how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
 # [C#](#tab/csharp)
 
