@@ -143,7 +143,7 @@ Check [filepath function](query-specific-files.md#filepath) in samples section f
 
 In order to enable a smooth experience when working with data stored in nested/repeated data types (e.g., in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files), Starlight added the extensions below.
 
-#### Projecting nested and/or repeated data
+#### Projecting nested or repeated data
 
 To project data, simply run a SELECT statement over the Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as a varchar(8000) SQL data type. 
 
@@ -155,7 +155,7 @@ To project data, simply run a SELECT statement over the Parquet file that contai
 	[AS alias]
 ```
 
-Check [Project nested and/or repeated data](query-parquet-nested-types.md#project-nested-andor-repeated-data) in samples section for queries.
+Check [Project nested or repeated data](query-parquet-nested-types.md#project-nested-or-repeated-data) in samples section for queries.
 
 #### Accessing elements from nested columns
 
