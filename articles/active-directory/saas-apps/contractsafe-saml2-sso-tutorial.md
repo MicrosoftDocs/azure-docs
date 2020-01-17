@@ -23,9 +23,9 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate ContractSafe Saml2 SSO with Azure Active Directory (Azure AD). When you integrate ContractSafe Saml2 SSO with Azure AD, you can:
 
-* Control who has access to ContractSafe Saml2 SSO in Azure AD
-* Enable your users to automatically sign in to ContractSafe Saml2 SSO with their Azure AD accounts
-* Manage your accounts in one central location: the Azure portal
+* Control who has access to ContractSafe Saml2 SSO in Azure AD.
+* Enable your users to automatically sign in to ContractSafe Saml2 SSO with their Azure AD accounts.
+* Manage your accounts in one central location: the Azure portal.
 
 To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -62,8 +62,8 @@ To configure and test Azure AD SSO with ContractSafe Saml2 SSO, complete the fol
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable **B.Simon** to use Azure AD SSO.
 
 1. **[Configure ContractSafe Saml2 SSO](#configure-contractsafe-saml2-sso)** to configure the SSO settings on application side.
-    * **[Create ContractSafe Saml2 SSO test user](#create-contractsafe-saml2-sso-test-user)** to have a counterpart of **B.Simon** in ContractSafe Saml2 SSO that is linked to the Azure AD representation of user.
-2. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+    * **[Create a ContractSafe Saml2 SSO test user](#create-a-contractsafe-saml2-sso-test-user)** to have a counterpart of **B.Simon** in ContractSafe Saml2 SSO that is linked to the Azure AD representation of user.
+2. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -71,26 +71,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **ContractSafe Saml2 SSO** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, select the edit (pen) icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Set up single sign-on with SAML** page, enter the following values in the corresponding fields:
 
-    a. In the **Identifier** text box, type a URL by using the following pattern:
+    a. In the **Identifier** text box, enter a URL by using the following format:
     `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
-    b. In the **Reply URL** text box, type a URL by using the following pattern:
+    b. In the **Reply URL** text box, enter a URL by using the following format:
     `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
 	> [!NOTE]
-	> These values aren't real. Update these values with the actual Identifier and Reply URL. Contact the [ContractSafe Saml2 SSO Client support team](mailto:donne@contractsafe.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update these values with the actual identifier and reply URL. Contact the [ContractSafe Saml2 SSO Client support team](mailto:donne@contractsafe.com) to get these values. You can also refer to the formats shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. ContractSafe Saml2 SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. ContractSafe Saml2 SSO expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![Common default attributes](common/default-attributes.png)
 
-1. In addition to the default attributes, ContractSafe Saml2 SSO application expects few more attributes to be passed back in SAML response. These attributes are pre-populated, but you can review them as per your requirements. The following list shows the additional attributes.
+1. In addition to the default attributes, ContractSafe Saml2 SSO application expects few more attributes to be passed back in SAML response. These attributes are pre-populated, but you can review them according to your requirements. The following list shows the additional attributes.
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
@@ -101,11 +101,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up ContractSafe Saml2 SSO** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up ContractSafe Saml2 SSO** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+## Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called **B.Simon**.
 
@@ -117,7 +117,7 @@ In this section, you'll create a test user in the Azure portal called **B.Simon*
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
-### Assign the Azure AD test user
+## Assign the Azure AD test user
 
 In this section, you'll enable **B.Simon** to use Azure SSO by granting access to ContractSafe Saml2 SSO.
 
@@ -127,33 +127,31 @@ In this section, you'll enable **B.Simon** to use Azure SSO by granting access t
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list. Then, select the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list. Then, select the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, select the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** from the Users list. Then, select the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then, select the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog box, select the **Assign** button.
 
 ## Configure ContractSafe Saml2 SSO
 
 To configure SSO on the **ContractSafe Saml2 SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the Azure portal to the [ContractSafe Saml2 SSO support team](mailto:donne@contractsafe.com). The team is responsible for setting the SAML SSO connection properly on both sides.
 
-### Create a ContractSafe Saml2 SSO test user
+## Create a ContractSafe Saml2 SSO test user
 
 In this section, you create a user called B.Simon in ContractSafe Saml2 SSO. Work with the [ContractSafe Saml2 SSO support team](mailto:donne@contractsafe.com) to add the users in the ContractSafe Saml2 SSO platform. Users must be created and activated before you use SSO.
 
 ## Test SSO
 
-In this section, you test your Azure AD SSO configuration by using the Azure Active Directory Access Panel.
-
-When you select the ContractSafe Saml2 SSO tile in the Access Panel, you should be automatically signed in to the ContractSafe Saml2 SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you test your Azure AD SSO configuration by using the Azure Active Directory Access Panel. When you select the ContractSafe Saml2 SSO tile in the Access Panel, you should be automatically signed in to the ContractSafe Saml2 SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
