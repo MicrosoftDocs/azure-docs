@@ -46,10 +46,10 @@ It takes about 30 minutes to create and configure the virtual machine.
 
 1. Clone or download the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository to your local computer.
 
-1. Open Powershell as an administrator and navigate to the **\IoTEdgeAndMlSample-Master\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
+1. Open Powershell as an administrator and navigate to the **\IoTEdgeAndMlSample\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
 
     ```powershell
-    cd c:\srcdir\IoTEdgeAndMlSample-Master\DevVM
+    cd c:\srcdir\IoTEdgeAndMlSample\DevVM
     ```
 
    The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
@@ -106,7 +106,7 @@ Now that we have created a VM we need to finish installing the software needed t
 
 1. Verify that the VM is running by checking its status in the Azure portal.
 
-1. Double-click on the RDP file, `[VM Name].rdp`, that the script created on your desktop.
+1. Double-click on the RDP file that the script created on your desktop.
 
 1. You will be presented with a dialog saying the publisher of the remote connection is unknown. This is acceptable, so select **Connect**.
 
