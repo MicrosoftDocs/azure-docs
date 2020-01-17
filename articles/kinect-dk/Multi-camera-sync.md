@@ -1,6 +1,6 @@
 ---
 title: Synchronization across multiple Azure Kinect DKs
-description: In this article we will explore the benefits of multi device synchronization as well as all the insides how it is performed.
+description: In this article, we will explore the benefits of multi device synchronization as well as all the insides how it is performed.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -30,7 +30,7 @@ There are a few important things to consider before starting your multi- camera 
 There are many reasons to use multiple Azure Kinect DK devices. Some examples are
 - Fill in occlusions
 - 3D object scanning 
-- To increase the effective frame rate to something larger than the 30 FPS one camera can do; 60 FPS as an example
+- Increase the effective frame rate to something larger than the 30 FPS
 - Multiple 4K color images capture of the same scene, all aligned at the start of exposure within 100 us
 - Large area coverage
 
@@ -70,13 +70,13 @@ There are multiple options for cross-calibrating devices, but in the [GitHub gre
 
 ### USB Memory on Ubuntu
 
-If you are setting up multi- camera synchronization on Linux, by default the USB controller is only allocated 16MB of kernel memory for handling of USB transfers. This is typically enough to support a single Azure Kinect DK, however more memory is needed to support multiple devices. To increase the memory, follow the below steps:
+If you are setting up multi- camera synchronization on Linux, by default the USB controller is only allocated 16 MB of kernel memory for handling of USB transfers. It is typically enough to support a single Azure Kinect DK, however more memory is needed to support multiple devices. To increase the memory, follow the below steps:
 - Edit /etc/default/grub
-- Replace the line that says GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" with GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=32". In this example we set the USB memory to 32MB twice that of the default, however to can be set much larger. Choose a value that is right for your solution.
+- Replace the line that says GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" with GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=32". In this example, we set the USB memory to 32 MB twice that of the default, however to can be set much larger. Choose a value that is right for your solution.
 - Run sudo update-grub
 - Restart the computer
 
-### Verify two Azure Kinect DKs synchronization
+### Verify two Azure Kinect DKs' synchronization
 
 After setting up the hardware and connecting the sync out jack of the master to sync in of the subordinate, we can use the [Azure Kinect Viewer](azure-kinect-viewer.md) to validate the devices setup. It also can be done for more than two devices.
 
@@ -107,9 +107,9 @@ When Master Azure Kinect Device is started, the synchronized image from both of 
 ### Avoiding interference from other depth cameras
 
 Interference happens when the depth sensors ToF lasers are on at the same time as another depth camera.
-To avoid this, cameras that have overlapping areas of interest need to have their timing shifted by the "laser on time" so they are not on at the same time.  For each capture the laser turns on 9 times and is active for only 125us and is then idle for 1450us or 2390us depending on the mode of operation. As a result, depth cameras need their "laser on time" shifted by a minimum of 125us and that on time needs to fall into the idle time of the other depth sensors in use. 
+To avoid it, cameras that have overlapping areas of interest need to have their timing shifted by the "laser on time" so they are not on at the same time.  For each capture, the laser turns on nine times and is active for only 125us and is then idle for 1450us or 2390us depending on the mode of operation. As a result, depth cameras need their "laser on time" shifted by a minimum of 125us and that on time needs to fall into the idle time of the other depth sensors in use. 
 
-Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. This allows 9 more depth camera's to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
+Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. It allows nine more depth camera's to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
 
 Using the [depth sensor raw timing table](hardware-specification.md) the exposure time can be calculated as:
 
@@ -118,12 +118,12 @@ Using the [depth sensor raw timing table](hardware-specification.md) the exposur
 
 ## Triggering with custom source
 
-A custom sync source can be used to replace the master Azure Kinect DK. This is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5mm jack.
+A custom sync source can be used to replace the master Azure Kinect DK. It is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5 mm jack.
 
 - The SYNC signals are active high and pulse width should be greater than 8us.
-- Frequency support must be precisely 30 fps, 15 fps and 5 fps, the frequency of color camera's master VSYNC signal.
+- Frequency support must be precisely 30 fps, 15 fps, and 5 fps, the frequency of color camera's master VSYNC signal.
 - SYNC signal from the board should be 5 V TTL/CMOS with maximum driving capacity no less than 8 mA.
-- All styles of 3.5mm jack can be used with Kinect DK, including "mono" which is not pictured. All sleeves and rings are shorted together inside Kinect DK and they are connected to ground of the master Azure Kinect DK. The tip is the sync signal.
+- All styles of 3.5 mm jack can be used with Kinect DK, including "mono", that is not pictured. All sleeves and rings are shorted together inside Kinect DK and they are connected to ground of the master Azure Kinect DK. The tip is the sync signal.
 
 ![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
 
