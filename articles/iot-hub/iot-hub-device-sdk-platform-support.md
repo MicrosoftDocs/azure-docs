@@ -42,10 +42,11 @@ The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) is te
 | OS                  | TLS library                  | Additional requirements                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL, or BearSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX)                       |
-| iOS 12.2            | OpenSSL or Native OSX        | XCode emulated in OSX 10.13.4                                                               |
+| iOS 12.2            | OpenSSL                      | XCode emulated in OSX 10.13.4                                                               |
 | Windows 10 family   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
 | Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
+| Arduino             | BearSSL                      | [ESP32 or ESP8266](https://github.com/Azure/azure-iot-arduino#simple-sample-instructions) 
 
 ### Python SDK
 

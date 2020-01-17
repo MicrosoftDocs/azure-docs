@@ -1,6 +1,6 @@
 ---
-title: My Account portal overview - Azure Active Directory | Microsoft Docs
-description: A high-level overview and links to more information about the My Account portal and its features.
+title: What is the My Account portal? - Azure AD
+description: How to get to the My Account portal and its features, including setting up and managing your Security info, Devices, Password, Organizations, Privacy, and My Sign-ins.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,21 +10,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/28/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# My Account portal overview
+# What is the My Account portal?
 
 The **My Account** portal helps you to manage your work or school account by setting up and managing your security info, managing your connected organizations and devices, viewing how your organization uses your data.
-
->[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
-
-![My Account portal, Overview page](media/my-account-portal/my-account-portal-overview.png)
-
-## Go to the My Account portal
 
 You can get to the **My Account** portal (https://myprofile.microsoft.com), from the current version of any of the following browsers:
 
@@ -34,20 +27,24 @@ You can get to the **My Account** portal (https://myprofile.microsoft.com), from
 - Firefox
 - Internet Explorer 11
 
-## My Account portal articles
+![My Account portal, Overview page](media/my-account-portal/my-account-portal-overview.png)
 
-For detailed information and instructions about what's available from the **My Account** portal, see the following articles:
+>[!Important]
+>This article is intended for users trying to get to the My Account portal to update their security info, device info, password, connected organizations, privacy, or previous sign-in information. If you're an administrator looking for information about how to turn on authentication and other Azure Active Directory (Azure AD) features for your employees and other uses, see the [Azure AD documentation for administrators](https://docs.microsoft.com/azure/active-directory/).
 
-|Article |Description |
-|------|------------|
-| [Add your security info](user-help-security-info-overview.md) | Several articles with instructions about how to set up the Microsoft Authenticator app, text messaging, or phone calls as your verification method. Also includes articles about how to add an email address or pre-defined security questions so you can reset your own forgotten password, if necessary.|
-| [View or disable your connected devices](my-account-portal-devices-page.md) | Instructions about how to view or disable any devices you've connected to your work or school account.|
-| [Change your work or school account password](my-account-change-password-page.md) | Instructions about how to change the password for your work or school account. |
-| [View or leave your connected organizations](my-account-portal-organizations-page.md) | Instructions about how to view and leave organizations connected to your work or school account.|
-| [View your privacy-related info](my-account-portal-privacy-page.md) | Instructions about how to view which online services are connected to your work or school account, along with your organization's terms of use statement.|
-| [View your recent sign-in activity](my-account-portal-sign-ins-page.md) | Instructions about how to view sign-in activity for your work or school account. |
+## Next steps
 
-## Related Office content
+- Select to view or manage your [security info](user-help-security-info-overview.md)
+
+- View or manage your connected [devices](my-account-portal-devices-page.md)
+
+- View and manage your [organizations](my-account-portal-organizations-page.md)
+
+- View your [sign-in activity](my-account-portal-sign-ins-page.md)
+
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md)
+
+## Related Microsoft Office content
 
 - [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
