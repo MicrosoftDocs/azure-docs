@@ -87,6 +87,16 @@ Lots of machine learning algorithms make use of linearity. In Azure Machine Lear
 
 Linear regression algorithms assume that data trends follow a straight line. This assumption isn't bad for some problems, but for others it reduces accuracy. Despite their drawbacks, linear algorithms are popular as a first strategy. They tend to be algorithmically simple and fast to train.
 
+![Nonlinear class boundary](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
+
+***Nonlinear class boundary***: *Relying on a linear classification
+algorithm would result in low accuracy.*
+
+![Data with a nonlinear trend](./media/how-to-select-algorithms/nonlinear-trend.png)
+
+***Data with a nonlinear trend***: *Using a linear regression method would
+generate much larger errors than necessary.*
+
 ## Number of parameters
 
 Parameters are the knobs a data scientist gets to turn when setting up an algorithm. They are numbers that affect the algorithm’s behavior, such as error tolerance or number of iterations, or options between variants of how the algorithm behaves. The training time and accuracy of the algorithm can sometimes be sensitive to getting just the right settings. Typically, algorithms with large numbers of parameters require the most trial and error to find a good combination.
