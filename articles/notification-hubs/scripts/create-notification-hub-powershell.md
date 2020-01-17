@@ -18,19 +18,19 @@ ms.author: dimazaid
 
 # Use PowerShell to create an Azure notification hub
 
-This sample PowerShell script creates a sample Azure notification hub. 
+This sample PowerShell script creates a sample Azure notification hub.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Prerequisites
+
 * **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/notification-hubs/create-notification-hub/create-notification-hub.ps1 "Create a notification hub")]
-
 
 ## Clean up deployment
 
@@ -42,7 +42,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 ## Script explanation
 
-This script uses the following commands: 
+This script uses the following commands:
 
 | Command | Notes |
 |---|---|
