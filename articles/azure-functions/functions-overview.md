@@ -17,19 +17,19 @@ Azure Functions allows you to run small pieces of code (called "functions") with
 
 A function is "triggered" by an specific type of event. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
 
-Integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and and third-party services](./functions-triggers-bindings.md).
+While you can always code directly against a myriad of services, integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and and third-party services](./functions-triggers-bindings.md).
 
 ## Features
 
 Some key features of Azure Functions include:
 
-- **Serverless applications**: Functions allow you to develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure
+- **Serverless applications**: Functions allow you to develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure.
 
-- **Choice of language**: Write functions using your choice of C#, Java, JavaScript, Python, and other languages. See [Supported languages](supported-languages.md) for the complete list.
+- **Choice of language**: Write functions using your choice of [C#, Java, JavaScript, Python, and PowerShell](supported-languages.md).
 
 - **Pay-per-use pricing model**: Pay only for the time spent running your code. See the Consumption hosting plan option in the [pricing section](#pricing).  
 
-- **Bring your own dependencies**: Functions support NuGet and NPM, so you can use your favorite libraries.
+- **Bring your own dependencies**: Functions supports NuGet and NPM, giving you access to your favorite libraries.
 
 - **Integrated security**: Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
 
