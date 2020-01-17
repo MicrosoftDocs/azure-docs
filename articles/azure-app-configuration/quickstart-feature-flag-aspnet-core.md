@@ -49,8 +49,8 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
 
 Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
-    > [!IMPORTANT]
-    > Significant differences exist between .NET Core 2.x and 3.x.  Select the correct syntax based on your environment.
+> [!IMPORTANT]
+> Significant differences exist between .NET Core 2.x and 3.x.  Select the correct syntax based on your environment.
 
 1. Open the *.csproj* file.
 1. Add a `UserSecretsId` element as shown in the following example, and replace its value with your own, which typically is a GUID:
@@ -177,8 +177,10 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```csharp    
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllersWithViews();           services.AddFeatureManagement();
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
     }
+    ```
     ---
 
 1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
