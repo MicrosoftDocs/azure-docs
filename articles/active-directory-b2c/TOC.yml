@@ -49,7 +49,7 @@
 - name: Concepts
   items:
   - name: Application types
-    href: active-directory-b2c-apps.md
+    href: application-types.md
   - name: Authentication protocols
     items:
       - name: OAuth2 protocol
@@ -57,13 +57,13 @@
       - name: OpenID Connect protocol
         href: active-directory-b2c-reference-oidc.md
       - name: Authorization Code grant flow
-        href: active-directory-b2c-reference-oauth-code.md
+        href: authorization-code-flow.md
       - name: Implicit flow
         href: active-directory-b2c-reference-spa.md
       - name: Tokens
         href: active-directory-b2c-reference-tokens.md
       - name: Request access token
-        href: active-directory-b2c-access-tokens.md
+        href: access-tokens.md
   - name: User flow and policy
     items:
     - name: User flows
@@ -156,11 +156,13 @@
     - name: Create a policy
       items:
       - name: Get started with custom policies
-        href: active-directory-b2c-get-started-custom.md
+        href: custom-policy-get-started
       - name: Resource owner password credentials
         href: ropc-custom.md
+        displayName: ropc
       - name: Enable keep me signed in
-        href: active-directory-b2c-reference-kmsi-custom.md
+        href: custom-policy-keep-me-signed-in.md
+        displayName: kmsi
       - name: Password change
         href: active-directory-b2c-reference-password-change-custom.md
       - name: Phone sign-up & sign-in
@@ -169,7 +171,8 @@
     - name: UX customization
       items:
       - name: Configure user input
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
+        href: custom-policy-configure-user-input.md
+        displayName: ui, ux
       - name: Customize the UI
         href: active-directory-b2c-ui-customization-custom.md
       - name: Customize the UI dynamically
@@ -232,7 +235,7 @@
       - name: Secure RESTful APIs with certificate auth
         href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
     - name: Define custom attributes
-      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+      href: custom-policy-custom-attributes.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
@@ -240,7 +243,7 @@
       - name: Policy validation
         href: active-directory-b2c-guide-troubleshooting-custom.md
     - name: Usage analytics
-      href: active-directory-b2c-custom-guide-eventlogger-appins.md
+      href: analytics-with-application-insights.md
     - name: Reference
       items:
       - name: Trust Framework definition
@@ -367,7 +370,7 @@
 - name: Reference
   items:
   - name: Identity Experience Framework release notes
-    href: active-directory-b2c-developer-notes-custom.md
+    href: custom-policy-developer-notes.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
   - name: Cookie definitions
@@ -377,7 +380,7 @@
   - name: Region availability & data residency
     href: active-directory-b2c-reference-tenant-type.md
   - name: Enable billing
-    href: active-directory-b2c-how-to-enable-billing.md
+    href: billing.md
   - name: Threat management
     href: active-directory-b2c-reference-threat-management.md
   - name: Extensions app
