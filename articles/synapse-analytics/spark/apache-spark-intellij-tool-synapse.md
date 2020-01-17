@@ -236,13 +236,13 @@ Ensure you've satisfied the WINUTILS.EXE prerequisite.
 
 7. Then two dialogs may be displayed to ask you if you want to auto fix dependencies. If so, select **Auto Fix**.
 
-    ![IntelliJ IDEA Spark Auto Fix dialog1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
+    ![IntelliJ IDEA Spark Auto Fix dialog1](./media/apache-spark-intellij-tool-synapse/intellij-console-autofix1.png)
 
-    ![IntelliJ IDEA Spark Auto Fix dialog2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
+    ![IntelliJ IDEA Spark Auto Fix dialog2](./media/apache-spark-intellij-tool-synapse/intellij-console-autofix2.png)
 
 8. The console should look similar to the picture below. In the console window type `sc.appName`, and then press ctrl+Enter.  The result will be shown. You can stop the local console by clicking red button.
 
-    ![IntelliJ IDEA local console result](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
+    ![IntelliJ IDEA local console result](./media/apache-spark-intellij-tool-synapse/local-console-result.png)
 
 ### Spark Livy Interactive Session Console(Scala)
 
@@ -277,9 +277,3 @@ It's convenient for you to foresee the script result by sending some code to the
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-synapse/send-selection-to-console.png)
 
-## Next steps
-
-In this tutorial, you learned how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pools directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/), and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE).
-
-> [!div class="nextstepaction"]
-> [Submit job to an HDInsight Spark cluster](apache-spark-intellij-tool-plugin.md)
