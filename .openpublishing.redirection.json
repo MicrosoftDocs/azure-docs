@@ -1757,6 +1757,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
+      "redirect_url": "/azure/cosmos-db/how-to-multi-master",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
       "redirect_document_id": false
@@ -46573,6 +46578,11 @@
     {
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-azure-ad-graph.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": false
     },
     {

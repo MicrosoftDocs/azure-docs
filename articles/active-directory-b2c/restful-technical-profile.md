@@ -125,7 +125,7 @@ The technical profile also returns claims, that aren't returned by the identity 
 | SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the input claim that is sent in the request body in JSON format. The `Form` value is the input claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the input claim that is sent in the request header. The `QueryString` value is the input claim that is sent in the request query string. The HTTP verbs invoked by each are as follows:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | Specifies the format for the output claims. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the output claim that is sent in the request body in JSON format. The `Form` value is the output claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the output claim that is sent in the request header. The `QueryString` value is the output claim that is sent in the request query string. |
 | ClaimUsedForRequestPayload| No | Name of a string claim that contains the payload to be sent to the REST API. |
-| DebugMode | No | Runs the technical profile in debug mode. In debug mode, the REST API can return more information. See the returning error message section. |
+| DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-error-message) section. |
 
 ## Cryptographic keys
 
@@ -212,7 +212,7 @@ If the type of authentication is set to `Bearer`, the **CryptographicKeys** elem
 
 ## Returning error message
 
-Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. In an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
+Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
