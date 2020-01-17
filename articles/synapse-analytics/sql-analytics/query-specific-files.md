@@ -1,5 +1,5 @@
 ---
-title: Query specific files with SQL on-demand
+title: Query specific files using SQL on-demand
 description: Use the SQL on-demand resource within Azure Synapse Analytics to query specific files.
 services: synapse analytics
 author: azaricstefan
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query specific files with SQL on-demand
+# Quickstart: Query specific files using SQL on-demand
 
 The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple CSV files](query-folders-multiple-csv-files.md) article. In this quickstart, you'll learn how to query a specific file.
 
