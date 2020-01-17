@@ -64,7 +64,7 @@ Then, you can stream logs of an app instance with the option `-i/--instance` opt
 az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
-You can also get details of app instances list from **App Instances** after selecting **Apps** in the left navigation pane of your Azure Spring Cloud service in the Azure portal.
+You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Cloud service, select **App Instances**.
 
 ### Continuously stream new logs
 By default, `az spring-cloud ap log tail` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):  
