@@ -287,27 +287,7 @@ This is a fusion of:
 The workaround is either switch to using continuous recognition in your code, or (quicker) connect to either the interactive or continuous endpoints in the container.
 For your code, set the endpoint to <host:port>/speech/recognition/interactive/cognitiveservices/v1
 
-###### Interactive
-- Meant for command and control scenarios.
-- Has a segmentation time out value of X.
-- At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
-- Maximum limit for recognition is 20s.
-- Typical Carbon call to invoke is `RecognizeOnceAsync`.
-
-###### Conversation
-- Meant for longer running recognitions.
-- Has a segmentation time out value of Y. (Y != X)
-- Will process multiple complete utterances without ending the turn.
-- Will end the turn for too much silence.
-- Carbon will continue with a new request ID and replaying audio as needed.
-- The service will forcibly disconnect after 10 minutes of speech recognition.
-- Carbon will reconnect and replay unacknowledged audio.
-- Invoked in Carbon with `StartContinuousRecognition`.
-
-###### Dictation
-- Allows users to specify punctuation by speaking it.
-- Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
-- The 1<sup>st</sub> party cluster returns `speech.fragment` messages for intermediate results, the 3<sup>rd</sub> party return `speech.hypothesis` messages.
+For the various modes, see [Speech modes](#speech-modes).
 
 The proper fix is coming with SDK 1.8, which has on-prem support (will pick the right endpoint, so we will be no worse than online service). In the meantime, there is a sample for continuous recognition, why don't we point to it?
 
@@ -523,31 +503,7 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 <b>How can I use v1.7 of the Speech SDK with a Speech container?</b>
 </summary>
 
-**Answer:** There are 3 endpoints on the Speech container for different usages, they're detailed below.
-
-###### Interactive
-- Meant for command and control scenarios.
-- Has a segmentation time out value of X.
-- At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
-- Maximum limit for recognition is 20s.
-- Typical Carbon call to invoke is `RecognizeOnceAsync`.
-
-###### Conversation
-- Meant for longer running recognitions.
-- Has a segmentation time out value of Y. (Y != X)
-- Will process multiple complete utterances without ending the turn.
-- Will end the turn for too much silence.
-- Carbon will continue with a new request ID and replaying audio as needed.
-- The service will forcibly disconnect after 10 minutes of speech recognition.
-- Carbon will reconnect and replay unacknowledged audio.
-- Invoked in Carbon with `StartContinuousRecognition`.
-
-###### Dictation
-- Allows users to specify punctuation by speaking it.
-- Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
-- The 1<sup>st</sub> party cluster returns `speech.fragment` messages for intermediate results, the 3<sup>rd</sub> party return `speech.hypothesis` messages.
-
-They are for different purposes and are used differently.
+**Answer:** There are three endpoints on the Speech container for different usages, they're defined as [Speech modes](#speech-modes). They are for different purposes and are used differently.
 
 Python [samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py):
 - For single recognition (interactive mode) with a custom endpoint (that is; `SpeechConfig` with an endpoint parameter), see `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
@@ -556,7 +512,7 @@ Python [samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/
 
 In C# to enable dictation, invoke the `SpeechConfig.EnableDictation()` function.
 
-##### Endpoint API descriptions
+### `FromEndpoint` APIs
 | Language | API details |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -574,7 +530,7 @@ In C# to enable dictation, invoke the `SpeechConfig.EnableDictation()` function.
 
 **Answer:** There's a new `FromHost` API. This does not replace or modify any existing APIs. It just adds an alternative way to create a speech config using a custom host.
 
-##### From Host APIs
+### `FromHost` APIs
 
 | Language | API details |
 |----------|:------------|
@@ -601,6 +557,30 @@ Python samples from above, but use `host` parameter instead of `endpoint`:
 speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
 ```
 </details>
+
+## Speech modes
+
+**Interactive**
+- Meant for command and control scenarios.
+- Has a segmentation time out value of X.
+- At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
+- Maximum limit for recognition is 20s.
+- Typical Carbon call to invoke is `RecognizeOnceAsync`.
+
+**Conversation**
+- Meant for longer running recognitions.
+- Has a segmentation time out value of Y. (Y != X)
+- Will process multiple complete utterances without ending the turn.
+- Will end the turn for too much silence.
+- Carbon will continue with a new request ID and replaying audio as needed.
+- The service will forcibly disconnect after 10 minutes of speech recognition.
+- Carbon will reconnect and replay unacknowledged audio.
+- Invoked in Carbon with `StartContinuousRecognition`.
+
+**Dictation**
+- Allows users to specify punctuation by speaking it.
+- Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
+- The 1<sup>st</sup> party cluster returns `speech.fragment` messages for intermediate results, the 3<sup>rd</sup> party return `speech.hypothesis` messages.
 
 ## Next steps
 
