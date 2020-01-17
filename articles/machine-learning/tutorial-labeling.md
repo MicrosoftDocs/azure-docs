@@ -17,7 +17,7 @@ ms.date: 01/15/2020
 # Tutorial: Create your first image classification labeling project
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial show you how to create a project to manage the process of tagging images.
+This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of tagging images to use as data for building machine learning models.
 
 If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data.
  
