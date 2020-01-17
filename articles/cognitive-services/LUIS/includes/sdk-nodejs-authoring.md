@@ -171,6 +171,10 @@ A very small model, such as this quickstart shows, will train very quickly. For 
 
 [!code-javascript[Train LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringTrainVersion)]
 
+Training all models takes time. Use the operation ID to check the training status.
+
+[!code-javascript[Get training status](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringWaitForOperation)]
+
 ## Publish a Language Understanding app
 
 Publish the LUIS app using the [app.publish]() method. This publishes the current trained version to the specified slot at the endpoint. Your client application uses this endpoint to send user utterances for prediction of intent and entity extraction.
