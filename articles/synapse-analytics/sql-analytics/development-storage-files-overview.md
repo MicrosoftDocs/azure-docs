@@ -22,7 +22,7 @@ For querying, the following T-SQL aspects are supported:
 
 For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand.md) article.
 
-When AAD users run queries, the default is for storage accounts to be accessed using the AAD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](development-storage-files-storage-access-control.md) to suit your needs.
+When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](development-storage-files-storage-access-control.md) to suit your needs.
 
 ## Extensions
 
