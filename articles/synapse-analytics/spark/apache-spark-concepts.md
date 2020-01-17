@@ -17,7 +17,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 ## Spark pools
 
-A Spark pool is created in the Azure Portal. It is the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata; no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance; these include but are not limited to name, size, scaling behavior, time to live.
+A Spark pool is created in the Azure Portal. It is the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata; no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance; these characteristics include but are not limited to name, size, scaling behavior, time to live.
 
 As there is no dollar or resource cost associated with creating Spark pools, any number can be created with any number of different configurations. Permissions can also be applied to Spark pools allowing users only to have access to some and not others.
 
@@ -27,7 +27,7 @@ You can read how to create a Spark pool and see all their properties here [Get s
 
 ## Spark instances
 
-Spark instances are created when you connect to a Spark pool, create a session, and run a job. As multiple users may have access to a single Spark pool, a new Spark instance is created for each user that connects. When you submit a second job, then if there is capacity in the pool, the existing Spark instance will auto grow to process the job; if not and there is capacity, then a new Spark instance will be created.
+Spark instances are created when you connect to a Spark pool, create a session, and run a job. As multiple users may have access to a single Spark pool, a new Spark instance is created for each user that connects. When you submit a second job, then if there is capacity in the pool, the existing Spark instance also has capacity then the existing instance will process the job; if not and there is capacity at the pool level, then a new Spark instance will be created.
 
 ## Examples
 
@@ -35,18 +35,18 @@ Spark instances are created when you connect to a Spark pool, create a session, 
 
 - You create a Spark pool called SP1; it has a fixed cluster size of 20 nodes.
 - You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1 is created to process the job.
-- You now submit another job, J2, that uses ten nodes because there is still capacity in the pool and the instance, the J2, is processed by SI1.
+- You now submit another job, J2, that uses 10 nodes because there is still capacity in the pool and the instance, the J2, is processed by SI1.
 - If J2 had asked for 11 nodes, there would not have been capacity in SP1 or SI1. In this case, if J2 comes from a notebook, then the job will be rejected; if J2 comes from a batch job, then it will be queued.
 
 ### Example 2
 
-- You create a Spark pool call SP2; it has an auto-scale enabled 10 – 20 nodes
-- You submit a notebook job, J1 that uses ten nodes, a Spark instance, SI1, is created to process the job.
-- You now submit another job, J2, that uses ten nodes, because there is still capacity in the pool the instance auto grows to 20 nodes and processes J2.
+- You create a Spark pool call SP2; it has an autoscale enabled 10 – 20 nodes
+- You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1, is created to process the job.
+- You now submit another job, J2, that uses 10 nodes, because there is still capacity in the pool the instance auto grows to 20 nodes and processes J2.
 
 ### Example 3
 
 - You create a Spark pool called SP1; it has a fixed cluster size of 20 nodes.
 - You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1 is created to process the job.
-- Another user, U2, submits a Job, J3, that uses ten nodes, a new Spark instance, SI2, is created to process the job.
-- You now submit another job, J2, that uses ten nodes because there is still capacity in the pool and the instance, J2, is processed by SI1.
+- Another user, U2, submits a Job, J3, that uses 10 nodes, a new Spark instance, SI2, is created to process the job.
+- You now submit another job, J2, that uses 10 nodes because there is still capacity in the pool and the instance, J2, is processed by SI1.
