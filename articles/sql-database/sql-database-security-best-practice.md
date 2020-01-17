@@ -481,7 +481,7 @@ Another technique for preventing unauthorized users from viewing data is to obfu
 Network security refers to access controls and best practices to secure your data in transit to Azure SQL Database.
 
 ### Configure my client to connect securely to Azure SQL Database 
-Prevent client machines and applications connecting to Azure SQL Database from well-known vulnerabilities. Older protocols and cipher suites have known vulnerabilities.
+Best practices on how to prevent client machines and applications with well-known vulnerabilities (for example, using older TLS protocols and cipher suites) from connecting to Azure SQL Database.
 
 **How to implement**:
 
@@ -498,9 +498,10 @@ Prevent client machines and applications connecting to Azure SQL Database from w
 
 - Check cipher suites available on the client: [Cipher Suites in TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel). Specifically, disable 3DES per [Configuring TLS Cipher Suite Order](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order). 
 
-- If you're using a managed instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently doesn't support encryption enforcement and is only available on private IP connections. 
-  - For more information, see [Azure SQL Connectivity Architecture - Connection policy](sql-database-connectivity-architecture.md#connection-policy).
-  - Encryption is enforced for both Proxy and Redirect connection types. 
+- For Azure SQL Database, encryption is enforced for both Proxy and Redirect connection types. If you're using a managed instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently doesn't support encryption enforcement and is only available on private IP connections. 
+
+- For more information, see [Azure SQL Connectivity Architecture - Connection policy](sql-database-connectivity-architecture.md#connection-policy).
+
 
 ### Minimize Attack Surface
 Minimize the number of features that can be attacked by a malicious user. Implement network access controls for Azure SQL Database.
@@ -512,7 +513,7 @@ Minimize the number of features that can be attacked by a malicious user. Implem
 In an Azure SQL Database server (containing singleton database or elastic pools):
 - Set Allow Access to Azure services to OFF.
 
-- Use virtual network Service endpoints and virtual network Firewall Rules.
+- Use VNet Service endpoints and VNet Firewall Rules.
 
 - Use Private Link (preview).
 
@@ -522,8 +523,8 @@ In a managed instance:
 **Best practices**:
 
 - Restricting access to Azure SQL Database by connecting on a private endpoint (for example, using a private data path): 
-  - A managed instance can be isolated inside a virtual network to prevent external access. Applications and tools that are in the same or peered virtual network in the same region could access it directly. Applications and tools that are in different region could use VNet-to-VNet connection or ExpressRoute circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to a managed instance 
-  - For a SQL Database server (containing single databases or elastic pools), use the [Private Link](sql-database-private-endpoint-overview.md) feature that provides a dedicated private IP for the SQL Database server inside your virtual network. You can also use [virtual network Service endpoints with virtual network Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL Database servers.
+  - A managed instance can be isolated inside a VNet to prevent external access. Applications and tools that are in the same or peered VNet in the same region could access it directly. Applications and tools that are in different region could use VNet-to-VNet connection or ExpressRoute circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to a managed instance 
+  - For a SQL Database server (containing single databases or elastic pools), use the [Private Link](sql-database-private-endpoint-overview.md) feature that provides a dedicated private IP for the SQL Database server inside your VNet. You can also use [VNet Service endpoints with VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL Database servers.
   - Mobile users should use point-to-site VPN connections to connect over the data path.
   - Users connected to their on-premises network should use site-to-site VPN connection or ExpressRoute to connect over the data path.
 
@@ -596,7 +597,7 @@ Distributed Denial of Service (DDoS) attacks are attempts by a malicious user to
 
 DDoS protection is automatically enabled as part of the Azure Platform. It includes always-on traffic monitoring and real-time mitigation of network-level attacks on public endpoints. 
 
-- Use [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) to monitor public IP addresses associated to resources deployed in virtual networks.
+- Use [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) to monitor public IP addresses associated to resources deployed in VNets.
 
 - Use [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md) to detect Denial of Service (DoS) attacks against databases.
 
