@@ -227,7 +227,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             app.UseAzureAppConfiguration();
     }
     ```
----
+    ---
 
 1. Add a *MyFeatureFlags.cs* file:
 
