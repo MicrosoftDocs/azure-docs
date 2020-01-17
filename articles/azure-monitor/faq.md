@@ -231,7 +231,7 @@ The details depend on the type of project. For a web application:
 
   * ApplicationInsights.config.
   * ai.js
-* Installs these NuGet packages:
+* Installs these Nuget packages:
 
   * *Application Insights API* - the core API
   * *Application Insights API for Web Applications* - used to send telemetry from the server
@@ -393,7 +393,7 @@ Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](app/a
 
 ### How can I set an alert on an event?
 
-Azure alerts are only on metrics. Create a custom metric that crosses a value threshold whenever your event occurs. Then set an alert on the metric. Note that: you'll get a notification whenever the metric crosses the threshold in either direction; you won't get a notification until the first crossing, no matter whether the initial value is high or low; there is always a latency of a few minutes.
+Azure alerts are only on metrics. Create a custom metric that crosses a value threshold whenever your event occurs. Then set an alert on the metric. You'll get a notification whenever the metric crosses the threshold in either direction; you won't get a notification until the first crossing, no matter whether the initial value is high or low; there is always a latency of a few minutes.
 
 ### Are there data transfer charges between an Azure web app and Application Insights?
 
@@ -422,8 +422,7 @@ Allow your web server to send telemetry to our endpoints.
 
 #### Gateway redirect
 
-Route traffic from your server to a gateway on your intranet by overwriting Endpoints in your configuration.
-If these "Endpoint" properties are not present in your config, these classes will use the default values shown below in the example ApplicationInsights.config. 
+Route traffic from your server to a gateway on your intranet by overwriting Endpoints in your configuration. If these "Endpoint" properties are not present in your config, these classes will use the default values shown below in the example ApplicationInsights.config. 
 
 Your gateway should route traffic to our endpoint's base address. In your configuration, replace the default values with `http://<your.gateway.address>/<relative path>`.
 
@@ -449,7 +448,10 @@ Your gateway should route traffic to our endpoint's base address. In your config
 </ApplicationInsights>
 ```
 
-_Note ApplicationIdProvider is available starting in v2.6.0_
+> [!NOTE]
+> ApplicationIdProvider is available starting in v2.6.0.
+
+
 
 #### Proxy passthrough
 
@@ -599,7 +601,7 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 
 ### Which ports and domains do I need to open/whitelist for the agent?
 
-See the [Network firewall requirements](insights/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China clouds.
+See the [Network firewall requirements](insights/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
 
 ## Azure Monitor for VMs (preview)
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -708,7 +710,7 @@ While we have made improvements to Map to handle large and complex configuration
 
 ### Why does the network chart on the Performance tab look different than the network chart on the Azure VM Overview page?
 
-The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed.  This does not include inter-vnet traffic.  The data and charts shown for Azure Monitor for VMs is based on data from the guest VM and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including inter-vnet.
+The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed.  This does not include inter-virtual network traffic.  The data and charts shown for Azure Monitor for VMs is based on data from the guest VM and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including inter-virtual network.
 
 ### How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
 

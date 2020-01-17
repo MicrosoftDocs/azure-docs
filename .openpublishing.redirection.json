@@ -39751,6 +39751,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/log-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-usage-cohorts.md",
       "redirect_url": "/azure/azure-monitor/app/usage-cohorts",
       "redirect_document_id": true
@@ -40068,16 +40083,6 @@
     {
       "source_path": "articles/azure-monitor/platform/diagnostic-settings-subscription.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-legacy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/insights/container-insights-faq.md",
-      "redirect_url": "/azure/azure-monitor/faq",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/insights/vminsights-faq.md",
-      "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": false
     },
     {
