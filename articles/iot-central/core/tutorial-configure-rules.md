@@ -67,10 +67,11 @@ When you define a rule, you also define an action to run when the rule condition
 
 2. To define your action, use the information in the following table:
 
-    | Setting   | Value                          |
-    | --------- | ------------------------------ |
-    | To        | Your email address             |
-    | Notes     | Air conditioner temperature exceeded the threshold. |
+    | Setting      | Value                                               |
+    | ------------ | --------------------------------------------------- |
+    | Display name | Email temperature alert                             |
+    | To           | Your email address                                  |
+    | Notes        | Air conditioner temperature exceeded the threshold. |
 
     > [!NOTE]
     > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
