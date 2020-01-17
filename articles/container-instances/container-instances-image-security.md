@@ -89,13 +89,13 @@ The concept of least privileges is a basic security best practice that also appl
 
 You can also minimize the potential attack surface by removing any unused or unnecessary processes or privileges from the container runtime. Privileged containers run as root. If a malicious user or workload escapes in a privileged container, the container will then run as root on that system.
 
-### Whitelist files and executables that the container is allowed to access or run 
+### Preapprove files and executables that the container is allowed to access or run 
 
-Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or whitelisted files and executables is a proven method of limiting exposure to risk.  
+Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or safelisted files and executables is a proven method of limiting exposure to risk.  
 
-It’s a lot easier to manage a whitelist when it’s implemented from the beginning. A whitelist provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
+It’s a lot easier to manage a safelist when it’s implemented from the beginning. A safelist provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
 
-A whitelist not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
+A safelist not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
 
 ### Enforce network segmentation on running containers  
 
