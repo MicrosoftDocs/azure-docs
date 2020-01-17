@@ -122,6 +122,12 @@ Now that you have connected to the development machine, add some useful extensio
     cd C:\source\IoTEdgeAndMlSample\DevVM
     ```
 
+1. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
+
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process
+    ```
+
 1. Run the Visual Studio Code extensions script.
 
     ```powershell
