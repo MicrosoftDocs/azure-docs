@@ -156,7 +156,7 @@
     - name: Create a policy
       items:
       - name: Get started with custom policies
-        href: custom-policy-get-started
+        href: custom-policy-get-started.md
       - name: Resource owner password credentials
         href: ropc-custom.md
         displayName: ropc
