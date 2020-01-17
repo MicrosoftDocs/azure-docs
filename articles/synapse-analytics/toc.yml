@@ -5,7 +5,8 @@
   - name: What is Azure Synapse
     href: overview-what-is.md
   - name: Who can benefit from Azure Synapse
-    href: overview-who-can-benefit-azure-synapse-analytics.md
+    href: overview-who-can-benefit-azure-synapse-analytics.md+
+
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -30,6 +31,8 @@
   #   href: article-template.md
   # - name: Browse data using workspace
   #   href: article-template.md
+  - name: Run Apache Spark applications for Synapse Spark Pools
+    href: ./spark/apache-spark-intellij-tool-synapse.md  
   - name: Analyze and Visualize data
     items:
     # - name: Spark
