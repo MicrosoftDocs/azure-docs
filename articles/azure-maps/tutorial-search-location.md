@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
-description: In this tutorial, you will learn how to search for nearby locations (points of interest) on a map using Microsoft Azure Maps.
+description: In this tutorial, you will learn how to search for points of interest on a map using Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -58,13 +58,13 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 
 ![Get Primary Key in Azure portal](./media/tutorial-search-location/get-key.png)
 
-For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
 ## Create a new map
 
-The Map Control API is a convenient client library that allows you to easily integrate Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Map Control API.
+The Map Control API is a convenient client library. This API allows you to easily integrate Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with customizable components. The following steps show you how to create a static HTML page embedded with the Map Control API.
 
 1. On your local machine, create a new file and name it **MapSearch.html**.
 2. Add the following HTML components to the file:
@@ -128,7 +128,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
    This segment initializes the Map Control API for your Azure Maps account key. `atlas` is the namespace that contains the API and related visual components. `atlas.Map` provides the control for a visual and interactive web map.
 
-4. Save your changes to the file and open the HTML page in a browser. This is the most basic map that you can make by calling `atlas.Map` using your account key.
+4. Save your changes to the file and open the HTML page in a browser. The map shown is the most basic map that you can make by calling `atlas.Map` using your account key.
 
    ![View the map](./media/tutorial-search-location/basic-map.png)
 
@@ -158,7 +158,7 @@ The Map Control API is a convenient client library that allows you to easily int
     });
     ```
 
-   In this code segment a `ready` event is added to the map, which will fire when the map resources have been loaded and the map is ready to be accessed. In the map `ready` event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. The result layer is added to the map layers.
+   In this code segment, a `ready` event is added to the map, which will fire when the map resources have been loaded and the map is ready to be accessed. In the map `ready` event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered. In this case, the result is rendered with a dark blue round pin icon, centered over the results coordinate, and allows other icons to overlap. The result layer is added to the map layers.
 
 <a id="usesearch"></a>
 
@@ -210,7 +210,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
     });
     ```
 
-3. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with round-blue pins marking the locations of gasoline stations in the area.
+3. Save the **MapSearch.html** file and refresh your browser. You should see the map centered on Seattle with round-blue pins for locations of gasoline stations in the area.
 
    ![View the map with search results](./media/tutorial-search-location/pins-map.png)
 
@@ -224,9 +224,9 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map that we've made so far only looks at the longitude/latitude data for the search results. If you look at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive popup boxes.
+The map that we've made so far only looks at the longitude/latitude data for the search results. However, the raw JSON that the Maps Search service returns contains additional information about each gas station. Including the name and street address. You can incorporate that data into the map with interactive popup boxes.
 
-1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This will create an instance of a Popup and add a mouseover event to the symbol layer.
+1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This code will create an instance of a Popup and add a mouseover event to the symbol layer.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

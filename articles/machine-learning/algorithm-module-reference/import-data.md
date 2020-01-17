@@ -22,7 +22,7 @@ Use this module to load data into a machine learning pipeline from existing clou
 >  After you register a dataset, you can find it in the **Datasets** -> **My Datasets** category in designer interface. This module is reserved for Studio(classic) users to for a familiar experience. 
 >
 
-First, choose the source you are reading from, and finish the additional settings. The **Import Data** module support read data from following sources:
+The **Import Data** module support read data from following sources:
 
 - URL via HTTP
 - Azure cloud storages through [**Datastores**](../how-to-access-data.md))
