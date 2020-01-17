@@ -11,8 +11,11 @@ ms.author: pimorano
 ms.reviewer: omafnan
 ---
 # Using Azure Synapse Analytics studio SQL Script
-Azure Synapse Analytics studio SQL script is a web interface for you to author your SQL query connecting to SQL pool and SQL On-demand. 
+
+Azure Synapse Analytics studio SQL script is a web interface for you to author your SQL query connecting to SQL pool and SQL On-demand.
+
 ## Create a SQL Script and author its content
+
 There are few ways to start the authoring experience in SQL script. You can create a new SQL script: 
 1. Add new resource by clicking on the "+" icon and choose "SQL script"  
 ![newsqlscript](./media/author-sql-script/newsqlscript.png)
@@ -38,6 +41,8 @@ a. Parquet file using SQL analytics on-demand: You can explore Parquet files in 
 ![newsqlscript](./media/author-sql-script/newscriptsqlodparquet.png)
 1. SQL Tables, external tables, views: by clicking on the "Actions" menu under Data you can perform several actions like: "New SQL script" "Select TOP 1000 rows", "CREATE", "DROP and CREATE". Explore the available gesture by clicking on the right nodes of SQL Pool and SQL analytics on-demand   
 ![newsqlscript](./media/author-sql-script/newscriptdatabase.png)
+
 ## Next steps
+
 For more information about authoring a SQL script, see:
 [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
