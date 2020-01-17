@@ -34,7 +34,7 @@ Use the Azure Active Directory portal to view and manage all applications that a
 1. Select any app to load its resource pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 
-   ![Provisioning screen to manage user account provisioning settings](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Provisioning screen to manage user account provisioning settings](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## Provisioning modes
 
@@ -64,7 +64,7 @@ Expand **Mappings** to view and edit the user attributes that flow between Azure
 
 There's a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Select a mapping in the table to open the mapping editor to the right, where you can view and customize them.
 
-![Shows the Attribute Mapping screen](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Shows the Attribute Mapping screen](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Supported customizations include:
 
@@ -84,4 +84,4 @@ If provisioning is being enabled for the first time for an application, turn on 
 
 Change the **Provisioning Status** to **Off**  to pause the provisioning service. In this state, Azure doesn't create, update, or remove any user or group objects in the app. Change the state back to **On** and the service picks up where it left off.
 
-**Clear current state and restart synchronization** triggers an initial cycle. The service will then evaluate all the users in the source system again and determine if they are in scope for provisioning. This can be useful when your application is currently in quarantine or you need to make a change to your attribute mappings. Note that the initial cycle takes longer to complete than the typical incremental cycle due to the number of objects that need to be evaluated. You can learn more about the performance of initial and incremental cycles [here.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). 
+**Clear current state and restart synchronization** triggers an initial cycle. The service will then evaluate all the users in the source system again and determine if they are in scope for provisioning. This can be useful when your application is currently in quarantine or you need to make a change to your attribute mappings. Note that the initial cycle takes longer to complete than the typical incremental cycle due to the number of objects that need to be evaluated. You can learn more about the performance of initial and incremental cycles [here](application-provisioning-when-will-provisioning-finish-specific-user.md). 

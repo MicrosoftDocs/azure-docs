@@ -65,11 +65,11 @@ When a user authenticates to the application, Azure AD issues the application a 
 
 2. Verify the **Name Identifier Value**. The default value is *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-3. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Save the changes when you're done. 
+3. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Save the changes when you're done. 
  
 4. To configure group claims, select the **Edit** icon for the **Groups returned in claim** field. For details, see [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Save the changes when you're done. 
+5. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Save the changes when you're done. 
 
 6. Select **Save**. The new claim appears in the table.
 
@@ -145,7 +145,7 @@ If an error message appears, complete the following steps:
 
 1. Copy and paste the specifics into the **What does the error look like?** box.
 
-    ![Get resolution guidance](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Get resolution guidance](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
 2. Select **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
 
