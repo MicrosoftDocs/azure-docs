@@ -11,53 +11,59 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
 # Register your verification method info to reset your own password
 
-> [!IMPORTANT]
-> Are you here because you can't sign in? If so, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
+If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password.
 
-As an end user, you can reset your password or unlock your account by yourself if you use Azure Active Directory (Azure AD) self-service password reset (SSPR). Before you can use this functionality, you have to register your verification methods or confirm the predefined verification methods that your administrator has populated.
+Your administrator must turn on this feature for you to be able to register your information and reset your own password. If you don't see the **Forgot my password** option, it means that your administrator hasn't turned on the feature for your organization. If you believe this to be incorrect, contact your help desk for assistance.
 
-## Register or confirm authentication data with SSPR
+>[!Important]
+>This article is intended for users trying to use sign up for self-service password reset. This means that you’ll be able to reset your own work or school password (such as, alain@contoso.com), without requiring your administrator’s help. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
-1. Open the web browser on your device and go to the [password reset registration page](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
-2. Enter your username and the password that your administrator provided.
-3. Depending on how your IT staff has configured things, one or more of the following options are available for you to configure and verify. If your administrator has your permission to use your information, they can populate some of the information for you.
-    * **Office phone**: Only your administrator can set this option.
-    * **Authentication Phone**: Set this option to another phone number that you have access to. An example is a cell phone that can receive a text or a call.
-    * **Authentication Email**: Set this option to an alternate email address that you can access without using the password you want to reset.
-    * **Security Questions**: Your administrator has approved this list of questions for you to answer. You can't use the same question or answer more than once.
-4. Provide and verify the information that your administrator requires. If more than one option is available, we suggest that you register multiple methods. This gives you flexibility when one of the methods isn't available. An example is when you're traveling and you're unable to access your office phone.
+## Set up your password reset verification method
 
-    ![Register verification methods and select finish][Register]
+1. Open the web browser on your device and go to the [security info page](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
-5. Select **finish**. You can now use SSPR when you need to in the future.
+2. Depending on how your administrator has set up your organization, one or more of the following options will be available for you to set up as your security verification method. If multiple options are available, we strongly recommend that you use more than one as your security verification method, in case one of your methods becomes unavailable.
 
-If you enter data for **Authentication Phone** or **Authentication Email**, it's not visible in the global directory. The only people who can see this data are you and your administrators. Only you can see the answers to your security questions.
+    - **Authentication app.** Choose to use the Microsoft Authenticator app or other authenticator app as your security verification method. For more information about setting up the app, see [Set up the Microsoft Authenticator app as your verification method](security-info-setup-auth-app.md).
 
-Your administrators might require you to confirm your verification methods after a period of time to make sure you still have the appropriate methods registered.
+    - **Text messaging.** Choose to send yourself text messages to your mobile device. For more information about setting up text messaging, see [Set up text messaging as your verification method](security-info-setup-text-msg.md).
+
+    - **Phone calls.** Choose to get a phone call to your registered phone number. For more information about setting up phone calls, see [Set up a phone number as your verification method](security-info-setup-phone-number.md).
+
+    - **Security key.** Choose to use a Microsoft-compatible security key. For more information, see [Set up a security key as your verification method](security-info-setup-security-key.md).
+
+    - **Email address.** Choose to use an alternate email address that can be used without requiring your forgotten or missing password. This only works for password reset, not as a security verification method. For more information about setting up an email address, see [Set up an email address as your verification method](security-info-setup-email.md).
+
+    - **Security questions.** Choose to set up and answer pre-defined security questions set up by your administrator. This only works for password reset,  not as a security verification method. For more information about security questions, see [Set up security questions as your verification method](security-info-setup-questions.md).
+
+3. After you select and set up your methods, choose **Finish** to complete the process.
+
+    > [!Note]
+    > Information added for your phone number or email address is not shared with your organization's global directory. The only people that can see this information are you and your administrator. Only you can see the answers to your security questions.
 
 ## Common problems and their solutions
 
  Here are some common error cases and their solutions:
 
-| Error case| What error do you see?| Solution |
+| Error message |  Possible solution |
 | --- | --- | --- |
-| I get a "please contact your administrator" page after entering my user ID | Please contact your administrator. <br> <br> We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br> <br> Contact your IT staff for any further assistance. | You're seeing this message because your IT staff manages your password in your on-premises environment and does not allow you to reset your password from the **Can't access your account** link. <br> <br> To reset your password, contact your IT staff directly for help. Let them know you want to reset your password so they can enable this feature for you.|
-| I get a "your account is not enabled for password reset" error after entering my user ID | Your account is not enabled for password reset. <br> <br> We're sorry, but your IT staff has not set up your account for use with this service. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because your IT staff has not enabled password reset for your organization from the **Can't access your account** link or hasn't licensed you to use the feature. <br> <br> To reset your password, select the **contact an administrator** link. An email will be sent to your company's IT staff. The email lets them know you want to reset your password, so they can enable this feature for you. |
-| I get a "we could not verify your account" error after entering my user ID | We could not verify your account. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because you're enabled for password reset, but you haven't registered to use the service. To register for password reset, go to the [password reset registration page](https://aka.ms/ssprsetup) after you have regained access to your account. <br> <br> To reset your password, select the **contact an administrator** link to send an email to your company's IT staff. |
+| Please contact your administrator.<br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password.<br>Contact your IT staff for any further assistance.| If you get this error message after typing your User ID, it means that your organization internally manages your password and doesn't want you to reset your password from the **Can't access your account** link. To reset your password in this situation, you must contact your organization's help desk or your administrator for help. |
+| Your account is not enabled for password reset.<br>We're sorry, but your IT staff has not set up your account for use with this service.<br>If you'd like, we can contact an administrator in your organization to reset your password for you. | If you get this error message after typing your User ID, it means that either your organization hasn't turned on the password reset feature or you aren't allowed to use it. To reset your password in this situation, you must select the **Contact an administrator** link. After you click the link, an email is sent to your organization's help desk or administrator, letting them know you want to reset your password. |
+| We could not verify your account.<br>If you'd like, we can contact an administrator in your organization to reset your password for you. | If you get this error message after typing your User ID, it means that your organization has turned on password reset and that you can use it, but that you haven't registered for the service. In this situation, you must contact your organization's help desk or administrator to reset your password. For information about to register for password reset after you are back on your device, see the process above in this article. |
 
 ## Next steps
 
-* [Change your password by using self-service password reset](active-directory-passwords-update-your-own-password.md)
-* [Password reset registration page](https://aka.ms/ssprsetup)
-* [Password reset portal](https://passwordreset.microsoftonline.com/)
-* [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- [Change your password by using self-service password reset](active-directory-passwords-update-your-own-password.md)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Password Reset Registration page showing the registered methods and the finish button"
+- [Security info page](https://mysignins.microsoft.com/security-info)
 
+- [Password reset portal](https://passwordreset.microsoftonline.com/)
+
+- [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
