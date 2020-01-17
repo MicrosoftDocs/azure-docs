@@ -40,5 +40,4 @@ a. Parquet file using SQL analytics on-demand: You can explore Parquet files in 
 ![newsqlscript](./media/author-sql-script/newscriptdatabase.png)
 ## Next steps
 For more information about authoring a SQL script, see:
-[sql-analytics-on-demand-workspace-overview](sql-analytics-on-demand-workspace-overview.md)
 [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
