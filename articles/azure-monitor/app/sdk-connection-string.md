@@ -15,7 +15,7 @@ ms.reviewer: mbullwin
 
 ## Overview
 
-Connection strings provides Application Insight users with a single configuration setting, eliminating the need for multiple proxy settings at the same time. Highly useful for intranet web servers, sovereign or hybrid cloud environments looking to send in data to the monitoring service.
+Connection strings provide Application Insight users with a single configuration setting, eliminating the need for multiple proxy settings at the same time. Highly useful for intranet web servers, sovereign or hybrid cloud environments looking to send in data to the monitoring service.
 
 The key value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights (AI) service/ product.
 
@@ -25,13 +25,13 @@ Customer scenarios where we visualize this having the most impact:
 
 1) Firewall exceptions or proxy redirects 
 
-In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration file. For more information see [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). We are now providing you with a better alternative.
-With connection strings we're reducing this effort to a one step process. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
+In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration file. For more information, see [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). We are now providing you with a better alternative.
+With connection strings, we're reducing this effort to a one-step process. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 2) Sovereign or Hybrid cloud environments
 
-In disconnected private environments users can now send data from Azure Insights to a defined Azure Government Region. This was previously documented [here](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig). 
-With connection strings, configuring the application insight config file allows you to define endpoint settings for both intranet servers (useful in on-prem configurations) or hybrid cloud settings ( useful in on-prem/off-prem environments). 
+In disconnected private environments, users can now send data from Azure Insights to a defined Azure Government Region. For more information, see [here](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig). 
+With connection strings, configuring the application insight config file allows you to define endpoint settings for both intranet servers (useful in on-prem configurations) or hybrid cloud settings (useful in on-prem/off-prem environments). 
 
 ## Getting Started
 
@@ -158,7 +158,7 @@ A connection string can be set by either in code, environment variable, or confi
 
 ### Best practices
 
-- We do not recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precidence. 
+- We do not recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
 - Most users will only need to set the Instrumentation Key in their connection string. 
 
 
@@ -202,7 +202,7 @@ NetCore config.json:
 ### Java SDK Example
 
 
-Java explicitly set:
+Java Explicitly Set:
 ```
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -219,7 +219,7 @@ ApplicationInsights.xml
 
 Important: Javascript does not support the use of Environment Variables.
 
-Using the snippit:
+Using the snippet:
 
 ```
 <script type="text/javascript">
@@ -232,7 +232,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ```
 
 
-Mannual Setup:
+Manual Setup:
 ```
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
@@ -254,7 +254,7 @@ appInsights.start();
 
 ### Python SDK Example
 
-It is recommended to set the environment variable.
+We recommend users set the environment variable.
 
 To explicitly set the connection string:
 
