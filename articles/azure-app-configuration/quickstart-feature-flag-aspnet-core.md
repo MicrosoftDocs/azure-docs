@@ -112,12 +112,6 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     You can access this secret with the App Configuration API. A colon (:) works in the configuration name with the App Configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    ```
-
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
     
     > [!IMPORTANT]

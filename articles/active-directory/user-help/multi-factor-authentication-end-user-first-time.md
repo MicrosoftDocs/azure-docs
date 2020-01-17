@@ -1,6 +1,6 @@
 ---
-title: Set up your two-factor verification methods overview - Azure Active Directory | Microsoft Docs
-description: Overview about how to set up your two-factor verification methods for two-factor verification.
+title: What is the Additional verification page? - Azure AD
+description: How to get to the Additional security verification page for two-factor verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,17 +9,19 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/12/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up your two-factor verification methods overview
+# What is the Additional verification page?
 
-Your organization has turned on two-factor verification, meaning that your work or school account sign-in now requires a combination of your username, your password, and a mobile device or phone. Your organization turned on this extra verification because it's more secure than just a password, relying on two forms of authentication: something you know and something you have with you. Two-factor verification can help to prevent malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
+You've gotten an email from someone in IT or your boss saying that the organization has added additional security verification to your account. So what does that mean? It means your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra verification, also known as two-factor verification, is done through a combination of your user name, your password, and a mobile device or phone.
+
+Two-factor verification is more secure than just a password because it relies on two forms of authentication: something you know, and something you have with you. The something you know is your password. The something you have with you is a phone or device that you commonly have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+>This article is intended for users trying to use two-factor verification with a work or school account (such as, alain@contoso.com). If you're an administrator looking for information about how to turn on two-factor verification for your employees or other users, see the [Azure Active Directory Authentication documentation](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## Who decides if you use this feature?
 
@@ -28,6 +30,9 @@ Depending on your account type, your organization might decide that you must use
 - **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. Because your organization has decided you must use this feature, there is no way for you to individually turn it off.
 
 - **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). If you're having problems with two-factor verification and your personal Microsoft account, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Because you choose whether to use this feature, you can turn it on and off whenever you want.
+
+    >[!Note]
+    >If you're having problems with two-factor verification and one of your personal Microsoft accounts (for example, danielle@outlook.com), you can try the suggestions on the [How to use two-step verification with your Microsoft account](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
 ## Access the Additional security verification page
 
