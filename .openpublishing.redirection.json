@@ -1757,6 +1757,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
+      "redirect_url": "/azure/cosmos-db/how-to-multi-master",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
       "redirect_document_id": false
@@ -14238,9 +14243,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
-      "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
-      "redirect_document_id": true
+        "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
+        "redirect_url": "/azure/machine-learning/tutorial-setup-vscode-extension",
+        "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/monitor-azure-machine-learning.md",
@@ -39782,8 +39787,28 @@
     },
     {
       "source_path": "articles/application-insights/app-insights-troubleshoot-faq.md",
-      "redirect_url": "/azure/azure-monitor/app/troubleshoot-faq",
+      "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/app/troubleshoot-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-usage-cohorts.md",
@@ -41085,6 +41110,11 @@
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
     },
+    {
+        "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
+        "redirect_document_id": true
+      },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -46548,6 +46578,11 @@
     {
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-azure-ad-graph.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": false
     },
     {

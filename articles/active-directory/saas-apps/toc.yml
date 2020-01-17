@@ -748,6 +748,8 @@
         href: jobscore-tutorial.md
       - name: join.me
         href: joinme-tutorial.md
+      - name: JOSA
+        href: josa-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
       - name: Juno Journey
@@ -1414,6 +1416,8 @@
         href: trakstar-tutorial.md
       - name: Trello
         href: trello-tutorial.md
+      - name: TripActions
+        href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
       - name: TurboRater
