@@ -33,9 +33,9 @@ The following table compares these two architecture options and can help you dec
 |**Automated branch connectivity using SDWAN**      |Not supported|Supported|
 |**Hubs per region**     |Multiple Virtual Networks per region|Single Virtual Hub per region. Multiple hubs possible with multiple Virtual WANs|
 |**Azure Firewall**     |Available|Public Preview|
-|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated To be available by GA.|
+|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated. To be available by GA.|
 |**Azure Firewall Availability Zones**     |Supported|Not available in preview. To be available by GA|
-|**Advanced internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice.|Automated via Trusted Security Partner flow and partner management experience.|
+|**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via Trusted Security Partner flow and partner management experience|
 |**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|
 |**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
 |**Network Virtual Appliance**|Supported in Virtual Network|Currently supported in spoke network|
