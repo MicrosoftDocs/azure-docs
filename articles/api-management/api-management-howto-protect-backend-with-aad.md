@@ -203,6 +203,9 @@ You can use the [Validate JWT](api-management-access-restriction-policies.md#Val
     </required-claims>
 </validate-jwt>
 ```
+> [!NOTE]
+> This `openid-config` URL corresponds to the v1 endpoint. For the v2 `openid-config`endpoint, use 
+> `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.
 
 ## Build an application to call the API
 

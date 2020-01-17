@@ -27,7 +27,7 @@ Here are some key features of Functions:
 * **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## What can I do with Functions?
-Functions is a great solution for processing data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices. Consider Functions for tasks like image or order processing, file maintenance, or for any tasks that you want to run on a schedule. 
+Functions is a great solution for processing data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices. Consider Functions for tasks like web APIs, image or order processing, file maintenance, or for any tasks that you want to run on a schedule. 
 
 Functions provides templates to get you started with key scenarios, including the following:
 
