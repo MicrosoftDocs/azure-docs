@@ -39,7 +39,7 @@ You can reference the below section to understand the relevant query optimizatio
 
 - [Queries with both a filter and an ORDER BY clause](#queries-with-both-a-filter-and-an-order-by-clause)
 
-- [Optimize JOIN expressions by using a subquery](#optimize-JOIN-expressions-by-using-a-subquery)
+- [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
@@ -57,11 +57,11 @@ You can reference the below section to understand the relevant query optimizatio
 
 - [Improve proximity](#improve-proximity)
 
-- [Increasing provisioned throughput](#increasing-provisioned-throughput)
+- [Increase provisioned throughput](#increase-provisioned-throughput)
 
-- [Increasing MaxConcurrency](#increasing-maxconcurrency)
+- [Increase MaxConcurrency](#increase-maxconcurrency)
 
-- [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+- [Increase MaxBufferedItemCount](#increase-maxbuffereditemcount)
 
 ## Queries where Retrieved Document Count exceeds Output Document Count
 
