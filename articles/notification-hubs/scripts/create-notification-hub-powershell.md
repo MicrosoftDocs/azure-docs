@@ -1,9 +1,9 @@
 ---
 title: PowerShell script: Create an Azure notification hub | Microsoft Docs
 description: Learn how to use PowerShell to create an Azure notification hub. 
-services: notification-hubs
 author: dimazaid
-manager: kpiteira
+manager: femila
+services: notification-hubs
 editor: sethmanheim
 
 ms.service: notification-hubs
@@ -11,8 +11,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 01/14/2020
 ms.author: dimazaid
+
 ---
 
 # Use PowerShell to create an Azure notification hub
