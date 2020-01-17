@@ -23,11 +23,11 @@ When using the Speech service with containers, rely on this collection of freque
 <b>How do Speech containers work and how do I set them up?</b>
 </summary>
 
-**Answer:** When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a big issue. If you are experiencing problems, it may be a hardware related issue - so we would first look at resource, i.e.; CPU and memory specifications.
+**Answer:** When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a large issue. If you are experiencing problems, it may be a hardware-related issue - so we would first look at resource, that is; CPU and memory specifications.
 
-Consider for a moment, the `ja-JP` container and latest model. The acoustic model is the most demanding piece CPU-wise, while language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2x cores). Meanwhile, the memory listed below is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For `ja-JP` that's an additional 2 GB; for `en-US`, it may be more (6-7 GB).
+Consider for a moment, the `ja-JP` container, and latest model. The acoustic model is the most demanding piece CPU-wise, while language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2x cores). Meanwhile, the memory listed below is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For `ja-JP` that's an additional 2 GB; for `en-US`, it may be more (6-7 GB).
 
-If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is completely full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.
+If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.
 
 Furthermore, we pre-package executables for machines with the [advanced vector extension (AVX2)](speech-container-howto.md#advanced-vector-extension-support) instruction set. A machine with the AVX512 instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:
 
@@ -42,26 +42,26 @@ Finally, you can set the number of decoders you want inside a *single* container
 
 <details>
 <summary>
-<b>How do I perform capacity planning & cost estimation of on-prem Speech containers?</b>
+<b>Could you help with capacity planning and cost estimation of on-prem Speech containers?</b>
 </summary>
 
-**Answer:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with 2 CPU cores, for a single recognition. We do not recommend keeping more than 2 concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
+**Answer:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with two CPU cores, for a single recognition. We do not recommend keeping more than two concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
 
-Though we could have each container instance running with more decoders. For example, we may be able to set up 10 decoders per container instance on an 8 core machine, to handle 20x. (there's a param `DECODER_MAX_COUNT`). For the extreme case, reliability and latency suffers, with throughput increased significantly. For a microphone, it will be at 1x real-time. The overall usage should be at about 1 core for a single recognition.
+Though we could have each container instance running with more decoders. For example, we may be able to set up 10 decoders per container instance on an eight core machine, to handle 20x. (there's a param `DECODER_MAX_COUNT`). For the extreme case, reliability and latency issues arise, with throughput increased significantly. For a microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
 
-For scenario of processing 1K hours/day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
+For scenario of processing 1 K hours/day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
 
-For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6GHz or better, with AVX2 instruction set enabled).
+For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6 GHz or better, with AVX2 instruction set enabled).
 
-| Instance | vCPU(s) | RAM | Temp storage | Pay-as-you-go with AHB | 1 year reserve with AHB (% Savings) | 3 year reserved with AHB (% Savings) |
+| Instance | vCPU(s) | RAM | Temp storage | Pay-as-you-go with AHB | 1-year reserve with AHB (% Savings) | 3-year reserved with AHB (% Savings) |
 |----------|---------|-----|--------------|------------------------|---|---|
 | `DS13 v2` | 8 | 56 GiB | 112 GiB | $0.598/hour | $0.3528/hour (~41%) | $0.2333/hour (~61%) |
 
-Based on the design reference (2 clusters of 5 VMs to handle 1K hours/day audio batch processing), 1-year hardware cost will be:
+Based on the design reference (two clusters of 5 VMs to handle 1 K hours/day audio batch processing), 1-year hardware cost will be:
 
 > 2 (clusters) * 5 (VMs per cluster) * $0.3528/hour * 365 (days) * 24 (hours) = $31K / year
 
-When mapping to physical machine, a general estimation is 1 vCPU = 1 Physical CPU Core. In reality, 1vCPU is actually more powerful than a single core.
+When mapping to physical machine, a general estimation is 1 vCPU = 1 Physical CPU Core. In reality, 1vCPU is more powerful than a single core.
 
 For on-prem, all of these additional factors come into play:
 
@@ -72,13 +72,13 @@ For on-prem, all of these additional factors come into play:
 - How memory is shared
 - The OS, etc.
 
-Normally it is not as well tuned as Azure the environment. Considering other overhead, I would say a safe estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have 8 cores. With on-prem deployment, the cost will be higher than using Azure VMs. This also depends on depreciation rate.
+Normally it is not as well tuned as Azure the environment. Considering other overhead, I would say a safe estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have eight cores. With on-prem deployment, the cost will be higher than using Azure VMs. Also, consider the depreciation rate.
 
 Service cost is the same as the online service: $1/hour for speech-to-text. The Speech service cost is:
 
 > $1 * 1000 * 365 = $365K
 
-Maintenance cost paid to Microsoft depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure cost (such as storage, network, load balancer) are not included.
+Maintenance cost paid to Microsoft depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure costs (such as storage, networks, and load balancers) are not included.
 </details>
 
 <details>
@@ -139,9 +139,9 @@ Failed to fetch manifest: Status: 400 Bad Request Body:
 }
 ```
 
-**Answer 1:** If you're training with the latest custom model, we currently don't support that. If you train with an older version it should be possible to use. We are still working on supporting the latest versions.
+**Answer 1:** If you're training with the latest custom model, we currently don't support that. If you train with an older version, it should be possible to use. We are still working on supporting the latest versions.
 
-Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models not being encrypted and we don't want to expose ONNX models, however; language models are fine. The customer will need to explicitly select an older non-ONNX model for custom training. Accuracy will not be affected. The model size may be larger (by 100MB).
+Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models not being encrypted and we don't want to expose ONNX models, however; language models are fine. The customer will need to explicitly select an older non-ONNX model for custom training. Accuracy will not be affected. The model size may be larger (by 100 MB).
 
 > Support model > 20190220 (v4.5 Unified)
 
@@ -195,11 +195,16 @@ For more information on environment setup, see [Python platform setup](quickstar
 
 <details>
 <summary>
-<b>Why am I getting errors when attempting calls to LUIS prediction endpoints?</b>
+<b>Why am I getting errors when attempting to call LUIS prediction endpoints?</b>
 </summary>
 
 I am using the LUIS container in an IoT Edge deployment and am attempting to call the LUIS prediction endpoint from another container. The LUIS container is listening on port 5001, and the URL I'm using is this:
-var config = SpeechConfig.FromEndpoint(new Uri($"ws://192.168.1.91:5001/luis/prediction/v3.0/apps/{luisAppId}/slots/production/predict"));
+
+```csharp
+var luisEndpoint =
+    $"ws://192.168.1.91:5001/luis/prediction/v3.0/apps/{luisAppId}/slots/production/predict";
+var config = SpeechConfig.FromEndpoint(new Uri(luisEndpoint));
+```
 
 The error I'm getting is:
 
@@ -213,14 +218,14 @@ I see the request in the LUIS container logs and the message says:
 The request path /luis//predict" does not match a supported file type.
 ```
 
-What does this mean? What am I missing? I was following the example for the Speech SDK, from [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk). The scenario is that we are detecting the audio directly from the PC microphone and trying to determine the intent, based on the LUIS app we trained. The example I linked to does exactly that. And it works very well with the LUIS cloud-based service. Using the Speech SDK seemed to save us from having to make a separate explicit call to the speech-to-text API and then a second call to LUIS.
+What does this mean? What am I missing? I was following the example for the Speech SDK, from [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk). The scenario is that we are detecting the audio directly from the PC microphone and trying to determine the intent, based on the LUIS app we trained. The example I linked to does exactly that. And it works well with the LUIS cloud-based service. Using the Speech SDK seemed to save us from having to make a separate explicit call to the speech-to-text API and then a second call to LUIS.
 
 So, all I am attempting to do is switch from the scenario of using LUIS in the cloud to using the LUIS container. I can't imagine if the Speech SDK works for one, it won't work for the other.
 
 **Answer:**
 The Speech SDK should not be used against a LUIS container. For using the LUIS container, the LUIS SDK or LUIS REST API should be used. Speech SDK should be used against a speech container.
 
-A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - 2 separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers prem, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
+A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - Two separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text-based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers' premises, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
 </details>
 
 <details>
@@ -247,10 +252,10 @@ WebSocket
 }
 ```
 
-We know the websocket is setup correctly.
+We know the websocket is set up correctly.
 
 **Answer:**
-If that is the case then see [this GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). We have a work around, [proposed here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722).
+If that is the case, then see [this GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). We have a work-around, [proposed here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722).
 
 Carbon fixed this at version 1.8.
 
@@ -261,59 +266,101 @@ Carbon fixed this at version 1.8.
 <b>What are the differences in the Speech container endpoints?</b>
 </summary>
 
-Could you help fill the following test metrics, including what functions to test, and how to test (SDK/REST)?
-Esp. "interactive" & "conversation" which I did not see from existing doc/sample.
+Could you help fill the following test metrics, including what functions to test, and how to test the SDK and REST APIs? Especially, differences in "interactive" and "conversation", which I did not see from existing doc/sample.
 
-Endpoints	Functions to Test	SDK	REST API
-/speech/synthesize/cognitiveservices/v1
-Synthesize Text (text-to-speech)			Y
-/speech/recognition/dictation/cognitiveservices/v1
-The cognitive services on-prem dictation v1 websocket endpoint		Y	N
-/speech/recognition/interactive/cognitiveservices/v1
-The cognitive services on-prem interactive v1 websocket endpoint			
-/speech/recognition/conversation/cognitiveservices/v1
-The cognitive services on-prem conversation v1 websocket endpoint			
+| Endpoint | Functional test | SDK | REST API |
+|----------|-----------------|-----|----------|
+| `/speech/synthesize/cognitiveservices/v1` | Synthesize Text (text-to-speech) | | Yes |
+| `/speech/recognition/dictation/cognitiveservices/v1` | Cognitive Services on-prem dictation v1 websocket endpoint | Yes | No |
+| `/speech/recognition/interactive/cognitiveservices/v1` | The Cognitive Services on-prem interactive v1 websocket endpoint | | |
+| `/speech/recognition/conversation/cognitiveservices/v1` | The cognitive services on-prem conversation v1 websocket endpoint | | |
 
 **Answer:**
-This is a horrible fusion of:
-- People trying the dictation endpoint for containers. (I'm not sure how they got that URL)
-- The 1st party endpoint being the one in a container.
-- The 1st party endpoint returning speech.fragment messages instead of the speech.hypothesis messages the 3rd part endpoints return for the dictation endpoint.
-- The Carbon quickstarts all use RecognizeOnce (Interactive mode)
-- Carbon having an Assert that for speech.fragment messages requiring they aren't returned in Interactive Mode.
-- Carbon having the Asserts fire in Release builds (killing the process)
+This is a fusion of:
+- People trying the dictation endpoint for containers, (I'm not sure how they got that URL)
+- The 1<sup>st</sup> party endpoint being the one in a container.
+- The 1<sup>st</sup> party endpoint returning speech.fragment messages instead of the `speech.hypothesis` messages the 3<sup>rd</sup> part endpoints return for the dictation endpoint.
+- The Carbon quickstarts all use `RecognizeOnce` (interactive mode)
+- Carbon having an assert that for `speech.fragment` messages requiring they aren't returned in interactive mode.
+- Carbon having the asserts fire in release builds (killing the process).
 
 The workaround is either switch to using continuous recognition in your code, or (quicker) connect to either the interactive or continuous endpoints in the container.
 For your code, set the endpoint to <host:port>/speech/recognition/interactive/cognitiveservices/v1
 
-Interactive: 
+###### Interactive
 - Meant for command and control scenarios.
-- Has a segmentation timeout value of X.
+- Has a segmentation time out value of X.
 - At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
 - Maximum limit for recognition is 20s.
-- Typical Carbon call to invoke is "RecognizeOnceAsync()"
+- Typical Carbon call to invoke is `RecognizeOnceAsync`.
 
-Conversation:
+###### Conversation
 - Meant for longer running recognitions.
-- Has a segmentation timeout value of Y. (Y != X)
+- Has a segmentation time out value of Y. (Y != X)
 - Will process multiple complete utterances without ending the turn.
 - Will end the turn for too much silence.
 - Carbon will continue with a new request ID and replaying audio as needed.
 - The service will forcibly disconnect after 10 minutes of speech recognition.
 - Carbon will reconnect and replay unacknowledged audio.
-- Invoked in Carbon with "StartContinuousRecognition()"
+- Invoked in Carbon with `StartContinuousRecognition`.
 
-Dictation: 
+###### Dictation
 - Allows users to specify punctuation by speaking it.
-- Invoked in Carbon by specifying "EnableDictation()" on the SpeechConfig object regardless of the API call that starts recognition.
-- The 1st party cluster returns speech.fragment messages for intermediate results, the 3rd party return speech.hypothesis messages.
+- Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
+- The 1<sup>st</sub> party cluster returns `speech.fragment` messages for intermediate results, the 3<sup>rd</sub> party return `speech.hypothesis` messages.
 
 The proper fix is coming with SDK 1.8, which has on-prem support (will pick the right endpoint, so we will be no worse than online service). In the meantime, there is a sample for continuous recognition, why don't we point to it?
 
 https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d9e95c9137fe129bc5d81e35f6309/samples/python/console/speech_sample.py#L196
-
-I've already mentioned to Rob that we need to support RecognizeAll(), which is a call Google supports for these types of scenarios (recognition from file).
 </details>
+
+<details>
+<summary>
+<b>Which mode should I use for various audio files?</b>
+</summary>
+
+**Answer:** Here's a [quickstart using Python](speech-to-text-from-microphone.md?pivots=programming-language-python). You can find the other languages linked on the docs site.
+
+Just to clarify for the interactive, conversation, and dictation; this is an advanced way of specifying the particular way in which our service will handle the speech request. Unfortunately, for the on-prem containers we have to specify the full URI (since it includes local machine), so this information leaked from the abstraction. We are working with the SDK team to make this more usable in the future.
+</details>
+
+<details>
+<summary>
+<b>How can we benchmark a rough measure of transactions/second/core?</b>
+</summary>
+
+**Answer:** Here are some of the rough numbers to expect from existing model (will change for the better in the one we will ship in GA):
+
+- For files, the throttling will be in the speech SDK, at 2x. First five seconds of audio are not throttled. Decoder is capable of doing about 3x real time. For this, the overall CPU usage will be close to 2 cores for a single recognition.
+- For mic, it will be at 1x real time. The overall usage should be at about 1 core for a single recognition.
+
+This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
+
+</details>
+
+<details>
+<summary>
+<b>Is it common to split audio files into chucks for Speech container usage?</b>
+</summary>
+
+My current plan is to take an existing audio file and split it up into 10 second chunks and send those through the container. Is that an acceptable scenario?  Is there a better way to process larger audio files with the container?
+
+**Answer:** Just use the speech SDK and give it the file, it will do the right thing. Why do you need to chunk the file?
+
+</details>
+
+<details>
+<summary>
+<b>How do I make multiple containers run on the same host?</b>
+</summary>
+
+The doc says to expose a different port, which I do, but the LUIS container is still listening on port 5000?
+
+**Answer:** Try `-p <outside_unique_port>:5000`. For example, `-p 5001:5000`.
+
+</details>
+
+## Technical questions
 
 <details>
 <summary>
@@ -326,38 +373,13 @@ I've already mentioned to Rob that we need to support RecognizeAll(), which is a
 
 <details>
 <summary>
-<b>Few more applicative/proper use questions</b>
-</summary>
-
-1. API to use, we have wav files at various lengths, spanning from few seconds to dozens of seconds, should we use - Interactive/conversation/dictation for such type?
-2. should we use : StartContinuousRecognitionAsync or RecognizeOnceAsync ?
-in our tests we used: StartContinuousRecognitionAsync & conversation
-
-**Answer:** Here's a quickstart using Python. You can find the other languages linked on the docs site:
-
-https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python
-
-Just to clarify for the interactive/conversation/dictation: this is an advanced way of specifying the particular way in which our service will handle the speech request. Unfortunately, for the on-prem containers we have to specify the full URI (since it includes local machine), so this information leaked from the abstraction. We are working with the SDK team to make this more usable in the future.
-Q: we are trying to help the team capacity plan for hardware by benchmarking a rough measure of transactions/second/core.
-
-**Answer:** Here are some of the rough numbers to expect from existing model (will change for the better in the one we will ship in GA):
-
-- For files, the throttling will be in the speech SDK, at 2x. First 5s of audio are not throttled. Decoder is capable of doing about 3x real-time. For this, the overall CPU usage will be close to 2 cores for a single reco.
-- For mic, it will be at 1x real-time. The overall usage should be at about 1 core for a single reco.
-
-This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
-
-</details>
-
-<details>
-<summary>
 <b>What are the recommended resources, CPU and RAM; for 50 concurrent requests?</b>
 </summary>
 
 How many concurrent requests will a 4 core, 4 GB RAM handle? If we have to serve for example, 50 concurrent requests, how many Core and RAM is recommended?
 
 **Answer:** 
-At real-time, 8 with our latest `en-US`, so we recommend using more docker containers beyond 6 concurrent requests. It gets crazier beyond 16 cores, and it becomes non-uniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
+At real time, 8 with our latest `en-US`, so we recommend using more docker containers beyond 6 concurrent requests. It gets crazier beyond 16 cores, and it becomes non-uniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
 
 # [Speech-to-text](#tab/stt)
 
@@ -385,44 +407,24 @@ At real-time, 8 with our latest `en-US`, so we recommend using more docker conta
 
 ***
 
-- Each core must be at least 2.6 gigahertz (GHz) or faster.
+- Each core must be at least 2.6 GHz or faster.
 - For files, the throttling will be in the Speech SDK, at 2x (first 5 seconds of audio are not throttled).
-- The decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage will be close to 2 cores for a single recognition. That's why we do not recommend keeping more than 2 active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real-time in an 8 core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
-- For microphone, it will be at 1x real-time. The overall usage should be at about 1 core for a single recognition.
+- The decoder is capable of doing about 2-3x real time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real time in an eight core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
+- For microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
 
-Consider the total number of hours of audio you have. If the number is big, to improve reliability/availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
+Consider the total number of hours of audio you have. If the number is large, to improve reliability/availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
 
 As an example, to handle 1000 hours/24 hours, we have tried setting up 3-4 VMs, with 10 instances/decoders per VM.
 </details>
 
 <details>
 <summary>
-<b>My current plan is to take an existing audio file and split it up into 10 second chunks and send those through the container. Is that an acceptable scenario?  Is there a better way to process larger audio files with the container?</b>
-</summary>
-
-**Answer:** Just use the speech SDK and give it the file, it will do the right thing. Why do you need to chunk the file?
-
-</details>
-
-<details>
-<summary>
-<b>How do I make multiple containers run on the same host? The doc says to expose a different port, which I do, but luis container when deployed is still listening on 5000?</b>
-</summary>
-
-**Answer:** Try `-p <outside_unique_port>:5000`. For example, `-p 5001:5000`.
-
-</details>
-
-## Technical questions
-
-<details>
-<summary>
 <b>Does the Speech container support punctuation?</b>
 </summary>
 
-**Answer:** We have capitalization (ITN) available in the on-prem container. Punctuation is language dependent, and not supported for some languages, including Chinese and Japanese.
+**Answer:** We have capitalization (ITN) available in the on-prem container. Punctuation is language-dependent, and not supported for some languages, including Chinese and Japanese.
 
-We *do* have implicit and basic punctuation support for the existing containers, but it is `off` by default. What that means is that you can get the `.` character in your example, but not the `。` character. To enable this implicit logic, here's an example of how to do so in Python using our Speech SDK (it would be very similar in other languages):
+We *do* have implicit and basic punctuation support for the existing containers, but it is `off` by default. What that means is that you can get the `.` character in your example, but not the `。` character. To enable this implicit logic, here's an example of how to do so in Python using our Speech SDK (it would be similar in other languages):
 
 ```python
 speech_config.set_service_property(
@@ -458,7 +460,7 @@ Server: Kestrel
 Content-Length: 0
 ```
 
-**Answer:** We do not support REST API in either speech-to-text container, we only support websockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
+**Answer:** We do not support REST API in either speech-to-text container, we only support WebSockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 </details>
 
 <details>
@@ -525,14 +527,14 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 
 ###### Interactive
 - Meant for command and control scenarios.
-- Has a segmentation timeout value of X.
+- Has a segmentation time out value of X.
 - At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
 - Maximum limit for recognition is 20s.
 - Typical Carbon call to invoke is `RecognizeOnceAsync`.
 
 ###### Conversation
 - Meant for longer running recognitions.
-- Has a segmentation timeout value of Y. (Y != X)
+- Has a segmentation time out value of Y. (Y != X)
 - Will process multiple complete utterances without ending the turn.
 - Will end the turn for too much silence.
 - Carbon will continue with a new request ID and replaying audio as needed.
@@ -543,16 +545,16 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ###### Dictation
 - Allows users to specify punctuation by speaking it.
 - Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
-- The 1st party cluster returns `speech.fragment` messages for intermediate results, the 3rd party return `speech.hypothesis` messages.
+- The 1<sup>st</sub> party cluster returns `speech.fragment` messages for intermediate results, the 3<sup>rd</sub> party return `speech.hypothesis` messages.
 
-They are for different purposed and are used differently.
+They are for different purposes and are used differently.
 
 Python [samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py):
-- For single recognition (interactive mode) with a custom endpoint (i.e.; `SpeechConfig` with an endpoint parameter), see `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
+- For single recognition (interactive mode) with a custom endpoint (that is; `SpeechConfig` with an endpoint parameter), see `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
 - For continuous recognition (conversation mode), and just modify to use a custom endpoint as above, see `speech_recognize_continuous_from_file()`.
 - To enable dictation in samples like above (only if you really need it), right after you create `speech_config`, add code `speech_config.enable_dictation()`.
 
-For refs to C#, to enable dictation `SpeechConfig.EnableDictation()`.
+In C# to enable dictation, invoke the `SpeechConfig.EnableDictation()` function.
 
 ##### Endpoint API descriptions
 | Language | API details |
