@@ -14,7 +14,7 @@ ms.author: dapine
 
 # Speech service containers frequently asked questions (FAQ)
 
-When using the Speech service with containers, rely on this collection of frequently asked questions before escalating to support. This article captures general and technical questions. To expand an answer, click on the question.
+When using the Speech service with containers, rely on this collection of frequently asked questions before escalating to support. This article captures questions varying degree, from general to technical. To expand an answer, click on the question.
 
 ## General questions
 
@@ -25,7 +25,7 @@ When using the Speech service with containers, rely on this collection of freque
 
 **Answer:** When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a large issue. If you are experiencing problems, it may be a hardware-related issue - so we would first look at resource, that is; CPU and memory specifications.
 
-Consider for a moment, the `ja-JP` container, and latest model. The acoustic model is the most demanding piece CPU-wise, while language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2x cores). Meanwhile, the memory listed below is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For `ja-JP` that's an additional 2 GB; for `en-US`, it may be more (6-7 GB).
+Consider for a moment, the `ja-JP` container and latest model. The acoustic model is the most demanding piece CPU-wise, while the language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2x cores). Meanwhile, the memory listed below is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For `ja-JP` that's an additional 2 GB; for `en-US`, it may be more (6-7 GB).
 
 If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.
 
@@ -319,7 +319,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>Which mode should I use for various audio files?</b>
 </summary>
 
-**Answer:** Here's a [quickstart using Python](speech-to-text-from-microphone.md?pivots=programming-language-python). You can find the other languages linked on the docs site.
+**Answer:** Here's a [quickstart using Python](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python). You can find the other languages linked on the docs site.
 
 Just to clarify for the interactive, conversation, and dictation; this is an advanced way of specifying the particular way in which our service will handle the speech request. Unfortunately, for the on-prem containers we have to specify the full URI (since it includes local machine), so this information leaked from the abstraction. We are working with the SDK team to make this more usable in the future.
 </details>
@@ -605,4 +605,4 @@ speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cognitive Services containers](speech-containers-howto.md)
+> [Cognitive Services containers](speech-container-howto.md)
