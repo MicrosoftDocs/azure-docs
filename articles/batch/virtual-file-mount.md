@@ -85,9 +85,6 @@ Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/stor
 
 In addition to the troubleshooting guide, GitHub issues in the blobfuse repository are a helpful way to check on current blobfuse issues and resolutions. For more information, see [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
 
-> [!NOTE]
-> Blobfuse is not currently supported on Debian. See [Supported SKUs](#supported-skus) for more information.
-
 ```csharp
 new PoolAddParameter
 {
