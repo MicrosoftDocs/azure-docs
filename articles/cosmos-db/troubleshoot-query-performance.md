@@ -33,13 +33,11 @@ You can reference the below section to understand the relevant query optimizatio
 
 #### Retrieved Document Count is significantly greater than Output Document Count
 
-- [Ensure that the indexing policy includes necessary paths](#ensure-that-the-indexing-policy-includes-necessary-paths)
+- [Include necessary paths in the indexing policy](#include-necessary-paths-in-the-indexing-policy)
 
 - [Understand which system functions utilize the index](#understand-which-system-functions-utilize-the-index)
 
-- [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
-
-- [Optimize queries that use DISTINCT](#optimize-queries-that-use-distinct)
+- [Queries with both a filter and an ORDER BY clause](#queries-with-both-a-filter-and-an-order-by-clause)
 
 - [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
 
@@ -49,23 +47,23 @@ You can reference the below section to understand the relevant query optimizatio
 
 - [Avoid cross partition queries](#avoid-cross-partition-queries)
 
-- [Optimize queries that have a filter on multiple properties](#optimize-queries-that-have-a-filter-on-multiple-properties)
+- [Filters on multiple properties](#filters-on-multiple-properties)
 
-- [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [Queries with both a filter and an ORDER BY clause](#queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### Query's RU charge is acceptable but latency is still too high
 
-- [Improving proximity between your app and Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+- [Improve proximity](#improve-proximity)
 
-- [Increasing provisioned throughput](#increasing-provisioned-throughput)
+- [Increase provisioned throughput](#increase-provisioned-throughput)
 
-- [Increasing MaxConcurrency](#increasing-maxconcurrency)
+- [Increase MaxConcurrency](#increase-maxconcurrency)
 
-- [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+- [Increase MaxBufferedItemCount](#increase-maxbuffereditemcount)
 
-## Optimizations for queries where Retrieved Document Count significantly exceeds Output Document Count:
+## Queries where Retrieved Document Count exceeds Output Document Count
 
  The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
 
@@ -107,7 +105,7 @@ Client Side Metrics
 
 Retrieved Document Count (60,951) is significantly greater than Output Document Count (7) so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) does not utilize the index.
 
-## Ensure that the indexing policy includes necessary paths
+## Include necessary paths in the indexing policy
 
 Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most System Functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
 
@@ -185,7 +183,7 @@ Some common system functions that do not use the index and must load each docume
 
 Other parts of the query may still utilize the index despite the system functions not using the index.
 
-## Optimize queries with both a filter and an ORDER BY clause
+## Queries with both a filter and an ORDER BY clause
 
 While queries with a filter and an `ORDER BY` clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the `ORDER BY` clause. This query modification will ensure that it utilizes the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
@@ -255,33 +253,6 @@ Updated indexing policy:
 
 **RU Charge:** 8.86 RU's
 
-## Optimize queries that use DISTINCT
-
-It will be more efficient to find the `DISTINCT` set of results if the duplicate results are consecutive. Adding an `ORDER BY` clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to `ORDER BY` multiple properties, add a composite index. You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
-
-### Original
-
-Query:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c
-```
-
-**RU Charge:** 32.39 RU's
-
-### Optimized
-
-Updated query:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c 
-ORDER BY c.foodGroup
-```
-
-**RU Charge:** 3.38 RU's
-
 ## Optimize JOIN expressions by using a subquery
 Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause.
 
@@ -317,7 +288,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
-## Optimizations for queries where Retrieved Document Count is approximately equal to Output Document Count:
+## Queries where Retrieved Document Count is equal to Output Document Count
 
 If the Retrieved Document Count is approximately equal to the Output Document Count, it means the query did not have to scan many unnecessary documents. For many queries, such as those that use the TOP keyword, Retrieved Document Count may exceed Output Document Count by 1. This should not be cause for concern.
 
@@ -353,7 +324,7 @@ SELECT * FROM c
 WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
-## Optimize queries that have a filter on multiple properties
+## Filters on multiple properties
 
 While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data, this optimization will not have a significant impact. It may prove useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](index-policy.md#composite-indexes)
 
@@ -396,23 +367,23 @@ Here is the relevant composite index:
 }
 ```
 
-## Common optimizations that reduce query latency (no impact on RU charge):
+## Optimizations that reduce query latency:
 
 In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. However, query latency may vary between query executions.
 
-## Improving proximity between your app and Azure Cosmos DB
+## Improve proximity
 
 Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
 
-## Increasing provisioned throughput
+## Increase provisioned throughput
 
 In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
 
-## Increasing MaxConcurrency
+## Increase MaxConcurrency
 
 Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjusting the MaxConcurrency to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
-## Increasing MaxBufferedItemCount
+## Increase MaxBufferedItemCount
 
 Queries are designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching. Setting this value to -1 allows the system to automatically decide the number of items to buffer.
 
