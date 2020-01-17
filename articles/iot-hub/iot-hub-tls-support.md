@@ -14,7 +14,7 @@
 
 IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devices and services. Three versions of the TLS protocol are currently supported, namely versions 1.0, 1.1, and 1.2.
 
-TLS 1.0 and 1.1 are considered legacy and are [planned for deprecation](./tls-1.2-everywhere.md). It is therefore strongly recommended to use TLS 1.2 as the preferred TLS version when connecting to IoT Hub.
+TLS 1.0 and 1.1 are considered legacy and are [planned for deprecation](iot-hub-deprecating-tls-1-0-and-1-1.md). It is therefore strongly recommended to use TLS 1.2 as the preferred TLS version when connecting to IoT Hub.
 
 ## Restrict connections to TLS 1.2 in your IoT Hub resource
 
