@@ -4,8 +4,6 @@
   items:
   - name: What is Load Balancer?
     href: load-balancer-overview.md
-  - name: What is Standard Load Balancer?
-    href: load-balancer-standard-overview.md
 - name: Quickstart
   items:
   - name: Create Standard Load Balancer
