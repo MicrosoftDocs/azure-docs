@@ -167,17 +167,38 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Comparison expressions
 
-|Command  |Supported |
-|---------|---------|
-|$cmp     |  Yes       |
-|$eq|	Yes|
-|$gt |	Yes|
-|$gte|	Yes|
-|$lt	|Yes|
-|$lte|	Yes|
-|$ne	|	Yes|
-|$in	|	Yes|
-|$nin	|	Yes|
+Consider this sample document used in the examples below:
+
+```json
+{
+  "Volcano Name": "Rainier",
+  "Country": "United States",
+  "Region": "US-Washington",
+  "Location": {
+    "type": "Point",
+    "coordinates": [
+      -121.758,
+      46.87
+    ]
+  },
+  "Elevation": 4392,
+  "Type": "Stratovolcano",
+  "Status": "Dendrochronology",
+  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+}
+```
+
+|Command  |Supported | Example|
+|---------|---------|---------|
+|$cmp     |  Yes       | |
+|$eq|	Yes| `{ "Volcano Name": { $eq: "Rainier" } }` |
+|$gt |	Yes| `{ "Elevation": { $gt: 4000 } }` |
+|$gte|	Yes| `{ "Elevation": { $gte: 4392 } }` |
+|$lt	|Yes| `{ "Elevation": { $lt: 5000 } }` 
+|$lte|	Yes| `{ "Elevation": { $lte: 5000 } }` |
+|$ne	|	Yes| `{ "Elevation": { $ne: 1 } }` |
+|$in	|	Yes| `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |
+|$nin	|	Yes| `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` |
 
 ### Arithmetic expressions
 
@@ -373,7 +394,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ## Operators
 
-Following operators are supported with corresponding examples of their use. Consider this sample document used in the queries below:
+Consider this sample document used in the examples below:
 
 ```json
 {
@@ -394,51 +415,32 @@ Following operators are supported with corresponding examples of their use. Cons
 }
 ```
 
-Operator | Example |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
-
 ### Logical operators
 
-|Command  |Supported |
-|---------|---------|
-|$or	|	Yes|
-|$and	|	Yes|
-|$not	|	Yes|
-|$nor	|	Yes|
+|Command  |Supported |Example |
+|---------|---------|---------|
+|$or	|	Yes|`{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+|$and	|	Yes|`{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+|$not	|	Yes|`{ "Elevation": { $not: { $gt: 5000 } } }`| 
+|$nor	|	Yes| `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |
 
 ### Element Operators
 
-|Command  |Supported |
-|---------|---------|
-|$exists|	Yes|
-|$type	|	Yes|
+|Command  |Supported |Example |
+|---------|---------|---------|
+|$exists|	Yes|`{ "Status": { $exists: true } }`|
+|$type	|	Yes|`{ "Status": { $type: "string" } }`| 
 
 ### Evaluation query operators
 
-|Command  |Supported |Notes|
+|Command  |Supported |Example|
 |---------|---------|---------|
-|$expr	|	No|
-|$jsonSchema	|	No|
-|$mod	|	Yes|
-|$regex |	Yes|
-|$text	| No| Not supported. Use $regex instead.|
-|$where	|No|
+|$expr	|	No||
+|$jsonSchema	|	No||
+|$mod	|	Yes|`{ "Elevation": { $mod: [ 4, 0 ] } }` |
+|$regex |	Yes|`{ "Volcano Name": { $regex: "^Rain"} }`|
+|$text	| No (Not supported. Use $regex instead.)| |
+|$where	|No| |
 
 ### Array operators
 
@@ -500,6 +502,7 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 |$pullAll|	Yes|
 |$pull	|Yes|
 |$push	|Yes|
+|$pushAll| Yes|
 
 
 #### Update modifiers
@@ -516,6 +519,10 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 |Command  |Supported |
 |---------|---------|
 | $bit	|	Yes|	
+|$bitsAllSet	|	No|
+|$bitsAnySet	|	No|
+|$bitsAllClear	|No|
+|$bitsAnyClear	|No|
 
 ### Geospatial operators
 
