@@ -40,6 +40,7 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 * Internet-facing load balancers
 * VPN gateways
 * Application gateways
+* Azure Firewall
 
 ### IP address version
 

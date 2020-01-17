@@ -175,7 +175,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 ```csharp
 IFeatureManager featureManager;
 ...
-if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 {
     // Run the following code
 }
@@ -252,7 +252,7 @@ The feature `<feature>` tag can also be used to show content if any or all featu
 
 ## MVC filters
 
-You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled.
+You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled. This capability is limited to `IAsyncActionFilter`. 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -265,16 +265,6 @@ public void ConfigureServices(IServiceCollection services)
         options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
     });
 }
-```
-
-## Routes
-
-You can use feature flags to dynamically expose routes. The following code adds a route, which sets `Beta` as the default controller only when `FeatureA` is enabled:
-
-```csharp
-app.UseMvc(routes => {
-    routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault", "{controller=Beta}/{action=Index}/{id?}");
-});
 ```
 
 ## Middleware
