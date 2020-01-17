@@ -46581,12 +46581,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/load-balancer/load-balancer-arm.md",
+      "source_path": "articles/load-balancer/load-balancer-standard-overview.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/load-balancer/load-balancer-standard-overview.md",
+      "source_path": "articles/load-balancer/load-balancer-arm.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
     }
