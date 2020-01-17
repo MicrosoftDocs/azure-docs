@@ -4,8 +4,8 @@ description: Get page view and session counts, web client data, Single Page Appl
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
 
 ---
