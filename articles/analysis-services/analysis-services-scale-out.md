@@ -4,7 +4,7 @@ description: Replicate Azure Analysis Services servers with scale-out. Client qu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -42,6 +42,26 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 * When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell command that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool. To determine if a model database exists on replicas in the query pool but not on the primary server, ensure the **Separate the processing server from querying pool** setting is to **Yes**. Then use SSMS to connect to the primary server using the `:rw` qualifier to see if the database exists. Then connect to replicas in the query pool by connecting without the `:rw` qualifier to see if the same database also exists. If the database exists on replicas in the query pool but not on the primary server, run a sync operation.   
 
 * When renaming a database on the primary server, there's an additional step necessary to ensure the database is properly synchronized to any replicas. After renaming, perform a synchronization by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) command specifying the `-Database` parameter with the old database name. This synchronization removes the database and files with the old name from any replicas. Then perform another synchronization specifying the `-Database` parameter with the new database name. The second synchronization copies the newly named database to the second set of files and hydrates any replicas. These synchronizations cannot be performed by using the Synchronize model command in the portal.
+
+### Synhronization mode
+
+By default, query replicas are re-hydrated in full, not incrementally. Re-hydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
+
+- Significant reduction in synchronization time. 
+- Data across replicas are more likely to be consistent during the synchronization process. 
+- Because databases are kept online on all replicas throughout the synchronization process, clients do not need to reconnect. 
+- The in-memory cache is updated incrementally with only the changed data, which can be faster than fully re-hydrating the model. 
+
+#### Setting ReplicaSyncMode
+
+Use SSMS to set ReplicaSyncMode in Advanced Properties. The possible values are: 
+
+- `1` (default): Full replica database rehydration in stages (incremental). 
+- `2`: Optimized synchronization in parallel. 
+
+![RelicaSyncMode setting](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+
+When setting **ReplicaSyncMode=2**, depending on how much of the cache needs to be updated, additional memory may be consumed by the query replicas. To keep the database online and available for queries, depending on how much of the data has changed, the operation can require up to *double the memory* on the replica because both the old and new segments are kept in memory simultaneously. Replica nodes have the same memory allocation as the primary node, and there is normally extra memory on the primary node for refresh operations, so it may be unlikely that the replicas would run out of memory. Additionally, the common scenario is that the database is incrementally updated on the primary node, and therefore the requirement for double the memory should be uncommon. If the Sync operation does encounter an out of memory error, it will retry using the default technique (attach/detach two at a time). 
 
 ### Separate processing from query pool
 
