@@ -109,7 +109,7 @@ When Master Azure Kinect Device is started, the synchronized image from both of 
 Interference happens when the depth sensors ToF lasers are on at the same time as another depth camera.
 To avoid it, cameras that have overlapping areas of interest need to have their timing shifted by the "laser on time" so they are not on at the same time.  For each capture, the laser turns on nine times and is active for only 125us and is then idle for 1450us or 2390us depending on the mode of operation. As a result, depth cameras need their "laser on time" shifted by a minimum of 125us and that on time needs to fall into the idle time of the other depth sensors in use. 
 
-Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. It allows nine more depth camera's to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
+Due to the differences in the clock used by the firmware and the clock used by the camera, 125us cannot be used directly. Instead the software setting required to ensure sure there is no camera interference is 160us. It allows nine more depth cameras to be scheduled into the 1450us of idle time of NFOV. The exact timing changes based on the depth mode you are using.
 
 Using the [depth sensor raw timing table](hardware-specification.md) the exposure time can be calculated as:
 
@@ -118,12 +118,12 @@ Using the [depth sensor raw timing table](hardware-specification.md) the exposur
 
 ## Triggering with custom source
 
-A custom sync source can be used to replace the master Azure Kinect DK. It is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5 mm jack.
+A custom sync source can be used to replace the master Azure Kinect DK. It is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5-mm jack.
 
 - The SYNC signals are active high and pulse width should be greater than 8us.
 - Frequency support must be precisely 30 fps, 15 fps, and 5 fps, the frequency of color camera's master VSYNC signal.
 - SYNC signal from the board should be 5 V TTL/CMOS with maximum driving capacity no less than 8 mA.
-- All styles of 3.5 mm jack can be used with Kinect DK, including "mono", that is not pictured. All sleeves and rings are shorted together inside Kinect DK and they are connected to ground of the master Azure Kinect DK. The tip is the sync signal.
+- All styles of 3.5-mm jack can be used with Kinect DK, including "mono", that is not pictured. All sleeves and rings are shorted together inside Kinect DK and they are connected to ground of the master Azure Kinect DK. The tip is the sync signal.
 
 ![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
 
