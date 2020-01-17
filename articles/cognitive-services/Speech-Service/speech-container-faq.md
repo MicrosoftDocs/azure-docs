@@ -20,7 +20,7 @@ When using the Speech service with containers, rely on this collection of freque
 
 <details>
 <summary>
-<b>Q: How do containers work and what is the best way to set them up?</b>
+<b>How do containers work and what is the best way to set them up?</b>
 </summary>
 
 **A:** When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a big issue. If you are experiencing problems, it may be a hardware related issue - so we would first look at resource, i.e.; CPU and memory specifications.
@@ -40,7 +40,10 @@ Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 Finally, you can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
 </details>
 
-**Q: Capacity planning & cost estimation of on-prem Speech container solution?**
+<details>
+<summary>
+<b>Capacity planning & cost estimation of on-prem Speech container solution?</b>
+</summary>
 
 **A:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with 2 CPU cores, for a single recognition. We do not recommend keeping more than 2 concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
 
@@ -50,9 +53,9 @@ For scenario of processing 1K hours/day in batch processing mode, in an extreme 
 
 For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6GHz or better, with AVX2 instruction set enabled).
 
-| Instance | vCPU(s) | RAM | Temp storage | Pay as you go<br>with AHB | 1 year reserve with<br>AHB (% Savings) | 3 year reserved with<br>AHB (% Savings) |
+| Instance | vCPU(s) | RAM | Temp storage | Pay-as-you-go with AHB | 1 year reserve with AHB (% Savings) | 3 year reserved with AHB (% Savings) |
 |----------|---------|-----|--------------|------------------------|---|---|
-| `DS13 v2` | 8 | 56 GiB | 112 GiB   | $0.598/hour            | $0.3528/hour (~41%) | $0.2333/hour (~61%) |
+| `DS13 v2` | 8 | 56 GiB | 112 GiB | $0.598/hour | $0.3528/hour (~41%) | $0.2333/hour (~61%) |
 
 Based on the design reference (2 clusters of 5 VMs to handle 1K hours/day audio batch processing), 1-year hardware cost will be:
 
@@ -71,14 +74,17 @@ For on-prem, all of these additional factors come into play:
 
 Normally it is not as well tuned as Azure the environment. Considering other overhead, I would say a safe estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have 8 cores. With on-prem deployment, the cost will be higher than using Azure VMs. This also depends on depreciation rate.
 
-Service cost is same as the online service: $1/hour for speech-to-text.
-So speech service cost is:
+Service cost is the same as the online service: $1/hour for speech-to-text. The Speech service cost is:
 
 > $1 * 1000 * 365 = $365K
 
-Maintain cost paid to MS depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure cost (such as storage, network, load balancer) are not included.
+Maintenance cost paid to Microsoft depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure cost (such as storage, network, load balancer) are not included.
+</details>
 
-**Q: Why is punctuation missing from the transcription?**
+<details>
+<summary>
+<b>Why is punctuation missing from the transcription?</b>
+</summary>
 
 **A:** The `speech_recognition_language=<YOUR_LANGUAGE>` should be explicitly configured in the request if they are using Carbon client.
 
@@ -107,60 +113,23 @@ RECOGNIZED: SpeechRecognitionResult(
     reason=ResultReason.RecognizedSpeech)
 ```
 
-**Q: When using the speech-to-text service, why am I getting this error?**
+</details>
 
-```
-Error in STT call for file 9136835610040002161_413008000252496:
-{
-    "reason": "ResultReason.Canceled",
-    "error_details": "Due to service inactivity the client buffer size exceeded. Resetting the buffer. SessionId: xxxxx..."
-}
-```
-
-**A:** This typically happens when you feed the audio faster than the Speech recognition container can take it. Client buffers fill up, and the cancellation is triggered. You need to control the concurrency and the RTF at which you send the audio.
-
-**Q: When testing the text-to-speech container, why am I getting errors with the C++ examples?**
-
-**A:** If the container version is older than 1.3, then this code should be used:
-
-```cpp
-const auto endpoint = "http://localhost:5000/speech/synthesize/cognitiveservices/v1";
-auto config = SpeechConfig::FromEndpoint(endpoint);
-auto synthesizer = SpeechSynthesizer::FromConfig(config);
-auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
-```
-
-Older containers don't have the required endpoint for Carbon to work with the `FromHost` API. If the containers used for version 1.3, then this code should be used:
-
-```cpp
-const auto host = "http://localhost:5000";
-auto config = SpeechConfig::FromHost(host);
-config->SetSpeechSynthesisVoiceName(
-    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
-auto synthesizer = SpeechSynthesizer::FromConfig(config);
-auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
-```
-
-Below is an example of using the `FromEndpoint` API:
-
-```cpp
-const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
-auto config = SpeechConfig::FromEndpoint(endpoint);
-config->SetSpeechSynthesisVoiceName(
-    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
-auto synthesizer = SpeechSynthesizer::FromConfig(config);
-auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
-```
-
- The `SetSpeechSynthesisVoiceName` function is called because the containers with an updated text-to-speech engine require the voice name.
-
-**Q: How can I use a custom acoustic model and language model along with container services options in Azure?**
+<details>
+<summary>
+<b>How can I use a custom acoustic model and language model along with container services options in Azure?</b>
+</summary>
 
 We are currently only able to pass one model ID, either custom language model or custom acoustic model.
 
 **A:** The decision to *not* support both acoustic and language models concurrently was made. This will remain in effect, until a unified identifier is created to reduce API breaks. So, unfortunately this is not supported right now.
 
-**Q: When using the custom speech-to-text container, what are these errors?**
+</details>
+
+<details>
+<summary>
+<b>When using the custom speech-to-text container, what are these errors?</b>
+</summary>
 
 ```
 Failed to fetch manifest: Status: 400 Bad Request Body:
@@ -176,7 +145,12 @@ Essentially, the custom containers do not support Halide or ONNX-based acoustic 
 
 > Support model > 20190220 (v4.5 Unified)
 
-**Q: What are these errors with the custom speech-to-text container?**
+</details>
+
+<details>
+<summary>
+<b>What are these errors with the custom speech-to-text container?</b>
+</summary>
 
 **Error 1:**
 
@@ -201,7 +175,12 @@ Details: Voice does not match.
 
 **A2:** You reed to create a Speech resource, not a Cognitive Services resource.
 
-**Q: Do Speech containers support punctuation?**
+</details>
+
+<details>
+<summary>
+<b>Do Speech containers support punctuation?</b>
+</summary>
 
 **A:** We have capitalization (ITN) available in the on-prem container. Punctuation is language dependent, and not supported for some languages, including Chinese and Japanese.
 
@@ -215,11 +194,20 @@ speech_config.set_service_property(
 )
 ```
 
-**Q: What API protocols are supported, REST or WS?**
+</details>
+
+<details>
+<summary>
+<b>What API protocols are supported, REST or WS?</b>
+</summary>
 
 **A:** For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
-**Q: Could not run container on CentOS**
+</details>
+
+<details>
+<summary>
+<b>Could not run container on CentOS**
 
 **A:** CentOS 7 is not supported by Python SDK yet.
 19.04 ubuntu is not supported yet
@@ -235,7 +223,12 @@ https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/s
 
 so 18.04 is the recommended ubuntu version as of now.
 
-**Q: How to use V1.8 SDK with Speech container?**
+</details>
+
+<details>
+<summary>
+<b>How to use V1.8 SDK with Speech container?</b>
+</summary>
 
 **A:** There's a new `FromHost` API. This does not replace or modify any existing APIs. It just adds an alternative way to create a speech config using a custom host.
 
@@ -265,7 +258,12 @@ Python samples as above, but use 'host' parameter instead of 'endpoint' e.g.
 
     speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
 
-**Q: How to use V1.7 SDK with Speech container?**
+</details>
+
+<details>
+<summary>
+<b>How to use V1.7 SDK with Speech container?</b>
+</summary>
 
 **A:** There are 3 endpoints at Speech Container for different usages
 Interactive: 
@@ -328,7 +326,12 @@ The Speech SDK should not be used against a LUIS container. For using the LUIS c
 A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container -- 2 separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio -- LUIS is a text based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers prem, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
 TODO: sample code needed here to show how to use Speech container + LUIS container sequentially.
 
-**Q: Running on Mac (macOS + container + Python SDK), help?**
+</details>
+
+<details>
+<summary>
+<b>Running on Mac (macOS + container + Python SDK), help?</b>
+</summary>
 
 When we send a wav file to be transcribed, the result comes back with:
 recognition is running....
@@ -401,12 +404,19 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 I've already mentioned to Rob that we need to support RecognizeAll(), which is a call Google supports for these types of scenarios (recognition from file).
 
+</details>
 
-**Q: I thought I read somewhere that the non-batch API could only handle audio <15 seconds long.  I'll work with the SDK and get it running.**
+<details>
+<summary>
+<b>I thought I read somewhere that the non-batch API could only handle audio <15 seconds long.  I'll work with the SDK and get it running.**
 
 **A:** This is in interactive mode. If you use dictation or conversation that is not a problem.
 
-**Q: Few more applicative/proper use questions**
+</details>
+
+<details>
+<summary>
+<b>Few more applicative/proper use questions**
 
 1. API to use, we have wav files at various lengths, spanning from few seconds to dozens of seconds, should we use - Interactive/conversation/dictation for such type?
 2. should we use : StartContinuousRecognitionAsync or RecognizeOnceAsync ?
@@ -426,7 +436,12 @@ Q: we are trying to help the team capacity plan for hardware by benchmarking a r
 
 This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
 
-**Q: How many concurrent requests will 4 core , 4 GB RAM handle.  If we have to serve for e.g. 50 concurrent requests, how many Core and RAM is recommended?**
+</details>
+
+<details>
+<summary>
+<b>How many concurrent requests will 4 core , 4 GB RAM handle.  If we have to serve for e.g. 50 concurrent requests, how many Core and RAM is recommended?</b>
+</summary>
 
 **A:** 
 at real-time, 8 with our latest en-US, use more docker containers beyond 6 concurrent requests
@@ -450,15 +465,34 @@ Orchestration could be done by K8S+Helm or docker-comp.
  
 As an example, to handle 1000 hours/24 hours, we have tried setting up 3-4 VMs, with 10 instances/decoders per VM.
 
-**Q: My current plan is to take an existing audio file and split it up into 10 second chunks and send those through the container. Is that an acceptable scenario?  Is there a better way to process larger audio files with the container?**
+</details>
+
+<details>
+<summary>
+<b>My current plan is to take an existing audio file and split it up into 10 second chunks and send those through the container. Is that an acceptable scenario?  Is there a better way to process larger audio files with the container?</b>
+</summary>
 
 **A:** Just use the speech SDK and give it the file, it will do the right thing. Why do you need to chunk the file?
 
-**Q: How do I make multiple containers run on the same host? The doc says to expose a different port, which I do, but luis container when deployed is still listening on 5000?**
+</details>
+
+<details>
+<summary>
+<b>How do I make multiple containers run on the same host? The doc says to expose a different port, which I do, but luis container when deployed is still listening on 5000?</b>
+</summary>
 
 **A:** Try `-p <outside_unique_port>:5000`. For example, `-p 5001:5000`.
 
-**Q: I'm working on getting a DBE demo stood up that shows video/audio transcription.  I'm working with the speech-to-text container and I'm getting 404 errors when I try and post data to its endpoints.?**
+</details>
+
+## Technical questions
+
+<details>
+<summary>
+<b>Why am I getting 404 errors when attempting to POST data to speech-to-text container?</b>
+</summary>
+
+Here is an example HTTP POST:
 
 ```http
 POST /speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -478,11 +512,65 @@ Server: Kestrel
 Content-Length: 0
 ```
 
-**A:** We do not support REST API in container, we only support websockets through the Speech SDK.
-Please refer to the docs https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto#speech-to-text-2
+**A:** We do not support REST API in either speech-to-text container, we only support websockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
+</details>
 
+<details>
+<summary>
+<b>When using the speech-to-text service, why am I getting this error?</b>
+</summary>
 
-## Technical questions
+```
+Error in STT call for file 9136835610040002161_413008000252496:
+{
+    "reason": "ResultReason.Canceled",
+    "error_details": "Due to service inactivity the client buffer size exceeded. Resetting the buffer. SessionId: xxxxx..."
+}
+```
+
+**A:** This typically happens when you feed the audio faster than the Speech recognition container can take it. Client buffers fill up, and the cancellation is triggered. You need to control the concurrency and the RTF at which you send the audio.
+</details>
+
+<details>
+<summary>
+<b>When testing the text-to-speech container, why am I getting errors with the C++ examples?</b>
+</summary>
+
+**A:** If the container version is older than 1.3, then this code should be used:
+
+```cpp
+const auto endpoint = "http://localhost:5000/speech/synthesize/cognitiveservices/v1";
+auto config = SpeechConfig::FromEndpoint(endpoint);
+auto synthesizer = SpeechSynthesizer::FromConfig(config);
+auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
+```
+
+Older containers don't have the required endpoint for Carbon to work with the `FromHost` API. If the containers used for version 1.3, then this code should be used:
+
+```cpp
+const auto host = "http://localhost:5000";
+auto config = SpeechConfig::FromHost(host);
+config->SetSpeechSynthesisVoiceName(
+    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
+auto synthesizer = SpeechSynthesizer::FromConfig(config);
+auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
+```
+
+Below is an example of using the `FromEndpoint` API:
+
+```cpp
+const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
+auto config = SpeechConfig::FromEndpoint(endpoint);
+config->SetSpeechSynthesisVoiceName(
+    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
+auto synthesizer = SpeechSynthesizer::FromConfig(config);
+auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
+```
+
+ The `SetSpeechSynthesisVoiceName` function is called because the containers with an updated text-to-speech engine require the voice name.
+</details>
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Cognitive Services containers](speech-containers-howto.md)
