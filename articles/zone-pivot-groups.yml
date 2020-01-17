@@ -85,7 +85,51 @@ groups:
   - id: programming-language-go
     title: Go
   - id: programming-language-ruby
-    title: Ruby  
+    title: Ruby
+- id: programming-languages-set-six
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+- id: programming-languages-set-seven
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+- id: URL-test-interface
+  title: URL Test tool
+  prompt: Choose one of the following
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman
+- id: programming-languages-set-eight
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-nine
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
 - id: programming-languages-set-functions
   title: Programming languages
   prompt: Choose a programming language
@@ -100,11 +144,3 @@ groups:
     title: Python
   - id: programming-language-powershell
     title: PowerShell  
-- id: URL-test-interface
-  title: URL Test tool
-  prompt: Choose one of the following
-  pivots:
-  - id: url-test-tool-curl
-    title: cURL
-  - id: url-test-tool-postman
-    title: Postman

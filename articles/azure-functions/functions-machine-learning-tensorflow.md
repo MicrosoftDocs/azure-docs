@@ -257,7 +257,9 @@ To modify the `classify` function to classify an image based on its contents, yo
 
 To test invoking the function endpoint from another web app, there's a simple app in the repository's *frontend* folder.
 
-1. Open a new terminal or command prompt and navigate to the repository's *frontend* folder.
+1. Open a new terminal or command prompt and activate the virtual environment (as described earlier under [Create and activate a Python virtual environment](#create-and-activate-a-python-virtual-environment)).
+
+1. Navigate to the repository's *frontend* folder.
 
 1. Start an HTTP server with Python:
 
