@@ -1,20 +1,11 @@
 ---
-title: Quickstart for adding feature flags to Spring Boot - Azure App Configuration | Microsoft Docs
-description: A quickstart for adding feature flags to Spring Boot apps and managing them in Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
-author: mrm9084
-manager: zhenlwa
-editor: ''
-
-ms.assetid: 
+title: Quickstart for adding feature flags to Spring Boot with Azure App Configuration
+description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration
+author: jpconnock
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Spring Boot
-ms.workload: tbd
-ms.date: 09/26/2019
-ms.author: mametcal
+ms.date: 01/15/2020
+ms.author: jeconnoc
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -23,7 +14,7 @@ ms.author: mametcal
 
 In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
 
-The Spring Boot Feature Management libraries extend the framework with comprehensive feature flag support. These libraries do **not** have a dependency on any Azure libries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
+The Spring Boot Feature Management libraries extend the framework with comprehensive feature flag support. These libraries do **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
 
 ## Prerequisites
 
@@ -35,11 +26,12 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Create** to add the following feature flags:
+6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
-    | Key | State |
-    |---|---|
-    | Beta | Off |
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+
+    Leave `label` undefined for now.
 
 ## Create a Spring Boot app
 
