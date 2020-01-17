@@ -51,7 +51,7 @@ sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com
 Finally, configure a _cyclecloud.list_ file, update the Apt cache, and install CycleCloud.
 
 ```CMD
-sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
+sudo echo 'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
 sudo apt update
 sudo apt -y install cyclecloud
 ```
