@@ -56,7 +56,7 @@ If a metadata object gets deleted or changed with Spark, the changes will be pic
 
 ## Handling of name conflicts
 
-If a Spark database name is the same as an exisitng SQL on-demand database name, Synapse Analytics adds a suffix to the name to distinguish between the database. The suffix follows this pattern `_<workspace name>-ondemand-DefaultSparkConnector`. 
+If a Spark database name is the same as an existing SQL on-demand database name, Synapse Analytics adds a suffix to the name to distinguish between the database. The suffix follows this pattern `_<workspace name>-ondemand-DefaultSparkConnector`. 
 
 For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
