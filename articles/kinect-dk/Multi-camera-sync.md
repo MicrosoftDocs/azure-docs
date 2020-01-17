@@ -1,5 +1,5 @@
 ---
-title: Synchronization across multiple Azure Kinect Dks
+title: Synchronization across multiple Azure Kinect DKs
 description: In this article we will explore the benefits of multi device synchronization as well as all the insides how it is performed.
 author: tesych
 ms.author: tesych
@@ -9,7 +9,7 @@ ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth, multi, synchronization
 ---
 
-# Synchronization across multiple Azure Kinect Dk devices
+# Synchronization across multiple Azure Kinect DK devices
 
 In this article, we will explore the benefits of multi device synchronization and its details.
 
@@ -36,7 +36,7 @@ There are many reasons to use multiple Azure Kinect DK devices. Some examples ar
 
 ### Solve for occlusion
 
-Occlusion means that there is something you want to see, but cannot due to some interference. In our case Azure Kinect Dk device has two cameras (depth and color cameras) that do not share the same origin, so one camera can see part of an object that other cannot. Therefore, when transforming depth to color image, you may see a shadow around an object.
+Occlusion means that there is something you want to see, but can't see it due to some interference. In our case Azure Kinect Dk device has two cameras (depth and color cameras) that do not share the same origin, so one camera can see part of an object that other cannot. Therefore, when transforming depth to color image, you may see a shadow around an object.
 On the image below, the left camera sees the grey pixel P2, but the ray from the right camera to P2 hits the white foreground object. As a result the right camera cannot see P2.
 
  ![Occlusion](./media/occlusion.png)
@@ -76,7 +76,7 @@ If you are setting up multi- camera synchronization on Linux, by default the USB
 - Run sudo update-grub
 - Restart the computer
 
-### Verify two Azure Kinect DK devices synchronization
+### Verify two Azure Kinect DKs synchronization
 
 After setting up the hardware and connecting the sync out jack of the master to sync in of the subordinate, we can use the [Azure Kinect Viewer](azure-kinect-viewer.md) to validate the devices setup. It also can be done for more than two devices.
 
@@ -88,11 +88,13 @@ After setting up the hardware and connecting the sync out jack of the master to 
 2. Open two instances of [Azure Kinect Viewer](azure-kinect-viewer.md)
 3. Open subordinate Azure Kinect DK device first. Navigate to Azure Kinect viewer, and in the Open Device section choose subordinate device:
 
-  ![Subordinate camera start](./media/open-device.png)
+
+      ![Subordinate camera start](./media/open-device.png)
 
 4. In the section "External Sync", choose option "Sub" and start the device. Images will not be sent to the subordinate after hitting start due to the device waiting for the sync pulse from the master device.
 
-  ![Subordinate camera start](./media/sub-start.png)
+
+      ![Subordinate camera start](./media/sub-start.png)
 
 5. Navigate to another instance of the Azure Kinect viewer and open the master Azure Kinect DK device.
 6. In the section "External Sync", choose option "Master" and start the device.
@@ -114,7 +116,7 @@ Using the [depth sensor raw timing table](hardware-specification.md) the exposur
 > [!NOTE]
 > Exposure Time = (IR Pulses * Pulse Width) + (Idle Periods * Idle Time)
 
-## Triggering Azure Kinect DK with custom source
+## Triggering with custom source
 
 A custom sync source can be used to replace the master Azure Kinect DK. This is helpful when the image captures need to be synchronized with other equipment. The custom trigger must create a sync signal, similar to the master device,  via the 3.5mm jack.
 
@@ -124,3 +126,11 @@ A custom sync source can be used to replace the master Azure Kinect DK. This is 
 - All styles of 3.5mm jack can be used with Kinect DK, including "mono" which is not pictured. All sleeves and rings are shorted together inside Kinect DK and they are connected to ground of the master Azure Kinect DK. The tip is the sync signal.
 
 ![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
+
+## Next steps
+
+- [Use Azure Kinect Sensor SDK](about-sensor-sdk.md)
+- [Capture Azure Kinect device synchronization](capture-device-synchronization.md)
+- [Set up hardware](set-up-azure-kinect-dk.md)
+
+
