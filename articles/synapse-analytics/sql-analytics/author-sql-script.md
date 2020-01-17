@@ -1,20 +1,19 @@
 ---
-title: Using Azure Synapse Analytics studio SQL Scripts
-description: Introduction of how to use Azure Synapse Analytics studio SQL Scripts   
-services: sql-data-warehouse 
+title: SQL scripts in Azure Synapse Studio
+description: Introduction Azure Synapse Studio SQL scripts   
+services: synapse-analytics 
 author: pimorano 
-ms.service: sql-data-warehouse 
+ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice: development
 ms.date: 12/23/2019
 ms.author: pimorano 
 ms.reviewer: omafnan
 ---
-# Using Azure Synapse Analytics studio SQL Script
+# Using SQL script in Azure Synapse Studio
 
-Azure Synapse Analytics studio SQL script is a web interface for you to author your SQL query connecting to SQL pool and SQL On-demand.
+Azure Synapse Studio provides a SQL script web interface for you to author SQL queries connecting to SQL pool and SQL On-demand. there are several ways to start the authoring experience with SQL script. 
 
-## Create a SQL Script and author its content
+## Create a SQL script and author its content
 
 There are few ways to start the authoring experience in SQL script. You can create a new SQL script: 
 1. Add new resource by clicking on the "+" icon and choose "SQL script"  
