@@ -184,8 +184,6 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 
 ### Explicitly allow outbound access
 
-The backup extension running on the VM needs outbound access to Azure public IP addresses.
-
 * Generally you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup.
 * If you do run into difficulties with VMs connecting, or if you see the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect, you should explicitly allow access so the backup extension can communicate to Azure public IP addresses for backup traffic. Access methods are summarized in the following table.
 
