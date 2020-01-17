@@ -25,7 +25,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../azure-monitor/platform/activity-logs-overview.md).  
+- A wave starts with a notification to customers. By default, notification is sent to Service Administator and Co-Administrators. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications.md).  
 - Once a notification goes out, a *self-service window* is made available. During this window, you can query which of your virtual machines are affected and start maintenance based on your own scheduling needs. The self-service window is typically about 35 days.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
@@ -76,11 +76,11 @@ It is best to use self-service maintenance in the following cases:
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Availability for virtual machines in Azure](/linux/availability.md).
+For more information about high availability, see [Availability for virtual machines in Azure](./linux/availability.md).
 
 **Q: How do I get notified about planned maintenance?**
 
-**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription owners (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription Admins (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
 **Q: I don't see any indication of planned maintenance in the portal, Powershell, or CLI. What is wrong?**
 
@@ -88,7 +88,7 @@ For more information about high availability, see [Availability for virtual mach
 
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](/linux/scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](./linux/scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
 
 **Q: How long will it take you to reboot my virtual machine?**
 

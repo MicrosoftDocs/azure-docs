@@ -207,12 +207,35 @@ Query the installed **kernel**
 
 ![Advanced](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-If needed upgrade the **kernel**
+If needed remove or upgrade the **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### Example 3 - enable Serial Console
-If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. Detailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+
+### Example 4 - kernel loading with problematic LVM swap volume
+
+A  VM may fail to fully boot and drops into the **dracut** prompt.
+More details of the failure can be located from either Azure serial console or navigate to Azure portal -> boot diagnostics -> Serial log
+
+
+An error similar to this may be present:
+
+```
+[  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
+         Starting Dracut Emergency Shell...
+Warning: /dev/VG/SwapVol does not exist
+```
+
+The grub.cfg is configured in this example to load an LV with the name of **rd.lvm.lv=VG/SwapVol** and the VM is unable to locate this. This line shows how the kernel is being loaded referencing the LV SwapVol
+
+```
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
+[    0.000000] e820: BIOS-provided physical RAM map:
+```
+
+ Remove the offending LV from the /etc/default/grub configuration and rebuild grub2.cfg
 
 
 ## Exit chroot and swap the OS disk
@@ -251,4 +274,8 @@ If the VM is running the Disk Swap will shut it down, reboot the VM once the dis
 
 
 ## Next steps
-Learn more about [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Learn more about
+
+ [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+
+[Single user mode](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)

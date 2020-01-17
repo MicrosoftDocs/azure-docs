@@ -1,5 +1,5 @@
 ---
-title: Call Center Transcription - Speech Service
+title: Call Center Transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: A common scenario for speech-to-text is transcribing large volumes of telephony data that come from various systems, such as Interactive Voice Response (IVR). Using Speech service and the Unified speech model, a business can get high-quality transcriptions with audio capture systems.
 services: cognitive-services

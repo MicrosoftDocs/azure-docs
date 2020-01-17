@@ -1,6 +1,5 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial develop C# module for Linux - Azure IoT Edge| Microsoft Docs 
+title: Tutorial - Develop C# module for Linux using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to a Linux IoT Edge device.
 services: iot-edge
 author: kgremban

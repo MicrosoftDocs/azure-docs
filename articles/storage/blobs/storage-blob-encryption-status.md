@@ -68,7 +68,7 @@ To determine when the blob was created, check the value of the **created** prope
 
 ---
 
-### Force encryption of a blob
+## Force encryption of a blob
 
 If a blob that was created prior to October 20, 2017 has not yet been encrypted by the background process, you can force encryption to occur immediately by downloading and re-uploading the blob. A simple way to do this is with AzCopy.
 

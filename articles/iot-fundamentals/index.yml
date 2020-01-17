@@ -90,7 +90,7 @@ conceptualContent:
           text: Try a connected factory solution
       # footerLink
       footerLink:
-        url: ../iot-accelerators/index.md
+        url: ../iot-accelerators/index.yml
         text: See more
     # Card
     - title: Run cloud intelligence on edge devices

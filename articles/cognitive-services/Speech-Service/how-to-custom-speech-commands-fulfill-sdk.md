@@ -1,9 +1,9 @@
 ---
 title: How to fulfill Custom Commands on the client with the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this article, handle Custom Commands activities on client with the Speech SDK
+description: In this article, we explain how to handle Custom Commands activities on client with the Speech SDK.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 
 ms.service: cognitive-services
@@ -25,7 +25,7 @@ In this article, you'll:
 ## Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services
+- An Azure subscription key for Speech service
   - [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 - A previously created Custom Commands app
   - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
@@ -56,6 +56,7 @@ This article describes, step by step, how to make a client application to talk t
 
    ```json
    {
+     "type": "event",
      "name": "UpdateDeviceState",
      "state": "{OnOff}",
      "device": "{SubjectDevice}"
@@ -100,12 +101,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
     dynamic activity = JsonConvert.DeserializeObject(activityReceivedEventArgs.Activity);
-    var payload = activity?.Value;
 
-    if(payload?.name == "SetDeviceState")
+    if(activity?.name == "SetDeviceState")
     {
-        var state = payload?.state;
-        var device = payload?.device;
+        var state = activity?.state;
+        var device = activity?.device;
         switch(device)
         {
             case "tv":

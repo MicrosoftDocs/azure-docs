@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights for JavaScript web apps | Microsoft Docs
-description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
+title: Azure Application Insights for JavaScript web apps
+description: Get page view and session counts, web client data, Single Page Applications (SPA), and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -248,7 +248,7 @@ While the script is downloading from the CDN, all tracking of your page is queue
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-Latest ✔ | Latest ✔ | 9+ ✔ | Latest ✔ | Latest ✔ |
+Chrome Latest ✔ |  Firefox Latest ✔ | IE 9+ & Edge ✔ | Opera Latest ✔ | Safari Latest ✔ |
 
 ## Open-source SDK
 

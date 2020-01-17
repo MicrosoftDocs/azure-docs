@@ -1,5 +1,6 @@
 ---
-title: Customize the user interface of your application using a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Customize the user interface of your app with a custom policy
+titleSuffix: Azure AD B2C
 description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -140,19 +141,19 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 
 1. Save the extensions file.
 
-## Upload your updated custom policy
+## Upload and test your updated custom policy
+
+### Upload the custom policy
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **Identity Experience Framework**.
-1. Click **All Policies**.
-1. Click **Upload Policy**.
+1. Search for and select **Azure AD B2C**.
+1. Under **Policies**, select **Identity Experience Framework**.
+1. Select **Upload custom policy**.
 1. Upload the extensions file that you previously changed.
 
-## Test the custom policy by using **Run now**
+### Test the custom policy by using **Run now**
 
-1. On the **Azure AD B2C** page, go to **All policies**.
-1. Select the custom policy that you uploaded, and click the **Run now** button.
+1. Select the policy that you uploaded, and then select **Run now**.
 1. You should be able to sign up by using an email address.
 
 ## Reference

@@ -1,17 +1,18 @@
 ---
-title: Create a self-hosted integration runtime in Azure Data Factory 
+title: Create a self-hosted integration runtime
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory, which lets data factories access data stores in a private network.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 06/18/2019
 ---
+
 # Create and configure a self-hosted integration runtime
 
 The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
@@ -99,6 +100,7 @@ Here are details of the application's parameters and properties:
 | Property                                                    | Description                                                  | Required |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Register a self-hosted integration runtime node with the specified authentication key. | No       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Register a self-hosted integration runtime node with the specified authentication key and node name. | No       |
 | **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through Azure Data Factory. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network. | No       |
 | **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Enable remote access to the current node when the node runs in a container. | No       |
 | **DisableRemoteAccess**                                         | Disable remote access to the current node. Remote access is needed for multinode setup. The **New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled. This behavior is true as long as the cmdlet is executed on the same machine as the self-hosted IR node. | No       |
@@ -113,7 +115,7 @@ Here are details of the application's parameters and properties:
 | **TurnOnAutoUpdate**                                            | Turn on the self-hosted integration runtime auto-update.        | No       |
 | **TurnOffAutoUpdate**                                           | Turn off the self-hosted integration runtime auto-update.       | No       |
 | **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts. | No       |
-| **Loglevel** `<logLevel>`                                       | Set the Event Tracing for Windows (ETW) log level to **Off**, **Error**, **Verbose**, or **All**. This property is mostly used by Microsoft Support engineers while they debug your installation. | No       |
+
 
 ## Command flow and data flow
 

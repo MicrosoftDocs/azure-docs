@@ -102,7 +102,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | 16 data disks<br/><br/> Data disk up to 4095 GB
+Azure VM | 16 data disks<br/> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com <br><br> Data disk up to 32 TB
 
 ### How is the data source size determined?
 
@@ -171,7 +171,7 @@ Azure Backup storage architecture gives you the best of both worlds by optimally
 
 You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 
-- Learn more about [backup and retention](./backup-overview.md#backup-and-retention).
+- Learn more about [backup and retention](./backup-support-matrix.md).
 
 ### How many times can I recover data that's backed up to Azure?
 

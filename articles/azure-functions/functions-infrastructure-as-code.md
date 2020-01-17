@@ -1,5 +1,5 @@
 ---
-title: Automate resource deployment for a function app in Azure Functions 
+title: Automate function app resource deployment to Azure
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
@@ -11,7 +11,7 @@ ms.date: 04/03/2019
 
 You can use an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy additional resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
 
-For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 For sample templates, see:
 - [Function app on Consumption plan]
@@ -86,7 +86,7 @@ Application Insights is recommended for monitoring your function apps. The Appli
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```
@@ -202,7 +202,7 @@ The Consumption plan is a special type of "serverfarm" resource. For Windows, yo
 > [!NOTE]
 > The Consumption plan cannot be explicitly defined for Linux. It will be created automatically.
 
-If you do explicitly define your consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+If you do explicitly define your Consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
 
 ### Create a function app
 
@@ -299,7 +299,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 
 ## Deploy on Premium plan
 
-The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
+The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
 
 ### Create a Premium plan
 
@@ -368,7 +368,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## Deploy on App Service plan
 
@@ -415,7 +415,7 @@ To run your app on Linux, you must also set the `kind` to `Linux`:
 }
 ```
 
-### Create a function app 
+### Create a function app
 
 A function app on an App Service plan must have the `serverFarmId` property set to the resource ID of the plan created earlier.
 
@@ -633,10 +633,10 @@ A function app has many child resources that you can use in your deployment, inc
 
 You can use any of the following ways to deploy your template:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### Deploy to Azure button
 

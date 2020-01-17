@@ -1,16 +1,9 @@
 ---
-title: Create a web app in an App Service Environment v1 - Azure
-description: Learn how to create web apps and app service plans in an App Service Environment v1
-services: app-service
-documentationcenter: ''
+title: Create a web app in ASE v1
+description: Learn how to create web apps in an App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
@@ -111,5 +104,5 @@ After creating your web app and App Service plan it is a good idea to scale it u
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
-[ResourceGroups]: ../../azure-resource-manager/resource-group-overview.md
+[ResourceGroups]: ../../azure-resource-manager/management/overview.md
 [AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
