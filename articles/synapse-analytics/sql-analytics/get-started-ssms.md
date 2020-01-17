@@ -73,7 +73,7 @@ To connect to SQL Analytics using SQL on-demand, follow these steps:
     ![Explore AdventureWorksDW](media/sql-analytics-query-ssms/explore-tables.png)
 
 
-## 2. Run a sample query
+## Run a sample query
 
 ### SQL pool
 
