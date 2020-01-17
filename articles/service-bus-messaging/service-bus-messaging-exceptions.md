@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 01/17/2020
 ms.author: aschhab
 
 ---
@@ -107,25 +107,25 @@ For queues and topics, the timeout is specified either in the [MessagingFactoryS
 ## Connectivity, certificate, or timeout issues
 The following steps may help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
-- Browse to or [wget](https://www.gnu.org/software/wget/) `https://sbwagn2.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues (most common when using java SDK).
-- Run the following command to check if any port is blocked on the firewall. Depending on the library you use, other ports are also used. For example: 443, 5672, 9354.
+- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues (most common when using java SDK).
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. 
 
     ```powershell
-    tnc sbwagn2.servicebus.windows.net -port 5671
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
     On Linux:
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service then you can check how many succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
+- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
 
     ```shell
-    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
+    .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
-- Obtain a network trace if the previous steps don't help and analyze it or contact [Microsoft Support](https://support.microsoft.com/).
+- Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 
 
 ## Next steps
