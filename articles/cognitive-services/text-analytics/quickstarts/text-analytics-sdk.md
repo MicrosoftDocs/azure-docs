@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-six
 
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-Use the Text Analytics client library v3 to perform:
+Use the Text Analytics client library `v3.0-preview` to perform:
 
 * Sentiment analysis (public preview)
 * Language detection
