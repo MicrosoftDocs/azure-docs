@@ -19,7 +19,7 @@
     href: concept-conditional-access-policy-common.md
   - name: Conditional Access policy components
     href: concept-conditional-access-policies.md
-  - name: Cloud apps and actions
+  - name: Cloud apps or actions
     href: concept-conditional-access-cloud-apps.md
   - name: Conditions
     href: conditions.md

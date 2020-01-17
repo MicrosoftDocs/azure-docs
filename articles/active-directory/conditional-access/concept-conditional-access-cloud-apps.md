@@ -1,6 +1,6 @@
 ---
 title: Client apps in Conditional Access policy - Azure Active Directory
-description: 
+description: What are cloud apps and actions in an Azure AD Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Cloud apps and actions
+# Conditional Access: Cloud apps or actions
 
 Cloud apps or actions is a key part of a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions. 
 
