@@ -16,7 +16,7 @@ ms.reviewer: sumeh, assafi
 [Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 > [!NOTE]
-> * This quickstart uses version 3 of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * This quickstart uses version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 > * The code in this article uses un-secured credentials storage for simplicity reasons. For production scenarios, we recommend sending strings in batches for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
 
 ## Prerequisites
@@ -101,7 +101,7 @@ const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredentia
 > [!NOTE]
 > The below code is for sentiment analysis v3, which is in public preview.
 
-Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length and confidence scores.
+Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -187,7 +187,7 @@ ID: 0
 > [!NOTE]
 > The below code is for Named Entity Recognition v3, which is in public preview.
 
-Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
+Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
 
 ```javascript
 async function entityRecognition(client){
@@ -240,7 +240,7 @@ Document ID: 1
 > [!NOTE]
 > The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
 
-Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length and score.
+Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
 
 
 ```javascript
@@ -274,7 +274,7 @@ Document ID: 0
 
 ## Entity Linking
 
-Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url and matches. Every object in `matches` array will contain offset, length and score for that match.
+Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url, and matches. Every object in `matches` array will contain offset, length, and score for that match.
 
 ```javascript
 async function linkedEntityRecognition(client){
