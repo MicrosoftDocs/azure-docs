@@ -65,7 +65,7 @@ A series of templates is available to get you started with key scenarios includi
 
 ## <a name="pricing"></a>How much does Functions cost?
 
-Azure Functions has two kinds of pricing plans. Choose the one that best fits your needs:
+Azure Functions has three kinds of pricing plans. Choose the one that best fits your needs:
 
 - **Consumption plan**: Azure provides all of the necessary computational resources. You don't have to worry about resource management, and only pay for the time that your code runs.
 
