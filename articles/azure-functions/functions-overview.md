@@ -37,6 +37,8 @@ Some key features of Azure Functions include:
 
 - **Flexible development**: Set up continuous integration and deploy your code through [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/deploy-local-git.md).
 
+- **Stateful serverless architecture**: Orchestrate serverless applications with [Durable Functions](durable/durable-functions-overview.md).
+
 - **Open-source**: The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 
 ## What can I do with Functions?
