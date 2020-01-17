@@ -196,7 +196,7 @@ WithParentActivityOrWindow(object parent).
 Remarks:
 
 - On .NET Standard, the expected `object` is `Activity` on Android, `UIViewController` on iOS, `NSWindow` on MAC, and `IWin32Window` or `IntPr` on Windows.
-- On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and deadlock scenarios with the UI. One way of calling Microsoft Authentication Libraries (MSAL) from the UI thread if you aren't on the UI thread already is to use the `Dispatcher` on WPF.
+- On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and deadlock scenarios with the UI. One way of calling Microsoft Authentication Libraries (MSALs) from the UI thread if you aren't on the UI thread already is to use the `Dispatcher` on WPF.
 - If you're using WPF, to get a window from a WPF control, you can use the `WindowInteropHelper.Handle` class. Then the call is from a WPF control (`this`):
 
   ```csharp
@@ -397,7 +397,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 ```
 ---
 
-## Integrated Windows authentication
+## Integrated Windows Authentication
 
 To sign in a domain user on a domain or Azure AD joined machine, use Integrated Windows Authentication (IWA).
 

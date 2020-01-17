@@ -25,7 +25,7 @@ Now that you've created your application, you'll learn how to configure the code
 
 ## Microsoft Authentication Libraries
 
-The following Microsoft Authentication Libraries (MSAL) support desktop applications.
+The following Microsoft Authentication Libraries (MSALs) support desktop applications.
 
   Microsoft Authentication Library | Description
   ------------ | ----------
@@ -75,7 +75,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### More elaborated configuration
 
-You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multitenant application in a national cloud (here US Government), you could write:
+You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multitenant application in a national cloud, such as US Government shown here, you could write:
 
 ```csharp
 IPublicClientApplication app;
@@ -229,7 +229,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 ### More elaborated configuration
 
-You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multitenant application in a national cloud (here US Government), you could write:
+You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multitenant application in a national cloud, such as US Government shown here, you could write:
 
 Objective-C:
 

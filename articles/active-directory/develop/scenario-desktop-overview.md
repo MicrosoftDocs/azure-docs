@@ -50,7 +50,7 @@ You write a desktop application, and you want to sign in users to your applicati
   - If your desktop application supports graphical controls, for instance, if it's a Windows.Form application, a WPF application, or a macOS native application.
   - Or, if it's a .NET Core application and you agree to have the authentication interaction with Azure Active Directory (Azure AD) happen in the system browser.
 
-- For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using Integrated Windows authentication.
+- For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using Integrated Windows Authentication.
 - Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to perform multifactor authentication (conditional access). Also, your application won't benefit from single sign-on (SSO).
 
   It's also against the principles of modern authentication and is only provided for legacy reasons.

@@ -34,7 +34,7 @@ In the different flows, you've learned how to handle the errors for the silent f
 > [!NOTE]
 > Getting consent for several resources works for Microsoft identity platform but not for Azure Active Directory (Azure AD) B2C. Azure AD B2C supports only admin consent, not user consent.
 
-You can't get a token for several resources at once with the Microsoft identity platform (v2.0) endpoint. The `scopes` parameter can contain scopes for only a single resource. You can ensure that the user consents in advance to several resources by using the `extraScopesToConsent` parameter.
+You can't get a token for several resources at once with the Microsoft identity platform (v2.0) endpoint. The `scopes` parameter can contain scopes for only a single resource. You can ensure that the user pre-consents to several resources by using the `extraScopesToConsent` parameter.
 
 For instance, you might have two resources that have two scopes each:
 

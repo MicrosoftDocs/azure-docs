@@ -95,7 +95,7 @@ task.resume()
 
 ## Call several APIs: Incremental consent and conditional access
 
-To call several APIs for the same user, after you get a token for the first API, call `AcquireTokenSilent` and you'll get a token for the other APIs silently most of the time.
+To call several APIs for the same user, after you get a token for the first API, call `AcquireTokenSilent`. You'll get a token for the other APIs silently most of the time.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -107,7 +107,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 
 Interaction is required when:
 
-- The user consented for the first API but now needs to consent for more scopes (incremental consent).
+- The user consented for the first API but now needs to consent for more scopes. This kind of consent is known as incremental consent.
 - The first API didn't require multifactor authentication, but the next one does.
 
 ```csharp
