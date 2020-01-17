@@ -67,7 +67,13 @@ If you are currently using VMs with unmanaged disks, we highly recommend you [co
 > [!IMPORTANT]
 > The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.Name -eq 'Aligned'}
+```
+
+```azurecli-interactive 
+az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
+```
 
 > Note:
 > Under certain circumstances, it might happen that 2 VMs part of the same AvailabilitySet are sharing the same FaultDomain. This can be confirmed by going into your AvailabilitySet and check the "Fault Domain" column.
