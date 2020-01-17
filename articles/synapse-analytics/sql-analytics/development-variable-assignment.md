@@ -24,7 +24,7 @@ DECLARE @v  int = 0
 ;
 ```
 
-You can also use DECLARE to set more than one variable at a time. You cannot use SELECT or UPDATE to do the following:
+You can also use DECLARE to set more than one variable at a time. You can't use SELECT or UPDATE to do the following:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
