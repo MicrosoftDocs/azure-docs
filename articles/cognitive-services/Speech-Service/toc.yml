@@ -395,7 +395,7 @@
         href: record-custom-voice-samples.md
     - name: Audio content creation
       items:
-      - name: How-to: Audio Content Creation
+      - name: Audio Content Creation
         href: how-to-audio-content-creation.md
   - name: Custom keyword naming guidelines
     href: speech-devices-sdk-kws-guidelines.md
