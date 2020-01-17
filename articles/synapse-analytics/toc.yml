@@ -79,13 +79,13 @@
     - name: Metadata management
       items:
       - name: Overview
-        href: azure-synapse-metadata-overview.md
+        href: metadata-overview.md
       - name: Storage objects
         items:
         # - name: Objects
         #   href: azure-synapse-metadata-objects.md
         - name: Databases
-          href: azure-synapse-metadata-database.md
+          href: metadata-database.md
         - name: Tables
           href: azure-synapse-metadata-table.md
         # - name: Views

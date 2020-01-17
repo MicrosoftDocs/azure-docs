@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics shared Database 
-description: Azure Synapse Analytics provides a shared meta data model where creating a database in Spark will make it accessible from its SQL Analytics On-Demand and SQL Analytics Pool engines. 
+title: Azure Synapse Analytics shared database 
+description: Azure Synapse Analytics provides a shared metadata model where creating a database in Spark will make it accessible from its SQL on-demand and SQL pool engines. 
 services: sql-data-warehouse 
 author: MikeRys
 ms.service: sql-data-warehouse 
@@ -17,9 +17,9 @@ Azure Synapse Analytics allows the different computational engines of a workspac
 
 Once a database has been created with a Spark job, that database will become visible as a database with that same name to all current and future Spark pools in the workspace as well as the SQL on-demand engine. 
 
-If there are SQL pools in the workspace that have their meta data synchronization enabled or if a new SQL pool is being created with the meta data synchronization enabled, these Spark created databases will be mapped automatically into the SQL pool's database to special schemas inside the SQL pool's database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark generated database are exposed as external tables in the corresponding special schema. 
+If there are SQL pools in the workspace that have their metadata synchronization enabled or if a new SQL pool is being created with the metadata synchronization enabled, these Spark created databases will be mapped automatically into the SQL pool's database to special schemas inside the SQL pool's database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark generated database are exposed as external tables in the corresponding special schema. 
 
-The Spark's default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`, and in any of the SQL pool databases with meta data synchronization turned on as the schema `$default`.
+The Spark's default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`, and in any of the SQL pool databases with metadata synchronization turned on as the schema `$default`.
 
 Since the databases are synchronized to SQL on-demand and the SQL pools asynchronously, there will be a delay until they appear.
 
@@ -65,7 +65,7 @@ and you should see the database `mytestdb` in its result.
 
 ### Exposing a Spark database in a SQL pool
 
-With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables meta data synchronization.
+With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization.
 
 If you now run the following statement against the `mysqlpool` SQL pool 
 
@@ -74,7 +74,7 @@ If you now run the following statement against the `mysqlpool` SQL pool
 you should see a newly created 
 
 ## Next steps
-- [Learn more about Azure Synapse Analytics' shared Meta Data](azure-synapse-metadata-overview.md)
-- [Learn more about Azure Synapse Analytics' shared Meta Data Tables](azure-synapse-metadata-table.md)
-- [Learn more about the Synchronization with SQL Analytics On-Demand]()
-- [Learn more about the Synchronization with SQL Analyiics Pools]()
+- [Learn more about Azure Synapse Analytics' shared metadata](metadata-overview.md)
+- [Learn more about Azure Synapse Analytics' shared metadata Tables](metadata-table.md)
+- [Learn more about the Synchronization with SQL Analytics on-demand](metadata-overview.md)
+- [Learn more about the Synchronization with SQL Analytics pools](metadata-overview.md)
