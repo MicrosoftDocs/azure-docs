@@ -43,7 +43,7 @@ Prior to using samples:
 
 Create your own database for demo purposes. This is the database in which you create your views. Use this database in the sample queries in this article.
 
-> [!NOTES]
+> [!NOTE]
 > The databases are used only for view metadata, not for actual data.
 >
 > Write down database name you use for use later in this tutorial.
