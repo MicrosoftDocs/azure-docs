@@ -1,19 +1,60 @@
 ---
 title: Release Notes - Speech service
 titleSuffix: Azure Cognitive Services
-description: See a running log of feature releases, improvements, bug fixes, and known issues for the Speech service.
+description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
 services: cognitive-services
-author: BrianMouncer
+author: oscholz
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: brianem
+ms.date: 01/15/2020
+ms.author: oliversc
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.9.0: 2020-January release
+
+**New Features**
+
+- Multi-device conversation: connect multiple devices in a speech or text-based conversation, and optionally translate messages sent between them. Learn more in [this article](multi-device-conversation.md). 
+- Keyword recognition support added for Android .aar package and added support for x86 and x64 flavors. 
+- `SendMessage` and `SetMessageProperty` methods added to `Connection` object in Objective-C. See documentation [here](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- TTS C++ api now supports `std::wstring` as synthesis text input, removing the need to convert a wstring to string before passing it to the SDK. See details [here](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
+- [Language id](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) and [source language config](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) are now available in C#.
+
+
+**Breaking changes**
+
+- `OpenSSL` has been updated to version 1.1.1b and is statically linked to the Speech SDK core library for Linux. This may cause a break if your inbox `OpenSSL` has not been installed to the `/usr/lib/ssl` directory in the system. Please check [our documentation](how-to-configure-openssl-linux.md) under Speech SDK docs to work around the issue.
+- We have changed the data type returned for C# `WordLevelTimingResult.Offset` from `int` to `long` to allow for access to `WordLevelTimingResults` when speech data is longer than 2 minutes.
+
+
+**Bug fixes**
+
+- See the `OpenSSL` update under Breaking changes above. We fixed both an intermittent crash and a performance issue (lock contention under high load) in Linux and Java. 
+- Made improvements to Java object closure in high concurrency scenarios.
+- Restructured our Nuget package. We removed the three copies of `Microsoft.CognitiveServices.Speech.core.dll` and `Microsoft.CognitiveServices.Speech.extension.kws.dll` under lib folders, making the Nuget package smaller and faster to download, and we added headers needed to compile some C++ native apps.
+- Fixed quickstart samples [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). These were exiting without displaying "microphone not found" exception on Linux, MacOS, Windows.
+- Fixed SDK crash with long speech recognition results on certain code paths like [this sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
+- Fixed SDK deployment error in Azure Web App environment to address [this customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
+- Fixed a TTS error while using multi `<voice>` tag or `<audio>` tag to address [this customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
+- Fixed a TTS 401 error when the SDK is recovered from suspended.
+
+
+**Samples**
+
+- Added keyword recognition sample for Android [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
+- Added TTS sample for server scenario [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp). 
+- Added Multi-device conversation quickstarts in C++ and C# .NET [here](multi-device-conversation.md).
+
+
+**Other changes**
+
+- Optimized SDK core library size on Android.
+- SDK in 1.9.0 and onwards supports both `int` and `string` types in the voice signature version field for Conversation Transcriber.
 
 ## Speech SDK 1.8.0: 2019-November release
 
