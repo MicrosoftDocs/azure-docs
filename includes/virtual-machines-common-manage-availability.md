@@ -65,7 +65,7 @@ If you are currently using VMs with unmanaged disks, we highly recommend you [co
 ![Managed disks FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
-> The number of fault domains for managed availability sets varies by region - either two or three per region. You can see the fault domains for each region by running the following scripts.
+> The number of fault domains for managed availability sets varies by region - either two or three per region. You can see the fault domain for each region by running the following scripts.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.Name -eq 'Aligned'}
