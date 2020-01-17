@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 05/31/2019
 ---
 
-# Integration runtime in Azure Data Factory
+# Integration runtime in Azure Data Factory 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
