@@ -4,7 +4,7 @@ description: 'Create virtual devices that generate simulated telemetry that can 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/15/2020
+ms.date: 1/17/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -62,11 +62,11 @@ The real-world equivalent to the work in this step would likely be performed by 
 
    ![VS Code restore prompt](media/tutorial-machine-learning-edge-03-generate-data/restore-package-dependencies.png)
 
-   If you do not get these notifications, close Visual Studio Code, delete the bin and obj directories in C:\source\IoTEdgeAndMlSample\DeviceHarness, open Visual Studio Code, and reopen the DeviceHarness folder.
+   If you do not get these notifications, close Visual Studio Code, delete the bin and obj directories in `C:\source\IoTEdgeAndMlSample\DeviceHarness`, open Visual Studio Code, and reopen the DeviceHarness folder.
 
-1. Validate that your environment is properly set up by triggering a build, `Ctrl + Shift + B` or **Terminal** > **Run Build Task**.
+1. Validate that your environment is properly set up by triggering a build, **Ctrl** + **Shift** + **B**, or **Terminal** > **Run Build Task**.
 
-1. You are prompted to select the build task to run. Select **Build**.
+1. You're prompted to select the build task to run. Select **Build**.
 
 1. The build runs and outputs a success message.
 
@@ -84,7 +84,7 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 1. Search for the **Azure: Sign In** command.
 
-   A browser window opens and prompts you for your credentials. When you are redirected to a success page, you can close the browser.
+   A browser window opens and prompts you for your credentials. When you're redirected to a success page, you can close the browser.
 
 ### Connect to your IoT hub and retrieve hub connection string
 
@@ -112,7 +112,7 @@ Now that we have the project building, connect to your IoT hub to access the con
 
    ![Refresh IoT Hub device list](media/tutorial-machine-learning-edge-03-generate-data/refresh-hub-device-list.png)
 
-1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device.
+1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device. After the devices send messages to the IoT hub, they're disconnected and appear blue.
 
 1. You can view messages sent to the hub by right-clicking on any device and selecting **Start Monitoring Built-in Event Endpoint**. The messages will show in the output pane in Visual Studio Code.
 
@@ -124,11 +124,13 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 The data sent by the DeviceHarness went to your IoT hub, where you can verify in the Azure portal.
 
-1. Open the [Azure portal](https://portal.azure.com/) and navigate to your IoT hub.
+1. Open the [Azure portal](https://portal.azure.com/) and navigate to the IoT hub created for this tutorial.
 
-1. In the overview page you should see that data has been sent to the hub:  
+1. From the left pane menu, under **Monitoring**, select **Metrics**.
 
-   ![View device to cloud messages in IoT Hub](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
+1. On the chart definition page, click the **Metric** drop down, scroll down the list, and select **Routing: data delivered to storage**. The chart should show the spike of when the data was routed to storage.
+
+   ![Chart shows spike when data delivered to storage](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
 
 ## Validate data in Azure Storage
 
@@ -146,13 +148,13 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 1. Click into one of those folders to find data files labeled **00** and **01** corresponding to the partition.
 
-1. The files are written in [Avro](https://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render correctly.
+1. The files are written in [Avro](https://avro.apache.org/) format. Double-click on one of these files to open another browser tab and partially render the data. If you're prompted to open the file in a program, you can choose VS Code and it will render correctly.
 
 1. There is no need to try to read or interpret the data right now; we will do it in next article.
 
 ## Next steps
 
-In this article, we used a .NET Core project to create a set of virtual IoT devices and send data through those devices through our IoT Hub and into an Azure Storage container. This project simulates a real-world scenario where physical IoT devices send data to an IoT Hub and onward into a curated storage. This data includes sensor readings, operational settings, failure signals and modes, and so on. Once enough data has been collected, we use it to train models that predict the remaining useful life (RUL) for the device. We'll demonstrate this in the next article.
+In this article, we used a .NET Core project to create a set of virtual IoT devices and send data through them to our IoT hub and into an Azure Storage container. This project simulates a real-world scenario where physical IoT devices send data to an IoT Hub and onward into a curated storage. This data includes sensor readings, operational settings, failure signals and modes, and so on. Once enough data has been collected, we use it to train models that predict the remaining useful life (RUL) for the device. We'll demonstrate this machine learning in the next article.
 
 Continue to the next article to train a machine learning model with the data.
 
