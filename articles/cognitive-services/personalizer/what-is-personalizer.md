@@ -43,14 +43,15 @@ Several example scenarios are:
 |Movies list|1. `Star Wars` (1977, [action, adventure, fantasy], George Lucas)<br>2. `Hoop Dreams` (1994, [documentary, sports], Steve James<br>3. `Casablanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Type of user<br>|3. `Casablanca`|
 |Products list|i. `Product A` (3 kg, $$$$, deliver in 24 hours)<br>ii. `Product B` (20 kg, $$, 2 week shipping with customs)<br>iii. `Product C` (3 kg, $$$, delivery in 48 hours)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|ii. `Product B`|
 
-Personalizer used reinforcement learning to select the reward action ID based on collective real-time information you provide about content and context.
+Personalizer used reinforcement learning to select the single best action, known as _reward action ID_, based on a combination of:
+* Trained model - past information the Personalizer service received
+* Current data - Specific actions with features and context features
 
 ## When to call Personalizer
 
 Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
 
 Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
-
 
 ## Personalizer content requirements
 
@@ -65,7 +66,7 @@ Since Personalizer uses collective information in near real-time to return the s
 * Log individual users' preferences or history
 * Require cleaned and labeled content
 
-## How to add Personalizer to your client application
+## How to design and implement Personalizer to your client application
 
 1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each Personalizer Resource you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
@@ -83,7 +84,7 @@ Since Personalizer uses collective information in near real-time to return the s
     1. Add a **Reward** call sending a reward score between 0 and 1
         * Immediately after showing your content
         * Or sometime later in an offline system
-
+    1. Evaluate your loop with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
 
 ## Next steps
 
