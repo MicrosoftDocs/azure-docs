@@ -39,7 +39,7 @@ No. Azure Monitor is a scalable cloud service that processes and stores large am
 Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
 
 ### Does Azure Monitor integrate with System Center Operations Manager?
-You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing SCOM agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md).
+You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md).
 
 ### What IP addresses does Azure Monitor use?
 See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor. 
@@ -228,23 +228,19 @@ The Enterprise plan incurs a charge for each day that each web server node sends
 The details depend on the type of project. For a web application:
 
 * Adds these files to your project:
-
-  * ApplicationInsights.config.
+  * ApplicationInsights.config
   * ai.js
-* Installs these Nuget packages:
-
+* Installs these NuGet packages:
   * *Application Insights API* - the core API
   * *Application Insights API for Web Applications* - used to send telemetry from the server
   * *Application Insights API for JavaScript Applications* - used to send telemetry from the client
-
-    The packages include these assemblies:
+* The packages include these assemblies:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Inserts items into:
-
   * Web.config
   * packages.config
-* (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/_Layout.cshtml
+* (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
 
 ### How do I upgrade from older SDK versions?
 See the [release notes](app/release-notes.md) for the SDK appropriate to your type of application.
@@ -533,7 +529,7 @@ Re-enable collection for these properties for every container log line.
 If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the [data collection configuration settings](insights/container-insights-agent-config.md).
 
 > [!NOTE]
-> The second option is not recommend with large clusters that have more than 50 nodes, as it generates API server calls from every node > in the cluster to perform this enrichment. This option also increases data size for every log line collected.
+> The second option is not recommended with large clusters that have more than 50 nodes because it generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
 
 ### Can I view metrics collected in Grafana?
 
