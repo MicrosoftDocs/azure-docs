@@ -84,13 +84,13 @@ The access policy should now show up in your key vault's access policies.
 > [!IMPORTANT]
 > Encrypting deployment data with a customer-managed key is available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template. If you have any issues with this, please reach out to Azure Support.
 
-Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. You can learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 * Under `resources`, set `apiVersion` to `2012-12-01`.
 * Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:
   * `vaultBaseUrl`: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
   * `keyName`: the name of the key generated earlier
   * `keyVersion`: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
-* Under the container group properties, also add a `sku` property with value `Standard`.
+* Under the container group properties, add a `sku` property with value `Standard`. The `sku` property is required in API version 2019-12-01.
 
 The following template snippet shows these additional properties to encrypt deployment data:
 
