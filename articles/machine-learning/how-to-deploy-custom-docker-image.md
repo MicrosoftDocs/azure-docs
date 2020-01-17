@@ -229,13 +229,12 @@ myenv.inferencing_stack_version = "latest"  # This will install the inference sp
 # Define the packages needed by the model and scripts
 from azureml.core.conda_dependencies import CondaDependencies
 conda_dep = CondaDependencies()
-# Unless you are using your own custom inference stack,
 # you must list azureml-defaults as a pip dependency
 conda_dep.add_pip_package("azureml-defaults")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-Please note that unless you are also using your own custom inference stack, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
+You must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. You must also set inferencing_stack_version property on the environment to "latest", this will install specific apt packages needed by web service. 
 
 After defining the environment, use it with an [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) object to define the inference environment in which the model and web service will run.
 
@@ -258,6 +257,8 @@ print(service.state)
 ```
 
 For more information on deployment, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
 
 ### Use an image with the Machine Learning CLI
 

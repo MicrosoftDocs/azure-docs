@@ -18,7 +18,7 @@ ms.author: memildin
 # Provide security contact details in Azure Security Center
 Azure Security Center will recommend that you provide security contact details for your Azure subscription if you haven’t already. This information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your customer data has been accessed by an unlawful or unauthorized party. MSRC performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties.
 
-An email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Resource groups within a subscription will inherit these settings. 
+An email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Resource groups within a subscription will inherit these settings. Alerts are available only in the Standard tier of Azure Security Center.
 
 Alert email notifications are sent:
 - Only for high severity alerts
@@ -45,7 +45,7 @@ For example, if an email message was already sent to alert you about an RDP atta
    * Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.
    * Enter one security contact international phone number.
    * To receive emails about high severity alerts, turn on the option **Send me emails about alerts**.
-   * In the future, you will have the option to send email notifications to subscription owners. This option is currently grayed out.
+   * You have the option to send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
    * Select **Save** to apply the security contact information to your subscription.
 
 ## See also

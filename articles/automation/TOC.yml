@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: Configure authentication with AWS
       href: automation-config-aws-account.md
+    - name: Encryption of secure assets in Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -242,7 +244,7 @@
   - name: Concepts
     items:
       - name: PowerShell DSC
-        href: /powershell/dsc/overview/overview
+        href: /powershell/scripting/dsc/overview/overview
   - name: Quickstarts
     items:
     - name: Getting Started
@@ -313,7 +315,7 @@
     - name: PowerShell modules
       items: 
       - name: Modules
-        href: automation-integration-modules.md
+        href: shared-resources/modules.md
       - name: Using Az modules in Azure Automation
         href: az-modules.md
       - name: Update Azure PowerShell modules

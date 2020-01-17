@@ -19,6 +19,5 @@
 | Max burst throughput per disk** | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec |
 | Max burst duration** | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
 
-\*Denotes a disk size that is currently in preview, for regional availability information see [New disk sizes: Managed and unmanaged](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged).
-
+\*Denotes a disk size that is currently in preview, for regional availability information see [New disk sizes: Managed and unmanaged](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged).  
 \*\*Denotes a feature that is currently in preview, see [Disk bursting](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability) for more information.
