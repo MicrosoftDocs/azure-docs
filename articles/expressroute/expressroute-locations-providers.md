@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/17/2020
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -87,7 +87,7 @@ The following table shows connectivity locations and the service providers for e
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/a | 10G, 100G | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | n/a | CoreSite, Megaport, Zayo |
 | **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | UAE North | n/a | Etisalat UAE |
-| **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | du datamena, Megaport, Orixcom |
+| **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | du datamena, Megaport, Orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | 10G, 100G | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germany West Central | 10G, 100G | Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | 10G, 100G | Equinix |
