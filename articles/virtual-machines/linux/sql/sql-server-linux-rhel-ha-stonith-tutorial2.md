@@ -446,35 +446,6 @@ sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" pas
 sudo pcs property set stonith-enabled=true
 ```
 
-Check the status of your cluster:
-
-```output
-[<username>@VM1 ~]$ sudo pcs status
-Cluster name: az-hacluster
-Stack: corosync
-Current DC: <VM3> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-Last updated: Sat Dec  7 00:18:38 2019
-Last change: Sat Dec  7 00:18:02 2019 by root via cibadmin on VM1
-
-3 nodes configured
-5 resources configured
-
-Online: [ <VM1> <VM2> <VM3> ]
-
-Full list of resources:
-
- Master/Slave Set: ag_cluster-master [ag_cluster]
-     Masters: [ <VM2> ]
-     Slaves: [ <VM1> <VM3> ]
- virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
- rsc_st_azure   (stonith:fence_azure_arm):      Started <VM1>
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
 Open the following firewall ports on all nodes 2224, 3121, 21064, 5405:
 
 > [!TIP]
@@ -848,6 +819,37 @@ We will be following the guide to [create the availability group resources in th
           virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
     Ticket Constraints:
     ```
+
+### Check cluster status
+
+You can check the status of your cluster resources using the following command:
+
+```output
+[<username>@VM1 ~]$ sudo pcs status
+Cluster name: az-hacluster
+Stack: corosync
+Current DC: <VM3> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+Last updated: Sat Dec  7 00:18:38 2019
+Last change: Sat Dec  7 00:18:02 2019 by root via cibadmin on VM1
+
+3 nodes configured
+5 resources configured
+
+Online: [ <VM1> <VM2> <VM3> ]
+
+Full list of resources:
+
+ Master/Slave Set: ag_cluster-master [ag_cluster]
+     Masters: [ <VM2> ]
+     Slaves: [ <VM1> <VM3> ]
+ virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
+ rsc_st_azure   (stonith:fence_azure_arm):      Started <VM1>
+
+Daemon Status:
+  corosync: active/enabled
+  pacemaker: active/enabled
+  pcsd: active/enabled
+```
 
 ## Test failover
 
