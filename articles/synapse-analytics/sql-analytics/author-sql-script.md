@@ -20,7 +20,7 @@ There are few ways to start the authoring experience in SQL script. You can crea
 1. Add new resource by clicking on the "+" icon and choose "SQL script"  
 ![newsqlscript](./media/author-sql-script/newsqlscript.png)
 a. Choose a name for your SQL script by clicking on the "Property" button   and replace the default name assigned to the SQL script
-![newsqlscript](./media/author-sql-scriptnewsqlscriptrename.png)
+![newsqlscript](./media/author-sql-script/newsqlscriptrename.png)
 b. Choose the specific SQL Pool or the SQL On-Demand from the "Connect to" drop-down menu and if necessary choose the database from "Use database"
 ![newsqlscript](./media/author-sql-script/newsqlchoosepool.png)
 c. Start authoring your SQL script and leverage the intellisense feature

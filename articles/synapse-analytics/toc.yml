@@ -103,7 +103,7 @@
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
         - name: SQL script
-          href: author-sql-script.md
+          href: ./sql-analytics/author-sql-script.md
         # - name: Mapping Data Flow
         #   href: article-template.md
     - name: Maintenance schedule
