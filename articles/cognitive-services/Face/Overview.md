@@ -1,7 +1,7 @@
 ---
-title: What is the Face API?
+title: What is the Face service?
 titleSuffix: Azure Cognitive Services
-description: The Azure Cognitive Services Face API provides algorithms that are used to detect, recognize, and analyze human faces in images.
+description: The Azure Cognitive Services Face service provides algorithms that are used to detect, recognize, and analyze human faces in images.
 author: PatrickFarley
 manager: nitinme
 
@@ -10,21 +10,21 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-#Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face API does so I can determine if I should use its features.
+#Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
 ---
 
-# What is the Azure Face API?
+# What is the Azure Face service?
 
-The Azure Cognitive Services Face API provides algorithms that are used to detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios are security, natural user interface, image content analysis and management, mobile apps, and robotics.
+The Azure Cognitive Services Face service provides algorithms that are used to detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios are security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-The Face API provides several different functions. Each function is outlined in the following sections. Read on to learn more about them.
+The Face service provides several different functions. Each function is outlined in the following sections. Read on to learn more about them.
 
 ## Face detection
 
-The Face API detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes. Examples are head pose, gender, age, emotion, facial hair, and glasses.
+The Face service detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes. Examples are head pose, gender, age, emotion, facial hair, and glasses.
 
 > [!NOTE]
-> The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). If you want to do further operations with face data, use the Face API, which is the service discussed in this article.
+> The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). If you want to do further operations with face data, use the Face service, which is the service discussed in this article.
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 
@@ -70,9 +70,9 @@ For more information about person identification, see the [Face recognition](con
 
 ## Sample apps
 
-The following sample applications show a few ways to use the Face API:
+The following sample applications show a few ways to use the Face service:
 
-- [Microsoft Face API: Windows Client Library and sample](https://github.com/Microsoft/Cognitive-Face-Windows) is a WPF app that demonstrates several scenarios of Face detection, analysis, and identification.
+- [Face API: Windows Client Library and sample](https://github.com/Microsoft/Cognitive-Face-Windows) is a WPF app that demonstrates several scenarios of Face detection, analysis, and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) is a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
 
 ## Data privacy and security
