@@ -131,7 +131,7 @@ To verify the Azure AD application configuration and provide consent:
    
    [ ![The authentication page with the entered redirect URI](media/management-ui-redirect-uri-inline.png) ](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. In the left panel, select **API permissions** to confirm that permissions were added. If you're a global admin, select the **Grand admin consent for `tenantname`**  button and follow the dialog prompts to provide admin consent for your organization.
+5. In the left panel, select **API permissions** to confirm that permissions were added. If you're a global admin, select the **Grant admin consent for `tenantname`**  button and follow the dialog prompts to provide admin consent for your organization.
     
     [ ![The API permissions page](media/management-ui-permissions-inline.png) ](media/management-ui-permissions-expanded.png#lightbox)
 
