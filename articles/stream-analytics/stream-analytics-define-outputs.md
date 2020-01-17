@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 01/18/2010
 ---
 
 # Understand outputs from Azure Stream Analytics
