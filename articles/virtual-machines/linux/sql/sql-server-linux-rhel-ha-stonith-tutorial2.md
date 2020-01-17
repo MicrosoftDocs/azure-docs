@@ -443,7 +443,6 @@ Run the following commands on node 1:
 ```bash
 sudo pcs property set stonith-timeout=900
 sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" passwd="<servicePrincipalPassword>" resourceGroup="<resourceGroupName>" tenantId="<tenantID>" subscriptionId="<subscriptionId>" power_timeout=240 pcmk_reboot_timeout=900
-sudo pcs property set stonith-enabled=true
 ```
 
 Open the following firewall ports on all nodes 2224, 3121, 21064, 5405:
@@ -819,6 +818,14 @@ We will be following the guide to [create the availability group resources in th
           virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
     Ticket Constraints:
     ```
+
+### Re-enable stonith
+
+We're ready for testing. Re-enable stonith in the cluster by running the following command on Node 1:
+
+```bash
+sudo pcs property set stonith-enabled=true
+```
 
 ### Check cluster status
 
