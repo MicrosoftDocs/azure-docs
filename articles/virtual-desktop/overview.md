@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/17/2020
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
