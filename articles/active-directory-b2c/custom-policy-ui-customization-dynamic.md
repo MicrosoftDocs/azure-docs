@@ -69,13 +69,13 @@ In this walkthrough, you:
 
 3. Name the application (for example, *Contoso.AADB2C.UI*), and then select **OK**.
 
-    ![Create new Visual Studio project](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project1.png)
+    ![Create new Visual Studio project](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-create-project1.png)
 
 4. Select the **Web Application** template.
 
 5. Set the authentication to **No Authentication**.
 
-    ![Select Web Application template](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
+    ![Select Web Application template](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
 6. Select **OK** to create the project.
 
@@ -86,7 +86,7 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 ### Step 2.2: Add the MVC view
 1. Right-click the Views/Home folder, and then **Add** > **New Item**.
 
-    ![Add New Item menu item in Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Add New Item menu item in Visual Studio](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
 2. In the **Add New Item - Contoso.AADB2C.UI** window, select **Web > ASP.NET**.
 
@@ -96,7 +96,7 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 
 5. Select **Add**.
 
-    ![Add New Item dialog in Visual Studio with MVC View Page highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![Add New Item dialog in Visual Studio with MVC View Page highlighted](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
 6. If the *unified.cshtml* file is not open already, double-click the file to open it, and then clear the file contents.
 
@@ -114,13 +114,13 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 
 10. Copy the content of the file and paste it below the Layout definition. Your code should look like:
 
-    ![unified.cshtml file after adding the HTML5](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
+    ![unified.cshtml file after adding the HTML5](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
 
 ### Step 2.3: Change the background image
 
 Locate the `<img>` element that contains the `ID` value *background_background_image*, and then replace the `src` value with **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** or any other background image you want to use.
 
-![img element with custom background_background_image src value](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![img element with custom background_background_image src value](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### Step 2.4: Add your view to the MVC controller
 
@@ -136,18 +136,18 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 
     After you add the _unified_ method, your code should look like:
 
-    ![Change the controller to render the view](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-controller-view.png)
+    ![Change the controller to render the view](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-controller-view.png)
 
 2. Debug your web app, and make sure that the _unified_ page is accessible (for example, `http://localhost:<Port number>/Home/unified`).
 
 ### Step 2.5: Publish to Azure
 1. In **Solution Explorer**, right-click the **Contoso.AADB2C.UI** project, and then select **Publish**.
 
-    ![Publish to Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
+    ![Publish to Microsoft Azure App Service](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-publish1.png)
 
 2. Select the **Microsoft Azure App Service** tile, and then select **Publish**.
 
-    ![Create new Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
+    ![Create new Microsoft Azure App Service](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-publish2.png)
 
     The **Create App Service** window opens. In it you can begin to create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
@@ -158,7 +158,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 
 4. Select **Create** to start creating the Azure resources.
 
-    ![Provide App Service properties](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish3.png)
+    ![Provide App Service properties](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-publish3.png)
 
     After the creation process is complete, the wizard publishes the ASP.NET web app to Azure and then launches the app in the default browser.
 
@@ -167,11 +167,11 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 ## Step 3: Configure CORS in Azure App Service
 1. In the [Azure portal](https://portal.azure.com/), Select **App Services**, and then select the name of your API app.
 
-    ![Select API app in the Azure portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
+    ![Select API app in the Azure portal](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-CORS1.png)
 
 2. In the **Settings** section, under **API** section, select **CORS**.
 
-    ![CORS menu item highlighted in App Service menu in Azure portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![CORS menu item highlighted in App Service menu in Azure portal](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
 3. In the **CORS** window, in the **Allowed Origins** box, do either of the following:
 
@@ -180,7 +180,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 
 4. Select **Save**.
 
-    ![CORS settings page with asterisk highlighted in Allowed Origins](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![CORS settings page with asterisk highlighted in Allowed Origins](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
     After you select **Save**, the API app accepts JavaScript calls from the specified URLs.
 
@@ -210,7 +210,7 @@ To configure `ContentDefinition`, do the following:
 6. Change the value of `LoadUri` from _~/tenant/default/unified_ to _https://<app_name>.azurewebsites.net/home/unified_.
     Your custom policy should look like the following:
 
-    ![Example XML snippet with LoadUri element highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+    ![Example XML snippet with LoadUri element highlighted](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## Step 6: Upload the policy to your tenant
 1. In the [Azure portal](https://portal.azure.com), select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
@@ -236,7 +236,7 @@ To configure `ContentDefinition`, do the following:
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
     You should be able to see your custom HTML5 with the background that you created earlier.
 
-    ![Your sign-up or sign-in policy](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
+    ![Your sign-up or sign-in policy](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
 ## Step 8: Add dynamic content
 Change the background based on query string parameter named _campaignId_. Your RP application (web and mobile apps) sends the parameter to Azure AD B2C. Your policy reads the parameter and sends its value to your HTML5 template.
@@ -291,7 +291,7 @@ Modify the HomeController `unified` method to accept the campaignId parameter. T
 
 2. Locate the `<img>` element with ID `background_background_image`, and replace the `src` value with `@ViewData["background"]`.
 
-    ![img element with src value highlighted ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
+    ![img element with src value highlighted ](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
 ### 8.3: Upload the changes and publish your policy
 1. Publish your Visual Studio project to Azure App Service.
@@ -305,16 +305,16 @@ Modify the HomeController `unified` method to accept the campaignId parameter. T
 
 5. Add the _campaignId_ query string parameter to the URI. For example, add `&campaignId=hawaii`, as shown in following image:
 
-    ![URI with campaignId query string parameter highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![URI with campaignId query string parameter highlighted](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. Select **Enter** to display the Hawaii background image.
 
-    ![Sign-up sign-in page with Hawaii image custom background](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![Sign-up sign-in page with Hawaii image custom background](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
 7. Change the value to *Tokyo*, and then select **Enter**.
     The browser displays the Tokyo background.
 
-    ![Sign-up sign-in page with Tokyo image custom background](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![Sign-up sign-in page with Tokyo image custom background](./media/custom-policy-ui-customization-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
 ## Step 9: Change the rest of the user journey
 If you select the **Sign up now** link on the sign-in page, the browser displays the default background image, not the image you defined. This behavior arises because you've changed only the sign-up or sign-in page. To change the rest of the Self-Assert content definitions:

@@ -117,9 +117,9 @@
     - name: External identity providers
       items:
       - name: Amazon
-        href: active-directory-b2c-setup-amzn-app.md
+        href: identity-provider-amazon.md
       - name: Azure AD (Single-tenant)
-        href: active-directory-b2c-setup-oidc-azure-active-directory.md
+        href: identity-provider-azure-ad-single-tenant.md
       - name: Microsoft Account
         href: active-directory-b2c-setup-msa-app.md
       - name: Facebook
@@ -178,7 +178,7 @@
         href: custom-policy-ui-customization.md
         displayName: ux, input, cors, html, css
       - name: Customize the UI dynamically
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
+        href: custom-policy-ui-customization-dynamic.md
       - name: Custom email
         href: custom-email.md
         displayName: verification
@@ -193,11 +193,11 @@
       - name: OIDC/OAuth providers
         items:
         - name: Amazon
-          href: setup-amazon-custom.md
+          href: identity-provider-amazon-custom.md
         - name: Azure AD (Single-tenant)
-          href: active-directory-b2c-setup-aad-custom.md
+          href: identity-provider-azure-ad-single-tenant-custom.md
         - name: Azure AD (Multi-tenant)
-          href: active-directory-b2c-setup-commonaad-custom.md
+          href: identity-provider-azure-ad-multi-tenant-custom.md
         - name: Google
           href: active-directory-b2c-custom-setup-goog-idp.md
         - name: LinkedIn
@@ -209,7 +209,7 @@
       - name: SAML providers
         items:
         - name: ADFS
-          href: active-directory-b2c-custom-setup-adfs2016-idp.md
+          href: identity-provider-adfs2016-custom.md
           displayName: SAML
         - name: Salesforce
           href: active-directory-b2c-setup-sf-app-custom.md
@@ -383,13 +383,13 @@
   - name: Error codes
     href: error-codes.md
   - name: Region availability & data residency
-    href: active-directory-b2c-reference-tenant-type.md
+    href: data-residency.md
   - name: Enable billing
     href: billing.md
   - name: Threat management
     href: active-directory-b2c-reference-threat-management.md
   - name: Extensions app
-    href: active-directory-b2c-reference-extensions-app.md
+    href: extensions-app.md
   - name: User flow versions
     href: user-flow-versions.md
 - name: Resources
@@ -397,7 +397,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
-    href: active-directory-b2c-faqs.md
+    href: faq.md
   - name: Getting help
     href: /azure/active-directory/develop/developer-support-help-options
   - name: Pricing

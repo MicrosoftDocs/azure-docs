@@ -68,7 +68,7 @@ You can use the [company branding feature](../active-directory/fundamentals/cust
 * **Banner logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
 
-    ![Screenshot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Screenshot of a customized verification email](./media/faq/company-branded-verification-email.png)
 
 The email signature contains the Azure AD B2C tenant's name that you provided when you first created the Azure AD B2C tenant. You can change the name using these instructions:
 
@@ -106,7 +106,7 @@ Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; 
 
 ### Should I use Azure AD B2C or B2B to manage external identities?
 
-Read this article about [external identities](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.
+Read [Compare B2B collaboration and B2C in Azure AD](../active-directory/b2b/compare-with-b2c.md) to learn more about applying the appropriate features to your external identity scenarios.
 
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 
