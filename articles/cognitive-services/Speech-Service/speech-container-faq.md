@@ -14,7 +14,7 @@ ms.author: dapine
 
 # Speech service containers frequently asked questions (FAQ)
 
-When using the Speech service with containers, rely on this collection of frequently asked questions before escalating to support. This article captures general and technical questions.
+When using the Speech service with containers, rely on this collection of frequently asked questions before escalating to support. This article captures general and technical questions. To expand an answer, click on the question.
 
 ## General questions
 
@@ -103,7 +103,7 @@ if not recognize_once(
 ```
 Here is the output:
 
-```console
+```cmd
 RECOGNIZED: SpeechRecognitionResult(
     result_id=2111117c8700404a84f521b7b805c4e7, 
     text="まだ早いまだ早いは猫である名前はまだないどこで生まれたかとんと見当を検討をなつかぬ。
@@ -112,39 +112,16 @@ RECOGNIZED: SpeechRecognitionResult(
     しかも後で聞くと、それは書生という人間中で一番同額同額。",
     reason=ResultReason.RecognizedSpeech)
 ```
-
 </details>
 
 <details>
 <summary>
-<b>How can I use a custom acoustic model and language model along with container services options in Azure?</b>
+<b>How can I use both, custom acoustic model and language models with Speech container?</b>
 </summary>
 
 We are currently only able to pass one model ID, either custom language model or custom acoustic model.
 
 **A:** The decision to *not* support both acoustic and language models concurrently was made. This will remain in effect, until a unified identifier is created to reduce API breaks. So, unfortunately this is not supported right now.
-
-</details>
-
-<details>
-<summary>
-<b>When using the custom speech-to-text container, what are these errors?</b>
-</summary>
-
-```
-Failed to fetch manifest: Status: 400 Bad Request Body:
-{
-    "code": "InvalidModel",
-    "message": "The specified model is not supported for endpoint manifests."
-}
-```
-
-**A:** If you're training with the latest custom model, we currently don't support that. If you train with an older version it should be possible to use. We are still working on supporting the latest versions.
-
-Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models not being encrypted and we don't want to expose ONNX models, however; language models are fine. The customer will need to explicitly select an older non-ONNX model for custom training. Accuracy will not be affected. The model size may be larger (by 100MB).
-
-> Support model > 20190220 (v4.5 Unified)
-
 </details>
 
 <details>
@@ -154,7 +131,23 @@ Essentially, the custom containers do not support Halide or ONNX-based acoustic 
 
 **Error 1:**
 
-```plaintext
+```cmd
+Failed to fetch manifest: Status: 400 Bad Request Body:
+{
+    "code": "InvalidModel",
+    "message": "The specified model is not supported for endpoint manifests."
+}
+```
+
+**A1:** If you're training with the latest custom model, we currently don't support that. If you train with an older version it should be possible to use. We are still working on supporting the latest versions.
+
+Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models not being encrypted and we don't want to expose ONNX models, however; language models are fine. The customer will need to explicitly select an older non-ONNX model for custom training. Accuracy will not be affected. The model size may be larger (by 100MB).
+
+> Support model > 20190220 (v4.5 Unified)
+
+**Error 2:**
+
+```cmd
 HTTPAPI result code = HTTPAPI_OK.
 HTTP status code = 400.
 Reason:  Synthesis failed.
@@ -162,9 +155,9 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**A1:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping. You have to use `en-US-JessaRUS`, as `en-US-JessaNeural` is not available right now in container version of text-to-speech.
+**A2:** You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping. You have to use `en-US-JessaRUS`, as `en-US-JessaNeural` is not available right now in container version of text-to-speech.
 
-**Error 2:**
+**Error 3:**
 
 ```json
 {
@@ -173,7 +166,7 @@ Details: Voice does not match.
 }
 ```
 
-**A2:** You reed to create a Speech resource, not a Cognitive Services resource.
+**A3:** You reed to create a Speech resource, not a Cognitive Services resource.
 
 </details>
 
@@ -193,7 +186,6 @@ speech_config.set_service_property(
     channel=speechsdk.ServicePropertyChannel.UriQueryParameter
 )
 ```
-
 </details>
 
 <details>
@@ -202,62 +194,60 @@ speech_config.set_service_property(
 </summary>
 
 **A:** For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
-
 </details>
 
 <details>
 <summary>
-<b>Could not run container on CentOS**
+<b>Is CentOS supported for Speech containers?</b>
+</summary>
 
-**A:** CentOS 7 is not supported by Python SDK yet.
-19.04 ubuntu is not supported yet
-
-Referring to prerequisites: https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python#prerequisites
+**A:** CentOS 7 is not supported by Python SDK yet, also Ubuntu 19.04 is not supported.
 
 The Python Speech SDK package is available for these operating systems:
 - **Windows** - x64 and x86
 - **Mac** - macOS X version 10.12 or later
 - **Linux** - Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64
 
-https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Cwindows%2Cjre&pivots=programming-language-python
-
-so 18.04 is the recommended ubuntu version as of now.
-
+For more information on environment setup, see [Python platform setup](quickstarts/setup-platform.md?pivots=programming-language-python). For now, Ubuntu 18.04 is the recommended version.
 </details>
 
 <details>
 <summary>
-<b>How to use V1.8 SDK with Speech container?</b>
+<b>How can I use v1.8 of the Speech SDK with a Speech container?</b>
 </summary>
 
 **A:** There's a new `FromHost` API. This does not replace or modify any existing APIs. It just adds an alternative way to create a speech config using a custom host.
 
-Host API descriptions
-•	C++ : FromHost https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig (find FromHost on the page)
-•	C# : FromHost https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet
-•	Java : fromHost https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-java-stable
-•	Objective-C : initWithHost https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration (find initWithHost on the page)
-•	Python : SpeechConfig with host parameter https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python (note, as of this writing the page has not been updated yet)
-•	JavaScript : not supported at the moment and no schedule for it
+##### From Host APIs
 
-Parameters: host (mandatory), subscription key (optional, if you can use the service without it).
+| Language | API details |
+|----------|:------------|
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_cplusplus.svg" alt="C++"></div> | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_csharp.svg" alt="C#"></div> | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="Java"></div> | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-java-stable" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_python.svg" alt="Python"></div> | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_js.svg" alt="JavaScript"></div> | Not currently supported, nor is it planned. |
+
+> Parameters: host (mandatory), subscription key (optional, if you can use the service without it).
 
 Format for host is "protocol://hostname:port" where ":port" is optional (see below).
-•	If the container is running locally, the hostname is "localhost".
-•	If the container is running on a remote server, use the hostname or IPv4 address of that server.
+- If the container is running locally, the hostname is "localhost".
+- If the container is running on a remote server, use the hostname or IPv4 address of that server.
 
 Host parameter examples:
-•	"ws://localhost:5000" - non-secure connection to a local container using port 5000
-•	"ws://some.host.com:5000" - non-secure connection to a container running on a remote server
+- "ws://localhost:5000" - non-secure connection to a local container using port 5000
+- "ws://some.host.com:5000" - non-secure connection to a container running on a remote server
 
 "ws://" = non-secure websocket connection, default port is 80
 "wss://" = secure websocket connection, default port is 443
 (this is for STT; text-to-speech would use http or https instead)
 
-Python samples as above, but use 'host' parameter instead of 'endpoint' e.g.
+Python samples as above, but use `host` parameter instead of `endpoint`:
 
-    speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
-
+```python
+speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
+```
 </details>
 
 <details>
@@ -265,92 +255,117 @@ Python samples as above, but use 'host' parameter instead of 'endpoint' e.g.
 <b>How to use V1.7 SDK with Speech container?</b>
 </summary>
 
-**A:** There are 3 endpoints at Speech Container for different usages
-Interactive: 
-•	Meant for command and control scenarios.
-•	Has a segmentation timeout value of X.
-•	At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
-•	Maximum limit for recognition is 20s.
-•	Typical Carbon call to invoke is `RecognizeOnceAsync`
+**A:** There are 3 endpoints on the Speech container for different usages, they're detailed below.
 
-Conversation:
-•	Meant for longer running recognitions.
-•	Has a segmentation timeout value of Y. (Y != X)
-•	Will process multiple complete utterances without ending the turn.
-•	Will end the turn for too much silence.
-o	Carbon will continue with a new request ID and replaying audio as needed.
-•	The service will forcibly disconnect after 10 minutes of speech recognition.
-o	Carbon will reconnect and replay unacknowledged audio.
-•	Invoked in Carbon with `StartContinuousRecognition`
+###### Interactive
+- Meant for command and control scenarios.
+- Has a segmentation timeout value of X.
+- At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
+- Maximum limit for recognition is 20s.
+- Typical Carbon call to invoke is `RecognizeOnceAsync`.
 
-Dictation: 
-•	Allows users to specify punctuation by speaking it.
-•	Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
-•	The 1st party cluster returns speech.fragment messages for intermediate results, the 3rd party return speech.hypothesis messages.
+###### Conversation
+- Meant for longer running recognitions.
+- Has a segmentation timeout value of Y. (Y != X)
+- Will process multiple complete utterances without ending the turn.
+- Will end the turn for too much silence.
+- Carbon will continue with a new request ID and replaying audio as needed.
+- The service will forcibly disconnect after 10 minutes of speech recognition.
+- Carbon will reconnect and replay unacknowledged audio.
+- Invoked in Carbon with `StartContinuousRecognition`.
 
-They are for different purpose and are used differently.
+###### Dictation
+- Allows users to specify punctuation by speaking it.
+- Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
+- The 1st party cluster returns `speech.fragment` messages for intermediate results, the 3rd party return `speech.hypothesis` messages.
 
-Python basic samples:
-https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py
-•	for single recognition (interactive mode) with a custom endpoint (i.e. SpeechConfig with an endpoint parameter), see speech_recognize_once_from_file_with_custom_endpoint_parameters()
-•	for continuous recognition (conversation mode), see (and just modify to use a custom endpoint as above) speech_recognize_continuous_from_file()
-•	to enable dictation in samples like above (only if you really need it), right after you create speech_config, add code
-o	speech_config.enable_dictation()
+They are for different purposed and are used differently.
 
-Had no time for refs to C# samples now, but the speech config method to enable dictation is .EnableDictation()
+Python [samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py):
+- For single recognition (interactive mode) with a custom endpoint (i.e.; `SpeechConfig` with an endpoint parameter), see `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
+- For continuous recognition (conversation mode), and just modify to use a custom endpoint as above, see `speech_recognize_continuous_from_file()`.
+- To enable dictation in samples like above (only if you really need it), right after you create `speech_config`, add code `speech_config.enable_dictation()`.
 
-Endpoint API descriptions
-•	C++ : FromEndpoint https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig (find FromEndpoint on the page)
-•	C# : FromEndpoint https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet
-•	Java : fromEndpoint https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-java-stable
-•	Objective-C : initWithEndpoint https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration (find initWithEndpoint on the page)
-•	Python : SpeechConfig with endpoint parameter https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python
-•	JavaScript : fromEndpoint, the doc pages seemsto be temporarily offline
+For refs to C#, to enable dictation `SpeechConfig.EnableDictation()`.
 
-Q:
+##### Endpoint API descriptions
+| Language | API details |
+|----------|:------------|
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_cplusplus.svg" alt="C++"></div> | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_csharp.svg" alt="C#"></div> | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="Java"></div> | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-java-stable" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initWithEndpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_python.svg" alt="Python"></div> | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| <div class="icon is-large"><img src="https://docs.microsoft.com/media/logos/logo_js.svg" alt="JavaScript"></div> | Not currently supported, nor is it planned. |
+</details>
+
+<details>
+<summary>
+<b>Why am I getting errors when attempting calls to LUIS prediction endpoints?</b>
+</summary>
+
 I am using the LUIS container in an IoT Edge deployment and am attempting to call the LUIS prediction endpoint from another container. The LUIS container is listening on port 5001, and the URL I'm using is this:
 var config = SpeechConfig.FromEndpoint(new Uri($"ws://192.168.1.91:5001/luis/prediction/v3.0/apps/{luisAppId}/slots/production/predict"));
 
-The error I'm getting is this:
+The error I'm getting is:
+
+```cmd
 WebSocket Upgrade failed with HTTP status code: 404 SessionId: 3cfe2509ef4e49919e594abf639ccfeb
-I see the request in the LUIS container logs and the message says: "The request path /luis//predict" does not match a supported file type".
-What does this mean? What am I missing?
-I was following the example for the Speech SDK, from here:
-https://github.com/Azure-Samples/cognitive-services-speech-sdk
-The scenario is that we are detecting the audio directly from the PC microphone and trying to determine the intent, based on the LUIS app we trained. The example I linked to does exactly that. And it works very well with the LUIS cloud-based service. Using the Speech SDK seemed to save us from having to make a separate explicit call to the speech-to-text API and then a second call to LUIS.
+```
+
+I see the request in the LUIS container logs and the message says:
+
+```cmd
+The request path /luis//predict" does not match a supported file type.
+```
+
+What does this mean? What am I missing? I was following the example for the Speech SDK, from [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk). The scenario is that we are detecting the audio directly from the PC microphone and trying to determine the intent, based on the LUIS app we trained. The example I linked to does exactly that. And it works very well with the LUIS cloud-based service. Using the Speech SDK seemed to save us from having to make a separate explicit call to the speech-to-text API and then a second call to LUIS.
+
 So, all I am attempting to do is switch from the scenario of using LUIS in the cloud to using the LUIS container. I can't imagine if the Speech SDK works for one, it won't work for the other.
 
 **A:**
 The Speech SDK should not be used against a LUIS container. For using the LUIS container, the LUIS SDK or LUIS REST API should be used. Speech SDK should be used against a speech container.
 
-A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container -- 2 separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio -- LUIS is a text based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers prem, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
-TODO: sample code needed here to show how to use Speech container + LUIS container sequentially.
-
+A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - 2 separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers prem, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
 </details>
 
 <details>
 <summary>
-<b>Running on Mac (macOS + container + Python SDK), help?</b>
+<b>Why are we getting errors with macOS, Speech container and the Python SDK?</b>
 </summary>
 
-When we send a wav file to be transcribed, the result comes back with:
+When we send a *.wav* file to be transcribed, the result comes back with:
+
+```cmd
 recognition is running....
 Speech Recognition canceled: CancellationReason.Error
 Error details: Timeout: no recognition result received.
 When creating a websocket connection from the browser a test, we get:
 wb = new WebSocket("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
-WebSocket {url: "ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", readyState: 0, bufferedAmount: 0, onopen: null, onerror: null, …}
-So we know the websocket is setup correctly.
+WebSocket
+{
+    url: "ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1",
+    readyState: 0,
+    bufferedAmount: 0,
+    onopen: null,
+    onerror: null,
+    ...
+}
+```
+
+We know the websocket is setup correctly.
+</details>
 
 **A:**
-If that is the case then
-https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310
-We have a work around
-https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722
+If that is the case then see [this GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). We have a work around, [proposed here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722).
 
-Carbon fixed at V1.8.
+Carbon fixed this at version 1.8.
 
-Q: differences of the endpoints.
+<details>
+<summary>
+<b>What are the differences in the Speech container endpoints?</b>
+</summary>
+
 Could you help fill the following test metrics, including what functions to test, and how to test (SDK/REST)?
 Esp. "interactive" & "conversation" which I did not see from existing doc/sample.
 
@@ -366,49 +381,49 @@ The cognitive services on-prem conversation v1 websocket endpoint
 
 **A:**
 This is a horrible fusion of:
-•	People trying the dictation endpoint for containers. (I'm not sure how they got that URL)
-•	The 1st party endpoint being the one in a container.
-•	The 1st party endpoint returning speech.fragment messages instead of the speech.hypothesis messages the 3rd part endpoints return for the dictation endpoint.
-•	The Carbon quickstarts all use RecognizeOnce (Interactive mode)
-•	Carbon having an Assert that for speech.fragment messages requiring they aren't returned in Interactive Mode.
-•	Carbon having the Asserts fire in Release builds (killing the process)
+- People trying the dictation endpoint for containers. (I'm not sure how they got that URL)
+- The 1st party endpoint being the one in a container.
+- The 1st party endpoint returning speech.fragment messages instead of the speech.hypothesis messages the 3rd part endpoints return for the dictation endpoint.
+- The Carbon quickstarts all use RecognizeOnce (Interactive mode)
+- Carbon having an Assert that for speech.fragment messages requiring they aren't returned in Interactive Mode.
+- Carbon having the Asserts fire in Release builds (killing the process)
 
 The workaround is either switch to using continuous recognition in your code, or (quicker) connect to either the interactive or continuous endpoints in the container.
 For your code, set the endpoint to <host:port>/speech/recognition/interactive/cognitiveservices/v1
 
 Interactive: 
-•	Meant for command and control scenarios.
-•	Has a segmentation timeout value of X.
-•	At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
-•	Maximum limit for recognition is 20s.
-•	Typical Carbon call to invoke is "RecognizeOnceAsync()"
+- Meant for command and control scenarios.
+- Has a segmentation timeout value of X.
+- At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
+- Maximum limit for recognition is 20s.
+- Typical Carbon call to invoke is "RecognizeOnceAsync()"
 
 Conversation:
-•	Meant for longer running recognitions.
-•	Has a segmentation timeout value of Y. (Y != X)
-•	Will process multiple complete utterances without ending the turn.
-•	Will end the turn for too much silence.
-o	Carbon will continue with a new request ID and replaying audio as needed.
-•	The service will forcibly disconnect after 10 minutes of speech recognition.
-o	Carbon will reconnect and replay unacknowledged audio.
-•	Invoked in Carbon with "StartContinuousRecognition()"
+- Meant for longer running recognitions.
+- Has a segmentation timeout value of Y. (Y != X)
+- Will process multiple complete utterances without ending the turn.
+- Will end the turn for too much silence.
+- Carbon will continue with a new request ID and replaying audio as needed.
+- The service will forcibly disconnect after 10 minutes of speech recognition.
+- Carbon will reconnect and replay unacknowledged audio.
+- Invoked in Carbon with "StartContinuousRecognition()"
 
 Dictation: 
-•	Allows users to specify punctuation by speaking it.
-•	Invoked in Carbon by specifying "EnableDictation()" on the SpeechConfig object regardless of the API call that starts recognition.
-•	The 1st party cluster returns speech.fragment messages for intermediate results, the 3rd party return speech.hypothesis messages.
+- Allows users to specify punctuation by speaking it.
+- Invoked in Carbon by specifying "EnableDictation()" on the SpeechConfig object regardless of the API call that starts recognition.
+- The 1st party cluster returns speech.fragment messages for intermediate results, the 3rd party return speech.hypothesis messages.
 
 The proper fix is coming with SDK 1.8, which has on-prem support (will pick the right endpoint, so we will be no worse than online service). In the meantime, there is a sample for continuous recognition, why don't we point to it?
 
 https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d9e95c9137fe129bc5d81e35f6309/samples/python/console/speech_sample.py#L196
 
 I've already mentioned to Rob that we need to support RecognizeAll(), which is a call Google supports for these types of scenarios (recognition from file).
-
 </details>
 
 <details>
 <summary>
-<b>I thought I read somewhere that the non-batch API could only handle audio <15 seconds long.  I'll work with the SDK and get it running.**
+<b>How can I get non-batch APIs to handle audio &lt;15 seconds long?</b>
+</summary>
 
 **A:** This is in interactive mode. If you use dictation or conversation that is not a problem.
 
@@ -416,13 +431,14 @@ I've already mentioned to Rob that we need to support RecognizeAll(), which is a
 
 <details>
 <summary>
-<b>Few more applicative/proper use questions**
+<b>Few more applicative/proper use questions</b>
+</summary>
 
 1. API to use, we have wav files at various lengths, spanning from few seconds to dozens of seconds, should we use - Interactive/conversation/dictation for such type?
 2. should we use : StartContinuousRecognitionAsync or RecognizeOnceAsync ?
 in our tests we used: StartContinuousRecognitionAsync & conversation
 
-**A:** here's a 5 min quickstart using Python. You can find the other languages nearby on that web site:
+**A:** Here's a quickstart using Python. You can find the other languages linked on the docs site:
 
 https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python
 
@@ -431,8 +447,8 @@ Q: we are trying to help the team capacity plan for hardware by benchmarking a r
 
 **A:** Here are some of the rough numbers to expect from existing model (will change for the better in the one we will ship in GA):
 
-•	For files, the throttling will be in the speech SDK, at 2x. First 5s of audio are not throttled. Decoder is capable of doing about 3x real-time. For this, the overall CPU usage will be close to 2 cores for a single reco.
-•	For mic, it will be at 1x real-time. The overall usage should be at about 1 core for a single reco.
+- For files, the throttling will be in the speech SDK, at 2x. First 5s of audio are not throttled. Decoder is capable of doing about 3x real-time. For this, the overall CPU usage will be close to 2 cores for a single reco.
+- For mic, it will be at 1x real-time. The overall usage should be at about 1 core for a single reco.
 
 This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
 
@@ -453,10 +469,10 @@ Container	Minimum	Recommended
 cognitive-services-speech-to-text	2 core
 2-GB memory	4 core
 4-GB memory
-•	Each core must be at least 2.6 gigahertz (GHz) or faster. 
-•	For files, the throttling will be in the speech SDK, at 2x. First 5s of audio are not throttled.
-•	Decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage will be close to 2 cores for a single reco. That's why I mentioned "do not recommend keep more than 2 active connections per container instance". To extreme it, you may try put about 10 decoders at 2x real-time in an 8 core machine like DS13_V2, for the new 1.3 container coming out soon in 1-2 weeks. There's a param you could try: "DECODER_MAX_COUNT=20"
-•	For mic, it will be at 1x real-time. The overall usage should be at about 1 core for a single reco.
+- Each core must be at least 2.6 gigahertz (GHz) or faster. 
+- For files, the throttling will be in the speech SDK, at 2x. First 5s of audio are not throttled.
+- Decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage will be close to 2 cores for a single reco. That's why I mentioned "do not recommend keep more than 2 active connections per container instance". To extreme it, you may try put about 10 decoders at 2x real-time in an 8 core machine like DS13_V2, for the new 1.3 container coming out soon in 1-2 weeks. There's a param you could try: "DECODER_MAX_COUNT=20"
+- For mic, it will be at 1x real-time. The overall usage should be at about 1 core for a single reco.
  
 How many hours audio do you have in total?
 If the number is big, to improve reliability/availability, I would suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer.
