@@ -23,8 +23,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.84
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
+  + **azureml-core**
+    + Get the current core usage and quota limitation for AmlCompute resources in a given workspace and subscription
+
+    
   + **Preview features**
     + [Contrib features below] 
 
