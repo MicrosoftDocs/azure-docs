@@ -22,7 +22,7 @@ When you create a scale set, you define the number of VM instances that you wish
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-If you don�t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 There's a known issue that affects Azure PowerShell module version 6.8.1 or later, including the current version of the Azure Cloud Shell. This tutorial can only run using  Azure PowerShell module version 6.0.0 to 6.8.0. Run `Get-Module -ListAvailable AzureRM` to find the version. If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -68,7 +68,7 @@ The following parameters are used for this rule:
 | *-Operator*             | Operator used to compare the metric data against the threshold.                                                     | Greater Than   |
 | *-Threshold*            | The value that causes the autoscale rule to trigger an action.                                                      | 70%            |
 | *-ScaleActionDirection* | Defines if the scale set should scale up or down when the rule applies.                                             | Increase       |
-| *�ScaleActionScaleType* | Indicates that the number of VM instances should be changed by a specific value.                                    | Change Count   |
+| *-ScaleActionScaleType* | Indicates that the number of VM instances should be changed by a specific value.                                    | Change Count   |
 | *-ScaleActionValue*     | The percentage of VM instances should be changed when the rule triggers.                                            | 3              |
 | *-ScaleActionCooldown*  | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes      |
 
@@ -84,7 +84,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  �ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -106,7 +106,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  �ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 
