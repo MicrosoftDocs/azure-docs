@@ -30,7 +30,8 @@ When you're ready to publish your updated offer, select **Publish** from any pag
 - Provide additional information to the certification testing team to ensure that testing goes smoothly.
 - Submit the updated offer for publishing by selecting **Submit**.  We'll email you when a preview version of the updated offer is available for you to review and sign off.
 
-**IMPORTANT**: You must review your offer preview, once it's available, and select **Go-live** to publish your updated offer to your intended audience (public or private).
+> [!IMPORTANT]
+> You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
 
 ## Update a plan within an existing offer
 
@@ -58,12 +59,12 @@ See below for general auditing information:
     - **Added values** filter displays fields that you did not originally publish and are now adding.
     - **Edited values** filter displays fields that had been published but you've now updated the contents.
 
-        >[!NOTE]
-        > If a  filter above isn't available, that indicates you didn't make an update of that type.
+      >[!NOTE]
+      > If one of these filters isn't available, it indicates that you didn't make an update of that type.
 
-    - To see only values that haven't been updated, select the **Unchanged fields** filter. The field values shown for the published and draft version will be the same.
+- To see only values that haven't been updated, select the **Unchanged fields** filter. The field values shown for the published and draft version will be the same.
 
-    ![Filters for comparing updates to your published or preview offer](./media/compare-changes-marketplace.png)
+  ![Filters for comparing updates to your published or preview offer](./media/compare-changes-marketplace.png)
 
 >[!NOTE]
 > The following pages don't currently support **Compare**:
