@@ -81,14 +81,17 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs:
 
-* *.wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Address|Outbound port|Purpose|
+|---|---|---|
+|*.wvd.microsoft.com|TCP:443|Service traffic|
+|*.blob.core.windows.net|TCP:443|Agent, SXS stack updates, and Agent traffic|
+|*.core.windows.net|TCP:443|Agent traffic|
+|*.servicebus.windows.net|TCP:443|Agent traffic|
+|prod.warmpath.msftcloudes.com|TCP:443|Agent traffic|
+|catalogartifact.azureedge.net|TCP:443|Azure Marketplace|
+|kms.core.windows.net|TCP:1688|Windows 10 Multi-session activation|
 
 >[!NOTE]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
