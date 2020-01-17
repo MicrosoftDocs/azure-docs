@@ -2,7 +2,7 @@
 title: "Troubleshooting"
 services: azure-dev-spaces
 ms.date: 09/25/2019
-ms.topic: "conceptual"
+ms.topic: "troubleshooting"
 description: "Learn how to troubleshoot and resolve common problems when enabling and using Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---

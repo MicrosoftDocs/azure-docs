@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ---
 
 # Mapping data flow video tutorials
@@ -58,7 +58,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Filter Transformation](https://youtu.be/OhbKDOXSfeE)
 
-[Conditional Split Transformation](https://youtu.be/OhbKDOXSfeE)
+[Conditional Split Transformation](http://youtu.be/W1lQHojhKZw?hd=1)
 
 [Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
 
