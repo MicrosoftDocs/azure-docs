@@ -30,9 +30,9 @@ ms.reviewer: tasharm, assafi
 
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
-Create a new Maven project
+### Create a new Maven project
 
-Add the following text analytics dependency to your project
+Add the following text analytics dependency to your project. This version of the dependency uses version `3.0-preview` of the Text Analytics API. 
 
 ```xml
 <dependencies>
