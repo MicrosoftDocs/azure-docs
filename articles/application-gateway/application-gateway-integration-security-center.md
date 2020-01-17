@@ -4,7 +4,7 @@ description: This page provides information on how Application Gateway is integr
 documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
+
 editor: 
 
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
