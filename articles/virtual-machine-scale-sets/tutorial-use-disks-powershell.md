@@ -21,7 +21,7 @@ Virtual machine scale sets use disks to store the VM instance's operating system
 > * Disk performance
 > * Attach and prepare data disks
 
-If you don�t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
