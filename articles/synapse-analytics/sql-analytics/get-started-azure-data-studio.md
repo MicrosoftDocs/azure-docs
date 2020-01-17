@@ -34,7 +34,7 @@ Choose **Microsoft SQL Server** as the **Connection type**.
 
 The connection requires the following parameters:
 
-* **Server:** Server in the form `<`Server Name`>`.database.windows.net
+* **Server:** Server in the form `<`Azure Synapse workspace name`>`-ondemand.sql.azuresynapse.net
 * **Database:** Database name
 
 Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**. 
