@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 01/16/2020
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
@@ -48,6 +48,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 | What is the App Lock feature, and how does it help to keep me more secure? | To keep your one-time passcodes, app information, and app settings more secure, you can turn on the App Lock feature in the Microsoft Authenticator app. Turning on App Lock from the **Settings** screen of the Microsoft Authenticator app means you’ll be asked to authenticate using your PIN or biometric every time you open the Microsoft Authenticator app. This feature offers extra protection, the way you approve your notifications in the Microsoft Authenticator app won’t change.<br><br>**Note**<br>Because device registration can happen in other locations outside of the Microsoft Authenticator app, such as in the Company Portal app or within Android account settings, there's no guarantee that App Lock will stop a user from accessing the Microsoft Authenticator app. |
 | Why am I getting notifications about my account activity? | To help keep you more informed about what's going on with your personal Microsoft account, we're sending activity notifications to your Microsoft Authenticator app. These notifications appear immediately after something changes, helping to keep you more secure. We previously sent these notifications through email and SMS, and have now expanded to include the app. For more information about these activity notifications, see [What happens if there's an unusual sign-in to your account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). To change where you receive your notifications, sign in to the [Where can we contact you with non-critical account alerts](https://account.live.com/SecurityNotifications/Update) page of your account. |
 | While signing in to my work or school account using the default mail app that comes with iOS, I get prompted by the Microsoft Authenticator app for my security verification information. After I enter that information and return to the mail app, I get an error. What can I do? | This most-likely happens because your sign-in and your mail app are occurring across two different apps, causing the initial background sign-in process to stop working and to fail. To try to fix this, we recommend you select the **Safari** icon on the bottom right side of the screen while signing in to your mail app. By moving to Safari, the whole sign-in process happens in a single app, allowing you to sign in to the app successfully. |
+| My one-time password (OTP) codes are not working. What should I do? | Make sure the date and time on your device are correct and are being automatically synced. If the date and time is wrong, or out of sync, the code won’t work. |
 
 ## Next steps
 
