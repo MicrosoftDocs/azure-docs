@@ -46,8 +46,8 @@ There are two steps prior to using samples:
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> [!NOTES]
-> Note that databases are used only for view metadata, not for actual data.
+> [!NOTE]
+> Databases are used only for view metadata, not for actual data.
 >
 > Write down database name you use. you will need it later on.
 
