@@ -20,7 +20,7 @@ For querying, the following T-SQL aspects are supported:
 - Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, etc.
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](development-tables-cetas.md)) creates an [external table](development-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is supported and what is not, check the [SQL Analytics on-demand overview](on-demand.md) document.
+For more information on what is supported and what is not, check the [SQL on-demand overview](on-demand.md) document.
 
 By default, for queries ran by AAD users, storage accounts will be accessed using the AAD pass-through. This means that users will be impersonated and permissions checked on the storage level. You can [control storage access](development-storage-files-storage-access-control.md) to suit your needs.
 
@@ -69,7 +69,7 @@ AS table_alias(column_alias,...n)
 [ , FORMAT = {'CSV' | 'PARQUET'} ] 
 ```
 
-Check [Querying Parquet files](query-parquet-files.md) in the Samples section for usage examples.
+Check [Query Parquet files](query-parquet-files.md) in the Samples section for usage examples.
 
 ### Additional options for working with delimited text
 
@@ -143,7 +143,7 @@ Check [filepath function](query-specific-files.md#filepath) in samples section f
 
 In order to enable a smooth experience when working with data stored in nested/repeated data types (e.g., in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files), Starlight added the extensions below.
 
-#### Projecting nested and/or repeated data
+#### Projecting nested or repeated data
 
 To project data, simply run a SELECT statement over the Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as a varchar(8000) SQL data type. 
 
@@ -155,7 +155,7 @@ To project data, simply run a SELECT statement over the Parquet file that contai
 	[AS alias]
 ```
 
-Check [Projecting nested and/or repeated data](query-parquet-nested-types.md#projecting-nested-andor-repeated-data) in samples section for queries.
+Check [Project nested or repeated data](query-parquet-nested-types.md#project-nested-or-repeated-data) in samples section for queries.
 
 #### Accessing elements from nested columns
 
@@ -180,7 +180,7 @@ By default, the OPENROWSET function matches the source field name and path with 
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path, depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode)
 
-Check [Accessing elements from nested columns](query-parquet-nested-types.md#accessing-elements-from-nested-columns) in samples section for queries.
+Check [Access elements from nested columns](query-parquet-nested-types.md#access-elements-from-nested-columns) in samples section for queries.
 
 #### Accessing elements from repeated columns
 
@@ -207,7 +207,7 @@ See syntax fragment below:
 	[AS alias]
 ```
 
-Check [Accessing elements from repeated columns](query-parquet-nested-types.md#accessing-elements-from-repeated-columns) in samples section for queries.
+Check [Access elements from repeated columns](query-parquet-nested-types.md#access-elements-from-repeated-columns) in samples section for queries.
 
 ## Next steps
 
