@@ -20,10 +20,6 @@ Azure Backup provides support for backing up workloads from on-premises to cloud
 ### Operating system
 For a list of supported operating systems, refer to [Operating Systems supported by Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
-### Internet connectivity
-
-VM Snapshot extension requires that the target virtual machine is connected to the internet when we take a backup of virtual machine.
-
 ## Extension schema
 
 The following JSON shows the schema for the VM snapshot extension. The extension requires the task ID - this identifies the backup job which triggered snapshot on the VM, status blob uri - where status of the snapshot operation is written, scheduled start time of the snapshot, logs blob uri - where logs corresponding to snapshot task are written, objstr- representation of VM disks and meta data.  Because these settings should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that these settings are recommended to be passed from Azure Backup service only as part of Backup job.
