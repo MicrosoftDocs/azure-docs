@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: sql-data-warehouse 
 ms.topic: overview
 ms.subservice: design
-ms.date: 10/23/2019
+ms.date: 01/16/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
 ---

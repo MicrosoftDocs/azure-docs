@@ -6,11 +6,10 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 10/02/2019
+ms.date: 01/16/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ---
-
 
 # What is Azure Synapse Analytics' shared meta data model? 
 
