@@ -14,6 +14,7 @@ ms.date: 02/13/2019
 The Azure Diagnostics extension is an agent in Azure that collects monitoring data from the guest operating system and workloads of Azure compute resources into Azure Monitor. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and installation options. Links are provided to other documentation for detailed information.
 
 
+
 ## Resources supported
 The Azure Diagnostics extension can be used with any Azure compute resource which includes the following:
 
@@ -22,7 +23,20 @@ The Azure Diagnostics extension can be used with any Azure compute resource whic
 | Azure Cloud Service (classic) Web and Worker Roles | [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)<br>[Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)<br>[Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)<br> |
 | Azure virtual machines | 
 | Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-  
+
+
+## Comparison to Log Analytics agent
+The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. The key differences to consider are:
+
+- Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
+- Azure Diagnostics extension can collect data to Azure Monitor Metrics. The Log Analytics agent primarily collects data to Azure Monitor Logs. Both can collect data to Azure Storage and Event Hubs.
+
+
+## Windows and Linux
+Separate extensions are available for Windows and for Linux. They both 
+
+
+
 
 ## Data collected
 The Azure Diagnostics extension can collect the following types of data:
@@ -42,6 +56,9 @@ The Azure Diagnostics extension can collect the following types of data:
 
 
 ## Data destinations
+
+
+
 The Azure Diagnostic extension collects data into the locations in the following table. Follow the links for details on configuration.
 
 | Destination | Description |

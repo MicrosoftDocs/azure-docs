@@ -15,6 +15,12 @@ ms.date: 11/15/2019
 Compute resources such as virtual machines generate data to monitor their performance and availability just like [other cloud resources](../insights/monitor-azure-resource.md). Compute resources though also have a guest operating system and workloads that need to be monitored. Collecting this monitoring data from inside the resource requires an agent. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
 
 ## Summary of agents
+The following diagram illustrates the Azure Monitor agents available for virtual machines.
+
+
+![Diagnostic extension overview](media\/diagnostic-extension-overview/overview.md)
+
+
 
 > [!NOTE]
 > Azure Monitor currently has multiple agents because of recent consolidation of Azure Monitor and Log Analytics. Both agents share some capabilities while other features are unique to a particular agent. Depending on your requirements, you may need one of the agents or both. 
