@@ -19,10 +19,11 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a new resource group, Availability Set, and Azure Linux Virtual Machines (VM)
 > - Enable High Availability (HA)
+> - Create a Pacemaker cluster
+> - Configure a fencing agent by creating a STONITH device
 > - Install SQL Server and mssql-tools on RHEL
 > - Configure SQL Server Always On Availability Group
-> - Create a Pacemaker cluster and configure availability group (AG) resources
-> - Configure a fencing agent by creating a STONITH device
+> - Configure availability group (AG) resources in the Pacemaker cluster
 > - Test a failover and the fencing agent
 
 This tutorial will use Azure command-line interface (CLI) to deploy resources in Azure.
@@ -81,7 +82,7 @@ You should get the following results once the command completes:
 ## Create RHEL VMs inside the Availability Set
 
 > [!WARNING]
-> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure High Availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541. 
+> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure High Availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541.
 >
 > To avoid being "double billed", use a RHEL HA image when creating the Azure VM. Images offered as RHEL-HA images are also PAYG images with HA repo pre-enabled.
 
@@ -241,6 +242,249 @@ Connect to each VM node and follow the guide to [enable the high availability su
 
     To exit the **vi** editor, first hit the **Esc** key, and then enter the command `:wq` to write the file and quit.
 
+## Create the Pacemaker cluster
+
+In this section, we will enable and start the pcsd service, and then configure the cluster. For SQL Server on Linux, the cluster resources are not created automatically. We'll need to enable and create the pacemaker resources manually. For more information, see the article on [configuring a failover cluster instance for RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
+
+### Enable and start pcsd service and Pacemaker
+
+1. Run the commands on all nodes. These commands allow the nodes to rejoin the cluster after reboot.
+
+    ```bash
+    sudo systemctl enable pcsd
+    sudo systemctl start pcsd
+    sudo systemctl enable pacemaker
+    ``` 
+
+1. Remove any existing cluster configuration from all nodes. Run the following command:
+
+    ```bash
+    sudo pcs cluster destroy 
+    sudo systemctl enable pacemaker 
+    ```
+
+1. On the primary node, run the following commands to set up the cluster.
+
+    - When running the `pcs cluster auth` command to authenticate the cluster nodes, you will be prompted for a password. Enter the password for the **hacluster** user created earlier.
+
+    ```bash
+    sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
+    sudo pcs cluster setup --name az-hacluster <VM1> <VM2> <VM3> --token 30000
+    sudo pcs cluster start --all
+    sudo pcs cluster enable --all
+    ```
+
+1. Run the following command to check that all nodes are online.
+
+    ```bash
+    sudo pcs status
+    ```
+
+    If all nodes are online, you will see an output similar to the following:
+
+    ```output
+    Cluster name: az-hacluster
+     
+    WARNINGS:
+    No stonith devices and stonith-enabled is not false
+     
+    Stack: corosync
+    Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+    Last updated: Fri Aug 23 18:27:57 2019
+    Last change: Fri Aug 23 18:27:56 2019 by hacluster via crmd on <VM2>
+     
+    3 nodes configured
+    0 resources configured
+     
+    Online: [ <VM1> <VM2> <VM3> ]
+     
+    No resources
+     
+     
+    Daemon Status:
+          corosync: active/enabled
+          pacemaker: active/enabled
+          pcsd: active/enabled
+    ```
+
+1. Set expected votes in the live cluster to 3. This command only affects the live cluster, and does not change the configuration files.
+
+    On all nodes, set the expected votes with the following command:
+
+    ```bash
+    sudo pcs quorum expected-votes 3
+    ```
+
+## Configure the fencing agent
+
+A STONITH device provides a fencing agent. Follow the guide to [create a STONITH device](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device) for this cluster in Azure. The below instructions are modified for this tutorial.
+ 
+[Check the version of the Azure Fence Agent to ensure that it's updated](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation).
+
+```bash
+[<username>@<VM1> ~]$  sudo yum info fence-agents-azure-arm
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+Installed Packages
+Name        : fence-agents-azure-arm
+Arch        : x86_64
+Version     : 4.2.1
+Release     : 11.el7_6.8
+Size        : 28 k
+Repo        : installed
+From repo   : rhel-ha-for-rhel-7-server-eus-rhui-rpms
+Summary     : Fence agent for Azure Resource Manager
+URL         : https://github.com/ClusterLabs/fence-agents
+License     : GPLv2+ and LGPLv2+
+Description : The fence-agents-azure-arm package contains a fence agent for Azure instances.
+```
+
+### Register a new application in Azure Active Directory
+ 
+ 1. Go to https://portal.azure.com
+ 2. Open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
+Go to Properties and write down the Directory ID. This is the `tenant ID`
+ 3. Click [**App registrations**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+ 4. Click **New registration**
+ 5. Enter a **Name** like `<resourceGroupName>-app`, select **Accounts in this organization directory only**
+ 6. Select Application Type **Web**, enter a sign-on URL (for example http://localhost) and click Add. The sign-on URL is not used and can be any valid URL
+ 7. Select **Certificates and secrets**, then click **New client secret**
+ 8. Enter a description for a new key (client secret), select **Never expires** and click **Add**
+ 9. Write down the value of the secret. It is used as the password for the Service Principal
+10. Select **Overview**. Write down the Application ID. It is used as the username (login ID in the steps below) of the Service Principal
+ 
+### Create a custom role for the fence agent
+
+Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md).
+
+Your json file should look similar to the following:
+
+- Replace `<username>` with a name of your choice. This is to avoid any duplication when creating this role definition.
+- Replace `<subscriptionId>` with your Azure Subscription ID.
+
+```json
+{
+  "Name": "Linux Fence Agent Role-<username>",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows to power-off and start virtual machines",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/powerOff/action",
+    "Microsoft.Compute/virtualMachines/start/action"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<subscriptionId>"
+  ]
+}
+```
+
+To add the role, run the following command:
+
+- Replace `<filename>` with the name of the file.
+- If you are executing the command from a path other than the folder that the file is saved to, include the folder path of the file in the command.
+
+```bash
+az role definition create --role-definition "<filename>.json"
+```
+
+You should see the following output:
+
+```output
+{
+  "assignableScopes": [
+    "/subscriptions/<subscriptionId>"
+  ],
+  "description": "Allows to power-off and start virtual machines",
+  "id": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/roleDefinitions/<roleNameId>",
+  "name": "<roleNameId>",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/*/read",
+        "Microsoft.Compute/virtualMachines/powerOff/action",
+        "Microsoft.Compute/virtualMachines/start/action"
+      ],
+      "dataActions": [],
+      "notActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Linux Fence Agent Role-<username>",
+  "roleType": "CustomRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Assign the custom role to the Service Principal
+
+Assign the custom role `Linux Fence Agent Role-<username>` that was created in the last step to the Service Principal. Do not use the Owner role anymore!
+ 
+1. Go to https://portal.azure.com
+2. Open the [All resources blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
+3. Select the virtual machine of the first cluster node
+4. Click **Access control (IAM)**
+5. Click **Add a role assignment**
+6. Select the role `Linux Fence Agent Role-<username>` from the **Role** list
+7. In the **Select** list, enter the name of the application you created above, `<resourceGroupName>-app`
+8. Click **Save**
+9. Repeat the steps above for the all cluster node.
+
+### Create and enable the STONITH devices
+
+Run the following commands on node 1:
+
+- Replace the `<ApplicationID>` with the ID value from your application registration.
+- Replace the `<servicePrincipalPassword>` with the value from the client secret.
+- Replace the `<resourceGroupName>` with the Resource Group from your subscription used for this tutorial.
+- Replace the `<tenantID>` and the `<subscriptionId>` from your Azure Subscription.
+
+```bash
+sudo pcs property set stonith-timeout=900
+sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" passwd="<servicePrincipalPassword>" resourceGroup="<resourceGroupName>" tenantId="<tenantID>" subscriptionId="<subscriptionId>" power_timeout=240 pcmk_reboot_timeout=900
+sudo pcs property set stonith-enabled=true
+```
+
+Check the status of your cluster:
+
+```output
+[<username>@VM1 ~]$ sudo pcs status
+Cluster name: az-hacluster
+Stack: corosync
+Current DC: <VM3> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+Last updated: Sat Dec  7 00:18:38 2019
+Last change: Sat Dec  7 00:18:02 2019 by root via cibadmin on VM1
+
+3 nodes configured
+5 resources configured
+
+Online: [ <VM1> <VM2> <VM3> ]
+
+Full list of resources:
+
+ Master/Slave Set: ag_cluster-master [ag_cluster]
+     Masters: [ <VM2> ]
+     Slaves: [ <VM1> <VM3> ]
+ virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
+ rsc_st_azure   (stonith:fence_azure_arm):      Started <VM1>
+
+Daemon Status:
+  corosync: active/enabled
+  pacemaker: active/enabled
+  pcsd: active/enabled
+```
+
+Open the following firewall ports on all nodes 2224, 3121, 21064, 5405:
+
+> [!TIP]
+> You can optionally add all ports in this tutorial at once to save some time. The ports that need to be opened are explained in their relative sections below. If you would like to add all ports now, add the following ports in addition to 1433: 5022, 2224, 3121, 21064, 5405.
+
+```bash
+sudo firewall-cmd --zone=public --add-port=2224/tcp --add-port=3121/tcp --add-port=21064/tcp --add-port=5405/tcp --permanent
+sudo firewall-cmd --reload
+```
+
 ## Install SQL Server and mssql-tools
  
 Follow the guide to [install SQL Server on the Red Hat VM](/sql/linux/quickstart-install-connect-red-hat). Perform each of these actions on all nodes.
@@ -264,9 +508,6 @@ You'll need to open port 1433 on the VM in order to connect remotely. Use the fo
 sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
 sudo firewall-cmd --reload
 ```
-
-> [!TIP]
-> You can optionally add all ports in this tutorial at once to save some time. The ports that need to be opened are explained in their relative sections below. If you would like to add all ports now, add the following ports in addition to 1433: 5022, 2224, 3121, 21064, 5405.
 
 ### Installing SQL Server command-line tools
 
@@ -525,79 +766,6 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 
 If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the replicas are synchronized. The secondaries are showing `db1` in the primary replica.
 
-## Create the Pacemaker cluster
-
-In this section, we will enable and start the pcsd service, and then configure the cluster. For SQL Server on Linux, the cluster resources are not created automatically. We'll need to enable and create the pacemaker resources manually. For more information, see the article on [configuring a failover cluster instance for RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
-
-### Enable and start pcsd service and Pacemaker
-
-1. Run the commands on all nodes. These commands allow the nodes to rejoin the cluster after reboot.
-
-    ```bash
-    sudo systemctl enable pcsd
-    sudo systemctl start pcsd
-    sudo systemctl enable pacemaker
-    ``` 
-
-1. Remove any existing cluster configuration from all nodes. Run the following command:
-
-    ```bash
-    sudo pcs cluster destroy 
-    sudo systemctl enable pacemaker 
-    ```
-
-1. On the primary node, run the following commands to set up the cluster.
-
-    - When running the `pcs cluster auth` command to authenticate the cluster nodes, you will be prompted for a password. Enter the password for the **hacluster** user created earlier.
-
-    ```bash
-    sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
-    sudo pcs cluster setup --name az-hacluster <VM1> <VM2> <VM3> --token 30000
-    sudo pcs cluster start --all
-    sudo pcs cluster enable --all
-    ```
-
-1. Run the following command to check that all nodes are online.
-
-    ```bash
-    sudo pcs status
-    ```
-
-    If all nodes are online, you will see an output similar to the following:
-
-    ```output
-    Cluster name: az-hacluster
-     
-    WARNINGS:
-    No stonith devices and stonith-enabled is not false
-     
-    Stack: corosync
-    Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-    Last updated: Fri Aug 23 18:27:57 2019
-    Last change: Fri Aug 23 18:27:56 2019 by hacluster via crmd on <VM2>
-     
-    3 nodes configured
-    0 resources configured
-     
-    Online: [ <VM1> <VM2> <VM3> ]
-     
-    No resources
-     
-     
-    Daemon Status:
-          corosync: active/enabled
-          pacemaker: active/enabled
-          pcsd: active/enabled
-    ```
-
-1. Set expected votes in the live cluster to 3. This command only affects the live cluster, and does not change the configuration files.
-
-    On all nodes, set the expected votes with the following command:
-
-    ```bash
-    sudo pcs quorum expected-votes 3
-    ```
-
 ## Create availability group resources in the Pacemaker cluster
 
 We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group]#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
@@ -681,7 +849,7 @@ We will be following the guide to [create the availability group resources in th
     Ticket Constraints:
     ```
 
-### Test failover
+## Test failover
 
 To ensure that the configuration has succeeded so far, we will test a failover. For more information, see [Always On Availability Group failover on Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
@@ -727,173 +895,6 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
      
     ```
- 
-## Configure the fencing agent
-
-A STONITH device provides a fencing agent. Follow the guide to [create a STONITH device](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device) for this cluster in Azure. The below instructions are modified for this tutorial.
- 
-[Check the version of the Azure Fence Agent to ensure that it's updated](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation).
-
-```bash
-[<username>@<VM1> ~]$  sudo yum info fence-agents-azure-arm
-Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
-Installed Packages
-Name        : fence-agents-azure-arm
-Arch        : x86_64
-Version     : 4.2.1
-Release     : 11.el7_6.8
-Size        : 28 k
-Repo        : installed
-From repo   : rhel-ha-for-rhel-7-server-eus-rhui-rpms
-Summary     : Fence agent for Azure Resource Manager
-URL         : https://github.com/ClusterLabs/fence-agents
-License     : GPLv2+ and LGPLv2+
-Description : The fence-agents-azure-arm package contains a fence agent for Azure instances.
-```
-
-### Register a new application in Azure Active Directory
- 
- 1. Go to https://portal.azure.com
- 2. Open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
-Go to Properties and write down the Directory ID. This is the `tenant ID`
- 3. Click [**App registrations**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
- 4. Click **New registration**
- 5. Enter a **Name** like `<resourceGroupName>-app`, select **Accounts in this organization directory only**
- 6. Select Application Type **Web**, enter a sign-on URL (for example http://localhost) and click Add. The sign-on URL is not used and can be any valid URL
- 7. Select **Certificates and secrets**, then click **New client secret**
- 8. Enter a description for a new key (client secret), select **Never expires** and click **Add**
- 9. Write down the value of the secret. It is used as the password for the Service Principal
-10. Select **Overview**. Write down the Application ID. It is used as the username (login ID in the steps below) of the Service Principal
- 
-### Create a custom role for the fence agent
-
-Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md).
-
-Your json file should look similar to the following:
-
-- Replace `<username>` with a name of your choice. This is to avoid any duplication when creating this role definition.
-- Replace `<subscriptionId>` with your Azure Subscription ID.
-
-```json
-{
-  "Name": "Linux Fence Agent Role-<username>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to power-off and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/powerOff/action",
-    "Microsoft.Compute/virtualMachines/start/action"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<subscriptionId>"
-  ]
-}
-```
-
-To add the role, run the following command:
-
-- Replace `<filename>` with the name of the file.
-- If you are executing the command from a path other than the folder that the file is saved to, include the folder path of the file in the command.
-
-```bash
-az role definition create --role-definition "<filename>.json"
-```
-
-You should see the following output:
-
-```output
-{
-  "assignableScopes": [
-    "/subscriptions/<subscriptionId>"
-  ],
-  "description": "Allows to power-off and start virtual machines",
-  "id": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/roleDefinitions/<roleNameId>",
-  "name": "<roleNameId>",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Compute/*/read",
-        "Microsoft.Compute/virtualMachines/powerOff/action",
-        "Microsoft.Compute/virtualMachines/start/action"
-      ],
-      "dataActions": [],
-      "notActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Linux Fence Agent Role-<username>",
-  "roleType": "CustomRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Assign the custom role to the Service Principal
-
-Assign the custom role `Linux Fence Agent Role-<username>` that was created in the last step to the Service Principal. Do not use the Owner role anymore!
- 
-1. Go to https://portal.azure.com
-2. Open the [All resources blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
-3. Select the virtual machine of the first cluster node
-4. Click **Access control (IAM)**
-5. Click **Add a role assignment**
-6. Select the role `Linux Fence Agent Role-<username>` from the **Role** list
-7. In the **Select** list, enter the name of the application you created above, `<resourceGroupName>-app`
-8. Click **Save**
-9. Repeat the steps above for the all cluster node.
-
-### Create and enable the STONITH devices
-
-Run the following commands on node 1:
-
-- Replace the `<ApplicationID>` with the ID value from your application registration.
-- Replace the `<servicePrincipalPassword>` with the value from the client secret.
-- Replace the `<resourceGroupName>` with the Resource Group from your subscription used for this tutorial.
-- Replace the `<tenantID>` and the `<subscriptionId>` from your Azure Subscription.
-
-```bash
-sudo pcs property set stonith-timeout=900
-sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" passwd="<servicePrincipalPassword>" resourceGroup="<resourceGroupName>" tenantId="<tenantID>" subscriptionId="<subscriptionId>" power_timeout=240 pcmk_reboot_timeout=900
-sudo pcs property set stonith-enabled=true
-```
-
-Check the status of your cluster:
-
-```output
-[<username>@VM1 ~]$ sudo pcs status
-Cluster name: az-hacluster
-Stack: corosync
-Current DC: <VM3> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-Last updated: Sat Dec  7 00:18:38 2019
-Last change: Sat Dec  7 00:18:02 2019 by root via cibadmin on VM1
-
-3 nodes configured
-5 resources configured
-
-Online: [ <VM1> <VM2> <VM3> ]
-
-Full list of resources:
-
- Master/Slave Set: ag_cluster-master [ag_cluster]
-     Masters: [ <VM2> ]
-     Slaves: [ <VM1> <VM3> ]
- virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
- rsc_st_azure   (stonith:fence_azure_arm):      Started <VM1>
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-Open the following firewall ports on all nodes 2224, 3121, 21064, 5405:
-
-```bash
-sudo firewall-cmd --zone=public --add-port=2224/tcp --add-port=3121/tcp --add-port=21064/tcp --add-port=5405/tcp --permanent
-sudo firewall-cmd --reload
-```
 
 ## Test Fencing
 
