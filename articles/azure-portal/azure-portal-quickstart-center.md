@@ -3,8 +3,8 @@ title: Azure portal overview | Microsoft Docs
 description: Use the Azure Quickstart Center guided experience to get started with Azure. Learn to setup, migrate, and innovate.
 services: azure-portal
 keywords: 
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual
 

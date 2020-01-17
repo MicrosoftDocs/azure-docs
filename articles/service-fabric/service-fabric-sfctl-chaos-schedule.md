@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl chaos schedule 
-description: Describes the Service Fabric CLI sfctl chaos schedule commands.
+title: Azure Service Fabric CLI- sfctl chaos schedule
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for chaos scheduling.
 author: jeffj6123
 
 ms.topic: reference

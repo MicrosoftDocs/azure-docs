@@ -2,7 +2,7 @@
 title: Tag resources for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 01/03/2020
 ---
 # Use tags to organize your Azure resources
 

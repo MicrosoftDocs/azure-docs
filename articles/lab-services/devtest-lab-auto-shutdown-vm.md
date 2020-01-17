@@ -1,5 +1,5 @@
 ---
-title: Configure autoshutdown settings for a VM in Azure DevTest Labs | Microsoft Docs
+title: Configure autoshutdown settings for a VM in Azure DevTest Labs
 description: Learn how to configure autoshutdown settings for a virtual machine (VM) so that the VM is automatically shut down when it's not in use. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---

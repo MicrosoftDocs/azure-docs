@@ -20,13 +20,13 @@ This article teaches you how to use Azure Machine Learning to deploy a GPU-enabl
 Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
 
 > [!IMPORTANT]
-> For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Run batch predictions](how-to-run-batch-predictions.md). 
+> For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Run batch predictions](how-to-use-parallel-run-step.md). 
 
 > [!TIP]
-> Although the code snippets in this article usee a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
+> Although the code snippets in this article use a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
 
 > [!NOTE]
-> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](service/how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
+> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
     * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](how-to-train-tensorflow.md).
 
-* A general understanding of [How and where to deploy models](service/how-to-deploy-and-where.md).
+* A general understanding of [How and where to deploy models](how-to-deploy-and-where.md).
 
 ## Connect to your workspace
 
@@ -89,7 +89,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](service/how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 
@@ -130,7 +130,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](service/how-to-deploy-and-where.md).
+This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](how-to-deploy-and-where.md).
 
 ## Define the conda environment
 
@@ -167,7 +167,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
+For more information, see the reference documentation for [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## Define the inference configuration
 
@@ -284,6 +284,6 @@ aks_target.delete()
 
 ## Next steps
 
-* [Deploy model on FPGA](service/how-to-deploy-fpga-web-service.md)
+* [Deploy model on FPGA](how-to-deploy-fpga-web-service.md)
 * [Deploy model with ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
 * [Train Tensorflow DNN Models](how-to-train-tensorflow.md)

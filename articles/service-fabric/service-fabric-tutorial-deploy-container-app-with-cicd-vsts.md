@@ -1,5 +1,5 @@
 ---
-title: Deploy a container application with CI/CD to an Azure Service Fabric cluster
+title: Deploy a container application with CI/CD
 description: In this tutorial, you learn how to set up continuous integration and deployment for an Azure Service Fabric container application using Visual Studio Azure DevOps.
 
 ms.topic: tutorial

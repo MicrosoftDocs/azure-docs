@@ -239,7 +239,7 @@ and select **Add a parallel branch**.
 1. When you're finished, select **Done**.
 
 To learn more about exception handling, see 
-[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 ## FAQ
 

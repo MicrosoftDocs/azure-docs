@@ -56,7 +56,7 @@ Follow these steps.
     ./generateCredentials.ps1
     ```
 
-7. Follow the onscreen instructions to complete the procedure.
+7. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**. The EventHub connection string is available as part of the API response in Swagger.
 
 ## Create device or sensor metadata
 
@@ -321,11 +321,11 @@ Convert the historical sensor data format to a canonical format that Azure FarmB
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

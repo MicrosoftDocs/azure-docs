@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Use the Azure Storage resource provider to access management resources
 
-Azure Resource Manager is the deployment and management service for Azure. The Azure Storage resource provider is a service that is based on Azure Resource Manager and that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys. For more information about Azure Resource Manager, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview.md).
+Azure Resource Manager is the deployment and management service for Azure. The Azure Storage resource provider is a service that is based on Azure Resource Manager and that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys. For more information about Azure Resource Manager, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
 
 You can use the Azure Storage resource provider to perform actions such as creating or deleting a storage account or getting a list of storage accounts in a subscription. To authorize requests against the Azure Storage resource provider, use Azure Active Directory (Azure AD). This article describes how to assign permissions to management resources, and points to examples that show how to make requests against the Azure Storage resource provider.
 
@@ -68,10 +68,10 @@ For code examples that show how to authorize and call management operations from
 
 The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. Microsoft recommends using the Azure Resource Manager deployment model when you create a new storage account. If possible, Microsoft also recommends that you recreate existing classic storage accounts with the Resource Manager model. Although you can create a storage account using the classic deployment model, the classic model is less flexible and will eventually be deprecated.
 
-For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
+For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 
-- [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview.md)
+- [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview)
 - [What is role-based access control (RBAC) for Azure resources?](../../role-based-access-control/overview.md)
 - [Scalability targets for the Azure Storage resource provider](scalability-targets-resource-provider.md)
