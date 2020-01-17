@@ -21,10 +21,10 @@ ms.subservice: B2C
 By using Azure Active Directory B2C (Azure AD B2C) custom policies, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application.
 
 ## Prerequisites
-This article focuses on how to customize the Azure AD B2C user interface with *dynamic content* by using custom policies. To get started, see [UI customization in a custom policy](active-directory-b2c-ui-customization-custom.md).
+This article focuses on how to customize the Azure AD B2C user interface with *dynamic content* by using custom policies. To get started, see [UI customization in a custom policy](custom-policy-ui-customization.md).
 
 >[!NOTE]
->The Azure AD B2C article, [Configure UI customization in a custom policy](active-directory-b2c-ui-customization-custom.md), discusses the following fundamentals:
+>The Azure AD B2C article, [Configure UI customization in a custom policy](custom-policy-ui-customization.md), discusses the following fundamentals:
 > * The page user interface (UI) customization feature.
 > * Essential tools for testing the page UI customization feature by using our sample content.
 > * The core UI elements of each page type.
@@ -50,7 +50,7 @@ The `ContentDefinitions` section contains a series of `ContentDefinition` XML el
 | *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page**. This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
 
 ## Serving dynamic content
-In the [Configure UI customization in a custom policy](active-directory-b2c-ui-customization-custom.md) article, you upload HTML5 files to Azure Blob storage. Those HTML5 files are static and render the same HTML content for each request.
+In the [Configure UI customization in a custom policy](custom-policy-ui-customization.md) article, you upload HTML5 files to Azure Blob storage. Those HTML5 files are static and render the same HTML content for each request.
 
 In this article, you use an ASP.NET web app, which can accept query string parameters and respond accordingly.
 

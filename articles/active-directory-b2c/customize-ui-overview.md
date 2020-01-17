@@ -30,7 +30,7 @@ You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customi
 
 ### Custom policies
 
-If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
+If you're using [custom policies](custom-policy-overview.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, use [policy files to customize the UI](custom-policy-ui-customization.md).
 
 If you need to provide dynamic content based on a customer's decision, use custom policies that can [change page content dynamically](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a parameter that you pass from your web or mobile application.
 
@@ -175,4 +175,4 @@ The sample HTML and CSS files in the templates are located in the [/sample_templ
     [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
 - If you're using **custom policies**, you can start customizing the UI with the article:
 
-    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](custom-policy-ui-customization.md).

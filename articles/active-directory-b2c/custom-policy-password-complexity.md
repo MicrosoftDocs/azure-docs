@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory B2C (Azure AD B2C), you can configure the complexity requirements for passwords that are provided by a user when creating an account. By default, Azure AD B2C uses **Strong** passwords. This article shows you how to configure password complexity in [custom policies](active-directory-b2c-overview-custom.md). It's also possible to configure password complexity in [user flows](active-directory-b2c-reference-password-complexity.md).
+In Azure Active Directory B2C (Azure AD B2C), you can configure the complexity requirements for passwords that are provided by a user when creating an account. By default, Azure AD B2C uses **Strong** passwords. This article shows you how to configure password complexity in [custom policies](custom-policy-overview.md). It's also possible to configure password complexity in [user flows](active-directory-b2c-reference-password-complexity.md).
 
 ## Prerequisites
 
@@ -125,6 +125,6 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
-- Learn how to [Configure password change using custom policies in Azure Active Directory B2C](active-directory-b2c-reference-password-change-custom.md).
+- Learn how to [Configure password change using custom policies in Azure Active Directory B2C](custom-policy-password-change.md).
 
 

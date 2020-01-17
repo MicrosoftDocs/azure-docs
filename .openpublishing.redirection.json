@@ -5417,6 +5417,56 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-manage-sso-and-token-configuration.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-manage-sso-and-token-config",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-mfa.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-multi-factor-authentication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-change-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-password-change",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-complexity-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-password-complexity",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-sso-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-reference-sso",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-trustframeworks-defined-ief-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-trust-frameworks",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-rest-api-step-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-exchange",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-rest-api-validation-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-validation",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
         "redirect_url": "/azure/active-directory-b2c/billing",
         "redirect_document_id": true
@@ -26785,12 +26835,12 @@
       "source_path": "articles/active-directory/user-help/my-applications-portal-overview.md",
       "redirect_url": "/azure/active-directory/user-help/my-applications-portal-access",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/active-directory/user-help/user-help-password-reset-overview.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",

@@ -136,4 +136,4 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 ## Next steps
 
-Learn more about [custom policies and the differences with user flows](active-directory-b2c-overview-custom.md).
+Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).

@@ -27,7 +27,7 @@ The IEF sends data in claims and receives data back in claims. The interaction w
 - Can be designed as a REST API claims exchange or as a validation profile, which happens inside an orchestration step.
 - Typically validates input from the user. If the value from the user is rejected, the user can try again to enter a valid value with the opportunity to return an error message.
 
-You can also design the interaction as an orchestration step. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](active-directory-b2c-rest-api-step-custom.md).
+You can also design the interaction as an orchestration step. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
 
 For the validation profile example, we will use the profile edit user journey in the starter pack file ProfileEdit.xml.
 
@@ -132,7 +132,7 @@ To add the claims exchange to the self-asserted technical profile:
 
 [Modify the profile edit and user registration to gather additional information from your users](custom-policy-custom-attributes.md)
 
-[Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](active-directory-b2c-rest-api-step-custom.md)
+[Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
 
 [Reference: RESTful technical profile](restful-technical-profile.md)
 

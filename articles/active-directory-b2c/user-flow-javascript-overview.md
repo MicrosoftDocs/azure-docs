@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md) or enable it in the portal for user flows, select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
+Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](custom-policy-overview.md) or enable it in the portal for user flows, select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
 
 If you intend to enable [JavaScript](javascript-samples.md) client-side code, you’ll want to be sure the elements you’re basing your JavaScript on are immutable. Otherwise, any changes could cause unexpected behavior on your user pages. To prevent these issues, you can enforce the use of a page layout and specify a page layout version. Doing this ensures that all the content definitions that you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
 
