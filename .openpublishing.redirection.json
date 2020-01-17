@@ -5432,6 +5432,56 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-adfs2016-idp.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-adfs2016-custom",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
+        "redirect_url": "/azure/active-directory-b2c/faq",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-extensions-app.md",
+        "redirect_url": "/azure/active-directory-b2c/extensions-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-tenant-type.md",
+        "redirect_url": "/azure/active-directory-b2c/data-residency",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-aad-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant-custom",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-amzn-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-commonaad-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom-dynamic.md",
+        "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization-dynamic",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/setup-amazon-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon-custom",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-change-custom.md",
         "redirect_url": "/azure/active-directory-b2c/custom-policy-password-change",
         "redirect_document_id": true
