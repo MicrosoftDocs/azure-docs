@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 ## Video
 
-**Watch this video to learn more about data retention in Azure Time Series Insights and how to plan for it**:<br /><br />
+**Watch this video to learn more about data retention in Azure Time Series Insights and how to plan for it**:<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -48,7 +48,7 @@ You can change the **Data retention time** setting in your Azure Time Series Ins
 Azure Time Series Insights has two modes:
 
 * One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
-* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**. 
+* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**.
 
 You can adjust retention and toggle between the two modes on the environment’s configuration page in the Azure portal.
 

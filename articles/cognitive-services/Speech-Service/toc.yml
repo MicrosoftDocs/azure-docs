@@ -7,7 +7,7 @@
     href: overview.md
   - name: Language and region support
     href: language-support.md
-    displayName: "languages,locales,region,voice,gender,language code,locale,locale code"
+    displayName: "languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice"
 - name: Speech-to-text
   expanded: false
   items:
@@ -104,6 +104,7 @@
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
       href: how-to-custom-voice.md
+      displayName: "custom voice"
     - name: Synthesize speech with Long Audio API
       href: long-audio-api.md
     - name: Use speech synthesis with Docker containers
@@ -365,6 +366,7 @@
       items:
       - name: Get started with Custom Voice
         href: how-to-custom-voice.md
+        displayName: "custom voice, neural voice"
       - name: Prepare data
         href: how-to-custom-voice-prepare-data.md
       - name: Create and use Custom Voice models
@@ -450,7 +452,9 @@
       href: how-to-use-logging.md
     - name: How to track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
-      displayName: "memory usage, memory consumption, object logging, object tracking, memory"
+    - name: How to configure OpenSSL for Linux
+      href: how-to-configure-openssl-linux.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)
