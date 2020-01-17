@@ -87,7 +87,7 @@
         - name: Databases
           href: metadata-database.md
         - name: Tables
-          href: azure-synapse-metadata-table.md
+          href: metadata-table.md
         # - name: Views
         #   href: azure-synapse-metadata-views.md
       # - name: Metadata sync
