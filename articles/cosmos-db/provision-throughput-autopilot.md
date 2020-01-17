@@ -69,7 +69,7 @@ You can configure autopilot for new databases or containers when creating them t
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
-1. Select **New Container.** Enter a name for your database, container, and a partition key. Under Throughput, Select the **Autopilot** option, and choose the maximum throughput (RU/s) that the database or container cannot exceed when using the autopilot option.
+1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **Autopilot** option, and choose the maximum throughput (RU/s) that the database or container cannot exceed when using the autopilot option.
 
    ![Creating a container and configuring Autopilot throughput](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
