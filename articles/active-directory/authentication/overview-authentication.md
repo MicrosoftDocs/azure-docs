@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/07/2020
+ms.date: 01/17/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -71,8 +71,6 @@ By default, Azure AD blocks weak passwords such as *Password1*. A global banned 
 
 To increase security, you can define custom password protection policies. These policies can use filters to block any variation of a password containing a name such as *Contoso* or a location like *London*, for example.
 
---- GRAPHIC FOR PASSWORD PROTECTION ---
-
 For hybrid security, you can integrate Azure AD password protection with an on-premises Active Directory environment. A component installed in the on-prem environment receives the global banned password list and custom password protection policies from Azure AD, and domain controllers use them to process password change events. This hybrid approach makes sure that no matter how or where a user changes their credentials, you enforce the use of strong passwords.
 
 ## Passwordless authentication
@@ -85,20 +83,16 @@ When you sign in with a passwordless method, credentials are provided through th
 
 Azure AD provides ways to natively authenticate using passwordless methods to simplify the sign-in experience for users and reduce the risk of attacks.
 
-## License requirements
-
-[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
-
 ## Next steps
 
-To help you get started with Azure AD authentication features, there's a multi-part tutorial series that explores the following areas:
+To get started, see the [quickstart for self-service password reset][quickstart-sspr] and [Azure Multi-Factor Authentication tutorial][tutorial-mfa-applications].
 
-* Enable self-service password reset (SSPR)
-* Enable Azure Multi-Factor Authentication
-* Configure hybrid authentication and security with SSPR-writeback and password protection
-* Enable risk-based identity policies
-* Explore and enable passwordless authentication methods
+To learn more about self-service password reset concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
-To learn more about self-service password reset concepts, see [How Azure AD self-service password reset works](concept-sspr-howitworks.md).
+To learn more about multi-factor authentication concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
 
-To learn more about multi-factor authentication concepts, see [How Azure Multi-Factor Authentication works](concept-mfa-howitworks.md).
+<!-- INTERNAL LINKS -->
+[quickstart-sspr]: quickstart-sspr.md
+[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[concept-sspr]: concept-sspr-howitworks.md
+[concept-mfa]: concept-mfa-howitworks.md
