@@ -20,7 +20,7 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a custom VM image from the source VM
 > * Deploy a scale set that uses the custom VM image
 
-If you don�t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
