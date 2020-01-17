@@ -133,6 +133,9 @@ If some of your domain-joined devices are Windows downlevel devices, you must:
 - Configure seamless SSO
 - Install Microsoft Workplace Join for Windows downlevel computers
 
+> [!NOTE]
+> Windows 7 support ended on January 14, 2020. For more information, [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+
 ### Configure the local intranet settings for device registration
 
 To successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
