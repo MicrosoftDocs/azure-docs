@@ -452,7 +452,9 @@
       href: how-to-use-logging.md
     - name: How to track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
-      displayName: "memory usage, memory consumption, object logging, object tracking, memory"
+    - name: How to configure OpenSSL for Linux
+      href: how-to-configure-openssl-linux.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)
@@ -523,6 +525,9 @@
     displayName: "support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice"
   - name: Regions
     href: regions.md
+  - name: Sovereign Clouds
+    href: sovereign-clouds.md    
+    displayName: "fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china"
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance

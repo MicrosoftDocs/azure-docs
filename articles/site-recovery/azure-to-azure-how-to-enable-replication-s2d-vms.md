@@ -26,7 +26,7 @@ Below diagram shows a two-node Azure VM failover cluster using storage spaces di
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Two Azure virtual machines in a Windows Failover Cluster and each virtual machine have two or more data disks.
 - S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool.
 - The storage pool presents as a cluster shared volume (CSV) to the failover cluster.
@@ -47,7 +47,7 @@ Below diagram shows a two-node Azure VM failover cluster using storage spaces di
 
    ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Go to replicated items and you can see both the virtual machine status. 
+2. Go to replicated items and you can see both the virtual machine status.
 3. Both the virtual machines are getting protected and are also shown as part of multi-VM consistency group.
 
    ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
