@@ -21,6 +21,8 @@ After you present the content item to your user, your system monitors user behav
 
 **Content** can be any unit of information such as text, images, urls, or emails that you want to select from to show to your user.
 
+![What is personalizer animation](./media/what-is-personalizer.gif)
+
 ## How does Personalizer select the best content item?
 
 Personalizer uses **reinforcement learning** to select the best item (_action_) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products to choose from.
@@ -54,7 +56,7 @@ Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs
 
 Use Personalizer when your content:
 
-* Has a limited set of items (~30 to 50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 30 to 50 items.
+* Has a limited set of items (max of ~50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 50 items.
 * Has information describing the content you want ranked: _actions with features_ and _context features_.
 * Has a minimum of ~1k/day content-related events for Personalizer to be effective. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the single best content item.
 
