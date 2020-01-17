@@ -32,9 +32,15 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 
-## Select a new SKU
+## SKU change limitations
 
-There are some limitations for the SKU change operation if you use a resource forest and have created one-way outbound forest trusts from Azure AD DS to an an-premises AD DS environment. The *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured. For example, if you have created two forest trusts on the *Premium* SKU, you can't change down to the *Standard* SKU. The *Standard* SKU doesn't support forest trusts. Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts. For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].
+There are some limitations for the SKU change operation if you use a resource forest and have created one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. The *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
+
+For example, if you have created two forest trusts on the *Premium* SKU, you can't change down to the *Standard* SKU. The *Standard* SKU doesn't support forest trusts. Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
+
+For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].
+
+## Select a new SKU
 
 To change the SKU for an Azure AD DS managed domain using the Azure portal, complete the following steps:
 
