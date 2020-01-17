@@ -6,6 +6,8 @@
     href: overview.md
   - name: Terminology changes
     href: terminology.md
+  - name: FAQ
+    href: faq.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
@@ -113,14 +115,6 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
-  - name: FAQ
-    items:
-    - name: Log Analytics
-      displayName: FAQ
-      href: platform/log-faq.md
-    - name: Application Insights
-      displayName: FAQ
-      href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
   - name: Manage Azure Monitor
@@ -162,6 +156,8 @@
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
+    - name: FAQ
+      href: app/troubleshoot-faq.md
     - name: Code-based monitoring
       items:
       - name: ASP.NET Core 
@@ -170,7 +166,7 @@
       - name: ASP.NET
         displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
         href: app/asp-net.md
-      - name: Non-Http apps/Background apps
+      - name: Non-HTTP apps/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
       - name: .NET Console
@@ -535,6 +531,8 @@
       items:
       - name: Agents overview
         href: platform/agents-overview.md
+      - name: FAQ
+        href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
         - name: Overview
@@ -633,7 +631,7 @@
       - name: General Availability FAQ
         href: insights/vminsights-ga-release-faq.md  
       - name: FAQ
-        href: insights/vminsights-faq.md
+        href: faq.md#azure-monitor-for-vms-preview
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -679,7 +677,7 @@
       - name: Overview
         href: insights/container-insights-overview.md
       - name: FAQ
-        href: insights/container-insights-faq.md
+        href: faq.md#azure-monitor-for-containers
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview 
