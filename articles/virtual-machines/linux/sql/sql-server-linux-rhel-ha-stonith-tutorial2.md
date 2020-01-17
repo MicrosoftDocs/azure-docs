@@ -1,5 +1,5 @@
 ---
-title: Create RHEL Virtual machines in Azure and set up HA with STONITH - Linux Virtual Machines | Microsoft Docs
+title: Configure availability groups for SQL Server on RHEL virtual machines in Azure - Linux Virtual Machines | Microsoft Docs
 description: Learn about setting up High Availability in a RHEL cluster environment and set up STONITH
 ms.service: virtual-machines-linux
 ms.subservice:
@@ -9,7 +9,7 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 01/17/2020
 ---
-# Tutorial: Create RHEL Virtual machines in Azure and set up High Availability with STONITH
+# Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 
 
 > [!NOTE]
 > The tutorial presented is in **public preview**. 
