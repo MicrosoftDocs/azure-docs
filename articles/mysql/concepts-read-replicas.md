@@ -127,7 +127,7 @@ If you stop replication between a master server and a read replica, the stopped 
 
 ### Deleted master and standalone servers
 
-When a master server is deleted, replication is stopped to all read replicas. These replicas become standalone servers and can accept both reads and writes. The master server itself is deleted.
+When a master server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The master server itself is deleted.
 
 ### User accounts
 
