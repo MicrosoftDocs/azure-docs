@@ -42,7 +42,7 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 
 ## Cadence of Azure Enterprise billing
 
-Microsoft bills annually at the enrollment effective date for any commitment purchases of the Microsoft Azure services. For any usage exceeding the commitment amounts, Microsoft bills in arrears. 
+Microsoft bills annually at the enrollment effective date for any commitment purchases of the Microsoft Azure services. For any usage exceeding the commitment amounts, Microsoft bills in arrears.
 
 - Commitment fees are quoted based on a monthly rate and billed annually in advance.
 - Overage fees are calculated each month and billed in arrears at the end of your billing period.
@@ -51,28 +51,29 @@ Microsoft bills annually at the enrollment effective date for any commitment pur
 
 You billing interval depends on how you choose to make your commitment purchases. Your annual commitment is coterminous with either:
 
-- your enrollment anniversary date - the effective date of your one-year Amendment Subscription.
+- Your enrollment anniversary date
+- The effective date of your one-year Amendment Subscription.
 
 The date you receive your overage invoice depends on your enrollment start date and set-up:
 
 - **Direct enrollments with a start date before May 1, 2018**:
   - If you're on a direct Enterprise Agreement (EA), you're on an annual billing cycle for Azure services, excluding Azure Marketplace services. Your billing cycle is based on the anniversary date: the date when your agreement became effective.
-  - If you surpass 150% of your EA monetary commitment (MC) threshold, you'll automatically be converted to a Quarterly Billing cycle that is based on your anniversary date. You'll also receive an Azure Service Overage invoice.
-  - If you don't surpass 150% of your MC threshold, your enrollment will remain on an Annual Billing cycle. The Overage invoice will be received at the end of the Commitment year.
+  - If you surpass 150% of your EA monetary commitment (MC) threshold, you'll automatically be converted to a quarterly billing cycle that is based on your anniversary date. You'll also receive an Azure service overage invoice.
+  - If you don't surpass 150% of your MC threshold, your enrollment will remain on an annual billing cycle. The overage invoice will be received at the end of the commitment year.
 
 - **Direct enrollments with a start date after May 1, 2018**:
-  - Your Azure Consumption and Charges Billed Separately invoices are on a Monthly Billing cycle.
-  - Any charges not covered by the Azure Monetary Commitment are due as an Overage payment.  
+  - Your Azure consumption and charges billed separately invoices are on a monthly billing cycle.
+  - Any charges not covered by your monetary commitment are due as an overage payment.  
 
 - **Indirect enrollments with an enrollment that started before May 1, 2018**:
   
-  If you're an indirect Enterprise Agreement (EA) customer with a start date before May 1, 2018, you're set up on a Quarterly Billing cycle. The Channel Partner (CP) invoices you directly.  
+  If you're an indirect Enterprise Agreement (EA) customer with a start date before May 1, 2018, you're set up on a quarterly billing cycle. The channel partner (CP) invoices you directly.  
 
 - **Indirect enrollments with a start date after May 1, 2018**:
   
-  You're on a Monthly Billing cycle.  
+  You're on a monthly billing cycle.  
 
-### Increasing Commitment
+### Increase your monetary commitment
 
 You can increase your commitment at any time. You'll be billed for the number of months remaining in that year's commitment period. For example, if you sign up for a one-year Amendment Subscription and then increase your commitment during month six, you'll be invoiced for the remaining six months of that term. Your commitment quantities will then be updated for the last six months of your commitment term. These new quantities will be used for determining any overage charges.
 
@@ -82,15 +83,15 @@ For overage, you're billed for the usage or reservations that exceed your commit
 
 For each item on the invoice, you'll see:
 
-- Extended Amount: the total charges
-- Commitment Usage: the amount of your commitment used to cover the charges
-- Net Amount: the charges that exceed your commitment
+- **Extended Amount**: the total charges
+- **Commitment Usage**: the amount of your commitment used to cover the charges
+- **Net Amount**: the charges that exceed your commitment
 
 Applicable taxes are computed only on the net amount that exceeds your commitment.
 
 Overage invoicing is automated. The timing of notifications and invoices depends on your billing period end date.
 
-- Overage notification is sent usually seven days following your billing end date.
+- Overage notification is usually sent seven days following your billing end date.
 - Overage invoices are sent seven to nine days after notification.
 - You can review charges and update system-generated PO numbers during the seven days between the overage notification and invoicing.
 
@@ -104,9 +105,9 @@ During the transition to a combined invoice, you'll receive a partial Marketplac
 
 A customer's billing frequency is annual, quarterly, or monthly. The billing cycle is determined when a customer signs their agreement. Monthly billing is smallest billing interval.
 
-- **Approval** from Enterprise administrator is required to change a billing cycle change from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
+- **Approval** from an Enterprise administrator is required to change a billing cycle from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
 - **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an Enterprise administrator or from your "Bill to Contact".
-- **Submit** your approval in the [Azure Enterprise portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the Issue Category: **Billing and Invoicing**.
+- **Submit** your approval to [Azure Enterprise portal support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the Issue Category: **Billing and Invoicing**.
 
 The change becomes effective at the end of the current billing quarter.
 
@@ -134,7 +135,7 @@ To apply your monetary commitment to overages, you must meet the following crite
 
 - You've incurred overage charges that haven't been paid and are within one year of the billed service's end date.
 - Your available monetary commitment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
-- The Billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
+- The billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
 - The billing period that you want to offset must be fully closed.
 - Your Azure Commitment Discount (ACD) is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume monetary commitment, so doesn't apply to Azure Marketplace charges. Marketplace charges are billed separately.
 
@@ -158,7 +159,7 @@ To download a historical price list:
 
 ![Example showing where to download an older price sheet](./media/ea-portal-enrollment-invoices/create-ea-view-price-sheet-download-historical-price-list.png)
 
-Some reasons why there might be a difference in pricing:
+Some reasons for differences in pricing:
 
 - Pricing might have changed between the previous enrollment and the new enrollment. Price changes can occur because pricing is contractual for specific enrollment from the start date to end date of an agreement.
 - When you transfer to new enrollment, the pricing changes to the new agreement. The pricing is defined by your price sheet, which might be higher in the new enrollment.
@@ -168,10 +169,10 @@ Some reasons why there might be a difference in pricing:
 
 Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
-To view detailed usage in specific accounts, download the Usage Detail report by going to **Reports** > **Download Usage**.
+To view detailed usage in specific accounts, download the usage detail report by going to **Reports** > **Download Usage**.
 
 > [!NOTE]
-> The Usage Detail report doesn't include any applicable taxes. There might be a latency of up to eight hours from the time usage was incurred to when it's reflected on the report.
+> The usage detail report doesn't include any applicable taxes. There might be a latency of up to eight hours from the time usage was incurred to when it's reflected on the report.
 
 For indirect enrollments, your partner needs to enable the markup function before you can see any cost-related information.
 
@@ -200,7 +201,7 @@ Enterprise administrators can view a summary of their usage data, monetary commi
 1. One this tab, you can:
    - View a graph of month-over-month usage with a breakdown of usage, service overcharge, charges billed separately, and Azure Marketplace charges.
    - Filter by departments, accounts, and subscriptions below the graph.
-   - Toggle between Charge-by-Services breakdown and Charge-by-Hierarchy breakdown.
+   - Toggle between **Charge-by-Services** breakdown and **Charge-by-Hierarchy** breakdown.
    - View the details of Azure services, charges billed separately, and Azure Marketplace charges.
 
 ## Service usage report
@@ -219,7 +220,7 @@ The service usage report page allows Enterprise administrators to view a summary
 1. Choose which accounts or subscriptions to view.
 1. Optionally, you can:
    - Change the view between **Charge by Services** and **Charge by Hierarchy** to display different breakdowns.
-   - View details. For example: Service Name, Unit of Measure, Consumed Units, Effective Rate, and Extended Cost.
+   - View details of Service Name, Unit of Measure, Consumed Units, Effective Rate, and Extended Cost.
 
 ## Download CSV reports
 
@@ -301,9 +302,9 @@ The usage detail report offers a monthly summary of an enrollments consumption o
 There are two types of Azure Marketplace charges:
 
 - **Usage-based:** Products measured in transactional units.  For example, virtual machines are charged hourly, Bing API searches are charged by number of searches.
-- **Monthly Fee:** Billed monthly based on usage/access.
+- **Monthly fee:** Billed monthly based on usage or access.
 
-For more information on Marketplace charges, see [Marketplace FAQs](https://azure.microsoft.com/marketplace/faq/).
+For more information on Marketplace charges, see the [Marketplace FAQs](https://azure.microsoft.com/marketplace/faq/).
 
 To view the different charges in the Azure Enterprise portal:
 
@@ -317,7 +318,7 @@ To view the different charges in the Azure Enterprise portal:
 
 For reporting on specific date ranges or accounts, you can use the advanced report download. As of August 30, 2016, the format of the output file is CSV to accommodate larger record sets.
 
-1. Select **Advanced Report Download**.
+1. In the Azure Enterprise portal, select **Advanced Report Download**.
 1. Select **Appropriate Date Range**.
 1. Select **Appropriate Accounts**.
 1. Select **Request Usage Data**.
@@ -326,11 +327,11 @@ For reporting on specific date ranges or accounts, you can use the advanced repo
 
 ## Reporting for non-Enterprise administrators
 
-Enterprise administrators can give Department administrators (DA) and Account owners (AO) permissions to view charges on an enrollment. Account owners with access are able to download CSV reports specific to their account and subscriptions. They can also view the information visually under the reporting section of the Azure Enterprise portal.
+Enterprise administrators can give department administrators (DA) and account owners (AO) permissions to view charges on an enrollment. Account owners with access are able to download CSV reports specific to their account and subscriptions. They can also view the information visually under the reporting section of the Azure Enterprise portal.
 
 ### To enable access:
 
- 1. Sign in as an Enterprise administrator.
+ 1. Sign in to the Azure Enterprise portal as an Enterprise administrator.
  1. Select **Manage** on the left navigation.
  1. Select the **Enrollment** tab.
  1. Under the **Enrollment Detail** section, select the pencil icon next to **DA View Charges** or **AO View Charges**.
@@ -339,12 +340,12 @@ Enterprise administrators can give Department administrators (DA) and Account ow
 
 ### To view reports:
 
-1. Sign in to the Azure Enterprise portal as a Department administrator or an Account owner.
+1. Sign in to the Azure Enterprise portal as a department administrator or an account owner.
 1. Select **Reports** on the left navigation.
 1. Select the **Usage Summary** tab to view information on the account and subscription visually.
 1. Select **Usage Download** to view the CSV reports.
 
-Department administrators and Account owners are unable to view charges when using the **Advanced Report Download** function. Costs display as $0.
+Department administrators and account owners are unable to view charges when using the **Advanced Report Download** function. Costs display as $0.
 
 Account owner permissions to view charges extend to account owners and all users who have permissions on associated subscriptions. If you're an indirect customer, cost features must be enabled by your channel partner.
 
@@ -353,7 +354,7 @@ Account owner permissions to view charges extend to account owners and all users
 Usage data is only moved when a transfer is backdated. There are two options to move usage data from one enrollment to another:
 
 - Account transfers from one enrollment to another enrollment
-- Enrollment transfer from one enrollment to another enrollment
+- Enrollment transfers from one enrollment to another enrollment
 
 For either option, you must submit a [support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) to the EA Support Team for assistance. ​
 
@@ -363,11 +364,11 @@ This section provides details on how usage is calculated. It answers many freque
 
 ### Price protection
 
-As a customer or a channel partner, you're guaranteed to receive prices at or below prices shown on your Customer Price Sheet (CPS) or the price in effect on the effective date of your Azure purchase. This price is referred to as the baseline price. For services introduced after that purchase, you're charged the price that's in effect at the applicable level discount when the service was first introduced. This price protection applies for the duration of the commitment term that can be one or three years depending upon the Enterprise Agreement.
+As a customer or a channel partner, you're guaranteed to receive prices at or below prices shown on your Customer Price Sheet (CPS) or the price in effect on the effective date of your Azure purchase. This price is referred to as the baseline price. For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. This price protection applies for the duration of your commitment term - one or three years depending upon your Enterprise Agreement.
 
 ### Price changes
 
-Microsoft may drop the current Enterprise Agreement price for individual Azure services during the term of an enrollment. We'll extend these reduced rates to existing customers while the lower price is in effect. If these rates increase later, the enrollment's price for a service won't increase beyond the customer's price protection ceiling as defined above. However, the rate might increase relative to the prior lowered price. In either case, Microsoft will inform customers and indirect channel partners of upcoming price changes by emailing the Enterprise and Partner administrators associated with the enrollment.
+Microsoft may drop the current Enterprise Agreement price for individual Azure services during the term of an enrollment. We'll extend these reduced rates to existing customers while the lower price is in effect. If these rates increase later, your enrollment's price for a service won't increase beyond your price protection ceiling as defined above. However, the rate might increase relative to the prior lowered price. In either case, we will inform customers and indirect channel partners of upcoming price changes by emailing the Enterprise and Partner administrators associated with the enrollment.
 
 ### Current effective pricing
 
@@ -377,10 +378,9 @@ Customer and channel partners can view their current pricing for an enrollment b
 
 We're continually enhancing Azure and periodically add new services that are priced separately from existing services. Some preview services are automatically available, while others require customer action in the [Azure Account portal](https://account.windowsazure.com/PreviewFeatures).
 
-> [!NOTE]
-> Note also that as services move from Preview to General Availability (GA), prices might increase as full performance and reliability SLAs are applied.
+Some services start out with promotional pricing in effect when first introduced which may be increased at a future date.
 
-Some services start out with promotional pricing in effect when first introduced which may be increased at a future date. A price increase due to a service changing from preview or promotional pricing to General Availability (GA) isn't limited by normal baseline price protection. Usage of those services is charged at the increased rate. Customers can avoid charges related to these services by choosing to not use the new service.
+As services move from Preview to General Availability (GA), prices might increase as full performance and reliability SLAs are applied. Such an increase isn't limited by normal baseline price protection. Usage of those services is charged at the increased rate. To avoid  charges related to these new services, you'll have to opt out of using them.
 
 ### Introduction of regional pricing
 
@@ -390,15 +390,15 @@ When regionalization of a service is first introduced, baseline price protection
 
 ### Enterprise Dev/Test
 
-Enterprise administrators can enable Account owners to create subscriptions based on the Enterprise Dev/Test offer. The Account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Enterprise administrators can enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
-### Enterprise Agreement usage calculation guidelines
+## Enterprise Agreement usage calculations
 
-Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pricing](https://azure.microsoft.com/pricing/) for basic public pricing information, units of measure, FAQs, and usage reporting guidelines for each individual service. In addition, when calculating service usage, the following Enterprise Agreement guidelines should be used:
+Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pricing](https://azure.microsoft.com/pricing/) for basic public pricing information, units of measure, FAQs, and usage reporting guidelines for each individual service. You can find more information about EA calculations in the following sections.
 
 ### Enterprise Agreement units of measure
 
-The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the[Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
+The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
 
 ### Rounding rules
 
@@ -420,9 +420,9 @@ In the download usage data report, you can see raw resource usage up to six deci
 
 For example: If 694.533404 actual SQL Server hours are reported in the usage detail report. These units are converted to 6.94533404 of 100 compute hours, and then rounded to 6.9453 and displayed in the Azure Enterprise portal.
 
-- To determine the extended billing amount, the displayed units are multiplied by the Commitment Unit Price, and the result is rounded to two decimals. For Japanese Yen (JPY) and Korean Won (KRW), the extended amount is rounded to zero decimals.
-- For overage, the billing units are rounded to six digits and then multiplied by the Overage Unit Price to determine the extended billing amount.
-- For Managed Service Provider (MSP) billing, all usage associated to a department marked as MSP is rounded to zero decimals after conversion to the EA unit of measure. As a result, the sum of this usage could be lower than the sum total of all usage reported in the Azure Enterprise portal. It depends on if the MSP is within their monetary commitment balance or is in overage.
+- To determine the extended billing amount, the displayed units are multiplied by the Commitment Unit Price, and the result is truncated to two decimals. For Japanese Yen (JPY) and Korean Won (KRW), the extended amount is rounded to zero decimals.
+- For overage, the billing units are truncated to six digits and then multiplied by the Overage Unit Price to determine the extended billing amount.
+- For Managed Service Provider (MSP) billing, all usage associated to a department marked as MSP is truncated to zero decimals after conversion to the EA unit of measure. As a result, the sum of this usage could be lower than the sum total of all usage reported in the Azure Enterprise portal. It depends on if the MSP is within their monetary commitment balance or is in overage.
 
 ### Graduated pricing
 
@@ -493,7 +493,7 @@ The following services are billed separately:
 
 ## Azure Marketplace for EA customers
 
-For direct customers, Marketplace charges are visible on the Azure Enterprise portal. Marketplace purchases and consumption are billed outside of monetary commitment on a quarterly/monthly cadence and in arrears.
+For direct customers, Marketplace charges are visible on the Azure Enterprise portal. Marketplace purchases and consumption are billed outside of monetary commitment on a quarterly or monthly cadence and in arrears.
 
 Indirect customers can find their Azure Marketplace subscriptions on the **Manage Subscriptions** page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their Licensing Solutions Provider (LSP) for information on Marketplace charges.
 
@@ -509,10 +509,10 @@ LSPs can download an Azure Marketplace price list from the price sheet page in t
 
 To download the price list:
 
-1. Navigate to **Reports** > **Price Sheet**.
+1. In the Azure Enterprise portal, go to **Reports** > **Price Sheet**.
 1. In the top-right corner, find the link to Azure Marketplace price list under your username.
 1. Right-click the link and select **Save Target As**.
-1. On the Save window, change the title of the document to `AzureMarketplacePricelist.zip`, which will change the file from an xlsx to a zip file.
+1. On the **Save** window, change the title of the document to `AzureMarketplacePricelist.zip`, which will change the file from an .xlsx to a .zip file.
 1. After the download is complete, you'll have a zip file with country-specific price lists.
 1. LSPs should reference the individual country file for country-specific pricing. LSPs can use the **Notifications** tab to be aware of SKUs that are net new or retired.
 1. Price changes occur infrequently. LSPs get email notifications of price increases and foreign exchange (FX) changes 30 days in advance.
@@ -572,7 +572,7 @@ When you purchase a service that uses MC, Azure Marketplace presents a disclaime
 
 ### What if my EA monetary commitment runs out?
 
-If you consume all your MC and are now in overage, charges related to these services will appear on your next overage invoice along with any other consumption services. Before the March 1, 2018 change, these charges were invoiced with other Azure Marketplace services.
+If you consume all your MC and go into overage, charges related to these services will appear on your next overage invoice along with any other consumption services. Before the March 1, 2018 change, these charges were invoiced with other Azure Marketplace services.
 
 ### Why don't all Azure Marketplaces consume EA monetary commitment?
 
@@ -592,9 +592,10 @@ Power BI reporting is available for EA direct, partner, and indirect customers w
 
 ### Power BI Pro
 
-Power BI Pro is available for EA customers. With Power BI Pro, you can generate and share reports to effectively manage your cost data. It also has additional collaboration and data refresh features. Power BI Pro offers higher data capacity and data streaming limits. New cost management features for Azure Enterprise customers are coming soon.
+Power BI Pro is available for EA customers. With Power BI Pro, you can generate and share reports to effectively manage your cost data. It also has additional collaboration and data refresh features. Power BI Pro offers higher data capacity and data streaming limits.
 
-<!--
+<!--We plan to add new cost management features for Azure Enterprise customers.
+
 Current Power BI (free) users who use the Microsoft Azure Consumption Insights content pack can get a 60-day free trial of Power BI Pro. After the trial is over, you can continue using Power BI Pro by adding a license.
 
 To sign up for the free Power BI Pro trial:
@@ -676,11 +677,11 @@ The Azure Marketplace charges report shows only the usage-based charges. One-tim
 
 ### Why is there no information on my API report?
 
-API keys expire every six months. If you're having an issue, Enterprise administrators should generate a new API key. Remember to follow the steps on the API Report FAQ.
+API keys expire every six months. If you're having an issue, an Enterprise administrator should generate a new API key. Remember to follow the steps on the API Report FAQ.
 
 ### Why isn't my Power BI report working?
 
-For issues with Power BI, log a ticket with the Power BI support team at [https://support.powerbi.com](https://support.powerbi.com).
+For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).
 
 ### Why don't my resource tags show on my reports
 
@@ -718,7 +719,7 @@ In the download usage data report, you can see raw resource usage up to six deci
 
    | Title | Description | File name |
    | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li> service category</li>   <li>friendly service name</li>   <li>commitment name and part number</li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li>service category</li>   <li>friendly service name</li>   <li>commitment name and part number</li> <li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
 
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).
