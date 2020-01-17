@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017, mvc
 
 Azure Functions allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 
-Each function is "triggered" by a specific action. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
+A function is "triggered" by an specific type of event. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
 
 Integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and and third-party services](./functions-triggers-bindings.md).
 
@@ -33,7 +33,7 @@ Some key features of Azure Functions include:
 
 - **Integrated security**: Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
 
-- **Simplified integration**: Easily [integrate with Azure services and software-as-a-service (SaaS) offerings](#integrations).
+- **Simplified integration**: Easily integrate with Azure services and software-as-a-service (SaaS) offerings.
 
 - **Flexible development**: Set up continuous integration and deploy your code through [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/deploy-local-git.md).
 
@@ -49,33 +49,19 @@ A series of templates is available to get you started with key scenarios includi
 
 - **Timer**: Schedule code to [run at predefined times](./functions-create-scheduled-function.md)
 
-- **Azure Cosmos DB**: Process [new and modified Azure Cosmos DB documents](functions-bindings-cosmosdb-v2.md)
+- **Azure Cosmos DB**: Process [new and modified Azure Cosmos DB documents](./functions-create-cosmos-db-triggered-function.md)
 
-- **Blob storage**: Process [new and modified Azure Storage blobs](functions-bindings-storage-blob.md)
+- **Blob storage**: Process [new and modified Azure Storage blobs](./functions-create-storage-blob-triggered-function.md)
 
-- **Queue storage**: Respond [Azure Storage queue messages](./functions-bindings-storage-queue.md)
+- **Queue storage**: Respond to [Azure Storage queue messages](./functions-create-storage-queue-triggered-function.md)
 
-- **Event Grid**: Respond [Azure Event Grid events via subscriptions and filters](../event-grid/resize-images-on-storage-blob-upload-event.md)
+- **Event Grid**: Respond to [Azure Event Grid events via subscriptions and filters](../event-grid/resize-images-on-storage-blob-upload-event.md)
 
 - **Event Hub**: Respond to [high-volumes of Azure Event Hub events](./functions-bindings-event-hubs.md)
 
 - **Service Bus Queue**: Connect to other Azure or on-premises services by [responding Service Bus queue messages](./functions-bindings-service-bus.md)
 
 - **Service Bus Topic**: Connect other Azure services or on-premises services by [responding to Service Bus topic messages](./functions-bindings-service-bus.md)
-
-## <a name="integrations"></a> Integrations
-
-Azure Functions integrates with various Azure and 3rd-party services. These services can trigger your function and start execution, or they can serve as input and output for your code. The following service integrations are supported by Azure Functions:
-
-- [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md)
-- [Azure Event Hubs](./functions-bindings-event-hubs.md)
-- [Azure Event Grid](./functions-bindings-event-grid.md)
-- [Azure Notification Hubs](./functions-bindings-notification-hubs.md)
-- [Azure Service Bus (queues and topics)](./functions-bindings-service-bus.md)
-- [Azure Storage (blob, queues, and tables)](./functions-bindings-storage-blob.md)
-- [On-premises (using Service Bus)](./functions-bindings-service-bus.md)
-- [Signal R service](./functions-bindings-signalr-service.md)
-- [Twilio (SMS messages)](./functions-bindings-twilio.md)
 
 ## <a name="pricing"></a>How much does Functions cost?
 
@@ -91,14 +77,11 @@ For more information about hosting plans, see [Azure Functions hosting plan comp
 
 ## Next Steps
 
-- [Create your first Azure Function](functions-create-first-azure-function.md)  
-  Jump right in and create your first function using the Azure Functions quickstart.
+- [Create your first Azure Function](functions-create-first-function-vs-code.md)  
+  Get started with [Visual Studio Code](functions-create-first-function-vs-code.md), the [command line](functions-create-first-azure-function-azure-cli.md), or use the [Azure portal](functions-create-first-azure-function.md).
 
 - [Azure Functions developer reference](functions-reference.md)  
   Provides more technical information about the Azure Functions runtime and a reference for coding functions and defining triggers and bindings.
-
-- [Testing Azure Functions](functions-test-a-function.md)  
-  Describes various tools and techniques for testing your functions.
 
 - [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan.
