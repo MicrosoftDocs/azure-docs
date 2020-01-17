@@ -21,7 +21,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Manually scale a scale set
 > * Perform common scale set management tasks
 
-If you don�t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -143,7 +143,7 @@ The Azure marketplace includes many images that can be used to create VM instanc
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-To view a list of images for a given publisher, use [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). The image list can also be filtered by `-PublisherName` or `�Offer`. In the following example, the list is filtered for all images with publisher name of *MicrosoftWindowsServer* and an offer that matches *WindowsServer*:
+To view a list of images for a given publisher, use [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). The image list can also be filtered by `-PublisherName` or `-Offer`. In the following example, the list is filtered for all images with publisher name of *MicrosoftWindowsServer* and an offer that matches *WindowsServer*:
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
