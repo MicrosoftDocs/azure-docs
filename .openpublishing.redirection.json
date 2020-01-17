@@ -39782,8 +39782,28 @@
     },
     {
       "source_path": "articles/application-insights/app-insights-troubleshoot-faq.md",
-      "redirect_url": "/azure/azure-monitor/app/troubleshoot-faq",
+      "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/app/troubleshoot-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-usage-cohorts.md",
@@ -41085,6 +41105,11 @@
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
     },
+    {
+        "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
+        "redirect_document_id": true
+      },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
