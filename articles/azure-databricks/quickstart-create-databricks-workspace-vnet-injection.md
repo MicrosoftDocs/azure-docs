@@ -41,6 +41,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     |Name|databricks-quickstart|Select a name for your virtual network.|
     |Region|\<Select the region that is closest to your users\>|Select a geographic location where you can host your virtual network. Use the location that's closest to your users.|
 
+    ![Basics for a virtual network on Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+
 3. Select **Next: IP Addresses >** and apply the following settings. Then select **Review + create**.
     
     |Setting|Suggested value|Description|
@@ -70,6 +72,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     |Resource group|databricks-quickstart|Select the same resource group you used for the virtual network.|
     |Location|\<Select the region that is closest to your users\>|Choose the same location as your virtual network.|
     |Pricing Tier|Choose between Standard or Premium.|For more information on pricing tiers, see the [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).|
+
+    ![Create an Azure Databricks workspace basics](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
 3. Once you've finished entering settings on the **Basics** page, select **Next: Networking >** and apply the following settings:
 
