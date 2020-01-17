@@ -1,12 +1,9 @@
 ---
 title: Use OpenFaaS with Azure Kubernetes Service (AKS)
 description: Deploy and use OpenFaaS with Azure Kubernetes Service (AKS)
-services: container-service
 author: justindavies
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
