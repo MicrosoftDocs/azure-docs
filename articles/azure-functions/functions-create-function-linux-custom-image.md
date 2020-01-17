@@ -33,7 +33,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later
 - The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later
 - The [Azure Functions 2.x runtime](functions-versions.md)
-- An appropriate language runtime:
+- The following language runtime components:
     ::: zone pivot="programming-language-csharp"
     - [.NET Core 2.2.x or later](https://dotnet.microsoft.com/download)
     ::: zone-end
