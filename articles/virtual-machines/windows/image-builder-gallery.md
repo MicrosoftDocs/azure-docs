@@ -12,7 +12,7 @@ manager: gwallace
 
 This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](shared-image-galleries.md), then distribute the image globally.
 
-We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). 
+We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
 
@@ -43,13 +43,13 @@ Wait until `RegistrationState` is `Registered` before moving to the next step.
 Check your provider registrations. Make sure each returns `Registered`.
 
 ```powershell
-Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
-Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState 
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-If they do not say registered, run the following:
+If they do not return `Registered`, use the following to register the providers:
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -66,17 +66,14 @@ We will be using some pieces of information repeatedly, so we will create some v
 # Get existing context
 $currentAzContext = Get-AzContext
 
+# Get your current subscription ID. 
+$subscriptionID=$currentAzContext.Subscription.Id
+
 # Destination image resource group
 $imageResourceGroup="aibwinsig"
 
 # Location
 $location="westus"
-
-# Get your current subscription ID. 
-$subscriptionID=$currentAzContext.Subscription.Id
-
-# Name of the image to be created
-$imageName="aibCustomImgWin10"
 
 # Image distribution metadata reference name
 $runOutputName="aibCustWinManImg02ro"
@@ -84,7 +81,8 @@ $runOutputName="aibCustWinManImg02ro"
 # Image template name
 $imageTemplateName="helloImageTemplateWin02ps"
 
-# Distribution properties object name (runOutput). This gives you the properties of the managed image on completion.
+# Distribution properties object name (runOutput).
+# This gives you the properties of the managed image on completion.
 $runOutputName="winclientR01"
 ```
 
@@ -95,8 +93,13 @@ $runOutputName="winclientR01"
 Create a resource group and give Azure Image Builder permission to create resources in that resource group.
 
 ```powershell
-New-AzResourceGroup -Name $imageResourceGroup -Location $location
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup -RoleDefinitionName Contributor
+New-AzResourceGroup `
+   -Name $imageResourceGroup `
+   -Location $location
+New-AzRoleAssignment `
+   -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 `
+   -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup `
+   -RoleDefinitionName Contributor
 ```
 
 
@@ -109,19 +112,31 @@ If you don't already have a gallery and image definition to use, start by creati
 
 ```powershell
 # Image gallery name
-$sigGalleryName= "my22stSIG"
+$sigGalleryName= "myIBSIG"
 
 # Image definition name
-$imageDefName ="winSvrimages"
+$imageDefName ="winSvrimage"
 
 # additional replication region
 $replRegion2="eastus"
 
 # Create the gallery
-New-AzGallery -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup  -Location $location
+New-AzGallery `
+   -GalleryName $sigGalleryName `
+   -ResourceGroupName $imageResourceGroup  `
+   -Location $location
 
 # Create the image definition
-New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCo' -Offer 'Windows' -Sku 'Win10'
+New-AzGalleryImageDefinition `
+   -GalleryName $sigGalleryName `
+   -ResourceGroupName $imageResourceGroup `
+   -Location $location `
+   -Name $imageDefName `
+   -OsState generalized `
+   -OsType Windows `
+   -Publisher 'myCompany' `
+   -Offer 'WindowsServer' `
+   -Sku 'WinSrv2019'
 ```
 
 
@@ -131,18 +146,29 @@ New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $im
 Download the .json template and configure it with your variables.
 
 ```powershell
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json"
+
 $templateFilePath = "armTemplateWinSIG.json"
 
-Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
+Invoke-WebRequest `
+   -Uri "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
+   -OutFile $templateFilePath `
+   -UseBasicParsing
 
-(Get-Content -path $templateFilePath -Raw ) -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath
-(Get-Content -path $templateFilePath -Raw ) -replace '<rgName>',$imageResourceGroup) | Set-Content -Path $templateFilePath
-(Get-Content -path $templateFilePath -Raw ) -replace '<runOutputName>',$runOutputName) | Set-Content -Path $templateFilePath
-(Get-Content -path $templateFilePath -Raw ) -replace '<imageDefName>',$imageDefName) | Set-Content -Path $templateFilePath
-(Get-Content -path $templateFilePath -Raw ) -replace '<sharedImageGalName>',$sigGalleryName) | Set-Content -Path $templateFilePath
-(Get-Content -path $templateFilePath -Raw ) -replace '<region1>',$location) | Set-Content -Path $templateFilePath
-(Get-Content -path $templateFilePath -Raw ) -replace '<region2>',$replRegion2) | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<rgName>',$imageResourceGroup | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<runOutputName>',$runOutputName | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<imageDefName>',$imageDefName | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<sharedImageGalName>',$sigGalleryName | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<region1>',$location | Set-Content -Path $templateFilePath
+(Get-Content -path $templateFilePath -Raw ) `
+   -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
+
 ```
 
 
@@ -151,13 +177,23 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 Your template must be submitted to the service, this will download any dependent artifacts, like scripts, and store them in the staging Resource Group, prefixed with *IT_*.
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2019-05-01-preview" -imageTemplateName $imageTemplateName -svclocation $location
+New-AzResourceGroupDeployment `
+   -ResourceGroupName $imageResourceGroup `
+   -TemplateFile $templateFilePath `
+   -api-version "2019-05-01-preview" `
+   -imageTemplateName $imageTemplateName `
+   -svclocation $location
 ```
 
 To build the image you need to invoke 'Run' on the template.
 
 ```powershell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview" -Action Run
+Invoke-AzResourceAction `
+   -ResourceName $imageTemplateName `
+   -ResourceGroupName $imageResourceGroup `
+   -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
+   -ApiVersion "2019-05-01-preview" `
+   -Action Run
 ```
 
 Creating the image and replicating it to both regions can take a while. Wait until this part is finished before moving on to creating a VM.
@@ -174,35 +210,33 @@ Get the image version you created.
 $imageVersion = Get-AzGalleryImageVersion `
    -ResourceGroupName $imageResourceGroup `
    -GalleryName $sigGalleryName `
-   -GalleryImageDefinitionName $imageDefName `
-   -Name] $imageName
+   -GalleryImageDefinitionName $imageDefName
 ```
 
-Create the VM.
+Create the VM in the second region that were the image was replicated.
 
 ```powershell
 $vmResourceGroup = "myResourceGroup"
-$vmLocation = "South Central US"
 $vmName = "myVMfromImage"
 
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a resource group
-New-AzResourceGroup -Name $vmResourceGroup -Location $vmLocation
+New-AzResourceGroup -Name $vmResourceGroup -Location $replRegion2
 
 # Network pieces
 $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-$vnet = New-AzVirtualNetwork -ResourceGroupName $vmResourceGroup -Location $vmLocation `
+$vnet = New-AzVirtualNetwork -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-$pip = New-AzPublicIpAddress -ResourceGroupName $vmResourceGroup -Location $vmLocation `
+$pip = New-AzPublicIpAddress -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389 -Access Allow
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $vmResourceGroup -Location $vmLocation `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $vmResourceGroup -Location $vmLocation `
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration using $imageVersion.Id to specify the shared image
@@ -212,7 +246,7 @@ Set-AzVMSourceImage -Id $imageVersion.Id | `
 Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine
-New-AzVM -ResourceGroupName $vmResourceGroup -Location $vmLocation -VM $vmConfig
+New-AzVM -ResourceGroupName $vmResourceGroup -Location $replRegion2 -VM $vmConfig
 ```
 
 ## Verify the customization
