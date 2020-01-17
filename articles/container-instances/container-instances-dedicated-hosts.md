@@ -4,7 +4,7 @@ description: Use a dedicated host to achieve true host-level isolation for your 
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
-ms.author: deep.kapur
+ms.author: dekapur
 ---
 
 # Deploy on dedicated hosts

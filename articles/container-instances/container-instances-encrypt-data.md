@@ -4,7 +4,7 @@ description: Learn about encryption of data persisted for your container instanc
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
-ms.author: deep.kapur
+ms.author: dekapur
 ---
 
 # Encrypt deployment data
