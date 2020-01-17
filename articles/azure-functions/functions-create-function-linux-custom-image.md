@@ -4,7 +4,7 @@ description: Learn how to create Azure Functions running on a custom Linux image
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions01
 ---
 
 # Create a function on Linux using a custom container
@@ -33,7 +33,28 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later.
 - The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later. 
 - The [Azure Functions 2.x runtime](functions-versions.md).
-- A supported language runtime of your choice: [].NET Core (2.2.x or later)](https://dotnet.microsoft.com/download), [Node.js](https://nodejs.org/en/download/), [TypeScript](http://www.typescriptlang.org/#download-links), [Python 3.6](https://www.python.org/downloads/release/python-3610/) or [Python 3.7](https://www.python.org/downloads/release/python-376/), or [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+
+::: zone pivot="programming-language-csharp"
+- [.NET Core](2.2.x or later)](https://dotnet.microsoft.com/download)
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+- [Node.js](https://nodejs.org/en/download/)
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+- [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+::: zone-end
+
+::: zone pivot="programming-language-python"
+- [Python 3.6 - 64 bit](https://www.python.org/downloads/release/python-3610/) or [Python 3.7 - 64 bit](https://www.python.org/downloads/release/python-376/)
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+- [Node.js](https://nodejs.org/en/download/)
+- [TypeScript](http://www.typescriptlang.org/#download-links)
+::: zone-end
+
 - [Docker](https://docs.docker.com/install/)
 - A [Docker ID](https://hub.docker.com/signup)
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -59,15 +80,15 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-javascript"
+    ::: zone pivot="programming-language-javascript"
     ```
     func init LocalFunctionsProject --worker-runtime node --language javascript --docker
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-typescript"
+    ::: zone pivot="programming-language-powershell"
     ```
-    func init LocalFunctionsProject --worker-runtime node --language typescript --docker
+    func init LocalFunctionsProject --worker-runtime powershell --docker
     ```
     ::: zone-end
 
@@ -77,9 +98,9 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-powershell"
+    ::: zone pivot="programming-language-typescript"
     ```
-    func init LocalFunctionsProject --worker-runtime powershell --docker
+    func init LocalFunctionsProject --worker-runtime node --language typescript --docker
     ```
     ::: zone-end
     
@@ -103,19 +124,20 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-javascript"
+    ::: zone pivot="programming-language-javascript"
     ```
     func start
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-typescript"
-    ```
-    npm install
-    ```
-
     ```
     npm start
+    ```
+    ::: zone-end
+
+    ::: zone pivot="programming-language-powershell"
+    ```
+    func start
     ```
     ::: zone-end
 
@@ -125,11 +147,10 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end    
 
-    ::: zone pivot="programming-language-powershell"
+    ::: zone pivot="programming-language-typescript"
     ```
-    func start
+    npm install
     ```
-    ::: zone-end
 
 1. Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like "Hello, Functions" (varied slightly depending on your chosen programming language).
 
@@ -158,7 +179,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-javascript"
+    ::: zone pivot="programming-language-javascript"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
     # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
@@ -174,19 +195,15 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-typescript"
+    ::: zone pivot="programming-language-powershell"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
-    FROM mcr.microsoft.com/azure-functions/node:2.0
-    
+    # FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/powershell:2.0
     ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
         AzureFunctionsJobHost__Logging__Console__IsEnabled=true
     
-    COPY . /home/site/wwwroot
-    
-    RUN cd /home/site/wwwroot && \
-    npm install    
+    COPY . /home/site/wwwroot    
     ```
     ::: zone-end
 
@@ -206,15 +223,19 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-powershell"
+    ::: zone pivot="programming-language-typescript"
     ```Dockerfile
     # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
-    FROM mcr.microsoft.com/azure-functions/powershell:2.0
+    # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/node:2.0
+    
     ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
         AzureFunctionsJobHost__Logging__Console__IsEnabled=true
     
-    COPY . /home/site/wwwroot    
+    COPY . /home/site/wwwroot
+    
+    RUN cd /home/site/wwwroot && \
+    npm install    
     ```
     ::: zone-end
 
@@ -298,7 +319,9 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features). We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md).   
+    Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features). We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+
+    The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 ## Create and configure a function app on Azure with the image
 
@@ -433,15 +456,15 @@ SSH enables secure communication between a container and a client. With SSH enab
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-javascript"
+    ::: zone pivot="programming-language-javascript"
     ```Dockerfile
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-node-typescript"
+    ::: zone pivot="programming-language-powershell"
     ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
     ```
     ::: zone-end
 
@@ -451,9 +474,9 @@ SSH enables secure communication between a container and a client. With SSH enab
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-powershell"
+    ::: zone pivot="programming-language-typescript"
     ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
 
@@ -541,27 +564,11 @@ The `msg` parameter is an `ICollector<T>` type, which represents a collection of
 
 ::: zone-end
 
-::: zone pivot="programming-language-node-javascript"
+::: zone pivot="programming-language-javascript"
 
 Update *function.json* to match the following by adding the queue binding:
 
 :::code language="javascript" source="code/create-function-linux-custom-image/function-json-javascript-storage-queue.json" highlight="17-24":::
-
-::: zone-end
-
-::: zone pivot="programming-language-node-typescript"
-
-Update *function.json* to match the following by adding the queue binding:
-
-:::code language="javascript" source="code/create-function-linux-custom-image/function-json-typescript-storage-queue.json" highlight="17-24":::
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-Update *function.json* to match the following by adding the queue binding:
-
-:::code language="python" source="code/create-function-linux-custom-image/function-json-python-storage-queue.json" highlight="18-25":::
 
 ::: zone-end
 
@@ -573,6 +580,21 @@ Update *function.json* to match the following by adding the queue binding:
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+Update *function.json* to match the following by adding the queue binding:
+
+:::code language="python" source="code/create-function-linux-custom-image/function-json-python-storage-queue.json" highlight="18-25":::
+
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+Update *function.json* to match the following by adding the queue binding:
+
+:::code language="javascript" source="code/create-function-linux-custom-image/function-json-typescript-storage-queue.json" highlight="17-24":::
+
+::: zone-end
 
 ## Add code to use the output binding
 
@@ -583,22 +605,21 @@ After the binding is defined, the name of the binding, in this case `msg`, appea
 :::code language="csharp" source="code/create-function-linux-custom-image/use-queue-csharp.cs" highlight="4,14-18":::
 ::: zone-end
 
-::: zone pivot="programming-language-node-javascript"
+::: zone pivot="programming-language-javascript"
 :::code language="javascript" source="code/create-function-linux-custom-image/use-queue-javascript.js" highlight="5-7":::
-::: zone-end
-
-::: zone pivot="programming-language-node-typescript"
-:::code language="typescript" source="code/create-function-linux-custom-image/use-queue-typescript.ts" highlight="8-10":::
-::: zone-end
-
-::: zone pivot="programming-language-python"
-:::code language="python" source="code/create-function-linux-custom-image/use-queue-python.py" highlight="6,18":::
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 :::code language="powershell" source="code/create-function-linux-custom-image/use-queue-powershell.ps1" highlight="16-17":::
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+:::code language="python" source="code/create-function-linux-custom-image/use-queue-python.py" highlight="6,18":::
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+:::code language="typescript" source="code/create-function-linux-custom-image/use-queue-typescript.ts" highlight="8-10":::
+::: zone-end
 
 ### Update the image in the registry
 
