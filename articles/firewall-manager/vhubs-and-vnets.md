@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 01/11/2020
+ms.date: 01/18/2020
 ms.author: victorh
 ---
 
@@ -15,29 +15,30 @@ Azure Firewall Manager can provide security management for two network architect
 
 - **secured virtual hub**
 
-   An [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) is a Microsoft-managed resource that lets you easily create hub and spoke architectures. When security and routing policies are associated with such a hub, it is referred to as a *[secured virtual hub](secured-virtual-hub.md)*. 
+   An [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) is a Microsoft-managed resource that lets you easily create hub and spoke architectures. When security and routing policies are associated with such a hub, it's referred to as a *[secured virtual hub](secured-virtual-hub.md)*. 
 - **hub virtual network**
 
-   This is a standard Azure virtual network that you create and manage yourself. You create the *hub virtual network* that contains the firewall, and peer the spoke virtual networks that contain your workload servers and services.
+   This is a standard Azure virtual network that you create and manages yourself. You create the *hub virtual network* that contains the firewall, and peer the spoke virtual networks that contain your workload servers and services.
 
 ## Comparison
 
 The following table compares these two architecture options and can help you decide which one is right for your organization's security requirements:
 
 
-|  |**secured virtual hub**  |**hub virtual network**  |
+|  |**Hub virtual network**|**Secured virtual hub**  |
 |---------|---------|---------|
-|Row1     |         |         |
-|Row2     |         |         |
-|Row3     |         |         |
-|Row4     |         |         |
-|Row5     |         |         |
-|Row6     |         |         |
-|Row7     |         |         |
-|Row8     |         |         |
-|Row9     |         |         |
-|Row10     |         |         |
-
+|**Underlying resource**     |Virtual network|Virtual WAN Hub|
+|**Hub & Spoke**     |Uses Virtual network peering|Automated using hub virtual network connection|
+|**On-prem connectivity**     |VPN Gateway up to 10 Gbps and 30 S2S connections; ExpressRoute|More scalable VPN Gateway up 20 Gbps and 1000 S2S connections; Express Route|
+|**Automated branch connectivity using SDWAN**      |Not supported|Supported|
+|**Hubs per region**     |Multiple Virtual Networks per region|Single Virtual Hub per region. Multiple hubs possible with multiple Virtual WANs|
+|**Azure Firewall**     |Available|Public Preview|
+|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated To be available by GA.|
+|**Azure Firewall Availability Zones**     |Supported|Not available in preview. To be available by GA|
+|**Advanced internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice.|Automated via Trusted Security Partner flow and partner management experience.|
+|**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|
+|**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
+|**Network Virtual Appliance**|Supported in Virtual Network|Currently supported in spoke network|
 
 ## Next steps
 

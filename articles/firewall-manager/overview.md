@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 01/18/2020
 ms.author: victorh
 ---
 
@@ -67,14 +67,7 @@ You can use third-party providers for Branch to Internet (B2I) traffic filtering
 
 ## Region availability
 
-The following regions are supported for the public preview:
-
-- West Europe, North Europe, France Central, France South, UK South, UK West
-- Australia East, Australia Central, Australia Central 2, Australia Southeast
-- Canada Central
-- East US, West US, East US 2, South Central US, West US 2, Central US, North Central US, West Central US
-
-Azure Firewall Policies can only be created in these regions, but they can be used across regions. For example, you can create a policy in West US, and use it in East US. 
+Azure Firewall Policies can be used across regions. For example, you can create a policy in West US, and use it in East US. 
 
 ## Known issues
 
