@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 01/20/2020
+ms.date: 01/21/2020
 ---
 # How to select algorithms for Azure Machine Learning
 
@@ -63,7 +63,7 @@ For a complete list of metrics and approaches you can use to evaluate the accura
 
 ## Training time
 
-In supervised learning, training means using historical data to build a machine learning model that minimizes loss [what does this mean?]. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy; one typically accompanies the other. 
+In supervised learning, training means using historical data to build a machine learning model that minimizes errors. The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy; one typically accompanies the other. 
 
 In addition, some algorithms are more sensitive to the number of data points than others. You might choose a specific algorithm because you have a time limitation, especially when the data set is large.
 
