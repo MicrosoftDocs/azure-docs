@@ -20,7 +20,7 @@ When metric counts are presented in the portal, they are renormalized to take in
 
 ## Brief summary
 
-* There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion samping.
+* There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion sampling.
 * Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 * Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java, and Python.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
@@ -109,7 +109,7 @@ In [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-app
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    A semi-colon delimited list of types that you do not want to be subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. All telemetry of the specified types are transmitted; the types that are not specified will be sampled.
+    A semi-colon delimited list of types that you do not want to be subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. All telemetry of the specified types is transmitted; the types that are not specified will be sampled.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
@@ -514,7 +514,7 @@ The accuracy of the approximation largely depends on the configured sampling per
 
 *What happens if I configure the sampling percentage to be too low?*
 
-* Excessively low sampling percentages (over-aggressive sampling) reduces the accuracy of the approximations when Application Insights attempts to compensate the visualization of the data for the data volume reduction. Also your diagnostic experience might be negatively impacted, as some of the infrequently failing or slow requests may be sampled out.
+* Excessively low sampling percentages cause over-aggressive sampling, and reduce the accuracy of the approximations when Application Insights attempts to compensate the visualization of the data for the data volume reduction. Also your diagnostic experience might be negatively impacted, as some of the infrequently failing or slow requests may be sampled out.
 
 *What happens if I configure the sampling percentage to be too high?*
 
