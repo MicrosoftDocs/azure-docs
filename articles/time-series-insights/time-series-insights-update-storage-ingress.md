@@ -44,20 +44,16 @@ Azure Time Series Insights supports UTF8 encoded JSON submitted through Azure Io
 
 Below is the list of supported data types.
 
-| Data type | Additional Names | Description |
+| Data type | Description |
 |-----------|------------------|-------------|
-| array     |                  |  Ordered collection of values. Values must be of supported data type. See the note below regarding how arrays are stored           |
-| bool      |  Boolean     |   A data type having one of two states: true or false.       |
-| dateTime    |     date             |   Defines a date that is combined with a time of day with fractional seconds that is based on a 24-hour clock and relative to UTC (time zone offset 0). The format should be yyyy-MM-ddTHH:mm:ss.FFFFFFFK. An example is 2008-04-12T12:53Z.    |
-| double    |     real             |   A double-precision 64-bit IEEE 754 floating point          |
-| null    |                  | Control character indicating the absence of a value    |
-| object    |                  |   A collection of key-value pairs of any of the other data types. See the section below regarding object flattening   |
-| string    |                  |   Text values, comprised of Unicode characters.          |
+| bool      |   A data type having one of two states: true or false.       |
+| dateTime    |   Represents an instant in time, typically expressed as a date and time of day. DateTimes should be in ISO 8601 format.      |
+| double    |   A double-precision 64-bit IEEE 754 floating point
+| string    |   Text values, comprised of Unicode characters.          |
 
+#### Objects and arrays
 
-
-> [!NOTE] 
-> For more information on how to shape your JSON events as well as details on nested object flattening, see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+You can send complex types such as objects and arrays as part of your event payload, but your data will undergo a flattening process when stored. For more information on how to shape your JSON events as well as details on complex type and nested object flattening, see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
 
 ## Ingress best practices
