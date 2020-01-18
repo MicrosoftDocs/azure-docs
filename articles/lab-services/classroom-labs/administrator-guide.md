@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Azure Lab Services - Administrator guide
-Information Technology (IT) administrators who manage a university's cloud resources are also typically responsible for setting up the lab account for their school. Administrators or educators create classroom labs in the lab account. This article provides a high-level overview of the Azure resources involved and the guidance for creating them.
+Information Technology (IT) administrators who manage a university's cloud resources are typically responsible for setting up the lab account for their school. Once a lab account is set up, administrators or educators create classroom labs that are contained within the lab account. This article provides a high-level overview of the Azure resources involved and the guidance for creating them.
 
 ![High-level view of Azure resources in a lab account](../media/administrator-guide/high-level-view.png)
 
@@ -26,12 +26,12 @@ Information Technology (IT) administrators who manage a university's cloud resou
 - You can have your lab account and the shard image gallery in the same resource group. In this diagram, they are in different resource groups. 
 
 ## Subscription
-Your organization has one or more Azure subscriptions. A subscription is used to manage billing and security for all Azure resources\services that are used within it, including lab accounts.
+Your university has one or more Azure subscriptions. A subscription is used to manage billing and security for all Azure resources\services that are used within it, including lab accounts.
 
 The relationship between a lab account and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab account.
-- You can give users in the subscription's Azure Active Directory (AD) tenant access to Azure Lab Services. You can add the user as a lab account owner\contributor, classroom lab creator, or classroom lab owner.
+- You can give users in the subscription's Azure Active Directory (AD) tenant access to Azure Lab Services. You can add a user as a lab account owner\contributor, classroom lab creator, or classroom lab owner.
 
 Classroom labs and their virtual machines (VMs) are managed and hosted for you within a subscription owned by Azure Lab Services.
 
@@ -44,7 +44,7 @@ A resource group is also required when creating a [shared image gallery](#shared
 
 When you create a lab account, you can automatically create and attach a shared image gallery at the same time.  This option results in the lab account and the shared image gallery being created in separate resource groups. You'll see this behavior when using the steps described in this tutorial: [Configure shared image gallery at the time of lab account creation](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). The image at the top of this article also uses this configuration. 
 
-We recommend investing time up front to plan the structure of your resource groups since it's not possible to change a lab account’s or shared image gallery’s resource group once it’s created. If you need to change the resource group for these resources, you'll need to delete and recreate your lab account and\or shared image gallery.
+We recommend investing time up front to plan the structure of your resource groups since it's *not* possible to change a lab account’s or shared image gallery’s resource group once it’s created. If you need to change the resource group for these resources, you'll need to delete and recreate your lab account and\or shared image gallery.
 
 ## Lab account
 A lab account serves as a container for one or more classroom labs. When getting started with Azure Lab Services, it’s common to only have a single lab account. As your lab usage scales, you may later choose to create more lab accounts.
@@ -122,7 +122,7 @@ As you get started with Azure Lab Services, we recommend that you establish nami
 For more information on naming other Azure resources, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
 ## Regions or locations
-When setting up your Azure Lab Services’ resources, you're required to provide a region, or location, of the data center that will host the resource. Here are more details on how region impacts each of the following resources used in your lab deployment:
+When setting up your Azure Lab Services’ resources, you're required to provide a region (or location) of the data center that will host the resource. Here are more details on how region impacts each of the following resources used in your lab deployment:
 
 - **Resource group**
 
