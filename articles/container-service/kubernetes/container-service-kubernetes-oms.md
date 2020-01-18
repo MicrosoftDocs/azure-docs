@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Monitor Azure Kubernetes cluster - Operations Management
 description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
-services: container-service
 author: bburns
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
