@@ -134,7 +134,7 @@ Time Series Insights Preview saves your cold store data to Azure Blob storage in
 Time Series Insights Preview partitions and indexes data for optimum query performance. Data becomes available to query after it’s indexed. The amount of data that's being ingested can affect this availability.
 
 > [!IMPORTANT]
-> The upcoming general availability (GA) release of Time Series Insights will make data available in 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
+> The upcoming general availability (GA) release of Time Series Insights will make data available in  under 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
 # Azure Storage
 
@@ -163,7 +163,7 @@ You might want to access data viewed in the Time Series Insights Preview explore
 You can access your data in three general ways:
 
 * From the Time Series Insights Preview explorer. You can export data as a CSV file from the explorer. For more information, read [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-* From the Time Series Insights Preview API. You can reach the API endpoint at `/getRecorded`. To learn more about this API, read [Time Series Query](./time-series-insights-update-tsq.md).
+* From the Time Series Insights Preview API using Get Events Query. To learn more about this API, read [Time Series Query](./time-series-insights-update-tsq.md).
 * Directly from an Azure Storage account. You need read access to whatever account you're using to access your Time Series Insights Preview data. For more information, read [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### Data deletion
@@ -197,7 +197,7 @@ Time Series Insights Preview events are mapped to Parquet file contents as follo
 
 * Each event maps to a single row.
 * Every row includes the **timestamp** column with an event time stamp. The time-stamp property is never null. It defaults to **event enqueued time** if the time-stamp property isn't specified in the event source. The time stamp is always in UTC.
-* Every row includes the Time Series ID column as defined when the Time Series Insights environment is created. The property name includes the `_string` suffix.
+* Every row includes the Time Series ID column(s) as defined when the Time Series Insights environment is created. The property name includes the `_string` suffix.
 * All other properties sent as telemetry data are mapped to column names that end with `_string` (string), `_bool` (Boolean), `_datetime` (datetime), or `_double` (double), depending on the property type.
 * This mapping scheme applies to the first version of the file format, referenced as **V=1**. As this feature evolves, the name might be incremented.
 
