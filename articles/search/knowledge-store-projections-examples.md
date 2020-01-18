@@ -55,15 +55,11 @@ To learn how you work with projections, let's start with a few example scenarios
             "inputs": [
                 {
                     "name": "text",
-                    "source": "/document/merged_content",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/merged_content"
                 },
                 {
                     "name": "languageCode",
-                    "source": "/document/language",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/language"
                 }
             ],
             "outputs": [
@@ -95,15 +91,11 @@ To learn how you work with projections, let's start with a few example scenarios
             "inputs": [
                 {
                     "name": "text",
-                    "source": "/document/merged_content",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/merged_content"
                 },
                 {
                     "name": "languageCode",
-                    "source": "/document/language",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/language"
                 }
             ],
             "outputs": [
@@ -121,9 +113,7 @@ To learn how you work with projections, let's start with a few example scenarios
             "inputs": [
                 {
                     "name": "text",
-                    "source": "/document/merged_content",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/merged_content"
                 }
             ],
             "outputs": [
@@ -143,21 +133,15 @@ To learn how you work with projections, let's start with a few example scenarios
             "inputs": [
                 {
                     "name": "text",
-                    "source": "/document/content",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/content"
                 },
                 {
                     "name": "itemsToInsert",
-                    "source": "/document/normalized_images/*/text",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/normalized_images/*/text"
                 },
                 {
                     "name": "offsets",
-                    "source": "/document/normalized_images/*/contentOffset",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/normalized_images/*/contentOffset"
                 }
             ],
             "outputs": [
@@ -179,9 +163,7 @@ To learn how you work with projections, let's start with a few example scenarios
             "inputs": [
                 {
                     "name": "image",
-                    "source": "/document/normalized_images/*",
-                    "sourceContext": null,
-                    "inputs": []
+                    "source": "/document/normalized_images/*"
                 }
             ],
             "outputs": [
@@ -288,7 +270,7 @@ Set the ```storageConnectionString``` property to a valid storage account connec
 
 ### Slicing 
 
-When starting with a consolidated shape where all the content that needs to projected is in a single shape, slicing provides you with the ability to slice a single node into multiple objects. In this case the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the two tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the child table.
+When starting with a consolidated shape where all the content that needs to projected is in a single shape, slicing provides you with the ability to slice a single node into multiple tables or objects. In this case the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the two tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the child table.
 
 You now have a working projection with two tables that when imported into Power BI should auto discover the relationships and allow you to filter.
 
