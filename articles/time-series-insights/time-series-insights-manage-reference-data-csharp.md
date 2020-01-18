@@ -26,7 +26,7 @@ Complete the following steps before you compile and run the sample code:
 
 1. [Create a Reference Data set](time-series-insights-add-reference-data-set.md) within your environment. Use the following Reference Data scheme:
 
-   | Key Name | Type |
+   | Key name | Type |
    | --- | --- |
    | uuid | String | 
 
@@ -55,8 +55,8 @@ The sample code has two required dependencies:
 
 Add the packages using [NuGet 2.12+](https://www.nuget.org/):
 
-1. `dotnet add package Newtonsoft.Json --version 12.0.3`
-1. `dotnet add package Microsoft.Identity.Client --version 4.7.1`
+* `dotnet add package Newtonsoft.Json --version 12.0.3`
+* `dotnet add package Microsoft.Identity.Client --version 4.7.1`
 
 Or:
 
@@ -295,9 +295,9 @@ namespace CsharpTsiMsalGaSample
 
 The sample code above demonstrates the following features:
 
-1. Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-1. Sequential CREATE, READ, UPDATE, and DELETE operations against the GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-1. Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
+* Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
+* Sequential CREATE, READ, UPDATE, and DELETE operations against the GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+* Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
     
     The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
 
