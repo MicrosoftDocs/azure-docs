@@ -129,21 +129,21 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$group	|	Yes|
 |$sample|		Yes|
 |$sort	|Yes|
-|$geoNear|	no|
+|$geoNear|	No|
 |$lookup	|	Yes|
 |$out		|Yes|
-|$indexStats|		no|
-|$facet	|yes|
-|$bucket|	no|
-|$bucketAuto|	no|
-|$sortByCount|	no|
+|$indexStats|		No|
+|$facet	|Yes|
+|$bucket|	No|
+|$bucketAuto|	No|
+|$sortByCount|	No|
 |$addFields	|Yes|
 |$replaceRoot|	Yes|
 |$count	|Yes|
-|$currentOp|	no|
-|$listLocalSessions	|no|
-|$listSessions	|no|
-|$graphLookup	|no|
+|$currentOp|	No|
+|$listLocalSessions	|No|
+|$listSessions	|No|
+|$graphLookup	|No|
 
 ### Boolean expressions
 
@@ -248,43 +248,43 @@ Consider this sample document used in the examples below:
 |Command  |Supported |
 |---------|---------|
 |$arrayElemAt	|	Yes|
-|$arrayToObject|	yes|
+|$arrayToObject|	Yes|
 |$concatArrays	|	Yes|
 |$filter	|	Yes|
 |$indexOfArray	|Yes|
 |$isArray	|	Yes|
-|$objectToArray	|yes|
+|$objectToArray	|Yes|
 |$range	|Yes|
 |$reverseArray	|	Yes|
-|$reduce|	no|
+|$reduce|	No|
 |$size	|	Yes|
 |$slice	|	Yes|
-|$zip	|	yes|
+|$zip	|	Yes|
 |$in	|	Yes|
 
 ### Variable operators
 
 |Command  |Supported |
 |---------|---------|
-|$map	|	no|
-|$let	|yes|
+|$map	|No|
+|$let	|Yes|
 
 ### System Variables
 
 |Command  |Supported |
 |---------|---------|
-|$$CURRENT|	yes|
-|$$DESCEND|		yes|
-|$$KEEP		|yes|
-|$$PRUNE	|	yes|
-|$$REMOVE	|yes|
-|$$ROOT		|yes|
+|$$CURRENT|	Yes|
+|$$DESCEND|		Yes|
+|$$KEEP		|Yes|
+|$$PRUNE	|	Yes|
+|$$REMOVE	|Yes|
+|$$ROOT		|Yes|
 
 ### Literal operator
 
 |Command  |Supported |
 |---------|---------|
-|$literal	|yes|
+|$literal	|Yes|
 
 ### Date expressions
 
@@ -544,37 +544,37 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 |Command  |Supported |
 |---------|---------|
-|cursor.batchSize()	|	yes|
-|cursor.close()	|yes|
-|cursor.isClosed()|		yes|
-|cursor.collation()|	no|
-|cursor.comment()	|yes|
-|cursor.count()	|yes|
-|cursor.explain()|	no|
-|cursor.forEach()	|yes|
-|cursor.hasNext()	|yes|
-|cursor.hint()	|yes|
-|cursor.isExhausted()|	yes|
-|cursor.itcount()	|yes|
-|cursor.limit()	|yes|
-|cursor.map()	|yes|
-|cursor.maxScan()	|yes|
-|cursor.maxTimeMS()|	yes|
-|cursor.max()	|yes|
-|cursor.min()	|yes|
-|cursor.next()|	yes|
-|cursor.noCursorTimeout()	|no|
-|cursor.objsLeftInBatch()	|yes|
-|cursor.pretty()|	yes|
-|cursor.readConcern()|	yes|
-|cursor.readPref()		|yes|
-|cursor.returnKey()	|no|
-|cursor.showRecordId()|	no|
-|cursor.size()	|yes|
-|cursor.skip()	|yes|
-|cursor.sort()	|	yes|
-|cursor.tailable()|	no|
-|cursor.toArray()	|yes|
+|cursor.batchSize()	|	Yes|
+|cursor.close()	|Yes|
+|cursor.isClosed()|		Yes|
+|cursor.collation()|	No|
+|cursor.comment()	|Yes|
+|cursor.count()	|Yes|
+|cursor.explain()|	No|
+|cursor.forEach()	|Yes|
+|cursor.hasNext()	|Yes|
+|cursor.hint()	|Yes|
+|cursor.isExhausted()|	Yes|
+|cursor.itcount()	|Yes|
+|cursor.limit()	|Yes|
+|cursor.map()	|Yes|
+|cursor.maxScan()	|Yes|
+|cursor.maxTimeMS()|	Yes|
+|cursor.max()	|Yes|
+|cursor.min()	|Yes|
+|cursor.next()|	Yes|
+|cursor.noCursorTimeout()	|No|
+|cursor.objsLeftInBatch()	|Yes|
+|cursor.pretty()|	Yes|
+|cursor.readConcern()|	Yes|
+|cursor.readPref()		|Yes|
+|cursor.returnKey()	|No|
+|cursor.showRecordId()|	No|
+|cursor.size()	|Nes|
+|cursor.skip()	|Yes|
+|cursor.sort()	|	Yes|
+|cursor.tailable()|	No|
+|cursor.toArray()	|Yes|
 
 ## Sort Operations
 
