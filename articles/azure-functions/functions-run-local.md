@@ -73,7 +73,7 @@ Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .
 
 # [MacOS](#tab/macos)
 
-a name="brew"></a>The following steps use Homebrew to install the Core Tools on macOS.
+<a name="brew"></a>The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
