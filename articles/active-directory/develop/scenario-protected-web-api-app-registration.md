@@ -52,7 +52,7 @@ After you create the application, you can determine or change the accepted token
 
 Web APIs don't need to register a redirect URI because no user is interactively signed in.
 
-## Expose an API
+## Exposed API
 
 Other settings specific to web APIs are the exposed API and the exposed scopes.
 
@@ -132,7 +132,7 @@ The web API checks for the app role. This role is a software developer's way to 
 To add this increased security:
 
 1. Go to the app **Overview** page for your app registration.
-1. Under **Managed application in local directory**, select the link with the name of your app. The name of this selection might be truncated. For example, you might see **Managed application in ...**
+1. Under **Managed application in local directory**, select the link with the name of your app. The label for this selection might be truncated. For example, you might see **Managed application in ...**
 
    > [!NOTE]
    >

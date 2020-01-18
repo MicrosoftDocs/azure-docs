@@ -52,7 +52,7 @@ But this protection isn't enough. It guarantees only that ASP.NET and ASP.NET Co
 - The *scopes* if the API is called on behalf of a user.
 - The *app roles* if the API can be called from a daemon app.
 
-## Verifying scopes in APIs called on behalf of users
+## Verify scopes in APIs called on behalf of users
 
 If a client app calls your API on behalf of a user, the API needs to request a bearer token that has specific scopes for the API. For more information, see [Code configuration | Bearer token](scenario-protected-web-api-app-configuration.md#bearer-token).
 
@@ -81,7 +81,7 @@ public class TodoListController : Controller
 The `VerifyUserHasAnyAcceptedScope` method does something like the following steps:
 
 - Verify there's a claim named `http://schemas.microsoft.com/identity/claims/scope` or `scp`.
-- Verify that the claim has a value that contains the scope expected by the API.
+- Verify the claim has a value that contains the scope expected by the API.
 
 ```csharp
     /// <summary>
@@ -113,7 +113,7 @@ The `VerifyUserHasAnyAcceptedScope` method does something like the following ste
 
 The preceding [sample code](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) is for ASP.NET Core. For ASP.NET, just replace `HttpContext.User` with `ClaimsPrincipal.Current`, and replace the claim type `"http://schemas.microsoft.com/identity/claims/scope"` with `"scp"`. Also see the code snippet later in this article.
 
-## Verifying app roles in APIs called by daemon apps
+## Verify app roles in APIs called by daemon apps
 
 If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. As shown in [Exposing application permissions (app roles)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), your API exposes such permissions. One example is the `access_as_application` app role.
 

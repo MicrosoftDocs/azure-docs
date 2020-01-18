@@ -109,7 +109,7 @@ The middleware is added to the web API by this instruction:
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. But you can change the templates to use the Microsoft identity platform endpoint by adding this code to the Startup.cs file:
+ Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. But you can change the templates to use the Microsoft identity platform endpoint by adding this code to Startup.cs:
 
 ```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
@@ -131,7 +131,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 });
 ```
 
-This preceding code snippet is extracted from the ASP.NET Core web API incremental tutorial in [Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). The **AddProtectedWebApi** method, which does more than the snippet shows, is called from Startup.cs.
+The preceding code snippet is extracted from the ASP.NET Core web API incremental tutorial in [Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). The **AddProtectedWebApi** method, which does more than the snippet shows, is called from Startup.cs.
 
 ## Token validation
 
@@ -149,7 +149,7 @@ There can also be special validations. For example, it's possible to validate th
 
 The validation steps are captured in validators, which are provided by the [Microsoft IdentityModel Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) open-source library. The validators are defined in the library source file [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
-The validators are described in this table:
+This table describes the validators:
 
 | Validator | Description |
 |---------|---------|
@@ -160,9 +160,9 @@ The validators are described in this table:
 | **ValidateSignature** | Ensures the token hasn't been tampered with. |
 | **ValidateTokenReplay** | Ensures the token isn't replayed. There's a special case for some onetime-use protocols. |
 
-The validators are associated with properties of the **TokenValidationParameters** class. The properties are initialized from the ASP.NET and ASP.NET Core configuration. In most cases, you don't need to change the parameters.
+The validators are associated with properties of the **TokenValidationParameters** class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
 
-Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. In this case, issuers must be validated.
+In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated.
 
 ## Token validation in Azure Functions
 
