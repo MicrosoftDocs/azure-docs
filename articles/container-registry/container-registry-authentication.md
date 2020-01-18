@@ -22,9 +22,9 @@ az acr login --name <acrName>
 
 When you log in with `az acr login`, the CLI uses the token created when you executed [az login](/cli/azure/reference-index#az-login) to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands in your session do not require a username or password. 
 
-For registry access, the token used by `az acr login` is valid for 1 hour, so we recommend that you always log in to the registry before running a `docker` command. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate. 
+For registry access, the token used by `az acr login` is valid for **3 hours**, so we recommend that you always log in to the registry before running a `docker` command. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate. 
 
-Using `az acr login` with Azure identities provides [role-based access](../role-based-access-control/role-assignments-portal.md). For some scenarios you may want to log in to a registry with your own individual identity in Azure AD. For cross-service scenarios or to handle the needs of a workgroup where you don't want to manage individual access, you can also log in with a [managed identity for Azure resources](container-registry-authentication-managed-identity.md).
+Using `az acr login` with Azure identities provides [role-based access](../role-based-access-control/role-assignments-portal.md). For some scenarios, you may want to log in to a registry with your own individual identity in Azure AD. For cross-service scenarios or to handle the needs of a workgroup where you don't want to manage individual access, you can also log in with a [managed identity for Azure resources](container-registry-authentication-managed-identity.md).
 
 ## Service principal
 
