@@ -1753,7 +1753,7 @@
     },
     {
       "source_path": "articles/iot-hub/tls-1.2-everywhere.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-tls-1-0-and-1-1-deprecating",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1",
       "redirect_document_id": true
     },
     {
