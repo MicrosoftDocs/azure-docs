@@ -2,14 +2,14 @@
 title: How to monitor Azure Cache for Redis
 description: Learn how to monitor the health and performance your Azure Cache for Redis instances
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.author: yegu
-
 ---
+
 # How to monitor Azure Cache for Redis
+
 Azure Cache for Redis uses [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Cache for Redis instances and help you manage your caching applications.
 
 Metrics for Azure Cache for Redis instances are collected using the Redis [INFO](https://redis.io/commands/info) command approximately twice per minute and automatically stored for 30 days (see [Export cache metrics](#export-cache-metrics) to configure a different retention policy) so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
@@ -28,11 +28,13 @@ The **Overview** blade has the following pre-configured monitoring charts.
 * [Usage charts](#usage-charts)
 
 ### Monitoring charts
+
 The **Monitoring** section in the **Overview** blade has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
 
 ![Monitoring charts](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### Usage charts
+
 The **Usage** section in the **Overview** blade has **Redis Server Load**, **Memory Usage**, **Network Bandwidth**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
 
 ![Usage charts](./media/cache-how-to-monitor/redis-cache-usage-part.png)
@@ -40,6 +42,7 @@ The **Usage** section in the **Overview** blade has **Redis Server Load**, **Mem
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
 
 ## View metrics with Azure monitor
+
 To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
 ![Redis metrics](./media/cache-how-to-monitor/redis-cache-monitor.png)
@@ -49,22 +52,24 @@ For more information on working with metrics using Azure Monitor, see [Overview 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
+
 By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/platform/archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
 
 To configure a storage account for your cache metrics:
 
-1. Click **Diagnostics** from the **Resource menu** in the **Azure Cache for Redis** blade.
-2. Click **On**.
-3. Check **Archive to a storage account**.
-4. Select the storage account in which to store the cache metrics.
-5. Check the **1 minute** checkbox and specify a **Retention (days)** policy. If you do not want to apply any retention policy and retain data forever, set **Retention (days)** to **0**.
+1. In the **Azure Cache for Redis** page, under the **Monitoring** heading, select **Diagnostics**.
+2. Select **+ Add diagnostic setting**.
+3. Name the settings.
+4. Check **Archive to a storage account**. You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.
+4. Select **Configure** to choose the storage account in which to store the cache metrics.
+5. Under the table heading **metric**, check box beside the line items you want to store, such as **AllMetrics**. Specify a **Retention (days)** policy. The maximum days retention you can specify is **365 days**. However, if you want to retain the metrics data forever, set **Retention (days)** to **0**.
 6. Click **Save**.
+
 
 ![Redis diagnostics](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
->
 >
 
 To access your metrics, you can view them in the Azure portal as previously described in this article, and you can also access them using the [Azure Monitor Metrics REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
@@ -72,9 +77,9 @@ To access your metrics, you can view them in the Azure portal as previously desc
 > [!NOTE]
 > If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
 > 
-> 
 
 ## Available metrics and reporting intervals
+
 Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. The **Metric** blade for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval. 
 
 Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md), a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has 4 shards, `Cache Hits` is the total amount of hits for the entire cache, and `Cache Hits (Shard 3)` is just the hits for that shard of the cache.
@@ -108,6 +113,7 @@ Each metric includes two versions. One metric measures performance for the entir
 
 <a name="operations-and-alerts"></a>
 ## Alerts
+
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
 
 * Send an email notification
@@ -126,19 +132,7 @@ Activity logs provide insight into the operations that were performed on your Az
 > [!NOTE]
 > Activity logs do not include read (GET) operations.
 >
->
 
 To view activity logs for your cache, click **Activity logs** from the **Resource menu**.
 
 For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
-
-
-
-
-
-
-
-
-
-
-
