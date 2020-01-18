@@ -65,3 +65,11 @@ Partner Center includes 16 new markets. We would like you to review these market
 
 In Partner Center, you manage client IDs in the context of a SharePoint solution. To view the client IDs in Partner Center, click the SharePoint solution to view details, and click **Client IDs** in the product details navigation. You can manage and create client IDs and associated secrets on this page. If you configured a client ID that is not linked to any SharePoint solution in Seller Dashboard, we created a placeholder SharePoint solution, using a concatenation of the friendly name and the ID as the solution name (truncated if too long). You can change the name of the placeholder solution by reserving an additional name and [making it the display name](reserve-solution-name.md#choose-product-display-name) in Partner Center. 
 
+### Why is the name of my product different in Partner Center?
+
+Product names in Partner Center must be unique. During the migration, if more than one product has the same name, your product might be renamed. The new name will be a concatenation of the Seller Dashboard product ID and the product name; for example, {SellerDashboardID}{ProductName}. After your product is migrated, you can rename it. For details, see [Reserve a name for your solution](reserve-solution-name.md).
+
+### What if I have additional questions?
+Please contact [support](https://support.microsoft.com/supportforbusiness/productselection?sapId=48c74321-b2fa-010b-d0c2-1f8afea90a52) with your questions and they will be addressed by the appropriate team.
+
+
