@@ -79,10 +79,11 @@ The following code examples demonstrate how to store the data in these formats.
 * TabularDataset
   ```python
   from azureml.core.dataset import Dataset
+  from azureml.opendatasets import Diabetes
   
-  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-  label = "Label"
+  tabular_dataset = Diabetes.get_tabular_dataset()
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage=0.1, seed=42)
+  label = "Y"
   ```
 
 * Pandas dataframe
@@ -91,9 +92,9 @@ The following code examples demonstrate how to store the data in these formats.
     import pandas as pd
     from sklearn.model_selection import train_test_split
 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    train_data, test_data = train_test_split(df, test_size = 0.1, random_state = 42)
-    label = "Label"
+    df = pd.read_csv("your-local-file.csv")
+    train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
+    label = "label-col-name"
     ```
 
 ## Fetch data for running experiment on remote compute

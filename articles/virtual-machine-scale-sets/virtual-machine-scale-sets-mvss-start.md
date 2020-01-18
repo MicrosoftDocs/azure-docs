@@ -70,7 +70,7 @@ All resources require `type`, `name`, `apiVersion`, and `location` properties. T
 ```
 
 ## Specify location
-To specify the location for the virtual network, use a [Resource Manager template function](../azure-resource-manager/resource-group-template-functions.md). This function must be enclosed in quotes and square brackets like this: `"[<template-function>]"`. In this case, use the `resourceGroup` function. It takes in no arguments and returns a JSON object with metadata about the resource group this deployment is being deployed to. The resource group is set by the user at the time of deployment. This value is then indexed into this JSON object with `.location` to get the location from the JSON object.
+To specify the location for the virtual network, use a [Resource Manager template function](../azure-resource-manager/templates/template-functions.md). This function must be enclosed in quotes and square brackets like this: `"[<template-function>]"`. In this case, use the `resourceGroup` function. It takes in no arguments and returns a JSON object with metadata about the resource group this deployment is being deployed to. The resource group is set by the user at the time of deployment. This value is then indexed into this JSON object with `.location` to get the location from the JSON object.
 
 ```json
        "location": "[resourceGroup().location]",

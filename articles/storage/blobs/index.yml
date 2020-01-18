@@ -45,7 +45,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a storage account
-            url: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Create a block blob storage account
             url: storage-blob-create-account-block-blob.md
           - text: Configure a custom domain
@@ -131,10 +131,10 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Access blob data with an Azure AD account
-            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
-          - text: Manage access rights with RBAC 
+            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Manage access rights with RBAC
             url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Use a managed identity to authorize access to Blob storage 
+          - text: Use a managed identity to authorize access to Blob storage
             url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
   - title: Transfer data
@@ -169,9 +169,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Hot, cool, and archive storage 
+          - text: Hot, cool, and archive storage
             url: storage-blob-storage-tiers.md
-          - text: Manage the Blob storage lifecycle 
+          - text: Manage the Blob storage lifecycle
             url: storage-lifecycle-management-concepts.md
-
-
