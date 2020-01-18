@@ -40,7 +40,7 @@ Unless otherwise noted, the examples in this article are for version 3.x.
 
 ### <a name="v2"></a>Version 2.x and 3.x
 
-Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
+Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows][Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
