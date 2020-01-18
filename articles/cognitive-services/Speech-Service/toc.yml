@@ -479,7 +479,7 @@
     items:
     - name: Speech SDK samples (GitHub)
       href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-    - name: Speech Devices SDK damples (GitHub)
+    - name: Speech Devices SDK samples (GitHub)
       href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
   - name: Reference
     items:
