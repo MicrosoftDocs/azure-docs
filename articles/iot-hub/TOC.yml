@@ -86,7 +86,7 @@
     - name: TLS support
       href: iot-hub-tls-support.md
     - name: TLS 1.0 and 1.1 deprecation
-      href: iot-hub-deprecating-tls-1-0-and-1-1.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Message enrichments overview
       href: iot-hub-message-enrichments-overview.md
     - name: Overview of device management
