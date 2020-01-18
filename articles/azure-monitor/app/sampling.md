@@ -32,9 +32,9 @@ The following table summarizes the sampling types available for each SDK and typ
 
 | Application Insights SDK | Adaptive sampling supported | Fixed-rate sampling supported | Ingestion sampling supported |
 |-|-|-|-|
-| ASP.NET | [Yes (on by default)](#Configuring-adaptive-sampling-for-aspnet-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-applications) | Only if no other sampling is in effect |
-| ASP.NET Core | [Yes (on by default)](#Configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
-| Azure Functions | [Yes (on by default)](#Configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
+| ASP.NET | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-applications) | Only if no other sampling is in effect |
+| ASP.NET Core | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
+| Azure Functions | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
 | Java | No | [Yes](#configuring-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
 | Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
 | All others | No | No | [Yes](#ingestion-sampling) |
@@ -459,7 +459,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 If you see that `RetainedPercentage` for any type is less than 100, then that type of telemetry is being sampled.
 
 > [!IMPORTANT]
-> Application Insights does not sample session, metrics and performance counters telemetry types in any sampling techniques described above. These types are always excluded from sampling as reduction in precision can be highly undesirable for these telemetry types.
+> Application Insights does not sample session, metrics (including custom metrics), or performance counter telemetry types in any of the sampling techniques. These types are always excluded from sampling as a reduction in precision can be highly undesirable for these telemetry types.
 
 ## How sampling works
 
@@ -470,9 +470,6 @@ The sampling decision is based on the operation ID of the request, which means t
 When presenting telemetry back to you, the Application Insights service adjusts the metrics by the same sampling percentage that was used at the time of collection, to compensate for the missing data points. Hence, when looking at the telemetry in Application Insights, the users are seeing statistically correct approximations that are very close to the real numbers.
 
 The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all their telemetry while staying within the quota, without causing data loss from throttling. 
-
-> [!WARNING]
-> Application Insights does not sample metrics and sessions telemetry types, nor does it sample custom metrics. Reduction in the precision can be highly undesirable for these telemetry types.
 
 ## Frequently asked questions
 
