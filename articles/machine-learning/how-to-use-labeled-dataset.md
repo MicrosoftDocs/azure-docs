@@ -18,7 +18,7 @@ and load them into popular formats such as, a pandas dataframe for data explorat
 
 ## What are datasets with labels 
 
-Azure Machine Learning datasets with labels are [TabularDatasets](how-to-create-register-datasets.md#dtaset-types) with a label property, we will refer to them as labeled datasets. These specific types of TabularDatasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md).
+Azure Machine Learning datasets with labels are [TabularDatasets](how-to-create-register-datasets.md#dataset-types) with a label property, we will refer to them as labeled datasets. These specific types of TabularDatasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md).
 
 ## Prerequisites
 

@@ -189,7 +189,7 @@
       href: how-to-label-images.md
     - name: Create datasets with labels
       displayName: data, labels, torchvision
-      href: how-to-use-labeled-datasets.md
+      href: how-to-use-labeled-dataset.md
   - name: Train models
     items:
     - name: Use the designer
