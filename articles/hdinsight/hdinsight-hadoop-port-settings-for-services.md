@@ -48,6 +48,7 @@ The following are available for specific cluster types:
 | Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Apache Spark jobs remotely using Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Spark Thrift server |443 |HTTPS |Spark |Spark Thrift server used to submit Hive queries. See [Use Beeline with Apache Hive on HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Apache Storm topologies on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Kafka Rest proxy |443 |HTTPS |Kafka |Kafka REST API. See [Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy](kafka/rest-proxy.md) |
 
 ### Authentication
 
@@ -152,6 +153,7 @@ Examples:
 | --- | --- | --- | --- | --- |
 | Broker |Worker nodes |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Used for client communication |
 | &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
+| REST proxy | Kafka management nodes |9400 |HTTPS |[Kafka REST specification](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### Spark ports
 
