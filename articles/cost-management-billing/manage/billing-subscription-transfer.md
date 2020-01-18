@@ -80,7 +80,7 @@ Visual Studio and Microsoft Partner Network subscriptions have monthly recurring
 
 ## Transfer billing ownership of Enterprise Agreement (EA) subscriptions
 
-The Enterprise Administrator can transfer ownership of subscriptions between accounts within an enrollment. For more information, see [Change account owner](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) in the EA portal.
+The Enterprise Administrator can transfer ownership of subscriptions between accounts within an enrollment. For more information, see [Change account owner](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) in the EA portal.
 
 ## Next steps after accepting billing ownership
 
