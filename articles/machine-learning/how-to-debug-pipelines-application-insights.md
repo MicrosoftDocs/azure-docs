@@ -31,7 +31,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 ## Getting Started
 
-This section is a quick-start for using OpenCensus specific to this use case. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+This section is a brief introduction to using OpenCensus specific to Python logging. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
 After installing the OpenCensus Python library, import the AzureLogHandler class to route logs to Application Insights. You'll also need to import the Python Logging library.
 
@@ -59,9 +59,9 @@ except ValueError as ex:
 
 ## Logging with Custom Dimensions
  
-Plaintext strings logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment already.
+Plaintext strings logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment alrea
 
-In other cases, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run id.
+In other cases, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run ID.
 
 Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries)
 
