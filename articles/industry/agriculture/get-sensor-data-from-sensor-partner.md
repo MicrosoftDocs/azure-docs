@@ -41,7 +41,7 @@ Alternatively, you can generate the credentials by running this script from Azur
 
 3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats Datahub.
 
-4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the azure cli (Cloud shell) to perform the below steps.
+4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
 
 5. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
@@ -57,14 +57,13 @@ Alternatively, you can generate the credentials by running this script from Azur
 
 8. Go to the directory where the file was uploaded. By default, files get uploaded to the home directory under the username.
 
-9. Run the following script.
+9. Run the following script. The script asks for the Tenant ID which can be obtained from Azure Active Directory -> Overview page.
 
     ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
-The tenant ID can be obtained from Azure Active Directory -> Overview page.
 
 10. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 

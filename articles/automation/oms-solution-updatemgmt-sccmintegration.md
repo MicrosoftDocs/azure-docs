@@ -1,6 +1,7 @@
 ---
-title: Target Updates using Configuration Manager Collections in Azure Automation - Update Management
-description: This article is intended to help you configure Configuration Manager with this solution to manage updates of Configuration Manager managed computers.
+title: Use Azure Update Management with Configuration Manager clients
+description: This article is intended to help you configure Microsoft Endpoint Configuration Manager with this solution to deploy software updates to ConfigMgr clients.
+>>>>>>> 5acd7512f059c42b970fc4ab38ebc2800143f172
 services: automation
 ms.subservice: update-management
 author: mgoedtel
@@ -9,11 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ---
 
-# Integrate Configuration Manager with Update Management
+
+# Deploy updates to Microsoft Endpoint Configuration Manager clients with Update Management
 
 Customers who have invested in Microsoft Endpoint Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-You can report and update managed Windows servers by creating and pre-staging software update deployments in Configuration Manager, and get detailed status of completed update deployments using the [Update Management solution](automation-update-management.md). If you use Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to Configuration Manager  while security updates are managed with the Update Management solution.
+You can report and update managed Windows servers by creating and pre-staging software update deployments in Configuration Manager, and get detailed status of completed update deployments using the [Update Management solution](automation-update-management.md). If you use Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to Configuration Manager while security updates are managed with the Update Management solution.
 
 ## Prerequisites
 

@@ -77,7 +77,7 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: cae-experimental.md          
+      href: content-aware-encoding.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview

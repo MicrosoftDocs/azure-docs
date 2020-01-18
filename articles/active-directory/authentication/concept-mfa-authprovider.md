@@ -45,11 +45,11 @@ If your MFA provider is not linked to an Azure AD tenant, or you link the new MF
 > [!CAUTION]
 > There is no confirmation when deleting an authentication provider. Selecting **Delete** is a permanent process.
 
-Authentication providers can be found in the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers**. Click on listed providers to see details and configurations associated with that provider.
+Authentication providers can be found in the **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Providers**. Click on listed providers to see details and configurations associated with that provider.
 
 Before removing an authentication provider, take note of any customized settings configured in your provider. Decide what settings need to be migrated to general MFA settings from your provider and complete the migration of those settings. 
 
-Azure MFA Servers linked to providers will need to be reactivated using credentials generated under **Azure portal** > **Azure Active Directory** > **MFA** > **Server settings**. Before reactivating, the following files must be deleted from the `\Program Files\Multi-Factor Authentication Server\Data\` directory on Azure MFA Servers in your environment:
+Azure MFA Servers linked to providers will need to be reactivated using credentials generated under **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Server settings**. Before reactivating, the following files must be deleted from the `\Program Files\Multi-Factor Authentication Server\Data\` directory on Azure MFA Servers in your environment:
 
 - caCert
 - cert
@@ -61,7 +61,7 @@ Azure MFA Servers linked to providers will need to be reactivated using credenti
 
 ![Delete an auth provider from the Azure portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-When you have confirmed that all settings have been migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
+When you have confirmed that all settings have been migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
 
 > [!WARNING]
 > Deleting an authentication provider will delete any reporting information associated with that provider. You may want to save activity reports before deleting your provider.

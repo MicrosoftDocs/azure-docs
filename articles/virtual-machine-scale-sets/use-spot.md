@@ -1,14 +1,11 @@
 ---
 title: Create a scale set that uses Azure Spot VMs (Preview) 
 description: Learn how to create Azure virtual machine scale sets that use Spot VMs to save on costs.
-services: virtual-machine-scale-sets
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
-
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
 ---
@@ -154,7 +151,7 @@ The following example creates a Linux Spot scale set named *myScaleSet* in *West
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
 **Q:** Can I convert existing scale sets to Spot scale sets?

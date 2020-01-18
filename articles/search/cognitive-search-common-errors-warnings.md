@@ -168,6 +168,18 @@ In all these cases, refer to [Supported Data types](https://docs.microsoft.com/r
 
 This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
 
+<a name="could-not-project-document"/>
+
+## Error: Could not project document
+
+This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was an failure in our attempt to do so.  This failure could be consistent and fixable or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve.  Here are a set of known failure states and possible resolutions.
+
+| Reason | Details/Example | Resolution |
+| --- | --- | --- |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+| Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
 ## Warning: Skill input was invalid
