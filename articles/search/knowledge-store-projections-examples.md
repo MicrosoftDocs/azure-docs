@@ -288,7 +288,7 @@ Set the ```storageConnectionString``` property to a valid storage account connec
 
 ### Slicing 
 
-One other feature of starting with all the nodes needed to project is the ability for you to slice a single node, in this case the ```pbiShape``` into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the tow tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
+When starting with a consolidated shape where all the content that needs to projected is in a single shape, slicing provides you with the ability to slice a single node into multiple objects. In this case the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the two tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the child table.
 
 You now have a working projection with two tables that when imported into Power BI should auto discover the relationships and allow you to filter.
 
@@ -386,7 +386,7 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                 "tables": [
                     {
                         "tableName": "inlineDocument",
-                        "generatedKeyName": "Documentid",
+                        "generatedKeyName": "Id",
                         "source": null,
                         "sourceContext": "/document",
                         "inputs": [
@@ -403,7 +403,8 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                     },
                     {
                         "tableName": "inlineKeyPhrases",
-                        "generatedKeyName": "KeyPhraseid",
+                        "generatedKeyName": "Id",
+                        "referenceKeyName": "documentId",
                         "source": null,
                         "sourceContext": "/document/merged_content/keyphrases/*",
                         "inputs": [
@@ -417,10 +418,12 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                 "objects": [
                     {
                         "storageContainer": "inlineocrtext",
+                        "referenceKeyName": "documentId",
                         "source": "/document/normalized_images/*/text"
                     },
                     {
                         "storageContainer": "inlineocrlayout",
+                        "referenceKeyName": "documentId",
                         "source": "/document/normalized_images/*/layoutText"
                     }
                 ],
