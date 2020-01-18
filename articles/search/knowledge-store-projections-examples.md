@@ -1,7 +1,7 @@
 ---
 title: Examples of projections in a knowledge store (preview)
 titleSuffix: Azure Cognitive Search
-description: Examples of common patterns on how to project enriched documents intothe knowledge store for use.
+description: Examples of common patterns on how to project enriched documents into the knowledge store for use.
 
 manager: eladz
 author: vkurpad
@@ -24,11 +24,12 @@ Projections allow you to export your enriched document into the knowledge store.
 2. Objects
 3. Files
 
-As the knowledges store is a Azure storage account, table projections are Azure storarge tables and are governed by the storeage limits on tables, for more information see [table storage limits](https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model). It is specifically useful to know that the entity size cannot exceed 1MB and a single property can be no bigger than 64KB. These constraints make tables a good solution for storing a large number of small entities. 
+As the knowledge store is an Azure Storage account, table projections are Azure Storage tables and are governed by the storage limits on tables, for more information, see [table storage limits](https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities. 
 
-Object and file projections are written to blob storage, object projections are saved as JSON files and can contain content from the document and any enrichments. The enrichment pipeline can also extract binaries like images, these binararies are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
+Object and file projections are written to blob storage, object projections are saved as JSON files and can contain content from the document and any enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
 
-To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process. specifically [skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md] for details. For all the scenarios, we will work with a sample skillset that you can use the `import data wizard` to generate. 
+To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process. skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md] for details. For all the scenarios, we will work with a sample skillset that you can use the `import data wizard` to generate. 
+
 ```json
 {
     "name": "azureblob-skillset",
@@ -204,11 +205,11 @@ To learn how you work with projections, let's start with a few example scenarios
 }
 ```
 
-We can now add the knowledgeStore object for each of the scenarios as needed. To create a projection, you can either use a shaper skill to create a custom object that contains all the data you intend to project, or you can use the inline shaping syntax for inputs to define the projections. For this scenario we will demonstrate both options, you can use either of the options for all other projections.
+We can now add the knowledgeStore object for each of the scenarios as needed. To create a projection, you either use a shaper skill to create a custom object that contains all the data you intend to project, or you use the inline shaping syntax for inputs to define the projections. For this scenario we will demonstrate both options, you can choose to use either of the options for all other projections.
 
 ## Projecting to Tables for Power BI
 
-Power BI can read from tables and discover relationships based on the keys that the knowledge store projections creates, this makes tables a good option to project data when you're trying to build a dashboard on your enriched data. Assuming we're trying to build a dashoard where we can visualize the key phrases extracted from documents as a word cloud, we can add a shaper skill to the skillset to create a custom shape that has the document specific details and key phrases. Add the shaper skill to the skillset to create a new enrichment called ```pbiShape``` on the ```document```.
+Power BI can read from tables and discover relationships based on the keys that the knowledge store projections create, this makes tables a good option to project data when you're trying to build a dashboard on your enriched data. Assuming we're trying to build a dashboard where we can visualize the key phrases extracted from documents as a word cloud, we can add a shaper skill to the skillset to create a custom shape that has the document-specific details and key phrases. Add the shaper skill to the skillset to create a new enrichment called ```pbiShape``` on the ```document```.
 
 ```json
 {
@@ -287,13 +288,13 @@ Set the ```storageConnectionString``` property to a valid storage account connec
 
 ### Slicing 
 
-One other feature of starting with all the nodes needed to project is the ability for you to slice a single node, in this case the ```pbiShape``` into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a seperate table. Slicing generates a relationship between the tow tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
+One other feature of starting with all the nodes needed to project is the ability for you to slice a single node, in this case the ```pbiShape``` into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the tow tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
 
-You now have a working projection with 2 tables that when imported into Power BI should auto discover the relationships and allow you to filter.
+You now have a working projection with two tables that when imported into Power BI should auto discover the relationships and allow you to filter.
 
 ## Projecting to multiple types
 
-Sometimes you might need to project content across projection types. For example if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now modify the projection object in the knowledge store to add an object projection definition for the text and layout text.
+Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now modify the projection object in the knowledge store to add an object projection definition for the text and layout text.
 
 ```json
 {
@@ -328,7 +329,7 @@ Sometimes you might need to project content across projection types. For example
     }
 ```
 
-Object projections require a container name for each projection, projections cannot hare containers. Notice that the `generatedKeyName` and `referenceKeyName` properties are optional and when not provided they are auto generated.
+Object projections require a container name for each projection, multiple object projections or file projections cannot share containers. Notice that the `generatedKeyName` and `referenceKeyName` properties are optional and when not provided they are auto generated.
 
 ### Relatedness
 
