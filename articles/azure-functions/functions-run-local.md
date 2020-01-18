@@ -30,7 +30,7 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and use platform-specific package managers or npm for installation.
++ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) and use platform-specific package managers or npm for installation.
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
@@ -47,7 +47,7 @@ Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .
 
 # [Windows](#tab/windows)
 
-<a name="windows-npm"></a>The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Install [Node.js], which includes npm.
     - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
@@ -73,7 +73,7 @@ Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .
 
 # [MacOS](#tab/macos)
 
-<a name="brew"></a>The following steps use Homebrew to install the Core Tools on macOS.
+The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
@@ -97,7 +97,7 @@ Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .
 
 # [Linux](#tab/linux)
 
-<a name="linux"></a>The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
 1. Install the Microsoft package repository GPG key, to validate package integrity:
 
