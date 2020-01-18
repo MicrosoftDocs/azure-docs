@@ -6,7 +6,7 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/14/2019
+ms.date: 01/17/2020
 
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
@@ -21,7 +21,7 @@ When metric counts are presented in the portal, they are renormalized to take in
 ## Brief summary
 
 * There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion samping.
-* Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by Azure Functions.
+* Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview).
 * Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java, and Python.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
