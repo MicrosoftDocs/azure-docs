@@ -11687,7 +11687,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/devtest-lab/devtest-lab-auto-shutdown-vm.md",
+      "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
       "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
       "redirect_document_id": false
     },    
