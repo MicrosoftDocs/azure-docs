@@ -1,7 +1,7 @@
 ---
 title: 'Data storage and ingress in Preview - Azure Time Series Insights | Microsoft Docs'
 description: Learn about data storage and ingress in Azure Time Series Insights Preview.
-author: lyhughes
+author: lyrana
 ms.author: lyhughes
 manager: cshankar
 ms.workload: big-data
