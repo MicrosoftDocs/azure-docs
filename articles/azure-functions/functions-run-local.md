@@ -45,9 +45,9 @@ Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .
 > [!IMPORTANT]
 > You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
 
-#### <a name="windows-npm"></a>Windows
+# [Windows](#tab/windows)
 
-The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+<a name="windows-npm"></a>The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Install [Node.js], which includes npm.
     - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
@@ -71,9 +71,9 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 1. If you don't plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
-#### <a name="brew"></a>MacOS with Homebrew
+# [MacOS](#tab/macos)
 
-The following steps use Homebrew to install the Core Tools on macOS.
+a name="brew"></a>The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
@@ -95,9 +95,9 @@ The following steps use Homebrew to install the Core Tools on macOS.
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-#### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
+# [Linux](#tab/linux)
 
-The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+<a name="linux"></a>The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
 1. Install the Microsoft package repository GPG key, to validate package integrity:
 
@@ -144,6 +144,8 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```
 
 1. If you don't plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
+
+---
 
 ## Create a local Functions project
 
