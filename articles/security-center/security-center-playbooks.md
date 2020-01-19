@@ -18,6 +18,9 @@ ms.author: memildin
 # Security Playbook in Azure Security Center (Preview)
 This document helps you to use security playbooks in Azure Security Center to respond to security-related issues.
 
+> [!NOTE]
+> Security Playbook feature has been renamed to workflow automation. Please check the [Workflow automation (Preview)](https://docs.microsoft.com/azure/security-center/workflow-automation) page for updated content information. This is temporary archived content available to customers who would have previewed this earlier and will be gradually removed. Any feature in preview is guided by [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
 ## What is security playbook in Security Center?
 Security playbook is a collection of procedures that can be executed from Security Center once a certain playbook is triggered from selected alert. Security playbook can help to automate and orchestrate your response to a specific security alert detected by Security Center. Security Playbooks in Security Center are based on [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), which means you can use the templates that are provided under the security category in Logic Apps templates, you can modify them based on your needs, or you can create new playbooks using [Azure Logic Apps workflow](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app), and using Security Center as your trigger.
 

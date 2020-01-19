@@ -64,8 +64,8 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 3. To learn more about the common Azure settings listed, see the following articles:
 	*	[Activity log](../azure-monitor/platform/platform-logs-overview.md)
 	*	[Access control (IAM)](../role-based-access-control/overview.md)
-	*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	*	[Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 **Commands**
