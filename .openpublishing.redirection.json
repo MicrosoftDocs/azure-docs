@@ -11687,6 +11687,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
       "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
       "redirect_document_id": false
