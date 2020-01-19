@@ -34,10 +34,10 @@ In this tutorial, you walk you through configuring a Conditional Access policy e
 ## Enable Azure Multi-Factor Authentication
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
-1. Browse to **Azure Active Directory**, **Conditional Access**
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**
 1. Select **New policy**
 1. Name your policy **MFA Pilot**
-1. Under **users and groups**, select the **Select users and groups** radio button
+1. Under **Users and groups**, select the **Select users and groups** radio button
     * Select your pilot group created as part of the prerequisites section of this article
     * Click **Done**
 1. Under **Cloud apps**, select the **Select apps** radio button
@@ -68,7 +68,7 @@ To prove that your Conditional Access policy works, you test logging in to a res
 If you decide you no longer want to use the functionality you have configured as part of this tutorial, make the following change.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory**, **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select the Conditional Access policy you created.
 1. Click **Delete**.
 

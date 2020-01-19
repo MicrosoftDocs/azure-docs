@@ -35,9 +35,9 @@ When you create the appliance VM using the downloaded template, you can add comp
 ## What network connectivity is needed?
 
 Review the following:
-- Appliance VMware assessment: [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) and [port](migrate-support-matrix-vmware.md#assessment-port-requirements) access requirements.
-- Appliance agentless VMware migration: [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) and [port](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) access requirements.
-- Appliance Hyper-V assessment: [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) and [port](migrate-support-matrix-hyper-v.md#assessment-port-requirements) access requirements.
+- VMware assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware.md#port-access) access requirements.
+- VMware agentless migration using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware-migration.md#agentless-ports) access requirements.
+- Hyper-V assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-hyper-v.md#port-access) access requirements.
 
 
 ## What data does the appliance collect?

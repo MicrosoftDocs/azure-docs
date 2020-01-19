@@ -30,7 +30,7 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and use platform-specific package managers or npm for installation.
++ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) and use platform-specific package managers or npm for installation.
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
@@ -40,12 +40,12 @@ Unless otherwise noted, the examples in this article are for version 3.x.
 
 ### <a name="v2"></a>Version 2.x and 3.x
 
-Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
+Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
 
-#### <a name="windows-npm"></a>Windows
+# [Windows](#tab/windows)
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -71,7 +71,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 1. If you don't plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
-#### <a name="brew"></a>MacOS with Homebrew
+# [MacOS](#tab/macos)
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
@@ -95,7 +95,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-#### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
+# [Linux](#tab/linux)
 
 The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -117,7 +117,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
    To set up the APT source list for Debian, run this command:
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
 1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings listed below:
@@ -144,6 +144,8 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```
 
 1. If you don't plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
+
+---
 
 ## Create a local Functions project
 
