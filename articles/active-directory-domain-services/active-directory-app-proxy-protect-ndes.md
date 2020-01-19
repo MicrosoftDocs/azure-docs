@@ -32,7 +32,7 @@ Azure AD Application Proxy is built on Azure and gives you a massive amount of n
 
 The architecture of this solution might look as follows:
 
-[Intune Certificate Management Network diagram](../media/azure-active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
+[Intune Certificate Management Network diagram](../media/active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
 
 ## Installation steps
 
@@ -42,17 +42,17 @@ These steps assume that certificate distribution works, if not please consult Pa
 
 1. On the left side, select **Application proxy**. 
 
-   ![Application proxy in the Azure portal.](./media/azure-active-directory-app-proxy-protect-ndes/azure-active-directory-application-proxy.png)
+   ![Application proxy in the Azure portal.](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-application-proxy.png)
 
 1. Download the connector service (*ADApplicationProxyConnectorInstaller.msi*) to your computer and then transfer it to the NDES server.
 
-   ![Download the Active Directory connector service.](./media/azure-active-directory-app-proxy-protect-ndes/azure-active-directory-download-connector-service.png)
+   ![Download the Active Directory connector service.](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-download-connector-service.png)
 
 1. On your NDES server, start the installation by running the *AADApplicationProxyConnectorInstaller.msi* file that you downloaded. Follow the wizard like shown in the print screens below.
 
    > You can install the connector on any server within your corporate network with access to NDES. You don't have to install it on the NDES server itself.
 
-   ![Active Directory connector service license agreement](./media/azure-active-directory-app-proxy-protect-ndes/connector-service-license-agreement.png)
+   ![Active Directory connector service license agreement](./media/active-directory-app-proxy-protect-ndes/connector-service-license-agreement.png)
 
 1. When prompted, authenticate to your Azure AD tenant by providing Azure AD Administrative authentication credentials.
 
@@ -60,7 +60,7 @@ These steps assume that certificate distribution works, if not please consult Pa
 
 1. Select **Enterprise applications**.
 
-   ![ensure that you're engaging the right stakeholders](./media/azure-active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
+   ![ensure that you're engaging the right stakeholders](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
 
 1. Select **+New Application**, and then select **On-premises application**. 
 
