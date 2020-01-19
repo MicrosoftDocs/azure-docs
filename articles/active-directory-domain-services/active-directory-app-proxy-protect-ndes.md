@@ -23,7 +23,7 @@ If you're new to the Azure AD Application Proxy and want to learn more, see [How
 
 Azure AD Application Proxy is built on Azure and gives you a massive amount of network bandwidth and server infrastructure to have better protection against DDOS attacks and superb availability. Furthermore, there is no need to open external firewall ports to your on premise network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
->Note
+> Note
 >Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see Azure Active Directory Editions. 
 > If you have Enterprise Mobility Suite (EMS) licenses you are eligible of using this solution.
 > The Azure AD Application Proxy connector only installs on a Windows Server 2012 R2 Operating system, this is also a requirement of the NDES server anyway.
@@ -32,21 +32,11 @@ Azure AD Application Proxy is built on Azure and gives you a massive amount of n
 
 The architecture of this solution might look as follows:
 
-[Intune Certificate Management Network diagram](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
+![Intune Certificate Management Network diagram](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
 
 ## Installation steps
 
-These steps assume that certificate distribution works, if not please consult Part 2 on this topic.
-
-1. Go to https://portal.azure.com and log in with an account that has administrative permissions in your Azure AD tenant.
-
-1. On the left side, select **Application proxy**. 
-
-   ![Application proxy in the Azure portal.](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-application-proxy.png)
-
-1. Download the connector service (*ADApplicationProxyConnectorInstaller.msi*) to your computer and then transfer it to the NDES server.
-
-   ![Download the Active Directory connector service.](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-download-connector-service.png)
+[!INCLUDE [active-directory-install-connector-service.md](../../includes/active-directory-install-connector-service.md)]
 
 1. On your NDES server, start the installation by running the *AADApplicationProxyConnectorInstaller.msi* file that you downloaded. Follow the wizard like shown in the print screens below.
 

@@ -1,12 +1,10 @@
 ---
-author: mmacy
-ms.service: active-directory-b2c
-ms.subservice: B2C
+author: 
+ms.service: 
+ms.subservice: 
 ms.topic: include
-ms.date: 10/16/2019
-ms.author: marsma
-# Used by user and audit log management articles. Application is used for
-# interacting with Graph API (AD Graph or MS Graph, depending on article).
+ms.date: 01/18/2020
+ms.author: 
 ---
 
 To install the connector:
