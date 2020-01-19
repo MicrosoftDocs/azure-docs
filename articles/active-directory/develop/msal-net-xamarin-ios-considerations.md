@@ -47,11 +47,11 @@ Also do the following tasks:
 
 ### Enable keychain access
 
-To enable keychain access, your application must have a keychain access group. You can set the keychain access group when you create your application by using the `WithIosKeychainSecurityGroup()` API.
+To enable keychain access, make sure that your application has a keychain access group. You can set the keychain access group when you create your application by using the `WithIosKeychainSecurityGroup()` API.
 
 To benefit from the cache and single sign-on (SSO), set the keychain access group to the same value in all of your applications.
 
-This example of the setup uses MSAL v4.x:
+This example of the setup uses MSAL 4.x:
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
@@ -59,7 +59,7 @@ var builder = PublicClientApplicationBuilder
      .Build();
 ```
 
-You should also enable keychain access in the `Entitlements.plist` file. Use either the following access group or your own access group.
+Also enable keychain access in the `Entitlements.plist` file. Use either the following access group or your own access group.
 
 ```xml
 <dict>
@@ -76,13 +76,13 @@ For more information, see the [iOS entitlements documentation](https://developer
 
 ### Enable token cache sharing across iOS applications
 
-From MSAL 2.x, you can specify a keychain access group to persist the token cache across multiple applications. This setting enables you to share the token cache between several applications that have the same keychain access group. You can share the token cash between  [ADAL.NET](https://aka.ms/adal-net) applications, MSAL.NET Xamarin.iOS applications, and native iOS applications that were developed in [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) or [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+Starting in MSAL 2.x, you can specify a keychain access group to persist the token cache across multiple applications. This setting enables you to share the token cache among several applications that have the same keychain access group. You can share the token cash among [ADAL.NET](https://aka.ms/adal-net) applications, MSAL.NET Xamarin.iOS applications, and native iOS applications that were developed in [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) or [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
-By sharing the token cache, you allow single sign-on (SSO) between all of the applications that use the same keychain access group.
+By sharing the token cache, you allow single sign-on (SSO) among all of the applications that use the same keychain access group.
 
 To enable this cache sharing, use the `WithIosKeychainSecurityGroup()` method to set the keychain access group to the same value in all applications that share the same cache. The first code example in this article shows how to use the method.
 
-Earlier in this article, you learned that MSAL adds `$(AppIdentifierPrefix)` whenever you use the `WithIosKeychainSecurityGroup()` API. MSAL adds this element because `AppIdentifierPrefix` (or the team ID) ensures that only applications that are made by the same publisher can share keychain access.
+Earlier in this article, you learned that MSAL adds `$(AppIdentifierPrefix)` whenever you use the `WithIosKeychainSecurityGroup()` API. MSAL adds this element because the team ID `AppIdentifierPrefix` ensures that only applications that are made by the same publisher can share keychain access.
 
 > [!NOTE]
 > The `KeychainSecurityGroup` property is deprecated.
@@ -93,7 +93,7 @@ Earlier in this article, you learned that MSAL adds `$(AppIdentifierPrefix)` whe
 
 ### Use Microsoft Authenticator
 
-Your application can use Microsoft Authenticator (a broker) to enable:
+Your application can use Microsoft Authenticator as a broker to enable:
 
 - **SSO**: When you enable SSO, your users don't need to sign in to each application.
 - **Device identification**: Use device identification to authenticate by accessing the device certificate. This certificate is created on the device when it's joined to the workplace. Your application will be ready if the tenant administrators enable conditional access related to the devices.
@@ -103,16 +103,16 @@ For details about how to enable a broker, see [Use Microsoft Authenticator or Mi
 
 ### Properties specific to Xamarin iOS
 
-For more information, see the [iOS-specific considerations](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) paragraph of the following sample's README.md file:
+For information about properties for Xamarin iOS, see the [iOS-specific considerations](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) paragraph of the following sample's README.md file:
 
 Sample | Platform | Description
 ------ | -------- | -----------
-[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | A simple Xamarin Forms app that shows how to use MSAL to authenticate MSA and Azure AD via the Azure AD V2.0 endpoint. The app also shows how to use the resulting token to access Microsoft Graph.
+[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | A simple Xamarin Forms app that shows how to use MSAL to authenticate MSA and Azure AD via the Azure AD 2.0 endpoint. The app also shows how to use the resulting token to access Microsoft Graph.
 
 <!--- https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png -->
 
 ## Known issues with iOS 12 and authentication
-Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC logins. This advises developers on what to do to remove current ASP.NET security restrictions from their applications to make them compatible with iOS 12.  
+Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps developers understand how to remove ASP.NET security restrictions from their applications to make them compatible with iOS 12.  
 
 When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. This behavior is similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
 
