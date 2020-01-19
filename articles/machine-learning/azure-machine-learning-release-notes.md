@@ -25,7 +25,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + **azureml-core**
     + Get the current core usage and quota limitation for AmlCompute resources in a given workspace and subscription
-
+  
+  + **azureml-contrib-pipeline-steps**
+    + Enable user to pass tabular dataset as intermediate result from previous step to parallelrunstep
     
   + **Preview features**
     + [Contrib features below] 
