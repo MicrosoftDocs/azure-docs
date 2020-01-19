@@ -43,7 +43,7 @@ All Azure applications include at least two files in the root folder of a `.zip`
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
-All new Azure application offers must include an [Azure partner customer usage attribution GUID](??).
+All new Azure application offers must include an [Azure partner customer usage attribution GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
 
 ### Before you begin
 
