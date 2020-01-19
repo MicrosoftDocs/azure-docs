@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/19/2020
 ---
 
 # Monitor Azure Data Explorer performance, health, and usage with metrics
@@ -67,11 +67,11 @@ Export health and performance metrics track the general health and performance o
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
-Continuous export – num of exported records	| Count	| Sum |	Total number of records exported from the cluster. |
-Continuous export Max Lateness Minutes |	Count	| Max	| \\Max value of exported lateness in minutes.|
-Continuous export Pending Count	| Count	| Max	| Max value of pending export operations.
-Continuous export result	| Count |	Count	| Total number of continuous export operations \\by result. \\It includes a continuous export name, database 
-Export utilization |	Percent	| Max	| \\Export usage of defined slot for export operations in percentage.
+Continuous export - number of exported records	| Count	| Sum |	Total number of records exported from the cluster. |
+Continuous export max lateness minutes |	Count	| Max	| Max value in minutes of exported records.|
+Continuous export pending count	| Count	| Max	| Max value of pending export operations.
+Continuous export result	| Count |	Count	| Total number of continuous export operations, by result. Metric includes a continuous export name and database. 
+Export utilization |	Percent	| Max	| Usage of defined slot for export operations.
 | | | | |
 
 ### Ingestion health and performance metrics
@@ -92,7 +92,7 @@ Query performance metrics track query duration and total number of concurrent or
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
-| Query duration | \\Seconds or \\Milliseconds | Avg, Min, Max, Sum | Total time until query results are received (doesn't include network latency). |
+| Query duration | Milliseconds | Avg, Min, Max, Sum | Total time until query results are received (doesn't include network latency). |
 | Total number of concurrent queries | Count | Avg, Max, Min, Sum | The number of queries run in parallel in the cluster. This metric is a good way to estimate the load on the cluster. |
 | Total number of throttled queries | Count | Avg, Max, Min, Sum | The number of throttled (rejected) queries in the cluster. The maximum number of concurrent (parallel) queries allowed is defined in the concurrent query policy. |
 | | | | |
@@ -103,12 +103,10 @@ Streaming ingest metrics track streaming ingestion data and request rate, durati
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
-Streaming Ingest Data Rate |	Count	| Avg, Max, Min
-\\RateRequestsPerSecond	|  | Total volume of data ingested to the cluster. |
-Streaming Ingest Duration	Count 
-\\Milliseconds	| Avg, Max, Min	| Total request duration of all streaming ingest requests. |
-Streaming Ingest Request Rate	| Count	| Count, Avg, Max, Min, Sum	| Total number of streaming ingest requests. |
-Streaming Ingest Result	| Count	| Avg	| Total number of Streaming Ingest requests by result type. |
+Streaming Ingest Data Rate |	Count	| RateRequestsPerSecond	|  | Total volume of data ingested to the cluster. |
+Streaming Ingest Duration	| Milliseconds	| Avg, Max, Min	| Total duration of all streaming ingestion requests. |
+Streaming Ingest Request Rate	| Count	| Count, Avg, Max, Min, Sum	| Total number of streaming ingestion requests. |
+Streaming Ingest Result	| Count	| Avg	| Total number of streaming ingestion requests by result type. |
 | | | | |
 
 Additional information about [supported Azure Data Explorer cluster metrics](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
