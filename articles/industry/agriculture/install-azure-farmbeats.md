@@ -87,19 +87,19 @@ Run the following in a Cloud Shell instance in your subscription. First time use
 
 1. Download and extract the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
 
-```azurepowershell-interactive
+        ```azurepowershell-interactive
             wget https://aka.ms/FarmBeatsAADScript
-      ```
+        ```
 2. By default, the file is downloaded to your home directory. Navigate to the directory.
 
-```azurepowershell-interactive
+        ```azurepowershell-interactive
             cd
-      ```
+        ```
 3. Run the AAD script
 
-```azurepowershell-interactive
+        ```azurepowershell-interactive
             ./create_aad_script.ps1
-      ```
+        ```
 
 4. The AAD script takes around 2 mins to run and outputs values to screen as well as to a json file in the same directory. If you had someone else run the script, please ask them to share this output with you.
 
