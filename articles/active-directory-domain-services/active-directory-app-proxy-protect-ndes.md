@@ -84,7 +84,4 @@ These steps assume that certificate distribution works, if not please consult Pa
 1. Change the NDES URL provided (via Microsoft Intune) to devices, this could either be in System Center Configuration Center or in Intune Cloud.
 
    a. For System Center Configuration Center go to the Certificate Registration Point (CRP) and adjust the URL, this is what devices reach out to and present their challenge.
-
-      ![ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md)
-
    b. For Intune Cloud Only a.k.a. Intune Standalone, either Edit or Create a new SCEP policy and add the new URLclip_image030
