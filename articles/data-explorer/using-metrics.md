@@ -33,7 +33,7 @@ In the Metrics pane:
 
 ![Metrics pane](media/using-metrics/metrics-pane.png)
 
-1. To create a metric chart, select **Metric** name and relevant **Aggregation** per metric as \\detailed below\\. The **Resource** and **Metric Namespace** pickers are pre-selected for your Azure Data Explorer cluster.
+1. To create a metric chart, select **Metric** name and relevant **Aggregation** per metric. The **Resource** and **Metric Namespace** pickers are pre-selected for your Azure Data Explorer cluster. For more information regarding different metrics see [supported Azure Data Explorer metrics](#supported-azure-data-explorer-metrics).
 1. Select the **Add metric** button to see multiple metrics plotted in the same chart.
 1. Select the **+ New chart** button to see multiple charts in one view.
 1. Use the time picker to change the time range (default: past 24 hours).
@@ -43,7 +43,7 @@ In the Metrics pane:
 
 Additional information on using the [Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started).
 
-## Supported Azure Data Explorer Metrics
+## Supported Azure Data Explorer metrics
 
 The supported Azure Data Explorer Metrics are separated into various categories according to usage. 
 
@@ -88,7 +88,7 @@ Ingestion health and performance metrics track the general health and performanc
 
 ### Query performance
 
-Query performance metrics track query duration and total number of concurrent or throttled queries
+Query performance metrics track query duration and total number of concurrent or throttled queries.
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
@@ -98,6 +98,8 @@ Query performance metrics track query duration and total number of concurrent or
 | | | | |
 
 ### Streaming ingest metrics
+
+Streaming ingest metrics track streaming ingestion data and request rate, duration, and results.
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
@@ -109,7 +111,7 @@ Streaming Ingest Request Rate	| Count	| Count, Avg, Max, Min, Sum	| Total number
 Streaming Ingest Result	| Count	| Avg	| Total number of Streaming Ingest requests by result type. |
 | | | | |
 
-    Additional information about [supported Azure Data Explorer cluster metrics](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
+Additional information about [supported Azure Data Explorer cluster metrics](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
 
 ## Next steps
