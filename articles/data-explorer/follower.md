@@ -122,8 +122,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### Attach a database using an Azure Resource Manager template
 
-In this section, you learn how to create a follower cluster and attach a database to it by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
-If you already have a cluster, remove the `Microsoft.Kusto/clusters` resource from the resource list below.
+In this section, you learn to attach a database to an existing cluser by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -134,7 +133,7 @@ If you already have a cluster, remove the `Microsoft.Kusto/clusters` resource fr
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the follower cluster."
+				"description": "Name of the cluster to which the database will be attached."
 			}
 		},
 		"attachedDatabaseConfigurationsName": {
@@ -176,17 +175,6 @@ If you already have a cluster, remove the `Microsoft.Kusto/clusters` resource fr
 	"variables": {},
 	"resources": [
 		{
-			"name": "[parameters('followerClusterName')]",
-			"type": "Microsoft.Kusto/clusters",
-			"sku": {
-				"name": "Standard_D13_v2",
-				"tier": "Standard",
-				"capacity": 2
-			},
-			"apiVersion": "2019-09-07",
-			"location": "[parameters('location')]"
-		},
-		{
 			"name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
 			"type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
 			"apiVersion": "2019-09-07",
@@ -213,7 +201,7 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](h
 
 |**Setting**  |**Description**  |
 |---------|---------|
-|Follower Cluster Name     |  The name of the follower cluster. If the cluster name exists, remove the `Microsoft.Kusto/clusters` resource from the resource list in the ARM template. Otherwise, a new cluster will be created.     |
+|Follower Cluster Name     |  The name of the follower cluster.  |
 |Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
 |Database Name     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
 |Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
