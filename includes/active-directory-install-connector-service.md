@@ -15,7 +15,7 @@ To install the connector:
 1. Under **Manage**, select **Application proxy**.
 1. Select **Download connector service**.
 
-    ![Download connector service to see the Terms of Service](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
+    ![Download connector service to see the Terms of Service](./media/active-directory-install-connector-service/application-proxy-download-connector-service.png)
 
 1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
 1. At the bottom of the window, select **Run** to install the connector. An install wizard opens.
