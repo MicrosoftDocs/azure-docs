@@ -67,7 +67,7 @@ Export health and performance metrics track the general health and performance o
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
-Continuous export - number of exported records	| Count	| Sum |	Total number of records exported from the cluster. |
+Continuous export number of exported records	| Count	| Sum |	Total number of records exported from the cluster. |
 Continuous export max lateness minutes |	Count	| Max	| Max value in minutes of exported records.|
 Continuous export pending count	| Count	| Max	| Max value of pending export operations.
 Continuous export result	| Count |	Count	| Total number of continuous export operations, by result. Metric includes a continuous export name and database. 
@@ -103,7 +103,7 @@ Streaming ingest metrics track streaming ingestion data and request rate, durati
 
 **Metric** | **Unit** | **Aggregation** | **Metric description**
 |---|---|---|---|
-Streaming Ingest Data Rate |	Count	| RateRequestsPerSecond	|  | Total volume of data ingested to the cluster. |
+Streaming Ingest Data Rate |	Count	| RateRequestsPerSecond	| Total volume of data ingested to the cluster. |
 Streaming Ingest Duration	| Milliseconds	| Avg, Max, Min	| Total duration of all streaming ingestion requests. |
 Streaming Ingest Request Rate	| Count	| Count, Avg, Max, Min, Sum	| Total number of streaming ingestion requests. |
 Streaming Ingest Result	| Count	| Avg	| Total number of streaming ingestion requests by result type. |
