@@ -10,8 +10,9 @@ ms.date: 07/13/2017
 
 ---
 
-# Streaming Azure Diagnostics data in the hot path by using Event Hubs
-Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can send Diagnostics to custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
+# Send data from Azure Monitor Diagnostics extension to Event Hubs
+The Diagnostics extension in Azure Monitor allows you to collect logs and metrics from Azure compute resources into Azure Storage and send them to other destinations. This article describes how to send data from the Windows Azure Diagnostic extension (WAD) to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) so you can send the data to locations outside of Azure.
+
 
 Supported data types include:
 

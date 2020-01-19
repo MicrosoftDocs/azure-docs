@@ -11,9 +11,10 @@ ms.date: 02/13/2019
 ---
 
 # Azure Diagnostics extension overview
-The Azure Diagnostics extension is an agent in Azure that collects monitoring data from the guest operating system and workloads of Azure compute resources into Azure Monitor. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and installation options. Links are provided to other documentation for detailed information.
+Azure Diagnostics extension is an agent in Azure that collects monitoring data from the guest operating system and workloads of Azure compute resources into Azure Monitor. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and installation options. Links are provided to other documentation for detailed information.
 
-
+> [!NOTE]
+> Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
 ## Resources supported
 The Azure Diagnostics extension can be used with any Azure compute resource which includes the following:
@@ -25,26 +26,25 @@ The Azure Diagnostics extension can be used with any Azure compute resource whic
 | Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 
+## Agent versions
+There is a separate version of the Diagnostics extension for Windows (WAD) and Linux (LAD).
+
+- [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md)
+
 ## Comparison to Log Analytics agent
 The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
 - Azure Diagnostics extension can collect data to Azure Monitor Metrics. The Log Analytics agent primarily collects data to Azure Monitor Logs. Both can collect data to Azure Storage and Event Hubs.
 
-
-## Windows and Linux
-Separate extensions are available for Windows and for Linux. They both 
-
-
-
-
 ## Data collected
-The Azure Diagnostics extension can collect the following types of data:
+The Diagnostics extension for Windows and Linux can collect different data from the guest operating system.
+
+### Windows diagnostics extension (WAD)
 
 | Data Source | Description |
 | --- | --- |
 | Windows Event logs   | Information sent to the Windows event logging system. |
-| Syslog               | Information sent to the Linux event logging system.   |
 | Performance counters | Numerical values measuring performance of different aspects of operating system and workloads. |
 | IIS Logs             | Usage information for IIS web sites running on the guest operating system. |
 | Application logs     | Trace messages written by your application. |
@@ -55,25 +55,62 @@ The Azure Diagnostics extension can collect the following types of data:
 | Azure Diagnostic infrastructure logs | Information about Azure Diagnostics itself. |
 
 
+### Linux diagnostics extension (LAD)
+
+| Data Source | Description |
+| --- | --- |
+| Syslog | Information sent to the Linux event logging system.   |
+| Performance counters  | Numerical values measuring performance of different aspects of operating system and workloads. |
+| Log files | Entries sent to a log file.  |
+
 ## Data destinations
+The Azure Diagnostic extension collects data into an Azure Storage account, and you can configure *data sinks* to send data to other destinations.
+
+### Windows diagnostics extension (WAD)
+WAD writes data to either tables or blobs in an Azure Storage account depending on the type of data being collected. See [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md). It supports the sinks in the following table.
 
 
+| Destination | Sink Name | Description |
+|:---|:---|:---|
+| Azure Monitor Metrics | AzMonSink | Collect performance data to Azure Monitor Metrics. See [Send Guest OS metrics to the Azure Monitor metric database](collect-custom-metrics-guestos-resource-manager-vm.md) for virtual machines.  |
+| Event hubs | HotPath | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+| Application Insights | ApplicationInsights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-The Azure Diagnostic extension collects data into the locations in the following table. Follow the links for details on configuration.
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs.  See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table). While you can collect WAD data into the Azure Monitor Logs, the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.
 
-| Destination | Description |
-|:---|:---|
-| Azure Storage | Writes logs and performance data to tables and blobs in an Azure Storage account. You can either view this data using one of multiple tools or collect it into Log Analytics workspace. See [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md). |
-| Azure Monitor Metrics | Collect performance data to the metrics database in Azure Monitor. See [Send Guest OS metrics to the Azure Monitor metric database](collect-custom-metrics-guestos-resource-manager-vm.md) for virtual machines.  |
-| Event hubs | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
-| Azure Monitor Logs | Collect data from Azure Storage to a Log Analytics workspace in Azure Monitor. See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table). |
-| Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
+
+### Linux diagnostics extension (LAD)
+LAD writes data to tables in Azure Storage. It supports the sinks in the following table.
+
+| Destination | Sink Name | Description |
+|:---|:---|:---|
+| Event hubs | EventHub | Use Azure Event Hubs to send data outside of Azure. |
+| Azure Storage blobs | JsonBlob | |
+| Azure Monitor Metrics | | Install the Telegraf agent in addition to LAD. See [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md).
 
 
 ## Installation options
 
 ### Azure portal
 
+Windows 
+
+1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
+2. Click **Enable guest-level monitoring**.
+
+- Enables Name:Microsoft.Insights.VMDiagnosticsSettings extension 	
+Type: Microsoft.Azure.Diagnostics.IaaSDiagnostics
+- Creates a new storage account
+- Enables most common performance counters
+- Enables most common event logs
+
+
+Linux
+
+
+1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
+2. Select a storage account.
+2. Click **Enable guest-level monitoring**.
 
 ## Linux Agent
 A [Linux version of the extension](../../virtual-machines/extensions/diagnostics-linux.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version.
