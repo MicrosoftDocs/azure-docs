@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/19/2020
 ms.author: hamusa
 ---
 
