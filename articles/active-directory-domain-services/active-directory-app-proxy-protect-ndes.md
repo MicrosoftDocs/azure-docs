@@ -32,7 +32,7 @@ Azure AD Application Proxy is built on Azure and gives you a massive amount of n
 
 The architecture of this solution might look as follows:
 
-[Intune Certificate Management Network diagram](../media/active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
+[Intune Certificate Management Network diagram](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
 
 ## Installation steps
 
