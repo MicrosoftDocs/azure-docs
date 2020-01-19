@@ -43,7 +43,7 @@ Here are the limits for a single logic app run:
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Run duration | 90 days | 366 days | To change the default limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | 366 days | - If your logic app times out, retention history uses the timestamp from when the run started. <br>- If runs are removed from your logic app's runs history, the current timestamp is used. <p><p>To change the default limit, see [change storage retention](#change-retention). |
+| Storage retention | 90 days from the run's start time | 366 days | - The retention period is calculated by using the run completion timestamp and the current timestamp. When this period exceeds the limit, the run is removed from the runs history. <br>- If a logic app times out, no completion timestamp is available. In this case, calculation uses the run's starting timestamp instead. <p><p>To change the default limit, see [change storage retention](#change-retention). <br>- If your logic app times out, retention history uses the timestamp from when the run started.  |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
