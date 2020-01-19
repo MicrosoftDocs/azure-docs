@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - call a web API
+# A web app that calls web APIs: Call a web API
 
 Now that you have a token, you can call a protected web API.
 

@@ -1,6 +1,6 @@
 ---
-title: Configure web app that calls web APIs - Microsoft identity platform | Azure
-description: Learn how to configure the code of a Web app that calls web APIs
+title: Configure a web app that calls web APIs - Microsoft identity platform | Azure
+description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - code configuration
+# A web app that calls web APIs: Code configuration
 
 As seen in the [Web app signs-in users scenario](scenario-web-app-sign-user-overview.md), the web app uses the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md) to sign in the user. This flow is in two parts:
 
@@ -612,4 +612,4 @@ def _build_msal_app(cache=None):
 At this point, when the user signs-in a token is stored in the token cache. Let's see how it's then used in other parts of the Web app.
 
 > [!div class="nextstepaction"]
-> [Sign in to the Web App](scenario-web-app-call-api-sign-in.md)
+> [A web app that calls web APIs: Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)

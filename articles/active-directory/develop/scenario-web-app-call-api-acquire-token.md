@@ -1,5 +1,5 @@
 ---
-title: Get a token in Web apps that call web APIs - Microsoft identity platform | Azure
+title: Get a token in a web app that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to build a Web app that calls web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - acquire a token for the app
+# A web app that calls web APIs: Acquire a token for the app
 
 Now that you have built you client application object, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is then done in the controller. It's about:
 
