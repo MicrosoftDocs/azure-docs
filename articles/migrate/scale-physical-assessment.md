@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](tutorial-prepare-physical.md)
+> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](tutorial-prepare-physical.md).
 
 ## Plan for assessment
 
@@ -83,9 +83,9 @@ In accordance with your planning requirements, do the following:
 In this article, you:
  
 > [!div class="checklist"] 
-> * Planned to scale Azure Migrate assessments for physical servers
-> * Prepared Azure and physical servers for assessment
-> * Created an Azure Migrate project and ran assessments
+> * Planned to scale Azure Migrate assessments for physical servers.
+> * Prepared Azure and physical servers for assessment.
+> * Created an Azure Migrate project and ran assessments.
 > * Reviewed assessments in preparation for migration.
 
-Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md)
+Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md).

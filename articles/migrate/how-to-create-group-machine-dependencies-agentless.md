@@ -131,7 +131,7 @@ Choose the machines on which you want to stop dependency discovery.
 3. Click **Remove servers**.
 3. In the **Remove servers** page, choose the **appliance** that is discovering the VMs on which you look to stop dependency discovery.
 4. From the machine list, select the machines.
-5. Click **Remove servers**
+5. Click **Remove servers**.
 
 
 ## Next steps
