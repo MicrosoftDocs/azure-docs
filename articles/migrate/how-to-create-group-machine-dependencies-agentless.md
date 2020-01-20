@@ -11,7 +11,7 @@ ms.author: hamusa
 
 # Set up agentless dependency visualization for assessment
 
-This article describes how to set up agentless dependency mapping in Azure Migrate: Server Assessment. This capability is currently available in preview for VMware machines discovered using an Azure Migrate appliance. 
+This article describes how to set up agentless dependency mapping in Azure Migrate: Server Assessment. 
 
 > [!IMPORTANT]
 > Agentless dependency visualization is currently in preview for Azure VMware VMs discovered using an Azure Migrate appliance.
@@ -50,17 +50,8 @@ Agentless dependency visualization doesn't require you to install any agents on 
 - The agentless dependency analysis is currently available only for VMware machines.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 - Make sure you have discovered your VMware machines in Azure Migrate; you can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
-- Make sure the VMware VMs are supported for agentless dependency visualization, as summarized in the table below.
+- [Review the requirements](migrate-support-matrix-vmware.md#agentless-dependency-visualization) for setting up agentless dependency visualization.
 
-
-### Supported operating systems
-
-Supported operating systems for agentless dependency visualization are as follows.
-
-**Type** | **Supported operating systems**
---- | ---
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bit)
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## Create a user account for discovery
