@@ -1,17 +1,17 @@
 ---
 title: Restore Azure File shares with Azure CLI
-description: Learn how to use Azure CLI to restore backed-up Azure File shares in the Recovery Services Vault
+description: Learn how to use Azure CLI to restore backed-up Azure file shares in the Recovery Services Vault
 ms.topic: conceptual
 ms.date: 01/16/2020
 ---
 
-# Restore Azure File Shares with CLI
+# Restore Azure file shares with CLI
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to restore an entire file share or specific files from a restore point created by the [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) service using Azure CLI. You can also perform these steps with [Azure PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-afs-automation) or in the [Azure portal](backup-afs.md).
 
 By the end of this tutorial, you'll learn how to perform below operations with Azure CLI:
 
-* View restore points for a backed-up Azure File share
+* View restore points for a backed-up Azure file share
 * Restore a full Azure file share
 * Restore individual files or folders
 
@@ -21,7 +21,7 @@ To install and use the CLI locally, you must run Azure CLI version 2.0.18 or lat
 
 ## Prerequisites
 
-This article assumes that you already have an Azure file share that is backed up by the Azure Backup service. If you don’t have one, refer to [Backup Azure File Shares with CLI](backup-afs-cli.md)  to configure backup for your file share. For this article we will be using the following resources:
+This article assumes that you already have an Azure file share that is backed up by the Azure Backup service. If you don’t have one, refer to [Backup Azure file shares with CLI](backup-afs-cli.md)  to configure backup for your file share. For this article we will be using the following resources:
 
 | File Share  | Storage Account | Region | Details                                                      |
 | ----------- | --------------- | ------ | ------------------------------------------------------------ |
@@ -30,7 +30,7 @@ This article assumes that you already have an Azure file share that is backed up
 
 You can use a similar structure for your file shares to try out the different types of restores explained in this document.
 
-## Fetch Recovery Points for the Azure File share
+## Fetch Recovery Points for the Azure file share
 
 Use the [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) cmdlet to list all recovery points for the backed-up file share.
 
@@ -168,4 +168,4 @@ The **Name** attribute in the output corresponds to the name of the job that is 
 
 ## Next steps
 
-Learn how to [Manage Azure File Share Backups with Azure CLI](manage-afs-backup-cli.md)
+Learn how to [Manage Azure file share backups with Azure CLI](manage-afs-backup-cli.md)

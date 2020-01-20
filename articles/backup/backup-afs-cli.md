@@ -1,11 +1,11 @@
 ---
-title: Back up Azure File shares with Azure CLI
-description: Learn how to use Azure CLI to back up Azure File shares in the Recovery Services Vault
+title: Back up Azure file shares with Azure CLI
+description: Learn how to use Azure CLI to back up Azure file shares in the Recovery Services Vault
 ms.topic: conceptual
 ms.date: 01/14/2020
 ---
 
-# Backup Azure File Shares with CLI
+# Back up Azure file shares with CLI
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article details how to back up Azure file shares with Azure CLI. You can also perform these steps with [Azure PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-afs-automation) or in the [Azure portal](backup-afs.md).
 
@@ -27,51 +27,51 @@ Follow these steps to create a recovery services vault:
 
 1. A vault is placed in a resource group. If you don’t have an existing resource group, create a new one with [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) . In this tutorial, we create the new resource group *azurefiles* in the East US region.
 
-```azurecli-interactive
-az group create --name AzureFiles --location eastus --output table
-```
+    ```azurecli-interactive
+    az group create --name AzureFiles --location eastus --output table
+    ```
 
-```output
-Location    Name
-----------  ----------
-eastus      AzureFiles
-```
+    ```output
+    Location    Name
+    ----------  ----------
+    eastus      AzureFiles
+    ```
 
 2. Use the [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
-The following example creates a recovery services vault named *azurefilesvault* in the East US region.
+    The following example creates a recovery services vault named *azurefilesvault* in the East US region.
 
-```azurecli-interactive
-az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table
-```
+    ```azurecli-interactive
+    az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table
+    ```
 
-```output
-Location    Name                ResourceGroup
-----------  ----------------    ---------------
-eastus      azurefilesvault     azurefiles
-```
+    ```output
+    Location    Name                ResourceGroup
+    ----------  ----------------    ---------------
+    eastus      azurefilesvault     azurefiles
+    ```
 
 3. Specify the type of redundancy to use for the vault storage. You can use [locally redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) or [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
-The following example sets storage redundancy option for *azurefilesvault* to **Georedundant** using the [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+    The following example sets storage redundancy option for *azurefilesvault* to **Georedundant** using the [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
 
-```azurecli-interactive
-az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-```
+    ```azurecli-interactive
+    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
+    ```
 
-To check if the vault is created successfully, you can use the [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) cmdlet to get details of your vault. The following example displays the details of the *azurefilesvault* we created in the steps above.
+    To check if the vault is created successfully, you can use the [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) cmdlet to get details of your vault. The following example displays the details of the *azurefilesvault* we created in the steps above.
 
-```azurecli-interactive
-az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-```
+    ```azurecli-interactive
+    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
+    ```
 
-The output will be similar to the following response:
+    The output will be similar to the following response:
 
-```output
-Location     Name               ResourceGroup
-----------   ---------------    ---------------
-eastus       azurefilesvault    azurefiles
-```
+    ```output
+    Location     Name               ResourceGroup
+    ----------   ---------------    ---------------
+    eastus       azurefilesvault    azurefiles
+    ```
 
 ## Enable backup for Azure file shares
 
@@ -119,5 +119,5 @@ The **Name** attribute in the output corresponds to the name of the job that is 
 
 ## Next steps
 
-* Learn how to [Restore Azure File Share with CLI]()
-* Learn how to [Manage Azure File Share Backups with CLI]()
+* Learn how to [Restore Azure file shares with CLI](restore-afs-cli.md)
+* Learn how to [Manage Azure file share ackups with CLI](manage-afs-backup-cli.md)

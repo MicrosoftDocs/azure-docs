@@ -1,11 +1,11 @@
 ---
-title: Manage Azure File Share backups with CLI
+title: Manage Azure file share backups with CLI
 description: Learn how to use Azure CLI to manage and monitor Azure file shares backed up by the Azure Backup service.
 ms.topic: conceptual
 ms.date: 01/15/2020
 ---
 
-# Manage Azure File Share Backups with Azure CLI
+# Manage Azure file share backups with Azure CLI
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to perform the tasks below for managing and monitoring the Azure file shares that are backed up by the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview). You can also perform these steps with the [Azure portal](https://portal.azure.com/).
 
@@ -21,7 +21,7 @@ To install and use the CLI locally, you must run Azure CLI version 2.0.18 or lat
 
 ## Prerequisites
 
-This tutorial assumes you already have an Azure file share backed up by the [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) service. If you don’t have one, refer to [Backup Azure File Shares with CLI](backup-afs-cli.md) to configure backup for your file shares. For this article, we'll be using the following resources:
+This tutorial assumes you already have an Azure file share backed up by the [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) service. If you don’t have one, refer to [Backup Azure file shares with CLI](backup-afs-cli.md) to configure backup for your file shares. For this article, we'll be using the following resources:
 
 * **Resource group**: *azurefiles*
 * **RecoveryServicesVault**: *azurefilesvault*
@@ -241,4 +241,4 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 ## Next steps
 
-For more information, see [Troubleshoot Backup/Restore failures for Azure File Shares](troubleshoot-azure-files.md)
+For more information, see [Troubleshoot Backup/Restore failures for Azure file shares](troubleshoot-azure-files.md)

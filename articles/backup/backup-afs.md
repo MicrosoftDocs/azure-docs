@@ -1,11 +1,11 @@
 ---
-title: Back up Azure File shares in the Azure portal
-description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services Vault
+title: Back up Azure file shares in the Azure portal
+description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services Vault
 ms.topic: conceptual
 ms.date: 01/20/2020
 ---
 
-# Backup Azure File shares in a Recovery Services Vault
+# Back up Azure file shares in a Recovery Services Vault
 
 This article explains how to use the Azure portal to back up [Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -17,16 +17,16 @@ In this guide, you'll learn how to:
 
 ## Prerequisites
 
-1. Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account hosting the file share.
+* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account hosting the file share.
 
-2. Ensure that the file share is present in one of the [supported Storage Account types](#limitations-for-azure-file-share-backup-during-preview).
+* Ensure that the file share is present in one of the [supported Storage Account types](#limitations-for-azure-file-share-backup-during-preview).
 
 ## Limitations for Azure file share backup during Preview
 
 Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. These are the limitations for backing-up Azure file shares:
 
-* Support for Backup of Azure File Shares in storage accounts with [zone redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) replication is currently limited to [these regions](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares).
-* Azure Backup currently supports configuring scheduled once-daily backups of Azure File Shares.
+* Support for Backup of Azure file shares in storage accounts with [zone redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) replication is currently limited to [these regions](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares).
+* Azure Backup currently supports configuring scheduled once-daily backups of Azure file shares.
 * The maximum number of scheduled backups per day is one.
 * The maximum number of on-demand backups per day is four.
 * Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
@@ -51,7 +51,7 @@ Modify the storage replication type as follows:
 
 3. Select the storage replication type, and click **Save**.
 
-![Update Backup Configuration](./media/backup-afs/backup-configuration.png)
+    ![Update Backup Configuration](./media/backup-afs/backup-configuration.png)
 
 > [!NOTE]
 > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to recreate the vault.
@@ -67,7 +67,7 @@ Modify the storage replication type as follows:
 
    a. In **Backup Goal**, set **Where is your workload running?** to **Azure**.
 
-    ![Choose Azure Fileshare as Backup goal](./media/backup-afs/backup-goal.png)
+    ![Choose Azure File Share as Backup goal](./media/backup-afs/backup-goal.png)
 
     b.    In **What do you want to backup**, select **Azure File Share** from the drop-down menu.
 
@@ -123,6 +123,6 @@ Occasionally, you may want to generate a backup snapshot, or recovery point, out
 
 ## Next steps
 
-* Learn how to [Restore Azure File Shares](restore-afs.md)
+* Learn how to [Restore Azure file shares](restore-afs.md)
 
 * Learn how to [Manage Azure file share backups](manage-afs-backup.md)
