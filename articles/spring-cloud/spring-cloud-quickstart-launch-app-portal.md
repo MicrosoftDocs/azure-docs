@@ -1,11 +1,11 @@
 ---
 title: "Quickstart - Launch an Azure Spring Cloud application using the Azure portal"
 description: In this quickstart, deploy a sample application to the Azure Spring Cloud using the Azure portal.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Quickstart: Launch an Azure Spring Cloud application using the Azure portal

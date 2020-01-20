@@ -4,16 +4,16 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Install and configure an on-premises data gateway
 
-An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources.  While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**.
+An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources.  While the gateway you install is the same as used by other services like Power BI, Power Apps, and Logic Apps, when installing for Azure Analysis Services, there are some additional steps you need to complete. This install article is specific to **Azure Analysis Services**. 
 
-To learn more about the gateway and how it's use by Azure Analysis Services, see [Connecting to on-premises data sources](analysis-services-gateway.md).
+To learn more about how Azure Analysis Services works with the gateway, see [Connecting to on-premises data sources](analysis-services-gateway.md). To learn more about advanced installation scenarios and the gateway in general, see [On-premises data gateways documentation](/data-integration/gateway/service-gateway-onprem).
 
 ## Prerequisites
 
@@ -30,11 +30,11 @@ To learn more about the gateway and how it's use by Azure Analysis Services, see
 
 **Important considerations:**
 
-* During setup, when registering your gateway with Azure, the default region for your subscription is selected. You can choose a different region. If you have servers in more than one region, you must install a gateway for each region. 
+* During setup, when registering your gateway with Azure, the default region for your subscription is selected. You can choose a different subscription and region. If you have servers in more than one region, you must install a gateway for each region. 
 * The gateway cannot be installed on a domain controller.
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
-* Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
+* Do not install the gateway on a computer with a wireless only connection to your network. Performance can be diminished.
 * When installing the gateway, the user account you're signed in to your computer with must have Log on as service privileges. When install is complete, the On-premises data gateway service uses the NT SERVICE\PBIEgwService account to log on as a service. A different account can be specified during setup or in Services after setup is complete. Ensure Group Policy settings allow both the account you're signed in with when installing and the service account you choose have Log on as service privileges.
 * Sign in to Azure with an account in Azure AD for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
@@ -82,7 +82,7 @@ In order to create a gateway resource in Azure, you must register the local inst
 
 ## <a name="create-resource"></a>Create an Azure gateway resource
 
-After you've installed and registered your gateway, you need to create a gateway resource in your Azure subscription. Sign in to Azure with the same account you used when registering the gateway.
+After you've installed and registered your gateway, you need to create a gateway resource in Azure. Sign in to Azure with the same account you used when registering the gateway.
 
 1. In Azure portal, click **Create a resource**, then search for **On-premises data gateway**, and then click **Create**.
 

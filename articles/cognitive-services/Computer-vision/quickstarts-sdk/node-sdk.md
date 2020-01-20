@@ -57,7 +57,7 @@ npm init
 Install the `ms-rest-azure` and `azure-cognitiveservices-computervision` NPM packages:
 
 ```console
-npm install azure-cognitiveservices-computervision ms-rest-azure
+npm install @azure/cognitiveservices-computervision
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
