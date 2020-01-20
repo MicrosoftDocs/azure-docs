@@ -40,10 +40,10 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
         PS C:\> Connect-AzAccount
 2. Set the PHP version for the app.
 
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
+        PS C:\> Set-AzWebApp -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
 3. The PHP version is now set. You can confirm these settings:
 
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
+        PS C:\> Get-AzWebApp -Name {app-name} | findstr PhpVersion
 
 ### Azure CLI 
 
