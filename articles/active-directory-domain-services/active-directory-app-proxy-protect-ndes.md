@@ -17,22 +17,15 @@ ms.reviewer: mimart
 
 # Azure Active Directory Application Proxy
 
-Azure Active Directory (AD) Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access, and other web applications, inside your private network and provides secure access to users outside your network via Azure.
+Azure Active Directory (AD) Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access, and other web applications, inside your private network. It also provides secure access to users outside your network via Azure.
 
 If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to internal applications](https://docs.microsoft.com/azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-Azure AD Application Proxy is built on Azure and gives you a massive amount of network bandwidth and server infrastructure to have better protection against DDOS attacks and superb availability. Furthermore, there is no need to open external firewall ports to your on premise network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
-
+Azure AD Application Proxy is built on Azure and gives you a massive amount of network bandwidth and server infrastructure to have better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there is no need to open external firewall ports to your on premise network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
 > Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see Azure Active Directory Editions. 
 > If you have Enterprise Mobility Suite (EMS) licenses you are eligible of using this solution.
 > The Azure AD Application Proxy connector only installs on a Windows Server 2012 R2 Operating system, this is also a requirement of the NDES server anyway.
-
-## Architecture
-
-The architecture of this solution might look as follows:
-
-![Intune Certificate Management Network diagram](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-log-in.png)
 
 ## Install the connector
 
