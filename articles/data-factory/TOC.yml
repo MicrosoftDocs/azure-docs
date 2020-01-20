@@ -623,7 +623,7 @@
       href: solution-template-migration-s3-azure.md
     - name: Move files
       href: solution-template-move-files.md
-    - name: Transform data with Databricks
+    - name: ETL with Azure Databricks
       href: solution-template-databricks-notebook.md
   - name: Troubleshooting guides
     items:
