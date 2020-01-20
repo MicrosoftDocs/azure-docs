@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Salesforce Sandbox supports **SP and IDP** initiated SSO
 * Salesforce Sandbox supports **Just In Time** user provisioning
 * Salesforce Sandbox supports [**Automated** user provisioning](salesforce-sandbox-provisioning-tutorial.md)
-* Once you configure the Salesforce Sandbox you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/proxy-deployment-aad)
+* Once you configure the Salesforce Sandbox you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Salesforce Sandbox from the gallery
 
@@ -266,8 +266,8 @@ When you click the Salesforce Sandbox tile in the Access Panel, you should be au
 
 - [Try Salesforce Sandbox with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/en-us/cloud-app-security/protect-salesforce)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
 
 - [Configure User Provisioning](salesforce-sandbox-provisioning-tutorial.md)
 
-- [How to protect Salesforce Sandbox with advanced visibility and controls](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [How to protect Salesforce Sandbox with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
