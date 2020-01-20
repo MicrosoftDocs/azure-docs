@@ -80,7 +80,7 @@ If you have entered valid information (supported region, valid names) your Synap
 
 The Azure portal provides user-friendly experience that you can use to create and configure Synapse workspace.
 
-1. In Azure portal, use **Create a resource** button and create Azure Data Lake Gen2 storage with [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md).
+1. In Azure portal, use **Create a resource** button and [create Azure Data Lake Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md) with [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md).
 2. When the storage is created, go to Blob Storage container and add new File system that should be used for Synapse workspace
 3. In Azure portal, use **Create a resource** button and search for "Synapse Analytics". Choose a service with the name **Azure Synapse Analytics (preview)**. Note: do not choose a service with label **(formerly SQL DW)** because this is single SQL Pool.
 4. Enter the subscription, resource group, workspace name, data center region where you want to deploy your workspace. Choose name of Data Lake and file system that you created in previous step. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
@@ -88,7 +88,7 @@ The Azure portal provides user-friendly experience that you can use to create an
 
 ## Using Azure PowerShell
 
-Azure PowerShell is still not available. TODO: Add a code block for Azure PowerShell:
+Azure PowerShell is still not available.
 <!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
 For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 
@@ -98,7 +98,7 @@ For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 
 ## Using Azure Command Line Interface
 
-Azure PowerShell is still not available. TODO: Add a code block for Azure CLI:
+Azure PowerShell is still not available.
 
 ```azurecli-interactive 
 
@@ -106,10 +106,12 @@ Azure PowerShell is still not available. TODO: Add a code block for Azure CLI:
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete storage and workspace with the following steps:
+To remove the resource group and its associated resources, including the new storage account, use the Azure portal, Azure CLI, or Azure PowerShell.
 
-1. From the top-heading search box search for the resources using the workspace or storage name that you used.
-2. Select resource group and delete it if you don't have other resources in the resource group.
+To remove resources using the Azure portal:
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
+2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
+3. Select **Delete resource group**, and confirm.
 
 <!---Required:
 To avoid any costs associated with following the quickstart procedure, a Clean up resources (H2) should come just before Next steps (H2)
