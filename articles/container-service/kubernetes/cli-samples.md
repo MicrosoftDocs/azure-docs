@@ -1,10 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service Script Samples
 description: Azure Container Service Script Samples
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: sample
 ms.date: 02/26/2018
