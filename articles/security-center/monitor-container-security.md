@@ -17,17 +17,19 @@ This page explains how to use the container security features described in the [
 
 Azure Security Center covers the following three aspects of container security:
 
-- **Vulnerability management** - If you're on Security Center's standard pricing tier (see [pricing](/azure/security-center/security-center-pricing)), you can scan your Azure Container Registry every time a new image is pushed. The scanner (powered by Qualys) presents findings as Security Center [recommendations for containers](recommendations-reference.md#recs-containers).
+- **Vulnerability management** - If you're on Security Center's standard pricing tier (see [pricing](/azure/security-center/security-center-pricing)), you can scan your Azure Container Registry every time a new image is pushed. The scanner (powered by Qualys) presents findings as Security Center recommendations.
+    For detailed instructions, see [Scanning your container registries for vulnerabilities](#scanning-your-container-registries-for-vulnerabilities) below.
 
-- **Hardening of the container's environment** - Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker. Security Center continuously compares the containers' configurations with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/)) and alerts you if your containers don't satisfy any of the controls.
+- **Hardening of the container's environment** - Security Center finds unmanaged containers hosted on IaaS Linux VMs or other Linux machines running Docker, and continuously compares the containers' configurations with the Center for Internet Security (CIS) Docker Benchmark. Security Center alerts you if your containers don't satisfy any of the controls.
+    For detailed instructions, see [](#scanning-your-container-registries-for-vulnerabilities) below.
 
-- **Runtime protection** - If you're on Security Center's standard pricing tier, you can utilise  real-time threat detection for your containerized environments. Security Center generates alerts for suspicious activities at the host and AKS cluster level.
+- **Runtime protection** - If you're on Security Center's standard pricing tier, you'll get real-time threat detection for your containerized environments. Security Center generates alerts for suspicious activities at the host and AKS cluster level.
 
 See below for explanations of how to use each of these features.  
 
 
 
-## How to use container vulnerability scanning
+## Scanning your container registries for vulnerabilities 
 
 1. To enable vulnerability scans of your Azure Container Registry images:
 
@@ -51,27 +53,27 @@ See below for explanations of how to use each of these features.
 
 
 1. Select the recommendation. 
-    The recommendation details page appears with additional information including the list of registries with vulnerable images ("Affected resources") and the remediation steps. 
+    The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps. 
 
 1. Select a specific registry to see the repositories within it that have vulnerable repositories.
 
-    ![Select registry](media/monitor-container-security/acr-finding-select-registry.png)
+    ![Select a registry](media/monitor-container-security/acr-finding-select-registry.png)
 
-    The registry details page appears with the list of affected repositories.
+    The registry details page opens with the list of affected repositories.
 
 1. Select a specific repository to see the repositories within it that have vulnerable images.
 
-    ![Select repository](media/monitor-container-security/acr-finding-select-repository.png)
+    ![Select a repository](media/monitor-container-security/acr-finding-select-repository.png)
 
-    The repository details page appears with the list of vulnerable images together with an assessment of the severity of the findings.
+    The repository details page opens. It lists the vulnerable images together with an assessment of the severity of the findings.
 
 1. Select a specific image to see the vulnerabilities.
 
     ![Select images](media/monitor-container-security/acr-finding-select-image.png)
 
-    The list of findings for the selected image appears.
+    The list of findings for the selected image opens.
 
-    ![Findings](media/monitor-container-security/acr-findings.png)
+    ![List of findings](media/monitor-container-security/acr-findings.png)
 
 1. To learn more about a finding, select the finding. 
 
@@ -79,24 +81,58 @@ See below for explanations of how to use each of these features.
 
     [![Findings details pane](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
-    This pane includes a detailed description of the issue as well as links to external resources to mitigate the threats.
+    This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
 
 
-## How to use the container environment hardening tools
+## Hardening your containers' hosts
+
+Security Center constantly monitors the configuration of your Kubernetes clusters, and generates security recommendations that reflect industry standards.
+
+To view Azure Security Center's security recommendations for your containers' hosts:
+
+1. From the Security Center navigation bar, open **Compute & apps** and select the **Containers** tab.
+
+1. Optionally, filter the list of your container resources to container hosts.
+
+    ![Container resources filter](media/monitor-container-security/container-resources-filter.png)
+
+1. From the list of your container host machines, select one to investigate further.
+
+    ![Container host recommendations](media/monitor-container-security/container-resources-filtered-to-hosts.png)
+
+    The **Container host information page** opens with details of the host and a list of recommendations.
+
+1. From the recommendations list, select a recommendation to investigate further.
+
+    ![Container host recommendation list](media/monitor-container-security/container-host-rec.png)
+
+1. Optionally, read the description, information, threats, and remediation steps. 
+
+1. Select **Take Action** at the bottom of the page.
+
+    [![Take action button](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
+
+    Log Analytics opens with a custom operation ready to run.
+
+    [![Log Analytics action](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
+
+1. Tweak the query parameters and select **Run** when you're sure it's ready for your host. 
 
 
+## Responding to real-time threat detection
 
-##
-
-
+Placeholder text.
+Placeholder text.
+Placeholder text.
+Placeholder text.
 
 
 ## Next steps
 
-In this article, you learned [x]]. 
+In this article, you learned how to use Security Center's container security features. 
 
-For other related material, see the following articles: 
+For other related material, see the following pages: 
 
-- [title](page.md)
-- [title](page.md)
-- [title](page.md)
+- [Security Center recommendations for containers](recommendations-reference.md#recs-containers)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
+- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)
