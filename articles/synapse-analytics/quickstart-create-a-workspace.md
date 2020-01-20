@@ -23,14 +23,14 @@ Starts with "quickstart: "
 Make the first word following "quickstart:" a verb.
 --->
 
-Introductory paragraph.
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
 
-In this quickstart, you will <do X>
+In this quickstart, you will create new Synapse workspace with one (default) Data Lake storage and SQL Analytics On-demand query service. 
+   
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-If you don’t have a <service> subscription, create a free trial account...
 <!--- Required, if a free trial account exists
 Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
 --->
@@ -39,9 +39,7 @@ Because quickstarts are intended to help new customers use a subscription to qui
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
+- For all steps in this quickstart, sign in to the [Azure portal](https://portal.azure.com/).
 <!---If you feel like your quickstart has a lot of prerequisites, the quickstart may be the wrong content type - a tutorial or how-to guide may be the better option.
 If you need them, make Prerequisites your first H2 in a quickstart.
 If there’s something a customer needs to take care of before they start (for example, creating a VM) it’s OK to link to that content before they begin.
@@ -52,7 +50,7 @@ If there’s something a customer needs to take care of before they start (for e
 <!--Sign in to the [<service> portal](url). --->
 <!---If you need to sign in to the portal to do the quickstart, this H2 and link are required.--->
 
-## Procedure 1
+## Using Azure template
 
 <!---Required:
 Quickstarts are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
@@ -72,7 +70,7 @@ Include a sentence or two to explain only what is needed to complete the procedu
    If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
 1. Step four of the procedure
 
-## Procedure 2
+## Using Azure portal
 
 Include a sentence or two to explain only what is needed to complete the procedure.
 
@@ -80,7 +78,7 @@ Include a sentence or two to explain only what is needed to complete the procedu
 1. Step two of the procedure
 1. Step three of the procedure
 
-## Procedure 3
+## Using Azure PowerShell
 
 Include a sentence or two to explain only what is needed to complete the procedure.
 <!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
