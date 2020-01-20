@@ -70,6 +70,15 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 In Log Analytics, search for the schema **DnsEvents** and make sure there are events.
 
+## Troubleshooting
+
+If you have problems with Lookup Queries showing up in your Sentinel, follow these steps **in order** to see that everything comes through:
+1. Turn on the DNS Analytics logs on your servers https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)
+2. Make sure DNSEvents are in your Log Analytics collection list
+3. Turn on the Azure DNS Analytics https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics
+4. Inside Azure DNS Analytics, change one of the settings, save it - change it back if you need to, then save it again.
+5. Check Azure DNS analytics to see that queries are showing in there
+
 ## Next steps
 In this document, you learned how to connect DNS on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
