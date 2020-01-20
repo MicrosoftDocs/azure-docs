@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Jive supports **SP** initiated SSO
 * Jive supports [**Automated** user provisioning](jive-provisioning-tutorial.md)
-* Once you configure the Jive you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/proxy-deployment-aad)
+* Once you configure the Jive you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Jive from the gallery
 
@@ -186,8 +186,8 @@ When you click the Jive tile in the Access Panel, you should be automatically si
 
 - [Try Jive with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Configure User Provisioning](jive-provisioning-tutorial.md)
 
-- [How to protect Jive with advanced visibility and controls](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [How to protect Jive with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
