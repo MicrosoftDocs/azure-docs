@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure in **IDP** intiated mode perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure in **IDP**-initiated mode, perform the following steps:
 
     ![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -110,7 +110,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual identifier and Reply URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get these values. If you don't understand Identifier value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP**-initiated mode:
 
     ![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
