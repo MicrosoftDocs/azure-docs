@@ -12,13 +12,13 @@ ms.service: azure-remote-rendering
 
 # SDK concepts
 
-This chapter explains some high level concepts of the Remote Rendering API.
+This chapter explains some high-level concepts of the Remote Rendering API.
 
 ## System Initialization
 
-Before any action can be performed in Azure Remote Rendering, the system must be initialized. ```RemoteManagerStatic.StartupRemoteRendering``` will start the system. When initializing the system, the rendering mode, the coordinate system for the host engine, and the host engine id must be specified. 
+Before any action can be performed in Azure Remote Rendering, the system must be initialized. ```RemoteManagerStatic.StartupRemoteRendering``` will start the system. When `StartupRemoteRendering` initializes Azure Remote Rendering, the rendering mode, the coordinate system for the host engine, and a string identifying the host engine must be provided via the `ClientInit` structure. Call `RemoteManagerStatic.StartupRemoteRendering` before any holographic APIs are called.
 
-In its initialization, coordinate system conventions for the forward, right, and up vector must be set via ```ClientInit.up, forward, right```. This will inform the Remote Rendering service of the expected convention of 3d space of the host engine and ensure that the host can work in its native coordinate space.
+In its initialization, coordinate system conventions for the forward, right, and up vector must be set via ```ClientInit.up, forward, right```. The up/forward/right convention inform the Remote Rendering service of the host engine's expected 3d convention. Hosts should always work in their native coordinate space with Azure Remote Rendering converting user input to its internal convention inside the SDK.
 
 When remote rendering is no longer needed by an application, ```RemoteManagerStatic.ShutdownRemoteRendering``` should be called to deinitialize the system. ```RemoteManagerStatic.ShutdownRemoteRendering``` will invalidate any outstanding RemoteRendering objects.
 
