@@ -62,6 +62,8 @@
       href: spring-cloud-howto-cicd.md
     - name: CI/CD with GitHub Actions
       href: spring-cloud-howto-github-actions.md
+    - name: Spring Cloud GitHub actions using key vault
+      href: spring-cloud-github-actions-key-vault.md
     - name: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Reference
