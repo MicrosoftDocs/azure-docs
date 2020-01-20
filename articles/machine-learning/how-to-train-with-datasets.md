@@ -125,7 +125,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### Configure the estimator
 
-Besides passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can keep your training script independent of azureml-sdk. In other words, you can use the same training script for local debugging and remote training on any cloud platform.
+Besides passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can keep your training script independent of azureml-sdk. In other words, you will be able use the same training script for local debugging and remote training on any cloud platform.
 
 An [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) estimator object is used to submit the run for scikit-learn experiments. Learn more about training with the [SKlearn estimator](how-to-train-scikit-learn.md).
 
