@@ -41,7 +41,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SuccessFactors supports **SP** initiated SSO.
-* Once you configure the SuccessFactors you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/proxy-deployment-aad)
+* Once you configure the SuccessFactors you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding SuccessFactors from the gallery
 
@@ -248,9 +248,9 @@ When you click the SuccessFactors tile in the Access Panel, you should be automa
 
 - [Try SuccessFactors with Azure AD](https://aad.portal.azure.com)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect SuccessFactors with advanced visibility and controls](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [How to protect SuccessFactors with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 
