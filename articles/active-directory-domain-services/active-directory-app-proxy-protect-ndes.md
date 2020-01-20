@@ -95,5 +95,5 @@ With an NDES server ready to be used as the Azure AD Application Proxy connector
 
 1. Change the NDES URL provided (via Microsoft Intune) to devices, this could either be in System Center Configuration Center or in Intune Cloud.
 
-   a. For System Center Configuration Center go to the Certificate Registration Point (CRP) and adjust the URL, this is what devices reach out to and present their challenge.
-   b. For Intune Cloud Only a.k.a. Intune Standalone, either Edit or Create a new SCEP policy and add the new URLclip_image030
+   * For System Center Configuration Center go to the Certificate Registration Point (CRP) and adjust the URL, this is what devices reach out to and present their challenge.
+   * For Intune Cloud Only a.k.a. Intune Standalone, either Edit or Create a new SCEP policy and add the new URLclip_image030
