@@ -155,6 +155,9 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
+When you try to delete a file, you may receive the following error:
+
+The specified resource is marked for deletion by an SMB client.
 
 ### Cause
 This issue typically occurs if the file or directory has an open handle. 
