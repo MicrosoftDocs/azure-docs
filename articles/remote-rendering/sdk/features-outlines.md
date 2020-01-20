@@ -20,7 +20,7 @@ Outline rendering of single objects is invoked through [`HierarchicalStateOverri
 The global outline parameters may be changed via the client API by calling 
 
 ``` cs
-RemoteRenderingClient.SetOutlineParams(UbColor color, float pulseRateHz, float pulseIntensity)
+AzureSession.Actions.SetOutlineParams(UbColor color, float pulseRateHz, float pulseIntensity)
 ```
 
 ### Parameters for `SetOutlineParams`
@@ -35,26 +35,12 @@ RemoteRenderingClient.SetOutlineParams(UbColor color, float pulseRateHz, float p
 
 ### Example
 
-The following code shows an example for setting outline parameters via the C++ API
+The following code shows an example for setting outline parameters via the API
 
-``` cpp
-void exampleOutlineParameters(RemoteRenderingClient& client)
-{
-    OutlineSettings* outlineSettings = client.AccessObjectDatabase().GetState<OutlineSettings>();
-
-    if (outlineSettings != nullptr)
-    {
-        outlineSettings->SetColor(ColorUb(255, 255, 0, 255));
-        outlineSettings->SetPulseRateHz(2.0f);
-        outlineSettings->SetPulseIntensity(0.5f);
-    }
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-public void ExampleOutlineParameters()
+public void ExampleOutlineParameters(AzureSession session)
 {
-    OutlineSettings outlineSettings = RemoteManager.GetOutlineSettings();
+    OutlineSettings outlineSettings = session.Actions.GetOutlineSettings();
     
     try
     {

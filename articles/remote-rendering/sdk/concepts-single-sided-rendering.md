@@ -37,22 +37,10 @@ The `SingleSidedSettings` state provides the necessary object to change the sett
 
 Changing the single sided rendering settings can be done as follows in the C++ and C# APIs:
 
-``` cpp
-void exampleSingleSidedRendering(RemoteRenderingClient& client)
-{
-    auto settings = client.AccessObjectDatabase().GetState<SingleSidedSettings>();
-
-    // Single sided geometry is rendered as is
-    settings->SetMode(SingleSidedMode::Normal);
-
-    // Single sided geometry is always rendered double sided
-    settings->SetMode(SingleSidedMode::AlwaysDoubleSided);
-}
-```
 ``` cs
-public void exampleSingleSidedRendering()
+public void exampleSingleSidedRendering(AzureSession session)
 {
-    SingleSidedSettings settings = RemoteManager.GetSingleSidedSettings();
+    SingleSidedSettings settings = session.Actions.GetSingleSidedSettings();
 
     // Single sided geometry is rendered as is
     settings.Mode = SingleSidedMode.Normal;

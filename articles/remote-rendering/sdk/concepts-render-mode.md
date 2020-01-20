@@ -23,34 +23,18 @@ As best practices to quickly decide which mode is most appropriate, the followin
 
 The render mode used on a Remote Rendering VM is switchable during its lease time, but only during the connection operation. Subsequent switches require the user to orderly disconnect from the VM and specify the desired mode during the following connect operation.
 
-C++ sample code:
-
-```cpp
-bool exampleConnect(RemoteRenderingClient& client)
-{
-    if (client.Connect("IpOrHostname", 50051, ServiceRenderMode::Quality) == ARRResult::Success)
-    {
-        return true;
-    }
-
-    return false;
-}
-```
-
 C# sample code:
 
 ```cs
-public void ExampleConnect()
+public void ExampleConnect(AzureSession session)
 {
-    var result = RemoteManager.Connect("IpOrHostname", null, true, 50051, ServiceRenderMode.Quality);
-    if(result != ARRResult.Success)
-    {
-        throw RRException.CreateFromReturnedError("Failed to connect to given host!", result);
-    }
+    ConnectToRuntimeParams params = new ConnectToRuntimeParams();
+    params.mode = ServiceRenderMode.Quality;
+    session.ConnectToRuntime(params);
 ```
 
 > [!NOTE]
-> To switch the render mode the service runs with, call `RemoteRenderingClient::Disconnect` or `RemoteManager.Disconnect` respectively, wait until the disconnect event has been triggered and reconnect with the desired mode.
+> To switch the render mode the service runs with, call `RemoteManager.Disconnect` respectively, wait until the disconnect event has been triggered and reconnect with the desired mode.
 
 ## Modes
 

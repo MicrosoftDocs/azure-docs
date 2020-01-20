@@ -109,12 +109,6 @@ This script will instance the RemoteManager that will coordinate the rendering r
     }
 ```
 
-```csharp
-    private void LateUpdate()
-    {
-        RemoteManager.Update();
-    }
-```
 
 ## Configure the AzureFrontend/AzureSession
 

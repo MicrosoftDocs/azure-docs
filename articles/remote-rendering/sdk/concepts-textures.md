@@ -21,30 +21,13 @@ Textures are immutable shared resources that can be used in various places in th
 When loading a texture, the user has to know the type of the texture. If the texture type mismatches, the texture load fails and an error code is returned.
 Loading texture with the same URI twice will return the same texture as it is a [shared resource](../concepts/sdk-concepts.md#resources).
 
-``` cpp
-void LoadMyTexture(RemoteRenderingClient& client, const char* textureUri)
-{
-    client.LoadTextureAsync( LoadTextureCInfo{ textureUri, Texture::Texture2D },
-    [&](ARRResult error, ObjectId textureId)
-    {
-        if (error == ARRResult::Success)
-        {
-            //use textureId to get TextureHandle
-        }
-        else
-        {
-            std::cout << "Texture loading failed!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-void LoadMyTexture(string textureUri)
+LoadTextureAsync _async = null;
+void LoadMyTexture(AzureSession session, string textureUri)
 {
-    RemoteManager.LoadTextureAsync(
-    	new LoadTextureParams(textureUri, Texture.TextureType.Texture2D )).Completed +=
-        (IAsync<Texture> res) =>
+     _async  = session.Actions.LoadTextureAsync(
+    	new LoadTextureParams(textureUri, TextureType.Texture2D )).Completed +=
+        (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -53,7 +36,8 @@ void LoadMyTexture(string textureUri)
             else
             {
                 Console.WriteLine("Texture loading failed!");
-            }
+            } 
+            _async = null;
         };
 }
 ```

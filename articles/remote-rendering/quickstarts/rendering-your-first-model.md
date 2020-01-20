@@ -89,7 +89,7 @@ When the project opens, open the SampleScene scene, and select the **RRRoot** no
 
 ![Unity Scene Tree](./media/unity-scene.png "Unity Scene Tree")
 
-Select 'Use Session' as the runtime mode. By default, this will create a session for you using the account the information provided in the Account window. An existing session (such as those created with the RESTful API) can also be opened by selecting the 'UseExistingSessionId' toggle.
+The default settings create a session for you using the account the information provided in the Account window. An existing session (such as those created with the RESTful API) can also be opened by selecting the 'UseExistingSessionId' toggle.
 
 ![Unity Configure Sample Not Playing](./media/arr-sample-configure-session.png "Unity Configure Sample Not Playing")
 
@@ -98,6 +98,12 @@ If the account has been correctly set up, then pushing play should update the AR
 ![Unity Configure Sample Playing](./media/arr-sample-configure-session-running.png "Unity Configure Sample Playing")
 
 The session will undergo a series of state transitions. The session will first start as Starting. This will take a number of minutes before transitioning to Ready. Once Ready, the runtime can connect to the Ready session. It will enter the Connecting state and, once successfully connected you should see a remotely rendered Engine as shown below - congratulations, you are viewing a remotely rendered model!
+
+You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector. This has to be repeated for each game object to explore the hierarchy.
+<br />![Unity Hierarchy](./media/unity-hierarchy.png)
+
+You can also move remote objects or the cut plane (**InteractionSample/CutPlane**) around in the editor, to sync the transform either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
+<br />![Unity Inspector](./media/unity-inspector.png)
 
 ![Unity Engine](./media/unity-engine.png "Unity Engine")
 
