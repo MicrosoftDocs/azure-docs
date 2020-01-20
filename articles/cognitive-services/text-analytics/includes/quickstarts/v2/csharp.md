@@ -22,7 +22,7 @@ ms.author: aahi
 
 ### Create a Text Analytics Azure resource
 
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### Create a new .NET Core application
 
@@ -36,7 +36,7 @@ Open the *program.cs* file and add the following `using` directives:
 
 In the application's `Program` class, create variables for your resource's key and endpoint. 
 
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info-v2.md)]
 
 ```csharp
 private static readonly string key = "<replace-with-your-text-analytics-key-here>";

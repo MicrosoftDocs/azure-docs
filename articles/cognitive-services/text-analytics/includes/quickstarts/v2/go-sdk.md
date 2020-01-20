@@ -17,7 +17,7 @@ ms.author: aahi
 
 ### Create a Text Analytics Azure resource 
 
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### Create a new Go project
 
@@ -87,7 +87,7 @@ These code snippets show you how to do the following with the Text Analytics cli
 
 In a new function, create variables for your resource's Azure endpoint and subscription key.
 
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info-v2.md)]
 
 Create a new [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object. Pass your key to the [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) function, which will then be passed to the client's `authorizer` property.
 
