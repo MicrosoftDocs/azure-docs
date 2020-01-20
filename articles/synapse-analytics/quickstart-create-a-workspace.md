@@ -98,7 +98,7 @@ For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 
 ## Using Azure Command Line Interface
 
-Azure PowerShell is still not available.
+Azure CLI is still not available.
 
 ```azurecli-interactive 
 
@@ -112,6 +112,18 @@ To remove resources using the Azure portal:
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
+
+To remove the resource group and its associated resources using Azure CLI, use the [az group delete](/cli/azure/group) command.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
+To remove resources using Azure PowerShell, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $resourceGroup
+```
 
 <!---Required:
 To avoid any costs associated with following the quickstart procedure, a Clean up resources (H2) should come just before Next steps (H2)
