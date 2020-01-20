@@ -84,7 +84,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * G Suite supports **SP** initiated SSO
 
 * G Suite supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Once you configure the G Suite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/proxy-deployment-aad)
+* Once you configure the G Suite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding G Suite from the gallery
 
@@ -249,9 +249,9 @@ When you click the G Suite tile in the Access Panel, you should be automatically
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 - [Try G Suite with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/en-us/cloud-app-security/protect-gsuite)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 
-- [How to protect G Suite with advanced visibility and controls](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [How to protect G Suite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png
