@@ -63,14 +63,14 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
     >[!Note] 
     >If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.     
 
-For the IoT Edge deployment for Azure Security Center for IoT. Walk through each step 
+Complete each step to complete your IoT Edge deployment for Azure Security Center for IoT. 
 
 #### Step 1: Modules
 
-1. Choose **AzureSecurityCenterforIoT** Module
-1. In **Module Settings** tab - Change the **name** to **azureiotsecurity**.
-1. In **Enviroment Variables** tab - add variable if needed (like debug level)
-1. In **Container Create Options** tab - Add the following configuration:      
+1. Choose the **AzureSecurityCenterforIoT** Module
+1. In the **Module Settings** tab, change the **name** to **azureiotsecurity**.
+1. In the **Enviroment Variables** tab, add variable if needed (like debug level)
+1. In the **Container Create Options** tab, add the following configuration:      
     ``` json
     {
         "NetworkingConfig": {
@@ -88,7 +88,7 @@ For the IoT Edge deployment for Azure Security Center for IoT. Walk through each
         }
     }    
     ```
-1. In **Module Twin Settings** tab - Add the following configuration:
+1. In the **Module Twin Settings** tab, add the following configuration:
       
     ``` json
       "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
@@ -97,7 +97,7 @@ For the IoT Edge deployment for Azure Security Center for IoT. Walk through each
 1. Click **update**.
 
 #### Step 2: Runtime Settings
-1. press on **Runtime Settings** 
+1. Select **Runtime Settings** 
 1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
 1. Verify **Create Options** is set to: 
          
