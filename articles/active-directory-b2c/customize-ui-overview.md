@@ -62,6 +62,8 @@ When you choose a template, the selected layout is applied to all pages in your 
 
 ## Custom HTML and CSS
 
+If you wish to design your own policy layout with your customized HTML and CSS, you can do so by switching the "Use custom page content" toggle for each of the Layout names present in your policy. Please follow the below instructions regarding the custom layout configurations:
+
 Azure AD B2C runs code in your customer's browser by using an approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/).
 
 At runtime, content is loaded from a URL that you specify in your user flow or custom policy. Each page in the user experience loads its content from the URL you specify for that page. After content is loaded from your URL, it's merged with an HTML fragment inserted by Azure AD B2C, and then the page is displayed to your customer.
