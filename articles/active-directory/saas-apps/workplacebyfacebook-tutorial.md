@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/07/2020
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -47,6 +47,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Workplace by Facebook supports **just-in-time provisioning**
 * Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* Once you configure the Workplace by Facebook you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Workplace by Facebook from the gallery
 
@@ -244,3 +245,7 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 - [Configure User Provisioning](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Try Workplace by Facebook with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Workplace by Facebook with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
