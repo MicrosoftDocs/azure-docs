@@ -48,15 +48,15 @@ This VM will transition from the ```Starting``` state to the ```Ready``` state o
     RRRenderingSessionProperties sessionProperties = null;
     while (true)
     {
-        sessionProperties = await session.GetRenderingSessionPropertiesAsync().AsTask();
-        if( sessionProperties.Status != ARRRenderingSessionStatus.Starting &
-            sessionProperties.Status != ARRRenderingSessionStatus.Unknown)
+        sessionProperties = await session.GetPropertiesAsync().AsTask();
+        if( sessionProperties.Status != RenderingSessionStatus.Starting &
+            sessionProperties.Status != RenderingSessionStatus.Unknown)
         {
             break;
         }
     }
 
-    if( sessionProperties.Status != ARRRenderingSessionStatus.Ready)
+    if( sessionProperties.Status != RenderingSessionStatus.Ready)
     {
         // Do some error handling and either terminate or retry.
     }
@@ -152,7 +152,7 @@ Besides these built-in resources, the user may also use resources from external 
 
 The lifetime of these objects are not related to the lifetime of the user object representation, such as the `Entity` class.
 
-## Resources and Lifetime Management
+## <span id="resources">Resources and Lifetime Management
 [Meshes](../sdk/concepts-meshes.md), [Materials](../sdk/concepts-materials.md) and [Textures](../sdk/concepts-textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count, rather than explicit ```Destroy``` method used for Entities and Components. When the resource is not assigned anywhere in the scene tree (that is, Mesh to a MeshComponent) and the user does not hold a reference to the resource, then the resource is destroyed in the API on both client and server. Server will then release the native resource and free the memory.
 
 ## General Lifetime Management
