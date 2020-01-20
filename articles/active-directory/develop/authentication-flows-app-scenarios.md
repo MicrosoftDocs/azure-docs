@@ -235,7 +235,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
    <td>Work or school accounts</td>
  </tr>
