@@ -1,18 +1,9 @@
 ---
-title: What are Azure Availability Zones? | Microsoft Docs
+title: What are Azure Availability Zones?
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
-services: 
-documentationcenter:
 author: cynthn
-manager: jeconnoc
-editor:
-tags:
-ms.assetid:
 ms.service: azure
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/17/2019
 ms.author: cynthn
 ms.custom: fasttrack-edit
