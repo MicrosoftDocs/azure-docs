@@ -6,7 +6,7 @@ ms.date: 01/03/2020
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 
-This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/resource-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
+This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/platform-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
 
 * Audit registry authentication events to ensure security and compliance 
 
@@ -41,7 +41,7 @@ For operations, log data includes:
   * Success or failure status
   * Start and end time stamps
 
-In addition to resource logs, Azure provides an [activity log](../azure-monitor/platform/activity-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
+In addition to resource logs, Azure provides an [activity log](../azure-monitor/platform/platform-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
 
 ## Enable collection of resource logs
 

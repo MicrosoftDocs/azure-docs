@@ -41,13 +41,13 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
-+ [Visual Studio Code extension](service/how-to-vscode-tools.md)
++ [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 + Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
 
-You can even use [MLflow to track metrics and deploy models](service/how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
+You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 ## Build ML models in Python or R
 
@@ -80,7 +80,7 @@ When you have the right model, you can easily use it in a web service, on an IoT
 
 Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
-These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-use-parallel-run-step.md) on large quantities of data.
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 
@@ -99,12 +99,12 @@ Azure Machine Learning works with other services on the Azure platform, and also
 
 + Compute targets such as __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, and __Azure HDInsight__. For more information on compute targets, see [What are compute targets?](concept-compute-target.md).
 + __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](concept-event-grid-integration.md).
-+ __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](service/monitor-azure-machine-learning.md).
++ __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 + Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](how-to-access-data.md) and [Create datasets with Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
 + __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](concept-train-model-git-integration.md).
-+ __MLFlow__. For more information, see [MLflow to track metrics and deploy models](service/how-to-use-mlflow.md) 
++ __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
 + __Kubeflow__. For more information, see [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 ### Secure communications
@@ -130,10 +130,10 @@ Customers are responsible for costs incurred on compute and other Azure resource
 - Create your first experiment with your preferred method:
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning to train & deploy ML models](  service/tutorial-first-experiment-automated-ml.md) 
+  + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 
-- Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
+- Learn about [machine learning pipelines](concept-ml-pipelines.md) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning architecture and concepts](concept-azure-machine-learning-architecture.md) article.

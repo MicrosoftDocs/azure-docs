@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 01/14/2020
 ---
 
 # Understand and use Azure IoT Hub SDKs
@@ -106,8 +106,8 @@ Azure IoT Hub service SDK for Node.js:
 
 Azure IoT Hub service SDK for Python: 
 
-* Download from [pip](https://pypi.python.org/pypi/azure-iothub-service-client/)
-* [Source code](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)
+* Download from [pip](https://pypi.python.org/pypi/azure-iot-hub/)
+* [Source code](https://github.com/Azure/azure-iot-sdk-python/tree/master)
 
 Azure IoT Hub service SDK for C: 
 

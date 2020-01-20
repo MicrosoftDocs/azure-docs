@@ -35,7 +35,7 @@
     - name: Bind your application to Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
     - name: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
-      href: /jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Concepts
   items: 
     - name: Understanding Azure Spring Cloud quotas and limits
@@ -54,6 +54,8 @@
       href: spring-cloud-service-registration.md
     - name: Analyze application logs and Metrics
       href: diagnostic-services.md
+    - name: Stream Azure Spring Cloud app logs in real-time
+      href: spring-cloud-howto-log-streaming.md  
     - name: Automate your CI/CD pipeline in Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
     - name: Use persistent storage in Azure Spring Cloud
