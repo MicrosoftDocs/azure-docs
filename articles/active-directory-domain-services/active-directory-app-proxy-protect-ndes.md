@@ -17,11 +17,11 @@ ms.reviewer: mimart
 
 # Azure Active Directory Application Proxy
 
-Azure Active Directory (AD) Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access, and other web applications, inside your private network. It also provides secure access to users outside your network via Azure.
+Azure Active Directory (AD) Application Proxy lets you publish applications inside your network. These applications are ones such as SharePoint sites, Microsoft Outlook Web App, and other web applications. It also provides secure access to users outside your network via Azure.
 
 If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to internal applications](https://docs.microsoft.com/azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-Azure AD Application Proxy is built on Azure and gives you a massive amount of network bandwidth and server infrastructure to have better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there is no need to open external firewall ports to your on premise network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Azure AD Application Proxy is built on Azure. It gives you a massive amount of network bandwidth and server infrastructure to have better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there's no need to open external firewall ports to your on-premise network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
 > Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see Azure Active Directory Editions. 
 > If you have Enterprise Mobility Suite (EMS) licenses you are eligible of using this solution.
@@ -80,7 +80,7 @@ With an NDES server ready to be used as the Azure AD Application Proxy connector
 
    * **Name**: Enter a name for the application.
    * **Internal Url**: Enter the internal URL/FQDN of your NDES server on which you installed the connector.
-   * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre-authentication, the protocol used for Certificate Requests (SCEP) does not provide such option.
+   * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre-authentication, the protocol used for Certificate Requests (SCEP) doesn't provide such option.
 ]   * Copy the provided **External URL** to your clipboard.
 
 1. Select **+Add** to save your application.
@@ -91,9 +91,9 @@ With an NDES server ready to be used as the Azure AD Application Proxy connector
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 
-1. You should see a **HTTP Error 403 – Forbidden** response.
+1. You should see an **HTTP Error 403 – Forbidden** response.
 
-1. Change the NDES URL provided (via Microsoft Intune) to devices, this could either be in System Center Configuration Center or in Intune Cloud.
+1. Change the NDES URL provided (via Microsoft Intune) to devices, this change could either be in Microsoft Endpoint Configuration Center or in Intune Cloud.
 
-   * For System Center Configuration Center go to the Certificate Registration Point (CRP) and adjust the URL, this is what devices reach out to and present their challenge.
-   * For Intune Cloud Only a.k.a. Intune Standalone, either Edit or Create a new SCEP policy and add the new URLclip_image030
+   * For Configuration Center, go to the Certificate Registration Point (CRP) and adjust the URL. This URL is what devices call out to and present their challenge.
+   * For Intune Cloud Only, also known as Intune Standalone, either edit or create a new SCEP policy and add the new URL.
