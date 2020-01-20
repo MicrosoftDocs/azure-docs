@@ -25,7 +25,7 @@ Application Insights can be used with any web pages - you just add a short piece
     * [JavaScript Snippet](#snippet-based-setup)
 
 > [!IMPORTANT]
-> > Only use one method to add the JavaScript SDK to your application. If you use the NPM Setup, don't use the Snippet and vice versa.
+> Only use one method to add the JavaScript SDK to your application. If you use the NPM Setup, don't use the Snippet and vice versa.
 
 > [!NOTE]
 > NPM Setup installs the JavaScript SDK as a dependency to your project, enabling IntelliSense, whereas the Snippet fetches the SDK at runtime. Both support the same features. However, developers who desire more custom events and configuration generally opt for NPM Setup whereas users looking for quick enablement of out-of-the-box web analytics opt for the Snippet.

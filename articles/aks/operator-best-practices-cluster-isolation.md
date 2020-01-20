@@ -50,7 +50,7 @@ A common approach to cluster isolation is to use physically separate AKS cluster
 
 ![Physical isolation of individual Kubernetes clusters in AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Physically separate clusters usually have a low pod density. As each team or workload has their own AKS cluster, the cluster is often over-provisioned with compute resources. Often, a small number of pods is scheduled on those nodes. Unused capacity on the nodes can't be used for applications or services in development by other teams. These excess resources contribute to the additional costs in physically separate clusters.
+Physically separate clusters usually have a low pod density. As each team or workload has their own AKS cluster, the cluster is often over-provisioned with compute resources. Often, a small number of pods are scheduled on those nodes. Unused capacity on the nodes can't be used for applications or services in development by other teams. These excess resources contribute to the additional costs in physically separate clusters.
 
 ## Next steps
 
