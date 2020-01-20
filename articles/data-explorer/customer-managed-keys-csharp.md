@@ -12,8 +12,8 @@ ms.date: 01/06/2020
 # Configure customer-managed-keys using C#
 
 > [!div class="op_single_selector"]
-> * [C#](create-cluster-database-csharp.md)
-> * [Azure Resource Manager template](create-cluster-database-resource-manager.md)
+> * [C#](customer-managed-keys-csharp.md)
+> * [Azure Resource Manager template](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
