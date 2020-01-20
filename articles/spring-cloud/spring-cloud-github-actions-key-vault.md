@@ -1,5 +1,5 @@
 ---
-title:  Azure Spring Cloud GitHub Actions using Key Vault
+title:  Key Vault for Spring Cloud GitHub Actions 
 description: How to use key vault with CI/CD workflow for Azure Spring Cloud with GitHub Actions
 author:  MikeDodaro
 ms.author: barbkess
@@ -7,7 +7,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
 ---
-# GitHub Spring Cloud actions using key vault
+# Key Vault for Spring Cloud GitHub actions
 Key Vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  The key to get credentials only has access to the key vault scope, not the entire Azure scope. It's like a key that can only open a strongbox not a master key that can open all doors in a building. It is a way to get a key with another key, but useful in a CICD workflow. 
 
 ## Generate Credential to Access to Key Vault

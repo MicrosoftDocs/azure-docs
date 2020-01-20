@@ -195,5 +195,6 @@ If your action runs in error, for example, you haven't set Azure credential, you
  ![Re-run checks](./media/github-actions/actions4.png)
 
 ## Next steps
+* [Key Vault for Spring Cloud GitHub actions](./spring-cloud-github-actions-key-vault.md)
 * [Azure Active Directory service principals](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)
