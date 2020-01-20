@@ -15,7 +15,7 @@ GitHub Actions support an automated software development lifecycle workflow. Wit
 This example requires the [Azure CLI](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension)
 
 ## Set up your GitHub repository and authenticate with Azure
-You need an Azure service principle credential to authorize Azure login action. To get an Azure credential, execute the following commands on you local machine:
+You need an Azure service principle credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
@@ -39,7 +39,7 @@ This example uses the [Piggy Metrics](https://github.com/Azure-Samples/piggymetr
 
  ![Add new secret](./media/github-actions/actions1.png)
 
-Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string which you found under heading *Set up your GitHub repository and authenticate with Azure*.
+Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate with Azure*.
 
  ![Set secret data](./media/github-actions/actions2.png)
 
@@ -184,7 +184,7 @@ jobs:
 ```
 
 ## Run the workflow
-GitHub Actions should be enabled automatically after you push `.github/workflow/main.yml` to GitHub. The action will be triggerd when you push a new commit. If you create this file in the browser, your action should have already run.
+GitHub Actions should be enabled automatically after you push `.github/workflow/main.yml` to GitHub. The action will be triggered when you push a new commit. If you create this file in the browser, your action should have already run.
 
 To verify your action has been enabled, click **Actions** tab on the GitHub repository page:
 
