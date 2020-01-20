@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Deploy Application
 description: Azure Container Service tutorial - Deploy Application
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

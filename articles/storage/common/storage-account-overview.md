@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -60,17 +60,15 @@ You should use general-purpose v2 accounts in most cases. You can use general-pu
 
 ### BlockBlobStorage accounts
 
-A BlockBlobStorage account is a specialized storage account that you use to store unstructured object data as block blobs. You can also use a BlockBlobStorage account to create premium block blobs. This type of storage account supports block blobs and append blobs, but not page blobs, tables, or queues.
+A BlockBlobStorage account is a specialized storage account in the premium performance tier for storing unstructured object data as block blobs or append blobs. Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low, consistent latency and higher transaction rates.
 
-Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
-
-BlockBlobStorage accounts don't currently support tiering to hot, cool, or archive access tiers.
+BlockBlobStorage accounts don't currently support tiering to hot, cool, or archive access tiers. This type of storage account does not support page blobs, tables, or queues.
 
 ### FileStorage accounts
 
 A FileStorage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues.
 
-FileStorage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
+FileStorage accounts offer unique performance characteristics, such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
 
 ## Naming storage accounts
 
@@ -81,12 +79,20 @@ When naming your storage account, keep these rules in mind:
 
 ## Performance tiers
 
+Depending on the type of storage account you create, you can choose between standard and premium performance tiers.
+
+### General-purpose storage accounts
+
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
 - A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks. For more information about scalability targets for standard storage accounts, see [Scalability targets for standard storage accounts](scalability-targets-standard-account.md).
-- A premium performance tier for storing unmanaged virtual machine disks only. Microsoft recommends using managed disks with Azure virtual machines  instead of unmanaged disks. For more information about scalability targets for the premium performance tier, see [Scalability targets for premium page blob storage accounts](../blobs/scalability-targets-premium-page-blobs.md).
+- A premium performance tier for storing unmanaged virtual machine disks. Microsoft recommends using managed disks with Azure virtual machines  instead of unmanaged disks. For more information about scalability targets for the premium performance tier, see [Scalability targets for premium page blob storage accounts](../blobs/scalability-targets-premium-page-blobs.md).
+
+### BlockBlobStorage storage accounts
 
 BlockBlobStorage storage accounts provide a premium performance tier for storing block blobs and append blobs. For more information, see [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md).
+
+### FileStorage storage accounts
 
 FileStorage storage accounts provide a premium performance tier for Azure file shares. For more information, see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
 
@@ -98,7 +104,7 @@ The available access tiers are:
 
 - The **Hot** access tier. This tier is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the hot tier by default.
 - The **Cool** access tier. This tier is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the hot tier.
-- The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data is more expensive than accessing data in the hot or cool tiers.
+- The **Archive** tier. This tier is available only for individual block blobs and append blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data is more expensive than accessing data in the hot or cool tiers.
 
 If there's a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 

@@ -1,23 +1,13 @@
 ---
 title: Azure virtual machine scale sets FAQs
 description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
-ms.custom: na
-
 ---
 
 # Azure virtual machine scale sets FAQs
