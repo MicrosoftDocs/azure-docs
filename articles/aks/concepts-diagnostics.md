@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Kubernetes Service (AKS) Diagnostics Overview
 description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
 services: container-service
@@ -20,8 +20,7 @@ To access AKS Diagnostics:
 
 - Navigate to your Kubernetes cluster in the [Azure portal](https://portal.azure.com).
 - Click on **Diagnose and solve problems** in the left navigation, which opens AKS Diagnostics.
-- Choose a category that best describes the issue of your cluster by using the keywords in the homepage tile
-or type a keyword that best describes your issue in the search bar, for example _Cluster Node Issues_.
+- Choose a category that best describes the issue of your cluster by using the keywords in the homepage tile, or type a keyword that best describes your issue in the search bar, for example _Cluster Node Issues_.
 
 ![Homepage](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
