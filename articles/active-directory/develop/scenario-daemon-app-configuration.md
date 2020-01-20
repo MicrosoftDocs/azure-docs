@@ -30,15 +30,15 @@ These Microsoft libraries support daemon apps:
 
   MSAL library | Description
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | The .NET Framework and .NET Core platforms are supported for building daemon applictions. (UWP, Xamarin.iOS, and Xamarin.Android aren't supported because those platforms are used to build public client applications.)
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | The .NET Framework and .NET Core platforms are supported for building daemon applications. (UWP, Xamarin.iOS, and Xamarin.Android aren't supported because those platforms are used to build public client applications.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for daemon applications in Python.
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for daemon applications in Java.
 
 ## Configure the authority
 
-Given that daemon applications use application permissions rather than delegated permissions, their supported account type can't be an account in any organizational directory or any personal Microsoft account (for example, Skype, Xbox, Outlook.com). There's no tenant admin to grant consent to a daemon application for a Microsoft personal account. You'll need to choose *accounts in my organization* or *accounts in any organization*.
+Daemon applications use application permissions rather than delegated permissions. So their supported account type can't be an account in any organizational directory or any personal Microsoft account (for example, Skype, Xbox, Outlook.com). There's no tenant admin to grant consent to a daemon application for a Microsoft personal account. You'll need to choose *accounts in my organization* or *accounts in any organization*.
 
-Therefore, the authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
+So the authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
 
 If you're an ISV and want to provide a multitenant tool, you can use `organizations`. But keep in mind that you'll also need to explain to your customers how to grant admin consent. For details, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Also, there's currently a limitation in MSAL: `organizations` is allowed only when the client credentials are an application secret (not a certificate).
 

@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Daemon app that calls web APIs - acquire a token
 
-After you have constructed a confidential client application, you can acquire a token for the app by calling `AcquireTokenForClient`, passing the scope, and optionally forcing a refresh of the token.
+After you've constructed a confidential client application, you can acquire a token for the app by calling `AcquireTokenForClient`, passing the scope, and optionally forcing a refresh of the token.
 
 ## Scopes to request
 

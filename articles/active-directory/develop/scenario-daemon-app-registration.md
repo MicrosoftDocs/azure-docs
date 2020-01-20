@@ -26,7 +26,7 @@ For a daemon application, here's what you need to know when you register the app
 
 ## Supported account types
 
-Given that daemon applications make sense only in Azure AD tenants, when you create the application, you'll need to choose one of the following options:
+Daemon applications make sense only in Azure AD tenants. So when you create the application, you need to choose one of the following options:
 
 - **Accounts in this organizational directory only**. This choice is the most common one because daemon applications are usually written by line-of-business (LOB) developers.
 - **Accounts in any organizational directory**. You'll make this choice if you're an ISV providing a utility tool to your customers. You'll need customer's tenant admins to approve it.
