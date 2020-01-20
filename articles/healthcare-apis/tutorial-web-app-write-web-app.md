@@ -19,9 +19,9 @@ In Azure, select **Create a resource** and select **Web App**. Make sure to name
 
 ![Create Web Application](media/tutorial-web-app/create-web-app.png)
 
-Once the web application is available, **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting Go will open up the App Service Editor. Right click in the grey space under *Explore* and create a new file called **index**.
+Once the web application is available, **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting Go will open up the App Service Editor. Right click in the grey space under *Explore* and create a new file called **index.html**.
 
-Below is the code that you can input into **index**. You will need to update the following items:
+Below is the code that you can input into **index.html**. You will need to update the following items:
 * **clientId** - Update with your client application ID. This ID will be the same ID you pulled when retrieving your token
 * **authority** - Update with your Azure AD tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
