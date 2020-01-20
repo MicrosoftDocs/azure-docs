@@ -5,12 +5,34 @@ services: azure-monitor
 author: bwren
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/01/2016
+ms.date: 01/20/2020
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ---
 # Store and view diagnostic data in Azure Storage
-Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure storage emulator or to Azure storage. Once in storage, it can be viewed with one of several available tools.
+Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
+
+
+## Install 
+
+The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. 
+
+See the following for details on installing and maintaining virtual machine extensions:
+
+- [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows)
+- [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
+
+## Install with Azure portal
+
+
+1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
+2. Click **Enable guest-level monitoring**.
+
+- Enables Name:Microsoft.Insights.VMDiagnosticsSettings extension 	
+Type: Microsoft.Azure.Diagnostics.IaaSDiagnostics
+- Creates a new storage account
+- Enables most common performance counters
+- Enables most common event logs
 
 ## Specify a storage account
 You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string created for a new Cloud Service project in  Visual Studio:
@@ -46,23 +68,21 @@ For SDK 2.4 and previous you can request to transfer the diagnostic data through
 > 
 > 
 
-## Store diagnostic data
-Log data is stored in either Blob or Table storage with the following names:
+## Data storage
+The following table lists the different types of data collected from the diagnostics extension and whether they're stored as a table or a blob.
 
-**Tables**
 
-* **WadLogsTable** - Logs written in code using the trace listener.
-* **WADDiagnosticInfrastructureLogsTable** - Diagnostic monitor and configuration changes.
-* **WADDirectoriesTable** – Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine.
-* **WADPerformanceCountersTable** – Performance counters.
-* **WADWindowsEventLogsTable** – Windows Event logs.
-
-**Blobs**
-
-* **wad-control-container** – (Only for SDK 2.4 and previous) Contains the XML configuration files that controls the Azure diagnostics .
-* **wad-iis-failedreqlogfiles** – Contains information from IIS Failed Request logs.
-* **wad-iis-logfiles** – Contains information about IIS logs.
-* **"custom"** – A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable.
+| Data | Storage type | Description |
+|:---|:---|:---|
+| WADDiagnosticInfrastructureLogsTable | Table | Diagnostic monitor and configuration changes. |
+| WADDirectoriesTable | Table | Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine. |
+| WadLogsTable | Table | Logs written in code using the trace listener. |
+| WADPerformanceCountersTable | Table | Performance counters. |
+| WADWindowsEventLogsTable | Table | Windows Event logs. |
+| wad-control-container | Blob | (Only for SDK 2.4 and previous) Contains the XML configuration files that controls the Azure diagnostics . |
+| wad-iis-failedreqlogfiles | Blob | Contains information from IIS Failed Request logs. |
+| wad-iis-logfiles | Blob | Contains information about IIS logs. |
+| "custom" | Blob | A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable. |
 
 ## Tools to view diagnostic data
 Several tools are available to view the data after it is transferred to storage. For example:

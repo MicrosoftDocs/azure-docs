@@ -1,31 +1,22 @@
 ---
-title: Azure Diagnostics extension 1.3 and later configuration schema
+title: Windows diagnostics extension schema
 description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK 2.4 and later.
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 09/20/2018
+ms.date: 01/20/219
 
 ---
 
-# Azure Diagnostics 1.3 and later configuration schema
+# Windows Diagnostics extension schema
+Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. This article details the schema used for configuration of the diagnostics extension on Windows virtual machines and other compute resources.
+
 > [!NOTE]
-> The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
-> - Azure Virtual Machines
-> - Virtual Machine Scale Sets
-> - Service Fabric
-> - Cloud Services
-> - Network Security Groups
->
-> This page is only relevant if you are using one of these services.
+> This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added. Version 1.0 and 1.2 of the schema have been archived and no longer available. 
 
-This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added. Version 1.0 and 1.2 of the schema have been archived and no longer available. 
-
-The configuration file described here is used to set diagnostic configuration settings when the diagnostics monitor starts.  
-
-The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics.
+## Download configuration file
 
 Download the public configuration file schema definition by executing the following PowerShell command:  
 
@@ -391,10 +382,6 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
 > There is an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. 
 > For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
 >
-
-
-## Reading this page  
- The tags following are roughly in order shown in the preceding example.  If you don't see a full description where you expect it, search the page for the element or attribute.  
 
 ## Common Attribute Types  
  **scheduledTransferPeriod** attribute appears in several elements. It is the interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](https://www.w3schools.com/xml/schema_dtypes_date.asp)

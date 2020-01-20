@@ -11,7 +11,7 @@ ms.date: 02/13/2019
 ---
 
 # Azure Diagnostics extension overview
-Azure Diagnostics extension is an agent in Azure that collects monitoring data from the guest operating system and workloads of Azure compute resources into Azure Monitor. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and installation options. Links are provided to other documentation for detailed information.
+Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and options for installation and configuration. Links are provided to other documentation for detailed information.
 
 > [!NOTE]
 > Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
@@ -25,11 +25,6 @@ The Azure Diagnostics extension can be used with any Azure compute resource whic
 | Azure virtual machines | 
 | Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-
-## Agent versions
-There is a separate version of the Diagnostics extension for Windows (WAD) and Linux (LAD).
-
-- [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md)
 
 ## Comparison to Log Analytics agent
 The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. The key differences to consider are:
@@ -89,20 +84,23 @@ LAD writes data to tables in Azure Storage. It supports the sinks in the followi
 | Azure Monitor Metrics | | Install the Telegraf agent in addition to LAD. See [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md).
 
 
-## Installation options
+## Installation and configuration
+The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. 
+
+See the following for details on installing and maintaining virtual machine extensions:
+
+- [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows)
+- [Virtual machine extensions and features for Linux](/virtual-machines/extensions/features-linux).
+
+The schema used for configuration of the diagnostics extension is available at the following:
+
+- [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
+- [Use Linux Diagnostic Extension to monitor metrics and logs](/virtual-machines/extensions/diagnostics-linux)
+
 
 ### Azure portal
 
-Windows 
 
-1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
-2. Click **Enable guest-level monitoring**.
-
-- Enables Name:Microsoft.Insights.VMDiagnosticsSettings extension 	
-Type: Microsoft.Azure.Diagnostics.IaaSDiagnostics
-- Creates a new storage account
-- Enables most common performance counters
-- Enables most common event logs
 
 
 Linux
@@ -112,22 +110,7 @@ Linux
 2. Select a storage account.
 2. Click **Enable guest-level monitoring**.
 
-## Linux Agent
-A [Linux version of the extension](../../virtual-machines/extensions/diagnostics-linux.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version.
 
-
-## Data storage
-
-
-
-
-
-You also have the choice of sending your data to Azure Monitor metrics time-series database. At this time, this sink is only applicable to Performance Counters. It enables you to send performance counters in as custom metrics. This feature is in Preview. The Azure Monitor sink supports:
-* Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/)
-* Alerting on all performance counters sent to Azure Monitor via the [metric alerts](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
-* Treating wildcard operator in performance counters as the "Instance" dimension on your metric.  For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk on the VM (for example, C:)
-
-To learn more on how to configure this sink, refer to the [Azure diagnostics schema documentation.](diagnostics-extension-schema-1dot3.md)
 
 ## Costs
 There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.

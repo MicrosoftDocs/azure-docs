@@ -38,6 +38,16 @@ Event Hubs receiving data from Azure Diagnostics is supported in Cloud Services,
   * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)
 * Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
+
+
+## Configure in Azure portal
+
+1. Select **Diagnostic settings** in the **Monitoring** section of the virtual machine's menu in the Azure portal.
+2. If the diagnostic extension isn't already installed, select **Enable Monitoring**.
+3. Select **Sinks** to view the configuration for the data sinks.
+4. 
+
+
 ## Connect Azure Diagnostics to Event Hubs sink
 By default, Azure Diagnostics always sends logs and metrics to an Azure Storage account. An application may also send data to Event Hubs by adding a new **Sinks** section under the **PublicConfig** / **WadCfg** element of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** file.
 
