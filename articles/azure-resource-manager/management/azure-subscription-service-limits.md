@@ -299,7 +299,7 @@ For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/conc
 
 ### Azure Data Explorer limits
 
-[!INCLUDE [azure-data-explorer-limits](../../../includes/azure-data-explorer-limits.md)]
+[!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
 ### Azure Database for MySQL
 
