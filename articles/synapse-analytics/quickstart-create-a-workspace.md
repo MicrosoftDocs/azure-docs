@@ -60,7 +60,7 @@ For portal-based procedures, minimize bullets and numbering.
 For the CLI or PowerShell based procedures, don't use bullets or numbering.
 --->
 
-Azure Resource Deployment template is the simplest way to create Synapse workspace. Make sure that you sign-in to Azure portal before creating deployment.
+Azure Resource Deployment template is the simplest way to create Synapse workspace. Make sure that you sign in to Azure portal before creating deployment.
 
 1. Use **Azure Deploy** button to deploy the template.
 
@@ -78,21 +78,19 @@ If you have entered valid information (supported region, valid names) your Synap
 
 ## Using Azure portal
 
-The Azure portal provides user-friendly experience that you cna use to create and configure Synapse workspace.
+The Azure portal provides user-friendly experience that you can use to create and configure Synapse workspace.
 
 1. In Azure portal, use **Create a resource** button and create Azure Data Lake storage with hierarchical namespace.
 2. When the storage is created, go to Blob Storage container and add new File system that should be used for Synapse workspace
 3. In Azure portal, use **Create a resource** button and search for "Synapse Analytics". Choose a service with the name **Azure Synapse Analytics (preview)**. Note: do not choose a service with label **(formerly SQL DW)** because this is single SQL Pool.
-4. Enter the subscription, resource group, workspace name, data center region where you want to deploy your workspace. Choose name of Data Lake and file systme that you created in previous step. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
+4. Enter the subscription, resource group, workspace name, data center region where you want to deploy your workspace. Choose name of Data Lake and file system that you created in previous step. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
 5. Review the changes and create resource.
 
 ## Using Azure PowerShell
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Azure PowerShell is still not available.
 <!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
 For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
-
-Here is an example of a code block for Java:
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
