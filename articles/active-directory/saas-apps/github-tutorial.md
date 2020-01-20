@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * GitHub supports **SP** initiated SSO
 
 * GitHub supports [**Automated** user provisioning](github-provisioning-tutorial.md)
-* Once you configure the GitHub you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/proxy-deployment-aad)
+* Once you configure the GitHub you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding GitHub from the gallery
 
@@ -219,6 +219,6 @@ When you click the GitHub tile in the Access Panel, you should be automatically 
 
 - [Try GitHub with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect GitHub with advanced visibility and controls](https://docs.microsoft.com/en-us/cloud-app-security/proxy-intro-aad)
+- [How to protect GitHub with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
