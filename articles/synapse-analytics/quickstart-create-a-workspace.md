@@ -60,15 +60,21 @@ For portal-based procedures, minimize bullets and numbering.
 For the CLI or PowerShell based procedures, don't use bullets or numbering.
 --->
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Azure Resource Deployment template is the simplest way to create Synapse workspace. Make sure that you sign-in to Azure portal before creating deployment.
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+1. Use **Azure Deploy** button to deploy the template.
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fsql-server-samples%2Fmaster%2Fsamples%2Fmanage%2Fsynapse-analytics%2Fazuredeploy.json" target="_blank">
+<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
+</a>
+
+2. Enter the subscription, resource group, and data center region where you want to deploy your workspace. Enter the name of the workspace and underlying Data Lake storage and username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md) and optional tags that will be added to your workspace.
+3. Check "I agree with terms and conditions" checkbox and press `Purchase` button. **Note:** - you will **not be charged** for the resources if you don't use them because SQL Analytic On-demand is serverless pay-per-usage service.
 <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
    <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
    If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+
+If you have entered valid information (for example, supported region, valid names) your Synapse workspace and Data Lake storage will be deployed in few minutes.
 
 ## Using Azure portal
 
