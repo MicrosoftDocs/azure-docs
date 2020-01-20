@@ -168,6 +168,10 @@ Build IoT solutions such as:
 - Custom integrations that enable existing line-of-business applications to interact with your IoT devices and data.
 - Device management applications for device modeling, onboarding, management, and data access.
 
+## Quotas
+
+Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+
 ## Next steps
 
 Now that you have an overview of IoT Central, here are suggested next steps:
