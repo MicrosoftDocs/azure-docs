@@ -11,7 +11,7 @@ ms.author: v-umha
 
 Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Datahub. Currently, the following sensor device partners are supported.
 
-  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
 Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the datahub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
 
