@@ -54,7 +54,7 @@
       href: diagnostic-services.md
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
-- -name: DevOps
+- name: DevOps
   items:
     - name: Automate your CI/CD pipeline in Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
