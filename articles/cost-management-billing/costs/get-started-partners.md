@@ -401,7 +401,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 #### Delete a budget
 
 ```
-PUT
+DELETE
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 
