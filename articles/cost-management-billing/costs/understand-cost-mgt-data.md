@@ -80,8 +80,6 @@ If you don't see data for a subscription and you want to determine if your subsc
 
 The following tables show data that's included or isn't in Cost Management. All costs are estimated until an invoice is generated. Costs shown do not include free and prepaid credits.
 
-**Cost and usage data**
-
 | **Included** | **Not included** |
 | --- | --- |
 | Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
@@ -96,13 +94,42 @@ _<sup>**6**</sup> Marketplace purchases are not available for Pay-As-You-Go, MSD
 
 _<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time._
 
-**Metadata**
+## How tags are used in cost and usage data
 
-| **Included** | **Not included** |
-| --- | --- |
-| Resource tags<sup>8</sup> | Resource group tags |
+Azure Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
 
-_<sup>**8**</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage._
+1. Tags must be applied directly to resources and are not implicitly inherited from the parent resource group
+2. Resource tags are only supported for resources deployed to resource groups
+3. Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/tag-support)
+4. Resource tags are only included in usage data while the tag is applied – tags are not applied to historical data
+5. Resource tags are only available in Cost Management after the data is refreshed – see [Usage data update frequency varies](#Usage-data-update-frequency-varies)
+6. Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated)
+7. Managing tags requires contributor access to each resource
+8. Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group
+	
+If you do not see a specific tag in Cost Management, consider the following:
+
+1. Was the tag applied directly to the resource?
+2. Was the tag applied more than 24 hours ago? See [Usage data update frequency varies](#Usage-data-update-frequency-varies)
+3. Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/tag-support) for the full list of what is supported.
+  1. Azure Active Directory B2C Directories
+  2. Azure Firewalls
+  3. Azure NetApp Files
+  4. Data Factory
+  5. Databricks
+  6. Load balancers
+  7. Network Watcher
+  8. Notification Hubs
+  9. Service Bus
+  10. Time Series Insights
+  11. VPN gateway
+	
+Here are a few tips for working with tags:
+
+* Plan ahead and define a tagging strategy that allows you to break costs down by organization, application, environment, etc.
+* Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy
+* Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags
+
 
 ## Rated usage data refresh schedule
 
