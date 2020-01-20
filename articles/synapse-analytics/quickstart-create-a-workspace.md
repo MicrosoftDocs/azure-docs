@@ -88,14 +88,13 @@ The Azure portal provides user-friendly experience that you can use to create an
 
 ## Using Azure PowerShell
 
-Azure PowerShell is still not available.
+Azure PowerShell is still not available. TODO: Add a code block for Azure PowerShell:
 <!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
 For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
+
+    ```azurepowershell-interactive
+    
     ```
 ## Using Azure Command Line Interface
 
@@ -103,11 +102,6 @@ Azure PowerShell is still not available. TODO: Add a code block for Azure CLI:
 
     ```azurecli-interactive 
     az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-    ```
-    or a code block for Azure PowerShell:
-
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
     ```
 
 ## Clean up resources
@@ -132,3 +126,8 @@ Advance to the next article to learn how to create...
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
 Do not use a "More info section" or a "Resources section" or a "See also section". --->
+
+- [Setup permissions on Azure storage](sql-analytics/tutorial-power-bi-professional.md)
+- [Query files on Azure Storage using SQL On-Demand](sql-analytics/quickstart-sql-on-demand.md)
+- [Create Spark Pool](spark/apache-spark-notebook-create-spark-use-sql.md)
+- [Create PowerBI report on files stored on Azure storage](sql-analytics/tutorial-power-bi-professional.md)
