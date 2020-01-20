@@ -17,11 +17,10 @@ Azure FarmBeats is a business-to-business offering available in Azure Marketplac
 
 - **Accelerator**: Web application that is built on top of Datahub. It jump-starts your model development and visualization. The accelerator uses Azure FarmBeats APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps.
 
-## Before you start
+## General information
 
 ### Components installed
 
-//AtinB: need to understand what new components are installed now
 When you install Azure FarmBeats, the following resources are provisioned in your Azure subscription:
 
 | Azure Resources Installed  | Azure FarmBeats component  |
@@ -43,7 +42,6 @@ When you install Azure FarmBeats, the following resources are provisioned in you
 
 ### Costs incurred
 
-//AtinB: Do the costs remain the same now?
 The cost of Azure FarmBeats is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator). The actual cost of the total installation will vary based on the usage. The steady state cost for the two components is:
 
 * Datahub - less than $10 per day
@@ -54,13 +52,14 @@ The cost of Azure FarmBeats is an aggregate of the cost of the underlying Azure 
 Currently, Azure FarmBeats is supported in public cloud environments in the following regions:
 
 * Australia East
-* Australia Southeast
-* Canada Central
-* Canada East
+* Central US
 * East US
+* East US 2
+* West US
+* West US 2
 * North Europe
 * West Europe
-* West US
+* SouthEast Asia
 
 ### Time taken
 
@@ -69,6 +68,18 @@ The entire setup of Azure FarmBeats, including the preparation and installation 
 ## Prerequisites
 
 Before you start the actual installation of Azure FarmBeats, you'll need to complete the following steps:
+
+### Verify Permissions
+
+You'll need the following permissions in the Azure tenant you're looking to install Azure FarmBeats -
+
+- Tenant - AAD app creator
+- Subscription - Owner
+- Resource Group in which FarmBeats is being installed - Owner
+
+The first 2 permissions are needed for [creating the AAD application](#Create-an-AAD-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application. The person installing FarmBeats needs to be an owner of the Resource Group in which FarmBeats is being installed.
+
+You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
 ### Decide Subscription and Region
 
@@ -85,7 +96,7 @@ Azure FarmBeats requires Azure Active Directory application creation and registr
 
 Run the following in a Cloud Shell instance in your subscription. First time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download and extract the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
+1. Download the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
 
         ```azurepowershell-interactive
             wget https://aka.ms/FarmBeatsAADScript
@@ -101,11 +112,11 @@ Run the following in a Cloud Shell instance in your subscription. First time use
             ./create_aad_script.ps1
         ```
 
-4. The AAD script takes around 2 mins to run and outputs values to screen as well as to a json file in the same directory. If you had someone else run the script, please ask them to share this output with you.
+4. The AAD script takes around 2 minutes to run and outputs values to screen as well as to a json file in the same directory. If you had someone else run the script, please ask them to share this output with you.
 
 ### Create Sentinel account
 
-Your Azure FarmBeats setup enables you to get free satellite imagery from European Space Agency's [Sentinel-2](https://scihub.copernicus.eu/) satellite mission for your farm. To configure this setup, you require a Sentinel Account.
+Your Azure FarmBeats setup enables you to get satellite imagery from European Space Agency's [Sentinel-2](https://scihub.copernicus.eu/) satellite mission for your farm. To configure this setup, you require a Sentinel Account.
 
 Follow the steps to create a free account with Sentinel:
 
@@ -118,6 +129,7 @@ Your registration process is complete once you complete the verification. Make a
 ## Install
 
 You are now ready to install FarmBeats. Follow the steps below to start the installation -
+
 1. Sign in to the Azure portal. Select your account in the top-right corner and switch to the Azure AD tenant where you want to install Azure FarmBeats.
 
 2. Go to Azure Marketplace within the portal and search for **Azure FarmBeats** in the Marketplace.
@@ -128,7 +140,7 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 
 5. Provide the email address that should receive any service alerts related to Azure FarmBeats in the **FarmBeats Service Alerts** section. Click Next at the bottom of the page to move to the **Dependencies** Tab.
 
-6. Copy the individual entries from the [output of AAD script](#Create-an-AAD-application) to the inputs in the AAD application section.
+6. Copy the individual entries from the output of [AAD script](#Create-an-AAD-application) to the inputs in the AAD application section.
 
 7. Enter the [Sentinel account](#Create-Sentinel-account) user name and password in the Sentinel Account section. Click Next to move to the **Review + Create** Tab
 
