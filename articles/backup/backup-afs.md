@@ -2,14 +2,14 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services Vault
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/20/2020
 ---
 
 # Backup Azure File shares in a Recovery Services Vault
 
 This article explains how to use the Azure portal to back up [Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-In this guide, you will learn how to:
+In this guide, you'll learn how to:
 
 * Create a Recovery Services vault
 * Discover fileshares and configure backups
@@ -17,9 +17,21 @@ In this guide, you will learn how to:
 
 ## Prerequisites
 
-1. Identify or create a [Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#create-a-recovery-services-vault) in the same region as the storage account hosting the file share.
+1. Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account hosting the file share.
 
-2. Ensure that the file share is present in one of the [supported Storage Account types](https://docs.microsoft.com/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview).
+2. Ensure that the file share is present in one of the [supported Storage Account types](#limitations-for-azure-file-share-backup-during-preview).
+
+## Limitations for Azure file share backup during Preview
+
+Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. These are the limitations for backing-up Azure file shares:
+
+* Support for Backup of Azure File Shares in storage accounts with [zone redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) replication is currently limited to [these regions](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares).
+* Azure Backup currently supports configuring scheduled once-daily backups of Azure File Shares.
+* The maximum number of scheduled backups per day is one.
+* The maximum number of on-demand backups per day is four.
+* Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
+* Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
+* Do not delete file shares that are protected by Azure Backup. The current solution will delete all snapshots taken by Azure Backup once the file share is deleted and therefore all restore points will be lost.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -108,12 +120,6 @@ Occasionally, you may want to generate a backup snapshot, or recovery point, out
 6. Click **Ok** to confirm the on-demand backup job run.
 
 7. Monitor the portal notifications to keep a track of backup job run completion. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**.
-
-## Best Practices
-
-* Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
-
-* Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery services vault.
 
 ## Next steps
 
