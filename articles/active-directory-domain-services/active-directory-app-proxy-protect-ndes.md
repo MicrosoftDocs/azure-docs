@@ -81,11 +81,11 @@ With an NDES server ready to be used as the Azure AD Application Proxy connector
    * **Name**: Enter a name for the application.
    * **Internal Url**: Enter the internal URL/FQDN of your NDES server on which you installed the connector.
    * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre-authentication, the protocol used for Certificate Requests (SCEP) doesn't provide such option.
-]   * Copy the provided **External URL** to your clipboard.
+   * Copy the provided **External URL** to your clipboard.
 
 1. Select **+Add** to save your application.
 
-1. Test whether you can access your NDES server via the Azure AD Application proxy by pasting the link from step 10 into a browser. You should see a default IIS welcome page.
+1. Test whether you can access your NDES server via the Azure AD Application proxy by pasting the link you copied in step 10 into a browser. You should see a default IIS welcome page.
 
 1. As a final test, add the *mscep.dll* path to the existing URL you pasted in the previous step:
 
