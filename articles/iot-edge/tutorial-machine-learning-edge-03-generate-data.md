@@ -4,7 +4,7 @@ description: 'Create virtual devices that generate simulated telemetry that can 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/17/2020
+ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -112,7 +112,7 @@ Now that we have the project building, connect to your IoT hub to access the con
 
    ![Refresh IoT Hub device list](media/tutorial-machine-learning-edge-03-generate-data/refresh-hub-device-list.png)
 
-1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device. After the devices send messages to the IoT hub, they're disconnected and appear blue.
+1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device. After the devices send messages to the IoT hub, they disconnect and appear blue.
 
 1. You can view messages sent to the hub by right-clicking on any device and selecting **Start Monitoring Built-in Event Endpoint**. The messages will show in the output pane in Visual Studio Code.
 
