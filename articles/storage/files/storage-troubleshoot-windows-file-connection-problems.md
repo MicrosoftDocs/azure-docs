@@ -138,7 +138,7 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
 
 When you browse to an Azure file share in the portal, you may receive the following error:
 
-No access 
+No access  
 Error code: 403 
 
 ### Cause 1: Virtual network or firewall rules are enabled on the storage account
