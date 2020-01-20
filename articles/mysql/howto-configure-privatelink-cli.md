@@ -93,9 +93,9 @@ az network private-endpoint create \
 Create a Private DNS Zone for MySQL server domain and create an association link with the Virtual Network. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
-   --name  "privatelink.database.azure.com" 
+   --name  "privatelink.mysql.database.azure.com" 
 az network private-dns link vnet create --resource-group myResourceGroup \ 
-   --zone-name  "privatelink.database.azure.com"\ 
+   --zone-name  "privatelink.mysql.database.azure.com"\ 
    --name MyDNSLink \ 
    --virtual-network myVirtualNetwork \ 
    --registration-enabled false 
@@ -109,8 +109,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
  
 #Create DNS records 
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## Connect to a VM from the internet
@@ -142,14 +142,14 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter  `nslookup mydemomysqlserver.mysql.privatelink.database.azure.com`. 
+2. Enter  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
+    Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -160,7 +160,7 @@ Connect to the VM *myVm* from the internet as follows:
     | Setting | Value |
     | ------- | ----- |
     | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.mysql.privatelink.database.azure.com* |
+    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
     | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
     | Password | Enter a password provided during the MySQL server creation. |
     ||
