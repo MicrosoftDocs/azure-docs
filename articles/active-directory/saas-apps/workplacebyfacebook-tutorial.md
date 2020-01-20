@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 01/07/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -45,8 +44,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Workplace by Facebook supports **SP** initiated SSO
-* Workplace by Facebook supports **[automatic user provisioning and deprovisioning (recommended)](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook supports **just-in-time provisioning**
+* Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Workplace by Facebook from the gallery
@@ -91,8 +90,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://www.facebook.com/company/<instanceID>`
 
-	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community.
+	c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://www.facebook.com/company/<instanceID>`
+
+	> [!NOTE]
+	> These values are not the real. Update these values with the actual Sign-On URL, Identifier and Reply URL. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community, this is explained later in the tutorial.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -171,13 +173,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	f. Copy the **Recipient URL** for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
-	g. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
+	g. Copy the **ACS (Assertion Consumer Service) URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
+
+	h. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
 
 	**Troubleshooting:** Ensure the email address being returned back from Azure AD is the same as the Workplace account you are logged in with.
 
-	h. Once the test has been completed successfully, scroll to the bottom of the page and click the **Save** button.
+	i. Once the test has been completed successfully, scroll to the bottom of the page and click the **Save** button.
 
-	i. All users using Workplace will now be presented with Azure AD login page for authentication.
+	j. All users using Workplace will now be presented with Azure AD login page for authentication.
 
 1. **SAML Logout Redirect (optional)** -
 

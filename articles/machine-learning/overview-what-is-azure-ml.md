@@ -41,7 +41,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
-+ [Visual Studio Code extension](how-to-vscode-tools.md)
++ [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
@@ -80,7 +80,7 @@ When you have the right model, you can easily use it in a web service, on an IoT
 
 Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
-These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-use-parallel-run-step.md) on large quantities of data.
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 

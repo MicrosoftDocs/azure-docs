@@ -1,7 +1,7 @@
 ---
 title: Publish a managed services offer to Azure Marketplace
 description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-ms.date: 01/09/2020
+ms.date: 01/16/2020
 ms.topic: conceptual
 ---
 
@@ -81,6 +81,8 @@ For each **Authorization**, you'll need to provide the following. You can then s
 - **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
 - **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
 - **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../../role-based-access-control/built-in-roles.md) and [Role support for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+  > [!NOTE]
+  > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.
 - **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user’s Role Definition, this field has no effect.)
 
 > [!TIP]

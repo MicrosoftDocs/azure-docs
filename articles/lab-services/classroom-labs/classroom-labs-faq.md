@@ -44,6 +44,11 @@ The ports are: 49152–65535. Classroom labs sit behind a load balancer, so all 
 ### What public IP address range should I open on my organization's firewall settings to connect to Lab virtual machines via RDP/SSH?
 See [Azure IP Ranges and Service Tags — Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519), which provides the public IP address range for data centers in Azure. You can open the IP addresses for the regions where your lab accounts are in.
 
+## Users
+
+### How many users can be in a classroom lab?
+You can add up to 400 users to a classroom lab. 
+
 ## Blog post
 Subscribe to the [Azure Lab Services blog](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 

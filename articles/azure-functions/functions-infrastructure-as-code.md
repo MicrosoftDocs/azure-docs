@@ -5,6 +5,7 @@ description: Learn how to build an Azure Resource Manager template that deploys 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
+ms.custom: fasttrack-edit
 ---
 
 # Automate resource deployment for your function app in Azure Functions
@@ -135,7 +136,7 @@ A function app must include these application settings：
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime for internal queueing | See [Storage account](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, or `python` |
+| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, `python`, or `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the version to use              | `10.14.1`                             |
 
 These properties are specified in the `appSettings` collection in the `siteConfig` property:
@@ -368,7 +369,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## Deploy on App Service plan
 
@@ -415,7 +416,7 @@ To run your app on Linux, you must also set the `kind` to `Linux`:
 }
 ```
 
-### Create a function app 
+### Create a function app
 
 A function app on an App Service plan must have the `serverFarmId` property set to the resource ID of the plan created earlier.
 
@@ -633,10 +634,10 @@ A function app has many child resources that you can use in your deployment, inc
 
 You can use any of the following ways to deploy your template:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### Deploy to Azure button
 
