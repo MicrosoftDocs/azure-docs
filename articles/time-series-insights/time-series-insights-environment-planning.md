@@ -63,7 +63,7 @@ You can adjust retention and toggle between the two modes on the environment’s
 
 1. In the **Data retention time (in days)** box, enter a value between 1 and 400.
 
-   [![Configure retention](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+   [![Configure retention](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 > [!TIP]
 > To learn more about how to implement an appropriate data retention policy, read [How to configure retention](./time-series-insights-how-to-configure-retention.md).
