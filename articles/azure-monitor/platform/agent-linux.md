@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
+ms.date: 01/21/2020
 
 ---
 
@@ -72,7 +72,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
 
 For Azure VMs, we recommend you install the agent on them using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux. 
 
-1. Transfer the appropriate bundle (x86 or x64) to your Linux VM or physical computer, using scp/sftp.
+1. [Download](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) and transfer the appropriate bundle (x64 or x86) to your Linux VM or physical computer, using scp/sftp.
 
 2. Install the bundle by using the `--install` argument. To onboard to a Log Analytics workspace during installation, provide the `-w <WorkspaceID>` and `-s <workspaceKey>` parameters copied earlier.
 
