@@ -167,38 +167,17 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Comparison expressions
 
-Consider this sample document used in the examples below:
-
-```json
-{
-  "Volcano Name": "Rainier",
-  "Country": "United States",
-  "Region": "US-Washington",
-  "Location": {
-    "type": "Point",
-    "coordinates": [
-      -121.758,
-      46.87
-    ]
-  },
-  "Elevation": 4392,
-  "Type": "Stratovolcano",
-  "Status": "Dendrochronology",
-  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
-
-|Command  |Supported | Example|
-|---------|---------|---------|
-|$cmp     |  Yes       | |
-|$eq|	Yes| `{ "Volcano Name": { $eq: "Rainier" } }` |
-|$gt |	Yes| `{ "Elevation": { $gt: 4000 } }` |
-|$gte|	Yes| `{ "Elevation": { $gte: 4392 } }` |
-|$lt	|Yes| `{ "Elevation": { $lt: 5000 } }` 
-|$lte|	Yes| `{ "Elevation": { $lte: 5000 } }` |
-|$ne	|	Yes| `{ "Elevation": { $ne: 1 } }` |
-|$in	|	Yes| `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |
-|$nin	|	Yes| `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` |
+|Command  |Supported |
+|---------|---------|
+|$cmp     |  Yes       |
+|$eq|	Yes| 
+|$gt |	Yes| 
+|$gte|	Yes| 
+|$lt	|Yes|
+|$lte|	Yes| 
+|$ne	|	Yes| 
+|$in	|	Yes| 
+|$nin	|	Yes| 
 
 ### Arithmetic expressions
 
