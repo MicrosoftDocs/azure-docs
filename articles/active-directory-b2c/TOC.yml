@@ -76,7 +76,7 @@
   items:
   - name: App integration
     items:
-    - name: Register an OIDC application
+    - name: Register an application
       href: tutorial-register-applications.md
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
