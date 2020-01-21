@@ -20,7 +20,7 @@ Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to
 
 ::: zone target="chromeless"
 
-## Get started with Azure Data Box Disk 
+# Get started with Azure Data Box Disk 
 
 ::: zone-end
 
