@@ -875,21 +875,39 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-The Table storage output binding supports the following scenarios:
+# [C#](#tab/csharp)
 
-* **Write one row in any language**
+Access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName` where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
 
-  In C# and C# script, access the output table entity by using a method parameter such as `out T paramName` or the function return value. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` can be any serializable type if the partition key and row key are provided by the *function.json* file or the `Table` attribute. Otherwise, `T` must be a type that includes `PartitionKey` and `RowKey` properties. In this scenario, `T` typically implements `ITableEntity` or derives from `TableEntity`, but it doesn't have to.
+Alternatively you can use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-* **Write one or more rows in C# or C# script**
+# [C# Script](#tab/csharp-script)
 
-  In C# and C# script, access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` specifies the schema of the entities you want to add. Typically, `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The partition key and row key values in *function.json* or the `Table` attribute constructor are not used in this scenario.
+Access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName` where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`. The `paramName` value is specified in the `name` property of *function.json*.
 
-  An alternative is to use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x). For an example of code that binds to `CloudTable`, see the input [binding examples](#input) for C# or C# Script earlier in this article.
+Alternatively you can use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-* **Write one or more rows in JavaScript**
+# [JavaScript](#tab/javascript)
 
-  In JavaScript functions, access the table output using `context.bindings.<BINDING_NAME>`.
+Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+# [Python](#tab/python)
+
+There are two options for outputting a Table storage row message from a function:
+
+- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Table storage row.
+
+- **Imperative**: Pass a value to the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Event Hub message.
+
+# [Java](#tab/java)
+
+There are two options for outputting an Table storage row from a function by using the [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) annotation:
+
+- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Table storage row.
+
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
+
+---
 
 ## Exceptions and return codes
 
