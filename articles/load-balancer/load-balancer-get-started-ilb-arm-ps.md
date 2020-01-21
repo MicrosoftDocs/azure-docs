@@ -43,7 +43,7 @@ To deploy a load balancer, the following objects must be created:
 * Probe configuration: The health status probes for virtual machines.
 * Inbound NAT rules: The port rules for direct access to virtual machines.
 
-For more information about load balancer components, see [Azure Load Balancer components](load-balancer-overview.md#load-balancer-components).
+For more information about load balancer components, see [Azure Load Balancer components](concepts-limitations.md#load-balancer-components).
 
 The following steps explain how to configure a load balancer between two virtual machines.
 

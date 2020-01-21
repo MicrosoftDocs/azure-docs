@@ -39,50 +39,6 @@ landingContent:
             url: user-help-auth-app-sign-in.md
   
   # Card
-  - title: Choose your two-step verification methods
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is two-factor verification?
-            url: user-help-two-step-verification-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Set up your verification methods
-            url: multi-factor-authentication-end-user-first-time.md
-          - text: Manage settings
-            url: multi-factor-authentication-end-user-manage-settings.md
-          - text: Get help
-            url: multi-factor-authentication-end-user-troubleshoot.md
- 
-   # Card
-  - title:  Update your info in the My Apps portal
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is the My Apps portal?
-            url: my-apps-portal-end-user-access.md
-      - linkListType: how-to-guide
-        links:
-          - text: Update your info
-            url: my-apps-portal-end-user-update-profile.md
-          - text: Get help
-            url: my-apps-portal-end-user-troubleshoot.md
-
-  # Card
-  - title: Set up and manage your security info (preview)
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is security info (preview)?
-            url: user-help-security-info-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Set up your security info methods
-            url: security-info-add-update-methods-overview.md
-          - text: Add info during sign-in prompt
-            url: security-info-setup-signin.md
-  
-  # Card
   - title: Manage your info on the My Account portal
     linkLists:
       - linkListType: overview
@@ -97,14 +53,52 @@ landingContent:
             url: my-account-portal-organizations-page.md
           - text: View your recent sign-in activity
             url: my-account-portal-sign-ins-page.md
-  
+
   # Card
-  - title: Reset your own password
+  - title: Set up and manage your security info (preview)
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up an authenticator app for security verification
+            url: security-info-setup-auth-app.md
+          - text: Set up text messaging for security verification
+            url: security-info-setup-text-msg.md
+          - text: Set up phone calls for security verification
+            url: security-info-setup-phone-number.md          
+          - text: Add info during sign-in prompt
+            url: security-info-setup-signin.md
+
+  # Card
+  - title:  Access and start apps from the My Apps (preview) portal
     linkLists:
       - linkListType: overview
         links:
-          - text: What is password reset?
-            url: user-help-password-reset-overview.md
+          - text: Access the My Apps portal
+            url: my-applications-portal-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Access and use workspaces
+            url: my-applications-portal-workspaces.md
+  
+  # Card
+  - title: Choose your two-step verification methods
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Additional verification page?
+            url: user-help-two-step-verification-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your verification methods
+            url: multi-factor-authentication-end-user-first-time.md
+          - text: Manage settings
+            url: multi-factor-authentication-end-user-manage-settings.md
+          - text: Get help
+            url: multi-factor-authentication-end-user-troubleshoot.md
+
+  # Card
+  - title: Reset your own password
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Sign up for password reset

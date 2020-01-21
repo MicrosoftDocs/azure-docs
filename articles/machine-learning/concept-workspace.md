@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
+ms.date: 12/27/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -88,7 +88,7 @@ There are multiple ways to create a workspace:
 * Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
-* If you work in Visual Studio Code, use the [VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
+* If you work in Visual Studio Code, use the [VS Code extension](tutorial-setup-vscode-extension.md).
 
 ## <a name="upgrade"></a> Upgrade to Enterprise edition
 

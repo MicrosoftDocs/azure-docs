@@ -22,16 +22,12 @@
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
-  - name: Use .NET SDK
+  - name: Use SDK
     items:
-    - name: Create and manage app
-      href: sdk-csharp-quickstart-authoring-app.md
+    - name: Authoring app
+      href: sdk-authoring.md
     - name: Query prediction endpoint
-      href: sdk-csharp-quickstart-query-prediction-endpoint.md
-  - name: Use Python SDK
-    items:
-    - name: Create and manage app
-      href: sdk-python-quickstart-authoring-app.md
+      href: sdk-query-prediction-endpoint.md
   - name: Use REST APIs
     items:
     - name: Get intent

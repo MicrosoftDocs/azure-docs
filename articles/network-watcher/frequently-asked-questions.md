@@ -68,9 +68,9 @@ Only Packet Capture, Connection Troubleshoot and Connection Monitor need the Net
 ### What does NSG Flow Logs do?
 Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
 
-### How do I use NSG Flow Logs on a Storage account with a firewall or through a Service Endpoints?
+### How do I use NSG Flow Logs on a Storage account with a firewall?
 
-To use a Storage account with a firewall or through a Service Endpoints, you have to allow Trusted Microsoft Services to access your storage account:
+To use a Storage account with a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
 * Find the name of the storage account by locating the NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
 * Navigate to the storage account by typing the storage account's name in the global search on the portal
@@ -79,6 +79,11 @@ To use a Storage account with a firewall or through a Service Endpoints, you hav
 * If it is already selected, no change is needed.  
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
+
+### How do I use NSG Flow Logs with Service Endpoints for storage?
+
+Please see the [tutorial enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
+
 
 ### What is the difference between flow logs versions 1 & 2?
 Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

@@ -24,7 +24,7 @@ Please download the latest App (version 1.8) to avoid this issue.
 
 ## Prerequisites
 
-- Create an [Azure storage account](../storage/common/storage-quickstart-create-account.md) to configure it for reports. This storage account is used to store reports-related data.
+- Create an [Azure storage account](../storage/common/storage-account-create.md) to configure it for reports. This storage account is used to store reports-related data.
 - [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports by using the Power BI portal.
 - Register the resource provider **Microsoft.insights**, if it's not registered already. Use the subscriptions for the storage account and the Recovery Services vault so that reporting data can flow to the storage account. To do this step, go to the Azure portal, select **Subscription** > **Resource providers**, and check for this provider to register it.
 
