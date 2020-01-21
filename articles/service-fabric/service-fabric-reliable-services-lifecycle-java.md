@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Reliable Services lifecycle 
-description: Learn about the lifecycle events in Service Fabric Reliable Services.
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application using Java for stateful and stateless services.
 author: PavanKunapareddyMSFT
 
 ms.topic: conceptual

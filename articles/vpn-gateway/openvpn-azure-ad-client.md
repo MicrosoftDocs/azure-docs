@@ -35,6 +35,10 @@ When working with a certificate-based profile, make sure that the appropriate ce
 ### <a name="radius"></a>To create a RADIUS client profile
 
   ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  
+> [!NOTE]
+> The Server Secret can be exported in the P2S VPN client profile.  Instructions on how to export a client profile can be found [here](about-vpn-profile-download.md).
+>
 
 ### <a name="export"></a>To export and distribute a client profile
 

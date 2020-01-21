@@ -106,7 +106,7 @@ Each Azure subscription has default quota limits in place that could impact the 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 For more details on quota limits:
-* [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
+* [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Related Azure components
 The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

@@ -2318,4 +2318,4 @@ Azure Monitor provides several ways to interact with metrics, including charting
 ## Next steps
 * [Read about metrics in Azure Monitor](data-platform.md)
 * [Create alerts on metrics](alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](resource-logs-overview.md)
+* [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)

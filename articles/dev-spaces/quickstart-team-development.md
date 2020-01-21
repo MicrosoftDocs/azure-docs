@@ -131,7 +131,7 @@ azds space select -n dev/azureuser1 -y
 azds space select -n dev/azureuser2 -y
 ```
 
-The above commands create two child spaces under *dev* named *azureuser1* and *azureuser2*. These two child spaces represent distinct dev spaces for the developers' *azureuser1* and *azureuser2* to use for making changes to the sample application.
+The above commands create two child spaces under *dev* named *azureuser1* and *azureuser2*. These two child spaces represent distinct dev spaces for developers *azureuser1* and *azureuser2* to use for making changes to the sample application.
 
 Use the `azds space list` command to list all the dev spaces and confirm *dev/azureuser2* is selected.
 
@@ -230,4 +230,4 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 > [Working with multiple containers and team development](multi-service-nodejs.md)
 
 [helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

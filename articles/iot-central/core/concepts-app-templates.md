@@ -37,6 +37,7 @@ Currently, the application templates that use _public preview_ features are:
 - Retail > Digital distribution center
 - Retail > In-store analytics – condition monitoring
 - Retail > In-store analytics – checkout
+- Retail > Micro-fulfillment center
 - Retail > Smart inventory management
 - Energy > Smart meter monitoring
 - Energy > Solar panel monitoring

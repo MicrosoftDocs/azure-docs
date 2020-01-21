@@ -56,7 +56,7 @@ The following are key attributes of an alert rule:
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources-reference.md). These include but are not limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources.md). These include but are not limited to:
 - Metric values
 - Log search queries
 - Activity log events

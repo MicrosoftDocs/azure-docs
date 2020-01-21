@@ -77,9 +77,23 @@ This article lists the various servers and workloads that you can protect with A
 
 ## Azure ExpressRoute support
 
-If Azure ExpressRoute is configured with Private or Microsoft peering, it cannot be used to back up the data to Azure.
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
 
-If Azure ExpressRoute is configured with Public Peering, it can be used to back up the data to Azure.
+With public peering: Ensure access to the following domains/addresses:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+With Microsoft peering, please select the following services/regions and relevant community values:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure Region (according to the location of your Recovery Services vault)
+* Azure Storage (according to the location of your Recovery Services vault)
+
+For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.
@@ -88,17 +102,17 @@ If Azure ExpressRoute is configured with Public Peering, it can be used to back 
 
 Azure Backup Server can protect data in the following clustered applications:
 
-- File servers
+* File servers
 
-- SQL Server
+* SQL Server
 
-- Hyper-V - If you protect a Hyper-V cluster using scaled-out MABS protection agent, you can't add secondary protection for the protected Hyper-V workloads.
+* Hyper-V - If you protect a Hyper-V cluster using scaled-out MABS protection agent, you can't add secondary protection for the protected Hyper-V workloads.
 
     If you run Hyper-V on Windows Server 2008 R2, make sure to install the update described in KB [975354](https://support.microsoft.com/kb/975354).
     If you run Hyper-V on Windows Server 2008 R2 in a cluster configuration, make sure you install SP2 and KB [971394](https://support.microsoft.com/kb/971394).
 
-- Exchange Server - Azure Backup Server can protect non-shared disk clusters for supported Exchange Server versions (cluster-continuous replication), and can also protect Exchange Server configured for local continuous replication.
+* Exchange Server - Azure Backup Server can protect non-shared disk clusters for supported Exchange Server versions (cluster-continuous replication), and can also protect Exchange Server configured for local continuous replication.
 
-- SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
+* SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
 
 Azure Backup Server can protect cluster workloads that are located in the same domain as the MABS server, and in a child or trusted domain. If you want to protect data sources in untrusted domains or workgroups, use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.

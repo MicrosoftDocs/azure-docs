@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI- sfctl partition
-description: Describes the Service Fabric CLI sfctl partition commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing partitions for a service.
 author: jeffj6123
 
 ms.topic: reference

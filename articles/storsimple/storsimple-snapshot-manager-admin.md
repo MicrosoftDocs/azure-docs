@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager administration | Microsoft Docs
 description: Provides an overview and links to more information about StorSimple Snapshot Manager solution administration tasks and workflows.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Use StorSimple Snapshot Manager to administer your StorSimple solution

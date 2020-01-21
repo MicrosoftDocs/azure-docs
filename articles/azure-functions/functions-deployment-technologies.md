@@ -36,7 +36,7 @@ Each plan has different behaviors. Not all deployment technologies are available
 | Portal editing |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
-<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
+<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
 
 ## Key concepts
 
@@ -186,7 +186,7 @@ The following table shows the operating systems and languages that support porta
 | PowerShell (Preview) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
+<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
 
 ## Deployment slots
 

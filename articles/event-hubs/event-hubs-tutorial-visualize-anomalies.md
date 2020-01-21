@@ -44,7 +44,7 @@ For this tutorial, you need an Event Hubs namespace and an event hub. You can cr
 
 The following sections describe how to perform these required steps. Follow the CLI *or* the PowerShell instructions to perform the following steps:
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an Event Hubs namespace. 
 

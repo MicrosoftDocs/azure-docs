@@ -1,23 +1,23 @@
 ---
-title: Target Updates using SCCM Collections in Azure Automation - Update Management
-description: This article is intended to help you configure System Center Configuration Manager with this solution to manage updates of SCCM managed computers.
+title: Use Azure Update Management with Configuration Manager clients
+description: This article is intended to help you configure Microsoft Endpoint Configuration Manager with this solution to deploy software updates to ConfigMgr clients.
 services: automation
 ms.subservice: update-management
 ms.date: 03/19/2018
 ms.topic: conceptual
 ---
 
-# Integrate System Center Configuration Manager with Update Management
+# Deploy updates to Microsoft Endpoint Configuration Manager clients with Update Management
 
-Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
+Customers who have invested in Microsoft Endpoint Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-You can report and update managed Windows servers by creating and pre-staging software update deployments in Configuration Manager, and get detailed status of completed update deployments using the [Update Management solution](automation-update-management.md). If you use Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to Configuration Manager  while security updates are managed with the Update Management solution.
+You can report and update managed Windows servers by creating and pre-staging software update deployments in Configuration Manager, and get detailed status of completed update deployments using the [Update Management solution](automation-update-management.md). If you use Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to Configuration Manager while security updates are managed with the Update Management solution.
 
 ## Prerequisites
 
 * You must have the [Update Management solution](automation-update-management.md) added to your Automation account.
-* Windows servers currently managed by your System Center Configuration Manager environment also need to report to the Log Analytics workspace that also has the Update Management solution enabled.
-* This feature is enabled in System Center Configuration Manager current branch version 1606 and higher. To integrate your Configuration Manager central administration site or a stand-alone primary site with Azure Monitor logs and import collections, review [Connect Configuration Manager to Azure Monitor logs](../azure-monitor/platform/collect-sccm.md).  
+* Windows servers currently managed by your Configuration Manager environment also need to report to the Log Analytics workspace that also has the Update Management solution enabled.
+* This feature is enabled in Configuration Manager current branch version 1606 and higher. To integrate your Configuration Manager central administration site or a stand-alone primary site with Azure Monitor logs and import collections, review [Connect Configuration Manager to Azure Monitor logs](../azure-monitor/platform/collect-sccm.md).  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update if they don't receive security updates from Configuration Manager.   
 
 How you manage clients hosted in Azure IaaS with your existing Configuration Manager environment primarily depends on the connection you have between Azure datacenters and your infrastructure. This connection affects any design changes you may need to make to your Configuration Manager infrastructure and related cost to support those necessary changes. To understand what planning considerations you need to evaluate before proceeding, review [Configuration Manager on Azure - Frequently Asked Questions](/sccm/core/understand/configuration-manager-on-azure#networking).

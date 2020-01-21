@@ -3,7 +3,7 @@ title: Use Visual Studio and Visual Studio Code to build IoT Plug and Play Previ
 description: Use Visual Studio and Visual Studio Code to accelerate authoring IoT Plug and Play device models and implementing the device code.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp

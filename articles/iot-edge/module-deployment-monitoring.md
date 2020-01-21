@@ -88,7 +88,7 @@ By default, all deployments report on four metrics:
 * **Targeted** shows the IoT Edge devices that match the Deployment targeting condition.
 * **Applied** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
 * **Reporting Success** shows the IoT Edge devices that have reported back to the service that the modules have been deployed successfully. 
-* **Reporting Failure** shows the IoT Edge devices that have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
+* **Reporting Failure** shows the IoT Edge devices that have reported back to the service that one or more modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
 
 Additionally, you can define your own custom metrics to help monitor and manage the deployment. 
 

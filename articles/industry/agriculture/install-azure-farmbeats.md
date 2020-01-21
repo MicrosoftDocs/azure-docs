@@ -117,7 +117,7 @@ In this case, request your IT administrator to follow the below steps to automat
     > [!NOTE]
     > By default, the file is uploaded to your home directory.
 
-6. Go the home directory by using the 'ls' command and run the following script:
+6. Go to the home directory by using the 'cd' command and run the following script:
 
       ```azurepowershell-interactive
             ./create_aad_script.ps1
@@ -159,8 +159,8 @@ A sample JSON file is provided below. Download the sample and update the require
     "datahubResourceGroup":"dummy-test-dh1",
     "location":"westus2",
     "datahubWebsiteName":"dummy-test-dh1",
-    "acceleratorResourceGroup":" dummy-test-acc1",
-    "acceleratorWebsiteName":" dummy-test-acc1",
+    "acceleratorResourceGroup":"dummy-test-acc1",
+    "acceleratorWebsiteName":"dummy-test-acc1",
     "sentinelUsername":"dummy-dev",
     "notificationEmailAddress":"dummy@yourorg.com",
     "updateIfExists":true

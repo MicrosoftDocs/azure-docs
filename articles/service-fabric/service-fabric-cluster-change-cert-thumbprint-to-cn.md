@@ -1,5 +1,5 @@
 ---
-title: Update an Azure Service Fabric cluster to use certificate common name 
+title: Update a cluster to use certificate common name 
 description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
 
 ms.topic: conceptual

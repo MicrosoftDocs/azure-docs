@@ -199,7 +199,7 @@ Earlier in this article, we uploaded certificates to Key Vault to make them avai
 
 1. When you successfully authenticate, the Linux VM will sign in and list your Azure subscriptions.
 
-1. ASet the Azure subscription that you want to use for Azure CLI commands.
+1. Set the Azure subscription that you want to use for Azure CLI commands.
 
     ```bash
     az account set --subscription <subscriptionId>

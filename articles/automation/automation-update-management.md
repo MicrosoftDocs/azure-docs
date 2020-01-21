@@ -3,7 +3,7 @@ title: Update Management solution in Azure
 description: This article describes how to use the Azure Update Management solution to manage updates for your Windows and Linux computers.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
 ---
 # Update Management solution in Azure
@@ -65,7 +65,8 @@ The following table lists the supported operating systems for update assessments
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)||
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 || 
+|Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management only supports performing assessments for this operating system, patching is not supported as the [Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) is not supported for Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
@@ -231,7 +232,9 @@ For Linux, Update Management can distinguish between critical updates and securi
 sudo yum -q --security check-update
 ```
 
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own.
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own. 
+
+To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself, there is no need to install anything. For further information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 ## Integrate with System Center Configuration Manager
 
@@ -245,7 +248,7 @@ Update Management relies on the locally configured update repository to patch su
 
 ## Patch Linux machines
 
-The following sections explain potential issues with Linux patching.
+The following sections explain potential issues with patching Linux distros.
 
 ### Unexpected OS-level upgrades
 
