@@ -11,7 +11,7 @@ ms.service: azure-remote-rendering
 ---
 # Components
 
-Components add some functionality to an entity. For example, a [cut plane component](features-cut-plane.md) adds functionality to cut the rendered meshes open at the location of the component's owner entity, whereas a mesh component adds the functionality to render a specific mesh at the location of the entity.
+Components add some functionality to an entity. For example, a [cut plane component](features-cut-planes.md) adds functionality to cut the rendered meshes open at the location of the component's owner entity, whereas a mesh component adds the functionality to render a specific mesh at the location of the entity.
 
 Components can be added programmatically in code with the Client SDK:
 
