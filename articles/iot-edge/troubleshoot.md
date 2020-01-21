@@ -244,7 +244,7 @@ A container fails to run, and the edgeAgent logs show a 403 error.
 
 **Root cause**
 
-The Iot Edge agent doesn't have permissions to access a module's image.
+The IoT Edge agent doesn't have permissions to access a module's image.
 
 **Resolution**
 
