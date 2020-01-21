@@ -218,8 +218,8 @@
               href: backup-azure-sql-automation.md
             - name: Azure PowerShell Samples
               href: powershell-backup-samples.md
-    - name: Use Azure Backup REST API
-      items:
+      - name: Use Azure Backup REST API
+        items:
             - name: Create Recovery Services vault
               href: backup-azure-arm-userestapi-createorupdatevault.md
             - name: Update Recovery Services vault configurations
