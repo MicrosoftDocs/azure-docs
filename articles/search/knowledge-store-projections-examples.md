@@ -30,6 +30,9 @@ Object and file projections are written to blob storage, object projections are 
 
 To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process. skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md] for details. For all the scenarios, we will work with a sample skillset that you can use the `import data wizard` to generate. 
 
+> [!IMPORTANT] 
+When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensures cost control. Editing projections will result in the document being enriched again if the indexer cache is not set. 
+
 ```json
 {
     "name": "azureblob-skillset",
