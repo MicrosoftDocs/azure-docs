@@ -1,18 +1,8 @@
 ---
-title: Build ASP.NET app with Windows container (Preview) - Azure App Service | Microsoft Docs
-description: Learn how to deploy a custom Windows container into Azure App Service and deploy custom software in the container.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: quickstart
+title: 'Tutorial: Legacy app with container (Preview)'
+description: Learn how to migrate a custom Windows container into Azure App Service and deploy custom software in the container.
+ms.topic: tutorial
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 

@@ -2,12 +2,10 @@
 title: Create your first PowerShell function in Azure
 description: Learn how to create your first PowerShell function in Azure using Visual Studio Code.
 author: joeyaiello
-manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ---
 
 # Create your first PowerShell function in Azure
@@ -17,9 +15,6 @@ This quickstart article walks you through how to create your first [serverless](
 ![Azure Functions code in a Visual Studio Code project](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
 
 You use the [Azure Functions extension for Visual Studio Code] to create a PowerShell function locally and then deployed it to a new function app in Azure. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
-
-> [!NOTE]  
-> PowerShell support for the [Azure Functions extension][Azure Functions extension for Visual Studio Code] is currently disabled by default. Enabling PowerShell support is one of the steps in this article.
 
 The following steps are supported on macOS, Windows, and Linux-based operating systems.
 
@@ -45,7 +40,7 @@ To complete this quickstart:
 
 ## Create a function app project
 
-The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources. 
+The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 1. In Visual Studio Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
 

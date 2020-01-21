@@ -234,12 +234,12 @@ Azure AD Connect is not allowed to soft match a user object from on-premises AD 
 
 
 ### How to fix
-To resolve this issue do one of the following:
+To resolve this issue do the following:
 
- - Remove the Azure AD account (owner) from all admin roles. 
- - **Hard Delete** the Quarantined object in the cloud. 
- - The next sync cycle will take care of soft-matching the on-premise user to the cloud account (since the cloud user is now no longer a global GA). 
- - Restore the role memberships for the owner. 
+1. Remove the Azure AD account (owner) from all admin roles. 
+2. **Hard Delete** the Quarantined object in the cloud. 
+3. The next sync cycle will take care of soft-matching the on-premises user to the cloud account (since the cloud user is now no longer a global GA). 
+4. Restore the role memberships for the owner. 
 
 >[!NOTE]
 >You can assign the administrative role to the existing user object again after the soft match between the on-premises user object and the Azure AD user object has completed.

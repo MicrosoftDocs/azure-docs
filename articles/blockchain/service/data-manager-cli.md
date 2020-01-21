@@ -1,12 +1,8 @@
 ---
-title: Configure Blockchain Data Manager - Azure CLI
-description: How to create and manage Blockchain Data Manager using Azure CLI
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Configure Blockchain Data Manager using Azure CLI - Azure Blockchain Service
+description: Create and manage a Blockchain Data Manager for Azure Blockchain Service using Azure CLI
 ms.date: 11/04/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: chroyal
 #Customer intent: As a network operator, I want to use Azure CLI to configure Blockchain Data Manager.
 ---
@@ -414,7 +410,7 @@ az resource delete \
 
 ## Next steps
 
-Try creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)

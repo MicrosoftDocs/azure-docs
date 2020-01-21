@@ -1,8 +1,7 @@
 ---
-title: 'Generate and export certificates for Point-to-Site: MakeCert : Azure | Microsoft Docs'
+title: 'Azure VPN Gateway: Generate & export certificates for P2S: MakeCert'
 description: Create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 
 ms.service: vpn-gateway

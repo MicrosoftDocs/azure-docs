@@ -1,5 +1,6 @@
 ---
-title: REST API claims exchanges as validation in Azure Active Directory B2C
+title: REST API claims exchanges as validation
+titleSuffix: Azure AD B2C
 description: A walkthrough for creating an Azure AD B2C user journey that interacts with RESTful services.
 services: active-directory-b2c
 author: mmacy

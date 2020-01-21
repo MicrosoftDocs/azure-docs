@@ -12,7 +12,7 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
@@ -62,7 +62,7 @@ On the **Basics** tab, provide the following information:
     ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
+  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/management/overview.md).
 
 
 * Under **Instance details**:
@@ -135,7 +135,7 @@ On the **SQL Server settings** tab, configure specific settings and optimization
 | [Storage configuration](#storage-configuration) |
 | [Automated Patching](#automated-patching) |
 | [Automated Backup](#automated-backup) |
-| [R Services (Advanced Analytics)](#r-services-advanced-analytics) |
+| [Machine Learning Services](#machine-learning-services) |
 
 
 ### Connectivity
@@ -237,9 +237,9 @@ To encrypt the backup, click **Enable**. Then specify the **Password**. Azure cr
 For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 
-### R Services (Advanced Analytics)
+### Machine Learning Services
 
-You have the option to enable [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). This option enables you to use advanced analytics with SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
+You have the option to enable [Machine Learning Services](/sql/advanced-analytics/). This option enables you to use machine learning with Python and R in SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
 
 
 ## 4. Review + create

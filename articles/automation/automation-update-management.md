@@ -2,13 +2,9 @@
 title: Update Management solution in Azure
 description: This article describes how to use the Azure Update Management solution to manage updates for your Windows and Linux computers.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/22/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Update Management solution in Azure
 
@@ -69,8 +65,9 @@ The following table lists the supported operating systems for update assessments
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)||
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](#linux-2).          |
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 || 
+|Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management only supports performing assessments for this operating system, patching is not supported as the [Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) is not supported for Windows Server 2008 R2. |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
@@ -189,54 +186,6 @@ We recommend that you use the addresses listed when defining exceptions. For IP 
 
 Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that don't have internet access.
 
-## View update assessments
-
-In your Automation account, select **Update Management** to view the status of your machines.
-
-This view provides information about your machines, missing updates, update deployments, and scheduled update deployments. In the **COMPLIANCE** column, you can see the last time the machine was assessed. In the **UPDATE AGENT READINESS** column, you can check the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
-
-To run a log search that returns information about the machine, update, or deployment, select the corresponding item in the list. The **Log Search** pane opens with a query for the item selected:
-
-![Update Management default view](media/automation-update-management/update-management-view.png)
-
-## View missing updates
-
-Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, the operating system, and a link for more information is shown. The **Log search** pane shows more details about the updates.
-
-![Missing Updates](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
-
-## Update classifications
-
-The following tables list the update classifications in Update Management, with a definition for each classification.
-
-### Windows
-
-|Classification  |Description  |
-|---------|---------|
-|Critical updates     | An update for a specific problem that addresses a critical, non-security-related bug.        |
-|Security updates     | An update for a product-specific, security-related issue.        |
-|Update rollups     | A cumulative set of hotfixes that are packaged together for easy deployment.        |
-|Feature packs     | New product features that are distributed outside a product release.        |
-|Service packs     | A cumulative set of hotfixes that are applied to an application.        |
-|Definition updates     | An update to virus or other definition files.        |
-|Tools     | A utility or feature that helps complete one or more tasks.        |
-|Updates     | An update to an application or file that currently is installed.        |
-
-### <a name="linux-2"></a>Linux
-
-|Classification  |Description  |
-|---------|---------|
-|Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
-|Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
-
-For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
-
-```bash
-sudo yum -q --security check-update
-```
-
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own.
-
 ## Integrate with System Center Configuration Manager
 
 Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
@@ -249,7 +198,7 @@ Update Management relies on the locally configured update repository to patch su
 
 ## Patch Linux machines
 
-The following sections explain potential issues with Linux patching.
+The following sections explain potential issues with patching Linux distros.
 
 ### Unexpected OS-level upgrades
 

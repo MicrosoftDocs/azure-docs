@@ -32,8 +32,6 @@ Messages larger than 2 KB are counted as multiple messages of 2 KB each. The mes
 
 For example, imagine that you have three clients and one application server. One client sends a 4-KB message to let the server broadcast to all clients. The message count is eight: one message from the service to the application server and three messages from the service to the clients. Each message is counted as two 2-KB messages.
 
-The message count shown in the Azure portal will remain 0 until it accumulates to be more than 100.
-
 ## How connections are counted
 
 There are server connections and client connections with Azure SignalR Service. By default, each application server starts with five initial connections per hub, and each client has one client connection.
@@ -48,7 +46,7 @@ During the lifetime of the application server, the service and the application s
 
 ## How inbound/outbound traffic is counted
 
-The distinction between inbound traffic and outbound traffic is based on the perspective of Azure SignalR Service. Traffic is calculated in bytes. Like the message count, traffic also has a sampling rate. The inbound/outbound chart in the Azure portal is updated every 100 KB per hub.
+The distinction between inbound traffic and outbound traffic is based on the perspective of Azure SignalR Service. Traffic is calculated in bytes.
 
 ## Related resources
 

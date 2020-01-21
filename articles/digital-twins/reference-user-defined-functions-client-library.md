@@ -1,13 +1,13 @@
 ---
 title: User-defined functions client library reference - Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins user-defined functions client library reference.
+description: Azure Digital Twins user-defined functions client library reference documentation.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
 ---
 

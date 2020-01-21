@@ -1,14 +1,14 @@
 ---
-title:  "Quickstart: Launch your Spring Cloud application from source code"
-description: Learn how to launch your Azure Spring Cloud application directly from your source code
-author:  jpconnock
+title:  "Quickstart - Launch your Spring Cloud application from source code"
+description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 
-# Launch your Spring Cloud application from source code
+# Quickstart: Launch your Spring Cloud application from source code
 
 Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
 
@@ -26,7 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 Before you begin, ensure that your Azure subscription has the required dependencies:
 
@@ -71,6 +71,9 @@ Set your default resource group name and cluster name using the following comman
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
 ## Create the Spring Cloud application
 
@@ -132,12 +135,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > The kpack logs will only show the latest deployment if that deployment was built from source using kpack.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## Assign a public endpoint to gateway
 
 1. Open the **Application Dashboard** page.
 2. Select the `gateway` application to show the **Application Details** page.
 3. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes. 
 4. Enter the assigned public IP into your browser to view your running application.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## Next steps
 
@@ -153,3 +162,5 @@ In this quickstart, you learned how to:
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

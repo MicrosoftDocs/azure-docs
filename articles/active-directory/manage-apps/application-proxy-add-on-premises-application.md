@@ -1,5 +1,5 @@
 ---
-title: Add an on-premises app - Application Proxy in Azure Active Directory  | Microsoft Docs
+title: 'Tutorial - Add an on-premises app - Application Proxy in Azure AD'
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: msmimart
@@ -212,8 +212,9 @@ To add a test user:
 
 To test the sign-on to the application:
 
-1. In your browser, navigate to the external URL that you configured during the publish step. You should see the start screen.
-1. Sign in as the user you created in the previous section.
+1. From the application you want to test, select **Application Proxy**.
+2. At the top of the page, select **Test Application** to run a test on the application and check for any configuration issues.
+3. Make sure to first launch the application to test signing into the application, then download the diagnostic report to review the resolution guidance for any detected issues.
 
 For troubleshooting, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).
 

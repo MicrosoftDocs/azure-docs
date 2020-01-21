@@ -1,5 +1,5 @@
 ---
-title: Writing Expressions for Attribute Mappings in Azure Active Directory | Microsoft Docs
+title: Writing Expressions for Attribute Mappings in Azure AD
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \\"Contoso\\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -50,6 +50,150 @@ Takes a source string value and appends the suffix to the end of it.
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
+
+---
+### BitAnd
+**Function:**<br> 
+BitAnd(value1, value2)
+
+**Description:**<br> 
+This function converts both parameters to the binary representation and sets a bit to:
+
+0 - if one or both of the corresponding bits in value1 and value2 are 0                                                  
+1 - if both of the corresponding bits are 1.                                    
+
+In other words, it returns 0 in all cases except when the corresponding bits of both parameters are 1.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **value1** |Required |num |Numeric value that should be AND’ed with value2|
+| **value2** |Required |num |Numeric value that should be AND’ed with value1|
+
+**Example:**<br>
+BitAnd(&HF, &HF7)                                                                                
+11110111 AND 00000111 = 00000111 so BitAnd returns 7, the binary value of 00000111
+
+---
+### CBool
+**Function:**<br> 
+CBool(Expression)
+
+**Description:**<br> 
+CBool returns a boolean based on the evaluated expression. If the expression evaluates to a non-zero value, then CBool returns True, else it returns False..
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Required | expression | Any valid expression |
+
+**Example:**<br>
+CBool([attribute1] = [attribute2])                                                                    
+Returns True if both attributes have the same value.
+
+---
+### Coalesce
+**Function:**<br> 
+Coalesce(source1, source2, ..., defaultValue)
+
+**Description:**<br> 
+Returns the first source value that is not NULL. If all arguments are NULL and defaultValue is present, the defaultValue will be returned. If all arguments are NULL and defaultValue is not present, Coalesce returns NULL.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source1  … sourceN** | Required | String |Required, variable-number of times. Usually name of the attribute from the source object. |
+| **defaultValue** | Optional | String | Default value to be used when all source values are NULL. Can be empty string ("").
+
+---
+### ConvertToBase64
+**Function:**<br> 
+ConvertToBase64(source)
+
+**Description:**<br> 
+The ConvertToBase64 function converts a string to a Unicode base64 string.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |String to be converted to base 64|
+
+**Example:**<br>
+ConvertToBase64("Hello world!")                                                                                                        
+Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
+
+---
+### ConvertToUTF8Hex
+**Function:**<br> 
+ConvertToUTF8Hex(source)
+
+**Description:**<br> 
+The ConvertToUTF8Hex function converts a string to a UTF8 Hex encoded value.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |String to be converted to UTF8 Hex|
+
+**Example:**<br>
+ConvertToUTF8Hex("Hello world!")                                                                                                         
+Returns 48656C6C6F20776F726C6421
+
+---
+### Count
+**Function:**<br> 
+Count(attribute)
+
+**Description:**<br> 
+The Count function returns the number of elements in a multi-valued attribute
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute** |Required |attribute |Multi-valued attribute that will have elements counted|
+
+---
+### CStr
+**Function:**<br> 
+CStr(value)
+
+**Description:**<br> 
+The CStr function converts a value to a string data type.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **value** |Required | numeric, reference or boolean | Can be a numeric value, reference attribute, or Boolean. |
+
+**Example:**<br>
+CStr([dn])                                                            
+Returns "cn=Joe,dc=contoso,dc=com"
+
+---
+### DateFromNum
+**Function:**<br> 
+DateFromNum(value)
+
+**Description:**<br> 
+The DateFromNum function converts a value in AD’s date format to a DateTime type.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **value** |Required | Date | AD Date to be converted to DateTime type |
+
+**Example:**<br>
+DateFromNum([lastLogonTimestamp])                                                                                                   
+DateFromNum(129699324000000000)                                                            
+Returns a DateTime representing 2012-01-01 23:00:00
 
 ---
 ### FormatDateTime
@@ -68,6 +212,124 @@ Takes a date string from one format and converts it into a different format.
 | **outputFormat** |Required |String |Format of the output date. |
 
 ---
+### Guid
+**Function:**<br> 
+Guid()
+
+**Description:**<br> 
+The function Guid generates a new random GUID
+
+---
+### InStr
+**Function:**<br> 
+InStr(value1,value2,start,compareType)
+
+**Description:**<br> 
+The InStr function finds the first occurrence of a substring in a string
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **value1** |Required |String |String to be searched |
+| **value2** |Required |String |String to be found |
+| **start** |Optional |Integer |Starting position to find the substring|
+| **compareType** |Optional |Enum |Can be vbTextCompare or vbBinaryCompare |
+
+**Example:**<br>
+InStr("The quick brown fox","quick")                                                                             
+Evalues to 5
+
+InStr("repEated","e",3,vbBinaryCompare)                                                                                  
+Evaluates to 7
+
+---
+### IsNull
+**Function:**<br> 
+IsNull(Expression)
+
+**Description:**<br> 
+If the expression evaluates to Null, then the IsNull function returns true. For an attribute, a Null is expressed by the absence of the attribute.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Required |expression |Expression to be evaluated |
+
+**Example:**<br>
+IsNull([displayName])                                                                                                
+Returns True if the attribute is not present
+
+---
+### IsNullorEmpty
+**Function:**<br> 
+IsNullOrEmpty(Expression)
+
+**Description:**<br> 
+If the expression is null or an empty string, then the IsNullOrEmpty function returns true. For an attribute, this would evaluate to True if the attribute is absent or is present but is an empty string.
+The inverse of this function is named IsPresent.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Required |expression |Expression to be evaluated |
+
+**Example:**<br>
+IsNullOrEmpty([displayName])                                               
+Returns True if the attribute is not present or is an empty string
+
+---
+### IsPresent
+**Function:**<br> 
+IsNullOrEmpty(Expression)
+
+**Description:**<br> 
+If the expression evaluates to a string that is not Null and is not empty, then the IsPresent function returns true. The inverse of this function is named IsNullOrEmpty.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Required |expression |Expression to be evaluated |
+
+**Example:**<br>
+Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
+
+---
+### IsString
+**Function:**<br> 
+IsString(Expression)
+
+**Description:**<br> 
+If the expression can be evaluated to a string type, then the IsString function evaluates to True.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Required |expression |Expression to be evaluated |
+
+---
+### Item
+**Function:**<br> 
+Item(attribute, index)
+
+**Description:**<br> 
+The Item function returns one item from a multi-valued string/attribute.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute** |Required |Attribute |Multi-valued attribute to be searched |
+| **index** |Required |Integer | Index to an item in the multi-valued string|
+
+**Example:**<br>
+Item([proxyAddresses], 1)
+
+---
 ### Join
 **Function:**<br> 
 Join(separator, source1, source2, …)
@@ -83,6 +345,29 @@ If one of the source values is a multi-value attribute, then every value in that
 | --- | --- | --- | --- |
 | **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
 | **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
+
+---
+### Left
+**Function:**<br> 
+Left(String,NumChars)
+
+**Description:**<br> 
+The Left function returns a specified number of characters from the left of a string. 
+If numChars = 0, return empty string.
+If numChars < 0, return input string.
+If string is null, return empty string.
+If string contains fewer characters than the number specified in numChars, a string identical to string (that is, containing all characters in parameter 1) is returned.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **String** |Required |Attribute | The string to return characters from |
+| **NumChars** |Required |Integer | A number identifying the number of characters to return from the beginning (left) of string|
+
+**Example:**<br>
+Left("John Doe", 3)                                                            
+Returns "Joh"
 
 ---
 ### Mid
@@ -127,6 +412,24 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
+
+---
+### RemoveDuplicates
+**Function:**<br> 
+RemoveDuplicates(attribute)
+
+**Description:**<br> 
+The RemoveDuplicates function takes a multi-valued string and make sure each value is unique.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute** |Required |Multi-valued Attribute |Multi-valued attribute that will have duplicates removed|
+
+**Example:**<br>
+RemoveDuplicates([proxyAddresses])                                                                                                       
+Returns a sanitized proxyAddress attribute where all duplicate values have been removed
 
 ---
 ### Replace
@@ -236,7 +539,7 @@ Removes all space (" ") characters from the source string.
 Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description:**<br> 
-When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters.
+When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters. The function should not be used for referential attributes such as manager. 
 
 **Parameters:**<br> 
 
@@ -276,6 +579,35 @@ Takes a *source* string value and converts it to upper case using the culture ru
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+
+---
+### Word
+**Function:**<br> 
+Word(String,WordNumber,Delimiters)
+
+**Description:**<br> 
+The Word function returns a word contained within a string, based on parameters describing the delimiters to use and the word number to return. Each string of characters in string separated by the one of the characters in delimiters are identified as words:
+
+If number < 1, returns empty string.
+If string is null, returns empty string.
+If string contains less than number words, or string does not contain any words identified by delimiters, an empty string is returned.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **String** |Required |Multi-valued Attribute |String to return a word from.|
+| **WordNumber** |Required | Integer | Number identifying which word number should return|
+| **delimiters** |Required |String| A string representing the delimiter(s) that should be used to identify words|
+
+**Example:**<br>
+Word("The quick brown fox",3," ")                                                                                       
+Returns "brown"
+
+Word("This,string!has&many separators",3,",!&#")                                                                       
+Returns "has"
+
+---
 
 ## Examples
 ### Strip known domain name
@@ -402,6 +734,18 @@ Based on the user's first name, middle name and last name, you need to generate 
 * **OUTPUT**: "John.Smith@contoso.com" if UPN value of John.Smith@contoso.com doesn't already exist in the directory
 * **OUTPUT**: "J.Smith@contoso.com" if UPN value of John.Smith@contoso.com already exists in the directory
 * **OUTPUT**: "Jo.Smith@contoso.com" if the above two UPN values already exist in the directory
+
+### Flow mail value if not NULL, otherwise flow userPrincipalName
+You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
+
+**Expression:** <br>
+`Coalesce([mail],[userPrincipalName])`
+
+**Sample input/output:** <br>
+
+* **INPUT** (mail): NULL
+* **INPUT** (userPrincipalName): "John.Doe@contoso.com"
+* **OUTPUT**:  "John.Doe@contoso.com"
 
 ## Related Articles
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)

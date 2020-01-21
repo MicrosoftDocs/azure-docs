@@ -1,7 +1,7 @@
 ---
 title: Rebuild a search index
 titleSuffix: Azure Cognitive Search
-description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Cognitive Search index.
+description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial indexing to refresh an Azure Cognitive Search index.
 
 manager: nitinme
 author: HeidiSteen

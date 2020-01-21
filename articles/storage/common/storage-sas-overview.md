@@ -1,12 +1,13 @@
 ---
-title: Grant limited access to Azure Storage resources using shared access signatures (SAS)
+title: Grant limited access to data with shared access signatures (SAS)
+titleSuffix: Azure Storage
 description: Learn about using shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -20,7 +21,7 @@ A shared access signature (SAS) provides secure delegated access to resources in
 
 Azure Storage supports three types of shared access signatures:
 
-- **User delegation SAS (preview).** A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only.
+- **User delegation SAS.** A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only.
 
     For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -117,9 +118,9 @@ To get started with shared access signatures, see the following articles for eac
 
 ### User delegation SAS
 
-- [Create a user delegation SAS for a container or blob with PowerShell (preview)](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [Create a user delegation SAS for a container or blob with the Azure CLI (preview)](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [Create a user delegation SAS for a container or blob with .NET (preview)](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a user delegation SAS for a container or blob with PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Create a user delegation SAS for a container or blob with the Azure CLI](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [Create a user delegation SAS for a container or blob with .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### Service SAS
 

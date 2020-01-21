@@ -27,7 +27,7 @@ You can find more information about how to create and deploy a Machine Learning 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-The classic version of Azure Machine Learning Studio has two types of services:
+Azure Machine Learning Studio (classic) has two types of services:
 
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.

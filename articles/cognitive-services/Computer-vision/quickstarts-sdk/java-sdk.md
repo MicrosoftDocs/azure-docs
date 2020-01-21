@@ -1,14 +1,13 @@
 ---
 title: "Quickstart: Computer Vision client library for Java"
-titleSuffix: "Azure Cognitive Services"
-description: Get started with the Computer Vision client library for Java.
+description: In this quickstart, get started with the Computer Vision client library for Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: pafarley
 ---
 
@@ -157,43 +156,43 @@ The following sections show how to parse this information in detail.
 
 ### Get image description
 
-The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
+The following code gets the list of generated captions for the image. For more information, see [Describe images](../concept-describing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
 
 ### Get image category
 
-The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
+The following code gets the detected category of the image. For more information, see [Categorize images](../concept-categorizing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
 
 ### Get image tags
 
-The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
+The following code gets the set of detected tags in the image. For more information, see [Content tags](../concept-tagging-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
 ### Detect faces
 
-The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
+The following code returns the detected faces in the image with their rectangle coordinates and selects face attributes. For more information, see [Face detection](../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
 ### Detect adult, racy, or gory content
 
-The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../concept-detecting-adult-content.md) for more details.
+The following code prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../concept-detecting-adult-content.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
 
 ### Get image color scheme
 
-The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../concept-detecting-color-schemes.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
 
 ### Get domain-specific content
 
-Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
+Computer Vision can use specialized model to do further analysis on images. For more information, see [Domain-specific content](../concept-detecting-domain-content.md). 
 
 The following code parses data about detected celebrities in the image.
 

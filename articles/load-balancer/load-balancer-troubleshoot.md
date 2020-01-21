@@ -3,7 +3,7 @@ title: Troubleshoot Azure Load Balancer
 description: Learn how to troubleshoot known issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
+author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
-ms.author: genli
+ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer
@@ -120,7 +120,7 @@ You can resolve this issue via one of the following methods:
 
 ### Cause 4: Accessing the internal Load Balancer frontend from the participating Load Balancer backend pool VM
 
-If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](load-balancer-overview.md#limitations) for a detailed discussion.
+If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](concepts-limitations.md#limitations) for a detailed discussion.
 
 **Resolution**
 There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)

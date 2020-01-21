@@ -199,6 +199,10 @@ private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTem
 }
 ```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 
 Check out how to [protect with DRM](protect-with-drm.md)

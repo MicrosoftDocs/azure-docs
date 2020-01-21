@@ -1,13 +1,13 @@
 ---
-title: "Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/07/2016"
+title: Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs
+ms.custom: 
+ms.date: 12/07/2016
 services: cloud-services
-ms.service: "cloud-services"
-ms.topic: "reference"
+ms.service: cloud-services
+ms.topic: reference
 caps.latest.revision: 28
-author: "georgewallace"
-ms.author: "gwallace"
+author: tgore03
+ms.author: tagore
 ---
 
 # Azure Cloud Services Config NetworkConfiguration Schema

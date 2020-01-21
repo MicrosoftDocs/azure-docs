@@ -40,7 +40,7 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 --- | ---
 Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
 Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
-Folder | The cache folder should be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
+Folder | The cache folder should not be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
 Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
@@ -99,6 +99,8 @@ For more information, see [Supported MABS and DPM operating systems](backup-supp
 
 ## Backup limits
 
+### Size limits
+
 Azure Backup limits the size of a file or folder data source that can be backed up. The items that you back up from a single volume can't exceed the sizes summarized in this table:
 
 **Operating system** | **Size limit**
@@ -108,6 +110,10 @@ Windows Server 2008 R2 SP1 |1,700 GB
 Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
+
+### Other limitations
+
+- MARS does not support protection of multiple machines with the same name to a single vault.
 
 ## Supported file types for backup
 

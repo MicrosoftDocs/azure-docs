@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
+ms.date: 11/19/2019
 ---
 # Train Clustering Model
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to train a clustering model.
 
@@ -44,14 +44,9 @@ The module takes an untrained clustering model that you have already configured 
 
 After training has completed:
 
-
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
-
-+ To save the trained model for later re-use, right-click the module, select **Trained model**, and click **Save As Trained Model**.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
-
-
 
 ## Next steps
 

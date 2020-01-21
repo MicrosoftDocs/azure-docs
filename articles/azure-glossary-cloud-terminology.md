@@ -27,7 +27,7 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 
 ## account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
-See [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) and [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+See [Sign up for an Azure subscription with your Office 365 account](cost-management-billing/manage/office-365-account-for-azure-subscription.md) and [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## API app
 Another name for [App Service app](#app-service-app).
@@ -71,7 +71,7 @@ See [Navigate and select Windows virtual machine images in Azure with PowerShell
 
 ## limits
 The number of resources that can be created or the performance benchmark that can be achieved. Limits are typically associated with subscriptions, services, and offerings.  
-See [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md)
+See [Azure subscription and service limits, quotas, and constraints](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## load balancer
 A resource that distributes incoming traffic among computers in a network. In Azure, a load balancer distributes traffic to virtual machines defined in a load-balancer set. A [load balancer](load-balancer/load-balancer-overview.md) can be internet-facing, or it can be internal.  
@@ -92,11 +92,11 @@ See [Azure Regions](best-practices-availability-paired-regions.md)
 
 ## resource
 An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources, such as databases or virtual machines.   
-See [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
+See [Azure Resource Manager overview](azure-resource-manager/management/overview.md)
 
 ## resource group
 A container in Resource Manager that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.  
-See [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
+See [Azure Resource Manager overview](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>Resource Manager template
 A JSON file that declaratively defines one or more Azure resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.  
@@ -104,7 +104,7 @@ See [Authoring Azure Resource Manager templates](resource-group-authoring-templa
 
 ## resource provider
 A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Resource providers can be accessed through the Azure portal, Azure PowerShell, and several programming SDKs.  
-See [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
+See [Azure Resource Manager overview](azure-resource-manager/management/overview.md)
 
 ## role
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  

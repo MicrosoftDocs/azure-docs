@@ -2,13 +2,9 @@
 title: Using Az modules in Azure Automation
 description: This article provides information using Az modules in Azure Automation
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Az module support in Azure Automation

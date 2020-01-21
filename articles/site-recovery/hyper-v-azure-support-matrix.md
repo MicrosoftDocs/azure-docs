@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 1/10/2020
 ms.author: raynew
 ---
 
@@ -126,7 +126,7 @@ Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
-Encryption at rest (CMK)| No | No
+Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Premium storage | Yes | Yes
 Import/export service | No | No
 Azure storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.

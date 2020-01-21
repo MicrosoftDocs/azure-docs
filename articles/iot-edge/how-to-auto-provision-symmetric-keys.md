@@ -1,5 +1,5 @@
 ---
-title: Automatically provision devices with DPS using symmetric key attestation - Azure IoT Edge | Microsoft Docs 
+title: Provision device using symmetric key attestation - Azure IoT Edge
 description: Use symmetric key attestation to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
 manager: philmea

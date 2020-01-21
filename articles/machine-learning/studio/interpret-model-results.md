@@ -17,7 +17,7 @@ This topic explains how to visualize and interpret prediction results in Azure M
 
 
 
-There are four major kinds of machine learning models in the classic version of Azure Machine Learning Studio:
+There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):
 
 * Classification
 * Clustering
@@ -34,7 +34,7 @@ This document explains how to interpret prediction results for each of these mod
 
 This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning Studio (classic)](evaluate-model-performance.md).
 
-If you are new to the classic version of Azure Machine Learning Studio and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio (classic)](create-experiment.md).
+If you are new to Azure Machine Learning Studio (classic) and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio (classic)](create-experiment.md).
 
 ## Classification
 There are two subcategories of classification problems:
@@ -47,7 +47,7 @@ Azure Machine Learning Studio (classic) has different modules to deal with each 
 ### Two-class classification
 **Example experiment**
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in the classic version of Azure Machine Learning Studio is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio (classic) is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
 
 ![Screenshot of iris experiment](./media/interpret-model-results/1.png)
 
@@ -221,7 +221,7 @@ For recommender systems, you can use the restaurant recommendation problem as an
 * Customer feature data
 * Restaurant feature data
 
-There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in the classic version of Azure Machine Learning Studio:
+There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning Studio (classic):
 
 * Predict ratings for a given user and item
 * Recommend items to a given user

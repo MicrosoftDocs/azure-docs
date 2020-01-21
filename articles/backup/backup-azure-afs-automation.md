@@ -23,7 +23,7 @@ This article explains how to:
 ## Before you start
 
 * [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the preview capabilities for [backing up Azure file shares](backup-azure-files.md).
+* Read about the preview capabilities for [backing up Azure file shares](backup-afs.md).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
@@ -268,7 +268,7 @@ Azure file share snapshots are used while the backups are taken, so usually the 
 
 On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
 
-If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
+If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
 
 ### Modify the protection policy
 
@@ -414,4 +414,4 @@ $job.ErrorDetails
 
 ## Next steps
 
-[Learn about](backup-azure-files.md) backing up Azure Files in the Azure portal.
+[Learn about](backup-afs.md) backing up Azure Files in the Azure portal.

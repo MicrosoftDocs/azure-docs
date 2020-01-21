@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 01/13/2020
 ms.author: juliako
 ---
 
@@ -28,6 +28,12 @@ To start developing with Video Indexer, browse to the [Video Indexer](https://ww
 > [!NOTE]
 > A name of the video must be no greater than 80 characters.
 
+### Supported file formats for Video Indexer
+
+See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
+
+### Upload a video
+
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
 2. To upload a video, press the **Upload** button or link.
 
@@ -41,7 +47,9 @@ To start developing with Video Indexer, browse to the [Video Indexer](https://ww
 
 ## Next steps
 
-You can now use the [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+See [Upload and index videos](upload-index-videos.md) for more details.
+
+After you upload and index a video, you can start using [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
 
 ## See also
 
