@@ -27,14 +27,14 @@ On Android and iOS, brokers like Microsoft Authenticator and the Android-specifi
 
 To enable one of these features, use the `WithBroker()` parameter when you call the `PublicClientApplicationBuilder.CreateApplication` method. The `.WithBroker()` parameter is set to true by default. 
 
-Also use the instructions that follow to set up brokered authentication for [iOS](#brokered-authentication-for-ios) applications or [Android](#brokered-authentication-for-android) applications.
+Also use the instructions in the following sections to set up brokered authentication for [iOS](#brokered-authentication-for-ios) applications or [Android](#brokered-authentication-for-android) applications.
 
 ## Brokered authentication for iOS
 
 Use the following steps to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
 
 ### Step 1: Enable broker support
-You have to enable broker support for individual instances of `PublicClientApplication`. Support is disabled by default. When you create the `PublicClientApplication` through `PublicClientApplicationBuilder`, use the `WithBroker()` parameter as the following example shows. The `WithBroker()` parameter is set to true by default.
+You must enable broker support for individual instances of `PublicClientApplication`. Support is disabled by default. When you create `PublicClientApplication` through `PublicClientApplicationBuilder`, use the `WithBroker()` parameter as the following example shows. The `WithBroker()` parameter is set to true by default.
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -93,26 +93,26 @@ To set up the object window:
 
 1. On the `AcquireTokenInteractive` call, use `.WithParentActivityOrWindow(App.RootViewController)` and then pass in the reference to the object window you'll use.
 
-Here's an example in `App.cs`:
-
-```csharp
-   public static object RootViewController { get; set; }
-```
-
-This example is in `AppDelegate.cs`:
-
-```csharp
-   LoadApplication(new App());
-   App.RootViewController = new UIViewController();
-```
-
-This example is in the `AcquireToken` call:
-
-```csharp
-result = await app.AcquireTokenInteractive(scopes)
-             .WithParentActivityOrWindow(App.RootViewController)
-             .ExecuteAsync();
-```
+    In `App.cs`:
+    
+    ```csharp
+       public static object RootViewController { get; set; }
+    ```
+    
+    In `AppDelegate.cs`:
+    
+    ```csharp
+       LoadApplication(new App());
+       App.RootViewController = new UIViewController();
+    ```
+    
+    In the `AcquireToken` call:
+    
+    ```csharp
+    result = await app.AcquireTokenInteractive(scopes)
+                 .WithParentActivityOrWindow(App.RootViewController)
+                 .ExecuteAsync();
+    ```
 
 ### Step 5: Register a URL scheme
 MSAL.NET uses URLs to invoke the broker and then return the broker response to your app. To finish the round trip, register a URL scheme for your app in the `Info.plist` file.
@@ -145,9 +145,9 @@ Here's an example:
 ```
 
 ### Step 6: Add the broker identifier to the LSApplicationQueriesSchemes section
-MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In iOS 9, Apple locked down what schemes an application can query for. 
+MSAL uses `–canOpenURL:` to check whether the broker is installed on the device. In iOS 9, Apple locked down the schemes that an application can query for. 
 
-Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file.
+Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file, as in the following example:
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>
@@ -158,23 +158,27 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` 
 ```
 
 ### Step 7: Register your redirect URI in the application portal
-Using the broker adds an extra requirement on your redirect URI. The redirect URI _must_ have the following format:
+When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
 ```csharp
 $"msauth.{BundleId}://auth"
 ```
-**For example:**
+
+Here's an example: 
+
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
-Notice that the redirect URI matches the `CFBundleURLSchemes` name you included in the `Info.plist` file.
+Notice that the redirect URI matches the `CFBundleURLSchemes` name that you included in the `Info.plist` file.
 
 ### Step 8: Make sure the redirect URI is registered with your app
 
-This redirect URI needs to be registered on the app registration portal (https://portal.azure.com) as a valid redirect URI for your application. 
+The redirect URI needs to be registered on the [app registration portal](https://portal.azure.com) as a valid redirect URI for your application. 
 
-The portal has a new experience app registration portal to help you compute the brokered reply URI from the bundle ID.
+The app registration portal provides a new experience to help you compute the brokered reply URI from the bundle ID. 
 
-1. In the app registration, choose **Authentication** and select **Try out the new experience**.
+To compute the redirect URI:
+
+1. In the app registration portal, choose **Authentication** > **Try out the new experience**.
 
    ![Try out the new app registration experience](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -188,11 +192,11 @@ The portal has a new experience app registration portal to help you compute the 
 
 1. Enter your bundle ID as requested, and then select **Configure**.
 
-   ![Enter Bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Enter the bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-1. The redirect URI is computed for you.
+When you finish the steps, the redirect URI is computed for you.
 
-   ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 ## Brokered authentication for Android
 
