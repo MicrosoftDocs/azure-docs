@@ -73,13 +73,13 @@ For more information about forest types in Azure AD DS, see [What are resource f
 
 ## Azure AD DS SKUs
 
-In Azure AD DS, the available performance and features are based on the SKU. You select a SKU when you create the managed domain, and you can switch SKUs as your business needs change after the managed domain has been deployed. The following table outlines the available SKUs and the differences between them:
+In Azure AD DS, the available performance and features are based on the SKU. You select a SKU when you create the managed domain, and you can switch SKUs as your business requirements change after the managed domain has been deployed. The following table outlines the available SKUs and the differences between them:
 
-| SKU name   | Maximum object count | Performance | Backup frequency | Maximum number of outbound forest trusts |
-|------------|----------------------|-------------|------------------|----|
-| Standard   | Unlimited            | 1 vCPU      | Every 7 days     | 0  |
-| Enterprise | Unlimited            | 2 vCPUs     | Every 3 days     | 5  |
-| Premium    | Unlimited            | 4 vCPUS     | Daily            | 10 |
+| SKU name   | Maximum object count | Backup frequency | Maximum number of outbound forest trusts |
+|------------|----------------------|------------------|----|
+| Standard   | Unlimited            | Every 7 days     | 0  |
+| Enterprise | Unlimited            | Every 3 days     | 5  |
+| Premium    | Unlimited            | Daily            | 10 |
 
 Before these Azure AD DS SKUs, a billing model based on the number of objects (user and computer accounts) in the Azure AD DS managed domain was used. There is no longer variable pricing based on the number of objects in the managed domain.
 
@@ -87,19 +87,19 @@ For more information, see the [Azure AD DS pricing page][pricing].
 
 ### Managed domain performance
 
-Domain performance varies based on how authentication is implemented for an application. Azure AD DS lets you select the amount of processing resources available to each managed domain. Additional processing resources may help improve query response time and reduce time spent in sync operations. As the SKU level increases, the number of vCPUs available to the managed domain is increased. Monitor the performance of your applications and plan for the required resources.
+Domain performance varies based on how authentication is implemented for an application. Additional compute resources may help improve query response time and reduce time spent in sync operations. As the SKU level increases, the compute resources available to the managed domain is increased. Monitor the performance of your applications and plan for the required resources.
 
-If your business or application needs change and you need additional compute power for your Azure AD DS managed domain, you can switch to a different SKU.
+If your business or application demands change and you need additional compute power for your Azure AD DS managed domain, you can switch to a different SKU.
 
 ### Backup frequency
 
-The backup frequency determines how often a snapshot of the managed domain is taken. Backups are an automated process managed by the Azure platform. In the event of an issue with your managed domain or accidental resource deletion, Azure support can assist you in restoring from backup. As synchronization only occurs one way *from* Azure AD, any issues or accidental resource deletions in an Azure AD DS managed domain won't impact Azure AD or on-premises AD DS environments and functionality.
+The backup frequency determines how often a snapshot of the managed domain is taken. Backups are an automated process managed by the Azure platform. In the event of an issue with your managed domain, Azure support can assist you in restoring from backup. As synchronization only occurs one way *from* Azure AD, any issues in an Azure AD DS managed domain won't impact Azure AD or on-premises AD DS environments and functionality.
 
-As the SKU level increases, the frequency of those backup snapshots increases. Review your business needs and recovery point objective (RPO) to determine the required backup frequency for your managed domain. If your business or application needs change and you need more frequent backups, you can switch to a different SKU.
+As the SKU level increases, the frequency of those backup snapshots increases. Review your business requirements and recovery point objective (RPO) to determine the required backup frequency for your managed domain. If your business or application requirements change and you need more frequent backups, you can switch to a different SKU.
 
 ### Outbound forests
 
-The previous section detailed one-way outbound forest trusts from an Azure AD DS managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application needs to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business needs change and you need to create additional forest trusts, you can switch to a different SKU.
+The previous section detailed one-way outbound forest trusts from an Azure AD DS managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
 
 ## Next steps
 
