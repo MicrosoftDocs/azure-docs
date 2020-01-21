@@ -104,7 +104,7 @@ You can view the details and status of support requests by going to **Help + sup
 
 ![All support requests](./media/how-to-create-azure-support-request/allrequestslower.png)
 
-On this page, you can filter support requests by **Subscription**, created date (UTC), and status. Additionally, you can sort and search for support requests on this page.
+On this page, you can filter support requests by **Subscription**, **Created** date (UTC), and **Status**. Additionally, you can sort and search for support requests on this page.
 
 Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
 

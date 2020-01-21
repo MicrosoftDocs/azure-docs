@@ -23,7 +23,7 @@ To view your current Networking usage and quota in Azure portal, open your subsc
 You can request an increase by using **Help + support** or in **Usages + quotas** in the portal.
 
 > [!Note]
-> To change the default size of for Public IP Prefix, select **Min Public IP InterNetwork Prefix Length** from the dropdown list.
+> To change the default size of **Public IP Prefixes**, select **Min Public IP InterNetwork Prefix Length** from the dropdown list.
 
 ## Request Networking quota increase at subscription level using Help + support
 
