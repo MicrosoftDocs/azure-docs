@@ -48,7 +48,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 ### Specify routes
 
-On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route is called **route** and defined as **FROM /messages/* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route is called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
 Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next: Review + create** to continue to the next step of the wizard.
 
