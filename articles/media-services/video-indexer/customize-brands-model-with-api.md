@@ -33,9 +33,33 @@ Some other parameters that you can set in the body:
 * The **referenceUrl** value can be any reference websites for the brand such as a link to its Wikipedia page.
 * The **tags** value is a list of tags for the brand. This shows up in the brand's *Category* field in the Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
 
+### Response
+
+The response provides information on the brand that you just created following the format of the example below.
+
+```json
+{
+  "referenceUrl": "https://en.wikipedia.org/wiki/Example",
+  "id": 97974,
+  "name": "Example",
+  "accountId": "SampleAccountId",
+  "lastModifierUserName": "SampleUserName",
+  "created": "2018-04-25T14:59:52.7433333",
+  "lastModified": "2018-04-25T14:59:52.7433333",
+  "enabled": true,
+  "description": "This is an example",
+  "tags": [
+    "Tag1",
+    "Tag2"
+  ]
+}
+```
+
 ## Delete a Brand
 
 The [delete a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API removes a brand from the custom Brands model for the specified account. The account is specified in the **accountId** parameter. Once called successfully, the brand will no longer be in the *Include* or *Exclude* brands lists.
+
+### Response
 
 There is no returned content when the brand is deleted successfully.
 
@@ -43,30 +67,124 @@ There is no returned content when the brand is deleted successfully.
 
 The [get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand id.
 
-If the **enabled** flag is **true**, the brand is included in the *Include* list for Video Indexer to detect. If **enabled** is false, the brand is in the *Exclude* list, so Video Indexer cannot detect it.
+### Response
+
+The response provides information on the brand that you searched (using brand ID) following the format of the example below.
+
+```json
+{
+  "referenceUrl": "https://en.wikipedia.org/wiki/Example",
+  "id": 128846,
+  "name": "Example",
+  "accountId": "SampleAccountId",
+  "lastModifierUserName": "SampleUserName",
+  "created": "2018-01-06T13:51:38.3666667",
+  "lastModified": "2018-01-11T13:51:38.3666667",
+  "enabled": true,
+  "description": "This is an example",
+  "tags": [
+    "Tag1",
+    "Tag2"
+  ]
+}
+```
+
+> [!NOTE]
+> **enabled** being set to **true** signifies that the brand is in the *Include* list for Video Indexer to detect, and **enabled** being false signifies that the brand is in the *Exclude* list, so Video Indexer will not detect it.
 
 ## Update a specific brand
 
 The [update a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
 
-If the **enabled** flag is set to **true**, the brand is included in the *Include* list for Video Indexer to detect. If **enabled** is false, the brand is in the *Exclude* list, so Video Indexer cannot detect it.
+### Response
+
+The response provides the updated information on the brand that you updated following the format of the example below.
+
+```json
+{
+  "referenceUrl": null,
+  "id": 97974,
+  "name": "Example",
+  "accountId": "SampleAccountId",
+  "lastModifierUserName": "SampleUserName",
+  "Created": "2018-04-25T14:59:52.7433333",
+  "lastModified": "2018-04-25T15:37:50.67",
+  "enabled": false,
+  "description": "This is an update example",
+  "tags": [
+    "Tag1",
+    "NewTag2"
+  ]
+}
+```
 
 ## Get all of the Brands
 
 The [get all brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) API returns all of the brands in the custom Brands model for the specified account regardless of whether the brand is meant to be in the *Include* or *Exclude* brands list.
 
+### Response
+
+The response provides a list of all of the brands in your account and each of their details following the format of the example below.
+
+```json
+[
+    {
+        "ReferenceUrl": null,
+        "id": 97974,
+        "name": "Example",
+        "accountId": "AccountId",
+        "lastModifierUserName": "UserName",
+        "Created": "2018-04-25T14:59:52.7433333",
+        "LastModified": "2018-04-25T14:59:52.7433333",
+        "enabled": true,
+        "description": "This is an example",
+        "tags": ["Tag1", "Tag2"]
+    },
+    {
+        "ReferenceUrl": null,
+        "id": 97975,
+        "name": "Example2",
+        "accountId": "AccountId",
+        "lastModifierUserName": "UserName",
+        "Created": "2018-04-26T14:59:52.7433333",
+        "LastModified": "2018-04-26T14:59:52.7433333",
+        "enabled": false,
+        "description": "This is another example",
+        "tags": ["Tag1", "Tag2"]
+    },
+]
+```
+
+> [!NOTE]
+> The brand named *Example* is in the *Include* list for Video Indexer to detect, and the brand named *Example2* is in the *Exclude* list, so Video Indexer will not detect it.
+
 ## Get Brands model settings
 
 The [get brands settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands are not enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
+### Response
+
+The response shows whether Bing brands are enabled following the format of the example below.
+
+```json
+{
+  "state": true,
+  "useBuiltIn": true
+}
+```
+
 > [!NOTE]
-> The **useBuiltIn** flag set to true represents that Bing brands are enabled. If *useBuiltin* is false, Bing brands are disabled.  
+> **useBuiltIn** being set to true represents that Bing brands are enabled. If *useBuiltin* is false, Bing brands are disabled. The **state** value can be ignored as it has been deprecated.
 
 ## Update Brands model settings
 
 The [update brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands are not enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 The **useBuiltIn** flag set to true represents that Bing brands are enabled. If *useBuiltin* is false, Bing brands are disabled.
+
+### Response
+
+There is no returned content when the Brands model setting is updated successfully.
 
 ## Next steps
 
