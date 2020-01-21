@@ -32,11 +32,11 @@ Migrating apps that you created by using the Web Apps feature of Azure App Servi
 For more information:
 
 - Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Review the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+- Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Notification Hubs
 

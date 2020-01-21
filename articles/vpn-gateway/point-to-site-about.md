@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---
@@ -47,11 +47,11 @@ With native Azure AD authentication, you can leverage Azure AD's conditional acc
 
 At a high level, you need to perform the following steps to configure Azure AD authentication:
 
-[1. Configure an Azure AD tenant](openvpn-azure-ad-tenant.md)
+1. [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md)
 
-[2. Enable Azure AD authentication on the gateway](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [Enable Azure AD authentication on the gateway](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-[3. Download and configure Azure VPN Client (Preview)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Download and configure Azure VPN Client (Preview)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
 
 
 ### Authenticate using Active Directory (AD) Domain Server

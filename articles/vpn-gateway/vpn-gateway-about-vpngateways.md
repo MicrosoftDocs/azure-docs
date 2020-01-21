@@ -7,7 +7,7 @@ Customer intent: As someone with a basic network background, but is new to Azure
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---
@@ -39,7 +39,7 @@ You can start out creating and configuring resources using one configuration too
 
 ### <a name="models"></a>Deployment model
 
-There are currently two deployment models for Azure. When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+There are currently two deployment models for Azure. When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="planningtable"></a>Planning table
 
@@ -156,5 +156,5 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 ## Next steps
 
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
-- View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).
+- View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.

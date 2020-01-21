@@ -114,15 +114,15 @@ First, add the listener named *myListener* for port 80.
 
 ### Add a routing rule with a redirection configuration
 
-1. On **myAppGateway**, select **Rules** and then select **+Basic**.
-2. For the **Name**, type *Rule2*.
+1. On **myAppGateway**, select **Rules** and then select **+Request routing rule**.
+2. For the **Rule name**, type *Rule2*.
 3. Ensure **MyListener** is selected for the listener.
-4. Select the **Configure redirection** check box.
+4. Click on **Backend targets** tab and select **Target type** as *Redirection*.
 5. For **Redirection type**, select **Permanent**.
 6. For **Redirection target**, select **Listener**.
 7. Ensure the **Target listener** is set to **appGatewayHttpListener**.
-8. Select the **Include query string** and **Include path** check boxes.
-9. Select **OK**.
+8. For the **Include query string** and **Include path** select *Yes*.
+9. Select **Add**.
 
 ## Create a virtual machine scale set
 

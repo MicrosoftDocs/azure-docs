@@ -20,12 +20,12 @@ This article describes how, as a device developer, to connect a MXChip IoT DevKi
 
 To complete the steps in this article, you need the following resources:
 
-1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+1. An Azure IoT Central application created from the **Legacy application** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## Sample Devkits application
+## Add a device template
 
-An application created from the **Sample Devkits** application template includes a **MXChip** device template that defines the following device characteristics:
+In your Azure IoT Central application, add a new **MXChip** device template that defines the following device characteristics:
 
 - Telemetry measurements for **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis), and **Gyroscope** (measured along X, Y, Z axis).
 - State measurement for **Device State**.
@@ -35,6 +35,13 @@ An application created from the **Sample Devkits** application template includes
 - Cloud property **Manufactured In**.
 - Commands **Echo** and **Countdown**. When a real device receives an **Echo** command, it shows the sent value on the device's display. When a real device receives a **Countdown** command, the LED cycles through a pattern, and the device sends countdown values back to IoT Central.
 
+1. Select **+New** from device templates
+   ![Device Template](media/howto-connect-devkit/adddevicetemplate.png)
+   
+
+2. Select **MXChip** and create the MXChip device template
+   ![Add Device template](media/howto-connect-devkit/newtemplate.png)
+
 For full details about the configuration, see [MXChip Device template details](#mxchip-device-template-details)
 
 ## Add a real device
@@ -43,7 +50,7 @@ For full details about the configuration, see [MXChip Device template details](#
 
 In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details: **Scope ID, Device ID, and Primary key**:
 
-1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
+1. Add a **real device** from Devices, select **+New > Real** to add a real device.
 
     * Enter a lowercase **Device ID**, or use the suggested **Device ID**.
     * Enter a **Device Name**, or use the suggested name

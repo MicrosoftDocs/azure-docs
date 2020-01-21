@@ -1,5 +1,5 @@
 ---
-title: Insulating Azure Service Bus applications against outages and disasters | Microsoft Docs
+title: Insulate Azure Service Bus applications against outages and disasters
 description: Techniques to protect applications against a potential Service Bus outage.
 services: service-bus-messaging
 author: axisc

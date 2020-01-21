@@ -10,5 +10,5 @@ ms.custom: "include file"
 ms.topic: "include"
 ms.date: 01/25/2019
 ---
-* Complete the [Tutorial: Setup environment and workspace](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) to create a workspace and launch the notebook webpage. 
+* Complete the [Tutorial: Setup environment and workspace](../articles/machine-learning/tutorial-1st-experiment-sdk-setup.md) to create a workspace and launch the notebook webpage. 
 

@@ -122,7 +122,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### Attach a database using an Azure Resource Manager template
 
-In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
+In this section, you learn to attach a database to an existing cluser by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -133,7 +133,7 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the follower cluster."
+				"description": "Name of the cluster to which the database will be attached."
 			}
 		},
 		"attachedDatabaseConfigurationsName": {
@@ -154,7 +154,7 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the leader cluster to create."
+				"description": "The resource ID of the leader cluster."
 			}
 		},
 		"defaultPrincipalsModificationKind": {
@@ -174,17 +174,6 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 	},
 	"variables": {},
 	"resources": [
-		{
-			"name": "[parameters('followerClusterName')]",
-			"type": "Microsoft.Kusto/clusters",
-			"sku": {
-				"name": "Standard_D13_v2",
-				"tier": "Standard",
-				"capacity": 2
-			},
-			"apiVersion": "2019-09-07",
-			"location": "[parameters('location')]"
-		},
 		{
 			"name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
 			"type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
@@ -212,7 +201,7 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](h
 
 |**Setting**  |**Description**  |
 |---------|---------|
-|Follower Cluster Name     |  The name of the follower cluster       |
+|Follower Cluster Name     |  The name of the follower cluster.  |
 |Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
 |Database Name     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
 |Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
@@ -389,6 +378,7 @@ The follower database administrator can modify the [caching policy](/azure/kusto
 
 * The follower and the leader clusters must be in the same region.
 * [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
+* Data encryption using [customer managed keys](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) is not supported on both leader and follower clusters. 
 * You can't delete a database that is attached to a different cluster before detaching it.
 * You can't delete a cluster that has a database attached to a different cluster before detaching it.
 * You can't stop a cluster that has attached follower or leader database(s). 

@@ -24,14 +24,17 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: 1. Get started with Azure API for FHIR
-    href: tutorial-2-setup-environment.md
-  - name: 2. Set up application configuration
-    href: tutorial-1-decision-flow.md
-  - name: 3. Configure additional settings
-    href: azure-api-for-fhir-additional-settings.md
-  - name: 4. Write an application
-    href: tutorial-3-connect-to-endpoint.md
+  - name: Write an application to connect to FHIR endpoint
+    expanded: false
+    items:
+    - name: 1. Get started with Azure API for FHIR
+      href: tutorial-2-setup-environment.md
+    - name: 2. Set up application configuration
+      href: tutorial-1-decision-flow.md
+    - name: 3. Configure additional settings
+      href: azure-api-for-fhir-additional-settings.md
+    - name: 4. Write an application
+      href: tutorial-3-connect-to-endpoint.md
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy

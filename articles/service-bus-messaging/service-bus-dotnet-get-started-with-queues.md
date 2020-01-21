@@ -70,7 +70,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
     Enter your connection string for the namespace as the `ServiceBusConnectionString` variable. Enter your queue name.
 
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the SendMessagesAsync method that you will add in the next step to send messages to the queue. 
+1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you will add in the next step to send messages to the queue. 
 
     ```csharp
     public static async Task Main(string[] args)

@@ -111,5 +111,5 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 ## Next steps
 
-- [Govern access for external users](entitlement-management-organization.md)
+- [Govern access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [For users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

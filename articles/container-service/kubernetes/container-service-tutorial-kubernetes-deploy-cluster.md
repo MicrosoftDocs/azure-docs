@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Deploy Cluster
 description: Azure Container Service tutorial - Deploy Cluster
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

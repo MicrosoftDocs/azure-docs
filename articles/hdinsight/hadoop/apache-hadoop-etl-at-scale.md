@@ -47,11 +47,11 @@ For more information on Azure Data Factory, see the [documentation](../../data-f
 
 ## Ingest file storage and result storage
 
-Source data files are typically loaded into a location in Azure Storage or Azure Data Lake Storage. Files can be in any format, but typically they are flat files like CSVs. 
+Source data files are typically loaded into a location in Azure Storage or Azure Data Lake Storage. Files can be in any format, but typically they are flat files like CSVs.
 
-### Azure Storage 
+### Azure Storage
 
-[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) has [specific scalability targets](../../storage/common/storage-scalability-targets.md).  For most analytic nodes, Azure Storage scales best when dealing with many smaller files.  Azure Storage guarantees the same performance, no matter how many files or how large the files (as long as you are within your limits).  This means that you can store terabytes of data and still get consistent performance, whether you are using a subset of the data or all of the data.
+[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) has specific scalability targets. For more information, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md). For most analytic nodes, Azure Storage scales best when dealing with many smaller files.  Azure Storage guarantees the same performance, no matter how many files or how large the files (as long as you are within your limits).  This means that you can store terabytes of data and still get consistent performance, whether you are using a subset of the data or all of the data.
 
 Azure Storage has several different types of blobs.  An *append blob* is a great option for storing web logs or sensor data.  
 

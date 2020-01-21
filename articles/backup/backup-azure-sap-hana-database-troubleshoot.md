@@ -1,9 +1,7 @@
 ---
-
-
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
 ---
 
@@ -81,27 +79,27 @@ Take care of inputs while restoring a single container database (SDC) for HANA t
 
 Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as **"h21(sdc)"**. If you attempt to restore this database to another target SDC, say H11, then following inputs need to be provided.
 
-![SDC restore inputs](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![Restored SDC database name](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Note the following points:
 
-- By default, the restored db name will be populated with the backup item name i.e., h21(sdc)
+- By default, the restored db name will be populated with the backup item name. In this case, h21(sdc).
 - Selecting the target as H11 will NOT change the restored db name automatically. **It should be edited to h11(sdc)**. Regarding SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
 - Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
-- Linux is case-sensitive. Therefore, be careful to preserve the case.
+- Linux is case-sensitive. So be careful to preserve the case.
 
 ### Multiple Container Database (MDC) restore
 
-In multiple container databases for HANA, the standard configuration is SYSTEMDB + 1 or more Tenant DBs. Restoring an entire SAP HANA instance means to restore both SYSTEMDB and Tenant DBs. One restores SYSTEMDB first and then proceeds for Tenant DB. System DB essentially means to override the system information on the selected target. This restore also overrides the BackInt related information in the target instance. Therefore, after the system DB is restored to a target instance, one needs to run the pre-registration script again. Only then the subsequent tenant DB restores will succeed.
+In multiple container databases for HANA, the standard configuration is SYSTEMDB + 1 or more Tenant DBs. Restoring an entire SAP HANA instance means to restore both SYSTEMDB and Tenant DBs. One restores SYSTEMDB first and then proceeds for Tenant DB. System DB essentially means to override the system information on the selected target. This restore also overrides the BackInt related information in the target instance. So after the system DB is restored to a target instance, run the pre-registration script again. Only then the subsequent tenant DB restores will succeed.
 
 ## Upgrading from SAP HANA 1.0 to 2.0
 
-If you're protecting SAP HANA 1.0 databases and wish to upgrade to 2.0, then perform the steps outlined below:
+If you're protecting SAP HANA 1.0 databases and wish to upgrade to 2.0, then perform the following steps:
 
 - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) with retain data for old SDC database.
 - Perform the upgrade. After completion, the HANA is now MDC with a system DB and tenant DB(s)
 - Rerun [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details of (sid and mdc).
-- Re-register extension for the same machine in Azure Portal (Backup -> view details -> Select the relevant Azure VM -> Re-register).
+- Re-register extension for the same machine in Azure portal (Backup -> view details -> Select the relevant Azure VM -> Re-register).
 - Click Rediscover DBs for the same VM. This action should show the new DBs in step 2 with correct details (SYSTEMDB and Tenant DB, not SDC).
 - Configure backup for these new databases.
 

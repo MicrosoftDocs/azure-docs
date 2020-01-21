@@ -44,7 +44,7 @@ To browse all experiments:
     ![Example experiment](./media/sample-experiments/example-experiment.png)
 
 ## Create a new experiment using an example as a template
-You also can create a new experiment in  the classic version of Machine Learning Studio using a Gallery example as a template.
+You also can create a new experiment in Machine Learning Studio (classic) using a Gallery example as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the example content and click one.

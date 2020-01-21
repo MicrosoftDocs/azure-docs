@@ -1,14 +1,9 @@
 ---
-title: Azure Service Fabric - Using Service Fabric application KeyVault references | Microsoft Docs
+title: Azure Service Fabric - Using Service Fabric application KeyVault references 
 description: This article explains how to use service-fabric KeyVaultReference support for application secrets.
-services: service-fabric
-author: athinanthny
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
 ---
 
 #  KeyVaultReference support for Service Fabric applications (preview)
@@ -62,6 +57,7 @@ A common challenge when building cloud applications is how to securely store sec
 
     > [!NOTE] 
     > It's recommended to use a separate encryption certificate for CSS. You can add it under the "CentralSecretService" section.
+    
 
     ```json
         {
@@ -69,7 +65,18 @@ A common challenge when building cloud applications is how to securely store sec
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+In order for the changes to take effect, you will also need to change the upgrade policy to specify a forceful restart of the Service Fabric runtime on each node as the upgrade progresses through the cluster. This restart ensures that the newly enabled system service is started and running on each node. In the snippet below, forceRestart is the essential setting; use your existing values for the remainder of the settings.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Grant application's managed identity access permission to the keyvault
 
     Reference this [document](how-to-grant-access-other-resources.md) to see how to grant managed identity access to keyvault. Also note if you are using System Assigned Managed Identity, the managed identity is created only after application deployment.

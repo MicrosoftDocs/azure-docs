@@ -1,6 +1,6 @@
 ---
 title: Glossary of terms - Azure IoT Edge | Microsoft Docs
-description: Concepts - a glossary of common terms relating to Azure IoT Edge.
+description: A list of common terms that pertain to the Azure IoT Edge, its components, services, devices, and technologies.
 author: chrissie926
 # Author field is for your github username
 manager: philmea

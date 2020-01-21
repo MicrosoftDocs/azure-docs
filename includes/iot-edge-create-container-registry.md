@@ -2,7 +2,7 @@
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 12/30/2019
 ms.author: kgremban
 ---
 
@@ -27,10 +27,10 @@ If you don't already have a container registry, follow these steps to create a n
    | Admin user | Set to **Enable**. |
    | SKU | Select **Basic**. |
 
-5. Select **Create**.
+3. Select **Create**.
 
-6. After your container registry is created, browse to it, and then select **Access keys**.
+4. After your container registry is created, browse to it, and from the left pane select **Access keys** from the menu located under **Settings**.
 
-7. Copy the values for **Login server**, **Username**, and **Password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
+5. Copy the values for **Login server**, **Username**, and **Password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
 
    ![Copy login server, username, and password for container registry](./media/iot-edge-create-container-registry/registry-access-key.png)
