@@ -86,8 +86,8 @@ For details on creating a new Azure AD application, see [Register an app with th
 ## Add API permissions
 
 1. In the **Manage** section click **API permissions**.
-2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**
-3. Expand **User** on the list below and make sure **User.Read** is enabled.
+2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**. 
+3. Expand **User** on the list below and enable the **User.Read** permission. If **User.Read** is enabled by default, ensure that it is the **Azure Active Directory Graph** permission **User.Read**, *not* the **Microsoft Graph** permission **User.Read**.
 4. Scroll up and select **Application permissions**.
 5. Expand **Directory** on the list below and enable **Directory.ReadAll**
 6. Click **Add permissions** to accept the changes.

@@ -9,6 +9,7 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 
 ---
 # What is Azure Private Link? (Preview)
@@ -46,6 +47,7 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for PostgreSQL - Single server         | All public regions      |   Preview      |
 |  |  Azure Database for MySQL         | All public regions      |   Preview      |
 |  |  Azure Database for MariaDB         | All public regions      |   Preview      |
+|  |  Azure Cognitive Search | West US 2, West Central US, East US, South Central US, Australia East, Australia Southeast | Preview <br/> [Learn more](/azure/search/service-create-private-endpoint) |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 

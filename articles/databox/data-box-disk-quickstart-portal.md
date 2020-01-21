@@ -12,17 +12,9 @@ ms.author: alkohli
 ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
-::: zone target="docs"
 
-# Quickstart: Deploy Azure Data Box Disk using the Azure portal
 
-::: zone-end
-
-::: zone target="chromeless"
-
-## Get started with Azure Data Box Disk 
-
-::: zone-end
+# Get started with Azure Data Box Disk in Azure portal
 
 ::: zone target="docs"
 

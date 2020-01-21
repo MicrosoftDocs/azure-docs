@@ -14,7 +14,7 @@ ms.date: 11/19/2019
 
 # Join Data
 
-This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
+This article describes how to use the **Join Data** module in Azure Machine Learning designer to merge two datasets using a database-style join operation.  
 
 ## How to configure Join Data
 
@@ -58,9 +58,9 @@ To perform a join on two datasets, they should be related by a key column. Compo
     * Select this option to view the keys from both input tables.
     * Deselect to only return the key columns from the left input.
 
-1. Run the pipeline, or select the Join Data module and selected **Run Selected** to perform the join.
+1. Run the pipeline.
 
-1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
+1. To view the results, right-click the **Join Data** and select **Visualize**.
 
 ## Next steps
 
