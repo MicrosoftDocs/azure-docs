@@ -4,7 +4,7 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -18,11 +18,11 @@ For Azure Analysis Services, getting setup with the gateway the first time is a 
 
 - **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but it's recommended it be in the same region as your Analysis Services servers. 
 
-- **Create a gateway resource in Azure** - In this step, you create a gateway resource in an Azure.
+- **Create a gateway resource in Azure** - In this step, you create a gateway resource in Azure.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource, you can begin connecting your servers to it. You can connect multiple servers and other resources, provided they are in the same region.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource, you can begin connecting servers to it. You can connect multiple servers and other resources provided they are in the same region.
 
 
 
@@ -48,7 +48,7 @@ When installing for an Azure Analysis Services environment, it's important you f
 
 The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway does not require inbound ports.
 
-You may need to include IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+You may need to include IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=56519). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 The following are fully qualified domain names used by the gateway.
 
