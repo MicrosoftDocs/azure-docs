@@ -17,7 +17,7 @@ This article describes the causes and solutions for **403002 IoTHubQuotaExceeded
 
 ## Symptoms
 
-All requests to IoT Hub fails with the error  **403002 IoTHubQuotaExceeded**. In Azure portal, the IoT hub device list doesn't load.
+All requests to IoT Hub fail with the error  **403002 IoTHubQuotaExceeded**. In Azure portal, the IoT hub device list doesn't load.
 
 ## Cause
 

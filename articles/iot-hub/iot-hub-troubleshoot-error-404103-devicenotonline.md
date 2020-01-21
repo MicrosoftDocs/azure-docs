@@ -17,12 +17,12 @@ This article describes the causes and solutions for **404103 DeviceNotOnline** e
 
 ## Symptoms
 
-Direct method to a device fails with the error **404103 DeviceNotOnline** even if the device is online. 
+A Direct method to a device fails with the error **404103 DeviceNotOnline** even if the device is online. 
 
 ## Cause
 
-If you confirmed that the device is online and still get the error, it's likely because the direct method callback is not registered on the device.
+If you have confirmed that the device is online and still get the error, it's likely because the direct method callback is not registered on the device.
 
 ## Solution
 
-To configure your device properly for direct method callback, see [Handle a direct method on a device](iot-hub-devguide-direct-methods.md#handle-a-direct-method-on-a-device).
+To configure your device properly for direct method callbacks, see [Handle a direct method on a device](iot-hub-devguide-direct-methods.md#handle-a-direct-method-on-a-device).

@@ -17,7 +17,7 @@ This article describes the causes and solutions for **503003 PartitionNotFound**
 
 ## Symptoms
 
-Your requests to IoT Hub fails with the error **503003 PartitionNotFound**.
+Requests to IoT Hub fail with the error **503003 PartitionNotFound**.
 
 ## Cause
 

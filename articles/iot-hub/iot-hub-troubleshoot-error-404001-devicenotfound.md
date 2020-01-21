@@ -17,7 +17,7 @@ This article describes the causes and solutions for **404001 DeviceNotFound** er
 
 ## Symptoms
 
-During a cloud-to-device (C2D) communication such as C2D message, twin update, or direct methods, the operation fails with error `404001 DeviceNotFound`.
+During a cloud-to-device (C2D) communication, such as C2D message, twin update, or direct method, the operation fails with error `404001 DeviceNotFound`.
 
 ## Cause
 

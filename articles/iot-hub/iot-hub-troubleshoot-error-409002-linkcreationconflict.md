@@ -17,13 +17,13 @@ This article describes the causes and solutions for **409002 LinkCreationConflic
 
 ## Symptoms
 
-You see the error **409002 LinkCreationConflict** logged in diagnostic logs along with device disconnection. 
+You see the error **409002 LinkCreationConflict** logged in diagnostic logs along with device disconnection or cloud-to-device message failure. 
 
 <!-- When using AMQP? -->
 
 ## Cause
 
-Generally, this error happens when IoT Hub detects that a client has more than one connection. That is, when a new connection request comes for a device with an existing connection, IoT Hub closes the previous one with this error.
+Generally, this error happens when IoT Hub detects that a client has more than one connection. TThat is, when a new connection request arrives for a device with an existing connection, IoT Hub closes the existing connection with this error.
 
 ### Cause 1
 

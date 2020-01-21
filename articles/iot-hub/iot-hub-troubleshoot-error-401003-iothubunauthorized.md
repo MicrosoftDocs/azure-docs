@@ -17,7 +17,7 @@ This article describes the causes and solutions for **401003 IoTHubUnauthorized*
 
 ## Symptoms
 
-Several possible symptoms fall under this error code. In general, the error shows when trying during requests to IoT Hub service for almost anything. Additional detail is included in the error message which could include:
+Several possible symptoms fall under this error code. In general, the error indicates that the request authorization failed. Additional detail is provided in the error message which could include:
 
 * Authorization header missing
 * IotHub '\*' does not contain the specified device '\*'
@@ -27,7 +27,7 @@ Several possible symptoms fall under this error code. In general, the error show
 
 ## Cause
 
-The authorization header, rule, or key was not considered as sufficient by IoT Hub for authentication.
+The authorization header, rule, or key was not considered sufficient by IoT Hub for authentication.
 
 ## Solution
 
