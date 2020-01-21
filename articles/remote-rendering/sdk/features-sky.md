@@ -26,43 +26,19 @@ The global environment map may be changed via the client API through SkyReflecti
 
 ### Example calls
 
-For example, setting a new sky environment could look like this in C++ code:
-
-``` cpp
-void exampleSkyEnvironment(RemoteRenderingClient& client)
-{
-    client.LoadTextureAsync("builtin://SnowyForestPath", Texture::CubeMap,
-    [&](auto error, auto textureId)
-    {
-        if (error == ARRResult::Success)
-        {
-            auto& database = client.AccessObjectDatabase();
-            TextureHandle texture = database.AccessTextureManager().AccessObject(textureId);
-            if (database.GetState<SkyReflectionSettings>->SetSkyReflection(texture) != ARRResult::Success)
-            {
-                std::cout << "Setting sky reflection failed!" << std::endl;
-            }
-        }
-        else
-        {
-            std::cout << "Texture loading failed!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-public void ExampleSkyEnvironment()
+private LoadTextureAsync _pendingTexture = null;
+public void ExampleSkyEnvironment(AzureSession session)
 {
-    RemoteManager.LoadTextureAsync("builtin://SnowyForestPath",
-        Texture.TextureType.CubeMap).Completed +=
-        (IAsync<Texture> res) =>
+    _pendingTexture .LoadTextureAsync(new TextureLoadParams("builtin://SnowyForestPath", Texture.TextureType.CubeMap));
+    _pendingTexture.Completed +=
+        (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
                 try
                 {
-                    manager.GetSkyReflectionSettings().SkyReflectionTexture = res.Result;
+                    session.Actions.GetSkyReflectionSettings().SkyReflectionTexture = res.Result;
                 }
                 catch (RRException exception)
                 {
@@ -77,7 +53,7 @@ public void ExampleSkyEnvironment()
 }
 ```
 
-Naturally, the textures can be loaded separately and the respectively received texture IDs and texture objects used at a later point in time for modifying `SkyReflectionSettings`.
+Naturally, the textures can be loaded separately and the respectively received texture objects used at a later point in time for modifying `SkyReflectionSettings`.
 
 ### Built-in and external skies
 
@@ -107,7 +83,7 @@ Azure Remote Rendering supports two distinct types of sky environment maps, the 
 
 ![Cubemap](media/Cubemap-example.png)
 
-Typically, sky boxes or environment maps are provided as a cube map (see [Textures](../sdk/concepts-textures.md)). That is, the sphere of all possible directions is approximated as six 2D-Textures placed on a virtual cube around the observer. Such a sky environment cube is shown in the [cubemap example](#cube-environment-maps) above. If a texture file containing a cube map should be used, it has to be loaded accordingly by specifying cube map usage during the call to `RemoteRenderingClient.LoadTextureAsync()`.
+Typically, sky boxes or environment maps are provided as a cube map (see [Textures](../sdk/concepts-textures.md)). That is, the sphere of all possible directions is approximated as six 2D-Textures placed on a virtual cube around the observer. Such a sky environment cube is shown in the [cubemap example](#cube-environment-maps) above. If a texture file containing a cube map should be used, it has to be loaded accordingly by specifying cube map usage during the call to `AzureSession.Actions.LoadTextureAsync()`.
 
 > [!CAUTION]
 > The cube map orientation scheme used by Azure Remote Rendering is shown with the axis directions in the [cubemap example](#cube-environment-maps). Please note that some game engines and other respective computer graphics related software might use a different scheme for cube maps.
@@ -116,11 +92,11 @@ Typically, sky boxes or environment maps are provided as a cube map (see [Textur
 
 ![Sphere map](media/spheremap-example.png)
 
-Additionally, Azure Remote Rendering also has built-in support for 2D sphere environment maps. In contrast to environment cube maps, they consist of only one 2D texture of which the texture coordinates represent the [spherical coordinate space](https://en.wikipedia.org/wiki/Spherical_coordinate_system) defined by azimuthal angle φ and polar angle θ (see above [sphere map example](#sphere-environment-maps))). To correctly load a 2D sphere map texture, specify the 2D usage during the call to `RemoteRenderingClient.LoadTextureAsync()`. No distinction is necessary when specifying the texture object when setting `SkyReflectionSettings.SkyReflectionTexture`.
+Additionally, Azure Remote Rendering also has built-in support for 2D sphere environment maps. In contrast to environment cube maps, they consist of only one 2D texture of which the texture coordinates represent the [spherical coordinate space](https://en.wikipedia.org/wiki/Spherical_coordinate_system) defined by azimuthal angle φ and polar angle θ (see above [sphere map example](#sphere-environment-maps))). To correctly load a 2D sphere map texture, specify the 2D usage during the call to `AzureSession.Actions.LoadTextureAsync()`. No distinction is necessary when specifying the texture object when setting `SkyReflectionSettings.SkyReflectionTexture`.
 
 ## Miscellaneous
 
-Mipmaps do not need to be provided. The textures are processed internally to allow optimal interaction with the rendering engine and do not need additional processing by the user. However, the cube and sphere environment maps have to be in DDS file format to be correctly loaded during `RemoteRenderingClient.LoadTextureAsync()`.
+Mipmaps do not need to be provided. The textures are processed internally to allow optimal interaction with the rendering engine and do not need additional processing by the user. However, the cube and sphere environment maps have to be in DDS file format to be correctly loaded during `AzureSession.Actions.LoadTextureAsync()`.
 
 ## See also
 

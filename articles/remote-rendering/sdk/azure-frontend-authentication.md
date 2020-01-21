@@ -11,11 +11,11 @@ ms.service: azure-remote-rendering
 ---
 # Authentication
 
-ARR uses the same authentication mechanism as Azure Spatial Anchors (ASA), for detailed documentation, see https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp. Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
+Azure Remote Rendering uses the same authentication mechanism as Azure Spatial Anchors (ASA), for detailed documentation, see https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp. Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
 
 ## AzureFrontendAccountInfo
 
-AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend. 
+AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend instance in the SDK.
 
 The important fields are:
 
@@ -23,15 +23,8 @@ The important fields are:
 
     public class AzureFrontendAccountInfo
     {
-        public enum SessionLocation
-        {
-            westus2,
-            westeurope,
-            ppe,
-            ignore
-        }
-
-        public string AccountDomain = "mixedreality.azure.com";
+        // Something akin to "<azure endpoint>.mixedreality.azure.com"
+        public string AccountDomain;
 
         // Can use one of:
         // 1) ID and Key.
@@ -41,68 +34,27 @@ The important fields are:
         public string AccountKey = string.Empty;
         public string AuthenticationToken = string.Empty;
         public string AccessToken = string.Empty;
-        public SessionLocation Location = SessionLocation.westus2;
     }
 
 ```
 
-```Location``` is automatically appended to the ```AccountDomain``` when constructing the ```AzureFrontend``` object. For example, if ```AzureFrontendAccountInfo.SessionLocation``` is set to westus2, when the Frontend is created, it will automatically create the domain 'westus2.mixedreality.azure.com' for the AccountDomain.
-
-```SessionLocation.ignore``` can be used to pass the AccountDomain directly to the underlying authentication service.
-
 ## Azure Frontend
 
-The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset ingestion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, and stopping.
+The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset ingestion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
 
 Each opened/created ```AzureSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
 
-Deallocating a session will not stop the VM on Azure, Stop must be explicitly called.
+Deallocating a session will not stop the VM on Azure, `AzureSession.StopAsync` must be explicitly called.
 
-Once a session has been created and its state has been marked as ready, it can be connected to by a ```RemoteManager```. 
-
-The state and hostname of the session can be queried directly from the object and used to connect to the underlying runtime:
-
-``` cs
-void GetRenderingSessionProperties(AzureSession session)
-{
-    session.GetRenderingSessionPropertiesAsync().Completed +=
-        (IAsync<RRRenderingSessionProperties> res) =>
-        {
-            var sessionProperties = res.Result;
-            if(sessionProperties.Status == ARRRenderingSessionStatus.Ready)
-            {
-                RemoteManager.Connect(session.Hostname, session.Frontend);
-            }
-        }
-}
-```
-
-```AzureSession``` will keep a local cache of the last known session properties based on calls to GetRenderingSessionProperties.
+Once a session has been created and its state has been marked as ready, it can be connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
 
 ### Threading
 
 All AzureSession and AzureFrontend async calls are completed in a background thread, not the main application thread.
 
-### Redundant calls on a session object
-
-At any given point in time, only a single call of a particular type for a session can be issued. For example, if the user has called ```AzureSession.StopRenderingSession``` and, before the first call has returned, calls ```AzureSession.StopRenderingSession``` again, the second call will fail with ARRResult.AlreadyExists.
-
-It is possible to call the function again from within the completion routine of the first call:
-
-``` cs
-
-    session.GetRenderingSessionPropertiesAsync().Completed +=
-        (IAsync<RRRenderingSessionProperties> res) =>
-        {
-            session.GetRenderingSessionPropertiesAsync(); // Succeeds
-        };
-
-    session.GetRenderingSessionPropertiesAsync(); // Fails due to redundancy
-```
-
 ### Azure Frontend APIs
 
-This section will cover Azure Frontend APIs, which are C++ and C# APIs to interact with ingestion service and rendering service REST APIs.
+This section will cover Azure Frontend APIs, which SDK wrappers around the the ingestion service and rendering service REST APIs.
 
 ### Ingestion APIs
 
@@ -110,30 +62,15 @@ For detailed documentation about ingestion service, see the [article](../how-tos
 
 #### Start asset ingestion
 
-``` cpp
-void StartAssetIngestion(AzureFrontend& frontend, const char* modelName, const char* modelUrl, const char* assetContainerUrl)
-{
-    frontend.StartAssetIngestionAsync(IngestAssetCInfo{ modelName, modelUrl, assetContainerUrl },
-    [&](RRSessionGeneralCContext context, const char* assetId)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            //use assetId 
-        }
-        else
-        {
-            std::cout << "Failed to start asset ingestion!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
+private StartIngestionAsync _pendingAsync = null;
+
 void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelUrl, string assetContainerUrl)
 {
-    frontend.StartAssetIngestionAsync(
-        new IngestAssetParams(modelName, modelUrl, assetContainerUrl)).Completed +=
-        (IAsync<string> res) =>
+    _pendingAsync = frontend.StartIngestionAsync(
+        new IngestAssetParams(modelName, modelUrl, assetContainerUrl));
+    _pendingAsync.Completed +=
+        (StartIngestionAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -144,34 +81,20 @@ void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelU
                 Console.WriteLine("Failed to start asset ingestion!");
             }
         };
+
+        _pendingAsync = null;
 }
 ```
 
 #### Get ingestion status
 
-``` cpp
-void GetIngestionStatus(AzureFrontend& frontend, const char* assetId)
-{
-    frontend.GetIngestionStatusAsync(assetId,
-    [&](RRSessionGeneralCContext context, ARRIngestionSessionStatus status)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            //use status 
-        }
-        else
-        {
-            std::cout << "Failed to get status of asset ingestion!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
+private IngestionStatusAsync _pendingAsync = null
 void GetIngestionStatus(AzureFrontend frontend, string assetId)
 {
-    frontend.GetIngestionStatusAsync(assetId).Completed +=
-        (IAsync<ARRIngestionSessionStatus> res) =>
+    _pendingAsync = frontend.GetIngestionStatusAsync(assetId);
+    _pendingAsync.Completed +=
+        (IngestionStatusAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -181,6 +104,8 @@ void GetIngestionStatus(AzureFrontend frontend, string assetId)
             {
                 Console.WriteLine("Failed to get status of asset ingestion!");
             }
+
+            _pendingAsync = null;
         };
 }
 ```
@@ -193,30 +118,15 @@ A rendering session can either be created dynamically on the service or an alrea
 
 #### Create rendering session
 
-``` cpp
-void CreateRenderingSession(AzureFrontend& frontend, ARRRenderingSessionVmSize vmSize, uint32_t maxLeaseTimeHours)
-{
-    frontend.CreateRenderingSessionAsync(CreateRenderingSessionCInfo{ vmSize, maxLeaseTimeHours },
-    [&](RRSessionGeneralCContext context, std::shared_ptr<RenderingSession> renderingSession)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            //use sessionId 
-        }
-        else
-        {
-            std::cout << "Failed to create session!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-void CreateRenderingSession(AzureFrontend frontend, ARRRenderingSessionVmSize vmSize, uint maxLeaseTimeHours)
+private CreateSessionAsync _pendingAsync = null;
+void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
 {
-    frontend.CreateRenderingSessionAsync(
-        new CreateRenderingSessionParams(vmSize, maxLeaseTimeHours)).Completed +=
-        (IAsync<AzureSession> res) =>
+    _pendingAsync = frontend.CreateNewRenderingSessionAsync(
+        new CreateRenderingSessionParams(vmSize, maxLease));
+
+    _pendingAsync.Completed +=
+        (CreateSessionAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -226,21 +136,15 @@ void CreateRenderingSession(AzureFrontend frontend, ARRRenderingSessionVmSize vm
             {
                 Console.WriteLine("Failed to create session!");
             }
+            _pendingAsync = null;
         };
 }
 ```
 
 #### Open an existing rendering session
 
-``` cpp
-void OpenRenderingSession(AzureFrontend& frontend, const char* sessionId)
-{
-    std::shared_ptr<RenderingSession> session = frontend.OpenRenderingSession(sessionId);
-    // Query session status.. etc.
-}
-```
+Opening an existing session is a synchronous call.
 
-The C# API can be used in a similar fashion:
 ``` cs
 void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 {
@@ -251,28 +155,13 @@ void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 
 #### Get current rendering sessions
 
-``` cpp
-void AzureFrontendTest::GetCurrentRenderingSessions(AzureFrontend& frontend)
-{
-    frontend.GetCurrentRenderingSessionsAsync([&](RRSessionGeneralCContext context, const RRRenderingSessionCProperties* sessions, uint32_t num)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            //use sessions 
-        }
-        else
-        {
-            std::cout << "Failed to get current rendering sessions!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
+private SessionPropertiesArrayAsync _pendingAsync = null;
 void GetCurrentRenderingSessions(AzureFrontend frontend)
 {
-    frontend.GetCurrentRenderingSessionsAsync().Completed +=
-        (IAsync<RRRenderingSessionProperties[]> res) =>
+    _pendingAsync = frontend.GetCurrentRenderingSessionsAsync();
+    _pendingAsync.Completed +=
+        (SessionPropertiesArrayAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -282,6 +171,7 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
             {
                 Console.WriteLine("Failed to get current rendering sessions!");
             }
+            _pendingAsync = null;
         };
 }
 ```
@@ -290,29 +180,13 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 
 #### Get rendering session properties
 
-``` cpp
-void GetRenderingSessionProperties(RenderingSession& session)
-{
-    client.GetRenderingSessionPropertiesAsync(sessionId,
-    [&](RRSessionGeneralCContext context, RRRenderingSessionCProperties properties)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            //use properties 
-        }
-        else
-        {
-            std::cout << "Failed to get properties of session!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
+private SessionPropertiesAsync _pendingAsync = null;
 void GetRenderingSessionProperties(AzureSession session)
 {
-    session.GetRenderingSessionPropertiesAsync().Completed +=
-        (IAsync<RRRenderingSessionProperties> res) =>
+    _pendingAsync = session.GetPropertiesAsync();
+    _pendingAsync.Completed +=
+        (SessionPropertiesAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -322,113 +196,67 @@ void GetRenderingSessionProperties(AzureSession session)
             {
                 Console.WriteLine("Failed to get properties of session!");
             }
+            _pendingAsync = null;
         };
 }
 ```
 
 #### Update rendering session
 
-``` cpp
-void UpdateRenderingSession(RenderingSession& session, uint32_t maxLeaseTimeHours, maxLeaseTimeMinutes)
-{
-    session.UpdateRenderingSessionAsync(UpdateRenderingSessionCInfo{ maxLeaseTimeHours, maxLeaseTimeMinutes },
-    [&](RRSessionGeneralCContext context)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            std::cout << "Rendering session update succeeded!" << std::endl;
-        }
-        else
-        {
-            std::cout << "Failed to update rendering session!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-void UpdateRenderingSession(AzureSession sessionId, uint maxLeaseTimeHours, uint maxLeaseTimeMinutes)
+private SessionAsync _pendingAsync;
+void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 {
-    RemoteManager.UpdateRenderingSessionAsync(
-        new UpdateRenderingSessionParams(maxLeaseTimeHours, maxLeaseTimeMinutes)).Completed +=
-        (IAsync<ARRResult> res) =>
+    _pendingAsync = session.RenewAsync(
+        new UpdateRenderingSessionParams(updatedLease));
+    _pendingAsync.Completed +=
+        (SessionAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
-                Console.WriteLine("Rendering session update succeeded!");
+                Console.WriteLine("Rendering session renewed succeeded!");
             }
             else
             {
-                Console.WriteLine("Failed to update rendering session!");
+                Console.WriteLine("Failed to renew rendering session!");
             }
+            _pendingAsync = null;
         };
 }
 ```
 
 #### Stop rendering session
 
-``` cpp
-void StopRenderingSession(RenderingSession& session)
-{
-    session.StopRenderingSessionAsync(
-    [&](RRSessionGeneralCContext context)
-    {
-        if (context.result == ARRResult::Success)
-        {
-            std::cout << "Rendering session stopping succeeded!" << std::endl;
-        }
-        else
-        {
-            std::cout << "Failed to stop rendering session!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
+private SessionAsync _pendingAsync;
 void StopRenderingSession(AzureSession session)
 {
-    session.StopRenderingSessionAsync().Completed +=
-        (IAsync<ARRResult> res) =>
+    _pendingAsync = session.StopAsync();
+    _pendingAsync.Completed +=
+        (SessionAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
-                Console.WriteLine("Rendering session stop succeeded!");
+                Console.WriteLine("Rendering session stopped successfully!");
             }
             else
             {
                 Console.WriteLine("Failed to stop rendering session!");
             }
+            _pendingAsync = null;
         };
 }
 ```
 
 #### Connect to ARR inspector
 
-
-``` cpp
-void ConnectToArrInspector(RenderingSession& session)
-{
-    session.ConnectToArrInspectorAsync(
-    [&](ARRResult error, const char* htmlFilePath)
-    {
-        if (error == ARRResult::Success)
-        {
-            //launch html file 
-        }
-        else
-        {
-            std::cout << "Failed to connect to ARR inspector!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-void ConnectToArrInspector(AzureSession session)
+private ArrInspectorAsync _pendingAsync = null;
+void ConnectToArrInspector(AzureSession session, string hostname)
 {
-    session.ConnectToArrInspectorAsync().Completed +=
-        (IAsync<string> res) =>
+    _pendingAsync = session.ConnectToArrInspectorAsync(hostname);
+    _pendingAsync.Completed +=
+        (ArrInspectorAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -440,8 +268,6 @@ void ConnectToArrInspector(AzureSession session)
                     var file = await Windows.Storage.StorageFile.GetFileFromPathAsync(htmlPath);
                     await Windows.System.Launcher.LaunchFileAsync(file);
                 }, true);
-#elif UNITY_EDITOR
-                UnityEngine.Application.OpenURL("file:///" + htmlPath);
 #else
                 InvokeOnAppThreadAsync(() =>
                 {
@@ -456,6 +282,3 @@ void ConnectToArrInspector(AzureSession session)
         };
 }
 ```
-
-> [!NOTE]
-> ConnectToArrInspector will use the locally cached hostname in the AzureSession. Make sure to call GetRenderingSessionProperties at least once to set the hostname.

@@ -15,47 +15,24 @@ Selected objects can be highlighted visually by adding outline rendering. The gl
 
 Outline rendering of single objects is invoked through [`HierarchicalStateOverrideComponent`](../sdk/features-override-hierarchical-state.md).
 
-## API usage
-
-The global outline parameters may be changed via the client API by calling 
-
-``` cs
-RemoteRenderingClient.SetOutlineParams(UbColor color, float pulseRateHz, float pulseIntensity)
-```
-
-### Parameters for `SetOutlineParams`
+## Parameters for `OutlineSettings`
 
 | Parameter      | Type    | Description                                             | 
 |----------------|---------|---------------------------------------------------------| 
-| `color`          | ColorUb | The color that is used for drawing the outline. The alpha portion is ignored.         |
-| `pulseRateHz`    | float   | The rate at which the outline pulses.|
-| `pulseIntensity` | float   | The intensity of the outline pulse effect. Must be between 0.0 for no pulsing and 1.0 for full pulsing. Intensity directly sets the minimum opacity of the outline as `minOpacity = 1.0 - pulseIntensity`. |
+| `Color`          | ColorUb | The color that is used for drawing the outline. The alpha portion is ignored.         |
+| `PulseRateHz`    | float   | The rate at which the outline pulses.|
+| `PulseIntensity` | float   | The intensity of the outline pulse effect. Must be between 0.0 for no pulsing and 1.0 for full pulsing. Intensity directly sets the minimum opacity of the outline as `minOpacity = 1.0 - pulseIntensity`. |
 
 ![Outlines](./media/outlines.png) The effect of changing the `color` parameter from yellow (left) to magenta (center) and `pulseIntensity` from 0 to 0.8 (right).
 
-### Example
+## Example
 
-The following code shows an example for setting outline parameters via the C++ API
+The following code shows an example for setting outline parameters via the API
 
-``` cpp
-void exampleOutlineParameters(RemoteRenderingClient& client)
-{
-    OutlineSettings* outlineSettings = client.AccessObjectDatabase().GetState<OutlineSettings>();
-
-    if (outlineSettings != nullptr)
-    {
-        outlineSettings->SetColor(ColorUb(255, 255, 0, 255));
-        outlineSettings->SetPulseRateHz(2.0f);
-        outlineSettings->SetPulseIntensity(0.5f);
-    }
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-public void ExampleOutlineParameters()
+public void ExampleOutlineParameters(AzureSession session)
 {
-    OutlineSettings outlineSettings = RemoteManager.GetOutlineSettings();
-    
+    OutlineSettings outlineSettings = session.Actions.GetOutlineSettings();
     try
     {
         outlineSettings.Color = new ColorUb(255, 255, 0, 255);
@@ -70,4 +47,5 @@ public void ExampleOutlineParameters()
 ```
 
 ## See also
+
 * [`HierarchicalStateOverrideComponent`](../sdk/features-override-hierarchical-state.md)

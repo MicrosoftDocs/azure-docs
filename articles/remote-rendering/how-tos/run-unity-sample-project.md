@@ -53,12 +53,6 @@ See [Rendering Your First Model](../quickstarts/rendering-your-first-model.md) f
 1. Dock the 'Game' view tab besides the 'Scene' tab.
 1. Press the play button in Unity.
 1. The model should be loaded on the server and the 'Game' view should show the remotely rendered image.
-1. A new game object should have been added to the scene.
-1. You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector.
-This has to be repeated for each game object to explore the hierarchy.
-<br />![Unity Hierarchy](./media/unity-hierarchy.png)
-1. You can also move remote objects or the cut plane (**InteractionSample/CutPlane**) around in the editor, to sync the transform either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
-<br />![Unity Inspector](./media/unity-inspector.png)
 
 > [!NOTE]
 > Due to technical limitations it is only possible to preview local content with Unity's Play-To-VR feature. The remote connection is automatically disabled if a VR device is connected.
@@ -87,26 +81,18 @@ This has to be repeated for each game object to explore the hierarchy.
 An example connect.xml will look like:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<HostInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <mode>UseSession</mode>
-  <useHostnameSettings>
-    <hostname></hostname>
-  </useHostnameSettings>
-  <useSessionSettings>
-    <sessionid />
-    <useSessionId>false</useSessionId>
-    <accountInfo>
-      <AccountName />
-      <AccountDomain>mixedreality.azure.com</AccountDomain>
-      <AccountId>your-account-id</AccountId>
-      <AccountKey>your-account-key</AccountKey>
-      <AuthenticationToken />
-      <AccessToken />
-      <Location>westus2</Location> <!-- Equal to the enum from the editor, can be westeurope or westus2 -->
-    </accountInfo>
-  </useSessionSettings>
-</HostInfo>
+<?xml version="1.0" encoding="utf-8"?>
+<UseSessionSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sessionid />
+  <useSessionId>false</useSessionId>
+  <accountInfo>
+    <AccountDomain></AccountDomain>
+    <AccountId />
+    <AccountKey />
+    <AuthenticationToken />
+    <AccessToken />
+  </accountInfo>
+</UseSessionSettings>
 ```
 
 ## Using the sample
