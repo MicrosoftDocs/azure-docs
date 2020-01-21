@@ -50,7 +50,7 @@ Azure Resource Manager capabilities will always be introduced to global Azure fi
 
 1. Once you have a local clone of the repository, connect to the destination's Azure Resource Manager with PowerShell.
 
-1. Import the psm1 module and execute the Test-AzureRmureRmTemplateFunctions cmdlet:
+1. Import the psm1 module and execute the Test-AzureRmTemplateFunctions cmdlet:
 
    ```powershell
    # Import the module
