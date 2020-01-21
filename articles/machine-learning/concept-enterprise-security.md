@@ -176,7 +176,7 @@ You may encrypt a deployed Azure Kubernetes Service resource using customer-mana
 This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
 
 > [!IMPORTANT]
-> This process only works with AKS K8s version 1.16 or higher. Azure Machine Learning added support for AKS 1.16 on Jan 13, 2020.
+> This process only works with AKS K8s version 1.17 or higher. Azure Machine Learning added support for AKS 1.17 on Jan 13, 2020.
 
 #### Machine Learning Compute
 
