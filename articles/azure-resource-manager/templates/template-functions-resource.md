@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 01/20/2020
 ---
 # Resource functions for Azure Resource Manager templates
 
@@ -528,6 +528,16 @@ For example:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
+
+### Get managed identity
+
+[Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) are [extension resource types](extension-resource-types.md) that are created implicitly for some resources. Because the managed identity isn't explicitly defined in the template, you must reference the resource that the identity is applied to. Use `Full` to get all of the properties, including the implicitly created identity.
+
+For example, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+```
 
 ### Reference example
 
