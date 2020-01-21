@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017, mvc
 
 Azure Functions allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 
-A function is "triggered" by an specific type of event. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
+A function is "triggered" by a specific type of event. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
 
 While you can always code directly against a myriad of services, integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and and third-party services](./functions-triggers-bindings.md).
 

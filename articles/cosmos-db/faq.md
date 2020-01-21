@@ -71,8 +71,6 @@ To request new features, create a new request on [User voice](https://feedback.a
 
 To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
-Other questions can be submitted to the team at [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); however this isn't a technical support alias.
-
 ## <a id="try-cosmos-db"></a>Try Azure Cosmos DB subscriptions
 
 You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
@@ -282,8 +280,6 @@ For the .NET SDK in particular, there are some classes and methods that Azure Co
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
-
-If any of these differences are a problem for your project, contact [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) and let us know.
 
 ### How do I provide feedback about the SDK or bugs?
 
