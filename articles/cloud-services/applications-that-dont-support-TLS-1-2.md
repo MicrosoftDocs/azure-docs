@@ -22,19 +22,19 @@ This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) a
 
 We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article. 
 
-> [NOTE!]
-> Guest OS Family 6 release enforces TLS 1.2 by disabling 1.0/1.0 ciphers. 
+> [!NOTE]
+> Guest OS Family 6 releases enforces TLS 1.2 by disabling 1.0/1.0 ciphers. 
 
   
 ## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites 
 In support of our commitment to use best-in-class encryption, Microsoft announced plans to start migration away from TLS 1.0 and 1.1 in June of 2017.   Since that initial announcement, Microsoft announced our intent to disable Transport Layer Security (TLS) 1.0 and 1.1 by default in supported versions of Microsoft Edge and Internet Explorer 11 in the first half of 2020.  Similar announcements from Apple, Google, and Mozilla indicate the direction in which the industry is headed.   
 
-##TLS configuration  
+## TLS configuration  
 The Windows Server 2019 cloud server image is configured with TLS 1.0 and TLS 1.1 disabled at the registry level. This means applications deployed to this version of Windows AND using the Windows stack for TLS negotiation will not allow TLS 1.0 and TLS 1.1 communication.   
 
 The server also comes with a limited set of cipher suites: 
 
-```
+```Powershell
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
     TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 
     TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
@@ -49,7 +49,7 @@ The server also comes with a limited set of cipher suites:
 
 Use the following code as an example to create a script that enables the older protocols and cipher suites.   For the purposes of this documentation, this script will be named: TLSsettings.ps1. 
   
-```
+```Powershell
 #******************* FUNCTION THAT ACTUALLY UPDATES KEYS; WILL RETURN REBOOT FLAG IF CHANGES *********************** 
 
 Function Set-CryptoSetting {  
@@ -246,6 +246,6 @@ Here is an example that shows both the worker role and web role.
 
 ## Step 4: Validation 
 
-You can use SSLLabs to validate the TLS status of your endpoints 
+You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints 
 
  
