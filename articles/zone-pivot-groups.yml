@@ -96,6 +96,16 @@ groups:
     title: Python
   - id: programming-language-nodejs
     title: Node.js
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-seven
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following
@@ -104,3 +114,19 @@ groups:
     title: cURL
   - id: url-test-tool-postman
     title: Postman
+- id: programming-languages-set-eight
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-nine
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++

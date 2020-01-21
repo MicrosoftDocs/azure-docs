@@ -108,7 +108,8 @@ The deployment manifest shares the credentials for your container registry with 
        "address": "<registry name>.azurecr.io"
      }
    }
-
+   ```
+   
 3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
 4. Add the **Username** and **Password** values from your Azure container registry. 
