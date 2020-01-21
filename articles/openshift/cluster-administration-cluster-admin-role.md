@@ -36,7 +36,7 @@ You can configure the customer-admin-cluster cluster role only during cluster cr
 
 To confirm your membership in the customer admin group, try the OpenShift CLI commands `oc get nodes` or `oc projects`. `oc get nodes` will show a list of nodes if you have the customer-admin-cluster role, and a permission error if you only have the customer-admin-project role. `oc projects` will show all projects in the cluster as opposed to just the projects you are working in.
 
-To further explore roles and permissions in your cluster, you can use the [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/developer-cli-commands.html#policy) command.
+To further explore roles and permissions in your cluster, you can use the [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) command.
 
 ## Next steps
 
