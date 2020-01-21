@@ -1,6 +1,6 @@
 ---
 title: How to use Notification Hubs with Python
-description: Learn how to use Azure Notification Hubs from a Python back-end.
+description: Learn how to use Azure Notification Hubs from a Python backend.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
