@@ -87,7 +87,7 @@ nuget.exe sources Add -Name "ArrPackages" -Source <https://pkgs.dev.azure.com/ar
 
 Create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) and call this "RemoteRendering.cs"
 
-This script will instance the RemoteManager that will coordinate the rendering required for all local and remote content. For this to work, it will need to know which camera is used to render the scene.
+This script will instance the Remote Rendering runtime that will coordinate the rendering required for all local and remote content. For this to work, it will need to know which camera is used to render the scene.
 
 ```csharp
     using Microsoft.Azure.RemoteRendering;
@@ -105,10 +105,9 @@ This script will instance the RemoteManager that will coordinate the rendering r
 ```csharp
     private void OnDestroy()
     {
-        RemoteManager.ShutdownManager();
+        RemoteManagerStatic.ShutdownRemoteRendering();
     }
 ```
-
 
 ## Configure the AzureFrontend/AzureSession
 
@@ -127,19 +126,19 @@ The following image shows where to find the respective information in the web in
 ```csharp
     private ARRServiceUnity arrService = null;
 
-    public AzureFrontendAccountInfo.SessionLocation AccountRegion = AzureFrontendAccountInfo.SessionLocation.westus2;
+    public string AccountDomain = "<the domain to connect to>";
     public string AccountId = "<your account id here>";
     public string AccountKey = "<your account key here>";
 ```
 
-Initialize the AzureFrontendAccount information for the service. This will be used by the ARRService component. Also, subscribe to the specific events exposed by these components:
+The AccountDomain will be \<region>\.mixedreality.azure.com. For example, westus2.mixedreality.azure.com (the default), westeurope.mixedreality.azure.com, etc. 
+
+Initialize the `AzureFrontendAccountInfo` information for the service. This will be used by the `ARRService` component. Also, subscribe to the specific events exposed by these components:
 
 ```csharp
     private void Awake()
     {
         ...
-
-        RemoteManager.ConnectionStatusChanged += RemoteManager_OnConnectionStatusChanged;
 
         arrService = GetComponent<ARRServiceUnity>();
         arrService.OnSessionStarted += ARRService_OnSessionStarted;
@@ -155,8 +154,7 @@ Initialize the AzureFrontendAccount information for the service. This will be us
         arrService.OnSessionStatusChanged -= ARRService_OnSessionStatusChanged;
         arrService.OnSessionEnded -= ARRService_OnSessionEnded;
 
-        RemoteManager.ConnectionStatusChanged -= RemoteManager_OnConnectionStatusChanged;
-        RemoteManager.ShutdownManager();
+        RemoteManagerStatic.ShutdownRemoteRendering();
     }
 
     private void InitializeAccountInfo()
@@ -169,59 +167,62 @@ Initialize the AzureFrontendAccount information for the service. This will be us
         AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
         accountInfo.AccountKey = AccountKey;
         accountInfo.AccountId = AccountId;
-        accountInfo.Location = AccountRegion;
+        accountInfo.AccountDomain = AccountDomain;
 
         arrService.Initialize(accountInfo);
-    }
-
-    private void RemoteManager_OnConnectionStatusChanged(ARRConnectionStatus status, ARRResult error)
-    {
-        RemoteManager.LogMessage(LogLevel.Info, $"RemoteManager_OnConnectionStatusChanged - connection status: {status} error:{error}.");
     }
 
     private void ARRService_OnSessionEnded(AzureSession session)
     {
         if (session != null)
         {
-            RemoteManager.LogMessage(LogLevel.Info, $"ARRService_OnSessionEnded - session status: {session.Status}.");
+            Debug.Log($"ARRService_OnSessionEnded - session status: {arrService.LastProperties.Status}.");
         }
     }
 
     private void ARRService_OnSessionStarted(AzureSession session)
     {
-        RemoteManager.LogMessage(LogLevel.Info, $"ARRService_OnSessionStarted - session status: {session.Status}.");
+        Debug.Log($"ARRService_OnSessionStarted - session status: {arrService.LastProperties.Status}.");
     }
 
     private void ARRService_OnSessionStatusChanged(AzureSession session)
     {
-        RemoteManager.LogMessage(LogLevel.Info, $"ARRService_OnSessionStatusChanged - session status: {session.Status}.");
+        Debug.Log($"ARRService_OnSessionStatusChanged - session status: {arrService.LastProperties.Status}.");
     }
 ```
 
 ## Create a rendering session instance
 
-Create an instance of the Azure Frontend
+Create an instance of the Azure Session
 
 ```csharp
-    public async void CreateSession()
+    public void CreateSession()
     {
         // make sure the account is initialized
         InitializeAccountInfo();
 
         var sessionParams = new CreateRenderingSessionParams(VmSize, MaxLeaseTimeHours, MaxLeaseTimeMinutes);
-        var session = await arrService.StartSession(sessionParams).AsTask();
 
-        SessionId = session.SessionUUID;
+        // Start session will call the ARRService_OnSessionStarted when the session is available
+        arrService.StartSession(sessionParams).AsTask();
+    }
 
-        var properties = await session.GetRenderingSessionPropertiesAsync().AsTask();
+    private void ARRService_OnSessionStarted(AzureSession session)
+    {
+        ...
 
+        LogSessionStatus(session);
+    }
+
+    private async void LogSessionStatus(AzureSession session)
+    {
+        var properties = await session.GetPropertiesAsync().AsTask();
         LogSessionStatus(properties);
     }
 
-    private void LogSessionStatus(RRRenderingSessionProperties sessionProperties)
+    private void LogSessionStatus(RenderingSessionProperties sessionProperties)
     {
-        RemoteManager.LogMessage(
-            LogLevel.Info, "Session " +
+        Debug.Log( "Session " +
             $"Id: {sessionProperties.Id}, " +
             $"Size: {sessionProperties.Size}, " +
             (!string.IsNullOrEmpty(sessionProperties.Hostname) ? $"Hostname: {sessionProperties.Hostname}, " : "") +
@@ -237,11 +238,7 @@ _Note: The effect will take immediate effect and any connected user will be disc
 ```csharp
     public void StopSession()
     {
-        if (arrService.CurrentActiveSession == null)
-        {
-            return;
-        }
-
+        SessionId = null;
         arrService.StopSession();
     }
 ```
@@ -272,7 +269,7 @@ To test the functionality in the Unity Editor, add a GUI to be able to activate 
     #endif
 ```
 
-To test this component, create a new GameObject in the scene and add the RemoteRendering component to it. Fill in the appropriate id and key for the Azure Remote Rendering account:\
+To test this component, create a new GameObject in the scene and add the RemoteRendering component to it. Fill in the appropriate domain, id, and key for the Azure Remote Rendering account:\
 ![remote rendering component](media/remote-rendering-component.png)
 
 Start the application in the editor(press Play or ctrl-p). You should see the GUI at the top of the window, go ahead and press the GUI button.\
@@ -286,11 +283,12 @@ If you stop playback at this time, the session will be stopped automatically due
 
 ## List sessions
 
-Typically, creating a session would be triggered outside of the player application because of the time required to spin up the server. Depending on the scenario, you may already have a session ID or you want to query account to know what sessions are available to use.\
-\
-_Note: Be careful, not to connect to arbitrary sessions since they could already be in-use. You can only have one user connected at a time_
+Typically, creating a session would be triggered outside of the player application because of the time required to spin up the server. Depending on the scenario, you may already have a session ID or you want to query the account to know what sessions are available to use.
 
-To get a list of session, use the AzureFrontend to get all sessions. This function will output the list to Unity's Console window:
+>[!NOTE]
+> You can only have one user connected at a time. If a user is already connected to the session, the connection will fail with a Handshake error
+
+To get a list of sessions for the AccountId, use AzureFrontend to get all sessions. This function will output the list to Unity's Console window:
 
 ```csharp
     public async void GetAccountSessions()
@@ -346,14 +344,11 @@ Add a SessionId property that will be pre-populated in the editor, or by using t
 Update ARRService_OnSessionStatusChanged and GetAccountSessions to set the SessionId:
 
 ```csharp
-    private void ARRService_OnSessionStatusChanged(IARRSession session)
+    private void ARRService_OnSessionStarted(AzureSession session)
     {
         ...
 
-        if (session.Status == ARRRenderingSessionStatus.Starting)
-        {
-            SessionId = session.SessionObject.SessionString;
-        }
+        SessionId = session.SessionUUID;
     }
 
     public async void GetAccountSessions()
@@ -379,7 +374,7 @@ Create the new function to use the _SessionId_ property:
     {
         if (string.IsNullOrEmpty(sessionId))
         {
-            RemoteManager.LogMessage(LogLevel.Error, "Not a valid session id.");
+            Debug.LogError("Not a valid session id.");
 
             return;
         }
@@ -390,16 +385,13 @@ Create the new function to use the _SessionId_ property:
         {
             if (string.Compare(arrService.CurrentActiveSession.SessionUUID, sessionId) != 0)
             {
-                RemoteManager.LogMessage(LogLevel.Error, "Already have an active session.");
+                Debug.LogError("Already have an active session.");
             }
             return;
         }
 
+        // Start session will call the ARRService_OnSessionStarted when the session is available
         arrService.OpenSession(sessionId);
-
-        var properties = await arrService.CurrentActiveSession.GetRenderingSessionPropertiesAsync().AsTask();
-
-        LogSessionStatus(properties);
     }
 ```
 
@@ -426,42 +418,69 @@ Create the new function to use the _SessionId_ property:
     }
 ```
 
-Test and take note of the status of the session, as well as, the hostname.\
+Test and take note of the status of the session.\
 ![Get session properties is ready](media/get-session-output-ready.png)
 ![Get session properties starting](media/get-session-output-starting.png)
 ![Use session ID output](media/get-session-props.png)
 
 ## Connect to an active session
 
-Once a session is in a Ready state, the RemoteManager can then be connected to this session to start rendering the content. Add the following Connect and Disconnect code:
+Once a session is in a Ready state, the AzureSession can then be connected to the runtime to start rendering the content. Add the following Connect, Disconnect, and event handler code:
 
 ```csharp
+    private bool isConnected = false;
+
+    private void ARRService_OnSessionStarted(AzureSession session)
+    {
+        ...
+        session.OnConnectionStatusChanged += AzureSession_OnConnectionStatusChanged;
+    }
+
+    private void ARRService_OnSessionEnded(AzureSession session)
+    {
+        if (session != null)
+        {
+            Debug.Log($"ARRService_OnSessionEnded - session status: {arrService.LastProperties.Status}.");
+            session.OnConnectionStatusChanged -= AzureSession_OnConnectionStatusChanged;
+        }
+    }
+
+    private void AzureSession_OnConnectionStatusChanged(ARRConnectionStatus status, ARRResult error)
+    {
+        Debug.Log($"AzureSession_OnConnectionStatusChanged - connection status: {status} error:{error}.");
+        isConnected = status == ConnectionStatus.Connected;
+    }
+
     public void ConnectSession()
     {
-        if (arrService.CurrentActiveSession == null)
-        {
-            return;
-        }
-
-        var error = RemoteManager.Connect(arrService.CurrentActiveSession.HostName, arrService.Frontend, false);
-        if (error != ARRResult.Success)
-        {
-            RemoteManager.LogMessage(LogLevel.Error, $"Failed to connect to:\n{arrService.Frontend}, {error}");
-        }
+        arrService.CurrentActiveSession?.ConnectToRuntime(new ConnectToRuntimeParams());
     }
 
     public void DisconnectSession()
     {
-        if (!RemoteManager.IsConnected)
+        if (!isConnected)
         {
             return;
         }
 
-        var error = RemoteManager.Disconnect();
-        if (error != ARRResult.Success)
+        if (arrService.CurrentActiveSession != null)
         {
-            RemoteManager.LogMessage(LogLevel.Error, $"Failed to disconnect: {error}");
+            var error = arrService.CurrentActiveSession.DisconnectFromRuntime();
+            if (error != Result.Success)
+            {
+                Debug.LogError($"Failed to disconnect: {error}");
+            }
         }
+    }
+
+```
+
+The AzureSession must have its runtime pump updated. The updates will push messages to the server, receive messages, and update the framebuffer with the remotely rendered content.
+
+```csharp
+    private void LateUpdate()
+    {
+        arrService.CurrentActiveSession?.Actions.Update();
     }
 ```
 
@@ -479,9 +498,9 @@ Once a session is in a Ready state, the RemoteManager can then be connected to t
 
         y += 40;
 
-        if (!RemoteManager.IsConnected)
+        if (!isConnected)
         {
-            if (arrService.CurrentActiveSession != null && arrService.CurrentActiveSession.Status == ARRRenderingSessionStatus.Ready)
+            if (arrService.CurrentActiveSession != null && arrService.LastProperties.Status == RenderingSessionStatus.Ready)
             {
                 if (GUI.Button(new Rect(10, y, 175, 30), "Connect"))
                 {
@@ -526,7 +545,7 @@ Create a load function that will use the built-in model. The _[WorldAnchor](http
 ```csharp
     public async void LoadModel()
     {
-        if (!RemoteManager.IsConnected)
+        if (!isConnected)
         {
             return;
         }
@@ -561,11 +580,15 @@ Create a load function that will use the built-in model. The _[WorldAnchor](http
         // load a model that will be parented to the entity
         var loadModelParams = new LoadModelParams(ModelName, modelEntity.Id);
 
-        var asyncOp = RemoteManager.LoadModelAsync(loadModelParams);
-        asyncOp.ProgressChanged += (IAsync<uint> res) =>
+        // load a model that will be parented to the entity
+        var loadModelParams = new LoadModelParams(ModelName, modelEntity);
+        var async = arrService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
+        async.OnProgress += (float progress) =>
         {
-            RemoteManager.LogMessage(LogLevel.Info, $"Loading: {res.Progress * 100.0f}%");
+            Debug.Log($"Loading: {progress * 100.0f}%");
         };
+
+        await async.AsTask();
     }
 ```
 
@@ -599,7 +622,7 @@ Update the UI:
 
         y += 40;
 
-        if (RemoteManager.IsConnected)
+        if (isConnected)
         {
             if (modelEntity == null)
             {
@@ -626,7 +649,7 @@ Update the Disconnect function to destroy any models that had been loaded
 ```csharp
     public void DisconnectSession()
     {
-        if (!RemoteManager.IsConnected)
+        if (!isConnected)
         {
             return;
         }
