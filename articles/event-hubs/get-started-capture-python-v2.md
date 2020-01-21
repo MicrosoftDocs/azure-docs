@@ -39,9 +39,9 @@ In this quickstart, you:
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Create an Event Hubs namespace and an event hub in the namespace](event-hubs-create.md). Note down the name of the Event Hubs namespace, name of the event hub, and the primary access key for the namespace. Get the access key by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). The default key name is: **RootManageSharedAccessKey**. You don't need the connection string for the tutorial. You just need the primary key. 
 - Follow these steps to create an **Azure Storage account** and a **blob container**:
-    1. [Create an Azure Storage account](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
-    2. [Create a blob container in the storage](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
-    3. [Get the connection string to the storage account](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [Create an Azure Storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    2. [Create a blob container in the storage](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
+    3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string).
 
         Note down **connection string** and the **container name**. You will use them later in the code. 
 - Enable **Capture** feature for the event hub by following instructions from: [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md). Select the storage account and the blob container you created in the previous step. You can also enable the feature when creating an event hub. 

@@ -76,7 +76,7 @@
   items:
   - name: App integration
     items:
-    - name: Register an OIDC application
+    - name: Register an application
       href: tutorial-register-applications.md
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
@@ -282,6 +282,11 @@
           items:
           - name: Localization string IDs
             href: localization-string-ids.md
+        - name: DisplayControls
+          href: display-controls.md
+          items:
+          - name: Verification
+            href: display-control-verification.md
       - name: ClaimsProviders
         href: claimsproviders.md
         items:
@@ -320,11 +325,6 @@
             href: active-directory-b2c-reference-sso-custom.md
           - name: Validation
             href: validation-technical-profile.md
-      - name: DisplayControls
-        href: display-controls.md
-        items:
-        - name: Verification
-          href: display-control-verification.md
       - name: UserJourneys
         href: userjourneys.md
       - name: RelyingParty
