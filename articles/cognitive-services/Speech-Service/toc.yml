@@ -1,5 +1,5 @@
 - name: Speech service documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:

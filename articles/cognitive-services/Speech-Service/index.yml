@@ -2,9 +2,8 @@
 
 title: Speech service documentation
 summary: 'Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.'
-
 metadata:
-  title: Speech service documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  title: Speech service documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: 'Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.'
@@ -37,6 +36,7 @@ landingContent:
         - text: Deploy Speech service containers with Kubernetes
           url: speech-container-howto-on-premises.md
         - text: Deploy Speech service containers to Azure Container Instances
+          url: deploy-speech-on-container-instances.md
     - linkListType: whats-new
       links:
         - text: What's new?
@@ -142,7 +142,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Speech translation FAQ
-          url: https://www.microsoft.com/translator/business/faq/
+          url: https://www.microsoft.com/translator/business/faq
 
 - title: Conversation scenarios
   linkLists:
