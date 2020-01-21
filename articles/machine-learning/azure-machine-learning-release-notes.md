@@ -18,9 +18,9 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2020-01-20
+## 2020-01-21
 
-### Azure Machine Learning SDK for Python v1.0.84
+### Azure Machine Learning SDK for Python v1.0.85
 
 + **New features**
   + **azureml-core**
@@ -28,9 +28,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   
   + **azureml-contrib-pipeline-steps**
     + Enable user to pass tabular dataset as intermediate result from previous step to parallelrunstep
-    
-  + **Preview features**
-    + [Contrib features below] 
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
