@@ -32,7 +32,7 @@ A trivial function would be to swap the albedo color for the material. Add the f
 ```csharp
     private void ToggleMaterialColor()
     {
-        if (!meshComponent.RemoteComponent.IsValid)
+        if (!meshComponent.IsComponentValid)
         {
             return;
         }
@@ -47,7 +47,7 @@ A trivial function would be to swap the albedo color for the material. Add the f
 
         if (materials[0].MaterialSubType == MaterialType.Color)
         {
-            var materialColor = materials[0].ColorMaterial.Value;
+            var materialColor = materials[0] as ColorMaterial;
 
             // store the original albedo color
             if (originalColor.HasValue)
@@ -67,7 +67,7 @@ A trivial function would be to swap the albedo color for the material. Add the f
         }
         else if (materials[0].MaterialSubType == MaterialType.Pbr)
         {
-            var materialColor = materials[0].PbrMaterial.Value;
+            var materialColor = materials[0] as PbrMaterial;
 
             // store the original albedo color
             if (originalColor.HasValue)
@@ -134,7 +134,7 @@ using ARRTexture = Microsoft.Azure.RemoteRendering.Texture;
 ```csharp
     private async void ToggleTexture()
     {
-        if (!meshComponent.RemoteComponent.IsValid)
+        if (!meshComponent.IsComponentValid)
         {
             return;
         }
@@ -151,14 +151,14 @@ using ARRTexture = Microsoft.Azure.RemoteRendering.Texture;
 
         if (toggleTexture)
         {
-            var textureParams = new LoadTextureParams(textureFile, ARRTexture.TextureType.Texture2D);
+            var textureParams = new LoadTextureParams(textureFile, TextureType.Texture2D);
 
-            newTexture = await RemoteManager.LoadTextureAsync(textureParams).AsTask();
+            newTexture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureAsync(textureParams).AsTask();
         }
 
         if (materials[0].MaterialSubType == MaterialType.Color)
         {
-            var materialColor = materials[0].ColorMaterial.Value;
+            var materialColor = materials[0] as ColorMaterial;
 
             // store the original albedo texture
             if (originalTexture == null)
@@ -170,7 +170,7 @@ using ARRTexture = Microsoft.Azure.RemoteRendering.Texture;
         }
         else if(materials[0].MaterialSubType == MaterialType.Pbr)
         {
-            var materialColor = materials[0].PbrMaterial.Value;
+            var materialColor = materials[0] as PbrMaterial;
 
             // store the original albedo texture
             if (originalTexture == null)
@@ -217,40 +217,40 @@ In the scene _Hierarchy_ panel, create a new _GameObject_ and set its name to "R
 
     private LoadTextureParams[] builtIns =
     {
-        new LoadTextureParams("builtin://GreenPointPark", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://SataraNight", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://SnowyForestPath", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://SunnyVondelpark", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://Syferfontein", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://TearsOfSteelBridge", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://VeniceSunset", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://WhippleCreekRegionalPark", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://WinterEvening", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://WinterRiver", ARRTexture.TextureType.CubeMap),
-        new LoadTextureParams("builtin://DefaultSky", ARRTexture.TextureType.CubeMap)
+        new LoadTextureParams("builtin://GreenPointPark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://SataraNight", TextureType.CubeMap),
+        new LoadTextureParams("builtin://SnowyForestPath", TextureType.CubeMap),
+        new LoadTextureParams("builtin://SunnyVondelpark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://Syferfontein", TextureType.CubeMap),
+        new LoadTextureParams("builtin://TearsOfSteelBridge", TextureType.CubeMap),
+        new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap),
+        new LoadTextureParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://WinterEvening", TextureType.CubeMap),
+        new LoadTextureParams("builtin://WinterRiver", TextureType.CubeMap),
+        new LoadTextureParams("builtin://DefaultSky", TextureType.CubeMap)
     };
 ```
 
 ```csharp
     public async void ToggleSky()
     {
-        if (!RemoteManager.IsConnected)
+        if (!RemoteManagerUnity.IsConnected)
         {
             return;
         }
 
         var textureParams = builtIns[index++ % builtIns.Length];
 
-        if (textureParams.TextureType == ARRTexture.TextureType.Texture3D)
+        if (textureParams.TextureType == TextureType.Texture3D)
         {
-            RemoteManager.LogMessage(LogLevel.Error, $"ToggleSky() : Not a valid texture type.");
+            Debug.LogError($"ToggleSky() : Not a valid texture type.");
 
             return;
         }
 
-        var texture = await RemoteManager.LoadTextureAsync(textureParams).AsTask();
+        var texture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureAsync(textureParams).AsTask();
 
-        var settings = RemoteManager.GetSkyReflectionSettings();
+        var settings = RemoteManagerUnity.CurrentSession.Actions.GetSkyReflectionSettings();
 
         settings.SkyReflectionTexture = texture;
     }
@@ -261,7 +261,7 @@ In the scene _Hierarchy_ panel, create a new _GameObject_ and set its name to "R
     {
         int y = Screen.height - 50;
 
-        if (RemoteManager.IsConnected)
+        if (RemoteManagerUnity.IsConnected)
         {
             if (GUI.Button(new Rect(250, y, 175, 30), "Toggle Sky"))
             {

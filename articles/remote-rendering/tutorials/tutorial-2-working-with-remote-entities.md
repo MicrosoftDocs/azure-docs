@@ -17,9 +17,19 @@ ms.service: azure-remote-rendering
 Create a new script called RemoteRaycaster.cs and add the following member variables:
 
 ```csharp
+[RequireComponent(typeof(ARRServiceUnity))]
+public class RemoteRaycaster : MonoBehaviour
+{
     public double MaxDistance = 30.0;
 
     public HitCollectionPolicy HitCollectionPolicy = HitCollectionPolicy.ClosestHit;
+
+    private ARRServiceUnity arrService = null;
+
+    private void Awake()
+    {
+        arrService = GetComponent<ARRServiceUnity>();
+    }
 ```
 
 Create a function that will ray cast from a specific origin and direction:
@@ -31,12 +41,12 @@ Create a function that will ray cast from a specific origin and direction:
 
         var raycast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), MaxDistance, HitCollectionPolicy);
 
-        var hits = await RemoteManager.RayCastQueryAsync(raycast).AsTask();
+        var hits = await arrService.CurrentSession.Actions.RayCastQueryAsync(raycast).AsTask();
         if (hits != null)
         {
             foreach (var hit in hits)
             {
-                var hitEntity = RemoteManager.GetEntity(hit.ObjectId);
+                var hitEntity = hit.HitEntity;
                 if (hitEntity == null)
                 {
                     continue;
@@ -56,7 +66,7 @@ Call this function from Update(). To keep things simple, ray cast locations will
 ```csharp
     private void Update()
     {
-        if (!RemoteManager.IsConnected)
+        if (!RemoteManagerUnity.IsConnected)
         {
             return;
         }
@@ -105,13 +115,14 @@ As with local objects in the scene, being able to change the rendering of the ob
             stateOverride = gameObject.AddComponent<ARRHierarchicalStateOverrideComponent>();
             if (syncObject.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>() == null)
             {
-                stateOverride.Create();
+                stateOverride.Create(RemoteManagerUnity.CurrentSession);
             }
             else
             {
                 stateOverride.Bind(syncObject.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>());
             }
         }
+        
         stateOverride.enabled = true;
         stateOverride.RemoteComponent.Enabled = true;
         stateOverride.RemoteComponent.TintColor = HighlightColor.toRemote();
@@ -157,7 +168,7 @@ As with local objects in the scene, being able to change the rendering of the ob
 
     private void SetStateOverride()
     {
-        if (!stateOverride.RemoteComponent.IsValid)
+        if (!stateOverride.IsComponentValid)
         {
             return;
         }
@@ -168,7 +179,7 @@ As with local objects in the scene, being able to change the rendering of the ob
 
     private void ResetStateOverride()
     {
-        if (!stateOverride.RemoteComponent.IsValid)
+        if (!stateOverride.IsComponentValid)
         {
             return;
         }
@@ -241,7 +252,7 @@ Another use of the [HierarchicalStateOverrideComponent](../sdk/features-override
 ```csharp
     private void ToggleIsolate()
     {
-        if (stateOverride == null && !stateOverride.RemoteComponent.IsValid)
+        if (stateOverride == null && !stateOverride.IsComponentValid)
         {
             return;
         }
@@ -317,7 +328,7 @@ Open the RemoteRendering.cs file and update the LoadModel() function to add a Hi
         ...
 
         // create a root object to parent a loaded model to
-        modelEntity = RemoteManager.CreateEntity();
+        modelEntity = arrService.CurrentSession.Actions.CreateEntity();
         RemoteManager.CreateComponent(ObjectType.HierarchicalStateOverrideComponent, modelEntity);
 
         ...
@@ -346,28 +357,13 @@ Below is a quick way to remove child nodes that are no longer required:
 ```csharp
     private void CleanHierarchy(GameObject focusedGO)
     {
-        if (focusedGO == null)
+        var sync = focusedGO?.GetComponent<RemoteEntitySyncObject>();
+        if (sync == null ||!sync.IsEntityValid)
         {
             return;
         }
 
-        Transform focusedTransform = focusedGO.transform;
-        while (focusedTransform != null && focusedTransform.childCount == 0)
-        {
-            // store current parent for the object
-            var parent = focusedTransform.transform.parent;
-            if (parent != null)
-            {
-                // remove the child from parent
-                focusedTransform.SetParent(null);
-
-                // destroy the gameobject
-                GameObject.Destroy(focusedTransform.gameObject);
-            }
-
-            // keep traversing up the tree
-            focusedTransform = parent;
-        }
+        sync.Entity.DestroyGameObject(EntityExtensions.DestroyGameObjectFlags.DestroyEmptyParents | EntityExtensions.DestroyGameObjectFlags.KeepRemoteRoot);
     }
 ```
 
@@ -532,7 +528,7 @@ Add a function to create the cut plane object and its sync component:
 
         if (cutPlaneComponent == null)
         {
-            cutPlaneComponent = gameObject.CreateArrComponent<ARRCutPlaneComponent>();
+            cutPlaneComponent = gameObject.CreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
             cutPlaneComponent.RemoteComponent.Normal = Axis.X;
             cutPlaneComponent.RemoteComponent.FadeLength = 0.025f;
             cutPlaneComponent.RemoteComponent.FadeColor = new ColorUb(255, 128, 0, 255);
@@ -576,7 +572,7 @@ At this point, the cut plane is using an arbitrary plane direction along the x-a
 ```csharp
     private void Update()
     {
-        if (!RemoteManager.IsConnected || !cutEnabled)
+        if (!RemoteManagerUnity.IsConnected || !cutEnabled)
         {
             return;
         }
