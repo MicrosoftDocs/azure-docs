@@ -68,12 +68,6 @@
       href: tag-resources.md
     - name: Tag support
       href: tag-support.md
-  - name: Resource providers and types
-    href: resource-providers-and-types.md
-  - name: Delete resource groups and resources
-    href: delete-resource-group.md
-  - name: Lock resources
-    href: lock-resources.md
   - name: Manage resource groups
     items:
     - name: Azure portal
@@ -102,6 +96,12 @@
       href: programmatically-create-subscription.md
     - name: Grant access to create
       href: grant-access-to-create-subscription.md
+  - name: Resource providers and types
+    href: resource-providers-and-types.md
+  - name: Delete resource groups and resources
+    href: delete-resource-group.md
+  - name: Lock resources
+    href: lock-resources.md
   - name: Authenticate across tenants
     href: authenticate-multi-tenant.md
   - name: View activity logs
