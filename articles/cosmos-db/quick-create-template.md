@@ -6,7 +6,7 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db 
 ms.topic: quickstart
-ms.date: 11/22/2019
+ms.date: 01/21/2020
 #Customer intent: As a database admin who is new to Azure, I want to use Azure Cosmos DB to store and manage my data.
 
 ---
@@ -15,7 +15,9 @@ ms.date: 11/22/2019
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. This quickstart focuses on the process of deploying a Resource Manager template to create an Azure Cosmos database and a container within that database. You can later store data in this container.
 
-[Resource Manager template](../azure-resource-manager/template-deployment-overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
+[Resource Manager template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 [!code-json[<Resource Manager template create Azure Cosmos DB>](~/quickstart-templates/101-cosmosdb-create/azuredeploy.json)]
 
-Two Azure resources are defined in the template:
+Three Azure resources are defined in the template:
 
 * **Microsoft.DocumentDB/databaseAccounts**: Create an Azure Cosmos account.
 * **Microsoft.DocumentDB/databaseAccounts/sqlDatabases**: Create an Azure Cosmos database.
@@ -64,7 +66,7 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
     ![Resource Manager template, Cosmos DB integration, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/resource-group-template-deploy.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Validate the deployment
 
@@ -119,5 +121,5 @@ Write-Host "Press [ENTER] to continue..."
 In this quickstart, you created an Azure Cosmos account, a database and a container by using an Azure Resource Manager template and validated the deployment. To learn more about Azure Cosmos DB and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Cosmos DB](introduction.md)
-- Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - Get other [Azure Cosmos DB Resource Manager templates](resource-manager-samples.md)
