@@ -151,6 +151,10 @@ Under **New update deployment**, specify the following information:
 > [!NOTE]
 > It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
 
+> [!NOTE]
+> You cannot specify updates that have been superseded for inclusion with the update deployment.
+>
+
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and select **OK**. This sets up a recurring schedule.

@@ -12,6 +12,7 @@ ms.service: azure-remote-rendering
 # Textures
 
 Textures are immutable shared resources that can be used in various places in the API. Textures can be encountered in a loaded model when inspecting its meshes and materials or loaded on demand by the user. There are three distinguished types of textures:
+
 * 2D Textures - Mainly used in [Materials](../sdk/concepts-materials.md)
 * Cube Maps - Example of use is setting the [Sky](../sdk/features-sky.md#example-calls)
 * 3D Textures - Not used at the moment
@@ -21,30 +22,13 @@ Textures are immutable shared resources that can be used in various places in th
 When loading a texture, the user has to know the type of the texture. If the texture type mismatches, the texture load fails and an error code is returned.
 Loading texture with the same URI twice will return the same texture as it is a [shared resource](../concepts/sdk-concepts.md#resources).
 
-``` cpp
-void LoadMyTexture(RemoteRenderingClient& client, const char* textureUri)
-{
-    client.LoadTextureAsync( LoadTextureCInfo{ textureUri, Texture::Texture2D },
-    [&](ARRResult error, ObjectId textureId)
-    {
-        if (error == ARRResult::Success)
-        {
-            //use textureId to get TextureHandle
-        }
-        else
-        {
-            std::cout << "Texture loading failed!" << std::endl;
-        }
-    });
-}
-```
-The C# API can be used in a similar fashion:
 ``` cs
-void LoadMyTexture(string textureUri)
+LoadTextureAsync _async = null;
+void LoadMyTexture(AzureSession session, string textureUri)
 {
-    RemoteManager.LoadTextureAsync(
-    	new LoadTextureParams(textureUri, Texture.TextureType.Texture2D )).Completed +=
-        (IAsync<Texture> res) =>
+     _async  = session.Actions.LoadTextureAsync(
+        new LoadTextureParams(textureUri, TextureType.Texture2D )).Completed +=
+        (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -53,7 +37,8 @@ void LoadMyTexture(string textureUri)
             else
             {
                 Console.WriteLine("Texture loading failed!");
-            }
+            } 
+            _async = null;
         };
 }
 ```

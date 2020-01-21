@@ -36,11 +36,11 @@ Here's what you should have done in the first tutorial:
 
 - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
 - [Prepare VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) for assessment:
-   - Verify VMware settings.
-   - Set up permissions to create a VMware VM with an OVA template.
-   - Set up an account for VM discovery. 
-   - Make required ports available.
-   - Be aware of the URLs needed for access to Azure.
+   - [Verify](migrate-support-matrix-vmware.md#vmware-requirements) VMware settings.
+   - Set up permissions in VMware, to create a VMware VM with an OVA template.
+   - Set up an [account for VM discovery](migrate-support-matrix-vmware.md#vmware-requirements). 
+   - Make [required ports](migrate-support-matrix-vmware.md#port-access) available.
+   - Be aware of the [URLs needed](migrate-replication-appliance.md#url-access) for access to Azure.
 
 ## Set up an Azure Migrate project
 
@@ -125,7 +125,7 @@ Import the downloaded file, and create a VM:
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 ### Configure the appliance
 
@@ -167,7 +167,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server instance. You can leave the default port or specify a custom port on which vCenter Server listens.
 1. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter Server instance. 
 
-   Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can [scope the discovery](tutorial-assess-vmware.md#set-the-scope-of-discovery) by limiting access to the vCenter account.
+   Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#vmware-requirements). You can [scope the discovery](tutorial-assess-vmware.md#set-the-scope-of-discovery) by limiting access to the vCenter account.
 1. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials

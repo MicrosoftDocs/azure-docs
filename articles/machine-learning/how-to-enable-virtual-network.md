@@ -78,6 +78,22 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 >
 > For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
+## Use Azure Data Lake Storage Gen 2
+
+Azure Data Lake Storage Gen 2 is a set of capabilities for big data analytics, built on Azure Blob storage. It can be used to store data used to train models with Azure Machine Learning. 
+
+To use Data Lake Storage Gen 2 inside the virtual network of your Azure Machine Learning workspace, use the following steps:
+
+1. Create an Azure Data Lake Storage gen 2 account. For more information, see [Create an Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Use the steps 2-4 in the previous section, [Use a storage account for your workspace](#use-a-storage-account-for-your-workspace), to put the account in the virtual network.
+
+When using Azure Machine Learning with Data Lake Storage Gen 2 inside a virtual network, use the following guidance:
+
+* If you use the __SDK to create a dataset__, and the system running the code __is not in the virtual network__, use the `validate=False` parameter. This parameter skips validation, which fails if the system is not in the same virtual network as the storage account. For more information, see the [from_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method.
+
+* When using Azure Machine Learning Compute Instance or compute cluster to train a model using the dataset, it must be in the same virtual network as the storage account.
+
 ## Use a key vault instance with your workspace
 
 The key vault instance that's associated with the workspace is used by Azure Machine Learning to store the following credentials:

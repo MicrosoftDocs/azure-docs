@@ -12,7 +12,7 @@ ms.service: azure-remote-rendering
 
 # Rendering your first model with Azure remote rendering
 
-This is a tutorial describing the steps to set-up a workstation to work with Azure Remote Rendering (ARR) and render your first model using the ARR service.
+This is a tutorial describing the steps to configure a workstation to work with Azure Remote Rendering (ARR) and render your first model using the ARR service.
 
 You will learn how to:
 - set up your local development environment
@@ -24,7 +24,7 @@ You will learn how to:
 The following must be installed to complete this tutorial:
 - GIT [(download)](https://git-scm.com/downloads "GIT")
 - Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk "Windows SDK")
-- Unity 2019.1 [(download)](https://unity3d.com/get-unity/download "Unity")
+- Unity 2019.3 [(download)](https://unity3d.com/get-unity/download "Unity")
 - The nuget command-line and a companion credential manager:
   - These should be downloaded from the [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient) site.
 	- Click on Artifacts and change the dropdown from ArrClient to ArrPackages and click on ‘Connect to feed’.
@@ -33,8 +33,8 @@ The following must be installed to complete this tutorial:
 
 	- Download the NuGet command line tool and the Credential Provider package from the link displayed.
 	- Extract this to a directory of your choosing and add the location to your Path by editing the system environment variables.
-    - Add the "arrPackages" feed with the following nuget command:
-        `nuget.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`
+    - Add the "arrPackages" feed with the following NuGet command:
+        `NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`
 - Latest version of Visual Studio 2017 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/ "Visual Studio 2017")
 - Azure Storage Explorer [(download)](https://azure.microsoft.com/features/storage-explorer/ "Microsoft Azure Explorer")
 
@@ -50,18 +50,18 @@ Run the following commands:
 The last command creates a directory called arrClient in your ARR directory containing the sample app and a copy of the documentation.
 
 The sample Unity app is found in the subdirectory Unity/AzureRemoteRenderingSample but **do not open it yet**:
-It expects Unity packages to be present in directory beside it, which you need to first obtain using nuget.
+It expects Unity packages to be present in directory beside it, which you need to first obtain using NuGet.
 
-## Getting the Unity nuget packages
+## Getting the Unity NuGet packages
 
 You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following:
   * `cd arrClient\Unity`
   *	`nuget install com.microsoft.azure.remote_rendering -ExcludeVersion`
   *	`nuget install ScriptableRenderPipeline -ExcludeVersion`
 
-If the nuget command results in authentication prompts make sure you are using the nuget + credential provider installation from the prerequisites steps above.
+If the NuGet command results in authentication prompts make sure you are using the NuGet + credential provider installation from the prerequisites steps above.
 
-The two commands above will download nuget packages carrying Unity packages.
+The two commands above will download NuGet packages carrying Unity packages.
 You will now have an ‘ARR/ArrClient/Unity’ directory contains three folders:
   * AzureRemoteRenderingSample - The sample project
   * com.microsoft.azure.remote_rendering - The Unity package, which provides the client functionality of Azure Remote Rendering
@@ -89,7 +89,7 @@ When the project opens, open the SampleScene scene, and select the **RRRoot** no
 
 ![Unity Scene Tree](./media/unity-scene.png "Unity Scene Tree")
 
-Select 'Use Session' as the runtime mode. By default, this will create a session for you using the account the information provided in the Account window. An existing session (such as those created with the RESTful API) can also be opened by selecting the 'UseExistingSessionId' toggle.
+The default settings create a session for you using the account the information provided in the Account window. An existing session (such as those created with the RESTful API) can also be opened by selecting the 'UseExistingSessionId' toggle.
 
 ![Unity Configure Sample Not Playing](./media/arr-sample-configure-session.png "Unity Configure Sample Not Playing")
 
@@ -97,7 +97,13 @@ If the account has been correctly set up, then pushing play should update the AR
 
 ![Unity Configure Sample Playing](./media/arr-sample-configure-session-running.png "Unity Configure Sample Playing")
 
-The session will undergo a series of state transitions. The session will first start as Starting. This will take a number of minutes before transitioning to Ready. Once Ready, the runtime can connect to the Ready session. It will enter the Connecting state and, once successfully connected you should see a remotely rendered Engine as shown below - congratulations, you are viewing a remotely rendered model!
+The session will undergo a series of state transitions. The session will first start as Starting. After a few minutes, the session should transition to the 'Ready' state. Once Ready, the session can connect to the runtime. The session will enter the Connecting state and, once successfully connected, a remotely rendered Engine will appear in the viewport as shown below. Congratulations! you are viewing a remotely rendered model!
+
+You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector. This has to be repeated for each game object to explore the hierarchy.
+<br />![Unity Hierarchy](./media/unity-hierarchy.png)
+
+You can now move remote objects or the cut plane (**InteractionSample/CutPlane**) around in the editor. To synchronize transforms either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
+<br />![Unity Inspector](./media/unity-inspector.png)
 
 ![Unity Engine](./media/unity-engine.png "Unity Engine")
 

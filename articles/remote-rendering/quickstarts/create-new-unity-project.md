@@ -40,7 +40,7 @@ Go to the "XR Settings" group:
 * Use "Enable Depth Buffer Sharing" to activate depth LSR for Hololens.
 * Switch "Stereo Rendering Mode" to "Single Pass Instanced" as that is the only supported mode in ARR right now.
 
-If you want to use the [simulation graphics API](../sdk/concepts-graphics-binding.md#simulation) to deploy a flat UWP desktop app, you need to disable "Virtual Reality Support". If your app should support both Hololens 2 and flat desktop, you will currently have to toggle this setting accordingly before building the app. This is because Unity does not distinguish between these two cases in the UI.
+If you want to use the [simulation graphics API](../sdk/concepts-graphics-binding.md#simulation) to deploy a flat UWP desktop app, you need to disable "Virtual Reality Support". If your app should support both Hololens 2 and flat desktop, you will currently have to toggle this setting accordingly before building the app. This setting is because Unity does not distinguish between these two cases in the UI.
 
 ## Project settings
 

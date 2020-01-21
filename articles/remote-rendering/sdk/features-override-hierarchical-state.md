@@ -44,7 +44,7 @@ component.SetState(HierarchicalStateFlags.Hidden, HierarchicalEnableState.ForceO
 The second alternative above has the advantage that a state can be assigned to multiple features simultaneously:
 
 ``` cs
-HierarchicalStateFlags combinedFeatures = HierarchicalStateFlags.Hidden | HierarchicalStateFlags.SeeTHrough | HierarchicalStateFlags.DisableCollision;
+HierarchicalStateFlags combinedFeatures = HierarchicalStateFlags.Hidden | HierarchicalStateFlags.SeeThrough | HierarchicalStateFlags.DisableCollision;
 component.SetState(combinedFeatures, HierarchicalEnableState.ForceOn);
 
 ```

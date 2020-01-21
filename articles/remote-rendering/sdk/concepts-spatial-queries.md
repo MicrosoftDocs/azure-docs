@@ -30,7 +30,7 @@ If no ray casts are required on a model it is recommended to export without coll
 
 ````c#
 // C#
-void sampleRaycastQuery()
+void sampleRaycastQuery(AzureSession session)
 {
     // Trace a line from the origin toward the world +z direction, over 10 units of distance.
     RayCast rayCast = new RayCast(new Double3(0.0, 0.0, 0.0), new Double3(0.0, 0.0, 1.0), 10.0);
@@ -38,37 +38,16 @@ void sampleRaycastQuery()
     rayCast.HitCollection = HitCollectionPolicy.ClosestHit;
 
     // The query is asynchronous
-    IAsync<RayCastHit[]> queryOp = RemoteManager.RayCastQueryAsync(rayCast);
+    RaycastQueryAsync queryOp = session.Actions.RayCastQueryAsync(rayCast);
     Wait(queryOp);
 
     RayCastHit[] hits = queryOp.Result;
 
     if(hits.Length > 0)
     {
-        var hitObject = hits[0].ObjectId;
-        // Do something with the picked object.
+        var hitObject = hits[0].Entity;
+        // Do something with the intersected object.
     }
-}
-````
-
-````C++
-//C++
-void sampleRaycastQuery(RemoteRenderingClient& client)
-{
-    RayCast raycast;
-    // Fill out some values
-
-    raycast.startPos = { 0.0, 0.0, 0.0 };
-    raycast.endPos = { 0.0, 0.0, 10.0 };
-    raycast.collection = RayCastHitCollectionPolicy::ClosestHit;
-
-    client.RayCastQueryAsync(raycast, [](RRGeneralStatus status, const RayCastHit* hits, uint32_t totalHits)
-    {
-        if (status == ARRResult::Success)
-        {
-            // Do stuff with results
-        }
-    }, ARRThreadCompletionHint::BackgroundThread);
 }
 ````
 
@@ -103,7 +82,7 @@ TODO : Add an API to make that possible.
 The result of a Ray Cast Query is an array of Hits.
 A Hit has the following properties:
 
-- ObjectId (Entity identifier)
+- HitEntity (intersected Entity)
 - SubPartId (integer)
 - HitPosition (3D point)
 - HitNormal (3D vector)

@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/15/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -85,11 +85,10 @@ This enables the following scenarios:
 
 All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs.
 
-## PCI, SOC, and ISO compliant
+## Compliance certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant. It currently supports SOC 1 Type 2, SOC 2 Type 2, SOC 3, PCI DSS, and ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
 
-For more information, see the [Microsoft Compliance Guide](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## Known issues
 

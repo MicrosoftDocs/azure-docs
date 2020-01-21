@@ -4,17 +4,17 @@ description: Prerequisites for Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
 # Prepare to create the Avere vFXT
 
-This article explains the prerequisite tasks for creating an Avere vFXT cluster.
+This article explains prerequisite tasks for creating an Avere vFXT cluster.
 
 ## Create a new subscription
 
-Start by creating a new Azure subscription. Use a separate subscription for each Avere vFXT project to let you easily track all project resources and expenses, protect other projects from possible resource throttling during provisioning, and simplify cleanup.
+Start by creating a new Azure subscription. Use a separate subscription for each Avere vFXT project to simplify expense tracking and cleanup, and to make sure other projects aren't affected by quotas or resource throttling when provisioning the cluster workflow.
 
 To create a new Azure subscription in the Azure portal:
 
@@ -25,37 +25,41 @@ To create a new Azure subscription in the Azure portal:
 
 ## Configure subscription owner permissions
 
-A user with owner permissions for the subscription should create the vFXT cluster. Subscription owner permissions are needed to accept the software terms of service and perform other actions.
+A user with owner permissions for the subscription should create the vFXT cluster. Cluster creation requires an owner to accept the software terms of service and to authorize changes to network and storage resources.
 
-There are some workaround scenarios that allow a non-owner to create an Avere vFTX for Azure cluster. These scenarios involve restricting resources and assigning additional roles to the creator. In both of these cases, a subscription owner also must [accept the Avere vFXT software terms](#accept-software-terms) ahead of time.
+There are some workarounds to allow a non-owner to create an Avere vFXT for Azure cluster. These scenarios involve restricting resources and assigning additional role-based access control (RBAC) roles to the creator. In all of these cases, a subscription owner also must [accept the Avere vFXT software terms](#accept-software-terms) ahead of time.
 
 | Scenario | Restrictions | Access roles required to create the Avere vFXT cluster |
 |----------|--------|-------|
-| Resource group administrator | The virtual network, cluster controller, and cluster nodes must be created within the resource group | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles, both scoped to the target resource group |
-| External virtual network | The cluster controller and cluster nodes are created within the resource group but an existing virtual network in a different resource group is used | (1) [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor) roles scoped to the virtual network's resource group. |
-
-An alternative is to create a custom role-based access control (RBAC) role ahead of time and assign privileges to the user, as explained in [this article](avere-vfxt-non-owner.md). This method gives significant permissions to these users.
+| Resource group administrator creates the vFXT | The virtual network, cluster controller, and cluster nodes must be created within the resource group. | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles, both scoped to the target resource group. |
+| Use an existing, external virtual network | The cluster controller and cluster nodes are created within the vFXT's resource group but use an existing virtual network in a different resource group. | (1) [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor) roles scoped to the virtual network's resource group. |
+| Custom role for cluster creators | No resource placement restrictions. This method gives non-owners significant privileges. | Subscription owner creates a custom RBAC role as explained in [this article](avere-vfxt-non-owner.md). |
 
 ## Quota for the vFXT cluster
 
-You must have sufficient quota for the following Azure components. If needed, [request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Check that you have sufficient quota for the following Azure components. If needed, [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
-> The virtual machines and SSD components listed here are for the vFXT cluster itself. You will need additional quota for the VMs and SSD you intend to use for your compute farm.  Make sure the quota is enabled for the region where you intend to run the workflow.
+> The virtual machines and SSD components listed here are for the vFXT cluster itself. Remember that you also need quota for the VMs and SSDs you will use for your compute farm.
+>
+> Make sure the quota is enabled for the region where you intend to run the workflow.
 
 |Azure component|Quota|
 |----------|-----------|
-|Virtual machines|3 or more E32s_v3|
+|Virtual machines|3 or more E32s_v3 (one per cluster node) |
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |
 |Storage account (optional) |v2|
-|Data backend storage (optional) |One new LRS Blob container |
+|Data back-end storage (optional) |One new LRS Blob container |
+<!-- this table also appears in the overview - update it there if updating here -->
 
 ## Accept software terms
 
-> [!NOTE]
-> This step is not required if a subscription owner creates the Avere vFXT cluster.
+> [!TIP]
+> Skip this step if a subscription owner will create the Avere vFXT cluster.
 
-During cluster creation, you must accept the terms of service for the Avere vFXT software. If you are not a subscription owner, have a subscription owner accept the terms ahead of time. This step only needs to be done once per subscription.
+During cluster creation, you must accept the terms of service for the Avere vFXT software. If you are not a subscription owner, have a subscription owner accept the terms ahead of time.
+
+This step only needs to be done once per subscription.
 
 To accept the software terms in advance:
 
@@ -63,7 +67,7 @@ To accept the software terms in advance:
 
    ```azurecli
     az login​
-    az account set --subscription abc123de-f456-abc7-89de-f01234567890​
+    az account set --subscription <subscription ID>
    ```
 
 1. Issue this command to accept service terms and enable programmatic access for the Avere vFXT for Azure software image:
@@ -76,14 +80,12 @@ To accept the software terms in advance:
 
 A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network. It is recommended for any Avere vFXT for Azure cluster that uses Azure Blob for back-end data storage.
 
-If you are providing an existing virtual network and creating a new Azure Blob container for your back-end storage as part of the cluster creation, you must have a service endpoint in the network for Microsoft storage. This endpoint must exist before creating the cluster, or the creation will fail.
-
-A storage service endpoint is recommended for any Avere vFXT for Azure cluster that uses Azure Blob storage, even if you add the storage later.
+If you create a new virtual network while creating the cluster, an endpoint is created automatically. If you provide an existing virtual network, it must have a Microsoft storage service endpoint if you want to create a new Blob storage container during cluster creation.<!-- if there is no endpoint in that situation, the cluster creation will fail -->
 
 > [!TIP]
 >
 >* Skip this step if you are creating a new virtual network as part of cluster creation.
->* This step is optional if you are not creating Blob storage during cluster creation. In that case, you can create the service endpoint later if you decide to use Azure Blob.
+>* An endpoint is optional if you are not creating Blob storage during cluster creation. In that case, you can create the service endpoint later if you decide to use Azure Blob.
 
 Create the storage service endpoint from the Azure portal.
 
@@ -99,4 +101,4 @@ Create the storage service endpoint from the Azure portal.
 
 ## Next step: Create the vFXT cluster
 
-After completing these prerequisites, you can jump into creating the cluster itself. Read [Deploy the vFXT cluster](avere-vfxt-deploy.md) for instructions.
+After completing these prerequisites, you can create the cluster. Read [Deploy the vFXT cluster](avere-vfxt-deploy.md) for instructions.

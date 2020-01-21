@@ -1,11 +1,8 @@
 ---
 title: Set up an Azure Migrate appliance for VMware 
 description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
-ms.author: raynew
 ---
 
 
@@ -69,7 +66,7 @@ will be hosted.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 
 ## Configure the appliance
@@ -111,7 +108,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 ### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials

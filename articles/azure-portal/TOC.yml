@@ -54,8 +54,13 @@
           href: supportability/classic-deployment-model-quota-increase-requests.md 
       - name: Increase networking limits
         href: supportability/networking-quota-requests.md
+  - name: Troubleshoot Azure portal issues
+    items:
     - name: Troubleshoot region or SKU subscription issues
       href: supportability/sku-series-unavailable.md
+    - name: Capture a browser trace for troubleshooting
+      href: capture-browser-trace.md
+
 - name: Reference
   items:
   - name: Keyboard shortcuts

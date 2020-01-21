@@ -255,9 +255,6 @@
   - name: Azure Stack User
     tocHref: /azure/azure-stack/user/
     topicHref: /azure/azure-stack/user/
-  - name: Supportability
-    tocHref: /azure/azure-portal/supportability/
-    topicHref: /azure/azure-portal/supportability/
   - name: Backup
     tocHref: /azure/backup/
     topicHref: /azure/backup/

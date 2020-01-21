@@ -47,4 +47,4 @@ A full end-to-end cycle for image generation involves the following steps:
 * Client
   * Merges optional client-generated image with the video stream
 
-Latency is a key problem here. Since the typical end-to-end time span is longer than the desired framerate, there may be more than one frame in flight at a time. 
+Latency is a key problem here. Since the typical end-to-end time span is longer than the desired framerate, there may be more than one frame in flight at a time.

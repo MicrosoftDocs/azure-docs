@@ -17,7 +17,7 @@ Once set up, the graphics binding gives access to various functions that affect 
 
 ## Graphics binding in Unity
 
-In Unity the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `graphicsApi` field has to be set to the chosen binding. When in doubt, the field should be initialized with  that will have the following behavior in Unity:
+In Unity the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `graphicsApi` field has to be set to the chosen binding. The field will be automatically populated depending on an XRDevice is present, but may be manually overridden with the following behaviors:
 
 * **Hololens 2**: the [Windows Mixed Reality](#windows-mixed-reality) graphics binding is always used.
 * **Flat UWP desktop app**: [Simulation](#simulation) is always used. To use this mode, make sure to follow the steps in [create new Unity project](../quickstarts/create-new-unity-project.md#player-settings).
@@ -27,34 +27,26 @@ The only other relevant part for Unity is accessing the [basic binding](#access)
 
 ## Graphics binding setup in custom applications
 
-To select a graphics binding two steps have to be taken: First, the graphics binding has to be statically initialized using the following function in C++:
+To select a graphics binding two steps have to be taken: First, the graphics binding has to be statically initialized when the program is initialized:
 
-``` cpp
-GraphicsBinding::GraphicsBindingStaticInitialization(ARRConnectionType::General, GraphicsApi::WmrD3D11);
-```
-In C# the equivalent:
 ``` cs
-RRInterface.RemoteManager_GraphicsBindingStaticInitialization(ARRConnectionType.General, GraphicsApi.WmrD3D11);
+ClientInit managerInit = new ClientInit;
+managerInit.graphicsApi = GraphicsApi.WmrD3D11;
+managerInit.connectionType = ConnectionType.General;
+managerInit.right = ///...
+RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
-The call above is necessary to integrate Azure Remote Rendering into the holographic APIs and must be called before any holographic API is called and before a client is created. Similarly, the corresponding de-init functions should be called after the client connection is destroyed and no holographic APIs are being called anymore. 
 
-Note that the static init function has two arguments of type `ARRConnectionType` and `GraphicsApi`. These parameters must match the same parameters in the `ClientInit` struct that is passed into the `RemoteRenderingClient` in C++ or the `RemoteManager` in C# respectively. If this is not the case, the client initialization will fail.
+The call above is necessary to initialize Azure Remote Rendering into the holographic APIs and must be called before any holographic API is called and before any other Remote Rendering APIs are accessed. Similarly, the corresponding de-init functions should be called after no holographic APIs are being called anymore.
 
 ## <span id="access">Accessing graphics binding
 
-Once a client is set up, the basic graphics binding can be accessed with the GraphicsBinding getter. As an example, the focus point mode can be set with:
-In C++:
-``` c++
-RemoteRenderingClient& rrc = ...;
-GraphicsBinding* binding = rrc.GetBaseGraphicsBinding();
-if (binding)
-    binding->SetFocusPointMode(FocusPointMode::UseLocalFocusPoint);
-```
-In C#:
+Once a client is set up, the basic graphics binding can be accessed with the `AzureSession.GraphicsBinding` getter. As an example, the focus point mode can be set with:
+
 ``` cs
-IGraphicsBinding binding = RemoteManager.GraphicsBinding;
-if (binding)
-    binding.FocusPointReprojectionMode = FocusPointMode.UseLocalFocusPoint;
+AzureSession currentSesson = getRenderingSession();
+if (currentSesson.GraphicsBinding)
+    currentSesson.GraphicsBinding.FocusPointReprojectionMode = FocusPointMode.UseLocalFocusPoint;
 ```
 
 ## Graphic APIs
@@ -62,21 +54,15 @@ if (binding)
 There are currently two graphics APIs that can be selected, `SimD3D11` and `WmrD3D11`. A third one `Headless` exists but is not yet supported on the client side.
 
 ### Simulation
-`GraphicsApi::SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding (`IGraphicsBindingSimD3d11` in C#). This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
+`GraphicsApi.SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding. This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
 
 ### Windows Mixed Reality
-`GraphicsApi::WmrD3D11` is the default binding to run on Hololens 2. It will create the `GraphicsBindingWmrD3d11` (`IGraphicsBindingWmrD3d11` in C#) binding. In this mode Azure Remote Rendering hooks directly into the holographic APIs.
+`GraphicsApi.WmrD3D11` is the default binding to run on Hololens 2. It will create the `GraphicsBindingWmrD3d11` binding. In this mode Azure Remote Rendering hooks directly into the holographic APIs.
 
-To access the derived graphics binding for each of these the base `GraphicsBinding` (`IGraphicsBinding` in C#) has to be casted. For C++ a convenient type safe accessor exists:
-``` c++
-RemoteRenderingClient& rrc = ...;
-GraphicsBindingSimD3d11* simBinding = rrc.GetGraphicsBinding<GraphicsBindingSimD3d11>();
-if (simBinding)
-    simBinding->DeinitSimulation();
-```
-In C#:
+To access the derived graphics binding for each of these the base `GraphicsBinding`  has to be casted. 
+
 ``` cs
-IGraphicsBindingSimD3d11 simBinding = (RemoteManager.GraphicsBinding as IGraphicsBindingSimD3d11);
+GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
 if (simBinding)
     simBinding.DeinitSimulation();
 ```

@@ -325,7 +325,7 @@ If you're in GIT mode, you can override the default properties in your Resource 
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-Under these conditions, to override the default parameterization template, create a file named arm-template-parameters-definition.json in the root folder of the repository. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
+Under these conditions, to override the default parameterization template, create a file named arm-template-parameters-definition.json in the folder specified as the root folder for the data factory git integration. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
 
 ### Syntax of a custom parameters file
 
