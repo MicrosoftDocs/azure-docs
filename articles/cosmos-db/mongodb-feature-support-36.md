@@ -373,67 +373,46 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ## Operators
 
-Consider this sample document used in the examples below:
-
-```json
-{
-  "Volcano Name": "Rainier",
-  "Country": "United States",
-  "Region": "US-Washington",
-  "Location": {
-    "type": "Point",
-    "coordinates": [
-      -121.758,
-      46.87
-    ]
-  },
-  "Elevation": 4392,
-  "Type": "Stratovolcano",
-  "Status": "Dendrochronology",
-  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
-
 ### Logical operators
 
-|Command  |Supported |Example |
-|---------|---------|---------|
-|$or	|	Yes|`{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
-|$and	|	Yes|`{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
-|$not	|	Yes|`{ "Elevation": { $not: { $gt: 5000 } } }`| 
-|$nor	|	Yes| `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |
+|Command  |Supported |
+|---------|---------|
+|$or	|	Yes|
+|$and	|	Yes|
+|$not	|	Yes|
+|$nor	|	Yes| 
 
 ### Element Operators
 
-|Command  |Supported |Example |
-|---------|---------|---------|
-|$exists|	Yes|`{ "Status": { $exists: true } }`|
-|$type	|	Yes|`{ "Status": { $type: "string" } }`| 
+|Command  |Supported |
+|---------|---------|
+|$exists|	Yes|
+|$type	|	Yes|
 
 ### Evaluation query operators
 
-|Command  |Supported |Example|
-|---------|---------|---------|
-|$expr	|	No||
-|$jsonSchema	|	No||
-|$mod	|	Yes|`{ "Elevation": { $mod: [ 4, 0 ] } }` |
-|$regex |	Yes|`{ "Volcano Name": { $regex: "^Rain"} }`|
-|$text	| No (Not supported. Use $regex instead.)| |
-|$where	|No| |
+|Command  |Supported |
+|---------|---------|
+|$expr	|	No|
+|$jsonSchema	|	No|
+|$mod	|	Yes|
+|$regex |	Yes|
+|$text	| No (Not supported. Use $regex instead.)| 
+|$where	|No| 
 
 ### Array operators
 
-|Command  |Supported | Example |
-|---------|---------|---------|
-| $all | Yes| ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-| $elemMatch | Yes| ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-| $size | Yes | ```{ "Location.coordinates": { $size: 2 } }``` |
+|Command  |Supported | 
+|---------|---------|
+| $all | Yes| 
+| $elemMatch | Yes| 
+| $size | Yes | 
 
 ### Comment operator
 
-|Command  |Supported | Example |
-|---------|---------|---------|
-$comment |Yes|  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
+|Command  |Supported | 
+|---------|---------|
+$comment |Yes| 
 
 ### Projection operators
 
@@ -505,19 +484,19 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 
 ### Geospatial operators
 
-Operator | Supported| Example | 
---- | --- | --- |
-$geoWithin | Yes |```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 
-$geoIntersects | Yes | ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` |
-$near |  Yes |```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 
-$nearSphere |  Yes |```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | 
-$geometry |  Yes |```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 
-$minDistance | Yes |```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` |
-$maxDistance | Yes |```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` |
-$center | Yes |```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | 
-$centerSphere | Yes |```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 
-$box | Yes |```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | 
-$polygon |  Yes |```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` |
+Operator | Supported| 
+--- | --- |
+$geoWithin | Yes |
+$geoIntersects | Yes | 
+$near |  Yes |
+$nearSphere |  Yes |
+$geometry |  Yes |
+$minDistance | Yes |
+$maxDistance | Yes |
+$center | Yes |
+$centerSphere | Yes |
+$box | Yes |
+$polygon |  Yes |
 
 ## Cursor methods
 
