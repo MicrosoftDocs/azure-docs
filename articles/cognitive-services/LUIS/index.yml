@@ -43,7 +43,7 @@ landingContent:
             url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
 
   - title: Create intents, entities, and features
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Intents
@@ -55,16 +55,16 @@ landingContent:
           - text: Phrase list features
             url: luis-concept-feature.md
       - linkListType: quickstart
-        links: 
+        links:
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
           - text: Using C# SDK
-            url: sdk-csharp-quickstart-authoring-app.md
+            url: sdk-authoring.md?pivots=programming-language-csharp
           - text: Using Python SDK
-            url: sdk-python-quickstart-authoring-app.md
+            url: sdk-authoring.md?pivots=programming-language-python
 
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Create a new LUIS app
             url: luis-how-to-start-new-app.md
           - text: Add intent with example utterances
@@ -75,7 +75,7 @@ landingContent:
             url: luis-how-to-add-features.md
 
   - title: Version, train, test, and publish
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Versioning
@@ -86,17 +86,14 @@ landingContent:
             url: luis-concept-batch-test.md
 
       - linkListType: quickstart
-        links: 
+        links:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
-          - text: Using C# SDK
-            url: sdk-csharp-quickstart-authoring-app.md#train-the-app
-          - text: Using Python SDK
-            url: sdk-python-quickstart-authoring-app.md#train-the-app
-
+          - text: Using SDK
+            url: sdk-authoring.md
 
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Version your app
             url: luis-how-to-manage-versions.md
           - text: Perform interactive testing
@@ -107,13 +104,13 @@ landingContent:
             url: luis-how-to-train.md
           - text: Publish prediction endpoint
             url: luis-how-to-publish-app.md
-            
+
   - title: Get prediction from endpoint
     linkLists:
       - linkListType: quickstart
         links:
-          - text: With C# .NET SDK
-            url: sdk-csharp-quickstart-query-prediction-endpoint.md
+          - text: Using SDK
+            url: sdk-query-prediction-endpoint.md
       - linkListType: quickstart
         links:
           - text: With C# using REST

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/14/2020
+ms.date: 01/16/2020
 ms.author: ramkris
 
 ---
@@ -68,6 +68,10 @@ ms.author: ramkris
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
+
+### <a name="1.8.8"/>1.8.8
+
+* Fixed an issue on MongoBulkExecutor that was increasing the document size unexpectedly by adding padding and in some cases, going over the maximum document size limit.
 
 ### <a name="1.8.7"/>1.8.7
 

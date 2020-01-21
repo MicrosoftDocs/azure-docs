@@ -25,7 +25,7 @@ You are most likely to experience latency and throttling when you:
 - Add an event source that contains old data that may exceed your allotted ingress rate (Time Series Insights will need to catch up).
 - Add more event sources to an environment, resulting in a spike from additional events (which could exceed your environment’s capacity).
 - Push large amounts of historical events to an event source, resulting in a lag (Time Series Insights will need to catch up).
-- Join reference data with telemetry, resulting in larger event size.  From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
+- Join reference data with telemetry, resulting in larger event size. From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
 ## Video
 
@@ -35,13 +35,13 @@ You are most likely to experience latency and throttling when you:
 
 ## Monitor latency and throttling with alerts
 
-Alerts can help you to help diagnose and mitigate latency issues caused by your environment.
+Alerts can help you to diagnose and mitigate latency issues occurring in your environment.
 
 1. In the Azure portal, select your Time Series Insights environment. Then select **Alerts**.
 
    [![Add an alert to your Time Series Insights environment](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. The **Create rule** panel will then be displayed. Select **Add** under **CONDITION**.
+1. Select **+ New alert rule**. The **Create rule** panel will then be displayed. Select **Add** under **CONDITION**.
 
    [![Add alert pane](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
