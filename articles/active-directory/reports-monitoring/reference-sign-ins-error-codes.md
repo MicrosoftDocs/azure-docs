@@ -93,6 +93,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50072|User needs to enroll for two-factor authentication (interactive).|
 |50074|User did not pass the MFA challenge.|
 |50076|User did not pass the MFA challenge (non interactive).|
+|50078|The presented multi-factor authentication has expired, you must refresh your multi-factor authentication to access.|
 |50079|User needs to enroll for two factor authentication (non-interactive logins).|
 |50085|Refresh token needs social IDP login. Have user try signing-in again with their username and password.|
 |50089|Flow token expired - Authentication failed. Have user try signing-in again with their username and password|
@@ -181,7 +182,8 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
 |90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
-|90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
+|90094| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was blocked. |
+|90095| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was shown the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form. |
 |500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
 |500021| Tenant is restricted by company proxy. Denying the resource access.|
 |500121| Authentication failed during strong authentication request.|
@@ -190,6 +192,8 @@ You can also programmatically access the sign-in data using the [reporting API](
 |530032|Blocked by security policy.| 
 |700016|Application with identifier '{appIdentifier}' was not found in the directory '{tenantName}'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.|
 |900432|Confidential Client is not supported in Cross Cloud request.|
+|5000811|Unable to verify SAML token signature. The signing key identifier does not match any valid registered keys.|
+|7000215|Invalid client secret was provided.|
 |7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
 
 
