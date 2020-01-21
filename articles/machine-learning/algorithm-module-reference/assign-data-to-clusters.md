@@ -13,7 +13,7 @@ ms.date: 11/19/2019
 ---
 # Module: Assign Data to Clusters
 
-This article describes how to use the *Assign Data to Clusters* module in Azure Machine Learning designer (preview). The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
+This article describes how to use the *Assign Data to Clusters* module in Azure Machine Learning designer. The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 
 The Assign Data to Clusters module returns a dataset that contains the probable assignments for each new data point. 
 
@@ -42,5 +42,5 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
   
 ### Results
 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
++  To view the values in the dataset, right-click the module, and then select **Visualize**. Or Select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
 
