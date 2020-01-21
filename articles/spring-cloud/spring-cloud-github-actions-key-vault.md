@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/20/2019
 ---
 # Key Vault for Spring Cloud GitHub actions
-Key Vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  The key to get credentials only has access to the key vault scope, not the entire Azure scope. It's like a key that can only open a strongbox not a master key that can open all doors in a building. It is a way to get a key with another key, but useful in a CICD workflow. 
+Key vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  The key to get credentials has access to only the key vault scope, not the entire Azure scope. It's like a key that can only open a strongbox not a master key that can open all doors in a building. It is a way to get a key with another key, but useful in a CICD workflow. 
 
 ## Generate Credential to Access to Key Vault
 To generate the key to open the strongbox, execute command below on you local machine:
