@@ -4,11 +4,9 @@ description: Learn how to migrate your Azure Active Directory Authentication Lib
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity

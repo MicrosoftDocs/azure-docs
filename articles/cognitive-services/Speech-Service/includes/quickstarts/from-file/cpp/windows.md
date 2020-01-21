@@ -1,15 +1,14 @@
 ---
-title: 'Quickstart: Recognize speech from an audio file, C++ (Windows) - Speech Service'
+title: 'Quickstart: Recognize speech from an audio file, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 08/19/2019
-ms.author: wolfma
+ms.topic: include
+ms.date: 01/14/2020
+ms.author: wolfma61
 ---
 
 ## Prerequisites
@@ -17,9 +16,11 @@ ms.author: wolfma
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## Add sample code
 
@@ -27,8 +28,7 @@ Before you get started, make sure to:
 
 1. Replace all the code with the following snippet:
 
-   ````C++
-
+   ```cpp
     // Creates an instance of a speech config with specified subscription key and service region.
     // Replace with your own subscription key and service region (e.g., "westus").
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -48,28 +48,27 @@ Before you get started, make sure to:
     auto result = recognizer->RecognizeOnceAsync().get();
 
     // Checks result.
-    if (result->Reason == ResultReason::RecognizedSpeech)
+    switch (result->Reason)
     {
-        cout << "RECOGNIZED: Text=" << result->Text << std::endl;
-    }
-    else if (result->Reason == ResultReason::NoMatch)
-    {
-        cout << "NOMATCH: Speech could not be recognized." << std::endl;
-    }
-    else if (result->Reason == ResultReason::Canceled)
-    {
-        auto cancellation = CancellationDetails::FromResult(result);
-        cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+        case ResultReason::RecognizedSpeech:
+            cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+            break;
+        case ResultReason::NoMatch:
+            cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            break;
+        case ResultReason::Canceled:
+            auto cancellation = CancellationDetails::FromResult(result);
+            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
 
-        if (cancellation->Reason == CancellationReason::Error)
-        {
-            cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-            cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-            cout << "CANCELED: Did you update the subscription info?" << std::endl;
-        }
+            if (cancellation->Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            }
+            break;
     }
-
-   ````
+   ```
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
@@ -79,13 +78,16 @@ Before you get started, make sure to:
 
 1. From the menu bar, choose **File** > **Save All**.
 
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+
 ## Build and run the application
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Your audio file is transmitted to the Speech Services and the first utterance in the file is transcribed to text, which appears in the same window.
+1. Your audio file is transmitted to the Speech service and the first utterance in the file is transcribed to text, which appears in the same window.
 
    ```text
    Recognizing first result...

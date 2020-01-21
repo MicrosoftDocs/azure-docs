@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice assistant for Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Custom voice assistant for Java (Windows, Linux) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Cognitive Services Speech SDK in a Java console application. You'll learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice assistant experience.
 services: cognitive-services
@@ -26,7 +26,7 @@ This quickstart requires:
 - Operating system: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), or macOS 10.13 or later.
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it in the [Azure portal](https://portal.azure.com).
+- An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it in the [Azure portal](https://portal.azure.com).
 - A preconfigured bot created by using Bot Framework version 4.2 or above. The bot needs to subscribe to the new Direct Line Speech channel to receive voice inputs.
 
   > [!NOTE]
@@ -473,7 +473,7 @@ Additional samples, such as how to read speech from an audio file, are available
 ## See also
 
 - [About voice assistants](voice-assistants.md)
-- [Get a Speech Services subscription key for free](get-started.md)
+- [Get a Speech service subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)

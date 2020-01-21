@@ -21,7 +21,7 @@ The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twil
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
 The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub repository.
 
@@ -193,15 +193,15 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Example - Functions 2.x
+## Example - Functions 2.x and higher
 
 See the language-specific example:
 
-* [2.x C#](#2x-c-example)
-* [2.x C# script (.csx)](#2x-c-script-example)
-* [2.x JavaScript](#2x-javascript-example)
+* [2.x+ C#](#2x-c-example)
+* [2.x+ C# script (.csx)](#2x-c-script-example)
+* [2.x+ JavaScript](#2x-javascript-example)
 
-### 2.x C# example
+### 2.x+ C# example
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 
@@ -236,7 +236,7 @@ namespace TwilioQueueOutput
 
 This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out CreateMessageOptions` parameter or an `ICollector<CreateMessageOptions>` or `IAsyncCollector<CreateMessageOptions>` parameter.
 
-### 2.x C# script example
+### 2.x+ C# script example
 
 The following example shows a Twilio output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses an `out` parameter to send a text message.
 
@@ -322,7 +322,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### 2.x JavaScript example
+### 2.x+ JavaScript example
 
 The following example shows a Twilio output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 

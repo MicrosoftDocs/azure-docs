@@ -1,11 +1,11 @@
 ---
-title: Prepay for Azure Database for MySQL compute resources with  reserved capacity
-description: Prepay for Azure Database for MySQL compute resources with  reserved capacity
+title: Prepay for compute with reserved capacity - Azure Database for MySQL 
+description: Prepay for Azure Database for MySQL compute resources with reserved capacity
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/02/2019
 ---
 
 # Prepay for Azure Database for MySQL compute resources with reserved capacity

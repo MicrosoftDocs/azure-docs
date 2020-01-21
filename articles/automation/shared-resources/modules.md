@@ -3,9 +3,9 @@ title: Manage Modules in Azure Automation
 description: This article describes how to manage modules in Azure Automation
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -27,6 +27,14 @@ You can use the [New-AzureRmAutomationModule](/powershell/module/azurerm.automat
 
 ```azurepowershell-interactive
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+```
+
+You can also use the same cmdlet to import a module from PowerShell Gallery directly. Make sure to grab **ModuleName** and **ModuleVersion** from [PowerShell Gallery](https://www.powershellgallery.com).
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
 ### Azure portal
@@ -64,6 +72,10 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 ## Internal cmdlets
 
 The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. Additionally, the internal cmdlets allow you to retrieve secrets from encrypted **Variable** values, **Credentials**, and encrypted **Connection** fields. The Azure PowerShell cmdlets are not able to retrieve these secrets. These cmdlets do not require you to implicitly connect to Azure when using them, such as using a Run As Account to authenticate to Azure.
+
+>[!NOTE]
+>These internal cmdlets are not available on a Hybrid Runbook Worker, they are only accessible from runbooks running in Azure. Use the corresponding [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) or [Az modules](../az-modules.md) for runbooks running directly on the computer or against resources in your environment. 
+>
 
 |Name|Description|
 |---|---|

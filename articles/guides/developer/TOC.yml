@@ -189,7 +189,7 @@
 - name: Resources
   items:
   - name: Azure limits and quotas
-    href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
   - name: Azure regions
     href: https://azure.microsoft.com/regions/
   - name: Azure Roadmap

@@ -1,5 +1,5 @@
 ---
-title: "Install Azure Dev Spaces on AKS and the client-side tooling"
+title: "Install Azure Dev Spaces on AKS & the client-side tooling"
 services: azure-dev-spaces
 ms.date: "07/24/2019"
 ms.topic: "conceptual"
@@ -81,7 +81,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md
 
 [az-portal]: https://portal.azure.com

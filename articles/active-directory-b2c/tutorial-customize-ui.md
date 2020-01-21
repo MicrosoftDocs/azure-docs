@@ -1,6 +1,7 @@
 ﻿---
-title: Tutorial - Customize the interface of user experiences - Azure Active Directory B2C | Microsoft Docs
-description: Learn how to customize the user interface of your applications in Azure Active Directory B2C using the Azure portal.
+title: "Tutorial: Customize the user interface"
+titleSuffix: Azure AD B2C
+description: Learn how to customize the user interface (UI) of your applications in Azure Active Directory B2C by using the Azure portal.
 services: B2C
 author: mmacy
 manager: celestedg

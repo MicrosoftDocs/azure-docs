@@ -1,7 +1,7 @@
 ---
 title: "Permutation Feature Importance: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Permutation Feature Importance module in the Azure Machine Learning service to compute the permutation feature importance scores of feature variables, given a trained model and a test dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Permutation Feature Importance module in Azure Machine Learning to compute the permutation feature importance scores of feature variables, given a trained model and a test dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Permutation Feature Importance
 
-This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer (preview), to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
+This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer, to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
 
 In this module, feature values are randomly shuffled, one column at a time. The performance of the model is measured before and after. You can choose one of the standard metrics to measure performance.
 
@@ -64,4 +64,4 @@ The reason for the difference is that Permutation Feature Importance doesn't mea
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

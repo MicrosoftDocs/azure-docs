@@ -169,7 +169,7 @@ Follow these steps to prepare the development environment for the DevKit:
     > [Install Azure IoT Tools extension pack](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
+    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub extension](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
 
 5. Configure VS Code with Arduino settings.
 

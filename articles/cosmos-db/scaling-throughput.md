@@ -1,11 +1,11 @@
 ---
 title: Scaling throughput in Azure Cosmos DB 
-description: This article describes how Azure Cosmos DB scales throughput elastically
-author: dharmas-cosmos
+description: This article describes how Azure Cosmos DB scales throughput across different regions where the Azure Cosmos account is provisioned.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
 
 ---

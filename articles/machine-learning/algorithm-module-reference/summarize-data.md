@@ -1,7 +1,7 @@
 ---
 title:  "Summarize Data"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Summarize Data module in Azure Machine Learning service to generate a basic descriptive statistics report for the columns in a dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Summarize Data module in Azure Machine Learning to generate a basic descriptive statistics report for the columns in a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Summarize Data
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Use the Summarize Data module to create a set of standard statistical measures that describe each column in the input table.
 
@@ -36,7 +36,7 @@ The module calculates the important scores for each column, and returns a row of
 
 1. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
 
-1. Run the pipeline, or right-click the module, and select **Run selected**.
+1. Run the pipeline.
 
 ## Results
 
@@ -69,4 +69,4 @@ The report from the module can include the following statistics.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service.  
+See the [set of modules available](module-reference.md) to Azure Machine Learning.  

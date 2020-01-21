@@ -1,19 +1,10 @@
 ---
-title: Terminate notification for Azure virtual machine scale set instances | Microsoft Docs
+title: Terminate notification for Azure virtual machine scale set instances
 description: Learn how to enable termination notification for Azure virtual machine scale set instances
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
 
@@ -63,7 +54,7 @@ After enabling *scheduledEventsProfile* on the scale set model and setting the *
 >Terminate notifications on scale set instances can only be enabled with API version 2019-03-01 and above
 
 ### Azure PowerShell
-When creating a new scale set, you can enable termination notifications on the scale set by using the [New-AzVmssVM](/powershell/module/az.compute/new-azvmss) cmdlet.
+When creating a new scale set, you can enable termination notifications on the scale set by using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -80,7 +71,7 @@ New-AzVmss `
 
 The above example creates a new scale set with terminate notifications enabled with a 5-minute default timeout. When creating a new scale set, the parameter *TerminateScheduledEvents* does not require a value. To change the timeout value, specify the desired timeout through the *TerminateScheduledEventNotBeforeTimeoutInMinutes* parameter.
 
-Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) cmdlet to enable termination notifications on an existing scale set.
+Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to enable termination notifications on an existing scale set.
 
 ```azurepowershell-interactive
 Update-AzVmss `

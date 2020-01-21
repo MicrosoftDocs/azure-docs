@@ -21,12 +21,12 @@ The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
 The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet package, version 3.x. Source code for the package is in the [azure-functions-servicebus-extension](https://github.com/Azure/azure-functions-servicebus-extension) GitHub repository.
 
 > [!NOTE]
-> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
+> Versions 2.x and higher do not create the topic or subscription configured in the `ServiceBusTrigger` instance. These versions are based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) which doesn’t handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -151,6 +151,28 @@ The following Java function uses the `@ServiceBusQueueTrigger` annotation from t
  }
 ```
 
+The following Java function shows retrieval of metadata defined in _User Properties_ of a Service Bus message: 
+```java
+public class ServiceBusQueueTriggerJava {
+    @FunctionName("ServiceBusQueueTriggerJava")
+    public void run(
+            @ServiceBusQueueTrigger(name = "message", queueName = "myqueue", connection = "AzureWebJobsStorage") String message,
+            @BindingName("UserProperties") UserProperties userProperties,
+            final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Service Bus Queue trigger function executed.");
+        context.getLogger().info(message);
+        context.getLogger().info(userProperties.key1);
+        context.getLogger().info(userProperties.key2);
+    }
+}
+
+public class UserProperties {
+    public String key1;
+    public String key2;
+}
+```
+
 Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
 
 ```java
@@ -203,9 +225,9 @@ module.exports = function(context, myQueueItem) {
 
 ### Trigger - Python example
 
-The following example demonstrates how to read a ServiceBus queue message via a trigger.
+The following example demonstrates how to read a Service Bus queue message via a trigger.
 
-A ServiceBus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
+A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
 
 ```json
 {
@@ -271,7 +293,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   }
   ```
 
-  You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
+  You can set the `Connection` property to specify the  name of an app setting that contains the Service Bus connection string to use, as shown in the following example:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -319,12 +341,13 @@ The following table explains the binding configuration properties that you set i
 |---------|---------|----------------------|
 |**type** | n/a | Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
+|**name** | n/a | The name of the variable that represents the queue or topic message in function code. |
 |**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
-|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
+|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -338,7 +361,7 @@ In C# and C# script, you can use the following parameter types for the queue or 
 * `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
 
-These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
 In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
 
@@ -367,11 +390,11 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`ReplyTo`|`string`|The reply to queue address.|
 |`SequenceNumber`|`Int64`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
-|`Label`|`string`|The application specific label.|
+|`Label`|`string`|The application-specific label.|
 |`CorrelationId`|`string`|The correlation ID.|
 
 > [!NOTE]
-> Currently, Service bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
+> Currently, Service Bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
 
 See [code examples](#trigger---example) that use these properties earlier in this article.
 
@@ -494,7 +517,7 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
 
 ### Output - Java example
 
-The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by a HTTP request.
+The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by an HTTP request.
 
 ```java
 @FunctionName("httpToServiceBusQueue")
@@ -508,7 +531,7 @@ public String pushToQueue(
  }
 ```
 
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on function parameters whose value would be written to a Service Bus queue.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@ServiceBusQueueOutput` annotation on function parameters whose value would be written to a Service Bus queue.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
 
 Java functions can also write to a Service Bus topic. The following example uses the `@ServiceBusTopicOutput` annotation to describe the configuration for the output binding. 
 
@@ -581,9 +604,9 @@ module.exports = function (context, myTimer) {
 
 ### Output - Python example
 
-The following example demonstrates how to write out to a ServiceBus queue in Python.
+The following example demonstrates how to write out to a Service Bus queue in Python.
 
-A ServiceBue binding definition is defined in *function.json* where *type* is set to `serviceBus`.
+A Service Bus binding definition is defined in *function.json* where *type* is set to `serviceBus`.
 
 ```json
 {
@@ -644,7 +667,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
+You can set the `Connection` property to specify the name of an app setting that contains the Service Bus connection string to use, as shown in the following example:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -657,7 +680,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 For a complete example, see [Output - C# example](#output---c-example).
 
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at the class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
 
 ## Output - configuration
 
@@ -667,17 +690,17 @@ The following table explains the binding configuration properties that you set i
 |---------|---------|----------------------|
 |**type** | n/a | Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic in function code. Set to "$return" to reference the function return value. |
+|**name** | n/a | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
 |**queueName**|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
-|**topicName**|**TopicName**|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
+|**topicName**|**TopicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.|
-|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
+|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Output - usage
 
-In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
+In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
 
 In C# and C# script, you can use the following parameter types for the output binding:
 
@@ -685,7 +708,7 @@ In C# and C# script, you can use the following parameter types for the output bi
 * `out string` - If the parameter value is null when the function exits, Functions does not create a message.
 * `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
-* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x)
+* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
 * `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
 
 When working with C# functions:
@@ -709,7 +732,7 @@ To send a message to a session-enabled queue in non-C# languages, use the [Azure
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+This section describes the global configuration settings available for this binding in versions 2.x and higher. The example host.json file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
 
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
@@ -724,6 +747,12 @@ This section describes the global configuration settings available for this bind
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
             }
         }
     }
@@ -733,10 +762,8 @@ This section describes the global configuration settings available for this bind
 |Property  |Default | Description |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
+|autoComplete|true|Whether the trigger should immediately mark the message as complete (autocomplete) or wait for function to exit successfully to call complete.|
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.|
-
 
 ## Next steps
 

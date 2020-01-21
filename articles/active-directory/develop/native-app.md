@@ -2,16 +2,12 @@
 title: Native apps in Azure Active Directory
 description: Describes what native apps are and the basics on protocol flow, registration, and token expiration for this app type. 
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi

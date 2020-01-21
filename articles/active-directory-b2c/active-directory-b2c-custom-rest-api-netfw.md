@@ -1,5 +1,6 @@
 ---
-title: Integrate REST API claims exchanges in your Azure Active Directory B2C user journey
+title: Integrate REST API claims exchanges in a user journey
+titleSuffix: Azure AD B2C
 description: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
 author: mmacy
@@ -332,7 +333,9 @@ After you add the new claim, the relying party code looks like this:
 
 ## Step 7: Upload the policy to your tenant
 
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then open **Azure AD B2C**.
+1. In the [Azure portal](https://portal.azure.com), Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+
+1. In the Azure portal, search for and select **Azure AD B2C**.
 
 1. Select **Identity Experience Framework**.
 

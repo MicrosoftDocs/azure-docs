@@ -2,13 +2,9 @@
 title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage updates for multiple machines
 
@@ -114,6 +110,10 @@ It can take between 30 minutes and 6 hours for the dashboard to display updated 
 
 To install updates, schedule a deployment that aligns with your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
+>[!NOTE]
+>When you schedule an update deployment, it creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, it breaks the scheduled update deployment and presents an error when you attempt to reconfigure it from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.
+>
+
 To schedule a new update deployment for one or more virtual machines, under **Update management**, select **Schedule update deployment**.
 
 In the **New update deployment** pane, specify the following information:
@@ -141,6 +141,13 @@ In the **New update deployment** pane, specify the following information:
   - Updates
 
 - **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
+
+> [!NOTE]
+> You cannot specify updates that have been superseded for inclusion with the update deployment.
+>
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 

@@ -1,6 +1,6 @@
 ---
 title: Sample - Not allowed VM extensions 
-description: This sample policy definition prohibits the use of specified extensions on virtual machines.
+description: This sample policy definition prohibits the use of specified extensions  defined in a parameter on virtual machines.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

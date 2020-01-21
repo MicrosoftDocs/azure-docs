@@ -1,19 +1,9 @@
 ---
-title: Security overview - Azure App Service | Microsoft Docs
+title: Security
 description: Learn about how App Service helps secure your app, and how you can further lock down your app from threats. 
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

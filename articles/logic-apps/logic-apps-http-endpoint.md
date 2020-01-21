@@ -1,12 +1,9 @@
 ---
-title: Call, trigger, or nest logic apps - Azure Logic Apps
+title: Call, trigger, or nest logic apps
 description: Set up HTTP endpoints to call, trigger, or nest logic app workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
 ---

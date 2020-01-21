@@ -49,9 +49,9 @@ For recommendations, see [High availability and load balancing of your Applicati
 
 No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. See [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### Is SSL termination (SSL/HHTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
+### Is SSL termination (SSL/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
-The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HHTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
+The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
 
 ### Should I create a dedicated account to register the connector with Azure AD Application Proxy?
 

@@ -69,8 +69,6 @@ You will find that Video Indexer, Azure Media Services v3 AudioAnalyzerPreset, a
 
 Some known differences include: 
 
-* Closed caption files in SAMI format will no longer be supported. This is an older caption format that is no longer widely used. It is replaced by TTML, WebVTT, and SRT.  
-* Audio Indexing Blob (AIB) files will no longer be supported. This feature was specific to the Indexer 1 technology and is no longer offered.  
 * Cognitive Services Speech Services does not support keyword extraction. However, Video Indexer and Media Services v3 AudioAnalyzerPreset both offer a more robust set of keywords in JSON file format. 
 
 ## Need help?

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services Telemetry | Microsoft Docs
-description: This article gives an overview of Azure Media Services telemetry.
+description: This article provides an overview of Microsoft Azure Media Services telemetry.
 services: media-services
 documentationcenter: ''
 author: Juliako

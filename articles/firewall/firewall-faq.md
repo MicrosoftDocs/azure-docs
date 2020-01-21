@@ -108,7 +108,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## What are the known service limits?
 
-For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-firewall-limits).
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 

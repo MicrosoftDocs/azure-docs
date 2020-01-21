@@ -9,7 +9,7 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
-ms.date: 02/22/2019
+ms.date: 12/31/2019
 
 ---
 
@@ -18,8 +18,11 @@ ms.date: 02/22/2019
 The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and preconfigured to jumpstart building intelligent applications for advanced analytics. 
 
 The DSVM is available on:
++ **Windows Server 2019 (Preview)**
++ **Ubuntu 18.04 LTS (Preview)**
 + Windows Server 2016
 + Ubuntu 16.04 LTS and CentOS 7.4
+
 
 > [!NOTE]
 > All VM tools for deep learning have been folded into the Data Science Virtual Machine. 
@@ -60,7 +63,7 @@ The Windows Server 2016 edition of the DSVM comes pre-installed with GPU drivers
 
 You can also deploy the Ubuntu, CentOS, or Windows 2016 edition of the DSVM to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks will fall back to the CPU mode.
  
-[Learn more about available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
+[Learn more about available deep learning and AI frameworks](dsvm-tools-deep-learning-frameworks.md).
 
 <a name="included"></a>
 

@@ -2,16 +2,12 @@
 title: Modify Microsoft identify platform app accounts | Azure
 description: Configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi

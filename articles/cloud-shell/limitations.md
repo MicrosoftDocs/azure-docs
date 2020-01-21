@@ -77,7 +77,7 @@ If the user runs a command that would create a Windows dialog box, one sees an e
 
 ### Large Gap after displaying progress bar
 
-If the user performs an action that displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
+If the user performs an action that displays a progress bar, such as a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
 
 ## Next steps
 

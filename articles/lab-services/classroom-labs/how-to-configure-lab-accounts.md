@@ -129,6 +129,14 @@ On the **Sign-in options** page, select **Sign in with GitHub**.
 
 Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the instructor selects **Next**.  The instructor is then immediately signed in and connected to the classroom lab.
 
+## Automatic shutdown of VMs on disconnect
+You can enable or disable automatic shutdown of Windows lab VMs (template or student) after a remote desktop connection is disconnected. You can also specify how long the VMs should wait for the user to reconnect before automatically shutting down.
+
+![Automatic shutdown setting at lab account](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+This setting applies to all the labs created in the lab account. A lab owner can override this setting at the lab level. The change to this setting at the lab account will only affect labs that are created after the change is made.
+
+To learn about how a lab owner can configure this setting at the lab level, see [this article](how-to-enable-shutdown-disconnect.md)
 
 ## Next steps
 See the following articles:

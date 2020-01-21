@@ -1,5 +1,5 @@
 ---
-title: Learn more about Azure Monitor Workbook drop down parameters | Microsoft docs
+title: Azure Monitor Workbook drop down parameters
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks containing dropdown parameters
 services: azure-monitor
 author: mrbullwinkle

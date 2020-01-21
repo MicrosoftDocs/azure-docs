@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -44,9 +43,15 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO, and [Automated user provisioning](servicenow-provisioning-tutorial.md).
+In this tutorial, you configure and test Azure AD SSO in a test environment. 
 
-You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* ServiceNow supports **SP** initiated SSO.
+
+* ServiceNow supports [Automated user provisioning](servicenow-provisioning-tutorial.md).
+
+* Once you configure the ServiceNow you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add ServiceNow from the gallery
 
@@ -96,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. 
 
    ![Screenshot of the SAML Signing Certificate section, with Download highlighted](common/certificatebase64.png)
 
@@ -462,3 +467,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 - [Configure user provisioning](servicenow-provisioning-tutorial.md)
 
 - [Try ServiceNow with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [How to protect ServiceNow with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

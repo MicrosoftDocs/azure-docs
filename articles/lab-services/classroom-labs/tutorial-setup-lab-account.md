@@ -96,7 +96,7 @@ As a lab account owner, you can specify the Marketplace images that lab creators
     2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
 ## Next steps
-In this tutorial, you created a lab account. To learn about how to create a classroom lab as a profession, advance to the next tutorial:
+In this tutorial, you created a lab account. To learn about how to create a classroom lab as a professor, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Set up a classroom lab](tutorial-setup-classroom-lab.md)
