@@ -3,7 +3,7 @@ title: Share Azure portal dashboards by using RBAC | Microsoft Docs
 description: This article explains how to share a dashboard in the Azure portal by using Role-Based Access Control.
 services: azure-portal
 documentationcenter: ''
-author: mblythe
+author: mgblythe
 manager: mtillman
 editor: tysonn
 

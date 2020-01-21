@@ -41,7 +41,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
-+ [Visual Studio Code extension](how-to-vscode-tools.md)
++ [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
@@ -61,7 +61,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free or low-code training and deployment, try:
 
-+ **Azure Machine Learning designer (preview)**
++ **Azure Machine Learning designer**
 
   Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 

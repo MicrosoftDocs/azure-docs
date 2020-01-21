@@ -437,10 +437,6 @@ If you update your key in Key Vault and don't update the new *Key identifier* de
     configuration, remained encrypted with Microsoft key. You can query
     data before and after the configuration seamlessly.
 
-- CMK capability is regional -- your Azure Key Vault, *Cluster*
-    resource and associated workspaces must be in the same region but
-    can be in different subscriptions.
-
 - Once workspace is associated to a *Cluster* resource, it cannot be
     de-associated from the *Cluster* resource, since data is encrypted
     with your key and isn't accessible without your KEK in Azure Key
@@ -458,10 +454,9 @@ If you update your key in Key Vault and don't update the new *Key identifier* de
 - *Cluster* resource move to another resource group or subscription
     isn't supported currently.
 
-- Workspace association to *Cluster* resource will fail if the
-    *Cluster* resource is in a different tenant.
+- Your Azure Key Vault, *Cluster* resource and associated workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
--   Workspace association to *Cluster* resource will fail if it is
+- Workspace association to *Cluster* resource will fail if it is
     associated to another *Cluster* resource
 
 ## Troubleshooting and management
@@ -635,7 +630,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",

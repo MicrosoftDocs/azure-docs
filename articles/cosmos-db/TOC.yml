@@ -851,8 +851,6 @@
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: how-to-manage-consistency.md
-      - name: Implement custom synchronization
-        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput

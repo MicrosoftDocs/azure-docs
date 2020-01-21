@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/20/2019
+ms.date: 01/16/2020
 ms.author: radeltch
 
 ---
@@ -50,7 +50,7 @@ ms.author: radeltch
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-This article describes how to deploy multiple SAP NetWeaver highly available systems(that is, multi-SID) in a two node cluster on Azure VMs with SUSE Linux Enterprise Server for SAP applications.  
+This article describes how to deploy multiple SAP NetWeaver or S4HANA highly available systems(that is, multi-SID) in a two node cluster on Azure VMs with SUSE Linux Enterprise Server for SAP applications.  
 
 In the example configurations, installation commands etc. three SAP NetWeaver 7.50 systems are deployed in a single, two node high availability cluster. The SAP systems SIDs are:
 * **NW1**: ASCS instance number **00** and virtual host name **msnw1ascs**; ERS instance number **02** and virtual host name **msnw1ers**.  
@@ -426,7 +426,7 @@ This documentation assumes that:
 
 8. **[1]** Create the SAP cluster resources for the newly installed SAP system. 
 
-   The example shown here is for SAP systems **NW2** and **NW3**, assuming that it is using enqueue server 1 architecture (ENSA1):
+   If using enqueue server 1 architecture (ENSA1), define the resources for SAP systems **NW2** and **NW3** as follows:
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -472,6 +472,52 @@ This documentation assumes that:
      sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
      sudo crm configure property maintenance-mode="false"
     ```
+
+   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources for SAP systems **NW2** and **NW3** as follows:
+
+    ```
+     sudo crm configure property maintenance-mode="true"
+    
+     sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
+      operations \$id=rsc_sap_NW2_ASCS10-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000 
+    
+     sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
+      operations \$id=rsc_sap_NW2_ERS12-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true 
+    
+     sudo crm configure modgroup g-NW2_ASCS add rsc_sap_NW2_ASCS10
+     sudo crm configure modgroup g-NW2_ERS add rsc_sap_NW2_ERS12
+    
+     sudo crm configure colocation col_sap_NW2_no_both -5000: g-NW2_ERS g-NW2_ASCS
+     sudo crm configure order ord_sap_NW2_first_start_ascs Optional: rsc_sap_NW2_ASCS10:start rsc_sap_NW2_ERS12:stop symmetrical=false
+   
+     sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
+      operations \$id=rsc_sap_NW3_ASCS20-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
+      AUTOMATIC_RECOVER=false \
+      meta resource-stickiness=5000
+    
+     sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
+      operations \$id=rsc_sap_NW3_ERS22-operations \
+      op monitor interval=11 timeout=60 on_fail=restart \
+      params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true
+    
+     sudo crm configure modgroup g-NW3_ASCS add rsc_sap_NW3_ASCS20
+     sudo crm configure modgroup g-NW3_ERS add rsc_sap_NW3_ERS22
+    
+     sudo crm configure colocation col_sap_NW3_no_both -5000: g-NW3_ERS g-NW3_ASCS
+     sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
+     sudo crm configure property maintenance-mode="false"
+    ```
+
+   If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
    The following example shows the cluster resources status, after SAP systems **NW2** and **NW3** were added to the cluster. 

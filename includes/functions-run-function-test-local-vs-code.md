@@ -29,4 +29,4 @@ Visual Studio Code integrates with Core Tools to let you run this project on you
 
     ![Function localhost response in the browser](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
-1. Press Ctrl + F5 to stop Core Tools and disconnect the debugger.
+1. Press Shift + F5 to stop Core Tools and disconnect the debugger.
