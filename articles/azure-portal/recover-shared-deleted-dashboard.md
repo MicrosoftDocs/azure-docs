@@ -15,7 +15,7 @@ manager:  mtillman
 
 If you delete a _published_ dashboard in the Azure portal, you can recover that dashboard. If the dashboard isn't published, you cannot recover it, and you must rebuild it. For more information about publishing a dashboard, see [Publish dashboard](azure-portal-dashboard-share-access.md#publish-dashboard). Follow these steps to recover a published dashboard:
 
-1. From the Azure portal menu, select **Resource groups**, then select the **dashboards** resource group (where the Azure portal stores published dashboards).
+1. From the Azure portal menu, select **Resource groups**, then select the resource group where you published the dashboard (by default, it's named **dashboards**).
 
 1. Under **Activity log**, expand the **Delete Dashboard** operation. Select the **Change history** tab, then select **\<deleted resource\>**.
 
