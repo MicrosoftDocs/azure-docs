@@ -99,7 +99,7 @@ az role assignment create \
 
 ### 4. (Optional) Add credentials to the task
 
-If your task needs credentials to pull or pushes images to another custom registry, or to access other resources, add credentials to the task. Run the [az acr task credential add][az-acr-task-credential-add] command to add credentials, and pass the `--use-identity` parameter to indicate that the identity can access the credentials. 
+If your task needs credentials to pull or push images to another custom registry, or to access other resources, add credentials to the task. Run the [az acr task credential add][az-acr-task-credential-add] command to add credentials, and pass the `--use-identity` parameter to indicate that the identity can access the credentials. 
 
 For example, to add credentials for a system-assigned identity to authenticate with the Azure container registry *targetregistry*, pass `use-identity [system]`:
 
