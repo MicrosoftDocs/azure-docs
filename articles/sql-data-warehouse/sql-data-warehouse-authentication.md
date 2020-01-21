@@ -18,7 +18,7 @@ Learn how to authenticate to Azure SQL Data Warehouse by using Azure Active Dire
 
 To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
-For more information on security and how to enable connections to your data warehouse, see [Secure a database in SQL Data Warehouse](./sql-data-warehouse-overview-manage-security.md).
+For more information on security and how to enable connections to your data warehouse, see [Secure a database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md).
 
 ## SQL authentication
 To connect to SQL Data Warehouse, you must provide the following information:
@@ -35,7 +35,7 @@ By default your connection connects to the *master* database and not your user d
 * Highlight the user database before creating a session in SSDT.
 
 > [!NOTE]
-> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio](./sql-data-warehouse-query-visual-studio.md) article.
+> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) article.
 > 
 > 
 
@@ -76,4 +76,4 @@ Currently Azure Active Directory users are not shown in SSDT Object Explorer. As
 * Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Next steps
-To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio](./sql-data-warehouse-query-visual-studio.md).
+To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md).

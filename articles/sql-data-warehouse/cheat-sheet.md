@@ -40,7 +40,7 @@ First, load your data into [Azure Data Lake Storage](../data-factory/connector-a
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
+Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](design-elt-data-loading#3-prepare-the-data-for-loading.md), and the [Extract, Load, and Transform (ELT) process](design-elt-data-loading#what-is-elt.md). 
 
 ## Distributed or replicated tables
 
@@ -92,11 +92,11 @@ Learn more about [partitions](sql-data-warehouse-tables-partition.md).
 
 ## Incremental load
 
-If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) for further details.  
+If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](resource-classes-for-workload-management.md) for further details.  
 
 We recommend using PolyBase and ADF V2 for automating your ELT pipelines into your data warehouse.
 
-For a large batch of updates in your historical data, consider using a [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
+For a large batch of updates in your historical data, consider using a [CTAS](sql-data-warehouse-develop-ctas.md) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
 
 ## Maintain statistics
  Until auto-statistics are generally available, manual maintenance of statistics is required. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 
