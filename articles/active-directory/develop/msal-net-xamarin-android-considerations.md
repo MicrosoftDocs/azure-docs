@@ -51,7 +51,7 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-## Esure that control returns to MSAL 
+## Ensure that control returns to MSAL 
 When the interactive portion of the authentication flow ends, make sure that control goes back to MSAL. On Android, override the `OnActivityResult` method of `Activity`. Then call the `SetAuthenticationContinuationEventArgs` method of the `AuthenticationContinuationHelper` MSAL class. 
 
 Here's an example:

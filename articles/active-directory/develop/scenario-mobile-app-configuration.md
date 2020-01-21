@@ -157,7 +157,7 @@ On Android and iOS, brokers enable:
 
 To enable the broker on Xamarin, use the `WithBroker()` parameter when you call the `PublicClientApplicationBuilder.CreateApplication` method. By default, `.WithBroker()` is set to true. 
 
-To enable brokered authentication for Xamarin.iOS, follow the steps in the [Xamarin.iOS section](#brokered-authentication-for-xamarin.ios) in this article.
+To enable brokered authentication for Xamarin.iOS, follow the steps in the [Xamarin.iOS section](#brokered-authentication-for-xamarin-ios) in this article.
 
 ### Enable the broker for MSAL for Android
 
@@ -169,7 +169,7 @@ Brokered authentication is enabled by default for Azure AD scenarios in MSAL for
 
 The following sections provide instructions to configure your application for brokered authentication support for either MSAL for Xamarin.iOS or MSAL for iOS and macOS. In the two sets of instructions, some of the steps differ.
 
-### Enable brokered authentication for Xamarin.iOS
+### Enable brokered authentication for Xamarin iOS
 
 Follow the steps in this section to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
 
