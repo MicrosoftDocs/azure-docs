@@ -1,7 +1,7 @@
 ---
 title: Xamarin Android considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about considerations for using Xamarin.Android with Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,16 +14,16 @@ ms.date: 04/24/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about considerations for using Xamarin.Android and MSAL.NET so that I can decide if this platform meets my application development needs.
+#Customer intent: As an application developer, I want to learn about considerations for using Xamarin Android and MSAL.NET so that I can decide if this platform meets my application development needs.
 ms.collection: M365-identity-device-management
 ---
 
-# Xamarin.Android-specific considerations with MSAL.NET
-This article discusses what you should consider when you use Xamarin.Android with Microsoft Authentication Library for .NET (MSAL.NET).
+# Considerations for using Xamarin Android with MSAL.NET
+This article discusses what you should consider when you use Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
 
 ## Set the parent activity
 
-On Xamarin.Android, set the parent activity so that the token returns after the interaction. Here's a code example:
+On Xamarin Android, set the parent activity so that the token returns after the interaction. Here's a code example:
 
 ```csharp
 var authResult = AcquireTokenInteractive(scopes)
@@ -51,7 +51,7 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-## Ensure control returns to MSAL 
+## Esure that control returns to MSAL 
 When the interactive portion of the authentication flow ends, make sure that control goes back to MSAL. On Android, override the `OnActivityResult` method of `Activity`. Then call the `SetAuthenticationContinuationEventArgs` method of the `AuthenticationContinuationHelper` MSAL class. 
 
 Here's an example:
@@ -103,7 +103,7 @@ Here's an example of a class that represents the values of the XML file:
 
 Xamarin.Forms 4.3.x generates code that sets the `package` attribute to `com.companyname.{appName}` in *AndroidManifest.xml*. If you use `DataScheme` as `msal{client_id}`, then you might want to change the value to match the value of the `MainActivity.cs` namespace.
 
-## Use an embedded web view (optional)
+## Use the embedded web view (optional)
 
 By default, MSAL.NET uses the system web browser. This browser enables you to get single sign-on (SSO) by using web applications and other apps. In some rare cases, you might want your system to use an embedded web view. 
 
@@ -118,7 +118,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-For more information, see [Use web browsers for MSAL.NET](msal-net-web-browsers.md) and [Xamarin.Android system browser considerations](msal-net-system-browser-android-considerations.md).
+For more information, see [Use web browsers for MSAL.NET](msal-net-web-browsers.md) and [Xamarin Android system browser considerations](msal-net-system-browser-android-considerations.md).
 
 
 ## Troubleshoot

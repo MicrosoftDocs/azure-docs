@@ -130,10 +130,10 @@ These tasks are necessary when you use MSAL for iOS and macOS:
 
 If you use Xamarin.Android, do the following tasks:
 
-- [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
+- [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensure-control-returns-to-msal)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshooting)
+- [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshoot)
 
 For more information, see [Xamarin.Android considerations](msal-net-xamarin-android-considerations.md).
 
@@ -282,7 +282,7 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` 
     </array>
 ```
 
-### Enable brokered authentication for MSAL for iOS and macOS
+### Brokered authentication for MSAL for iOS and macOS
 
 Brokered authentication is enabled by default for Azure AD scenarios.
 
@@ -362,7 +362,7 @@ Here's an example of how to add `LSApplicationQueriesSchemes`:
 </array>
 ```
 
-### Broker authentication for Xamarin.Android
+### Brokered authentication for Xamarin.Android
 
 MSAL.NET doesn't support brokers for Android.
 

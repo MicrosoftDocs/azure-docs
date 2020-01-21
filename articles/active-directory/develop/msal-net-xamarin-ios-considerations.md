@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Considerations for using Xamarin iOS with MSAL.NET
-When you use MSAL.NET on Xamarin iOS, you should: 
+When you use Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should: 
 
 - Override and implement the `OpenUrl` function in `AppDelegate`.
 - Enable keychain groups.
