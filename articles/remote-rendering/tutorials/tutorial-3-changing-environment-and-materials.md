@@ -13,14 +13,14 @@ ms.service: azure-remote-rendering
 
 This tutorial requires a model that contains [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials. The Khronos Group has a repository of [glTF Sample Models](https://github.com/KhronosGroup/glTF-Sample-Models) that are in the correct format for Azure Remote Rendering.
 
-Once you have completed ingestion of the new model, generate a SAS url for the .ezArchive file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
+Once you have completed ingestion of the new model, generate a SAS url for the `.ezArchive` file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
 ![changing model name property](media/change-model-name-property.png)
 
 ## Modify materials
 
 In the previous tutorial, when the mouse was over a part of the model, it had changed its [HierarchicalState](../sdk/features-override-hierarchical-state.md)'s tint property, which changed the object's color. To instead change an object's material, you need to modify the [material](../sdk/concepts-materials.md) property.
 
-The material property is part of the RemoteComponent.Mesh object. Continuing on from the previous RemoteModelEntity.cs file, add the following properties:
+The material property is part of the `RemoteComponent.Mesh` object. Continuing on from the previous RemoteModelEntity.cs file, add the following properties:
 
 ```csharp
     public Color HighlightColor = new Color(1.0f, 0.0f, 0.0f, 0.1f);
