@@ -14694,9 +14694,14 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-choice.md",
-      "redirect_url": "/azure/machine-learning/studio/algorithm-choice",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/machine-learning/studio/algorithm-choice.md",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize",
