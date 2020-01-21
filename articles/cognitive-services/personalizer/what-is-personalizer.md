@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 01/09/2020
+ms.date: 01/21/2020
 ms.author: diberry
 #Customer intent:
 ---
@@ -21,7 +21,9 @@ After you present the content item to your user, your system monitors user behav
 
 **Content** can be any unit of information such as text, images, urls, or emails that you want to select from to show to your user.
 
+<!--
 ![What is personalizer animation](./media/what-is-personalizer.gif)
+-->
 
 ## How does Personalizer select the best content item?
 
