@@ -1,5 +1,5 @@
 ---
-title: Create Service Bus Messaging namespace using Azure Resource Manager template | Microsoft Docs
+title: Create an Azure Service Bus namespace using template
 description: Use Azure Resource Manager template to create a Service Bus Messaging namespace
 services: service-bus-messaging
 documentationcenter: .net
