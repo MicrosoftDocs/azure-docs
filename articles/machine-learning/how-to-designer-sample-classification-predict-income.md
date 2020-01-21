@@ -13,11 +13,11 @@ ms.date: 12/25/2019
 ---
 # Build a classifier & use feature selection to predict income with Azure Machine Learning designer
 
-**Designer (preview) sample 3**
+**Designer sample 3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
+Learn how to build a machine learning classifier without writing a single line of code using the designer. This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
 
 Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem - regression, classification, clustering, and so on.
 

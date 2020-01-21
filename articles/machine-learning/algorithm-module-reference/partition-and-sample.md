@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Partition and Sample module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to perform sampling on a dataset or to create partitions from your dataset.
 

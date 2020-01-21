@@ -14,7 +14,7 @@ ms.date: 11/19/2019
 
 # Multiclass Boosted Decision Tree
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm.
 
