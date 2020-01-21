@@ -141,14 +141,16 @@ messages. When Service Bus receives a request, it finds the next message
 to be consumed, locks it to prevent other consumers receiving it, and
 then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
-marks the message as being consumed and remove it from the queue.
+completes the second stage of the receive process by calling **complete()**
+on the received message. When Service Bus sees the **complete()** call, it
+marks the message as being consumed and remove it from the queue. 
 
 The following example demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
-below does an infinite loop and processes messages as they arrive into
-our `TestQueue`:
+below uses the callback model with a registered mesage handler
+and processes messages as they arrive into our `TestQueue`. This mode
+calls **complete()** automatically as the callback returns normally and calls
+**abandon()** if the callback throws an exception. 
 
 ```java
     public void run() throws Exception {
@@ -204,11 +206,11 @@ our `TestQueue`:
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
-then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This causes Service Bus
-to unlock the message within the queue and make it available to be
-received again, either by the same consuming application or by another
-consuming application.
+then it can call the **abandon()** method on client object with the 
+received message's lock token obtained via **getLockToken()**. This 
+causes Service Bus to unlock the message within the queue and make 
+it available to be received again, either by the same consuming 
+application or by another consuming application.
 
 There is also a timeout associated with a message locked within the
 queue, and if the application fails to process the message before the
@@ -217,7 +219,7 @@ Bus unlocks the message automatically and makes it available to be
 received again.
 
 In the event that the application crashes after processing the message
-but before the **deleteMessage** request is issued, then the message
+but before the **complete()** request is issued, then the message
 is redelivered to the application when it restarts. This is often
 called *At Least Once Processing*; that is, each message is
 processed at least once but in certain situations the same message may
