@@ -39,7 +39,7 @@ If you try to drop the synchronized schema in a SQL Pool, or try to create a tab
 
 [!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
 
-During public preview, it can happen that the name of a Spark database can conflict with the name of an existing SQL on-demand database. In this case, the Spark database will be exposed in SQL on-demand with a different name, that got created by adding a post-fix of the form `_<workspace name>-ondemand-DefaultSparkConnector` to the Spark database name. 
+If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`. 
 
 For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
