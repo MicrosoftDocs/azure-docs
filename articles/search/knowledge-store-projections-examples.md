@@ -279,7 +279,7 @@ Start by setting the knowledgeStore property to the object
 Set the ```storageConnectionString``` property to a valid storage account connection string. Now we define two tables in the projection object, note that each table requires a ```tableName```, ```source``` and ```generatedKeyName``` property, the ```referenceKeyName``` property is optional. 
 
 ### Naming relationships
-The generatedKeyName and refereceKeyName properties are used to relate data across tables. Each row in the child table has a property pointing back to the parent row. The name of the column in the child table is the referenceKeyName from the parent table. When the referenceKeyNme is not provided, the service will use the  generatedKeyName from the parent table. PowerBI relies on the generated key name and reference key name to be the same to discover relationships within the tables. 
+The ```generatedKeyName``` and ```referenceKeyName``` properties are used to relate data across tables. Each row in the child table has a property pointing back to the parent row. The name of the column in the child table is the ```referenceKeyName``` from the parent table. When the ```referenceKeyName``` is not provided, the service will use the  ```generatedKeyName``` from the parent table. PowerBI relies on the generated key name and reference key name to be the same to discover relationships within the tables. 
 
 ### Slicing 
 
