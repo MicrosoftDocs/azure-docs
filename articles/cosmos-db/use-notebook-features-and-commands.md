@@ -1,5 +1,5 @@
 ---
-title: Use built-in notebook commands and features in Azure Cosmos DB
+title: Use built-in notebook commands and features in Azure Cosmos DB (preview)
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in notebooks.
 author: deborahc
 ms.service: cosmos-db

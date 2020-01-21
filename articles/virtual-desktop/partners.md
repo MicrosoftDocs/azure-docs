@@ -217,7 +217,7 @@ Tricerat offers a superior print management solution for Windows Virtual Desktop
 
 With Tricerat, printing is seamless in Windows Virtual Desktop and beyond. Tricerat software allows administrators to easily connect on-premises printers to the cloud, extending enterprise print management from traditional environments to new, modern workspaces.
 
-- [Go to the partner website](https://www.tricerat.com/solutions/wvd-microsoft/).
+- [Go to the partner website](https://www.tricerat.com/microsoft-printing).
 
 ## Workspot
 
