@@ -44,10 +44,7 @@ The module takes an untrained clustering model that you have already configured 
 
 After training has completed:
 
-
-
-
-+ To save the trained model for later reuse, select the module, select **Outputs** in right panel, and click on **Register dataset**.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
 

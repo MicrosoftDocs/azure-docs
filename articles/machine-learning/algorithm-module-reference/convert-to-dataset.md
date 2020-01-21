@@ -51,7 +51,7 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
 
 ## Results
 
-+  To save the resulting dataset with a new name, click on the icon **Register dataset** under the **Outputs** tab in the right panel of the module.  
++  To save the resulting dataset with a new name, select on the icon **Register dataset** under the **Outputs** tab in the right panel of the module.  
   
 ## Technical notes  
 

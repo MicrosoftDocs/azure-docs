@@ -78,7 +78,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-+ To save a snapshot of the model, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To use the model for scoring, add the **Score Model** module to a pipeline.
 

@@ -92,7 +92,7 @@ This module can be helpful in scenarios such as these:
   
      If you create rows with missing values, you can always filter them out later.  
   
-5.  Connect the output port to other modules if needed, and run the pipeline.  
+5.  Connect the output port to other modules, and run the pipeline.  
   
      To view the dataset, right-click the module and select **Visualize**.  
 ## Next steps

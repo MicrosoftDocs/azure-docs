@@ -84,7 +84,7 @@ For more information about the theoretical framework for this algorithm and its 
 
 After training is complete:
 
-+ To save a snapshot of the trained model, select the training module, switch to **Outputs** tab in the right panel, and click on the icon **Register dataset**. And you can find it as a module in the module tree. 
++ To save a snapshot of the trained model, select the training module, then switch to **Outputs** tab in the right panel. Click on the icon **Register model**.  You can find the saved model as a module in the module tree. 
 
 ## Next steps
 

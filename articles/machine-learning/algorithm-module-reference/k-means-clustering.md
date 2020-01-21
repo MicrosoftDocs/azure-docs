@@ -112,7 +112,7 @@ If you used the [Train Clustering Model](train-clustering-model.md) module:
 
 1. Select the **Train Clustering Model** module and open the right panel.
 
-2. Select **Outputs** tab, and then click on **Register dataset**, which can save a copy of the trained model.
+2. Select **Outputs** tab. Select the **Register dataset** icon to save a copy of the trained model.
 
 The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
 

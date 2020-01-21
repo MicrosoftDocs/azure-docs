@@ -82,14 +82,12 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 9. Attach a labeled dataset, and one of the [training modules](module-reference.md):  
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
-  
     
 ## Results
 
 After training is complete:
 
-
-+ To save a snapshot of the model, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To use the model for scoring, add the **Score Model** module to a pipeline.
 

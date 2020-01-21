@@ -80,7 +80,7 @@ When training is complete:
 
     The output includes all accuracy metrics that apply to the model type, but the metric that you selected for ranking determines which model is considered "best."
 
-+ To use the model for scoring in other pipelines without having to repeat the tuning process, select the module and click the icon **Register dataset** under **Outputs** tab in right panel. You can save a reusable module in the left pane.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 
 ## Technical notes

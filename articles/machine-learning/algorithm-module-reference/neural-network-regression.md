@@ -86,9 +86,7 @@ Neural networks can be extensively customized. This section describes how to cre
 
 After training is complete:
 
-
-+ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the module and click on **Register dataset** icon, and you can save a module of trained model in the module tree.
-
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 ## Next steps
 
