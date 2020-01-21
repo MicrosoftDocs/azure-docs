@@ -81,6 +81,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
+
 1. In the App Configuration portal for your config store, select `Access keys` from the sidebar. Select the Read-only keys tab. Copy the value of the primary connection string.
 
 1. Add the primary connection string as an environment variable using the variable name `APP_CONFIGURATION_CONNECTION_STRING`.
@@ -127,7 +128,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         public HelloController(FeatureManager featureManager) {
             this.featureManager = featureManager;
-        } 
+        }
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {

@@ -1040,8 +1040,6 @@
       - name: Azure Stream Analytics
         href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
         maintainContext: true 
-      - name: Logic Apps and Service bus
-        href: change-feed-hl7-fhir-logic-apps.md
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
