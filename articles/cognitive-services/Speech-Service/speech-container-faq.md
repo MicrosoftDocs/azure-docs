@@ -39,6 +39,7 @@ Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 
 Finally, you can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
 
+<br>
 </details>
 
 <details>
@@ -81,6 +82,7 @@ Service cost is the same as the online service: $1/hour for speech-to-text. The 
 
 Maintenance cost paid to Microsoft depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure costs (such as storage, networks, and load balancers) are not included.
 
+<br>
 </details>
 
 <details>
@@ -115,6 +117,7 @@ RECOGNIZED: SpeechRecognitionResult(
     reason=ResultReason.RecognizedSpeech)
 ```
 
+<br>
 </details>
 
 <details>
@@ -126,6 +129,7 @@ We are currently only able to pass one model ID, either custom language model or
 
 **Answer:** The decision to *not* support both acoustic and language models concurrently was made. This will remain in effect, until a unified identifier is created to reduce API breaks. So, unfortunately this is not supported right now.
 
+<br>
 </details>
 
 <details>
@@ -173,6 +177,7 @@ Details: Voice does not match.
 **Answer 3:** You reed to create a Speech resource, not a Cognitive Services resource.
 
 
+<br>
 </details>
 
 <details>
@@ -182,6 +187,7 @@ Details: Voice does not match.
 
 **Answer:** For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
 </details>
 
 <details>
@@ -198,6 +204,7 @@ The Python Speech SDK package is available for these operating systems:
 
 For more information on environment setup, see [Python platform setup](quickstarts/setup-platform.md?pivots=programming-language-python). For now, Ubuntu 18.04 is the recommended version.
 
+<br>
 </details>
 
 <details>
@@ -234,6 +241,7 @@ The Speech SDK should not be used against a LUIS container. For using the LUIS c
 
 A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - Two separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text-based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers' premises, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
 
+<br>
 </details>
 
 <details>
@@ -268,6 +276,7 @@ If that is the case, then see [this GitHub issue](https://github.com/Azure-Sampl
 Carbon fixed this at version 1.8.
 
 
+<br>
 </details>
 
 <details>
@@ -304,6 +313,7 @@ The proper fix is coming with SDK 1.8, which has on-prem support (will pick the 
 
 https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d9e95c9137fe129bc5d81e35f6309/samples/python/console/speech_sample.py#L196
 
+<br>
 </details>
 
 <details>
@@ -315,6 +325,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 Just to clarify for the interactive, conversation, and dictation; this is an advanced way of specifying the particular way in which our service will handle the speech request. Unfortunately, for the on-prem containers we have to specify the full URI (since it includes local machine), so this information leaked from the abstraction. We are working with the SDK team to make this more usable in the future.
 
+<br>
 </details>
 
 <details>
@@ -330,6 +341,7 @@ Just to clarify for the interactive, conversation, and dictation; this is an adv
 This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
 
 
+<br>
 </details>
 
 <details>
@@ -342,6 +354,7 @@ My current plan is to take an existing audio file and split it up into 10 second
 **Answer:** Just use the speech SDK and give it the file, it will do the right thing. Why do you need to chunk the file?
 
 
+<br>
 </details>
 
 <details>
@@ -354,6 +367,7 @@ The doc says to expose a different port, which I do, but the LUIS container is s
 **Answer:** Try `-p <outside_unique_port>:5000`. For example, `-p 5001:5000`.
 
 
+<br>
 </details>
 
 ## Technical questions
@@ -366,6 +380,7 @@ The doc says to expose a different port, which I do, but the LUIS container is s
 **Answer:** This is in interactive mode. If you use dictation or conversation that is not a problem.
 
 
+<br>
 </details>
 
 <details>
@@ -413,6 +428,7 @@ Consider the total number of hours of audio you have. If the number is large, to
 
 As an example, to handle 1000 hours/24 hours, we have tried setting up 3-4 VMs, with 10 instances/decoders per VM.
 
+<br>
 </details>
 
 <details>
@@ -432,6 +448,7 @@ speech_config.set_service_property(
 )
 ```
 
+<br>
 </details>
 
 <details>
@@ -461,6 +478,7 @@ Content-Length: 0
 
 **Answer:** We do not support REST API in either speech-to-text container, we only support WebSockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
 </details>
 
 <details>
@@ -478,6 +496,7 @@ Error in STT call for file 9136835610040002161_413008000252496:
 
 **Answer:** This typically happens when you feed the audio faster than the Speech recognition container can take it. Client buffers fill up, and the cancellation is triggered. You need to control the concurrency and the RTF at which you send the audio.
 
+<br>
 </details>
 
 <details>
@@ -518,6 +537,7 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 
  The `SetSpeechSynthesisVoiceName` function is called because the containers with an updated text-to-speech engine require the voice name.
 
+<br>
 </details>
 
 <details>
@@ -548,6 +568,7 @@ In C# to enable dictation, invoke the `SpeechConfig.EnableDictation()` function.
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Not currently supported, nor is it planned. |
 
+<br>
 </details>
 
 <details>
@@ -584,6 +605,7 @@ Python samples from above, but use `host` parameter instead of `endpoint`:
 speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
 ```
 
+<br>
 </details>
 
 ## Next steps
