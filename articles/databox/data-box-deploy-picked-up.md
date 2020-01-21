@@ -271,7 +271,8 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## [Self-Managed](#tab/in-selfmanaged) 
 
-Customers using Data Box in Japan, Singapore, Korea and West Europe who have selected the self-managed shipping option during order creation should follow the instructions below.
+If you are using Data Box in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+
 1. Note down the Authorization code shown on the Prepare to Ship page of the Data Box local web UI after this step successfully completes.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
 3. Send an email to the Azure Data Box Operations team using the below template when you are ready to return the device.
@@ -282,7 +283,7 @@ Customers using Data Box in Japan, Singapore, Korea and West Europe who have sel
     Body: 
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
-        3. Contact name of the person coming for drop off (this will be validated with a Govt approved id that you need to carry during drop off)
+        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
 
 ::: zone target="chromeless"
