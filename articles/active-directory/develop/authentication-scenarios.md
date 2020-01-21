@@ -165,4 +165,4 @@ By default, MSAL uses the system browser except for .NET Framework desktop appli
 - See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
 - See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
 - See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
-- See [Integrate App Service with Microsfot identity platform](/azure/app-service/configure-authentication-provider-aad) to learn how to configure authentication for your App Service app.
+- See [Integrate App Service with Microsoft identity platform](/azure/app-service/configure-authentication-provider-aad) to learn how to configure authentication for your App Service app.
