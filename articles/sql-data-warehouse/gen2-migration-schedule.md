@@ -9,7 +9,7 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
 ---
 # Upgrade your data warehouse to Gen2
