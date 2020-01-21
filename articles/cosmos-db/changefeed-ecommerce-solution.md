@@ -391,4 +391,3 @@ To delete the resources that you created during this lab, navigate to the resour
 ## Next steps 
   
 * To learn more about change feed, see [working with change feed support in Azure Cosmos DB](change-feed.md) 
-* [Change feed notification solution](change-feed-hl7-fhir-logic-apps.md) for healthcare organization using Azure Cosmos DB.
