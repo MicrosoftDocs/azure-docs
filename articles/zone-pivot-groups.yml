@@ -130,3 +130,19 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-text-analytics
+  title: Programming languages
+  prompt: Choose a programming language. Some languages are only available in select versions.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-java
+    title: Java (V3 only)
+  - id: programming-language-go
+    title: Go (v2 only)
+  - id: programming-language-ruby
+    title: Ruby(v2 only)
