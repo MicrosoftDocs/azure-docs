@@ -91,7 +91,7 @@ All data is retrieved from a Log Analytics workspace using a log query written u
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
 
 ### Can you move an existing Log Analytics workspace to another Azure subscription?
-You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](/platform/move-workspace.md).
+You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](platform/move-workspace.md).
 
 
 ## Alerts
@@ -452,7 +452,7 @@ Your gateway should route traffic to our endpoint's base address. In your config
 #### Proxy passthrough
 
 Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
-For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings).
+For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Example Web.config:
  ```xml
