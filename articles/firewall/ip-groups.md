@@ -23,7 +23,7 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules in
 
 An IP Group can have a single IP address, multiple IP addresses, or one or more IP address ranges.
 
-IP Groups can be reused in Azure Firewall DNAT, network, and application rules; across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in in the Azure portal, Azure CLI, and REST API. A sample template is provided to help you get started.
+IP Groups can be reused in Azure Firewall DNAT, network, and application rules across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
 
 ## Sample format
 
@@ -35,7 +35,7 @@ The following IPv4 address format examples are valid to use in IP Groups:
 
 ## Create an IP Group
 
-An IP Group can be created using the Azure portal . For more information, see [Create an IP Group (preview)](create-ip-group.md).
+An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group (preview)](create-ip-group.md).
 
 ## Browse IP Groups
 1. In the Azure portal search bar, type **IP Groups**. Select **Add** to create an IP Group  or you can see the list of all created IP Groups. 
