@@ -204,7 +204,7 @@ Select **Missing updates** to view the list of updates that are missing from you
 
 ## Update classifications
 
-The following tables list the update classifications in Update Management, with a definition for each classification.
+The following tables list the supported update classifications in Update Management, with a definition for each classification.
 
 ### Windows
 
