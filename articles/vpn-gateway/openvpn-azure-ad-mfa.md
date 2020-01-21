@@ -18,27 +18,7 @@ If you want users to be prompted for a second factor of authentication before gr
 
 The prerequisite for this configuration is a configured Azure AD tenant using the steps in [Configure a tenant](openvpn-azure-ad-tenant.md).
 
-## <a name="mfa"></a>Open the MFA page
-
-1. Sign in to the Azure portal.
-2. Navigate to **Azure Active Directory -> All users**.
-3. Select **Multi-Factor Authentication** to open the multi-factor authentication page.
-
-   ![Sign in](./media/openvpn-azure-ad-mfa/mfa1.jpg)
-
-## <a name="users"></a> Select users
-
-1. On the **multi-factor authentication** page, select the user(s) for which you want to enable MFA.
-2. Select **Enable**.
-
-   ![Select](./media/openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>Enable authentication
-
-1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
-2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
-
-   ![Directory ID](./media/openvpn-azure-ad-mfa/user1.jpg)
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## <a name="enablesign"></a> Configure sign-in settings
 

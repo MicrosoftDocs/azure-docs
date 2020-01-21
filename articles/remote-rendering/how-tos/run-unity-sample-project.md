@@ -17,7 +17,7 @@ This project illustrates how a client application can connect to an Azure Remote
 
 ## Prerequisites
 
-1. Make sure you are using Unity **2019.1** and that you have UWP "Universal Windows Platform Build Support" and IL2CPP "Windows Build Support (IL2CPP)" selected in the installation.
+1. Make sure you are using Unity **2019.3** and that you have UWP "Universal Windows Platform Build Support" and IL2CPP "Windows Build Support (IL2CPP)" selected in the installation.
 1. Install [Windows SDK 10.0.18362.0](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 1. Make sure you have the newest Visual Studio 2017 version installed.
 1. To view the video stream from the server on a desktop PC, it is required to have the [HEVC Video Extensions](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7) installed.
