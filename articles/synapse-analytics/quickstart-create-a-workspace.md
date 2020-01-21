@@ -69,6 +69,9 @@ Azure Resource Deployment template is the simplest way to create Synapse workspa
 </a>
 
 2. Enter the subscription, resource group, and data center region where you want to deploy your workspace. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
+
+![Azure deployment template form](media/quickstart-create-a-workspace/create-synapse-workspace-template.png)
+
 3. Check "I agree with terms and conditions" checkbox and press `Purchase` button. **Note:** you will **not be charged** for the resources if you don't use them because SQL Analytic On-demand is serverless pay-per-usage service.
 <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
    <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
