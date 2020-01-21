@@ -1757,6 +1757,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
+      "redirect_url": "/azure/cosmos-db/how-to-multi-master",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
       "redirect_document_id": false
@@ -11682,6 +11687,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
       "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
       "redirect_document_id": false
@@ -14238,9 +14248,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
-      "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
-      "redirect_document_id": true
+        "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
+        "redirect_url": "/azure/machine-learning/tutorial-setup-vscode-extension",
+        "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/monitor-azure-machine-learning.md",
@@ -26692,8 +26702,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+      "source_path": "articles/active-directory/user-help-auth-app-add-account-overview.md",
       "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-work-school-account",
       "redirect_document_id": false
     },
     {
@@ -26701,6 +26716,41 @@
       "redirect_url": "/azure/active-directory/user-help/user-help-two-step-verification-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-security-info-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/security-info-setup-signin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-two-step-verification-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-add-update-methods-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/security-info-setup-auth-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-device-mgmt-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-join-device-on-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/my-applications-portal-access",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/active-directory/user-help/user-help-password-reset-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
@@ -27929,6 +27979,11 @@
     {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-playbooks.md",
+      "redirect_url": "/azure/security-center/workflow-automation",
       "redirect_document_id": false
     },
     {
@@ -39742,8 +39797,28 @@
     },
     {
       "source_path": "articles/application-insights/app-insights-troubleshoot-faq.md",
-      "redirect_url": "/azure/azure-monitor/app/troubleshoot-faq",
+      "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/app/troubleshoot-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-faq.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-usage-cohorts.md",
@@ -41045,6 +41120,11 @@
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
     },
+    {
+        "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
+        "redirect_document_id": true
+      },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -46504,6 +46584,16 @@
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-azure-ad-graph.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-overview",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/backup/backup-azure-files.md",
+        "redirect_url": "/azure/backup/backup-afs",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/load-balancer/load-balancer-arm.md",

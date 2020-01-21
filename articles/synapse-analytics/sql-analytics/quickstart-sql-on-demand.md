@@ -65,7 +65,7 @@ CREATE DATABASE mydbname
 To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
 
 > [!NOTE]
-> Create the credential for the storage account that is located in your endpoint region. Although SQL on-demand can access storage in different regions, having storage and endpoint in same region provides better performance.
+> Note that you need to create credential for access to the storage account. Although SQL on-demand can access storages from different regions, having storage and Azure Synapse workspace in same region will provide better performance experience.
 
 Modify the following code snippet to create credentials for CSV, JSON and Parquet containers:
 

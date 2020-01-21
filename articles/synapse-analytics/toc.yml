@@ -8,6 +8,8 @@
     href: overview-who-can-benefit-azure-synapse-analytics.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
+  - name: Features 
+    href: overview-features.md
   - name: FAQ
     href: overview-faq.md
 - name: Release notes
@@ -224,8 +226,8 @@
       items:
       # - name: Overview, using tools to interact with Apache Spark
       #  href: article-template.md
-      # - name: Spark Job definitions
-      #   href: article-template.md
+      - name: Spark Job definitions
+        href: ../hdinsight/spark/azure-synapse-analytics-job-definition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
       #  items:

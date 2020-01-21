@@ -15,17 +15,20 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Manage devices connected to your work or school account from the Devices page
+# Manage your connected devices from the Devices page
 
-From the **Devices** page of the **My Account** portal, you can:
+The **Devices** page of the **My Account** portal helps you to manage the devices connected to your work or school account. From the **Devices** page, you can:
 
 - View your work or school account-connected devices.
 
 - Disable any devices you no longer own, have lost, or that have been stolen.
 
+>[!Important]
+>This article is intended for users trying to update the device info connected to a work or school account. If you're an administrator looking for information about device management for your employees and other uses, see the [Device Identities Documentation](https://docs.microsoft.com/azure/active-directory/devices/index).
+
 ## View your connected devices
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account, and then go to the **My Account** (https://myprofile.microsoft.com/) page.
 
 2. Select **Devices** from the left navigation pane or select the **Manage devices** link from the **Devices** block.
 
@@ -69,3 +72,13 @@ After viewing your connected devices, you can:
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+
+## Related Office content
+
+- [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Go to the Office **My Account** page](https://portal.office.com/account/#home)
+
+- [Go to the Office **My installs** page](https://portal.office.com/account/#installs)
+
+- [Go to the Office **Subscriptions** page](https://portal.office.com/account/#subscriptions)

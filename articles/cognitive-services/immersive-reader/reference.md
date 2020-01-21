@@ -1,7 +1,7 @@
 ---
 title: "Immersive Reader SDK Reference"
 titleSuffix: Azure Cognitive Services
-description: The Immersive Reader SDK is a JavaScript library that allows you to integrate the Immersive Reader into your web application.
+description: The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: metan
 
 # Immersive Reader SDK Reference Guide
 
-The Immersive Reader SDK is a JavaScript library that allows you to integrate the Immersive Reader into your web application.
+The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
 ## Functions
 
@@ -32,7 +32,7 @@ The SDK exposes the functions:
 Launches the Immersive Reader within an `iframe` in your web application.
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### Parameters
@@ -46,7 +46,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### Returns
 
-Returns a `Promise<HTMLDivElement>`, which resolves when the Immersive Reader is loaded. The `Promise` resolves to a `div` element whose only child is an `iframe` element that contains the Immersive Reader page.
+Returns a `Promise<LaunchResponse>`, which resolves when the Immersive Reader is loaded. The `Promise` resolves to a [`LaunchResponse`](#launchresponse) object.
 
 ### Exceptions
 
@@ -105,6 +105,17 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 }
 ```
 
+### LaunchResponse
+
+Contains the response from the call to `ImmersiveReader.launchAsync`.
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
 ### CookiePolicy enum
 
 An enum used to set the policy for the Immersive Reader's cookie usage. See [options](#options).
@@ -123,6 +134,7 @@ enum CookiePolicy { Disable, Enable }
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
 ### HTML Support
+
 | HTML | Supported Content |
 | --------- | ----------- |
 | Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
@@ -182,7 +194,7 @@ Contains information about the error.
 
 ## Launching the Immersive Reader
 
-The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling.
+The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling. See [this article](./how-to-customize-launch-button.md) for more details.
 
 ```html
 <div class='immersive-reader-button'></div>

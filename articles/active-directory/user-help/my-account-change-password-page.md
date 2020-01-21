@@ -15,18 +15,16 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Change your work or school account password from the My Account portal
+# Change your work or school account password from the Change Password page
 
-From the **Change password** page of the **My Account** portal, you can update your work or school account password. This will only work if you know your existing password and if you aren't locked out of your account.
+The **Change password** page of the **My Account** portal helps you to update an existing password for your work or school account, assuming you remember the password and that you're not locked out of your account. If you don't remember your password, if you're locked out of your account, or if you never got a password from your organization, you can use your security info and your mobile device to reset your password.
 
-If you don't remember your password, if you've been locked out of your account, or if you never got a password from your company support team, you can use your security info and your mobile device to reset your password. For more information, see [Reset your work or school password](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+>[!Important]
+>This article is intended for users trying to update a known password for an existing work or school account. If you're a user trying to get into a personal account, such as for Xbox, Hotmail, or Outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article. If you're an administrator trying to find more information about how to test up self-service password reset for your employees or other users, see [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 
->[!Note]
->If you're trying to get back into a personal account like for Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+## Update a password from the Change password page
 
-## To change your password from the My Account portal
-
-1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account, using your existing password, and then go to the **My Account** (https://myprofile.microsoft.com/) page.
 
 2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
 
