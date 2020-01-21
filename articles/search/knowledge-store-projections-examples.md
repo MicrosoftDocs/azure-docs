@@ -279,17 +279,88 @@ Start by setting the knowledgeStore property to the object
 Set the ```storageConnectionString``` property to a valid storage account connection string. Now we define two tables in the projection object, note that each table requires a ```tableName```, ```source``` and ```generatedKeyName``` property, the ```referenceKeyName``` property is optional. 
 
 ### Naming relationships
-The ```generatedKeyName``` and ```referenceKeyName``` properties are used to relate data across tables. Each row in the child table has a property pointing back to the parent row. The name of the column in the child table is the ```referenceKeyName``` from the parent table. When the ```referenceKeyName``` is not provided, the service will use the  ```generatedKeyName``` from the parent table. PowerBI relies on the generated key name and reference key name to be the same to discover relationships within the tables. 
+The ```generatedKeyName``` and ```referenceKeyName``` properties are used to relate data across tables. Each row in the child table has a property pointing back to the parent row. The name of the column in the child table is the ```referenceKeyName``` from the parent table. When the ```referenceKeyName``` is not provided, the service will use the  ```generatedKeyName``` from the parent table. PowerBI relies on the generated key name and reference key name to be the same to discover relationships within the tables. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the parent table.
 
 ### Slicing 
 
-When starting with a consolidated shape where all the content that needs to projected is in a single shape, slicing provides you with the ability to slice a single node into multiple tables or objects. In this case the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the two tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the child table.
+When starting with a consolidated shape where all the content that needs to projected is in a single shape, slicing provides you with the ability to slice a single node into multiple tables or objects. In this case the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing implicity generates a relationship between the two tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
 
 You now have a working projection with two tables that when imported into Power BI should auto discover the relationships and allow you to filter.
 
 ### Shaping Enrichments
 
 Source paths for enrichments are required to be well formed JSON objects, which is not always the case in the enrichment tree, in this instance enriching a string with key phrases results in the key phrases being parented to the string merged_content. The projection sample uses inline shaping to create a named value that can be projected. 
+
+## Projecting to Objects
+
+When projecting large documents, object projections do not have the same limitations as table projections. In this example we project the entire document to an object projection. Object projecytions are limited to a single projection in a container.
+To define a object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. This example demonstrates the use of inline shaping.
+
+```json
+{
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+        "projections": [
+            {
+                "tables": [ ],
+                "objects": [
+                    {
+                        "storageContainer": "sampleobject",
+                        "source": null,
+                        "sourceContext": "/document",
+                        "inputs": [
+                            {
+                                "name": "metadata_storage_name",
+                                "source": "/document/metadata_storage_name"
+                            },
+                            {
+                                "name": "metadata_storage_path",
+                                "source": "/document/metadata_storage_path"
+                            },
+                            {
+                                "name": "content",
+                                "source": "/document/content"
+                            },
+                            {
+                                "name": "keyPhrases",
+                                "source": "/document/merged_content/keyphrases/*"
+                            },
+                            {
+                                "name": "ocrText",
+                                "source": "/document/normalized_images/*/text"
+                            },
+                            {
+                                "name": "ocrLayoutText",
+                                "source": "/document/normalized_images/*/layoutText"
+                            }
+                        ]
+
+                    }
+                ],
+                "files": []
+            }
+        ]
+    }
+```
+## Projecting to Files
+
+File projections are images that are either extracted from the source document or outptus of enrichments that can be projected out of the enrichment process. File projections, similar to object projections are implemented as blobs and contain the image. To generate a file projection, we use the ```files``` array in the projection object.
+```json
+{
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+        "projections": [
+            {
+                "tables": [ ],
+                "objects": [ ],
+                "files": [
+                    {
+                        "storageContainer": "samplefile",
+                        "source": "/document/normalized_images/*"
+                    }
+                ]
+            }
+        ]
+    }
+```
 
 ## Projecting to multiple types
 
@@ -333,6 +404,7 @@ Object projections require a container name for each projection, multiple object
 ### Relationships
 
 This also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed within and acoss the different types (tables, objects, files)of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in no relationship between the document table and the OCR text projections. Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard and another projection group for using the data to train a model.
+When building projections of different types, file and object projections are generated first and the paths are added to the tables.
 
 ```json
 {
@@ -364,7 +436,7 @@ This also highlights another feature of projections, by defining multiple types 
                         "source": "/document/normalized_images/*/text"
                     },
                     {
-                        "storageContainer": "unrelatedcrlayout",
+                        "storageContainer": "unrelatedocrlayout",
                         "source": "/document/normalized_images/*/layoutText"
                     }
                 ],
