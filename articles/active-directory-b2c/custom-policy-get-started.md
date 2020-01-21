@@ -23,7 +23,7 @@ ms.subservice: B2C
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 - [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
-- Complete the steps in [Set up sign-up and sign-in with a Facebook account](active-directory-b2c-setup-fb-app.md) to configure a Facebook application.
+- Complete the steps in [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) to configure a Facebook application.
 
 ## Add signing and encryption keys
 
@@ -52,7 +52,7 @@ ms.subservice: B2C
 
 ### Create the Facebook key
 
-Add your Facebook application's [App Secret](active-directory-b2c-setup-fb-app.md) as a policy key. You can use the App Secret of the application you created as part of this article's prerequisites.
+Add your Facebook application's [App Secret](identity-provider-facebook.md) as a policy key. You can use the App Secret of the application you created as part of this article's prerequisites.
 
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose `Manual`.

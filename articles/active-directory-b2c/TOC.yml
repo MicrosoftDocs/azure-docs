@@ -121,17 +121,17 @@
       - name: Azure AD (Single-tenant)
         href: identity-provider-azure-ad-single-tenant.md
       - name: Microsoft Account
-        href: active-directory-b2c-setup-msa-app.md
+        href: identity-provider-microsoft-account.md
       - name: Facebook
-        href: active-directory-b2c-setup-fb-app.md
+        href: identity-provider-facebook.md
       - name: GitHub
-        href: active-directory-b2c-setup-github-app.md
+        href: identity-provider-github.md
       - name: Google
         href: active-directory-b2c-setup-goog-app.md
       - name: LinkedIn
-        href: active-directory-b2c-setup-li-app.md
+        href: identity-provider-linkedin.md
       - name: QQ
-        href: active-directory-b2c-setup-qq-app.md
+        href: identity-provider-qq.md
       - name: Twitter
         href: active-directory-b2c-setup-twitter-app.md
       - name: WeChat
@@ -139,7 +139,7 @@
       - name: Weibo
         href: active-directory-b2c-setup-weibo-app.md
       - name: Generic identity provider
-        href: active-directory-b2c-setup-oidc-idp.md
+        href: identity-provider-generic-openid-connect.md
     - name: Tokens and session management
       items:
       - name: Configure tokens
@@ -199,11 +199,11 @@
         - name: Azure AD (Multi-tenant)
           href: identity-provider-azure-ad-multi-tenant-custom.md
         - name: Google
-          href: active-directory-b2c-custom-setup-goog-idp.md
+          href: identity-provider-google-custom.md
         - name: LinkedIn
-          href: active-directory-b2c-custom-setup-li-idp.md
+          href: identity-provider-linkedin-custom.md
         - name: Microsoft Account
-          href: active-directory-b2c-custom-setup-msa-idp.md
+          href: identity-provider-microsoft-account-custom.md
         - name: Twitter
           href: active-directory-b2c-custom-setup-twitter-idp.md
       - name: SAML providers
@@ -212,7 +212,7 @@
           href: identity-provider-adfs2016-custom.md
           displayName: SAML
         - name: Salesforce
-          href: active-directory-b2c-setup-sf-app-custom.md
+          href: identity-provider-salesforce-custom.md
           displayName: SAML
     - name: Tokens and session management
       items:

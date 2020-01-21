@@ -5437,6 +5437,56 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-google-custom",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin-custom",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-msa-idp.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account-custom",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-fb-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-facebook",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-github-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-github",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-msa-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-oidc-idp.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-generic-openid-connect",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-qq-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-qq",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-sf-app-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-salesforce-custom",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-adfs2016-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-adfs2016-custom",
       "redirect_document_id": true
@@ -11840,7 +11890,7 @@
       "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
       "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
       "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
