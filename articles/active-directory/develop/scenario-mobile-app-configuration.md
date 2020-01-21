@@ -130,7 +130,7 @@ These tasks are necessary when you use MSAL for iOS and macOS:
 
 If you use Xamarin.Android, do the following tasks:
 
-- [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensure-control-returns-to-msal)
+- [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshoot)
@@ -157,7 +157,7 @@ On Android and iOS, brokers enable:
 
 To enable the broker on Xamarin, use the `WithBroker()` parameter when you call the `PublicClientApplicationBuilder.CreateApplication` method. By default, `.WithBroker()` is set to true. 
 
-To enable brokered authentication for Xamarin.iOS, follow the steps in the [Xamarin.iOS section](#brokered-authentication-for-xamarinios) in this article.
+To enable brokered authentication for Xamarin.iOS, follow the steps in the [Xamarin.iOS section](#brokered-authentication-for-xamarin.ios) in this article.
 
 ### Enable the broker for MSAL for Android
 
