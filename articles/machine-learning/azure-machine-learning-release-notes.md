@@ -29,9 +29,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-pipeline-steps**
     + Enable user to pass tabular dataset as intermediate result from previous step to parallelrunstep
 
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
-
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
     + Removed the requirement of y_query column in the request to the deployed forecasting service. 
