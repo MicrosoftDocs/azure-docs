@@ -18,7 +18,7 @@ Below we discuss suggestions for dealing with upcoming deprecations on the Azure
 
 ## Windows 2012: Migrating data disks
 
-We will stop supporting the Windows 2012 DSVM image on November 5, 2019. In order to migrate a data disk from your existing Windows 2012 DSVM to a Windows 2016 DSVM, take the following steps:
+We will stop supporting the Windows 2012 DSVM image on December 31, 2019. In order to migrate a data disk from your existing Windows 2012 DSVM to a Windows 2016 DSVM, take the following steps:
 
 1. Create a new Windows 2016 DSVM, following the instructions shown [here](./provision-vm.md#create-your-dsvm).
 1. Detach existing data disks from your Windows 2012 image using [these instructions](../../virtual-machines/windows/detach-disk.md).

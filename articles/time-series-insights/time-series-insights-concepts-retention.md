@@ -9,13 +9,13 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
 ---
 
 # Understand data retention in Azure Time Series Insights
 
-This article describes two settings that impact data retention in your Azure Time Series Insights environment.
+This article describes two primary settings that impact data retention in your Azure Time Series Insights environment.
 
 ## Video
 
@@ -39,7 +39,7 @@ Both data retention policies are described in greater detail below.
 ## Purge old data
 
 - **Purge old data** is the default setting for Azure Time Series Insights environments.  
-- **Purge old data** is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
+- **Purge old data** is preferred when users want to always have their *most recent data* in their Time Series Insights environment.
 - The **Purge old data** setting *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (the "First In First Out" approach).
 
@@ -83,7 +83,7 @@ When ingress resumes:
 
 In the impacted Event Hubs, consider adjusting the **Message Retention** property to minimize data loss when pause ingress occurs in Time Series Insights.
 
-[![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![Event hub message retention.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 If no properties are configured on event source (`timeStampPropertyName`), Time Series Insights defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
 

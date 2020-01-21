@@ -1,23 +1,13 @@
 ---
-title: Azure virtual machine scale sets FAQs | Microsoft Docs
-description: Get answers to frequently asked questions about virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Azure virtual machine scale sets FAQs
+description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
-ms.custom: na
-
 ---
 
 # Azure virtual machine scale sets FAQs
@@ -340,6 +330,13 @@ For more information, see [the Microsoft Trust Center](https://www.microsoft.com
 
 Yes. You can see some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## Deleting 
+
+### Will the locks I set in place on virtual machine scale set instances be respected when deleting instances?
+
+In the Azure Portal, you have the ability to delete an individual instance or bulk delete by selecting multiple instances. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete the instance. However, if you bulk select multiple instances and any of those instances have a lock in place, the lock(s) will not be respected and all of the selected instances will be deleted. 
+ 
+In Azure CLI, you only have the ability to delete an individual instance. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete that instance. 
 
 ## Extensions
 

@@ -1,11 +1,7 @@
 ---
 title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/11/2019
 
 ---
@@ -13,6 +9,10 @@ ms.date: 11/11/2019
 # How to update Azure Monitor for containers to enable metrics
 
 Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
+
+>[!NOTE]
+>This feature does not currently support Azure Red Hat OpenShift clusters.
+>
 
 The following metrics are enabled as part of this feature:
 

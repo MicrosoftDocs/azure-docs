@@ -1,22 +1,15 @@
 ---
-title: Create an Azure Notebooks project with a custom environment
-description: Create a new project in Azure Notebooks that's configured with a specific set of installed packages and startup scripts.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Create an Azure Notebooks Preview project with a custom environment
+description: Create a new project in Azure Notebooks Preview that's configured with a specific set of installed packages and startup scripts.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
-# Quickstart: Create a project with a custom environment
+# Quickstart: Create a project with a custom environment in Azure Notebooks Preview
 
 A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Create a project
 

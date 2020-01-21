@@ -59,4 +59,4 @@ Now you have deployed an IoT hub using the Azure IoT Tools for Visual Studio Cod
 
 * [Use the Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management](iot-hub-device-management-iot-toolkit.md)
 
-* [See the Azure IoT Hub Toolkit wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
+* [See the Azure IoT Hub for VS Code wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

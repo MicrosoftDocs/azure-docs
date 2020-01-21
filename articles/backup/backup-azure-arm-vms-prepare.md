@@ -57,9 +57,8 @@ After the vault is created, it appears in the Recovery Services vaults list. If 
 
 ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.<br>
-This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
+>[!NOTE]
+> Azure Backup now allows customization of the resource group name created by the Azure Backup service. For more information, see [Azure Backup resource group for Virtual Machines](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### Modify storage replication
 
@@ -290,6 +289,18 @@ You can set up Azure Firewall to allow outbound access for network traffic to Az
 
 * [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
 * [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
+
+>[!NOTE]
+> Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.
+>
+>Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+>
+> This solution is particularly useful in the following scenarios:
+>  
+>1. You have critical data to be backed up in only one disk and you don’t want to back up the rest of the disks attached to a VM. This minimizes the backup storage costs.  
+>2. You have other backup solutions for part of your VM data. For example, you back up your databases or data with a different workload backup solution, and you want to use Azure VM level backup for the rest of your disks and data to build an efficient and robust system utilizing the best capabilities available.
+>
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
 
 ## Next steps
 

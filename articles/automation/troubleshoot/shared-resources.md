@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot errors with Azure Automation shared resources
-description: Learn how to troubleshoot issues with Azure Automation shared resources
+description: Learn how to troubleshoot and resolve issues with Azure Automation shared resources supporting runbooks. 
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
@@ -23,7 +23,7 @@ A module is stuck in the **Importing** state when you import or update your modu
 
 #### Cause
 
-Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this issue occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this issue occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### Resolution
 

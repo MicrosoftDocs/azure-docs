@@ -29,7 +29,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document (pa
 
 The easiest method for indexing JSON documents is to use a wizard in the [Azure portal](https://portal.azure.com/). By parsing metadata in the Azure blob container, the [**Import data**](search-import-data-portal.md) wizard can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
-We recommend using the same Azure subscription for both Azure Cognitive Search and Azure storage, preferably in the same region.
+We recommend using the same region or location for both Azure Cognitive Search and Azure Storage for lower latency and to avoid bandwidth charges.
 
 ### 1 - Prepare source data
 

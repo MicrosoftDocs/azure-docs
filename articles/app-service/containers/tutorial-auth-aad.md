@@ -1,20 +1,10 @@
 ---
-title: Authenticate and authorize users end-to-end on Linux - Azure App Service | Microsoft Docs 
-description: Learn how to use App Service authentication and authorization to secure your App Service apps running on Linux, including access to remote APIs.
+title: 'Tutorial: Authenticate users E2E (Linux)'
+description: Learn how to use App Service authentication and authorization to secure your App Service Linux apps end-to-end, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
 ---
 

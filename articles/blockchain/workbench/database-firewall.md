@@ -1,16 +1,10 @@
 ---
-title: Configure the Azure Blockchain Workbench SQL DB firewall
-description: Learn how to configure the Azure Blockchain Workbench Preview SQL DB firewall.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
+title: Configure Azure Blockchain Workbench database firewall
+description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
 ms.date: 09/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-
+#Customer intent: As an administrator, I want to configure Azure Blockchain Workbench's SQL Server firewall to allow external clients to connect.
 ---
 
 # Configure the Azure Blockchain Workbench database firewall

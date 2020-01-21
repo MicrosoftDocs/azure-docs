@@ -1,12 +1,11 @@
 ---
-title: Create customer insights dashboard - Azure Logic Apps
+title: Create customer insights dashboard
 description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
 ---
@@ -169,7 +168,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) 
+[Azure Resource Manager template](../azure-resource-manager/templates/overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 

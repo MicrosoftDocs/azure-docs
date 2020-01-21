@@ -68,7 +68,7 @@ A user can claim any VM from the list of "Claimable virtual machines" by doing o
   ![Request any claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-After a user claims a VM, DevTest Labs will start the machine and move it up into lab user's list of "My virtual machines". This means the lab user will now have owner privilegdes on this mahcine. The time required for this step may vary depending on start up times as well as any other custom actions being performed during the claim event. Once claimed, the machine is no longer available in the claimable pool.  
+After a user claims a VM, DevTest Labs will start the machine and move it up into lab user's list of "My virtual machines". This means the lab user will now have owner privileges on this machine. The time required for this step may vary depending on start up times as well as any other custom actions being performed during the claim event. Once claimed, the machine is no longer available in the claimable pool.  
 
 ## Unclaim a VM
 

@@ -1,12 +1,12 @@
 ---
-title: How to backup and restore a server in Azure Database for MySQL
+title: Backup and restore - Azure CLI - Azure Database for MySQL
 description: Learn how to backup and restore a server in Azure Database for MySQL by using the Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/02/2019
 ---
 # How to back up and restore a server in Azure Database for MySQL using the Azure CLI
 

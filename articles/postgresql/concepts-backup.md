@@ -1,5 +1,5 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL - Single Server
+title: Backup and restore - Azure Database for PostgreSQL - Single Server
 description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
 author: rachel-msft
 ms.author: raagyema
@@ -18,7 +18,7 @@ Azure Database for PostgreSQL takes backups of the data files and the transact
 
 ### Backup frequency
 
-Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete. As snapshots are instantanious, servers with support up to 16 TB of storage can be restored all the way back to the create time.
+Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete. As snapshots are instantaneous, servers with support up to 16 TB of storage can be restored all the way back to the create time.
 
 ### Backup redundancy options
 
@@ -57,7 +57,7 @@ You may need to wait for the next transaction log backup to be taken before you 
 
 ### Geo-restore
 
-You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. For servers that support up to 16 TB of storage, geo-backups can only be restored in regions that support 16 TB servers as well. Review [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
+You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for PostgeSQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 

@@ -1,11 +1,11 @@
 ---
-title: Azure Database for MySQL drivers and management tools compatibility
+title: Driver and tools compatibility - Azure Database for MySQL
 description: This article describes the MySQL drivers and management tools that are compatible with Azure Database for MySQL. 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/06/2019 
+ms.date: 12/05/2019 
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL.
@@ -24,7 +24,7 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | Python | MySQL Connector/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2, use 8.0.16+ with MySQL 8.0  | 1.2.2 and before | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3+ | 0.9.0 - 0.9.2 (regression in web2py) | |
 | Java | MariaDB Connector/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 and before | | 
-| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.20+, use 8.0.17+ with MySQL 8.0 | 5.1.9 and below | |
+| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.21+, use 8.0.17+ with MySQL 8.0 | 5.1.20 and below | |
 | C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2+ | | |
 | C | MySQL Connector/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
 | C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9+ | 1.1.3 and below | | 

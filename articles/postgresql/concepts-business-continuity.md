@@ -1,5 +1,5 @@
 ---
-title: Overview of business continuity with Azure Database for PostgreSQL - Single Server
+title: Business continuity - Azure Database for PostgreSQL - Single Server
 description: This article describes business continuity (point in time restore, data center outage, geo-restore) when using Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
@@ -24,7 +24,7 @@ The following table compares the ERT and RPO for the available features:
 | Geo-restore from geo-replicated backups | Not supported | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../azure-resource-manager/resource-group-lock-resources.md) to help prevent accidental deletion of your server.
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
 
 ## Recover a server after a user or application error
 

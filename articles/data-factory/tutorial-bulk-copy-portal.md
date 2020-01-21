@@ -1,21 +1,20 @@
 ---
-title: 'Copy data in bulk using Azure Data Factory '
-description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
+title: Copy data in bulk using Azure portal
+description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services 
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
 ---
+
 # Copy multiple tables in bulk by using Azure Data Factory
+
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
@@ -58,7 +57,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
 
-1. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
+1. Create corresponding table schemas in SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
 
 ## Azure services to access SQL server
 
@@ -82,7 +81,7 @@ To verify and turn on this setting, go to your Azure SQL server > Security > Fir
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 1. Select **V2** for the **version**.
 1. Select the **location** for the data factory. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 1. Click **Create**.

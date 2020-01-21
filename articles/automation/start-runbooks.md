@@ -2,13 +2,9 @@
 title: Start a runbook in Azure Automation
 description: Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Start a runbook in Azure Automation
 

@@ -1,6 +1,6 @@
 ---
 title: Sample - Apply tag and its default value
-description: This sample policy definition appends a specified tag name and value, if that tag is not provided.
+description: This sample policy definition appends a specified tag name and value defined in a parameter, if that tag is not provided.
 ms.date: 01/26/2019
 ms.topic: sample
 ---

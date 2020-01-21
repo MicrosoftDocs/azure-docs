@@ -1,14 +1,8 @@
 ---
-title: Create Azure Advisor alerts for new recommendations | Microsoft Docs
+title: Create Azure Advisor alerts for new recommendations
 description: Create Azure Advisor alerts for new recommendation
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
 ---
 
 # Create Azure Advisor alerts on new recommendations 

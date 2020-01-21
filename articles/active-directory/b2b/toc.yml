@@ -28,6 +28,8 @@
   - name: Concepts
     expanded: false
     items:
+    - name: B2B best practices
+      href: b2b-fundamentals.md
     - name: B2B licensing
       href: licensing-guidance.md
     - name: B2B and Office 365 external sharing

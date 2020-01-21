@@ -4,7 +4,7 @@ description: Create edge jobs in Azure Stream Analytics and deploy them to devic
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
@@ -144,7 +144,7 @@ The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query 
 However the following features are not yet supported for edge jobs:
 * User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
 * User-defined aggregates (UDA).
-* Azure ML functions
+* Azure ML functions.
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time, only CSV and JSON are supported.
 * The following  SQL operators:

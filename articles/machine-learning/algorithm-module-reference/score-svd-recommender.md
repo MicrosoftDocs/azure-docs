@@ -1,7 +1,7 @@
 ---
 title: "Score SVD Recommender: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Score SVD Recommender module in the Azure Machine Learning service to score recommendation predictions for a dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Score SVD Recommender module in Azure Machine Learning to score recommendation predictions for a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Score SVD Recommender
 
-This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer (preview). Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
+This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer. Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
 
 The SVD recommender can generate two different kinds of predictions:
 
@@ -118,4 +118,4 @@ When you operationalize the model, you typically change the prediction mode to m
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
