@@ -205,7 +205,7 @@ Power BI can read from tables and discover relationships based on the keys that 
                     "source": "/document/metadata_storage_content_type",
                     "sourceContext": null,
                     "inputs": []
-                }
+                },
                 {
                     "name": "metadata_storage_name",
                     "source": "/document/metadata_storage_name",
@@ -256,7 +256,17 @@ Start by setting the knowledgeStore property to the object
                     {
                         "tableName": "pbiKeyPhrases",
                         "generatedKeyName": "KeyPhraseid",
-                        "source": "/document/pbiShape/keyPhrases"
+                         "source": null,
+                        "sourceContext": "/document/pbiShape/keyPhrases/*",
+                        "inputs": [
+                            {
+                                "name": "keyphrases",
+                                "source": "/document/pbiShape/keyPhrases/*",
+                                "sourceContext": null,
+                                "inputs": []
+                            }
+                        ]
+
                     }
                 ],
                 "objects": [],
@@ -266,13 +276,20 @@ Start by setting the knowledgeStore property to the object
     }
 ```
 
-Set the ```storageConnectionString``` property to a valid storage account connection string. Now we define two tables in the projection object, note that each table requires a ```tableName``` and ```source``` property, the ```generatedKeyName``` and ```referenceKeyName``` properties are optional. When not provided the service will generate a key name for your table. PowerBI relies on the generated key name and reference key name to discover relationships within the tables.
+Set the ```storageConnectionString``` property to a valid storage account connection string. Now we define two tables in the projection object, note that each table requires a ```tableName```, ```source``` and ```generatedKeyName``` property, the ```referenceKeyName``` property is optional. 
+
+### Naming relationships
+The generatedKeyName and refereceKeyName properties are used to relate data across tables. Each row in the child table has a property pointing back to the parent row. The name of the column in the child table is the referenceKeyName from the parent table. When the referenceKeyNme is not provided, the service will use the  generatedKeyName from the parent table. PowerBI relies on the generated key name and reference key name to be the same to discover relationships within the tables. 
 
 ### Slicing 
 
 When starting with a consolidated shape where all the content that needs to projected is in a single shape, slicing provides you with the ability to slice a single node into multiple tables or objects. In this case the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` here into a separate table. Slicing generates a relationship between the two tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the child table.
 
 You now have a working projection with two tables that when imported into Power BI should auto discover the relationships and allow you to filter.
+
+### Shaping Enrichments
+
+Source paths for enrichments are required to be well formed JSON objects, which is not always the case in the enrichment tree, in this instance enriching a string with key phrases results in the key phrases being parented to the string merged_content. The projection sample uses inline shaping to create a named value that can be projected. 
 
 ## Projecting to multiple types
 
@@ -313,9 +330,9 @@ Sometimes you might need to project content across projection types. For example
 
 Object projections require a container name for each projection, multiple object projections or file projections cannot share containers. Notice that the `generatedKeyName` and `referenceKeyName` properties are optional and when not provided they are auto generated.
 
-### Relatedness
+### Relationships
 
-This also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed between the different types of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in no relationship between the document table and the OCR text projections.
+This also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed within and acoss the different types (tables, objects, files)of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in no relationship between the document table and the OCR text projections. Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard and another projection group for using the data to train a model.
 
 ```json
 {
@@ -419,3 +436,11 @@ Continuing with the earlier scenario, if we now want to add the images as well t
         ]
     }
 ```
+
+## Common Issues
+
+When defining a projection, there are a few common issues that can cause unanticipated results.
+
+1. Not shaping string enrichments. When strings are enriched, for example ```merged_content``` is a string and enriched with key phrases, the enriched property is represented as a child of merged_content within the enrichment tree. But at projection time, this needs to be transformed to a valid JSON object with a name and a value.
+2. Omitting the ```/*``` at the end of a source path. If for example, the source of a projection is ```/document/pbiShape/keyPhrases``` the key phrases array is projected as a single object/row. Setting the source path to ```/document/pbiShape/keyPhrases/*``` yeilds a single row or object for each of the key phrases.
+
