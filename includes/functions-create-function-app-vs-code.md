@@ -111,7 +111,7 @@ A package.json file and a tsconfig.json file are also created in the root folder
 
 ::: zone pivot="programming-language-powershell"
 
-An HttpTrigger folder  contains the [function.json definition file](../articles/azure-functions/functions-reference-python.md#programming-model) and the 
+An HttpTrigger folder  contains the [function.json definition file](../articles/azure-functions/functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
 
 ::: zone-end
 

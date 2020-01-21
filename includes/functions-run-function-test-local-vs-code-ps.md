@@ -16,7 +16,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     ![Azure local output](./media/functions-run-function-test-local-vs-code-ps/functions-vscode-f5.png)
 
-1. Append the query string `?name=<yourname>` to this URL, and then use `Invoke-RestMethod` to execute the request, as follows:
+1. Append the query string `?name=<yourname>` to this URL, and then use `Invoke-RestMethod` in a second PowerShell command prompt to execute the request, as follows:
 
     ```powershell
     PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
@@ -33,6 +33,3 @@ After you've verified that the function runs correctly on your local computer, i
 
 > [!NOTE]
 > Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
->
-> Creating a function app in Azure only prompts for your function app name. Other values are defined for you.
-> Set `azureFunctions.advancedCreation` to `true` to be prompted for all other values.

@@ -13,12 +13,6 @@ In this quickstart, you use Microsoft Visual Studio Code to create and test a "h
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. To learn more, see the [Azure Functions overview](functions-overview.md).
 
-The steps in this article and the article that follows support the following languages:
-
-+ [C#](/azure/azure-functions/functions-create-first-function-vs-code?tabs=csharp)
-+ [JavaScript](/azure/azure-functions/functions-create-first-function-vs-code?tabs=nodejs)
-+ [Python](/azure/azure-functions/functions-create-first-function-vs-code?tabs=python)
-
 ## Prerequisites
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
@@ -47,7 +41,7 @@ The steps in this article and the article that follows support the following lan
 
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 
 ::: zone-end
 

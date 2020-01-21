@@ -20,9 +20,11 @@
   - name: Create function - JavaScript
     href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript
   - name: Create function - PowerShell
-    href: functions-create-first-function-powershell.md
+    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell
   - name: Create function - Python
     href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python
+  - name: Create function - TypeScript
+    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-typescript
   - name: Connect to services
     items:
     - name: Storage - C#
