@@ -81,7 +81,7 @@ Follow these instructions to create a support request by using **Usage + quota**
 
     ![Request increase](./media/networking-quota-request/request-increase-from-subscription.png)
 
-1. Follow the steps starting with step in [Request Networking quota increase at subscription level](#request-networking-quota-increase-at-subscription-level-using-the-help--support-blade).
+1. Follow the steps starting with step 3 in [Request Networking quota increase at subscription level](#request-networking-quota-increase-at-subscription-level-using-the-help-support-blade).
 
 ## About Networking limits
 
