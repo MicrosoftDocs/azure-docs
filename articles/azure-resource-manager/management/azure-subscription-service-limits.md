@@ -44,6 +44,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Cognitive Search](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Data Explorer](#azure-data-explorer-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
@@ -295,6 +296,10 @@ The following table shows the limits for Azure BizTalk Services.
 ### Azure Cosmos DB limits
 
 For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
+
+### Azure Data Explorer limits
+
+[!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
 ### Azure Database for MySQL
 

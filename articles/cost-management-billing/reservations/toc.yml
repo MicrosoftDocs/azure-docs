@@ -1,0 +1,76 @@
+- name: Azure Reservations documentation
+  href: index.yml
+  items:
+  - name: Overview
+    expanded: true
+    items:
+    - name: What are Azure Reservations?
+      href: save-compute-costs-reservations.md
+  - name: How-to guides
+    items:
+    - name: Buy a SQL Data Warehouse reservation
+      href: prepay-sql-data-warehouse-charges.md
+    - name: Buy a Virtual machine reservation
+      href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+    - name: Buy an Azure Storage reservation
+      href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
+    - name: Buy a Cosmos DB reservation
+      href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
+    - name: Buy a SQL Database reservation
+      href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+    - name: Buy an Azure Data Explorer reservation
+      href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
+    - name: Buy an Azure Databricks reservation
+      href: prepay-databricks-reserved-capacity.md
+    - name: Buy an App Service reservation
+      href: prepay-app-service-isolated-stamp.md
+    - name: Buy Azure software plan reservations
+      href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+    - name: Buy a reservation with monthly payments
+      href: monthly-payments-reservations.md
+    - name: Renew reservations
+      href: reservation-renew.md
+    - name: Exchange and refund reservations
+      href: exchange-and-refund-azure-reservations.md
+    - name: Manage reservations
+      href: manage-reserved-vm-instance.md
+    - name: View reservations
+      href: view-reservations.md
+  - name: Concepts
+    items:
+    - name: Reserved VM instance discounts
+      href: ../manage/understand-vm-reservation-charges.md
+    - name: Azure Storage reserved capacity discounts
+      href: understand-storage-charges.md
+    - name: Cosmos DB reserved capacity discounts
+      href: understand-cosmosdb-reservation-charges.md
+    - name: SQL Database reserved capacity discounts
+      href: understand-reservation-charges.md
+    - name: SQL Data Warehouse discounts
+      href: reservation-discount-azure-sql-dw.md
+    - name: Azure Data Explorer discounts
+      href: understand-azure-data-explorer-reservation-charges.md
+    - name: Azure Databricks discounts
+      href: reservation-discount-databricks.md
+    - name: Azure Database for MySQL discounts
+      href: understand-reservation-charges-mysql.md
+    - name: Azure Database for PostgreSQL discounts
+      href: understand-reservation-charges-postgresql.md
+    - name: Red Hat Linux Enterprise discounts
+      href: understand-rhel-reservation-charges.md
+    - name: Azure Database for MariaDB discounts
+      href: understand-reservation-charges-mariadb.md
+    - name: App Service discounts
+      href: reservation-discount-app-service-isolated-stamp.md
+    - name: Azure software plans discounts
+      href: understand-suse-reservation-charges.md
+    - name: Windows and SQL costs not included
+      href: reserved-instance-windows-software-costs.md
+    - name: Usage data for individual subscriptions
+      href: understand-reserved-instance-usage.md
+    - name: Usage data for Enterprise customers
+      href: understand-reserved-instance-usage-ea.md
+  - name: Reference
+    items:
+    - name: Azure Reservation APIs
+      href: reservation-apis.md

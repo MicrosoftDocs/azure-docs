@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2019
 ms.custom: seodec18
 ---
 
@@ -17,6 +17,21 @@ ms.custom: seodec18
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page.
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2020-01-21
+
+### Azure Machine Learning designer generally available (GA)
+
+The designer is now generally available.
+
++ **New features**
+    + Added `Regenerate Output` module option to force the designer to ignore cached results.
+    + Added new views to pipeline run details:
+        + Pipeline list view.
+        + In-browser log view.
+    + Added labels to module input and output ports.
+    + Added `Set as Default` pipeline option in the [Endpoints tab](how-to-run-batch-predictions-designer.md#versioning-endpoints).
+    + Added keyboard shortcuts and screen reader [accessibility features](designer-accessibility.md).
 
 ## 2020-01-06
 
@@ -1486,7 +1501,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 + ML Pipelines
   + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
-  + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
+  + Learn how to [run batch predictions using pipelines](how-to-use-parallel-run-step.md)
 + Azure Machine Learning compute target
   + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
   + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)

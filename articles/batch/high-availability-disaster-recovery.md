@@ -3,7 +3,7 @@ title: High availability and disaster recovery - Azure Batch | Microsoft Docs
 description: Learn how to design your Batch application for a regional outage
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: lahugh
+ms.author: jushiman
 ---
 
 # Design your application for high availability
