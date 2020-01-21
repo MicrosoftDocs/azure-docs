@@ -18,13 +18,7 @@ ms.localizationpriority: high
 
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
 
-::: zone-end
-
-::: zone target="chromeless"
-
-## Get started with Azure Data Box Disk 
-
-::: zone-end
+# Get started with Azure Data Box Disk in Azure portal
 
 ::: zone target="docs"
 

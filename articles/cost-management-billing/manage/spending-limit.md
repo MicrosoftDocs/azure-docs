@@ -9,7 +9,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/21/2020
 ms.author: banders
 
 ---
@@ -29,20 +29,21 @@ Azure sends email notifications when you reach the spending limit. Sign in to th
 
 If you signed up for an Azure free account and reach the spending limit, you can upgrade to a [pay-as-you-go](upgrade-azure-subscription.md) pricing to remove the spending limit and automatically re-enable your subscription.
 
-<a id="remove"></a>
-
 ## Remove the spending limit in Azure portal
+
+<a id="remove"></a>
 
 You can remove the spending limit at any time as long as there's a valid payment method associated with your Azure subscription. For subscription types that have credit over multiple months such as Visual Studio Enterprise and Visual Studio Professional, you can also enable the spending limit at the beginning of your next billing period.
 
 To remove your spending limit, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Select a subscription. If the spending limit of the subscription is reached, it will be disabled.
-1. Select **Remove spending limit** from the top of the page.
-1. Select an option that is appropriate for you.
-
-![Selecting an option for remove spending limit](./media/spending-limit/remove-spending-limit01.png)
+1. Navigate to **Subscriptions**.
+1. Select your subscription. For example, *Visual Studio Enterprise*.
+1. At the top of the page, select **Manage**. You're redirected to https://account.azure.com/. On the right side of the page, select **Remove spending limit**.  
+  ![Example showing Remove spending limit](./media/spending-limit/account-azure-com-spending-limit.png)
+1. You're redirected back to the Azure portal. Select an option that is appropriate for you and then select a payment method. Select **Finish**.  
+  ![Select an option to remove spending limit](./media/spending-limit/remove-spending-limit.png)
 
 | Option | Effect |
 | --- | --- |
@@ -62,7 +63,7 @@ The spending limit could prevent you from deploying or using certain third-party
 This feature is available only when the spending limit has been removed indefinitely for subscription types that include credits over multiple months. You can use this feature to turn on your spending limit automatically at the start of the next billing period.
 
 1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
-1. Click the yellow banner to change the spending limit option.
+1. Select the yellow banner to change the spending limit option.
 1. Choose **Turn on spending limit in the next billing period \<start date of billing period\>**
 
 ## Custom spending limit

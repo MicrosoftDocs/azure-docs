@@ -66,8 +66,6 @@
       href: enable-browser-connection-lab-virtual-machines.md        
     - name: Configure cost management
       href: devtest-lab-configure-cost-management.md
-    - name: Send autoshutdown notifications
-      href: devtest-lab-auto-shutdown.md
     - name: Set auto startup for lab virtual machines
       href: devtest-lab-auto-startup-vm.md      
     - name: Scale your lab
@@ -124,8 +122,8 @@
       href: devtest-lab-resize-vm.md
     - name: Redeploy a VM
       href: devtest-lab-redeploy-vm.md
-    - name: Configure autoshutdown of a VM 
-      href: devtest-lab-auto-shutdown-vm.md
+    - name: Configure autoshutdown of compute and lab VMs 
+      href: devtest-lab-auto-shutdown.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
