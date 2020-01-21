@@ -74,7 +74,7 @@ The permanent workspace delete can be performed via REST API currently.
 To permanently delete your workspace, use the [Workspaces - Delete REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) API call with a force tag:
 
 ```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&**force=true**
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
 Authorization: Bearer eyJ0eXAiOiJKV1Qi….
 ```
 
