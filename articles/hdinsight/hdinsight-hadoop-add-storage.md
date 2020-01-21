@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
    ![verification through Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
-### Remove storage account
+## Remove storage account
 
 1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster.
 
