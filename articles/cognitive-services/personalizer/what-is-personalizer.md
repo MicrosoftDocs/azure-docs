@@ -70,8 +70,8 @@ Since Personalizer uses collective information in near real-time to return the s
 
 ## How to design and implement Personalizer to your client application
 
-1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
-1. Each Personalizer Resource you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
+1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
+1. Each [Personalizer Resource](how-to-settings.md) you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
 1. Add Personalizer to your website or content system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
@@ -83,10 +83,10 @@ Since Personalizer uses collective information in near real-time to return the s
         |User selected other content|**0**|
         |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
 
-    1. Add a **Reward** call sending a reward score between 0 and 1
+    1. Add a **[Reward](concept-rewards.md)** call sending a reward score between 0 and 1
         * Immediately after showing your content
         * Or sometime later in an offline system
-    1. Evaluate your loop with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
+    1. [Evaluate your loop](concepts-offline-evaluation.md) with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
 
 ## Next steps
 
