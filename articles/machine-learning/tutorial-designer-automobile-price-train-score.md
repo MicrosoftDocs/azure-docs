@@ -144,7 +144,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
 ## Train a machine learning model
 
-Now that you have the modules in place to process the data, you can setup the training modules.
+Now that you have the modules in place to process the data, you can set up the training modules.
 
 Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you use a linear regression model.
 
@@ -194,7 +194,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**. 
 
-1. In the text box, enter *price* to specfy the value that your model is going to predict.
+1. In the text box, enter *price* to specify the value that your model is going to predict.
 
     Your pipeline should look like this:
 
