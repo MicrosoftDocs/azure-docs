@@ -18,10 +18,6 @@ ms.localizationpriority: high
 
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
 
-# Get started with Azure Data Box Disk in Azure portal
-
-::: zone target="docs"
-
 This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
