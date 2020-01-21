@@ -2,7 +2,7 @@
 title: Azure resources - QnA Maker
 description: QnA Maker uses several Azure sources, each with a different purpose. Understanding how they are used individually allows you to plan for and select the correct pricing tier or know when to change your pricing tier. Understanding how they are used in combination allows you to find and fix problems when they occur.
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/21/2020
 ---
 
 # Azure resources for QnA Maker
@@ -16,8 +16,7 @@ When you first develop a QnA Maker knowledge base, in the prototype phase, it is
 When you move into the development phase of the project, you should consider:
 
 * how many languages your knowledge base system will hold
-* how many regions your knowledge base system will hold
-* how many subject domains your knowledge base system will hold
+* how many regions you need your knowledge base to be available in/from
 * how many documents in each domain your system will hold
 
 Plan to have a single QnA Maker resource hold all knowledge bases that have the same language, the same region and the same subject domain combination.
@@ -28,7 +27,9 @@ Typically there are three parameters you need to consider:
 
 1. **The throughput you need from the service**: Select the appropriate [App Plan](https://azure.microsoft.com/pricing/details/app-service/plans/) for your App service based on your needs. You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or down the App. This should also influence your Azure Cognitive Search SKU selection, see more details [here](https://docs.microsoft.com/azure/search/search-sku-tier).
 
-1. **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. You can publish N-1 knowledge bases in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
+1. **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
+
+    You can publish N-1 knowledge bases in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
     For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index is used for all the knowledge bases for authoring and testing.
 
@@ -46,7 +47,7 @@ The following table gives you some high-level guidelines.
 
 |Upgrade|Reason|
 |--|--|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more questions and answers in your knowledge base.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA sets or document sources in your knowledge base.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search service|You plan to have many knowledge bases.|
 
@@ -98,11 +99,11 @@ A resource priced to hold 15 indexes, will hold 14 published knowledge bases, an
 
 #### Language usage
 
-The first knowledge base created in the QnA Maker resource is used to determine the language set for the Cognitive Search resource and all its indexes.
+The first knowledge base created in the QnA Maker resource is used to determine the _single_ language set for the Cognitive Search resource and all its indexes. You can only have _one language set_ for a QnA Maker service.
 
 ### QnA Maker resource
 
-The QnA Maker resource provides access to the authoring and publishing APIs as well as the second ranking (ranker #2) of the QnA sets at runtime.
+The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA sets at runtime.
 
 The second ranking applies intelligent filters that can include metadata and follow-up prompts.
 
@@ -144,6 +145,8 @@ The management service of QnA Maker is used only for the QnA Maker portal and fo
 
 Your QnA Maker service deals with two kinds of keys: **authoring keys** and **query endpoint keys** used with the runtime hosted in the App service.
 
+If you are looking for your **subscription key**, [the terminology has changed](#subscription-keys).
+
 Use these keys when making requests to the service through APIs.
 
 ![Key management](../media/qnamaker-how-to-key-management/key-management.png)
@@ -152,6 +155,12 @@ Use these keys when making requests to the service through APIs.
 |--|--|--|
 |Authoring key|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys** page.|
 |Query endpoint key|[QnA Maker portal](https://www.qnamaker.ai)|These keys are used to query the published knowledge base endpoint to get a response for a user question. You typically use this query endpoint in your chat bot or in the client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base.<br><br>Find these keys in the **Service settings** page. Find this page from the user's menu in the upper right of the page on the drop-down menu.|
+
+### Subscription keys
+
+The terms authoring and query endpoint key are corrective terms. The previous term was **subscription key**. If you see other documentation referring to subscription keys, these are equivalent to authoring and query endpoint keys (used in the runtime).
+
+You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
 
 ## Next steps
 

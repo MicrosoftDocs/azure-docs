@@ -2,7 +2,7 @@
 title: Query the knowledge base - QnA Maker
 description: A knowledge base must be published. Once published, the knowledge base is queried at the runtime prediction endpoint using the generateAnswer API.
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/21/2020
 ---
 
 # Query the knowledge base for answers
@@ -13,7 +13,7 @@ A knowledge base must be published. Once published, the knowledge base is querie
 
 The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
 
-![The ranking process for a user query](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+![The ranking model process for a user query](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
 ### Ranker process
 
@@ -25,8 +25,8 @@ The process is explained in the following table.
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
 |4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
-|5|QnA Maker applies advanced featurization to determine the correctness of the fetched search results for the user query. |
-|6|The trained ranker model uses the feature score, from step 5, to rank the Azure Cognitive Search results.|
+|5QnA Maker uses syntactic and semantic based featurization to determine the similarity between the user query and the fetched QnA results.|
+|6|The machine-learned ranker model uses the different features, from step 5, to determine the confidence scores and the new ranking order.|
 |7|The new results are returned to the client application in ranked order.|
 |||
 
@@ -41,14 +41,14 @@ A user query is the question that the end user asks of the knowledge base, such 
 
 ```json
 {
-    "question": "qna maker and luis",
+    "question": "How do I add a collaborator to my app?",
     "top": 6,
     "isTest": true,
     "scoreThreshold": 20,
     "strictFilters": [
     {
-        "name": "category",
-        "value": "api"
+        "name": "feature",
+        "value": "collaboration"
     }],
     "userId": "sd53lsY="
 }
@@ -76,11 +76,11 @@ The HTTP response is the answer retrieved from the knowledge base, based on the 
             "metadata": [
                 {
                     "name": "restaurant",
-                    "value": "paradise"
+                    "value": "Contoso"
                 },
                 {
                     "name": "location",
-                    "value": "secunderabad"
+                    "value": "New York"
                 }
             ]
         }

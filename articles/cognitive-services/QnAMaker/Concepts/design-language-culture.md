@@ -2,7 +2,7 @@
 title: Design for language - QnA Maker
 description: The QnA Maker resource and all the knowledge bases inside that resource support a single language. The single language is necessary to provide the best answer results for a query.
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/21/2020
 ---
 
 # Design knowledge base for content language
@@ -13,8 +13,8 @@ The QnA Maker resource, and all the knowledge bases inside that resource, suppor
 
 QnA Maker considerations for language support:
 
-* A QnA Maker service, and all its knowledge bases, support one language only
-* The language is set when the first knowledge base of the service is created
+* A QnA Maker service, and all its knowledge bases, support one language only.
+* The language is explicitly set when the first knowledge base of the service is created
 * The language is determined from the files and URLs added when the knowledge base is created
 * The language can't be changed for any other knowledge bases in the service
 * The language is used by the Cognitive Search service (ranker #1) and the QnA Maker service (ranker #2) to generate the best answer to a query
