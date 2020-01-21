@@ -68,7 +68,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |currentOp     |  Yes       |
 |drop     |   Yes      |
 |dropDatabase     |  Yes       |
-|dropDatabase    |  Yes       |
 |dropIndexes     |   Yes      |
 |filemd5    |   Yes      |
 |killCursors    |  Yes       |
@@ -94,7 +93,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |explain     | No        |
 |explain: executionStats     |     No    |
 |features     |    No     |
-|hostInfo     |   Yes      |
+|hostInfo     |   No      |
 |listDatabases	     |   Yes      |
 |listCommands     |  No       |
 |profiler     |  No       |
@@ -119,7 +118,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|$collStats	|Yes|
+|$collStats	|No|
 |$project	|Yes|
 |$match	|Yes|
 |$redact|	Yes|
@@ -133,10 +132,10 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$lookup	|	Yes|
 |$out		|Yes|
 |$indexStats|		No|
-|$facet	|Yes|
+|$facet	|No|
 |$bucket|	No|
 |$bucketAuto|	No|
-|$sortByCount|	No|
+|$sortByCount|	Yes|
 |$addFields	|Yes|
 |$replaceRoot|	Yes|
 |$count	|Yes|
@@ -235,7 +234,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$objectToArray	|Yes|
 |$range	|Yes|
 |$reverseArray	|	Yes|
-|$reduce|	No|
+|$reduce|	Yes|
 |$size	|	Yes|
 |$slice	|	Yes|
 |$zip	|	Yes|
