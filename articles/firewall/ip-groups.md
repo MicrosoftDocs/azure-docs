@@ -23,7 +23,7 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules in
 
 An IP Group can have a single IP address, multiple IP addresses, or one or more IP address ranges.
 
-IP Groups can be reused in Azure Firewall DNAT, network, and application rules across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
+IP Groups can be reused in Azure Firewall DNAT, network, and application rules across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
 
 ## Sample format
 
@@ -41,7 +41,7 @@ An IP Group can be created using the Azure portal, Azure CLI, or REST API. For m
 1. In the Azure portal search bar, type **IP Groups**. Select **Add** to create an IP Group  or you can see the list of all created IP Groups. 
 2. Select an IP Group to open the **Manage** page. You can edit, add, or delete IP addresses or IP Groups.
 
--- screen shot --
+-- screenshot --
 
 ## Manage an IP Group
 
@@ -50,14 +50,14 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 1. To view or edit the IP addresses, select **IP Addresses** under **Settings** on the left pane.
 2. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
 3.	Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
-4. Finally, you have the option to export the file in the CSV file format. 
+4. Finally, can export the file in the CSV file format. 
 
 
 ## Use an IP Group
 
 You can now select **IP Group** as a **Source type** for the IP address(es) when you create an Azure Firewall DNAT, application, or network rule.
 
--- screen shot --
+-- screenshot --
 
 ## Next steps
 
