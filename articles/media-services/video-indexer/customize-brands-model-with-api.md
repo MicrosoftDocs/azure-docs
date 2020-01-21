@@ -65,7 +65,7 @@ There is no returned content when the brand is deleted successfully.
 
 ## Get a specific Brand
 
-The [get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand id.
+The [get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) API lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
 
 ### Response
 
