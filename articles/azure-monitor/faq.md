@@ -342,7 +342,7 @@ Use a single resource for all the components or roles in a single business syste
 ### What are the User and Session counts?
 
 * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
-* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/).
+* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
