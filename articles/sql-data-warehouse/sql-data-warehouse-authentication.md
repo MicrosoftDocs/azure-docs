@@ -35,7 +35,7 @@ By default your connection connects to the *master* database and not your user d
 * Highlight the user database before creating a session in SSDT.
 
 > [!NOTE]
-> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][Query with Visual Studio] article.
+> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio](./sql-data-warehouse-query-visual-studio.md) article.
 > 
 > 
 
