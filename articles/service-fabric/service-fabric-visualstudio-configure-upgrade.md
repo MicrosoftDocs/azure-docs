@@ -1,21 +1,11 @@
 ---
-title: Configure the upgrade of a Service Fabric application | Microsoft Docs
+title: Configure the upgrade of a Service Fabric application 
 description: Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio.
-services: service-fabric
-documentationcenter: na
 author: mikkelhegn
-manager: mfussell
-editor: tglee
 
-ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikhegn
-
 ---
 # Configure the upgrade of a Service Fabric application in Visual Studio
 Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are three scenarios in which you want to upgrade your application to a newer version instead of replacing the application during testing and debugging:

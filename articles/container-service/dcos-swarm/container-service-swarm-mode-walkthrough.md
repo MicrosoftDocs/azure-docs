@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Quickstart - Azure Docker CE cluster for Linux
 description: Quickly learn to create a Docker CE cluster for Linux containers in Azure Container Service with the Azure CLI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom:
@@ -102,7 +99,6 @@ Create a file named `azure-vote.yaml` and copy the following content into it.
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:

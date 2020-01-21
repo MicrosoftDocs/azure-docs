@@ -11,14 +11,17 @@ ms.date: 09/24/2019
 
 # Create database and table policies for Azure Data Explorer by using Python
 
+> [!div class="op_single_selector"]
+> * [C#](database-table-policies-csharp.md)
+> * [Python](database-table-policies-python.md)
+>
+
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. In this article, you create database and table policies for Azure Data Explorer using Python.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 * [A test cluster and database](create-cluster-database-python.md)
-
 * [A test table](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## Install the data libraries

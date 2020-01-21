@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a Standard Load Balancer - Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: This quickstart shows how to create a Standard Load Balancer using PowerShell
+titleSuffix: Azure Load Balancer
+description: This quickstart shows how to create a Standard Load Balancer using Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -100,7 +100,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### Create the NAT rules
 
-Create NAT rules with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). The following example creates NAT rules named *myLoadBalancerRDP1* and *myLoadBalancerRDP2* to allow RDP connections to the back-end servers with port 4221 and 4222:
+Create NAT rules with [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). The following example creates NAT rules named *myLoadBalancerRDP1* and *myLoadBalancerRDP2* to allow RDP connections to the back-end servers with port 4221 and 4222:
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `

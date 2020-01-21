@@ -4,6 +4,7 @@ description: Answers to common questions about the Azure Marketplace and Microso
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
@@ -159,7 +160,7 @@ Enterprise Agreement (EA) indirect customers must contact their Licensing Soluti
 
 **Can I control my employees' access to Azure Marketplace and purchasing privileges?**
 
-Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase. Additionally, all customers can use Azure Policy to restrict deployment options for their Azure subscriptions, including management of Azure Marketplace resources.
+Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase.
 
 **What payment methods are supported for commercial marketplace purchases?**
 
@@ -241,7 +242,7 @@ Licenses that are cancelled will be subject to the refund policy found in this F
 
 **Are refunds supported for consumption-based offers?**
 
-Any charges based on consumption – whether it’s hourly VMs or custom meters – are not refundable through cancellation. Once the consumption has taken place, the charges are processed by Microsoft’s commerce platform, and any quality of service disputes where a refund is requested would be handled outside Microsoft systems between the publisher and the customer directly. Offers that support a flat rate plus metered billing follows the standard refund policy for the flat rate charges.
+Any charges based on consumption - whether it's hourly VMs or custom meters - are not refundable through cancellation. Once the consumption has taken place, the charges are processed by Microsoft's commerce platform, and any quality of service disputes where a refund is requested would be handled outside Microsoft systems between the publisher and the customer directly. Offers that support a flat rate plus metered billing follows the standard refund policy for the flat rate charges.
 
 **Is it possible to change plans mid-term?**
 
@@ -280,7 +281,7 @@ Azure Marketplace provides a market for Microsoft Partners to promote and sell p
 
 Microsoft Partners can choose where to publish based on their target audience.
 
-Microsoft provides two distinct cloud marketplace storefronts – Azure Marketplace and AppSource. These storefronts allow customers to find, try, and buy cloud applications and services. Each storefront serves unique customer needs and enables Microsoft Partners to target their solutions or services based on the target audience.
+Microsoft provides two distinct cloud marketplace storefronts - Azure Marketplace and AppSource. These storefronts allow customers to find, try, and buy cloud applications and services. Each storefront serves unique customer needs and enables Microsoft Partners to target their solutions or services based on the target audience.
 
 Select [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) to target IT professionals and developers, or technical users.
 
@@ -373,7 +374,7 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-**Why aren’t my changes reflected in the offer?**
+**Why aren't my changes reflected in the offer?**
 
 Changes made within Partner Center are only updated in the system and store fronts once you have republished the offer. Please make sure that you have submitted the offer for publication after any modifications.
 
@@ -458,7 +459,7 @@ A Free Tier subscription offering is perpetually free.  A Free Software Trial (T
 
 **What is the process to validate the end to end purchase and provisioning flow?**
 
-During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer’s configuration.
+During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer's configuration.
 
 To complete a purchase at a very low price, Microsoft suggests publishing a private Plan to yourself set at a price you can accept as the cost of testing. Zero is supported but will not reflect the full experience like a paid subscription.
 

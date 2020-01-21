@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 12/09/2019
 ms.author: takamath
 
 ---
@@ -23,12 +23,9 @@ DevTest Labs integrates with [Azure Bastion](https://docs.microsoft.com/azure/ba
 
 Once the *Browser connect* is enabled, lab users can access virtual machines through a browser.  
 
-> [!NOTE]
-> Enabling browser connection on lab virtual machines is in preview.
-
 ## Create a lab virtual machine
 
-You first need to create the lab virtual machine within a VNet that has Bastion configured on it. You can select a VNet during virtual machine creation by going to the **Advanced settings** tab.
+You first need to create the lab virtual machine within a virtual network that has Bastion configured on it. Select the second **subnet** you created, not the AzureBastionSubnet. You can select a virtual network during virtual machine creation by going to the **Advanced settings** tab.
 
 ![Create virtual machine](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
 

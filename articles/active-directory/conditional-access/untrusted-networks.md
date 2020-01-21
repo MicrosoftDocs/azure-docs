@@ -1,12 +1,12 @@
 ---
-title: How to require multi-factor authentication (MFA) for access from untrusted networks with Azure Active Directory (Azure AD) Conditional Access | Microsoft Docs
+title: Require MFA from untrusted networks - Azure Active Directory
 description: Learn how to configure a Conditional Access policy in Azure Active Directory (Azure AD) to for access attempts from untrusted networks.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

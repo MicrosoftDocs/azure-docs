@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Computer Vision client library for .NET | Microsoft Docs"
-description: Get started with the Computer Vision client library for .NET.
+title: "Quickstart: Computer Vision client library for .NET"
+description: In this quickstart, get started with the Computer Vision client library for .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
@@ -265,5 +265,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [What is the Computer Vision API?](../Home.md)
+* [What is Computer Vision?](../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).

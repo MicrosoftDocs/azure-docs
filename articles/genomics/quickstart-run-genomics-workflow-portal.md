@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Run a workflow'
+title: 'Quickstart: Run a workflow - Microsoft Genomics'
 description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. 
 services: genomics
 author: grhuynh
@@ -34,14 +34,15 @@ Configure your Genomics account with the following information, as shown in the 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------       |:-------------         |:----------            |
  |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
+ |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
 
 
 
 You can click Notifications in the top menu bar to monitor the deployment process.
+
 ![Microsoft Genomics Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics Notifications")
 
 
@@ -115,8 +116,8 @@ Configure your Storage account with the following information, as shown in the p
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------------------       |:-------------         |:----------            |
  |Subscription         | Your Azure subscription |For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  You can select the same resource group as your genomics account. For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Storage account name         | MyStorageAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  You can select the same resource group as your genomics account. For valid resource group names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
+ |Storage account name         | MyStorageAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Location                  | West US 2                  | Use the same location as the location of your genomics account, to reduce egress charges, and reduce latency.  | 
  |Performance                  | Standard                   | The default is standard. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Account kind       | Blob storage       |  Blob storage can be 2-5x faster than general purpose for downloads and uploads. |

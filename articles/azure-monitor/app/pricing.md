@@ -6,7 +6,7 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 
 ms.reviewer: mbullwin
 ---
@@ -28,7 +28,7 @@ The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model
 
 ## Estimating the costs to manage your application 
 
-If you're not yet using Application Insights, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Application Insights. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and select Application Insights from the Type dropdown.  Here you can enter the number of GB of data you expect to collect per month, so they question is how much data will Application Insights collect monitoring your application. 
+If you're not yet using Application Insights, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Application Insights. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and select Application Insights from the Type dropdown.  Here you can enter the number of GB of data you expect to collect per month, so the question is how much data will Application Insights collect monitoring your application. 
 
 There are two approaches to address this: use of default monitoring and adaptive sampling, which is available in the ASP.NET SDK, or estimate your likely data ingestion based on what other similar customers have seen.
 
@@ -65,7 +65,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 ### Using data volume metrics
 <a id="understanding-ingested-data-volume"></a>
 
-To learn more about your data volumes, selecting **Metrics** for your Application Insights resource, add a new chart. For the chart metric, under **Log-based metrics**, select **Data point volume**. Click **Apply splitting**, and select group by **Telemetryitem type**.
+To learn more about your data volumes, selecting **Metrics** for your Application Insights resource, add a new chart. For the chart metric, under **Log-based metrics**, select **Data point volume**. Click **Apply splitting**, and select group by **`Telemetryitem` type**.
 
 ![Use Metrics to look at data volume](./media/pricing/10-billing.png)
 
@@ -199,7 +199,7 @@ To change the retention, from your Application Insights resource, go to the **Us
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
 
-The retention can also be [set programatically using Powershell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. 
+The retention can also be [set programatically using Powershell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter. 
 
 ## Data transfer charges using Application Insights
 

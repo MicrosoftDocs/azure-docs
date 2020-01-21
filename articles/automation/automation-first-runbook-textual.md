@@ -3,13 +3,9 @@ title: My first PowerShell Workflow runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.
 keywords: powershell workflow, powershell workflow examples, workflow powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # My first PowerShell Workflow runbook
 
@@ -204,7 +200,7 @@ your runbook currently starts the virtual machine that you hardcoded in the runb
 
 ## Next steps
 
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

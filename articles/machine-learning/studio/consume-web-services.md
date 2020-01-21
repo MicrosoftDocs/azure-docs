@@ -1,6 +1,6 @@
 ---
 title: Consume web service
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) - Azure
 description: Once a machine learning service is deployed from Azure Machine Learning Studio (classic), the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 ms.service: machine-learning
@@ -19,7 +19,7 @@ Once you deploy an Azure Machine Learning Studio (classic) predictive model as a
 You can find more information about how to create and deploy a Machine Learning Web service using Machine Learning Studio (classic) here:
 
 * For a tutorial on how to create an experiment in Machine Learning Studio (classic), see [Create your first experiment](create-experiment.md).
-* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
+* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](deploy-a-machine-learning-web-service.md).
 * For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -27,12 +27,12 @@ You can find more information about how to create and deploy a Machine Learning 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-Tthe classic version of Azure Machine Learning Studio has two types of services:
+Azure Machine Learning Studio (classic) has two types of services:
 
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
+For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](deploy-a-machine-learning-web-service.md).
 
 ## Get an authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
@@ -200,7 +200,7 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 
 **Here is what a complete request will look like.**
 ```python
-import urllib2 # urllib.request for Python 3.X
+import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
 
 data = {
@@ -224,7 +224,7 @@ url = '<your-api-uri>'
 api_key = '<your-api-key>'
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-# "urllib.request.Request(uri, body, headers)" for Python 3.X
+# "urllib.request.Request(url, body, headers)" for Python 3.X
 req = urllib2.Request(url, body, headers)
 
 try:

@@ -1,12 +1,12 @@
 ---
-title: Session host virtual machine configuration - Azure
+title: Troubleshoot Windows Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
 ---
 # Session host virtual machine configuration
@@ -76,10 +76,10 @@ The recommended way to provision VMs is using the Azure Resource Manager **Creat
 Follow these instructions to confirm the components are installed and to check for error messages.
 
 1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
-2. Open **File Explorer** and navigate to **C:\Windows\Temp\scriptlogs.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
-3. If the file **C:\Windows\Temp\scriptlogs.log** is present, open it and check for error messages.
+2. Open **File Explorer** and navigate to **C:\Windows\Temp\ScriptLog.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
+3. If the file **C:\Windows\Temp\ScriptLog.log** is present, open it and check for error messages.
 
-### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\scriptlogs.log is also missing
+### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\ScriptLog.log is also missing
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
@@ -93,7 +93,7 @@ Follow these instructions to confirm the components are installed and to check f
 - Confirm that the tenant name is accurate and the tenant exists in Windows Virtual Desktop.
 - Confirm the account has at least RDS Contributor permissions.
 
-### Error: Authentication failed, error in C:\Windows\Temp\scriptlogs.log
+### Error: Authentication failed, error in C:\Windows\Temp\ScriptLog.log
 
 **Cause:** PowerShell DSC was able to execute but couldn't connect to Windows Virtual Desktop.
 
@@ -204,11 +204,11 @@ Examine the registry entries listed below and confirm that their values match. I
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
 2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
-    
+
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
-    
+
 3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
@@ -317,7 +317,7 @@ To check which version of Windows 10 Enterprise multi-session you have:
 2. Enter "About" into the search bar next to the Start menu.
 3. Select **About your PC**.
 4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
-   
+
     ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
 
 Now that you know your version number, skip ahead to the relevant section.
@@ -328,16 +328,17 @@ If your version number says "1809," install [the KB4516077 update](https://suppo
 
 ### Version 1903
 
-If your version number says "1903," install [the KB4517211 update](https://support.microsoft.com/help/4517211).
+Redeploy the host operating system with the latest version of the Windows 10, version 1903 image from the Azure Gallery.
 
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

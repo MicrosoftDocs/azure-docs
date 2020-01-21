@@ -1,10 +1,10 @@
 ---
 title: Learn how to manage database accounts in Azure Cosmos DB
-description: Learn how to manage database accounts in Azure Cosmos DB
+description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 
@@ -28,13 +28,13 @@ Please see [Create an Azure Cosmos DB account with Powershell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-This Azure Resource Manager template will create an Azure Cosmos account for any supported API configured with two regions and options to select consistency level, automatic failover, and multi-master. To deploy this template, click on Deploy to Azure on the readme page, [Create Azure Cosmos account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+This Azure Resource Manager template will create an Azure Cosmos account for SQL API configured with two regions and options to select consistency level, automatic failover, and multi-master. To deploy this template, click on Deploy to Azure on the readme page, [Create Azure Cosmos account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## Add/remove regions from your database account
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
-1. Sign in to [Azure portal](https://portal.azure.com). 
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 1. Go to your Azure Cosmos account, and open the **Replicate data globally** menu.
 
@@ -108,7 +108,7 @@ An account can be migrated from single-master to multi-master by deploying the R
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -118,11 +118,13 @@ An account can be migrated from single-master to multi-master by deploying the R
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

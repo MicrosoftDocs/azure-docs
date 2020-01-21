@@ -6,7 +6,7 @@ author: sauryadas
 
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
 ---
 
@@ -21,7 +21,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
 
-You need to [request cores](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+You need to [request cores](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 ## What is the maximum pods-per-node setting for AKS?
 
@@ -41,7 +41,7 @@ For more information, see [Plan IP addressing for your cluster](configure-azure-
 There might be various reasons for the pod being stuck in that mode. You might look into:
 
 * The pod itself, by using `kubectl describe pod <pod-name>`.
-* The logs, by using `kubectl log <pod-name>`.
+* The logs, by using `kubectl logs <pod-name>`.
 
 For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
@@ -74,8 +74,8 @@ You might be getting this error because you've modified the tags in the agent no
 This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
 
 1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
-    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
-    * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/resource-manager-quota-errors.md#solution) before trying to scale up again beyond initial quota limits.
+    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
+    * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
 ## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade
@@ -114,6 +114,7 @@ Follow the *Before you begin* steps in the appropriate doc to correctly create a
 
 Naming restrictions are implemented by both the Azure platform and AKS. If a resource name or parameter breaks one of these restrictions, an error is returned that asks you provide a different input. The following common naming guidelines apply:
 
+* Cluster names must be 1-63 characters. The only allowed characters are letters, numbers, dashes, and underscores. The first and last character must be a letter or a number.
 * The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
 * The *dnsPrefix* must start and end with alphanumeric values. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
 
@@ -477,3 +478,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 After a few minutes, the agent node will retry the azure file mount with the updated storage key.
+
+### Cluster autoscaler fails to scale with error failed to fix node group sizes
+
+If your cluster autoscaler is not scaling up/down and you see an error like the below on the [cluster autoscaler logs][view-master-logs].
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+This error is due to an upstream cluster autoscaler race condition where the cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, simply disable and re-enable the [cluster autoscaler][cluster-autoscaler].
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

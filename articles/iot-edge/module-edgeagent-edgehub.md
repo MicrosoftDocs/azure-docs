@@ -1,5 +1,5 @@
 ---
-title: EdgeAgent and EdgeHub desired properties reference - Azure IoT Edge | Microsoft Docs 
+title: Properties of the agent and hub module twins - Azure IoT Edge
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: kgremban
 manager: philmea
@@ -8,7 +8,6 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Properties of the IoT Edge agent and IoT Edge hub module twins
@@ -50,6 +49,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Yes |
+| modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |

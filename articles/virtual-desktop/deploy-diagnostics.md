@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
 ---
 
@@ -104,7 +104,7 @@ Here's how to manually configure the recommended performance counters:
 3. In the **Settings** section, select  **Advanced settings**.
 4. After that, navigate to **Data** > **Windows Performance Counters** and add the following counters:
 
-    -   LogicalDisk(\*)\%Free Space
+    -   LogicalDisk(\*)\\%Free Space
     -   LogicalDisk(C:)\\Avg. Disk Queue Length
     -   Memory(\*)\\Available Mbytes
     -   Processor Information(\*)\\Processor Time
@@ -138,7 +138,7 @@ To make sure your Log Analytics workspace has the preconfigured Windows performa
 3. After that, go to **Data** > **Windows Performance Counters**.
 4. Make sure the following counters are preconfigured:
 
-   - LogicalDisk(\*)\%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
+   - LogicalDisk(\*)\\%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
    - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn’t exceed 2 for more than a short period of time.
    - Memory(\*)\\Available Mbytes: The available memory for the system in megabytes.
    - Processor Information(\*)\\Processor Time: the percentage of elapsed time that the processor spends to execute a non-Idle thread.
@@ -230,7 +230,7 @@ You can also interact with users on the session host:
 
 ### Windows performance counter thresholds
 
-- LogicalDisk(\*)\|%Free Space:
+- LogicalDisk(\*)\\%Free Space:
 
     - Displays the percentage of the total usable space on the logical disk that is free.
     - Threshold: Less than 20% is marked as unhealthy.
@@ -252,3 +252,8 @@ You can also interact with users on the session host:
 - [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Threshold: Higher than 2000 ms is marked as unhealthy.
+
+## Next steps
+
+- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](diagnostics-log-analytics.md).
+- Read about common error scenarios and how to fix them at [Identify and diagnose issues](diagnostics-role-service.md).

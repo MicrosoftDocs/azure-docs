@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Dependency Telemetry | Microsoft Docs
+title: Azure Monitor Application Insights Dependency Data Model
 description: Application Insights data model for dependency telemetry
 ms.service:  azure-monitor
 ms.subservice: application-insights

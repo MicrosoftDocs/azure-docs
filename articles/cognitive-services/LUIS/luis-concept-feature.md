@@ -9,14 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/03/2019
 ms.author: diberry
 ---
 # Machine-learned features 
 
-In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
+In machine learning, a _feature_ is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
 
-## Features in Language Understanding
+In the [preview LUIS portal](https://preview.luis.ai), features are _descriptors_ because they are used to _describe_ the intent or entity.  
+
+## Features (_descriptors_) in Language Understanding
 
 Features, also known as descriptors, describe clues to help Language Understanding identify the example utterances. Features include: 
 
@@ -37,11 +39,19 @@ When you want to be able to recognize new instances, like a meeting scheduler th
 
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. 
 
+## Considerations when using a phrase list
+
+A phrase list is applied, by default, to all models in the app. This will work for phrase lists that can cross all intents and entities. For decomposability, you should apply a phrase list to only the models it is relevant to. 
+
+If you create a phrase list (created globally by default), then later apply it as a descriptor (feature) to a specific model, it is removed from the other models. This removal adds relevance to the phrase list for the model it is applied to, helping improve the accuracy it provides in the model. 
+
+The `enabledForAllModels` flag controls this model scope in the API. 
+
 <a name="how-to-use-phrase-lists"></a>
 
 ### How to use a phrase list
 
-[Create a phrase list](luis-how-to-add-features.md) list when your intent or entity has words or phrases that are important such as:
+[Create a phrase list](luis-how-to-add-features.md) when your intent or entity has words or phrases that are important such as:
 
 * industry terms
 * slang
@@ -66,7 +76,7 @@ For example, if the intent is for booking a flight and the entity is ticket info
 
 ### Entity as a feature to another entity
 
-An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the (B).
+An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the prediction of entity (B).
 
 For example, if the street address entity (A) is detected, then finding the street address (A) adds weight to the prediction for the shipping address entity (B). 
 

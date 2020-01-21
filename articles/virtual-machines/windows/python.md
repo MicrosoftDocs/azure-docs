@@ -1,5 +1,5 @@
 ---
-title: Create and manage a Windows VM in Azure using Python | Microsoft Docs
+title: Create and manage a Windows VM in Azure using Python 
 description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -122,7 +122,7 @@ compute_client = ComputeManagementClient(
 
 ### Create the VM and supporting resources
 
-All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/management/overview.md).
 
 1. To create a resource group, add this function after the variables in the .py file:
 

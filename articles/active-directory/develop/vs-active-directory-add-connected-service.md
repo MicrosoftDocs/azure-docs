@@ -1,5 +1,5 @@
 ---
-title: Add an Azure Active Directory using Connected Services in Visual Studio | Azure
+title: Using the Active Directory connected service (Visual Studio)
 description: Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box
 author: ghogen
 manager: jillfra
@@ -14,7 +14,7 @@ ms.author: ghogen
 
 ms.collection: M365-identity-device-management
 ---
-# Adding an Azure Active Directory by using Connected Services in Visual Studio
+# Add an Azure Active Directory by using Connected Services in Visual Studio
 
 By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or Active Directory Authentication in Web API services. With Azure AD Authentication, your users can use their accounts from Azure Active Directory to connect to your web applications. The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application. With Azure AD, you do not have to manage a separate authentication system with its own account and user management.
 

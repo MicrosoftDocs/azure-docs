@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Enter Data Manually module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a small dataset by typing values. The dataset can have multiple columns.
   
@@ -92,9 +92,9 @@ This module can be helpful in scenarios such as these:
   
      If you create rows with missing values, you can always filter them out later.  
   
-5.  Right-click the module and select **Run selected** to parse the data and load it into your workspace as a dataset.  
+5.  Connect the output port to other modules, and run the pipeline.  
   
-     To view the dataset, click the output port and select **Visualize**.  
+     To view the dataset, right-click the module and select **Visualize**.  
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 

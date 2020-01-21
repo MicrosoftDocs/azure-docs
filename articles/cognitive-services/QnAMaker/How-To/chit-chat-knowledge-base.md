@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -40,15 +40,15 @@ Chit-chat data sets are supported in the following languages:
 
 |Language|
 |--|
-|Chinese, `zh-cn`|
-|English, `en-us`|
-|French, `fr-fr`|
-|Germany, `de-de`|
-|Italian, `it-it`|
-|Japanese, `ja-jp`|
-|Korean, `ko-kr`|
-|Portuguese, `pr-br`|
-|Spanish, `es-es`|
+|Chinese|
+|English|
+|French|
+|Germany|
+|Italian|
+|Japanese|
+|Korean|
+|Portuguese|
+|Spanish|
 
 
 ## Add chit-chat during KB creation
@@ -67,7 +67,7 @@ When you edit your KB, you will see a new source for chit-chat, based on the per
 To view the metadata, select **View Options** in the toolbar, then select **Show metadata**.
 
 ## Add additional chit-chat questions and answers
-You can add new chit-chat QnA that is not in the predefined set. Ensure that you are not duplicating a QnA pair that is already covered in the chit-chat set. When you add any new chit-chat QnA, it gets added to your **Editorial** source. To ensure the ranker understands that this is chit-chat, add the metadata key/value pair "Editorial: chit-chat", as seen in the following image:
+You can add new chit-chat QnA that is not in the predefined set. Ensure that you are not duplicating a QnA pair that is already covered in the chit-chat set. When you add any new chit-chat QnA, it gets added to your **Editorial** source. To ensure the ranker understands that this is chit-chat, add the metadata key/value pair "Editorial: chitchat", as seen in the following image:
    
 ![![Add chit-chat QnAs](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 

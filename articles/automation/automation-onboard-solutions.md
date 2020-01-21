@@ -2,10 +2,6 @@
 title: Onboard update and change tracking solutions to Azure Automation
 description: Learn how to onboard update and change tracking solutions to Azure Automation.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc

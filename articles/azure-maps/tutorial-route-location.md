@@ -1,9 +1,9 @@
 ---
-title: Find route with Azure Maps | Microsoft Docs
-description: Route to a point of interest using Azure Maps
+title: 'Tutorial: Find route to a location | Microsoft Azure Maps'
+description: This tutorial shows you how to render route to a location (point of interest) on a map using Microsoft Azure Maps Routing Service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Route to a point of interest using Azure Maps
+# Tutorial: Route to a point of interest using Azure Maps
 
 This tutorial shows how to use your Azure Maps account and the Route Service SDK to find the route to your point of interest. In this tutorial, you learn how to:
 
@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the Route Service SDK
 
 ## Prerequisites
 
-Before you proceed, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
+Before you proceed, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -163,7 +163,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 
 3. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the blue pin marking the start point and the round blue pin marking the finish point.
 
-   ![View map with start and end points marked](media/tutorial-route-location/map-pins.png)
+   ![View routes start and end point on the map](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

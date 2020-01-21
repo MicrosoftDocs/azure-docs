@@ -11,11 +11,11 @@ ms.topic: "include"
 ms.date: 11/04/2019
 ---
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription.
+1. Sign in to [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription.
 
 1. In the upper-left corner of Azure portal, select **+ Create a resource**.
 
-      ![Create a new resource](media/aml-create-in-portal/portal-create-resource.png)
+    ![Create a new resource](media/aml-create-in-portal/create-workspace.gif)
 
 1. Use the search bar to find **Machine Learning**.
 

@@ -7,7 +7,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
@@ -99,6 +99,18 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 
 >[!Note]
 >Enabling any setting other than Boot Diagnostics would require Azure VM Agent to be installed in the virtual machine before the failover
+
+## Unable to open serial console after failover of a UEFI based machine into Azure
+
+If you are able to connect to the machine using RDP but cannot open serial console, follow the below steps:
+
+* If the machine OS is Red Hat or Oracle Linux 7.*/8.0, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
 ## Unexpected shutdown message (Event ID 6008)
 

@@ -2,10 +2,7 @@
 title: Create a watcher task in the Azure Automation account
 description: Learn how to create a watcher task in the Azure Automation account to watch for new files created in a folder.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
 ---

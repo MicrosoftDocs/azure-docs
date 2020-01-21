@@ -1,18 +1,10 @@
 ---
-title: How to monitor Azure Cache for Redis | Microsoft Docs
+title: How to monitor Azure Cache for Redis
 description: Learn how to monitor the health and performance your Azure Cache for Redis instances
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 
@@ -138,7 +130,7 @@ Activity logs provide insight into the operations that were performed on your Az
 
 To view activity logs for your cache, click **Activity logs** from the **Resource menu**.
 
-For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
+For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
 
 
 

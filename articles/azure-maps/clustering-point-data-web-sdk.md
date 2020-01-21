@@ -1,19 +1,23 @@
 ---
-title: Clustering point data in Azure Maps | Microsoft Docs
-description: How to cluster point data in the Web SDK
+title: Clustering point data on a map | Microsoft Azure Maps
+description: In this article, you will learn how to cluster point data and render it on a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
 ---
 
 # Clustering point data
 
 When visualizing many data points on the map, points overlap each other, the map looks cluttered and it becomes difficult to see and use. Clustering of point data can be used to improve this user experience. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## Enabling clustering on a data source
 
@@ -82,12 +86,12 @@ Heat maps are a great way to display the density of data on the map. This visual
 
 When mouse events occur on a layer that contain clustered data points, the clustered data point will be returned to the event as a GeoJSON point feature object. This point feature will have the following properties:
 
-| Property name | Type | Description |
-|---------------|------|-------------|
-| cluster | boolean | Indicates if feature represents a cluster. |
-| cluster_id | string | A unique ID for the cluster that can be used with the DataSource `getClusterExpansionZoom`, `getClusterChildren`, and `getClusterLeaves` methods. |
-| point_count | number | The number of points the cluster contains. |
-| point_count_abbreviated | string | A string that abbreviates the `point_count` value if it is long. (for example, 4,000 becomes 4K) |
+| Property name             | Type    | Description   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | Indicates if feature represents a cluster. |
+| `cluster_id`              | string  | A unique ID for the cluster that can be used with the DataSource `getClusterExpansionZoom`, `getClusterChildren`, and `getClusterLeaves` methods. |
+| `point_count`             | number  | The number of points the cluster contains.  |
+| `point_count_abbreviated` | string  | A string that abbreviates the `point_count` value if it is long. (for example, 4,000 becomes 4K)  |
 
 This example takes a bubble layer that renders cluster points and adds a click event that when triggered, calculate, and zoom the map to the next zoom level at which the cluster will break apart using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point. 
 

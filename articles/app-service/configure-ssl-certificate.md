@@ -1,23 +1,16 @@
 ---
-title: Add and manage SSL certificates - Azure App Service | Microsoft Docs
-description: Learn how to buy an App Service certificate and bind it to your App Service app
-services: app-service
-author: cephalin
-manager: gwallace
+title: Add and manage SSL certificates
+description: Create a free certificate, import an App Service certificate, import a Key Vault certificate, or buy an App Service certificate in Azure App Service.
 tags: buy-ssl-certificates
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
 # Add an SSL certificate in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how create, upload, or import a private certificate or a public certificate into App Service. 
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how to create, upload, or import a private certificate or a public certificate into App Service. 
 
 Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-certificate-in-code.md).
 
@@ -60,8 +53,13 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
+- Does not support wildcard certificates.
 - Does not support naked domains.
 - Is not exportable.
+
+> [!NOTE]
+> The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+> 
 
 To create a free App Service Managed Certificate:
 
@@ -110,8 +108,8 @@ Use the following table to help you configure the certificate. When finished, cl
 |-|-|
 | Name | A friendly name for your App Service certificate. |
 | Naked Domain Host Name | Specify the root domain here. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the Common Name field contains the root domain, and the Subject Alternative Name field contains the `www` domain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`).|
-| Subscription | The datacenter where the web app is hosted. |
-| Resource group | The resource group that contains the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
+| Subscription | The subscription that will contain the certificate. |
+| Resource group | The resource group that will contain the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
@@ -125,7 +123,7 @@ Select the certificate in the [App Service Certificates](https://portal.azure.co
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. It's the storage of choice for App Service certificates.
 
-In the **Key Vault Status** page, click **Key Vault Repository** to create a new vault or choose an existing vault. If you choose to create a new vault, use the following table to help you configure the vault and click Create. see to create new Key Vault inside same subscription and resource group.
+In the **Key Vault Status** page, click **Key Vault Repository** to create a new vault or choose an existing vault. If you choose to create a new vault, use the following table to help you configure the vault and click Create. Create the new Key Vault inside the same subscription and resource group as your App Service app.
 
 | Setting | Description |
 |-|-|
@@ -136,7 +134,7 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 | Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/key-vault-network-security.md) |
 
-Once you've selected the vault, close the **Key Vault Repository** page. The **Store** option should show a green check mark for success. Keep the page open for the next step.
+Once you've selected the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark for success. Keep the page open for the next step.
 
 ### Verify domain ownership
 
@@ -180,7 +178,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import Key Vault Certificate**.
 
-![Import Key Vault certificate in App Service](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![Import Key Vault certificate in App Service](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 Use the following table to help you select the certificate.
 
@@ -276,7 +274,7 @@ Click **Upload**.
 
 ![Upload public certificate in App Service](./media/configure-ssl-certificate/upload-public-cert.png)
 
-Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#load-the-certificate).
+Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
 ## Manage App Service certificates
 
@@ -319,7 +317,7 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 
 ### Export certificate
 
-Because App Service Certificates is a [Key Vault secret](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), you can export a PFX copy of it and use it for other Azure services or outside of Azure.
+Because an App Service Certificate is a [Key Vault secret](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), you can export a PFX copy of it and use it for other Azure services or outside of Azure.
 
 To export the App Service Certificate as a PFX file, run the following commands in the [Cloud Shell](https://shell.azure.com). You can also run it locally if you [installed Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Replace the placeholders with the names you used when you [created the App Service certificate](#start-certificate-order).
 
@@ -338,7 +336,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. Whenever you're prompted, both the import password and the PEM pass phrase are the empty string.
+The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. In each prompt, use an empty string for the import password and the PEM pass phrase.
 
 ### Delete certificate 
 

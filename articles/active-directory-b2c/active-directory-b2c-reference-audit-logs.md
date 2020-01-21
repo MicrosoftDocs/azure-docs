@@ -1,6 +1,7 @@
 ---
-title: Audit logs samples and definitions in Azure Active Directory B2C
-description: Guide and samples on accessing the Azure AD B2C audit logs.
+title: Access and review audit logs
+titleSuffix: Azure AD B2C
+description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -119,7 +120,7 @@ Follow these steps register an application, grant it the required Microsoft Grap
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for the *AuditLog.Read.All* permission. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the *AuditLog.Read.All* permission. It might take a few minutes for the permissions to propagate.
 
 * * *
 

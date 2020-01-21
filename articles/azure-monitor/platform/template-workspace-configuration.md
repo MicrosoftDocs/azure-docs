@@ -4,9 +4,9 @@ description: You can use Azure Resource Manager templates to create and configur
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/22/2019
+author: bwren
+ms.author: bwren
+ms.date: 01/09/2020
 
 ---
 
@@ -14,9 +14,9 @@ ms.date: 10/22/2019
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
 
-* Create a workspace including setting pricing tier 
+* Create a workspace including setting pricing tier and capacity reservation
 * Add a solution
 * Create saved searches
 * Create a computer group
@@ -43,7 +43,19 @@ The following table lists the API version for the resources used in this example
 
 ## Create a Log Analytics workspace
 
-The following example creates a workspace using a template from  your local machine. The JSON template is configured to only require the name and location of the new workspace (using the default values for the other workspace parameters such as pricing tier and retention).  
+The following example creates a workspace using a template from your local machine. The JSON template is configured to only require the name and location of the new workspace. It uses values specified for other workspace parameters such as [access control mode](design-logs-deployment.md#access-control-mode), pricing tier, retention, and capacity reservation level.
+
+For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
+
+- Once you set the reservation limit, you cannot change to a different SKU within 31 days.
+
+- Once you set the reservation value, you can only increase it within 31 days.
+
+- You can only set the value of `capacityReservationLevel` in multiples of 100, with a maximum value of 50000.
+
+- If you increase the reservation level, the timer is reset and you cannot change it for another 31 days from this update.  
+
+- If you modify any other property for the workspace but retain the reservation limit to the same level, the timer is not reset. 
 
 ### Create and deploy template
 
@@ -60,6 +72,21 @@ The following example creates a workspace using a template from  your local mach
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -97,11 +124,18 @@ The following example creates a workspace using a template from  your local mach
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -164,9 +198,9 @@ The following template sample illustrates how to:
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -253,7 +287,7 @@ The following template sample illustrates how to:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -263,7 +297,9 @@ The following template sample illustrates how to:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

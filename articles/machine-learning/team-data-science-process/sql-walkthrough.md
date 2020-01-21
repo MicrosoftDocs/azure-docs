@@ -60,7 +60,7 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](../../storage/common/storage-quickstart-create-account.md)
+1. [Create a storage account](../../storage/common/storage-account-create.md)
 2. [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
 3. [Provision a Data Science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), which provides a SQL Server and an IPython Notebook server.
    
@@ -590,7 +590,7 @@ An example of a binary classification experiment reading data directly from the 
 > 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 
