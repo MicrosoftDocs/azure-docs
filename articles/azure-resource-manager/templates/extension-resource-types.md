@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 01/20/2020
 ---
 
 # Resource types that extend capabilities of other resources
@@ -18,12 +18,14 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.AlertsManagement/alertsSummary
 - Microsoft.Authorization/checkAccess
 - Microsoft.Authorization/denyAssignments
+- Microsoft.Authorization/findOrphanRoleAssignments
 - Microsoft.Authorization/locks
 - Microsoft.Authorization/permissions
 - Microsoft.Authorization/policyAssignments
 - Microsoft.Authorization/policyDefinitions
 - Microsoft.Authorization/policySetDefinitions
 - Microsoft.Authorization/roleAssignments
+- Microsoft.Authorization/roleAssignmentsUsageMetrics
 - Microsoft.Authorization/roleDefinitions
 - Microsoft.Billing/billingPeriods
 - Microsoft.Billing/billingPermissions
@@ -77,6 +79,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - microsoft.insights/automatedExportSettings
 - microsoft.insights/baseline
 - microsoft.insights/calculatebaseline
+- microsoft.insights/dataCollectionRuleAssociations
 - microsoft.insights/diagnosticSettings
 - microsoft.insights/diagnosticSettingsCategories
 - microsoft.insights/eventtypes
@@ -89,6 +92,8 @@ An extension resource is a resource that adds to another resource's capabilities
 - microsoft.insights/metricbaselines
 - microsoft.insights/metrics
 - microsoft.insights/myWorkbooks
+- microsoft.insights/topology
+- microsoft.insights/transactions
 - microsoft.insights/vmInsightsOnboardingStatuses
 - Microsoft.KubernetesConfiguration/sourceControlConfigurations
 - Microsoft.Maintenance/applyUpdates
@@ -104,6 +109,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft.RecoveryServices/backupProtectedItems
+- Microsoft.RecoveryServices/replicationEligibilityResults	
 - Microsoft.ResourceHealth/availabilityStatuses
 - Microsoft.ResourceHealth/childAvailabilityStatuses
 - Microsoft.ResourceHealth/childResources

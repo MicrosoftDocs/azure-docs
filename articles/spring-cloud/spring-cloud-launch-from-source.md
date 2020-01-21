@@ -1,11 +1,11 @@
 ---
 title:  "Quickstart - Launch your Spring Cloud application from source code"
 description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
-author:  jpconnock
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 
 # Quickstart: Launch your Spring Cloud application from source code
