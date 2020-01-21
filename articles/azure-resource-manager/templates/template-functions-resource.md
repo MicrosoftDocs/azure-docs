@@ -227,7 +227,7 @@ The possible uses of list* are shown in the following table.
 | microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
 | microsoft.web/sites/backups | [list](/rest/api/appservice/webapps/listbackups) |
 | Microsoft.Web/sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
-| microsoft.web/sites/functions | [listkeys]()
+| microsoft.web/sites/functions | [listkeys](/rest/api/appservice/webapps/listfunctionkeys)
 | microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
 | microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |

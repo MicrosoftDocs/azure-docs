@@ -1,18 +1,9 @@
 ---
-title: Create Support ticket or case for StorSimple 8000 series | Microsoft Docs
+title: Create Support ticket or case for StorSimple 8000 series
 description: Learn how to log support request and start a support session on your StorSimple 8000 series device.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 

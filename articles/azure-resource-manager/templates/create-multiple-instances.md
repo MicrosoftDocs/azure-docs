@@ -12,10 +12,10 @@ When used with a resource, the copy object has the following format:
 
 ```json
 "copy": {
-    "name": "<name-of-loop>",
-    "count": <number-of-iterations>,
-    "mode": "serial" <or> "parallel",
-    "batchSize": <number-to-deploy-serially>
+  "name": "<name-of-loop>",
+  "count": <number-of-iterations>,
+  "mode": "serial" <or> "parallel",
+  "batchSize": <number-to-deploy-serially>
 }
 ```
 
@@ -24,9 +24,9 @@ When used with a variable or property, the copy object has the following format:
 ```json
 "copy": [
   {
-      "name": "<name-of-loop>",
-      "count": <number-of-iterations>,
-      "input": <values-for-the-property-or-variable>
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "input": <values-for-the-property-or-variable>
   }
 ]
 ```
@@ -57,19 +57,19 @@ The resource to create several times takes the following format:
   "contentVersion": "1.0.0.0",
   "resources": [
     {
-      "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     }
   ],
   "outputs": {}
@@ -143,21 +143,21 @@ For example, to serially deploy storage accounts two at a time, use:
   "contentVersion": "1.0.0.0",
   "resources": [
     {
-      "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 4,
         "mode": "serial",
         "batchSize": 2
-      }
+      },
+      "properties": {}
     }
   ],
   "outputs": {}
@@ -180,9 +180,9 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 
 ```json
 {
-  "name": "examplevm",
   "type": "Microsoft.Compute/virtualMachines",
   "apiVersion": "2017-03-30",
+  "name": "examplevm",
   "properties": {
     "storageProfile": {
       "copy": [{
@@ -261,8 +261,8 @@ You can use resource and property iteration together. Reference the property ite
 ```json
 {
   "type": "Microsoft.Network/virtualNetworks",
-  "name": "[concat(parameters('vnetname'), copyIndex())]",
   "apiVersion": "2018-04-01",
+  "name": "[concat(parameters('vnetname'), copyIndex())]",
   "copy":{
     "count": 2,
     "name": "vnetloop"
@@ -425,23 +425,23 @@ You specify that a resource is deployed after another resource by using the `dep
   "parameters": {},
   "resources": [
     {
-      "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
       "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...

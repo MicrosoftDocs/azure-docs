@@ -3,7 +3,7 @@ title: Search locations using the Azure Maps Search Service | Microsoft Azure Ma
 description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -14,8 +14,7 @@ manager: philmea
 
 The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) is a set of RESTful APIs designed to help developers to search addresses, places, business listings by name or category, and other geographic information. In addition of supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services like [Route](https://docs.microsoft.com/rest/api/maps/route) and [Weather](https://docs.microsoft.com/rest/api/maps/weather) services.
 
-
-In this article you will learn, how to:
+Let's learn, how to:
 
 * Request latitude and longitude coordinates for an address (geocode address location) by using [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
 * Search for an address or Point of Interest (POI) using [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
@@ -77,7 +76,7 @@ The **typeahead** flag tells the Address Search API to treat the query as a part
 
 ## Search for an address or Point of Interest (POI)
 
-The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) and is useful when you do not know what your user inputs are for a search query. The API combines POI search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. It can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
+The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). This service is useful when you are not sure of the user input format in a search query. The API combines POI search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. Also, it can be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
 
 Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce unusual results. This default can be overridden as needed per request by passing in the query parameter `maxFuzzyLevel=2` or `3`.
 
@@ -95,7 +94,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
     | Request URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. This article uses json for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
@@ -109,9 +108,9 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 4. Click **Send** and review the response body.
 
-    The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
+    The ambiguous query string for "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result returns a street address, latitude and longitude values, view port, and entry points for the location.
   
-    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
+    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage. The default behavior is to search the entire world, potentially returning unnecessary results.
 
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -134,7 +133,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 ## Search for address properties and coordinates
 
-You can pass a complete or partial street address to the search address API and receive a response that includes detailed address properties such as municipality or subdivision, as well as positional values in latitude and longitude.
+You can pass a complete or partial street address to the search address API. You still receive a response that includes detailed address properties. Detailed address properties are values like positional values in altitude and longitude, municipality, or subdivision.
 
 1. In Postman, click **New Request** | **GET request** and name it **Address Search**.
 2. On the Builder tab, select the **GET** HTTP method, enter the request URL for your API endpoint, and select an authorization protocol, if any.
@@ -208,7 +207,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | number | true |
 
-    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
+    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is sent with the request, the response may include the side of the street (Left or Right) and also an offset position for that number.
   
 6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -216,7 +215,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | returnSpeedLimit | true |
   
-    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is set, the response return of the posted speed limit.
+    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is set, the response returns the posted speed limit.
 
 7. Add the following Key / Value pair to the **Params** section and click **Send**:
 

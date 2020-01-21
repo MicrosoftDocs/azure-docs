@@ -1,17 +1,11 @@
 ---
-title: Share VM images with Shared Galleries | Microsoft Docs
+title: Share VM images with Shared Galleries
 description: Learn how to use shared image galleries to share VM images across your organization.
-services: virtual-machine-scale-sets
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
-manager: jeconnoc
-editor: tysonn
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/06/2019

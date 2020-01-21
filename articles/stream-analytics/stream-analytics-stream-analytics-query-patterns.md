@@ -830,7 +830,7 @@ From
 
 The User Defined Function will compute the *bigint* value from the HexValue on every event consumed.
 
-For more information, refer to [JavaScript](/stream-analytics/stream-analytics-javascript-user-defined-functions) and [C#](/stream-analytics/stream-analytics-edge-csharp-udf).
+For more information, refer to [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) and [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
 
 ## Advanced pattern matching with MATCH_RECOGNIZE
 

@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
-manager: dougeby
+manager: jasonh
 ms.custom: seodec18
 ---
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Verify that data is collected
 
 ## Prerequisites
-Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Microsoft Customer Agreement](get-started-partners.md) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Owner – Can create, modify, or delete scheduled exports for a subscription.
 - Contributor – Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a daily export
 
-To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, click **Export** and then choose an export option. For example, click **Schedule export**.  
+To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Export** and then choose an export option. For example, select **Schedule export**.  
 
 > [!NOTE]
 > - Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
@@ -50,31 +50,28 @@ To create or view a data export or to schedule an export, open the desired scope
 >
 
 
-Click **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Click **Next**.
+Select **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Select **Next**.
 
 ![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)
 
-Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to.  Click **Next**.
+Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to. Select **Next**.
 
 ![New export example showing storage account details](./media/tutorial-export-acm-data/storage_exports.png)
 
-Review your export details and click **Create**.
+Review your export details and select **Create**.
 
-Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, click any item in the list and then click either **Disable** or **Delete**.
+Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list and then select either **Disable** or **Delete**.
 
 Initially, it can take one to two hours before the export runs. However, it can take up to four hours before data is shown in exported files.
 
 ### Export schedule
 
-Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same time of day for each subsequent export occurrence. For example, you create a daily export at 1:00 PM. The next export runs at 1:00 PM the following day. The current time affects all other export types in the same manner—they always run at the same time of day as when you initially created the export. In a different example, you create a weekly export at 4:00 PM on Monday. The next report runs at 4:00 PM the following Monday. *Exported data is available within four hours of run time.*
-
+Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each subsequent export occurrence. For example, for a month-to-date export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export is not guaranteed and the exported data is available within four hours of run time."
 Each export creates a new file, so older exports are not overwritten.
 
-There are three types of export options:
+There are two types of export options:
 
 **Daily export of month-to-date costs** – The initial export runs immediately. Subsequent exports run the next day at the same time as the initial export. The latest data is aggregated from previous daily exports.
-
-**Weekly export of costs for the last 7 days** – The initial export runs immediately. Subsequent exports run on the day of the week and at the same time as the initial export. Costs are for the last seven days.
 
 **Custom** – Allows you to schedule weekly and monthly exports with week-to-date and month-to-date options. *The initial export will run immediately.*
 
@@ -88,11 +85,11 @@ If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice b
 
 You can easily verify that your Cost Management data is being collected and view the exported CSV file using Azure Storage Explorer.
 
-In the export list, click the storage account name. On the storage account page, click Open in Explorer. If you see a confirmation box, click **Yes** to open the file in Azure Storage Explorer.
+In the export list, select the storage account name. On the storage account page, select Open in Explorer. If you see a confirmation box, select **Yes** to open the file in Azure Storage Explorer.
 
 ![Storage account page showing example information and link to Open in Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 
-In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then click **Open**.
+In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
 
 ![Example information shown in Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
 

@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Execute Python Script module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
