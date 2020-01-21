@@ -15,8 +15,7 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark pools, SQL on-demand engine, and SQL pools.
 
->[!NOTE]
->The contents of this article describe preview features and are subject to the [terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+[!INCLUDE [synapse-analytics-preview-terms](../../includes/synapse-analytics-preview-terms.md)]
 
 Once a database has been created with a Spark job, that database will become visible as a database with that same name to all current and future Spark pools in the workspace as well as the SQL on-demand engine. 
 
@@ -28,6 +27,8 @@ Since the databases are synchronized to SQL on-demand and the SQL pools asynchro
 
 ## Manage a Spark created database
 
+[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark. 
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
@@ -36,11 +37,15 @@ If you try to drop the synchronized schema in a SQL Pool, or try to create a tab
 
 ## Handling of name conflicts
 
+[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+
 During public preview, it can happen that the name of a Spark database can conflict with the name of an existing SQL on-demand database. In this case, the Spark database will be exposed in SQL on-demand with a different name, that got created by adding a post-fix of the form `_<workspace name>-ondemand-DefaultSparkConnector` to the Spark database name. 
 
 For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
 ## Security model
+
+[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
 
 The Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. 
 
@@ -51,6 +56,8 @@ To give a security principal, such as a user or a security group, access to a da
 ## Examples
 
 ### Creating a Spark database and seeing it in SQL on-demand
+
+[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
 
 First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that for example using a Spark C# Notebook with the following .NET for Spark statement:
 
@@ -67,6 +74,8 @@ This creates the Spark database. After a short delay, you can see the database f
 Verify that `mytestdb` is included in the results.
 
 ### Exposing a Spark database in a SQL pool
+
+[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
 
 With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization.
 

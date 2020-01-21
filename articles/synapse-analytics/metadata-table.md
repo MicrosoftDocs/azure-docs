@@ -16,12 +16,13 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark Pools, SQL Analytics On-Demand engine and SQL Pools. 
 
->[!NOTE]
->The contents of this article describe preview features and are subject to the [terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [synapse-analytics-preview-terms](../../includes/synapse-analytics-preview-terms.md)]
 
 The sharing supports the modern data warehouse pattern and gives the workspace SQL engines access to databases and tables created with Spark while also allowing the SQL engines to create their own objects that are not being shared with the other engines.
 
 ## Support the modern data warehouse
+
+[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
 
 The shared metadata model supports the modern data warehouse pattern in the following ways:
 
