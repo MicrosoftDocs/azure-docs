@@ -127,7 +127,7 @@ When your function generates an HTTP response for the web browser, it also calls
     # [PowerShell](#tab/powershell)
     
     ```powershell
-    set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
+    $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
     # [Cmd](#tab/cmd)

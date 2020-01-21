@@ -649,7 +649,7 @@ You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-
     # [PowerShell](#tab/powershell)
     
     ```powershell
-    set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
+    $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
     # [Cmd](#tab/cmd)
