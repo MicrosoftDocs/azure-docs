@@ -179,9 +179,6 @@ landingContent:
       links:
         - text: Custom commands (Preview)
           url: custom-commands.md
-    - linkListType: how-to-guide
-      links:
-
     - linkListType: tutorial
       links:
         - text: Voice enable your bot with Speech SDK
