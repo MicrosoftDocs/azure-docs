@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/21/2020
 ms.author: mlearned
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -53,6 +53,7 @@ The following outbound ports / network rules are required for an AKS cluster:
 * TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created.
 * TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
+* UDP port *123* for Network Time Protocol (NTP) time synchronization (Linux nodes).
 * UDP port *53* for DNS is also required if you have pods directly accessing the API server.
 
 The following FQDN / application rules are required:
