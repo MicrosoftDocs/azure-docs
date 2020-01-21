@@ -46,7 +46,7 @@ You should then use the **id** value for the **personModelId** parameter when [u
 
 ## Delete a Person model
 
-To delete a custom Person model from the specified account, use the [delete a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)API. 
+To delete a custom Person model from the specified account, use the [delete a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) API. 
 
 Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you reindex them. Upon reindexing, the faces that were named in the deleted model will not be recognized by Video Indexer in your current videos that were indexed using that model; however, those faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
 
