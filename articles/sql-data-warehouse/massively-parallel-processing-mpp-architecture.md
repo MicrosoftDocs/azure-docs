@@ -101,42 +101,15 @@ The diagram below shows a replicated table which is cached on the first distribu
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## Next steps
-Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL pool][create a SQL pool] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL pool](./sql-data-warehouse-get-started-provision.md) and [load sample data](./sql-data-warehouse-load-sample-databases.md). If you are new to Azure, you may find the [Azure glossary](../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
 
-* [Customer success stories]
-* [Blogs]
-* [Feature requests]
-* [Videos]
-* [Customer Advisory Team blogs]
-* [Create support ticket]
-* [MSDN forum]
-* [Stack Overflow forum]
-* [Twitter]
+* [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+* [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+* [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+* [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+* [Customer Advisory Team blogs](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+* [Create support ticket](./sql-data-warehouse-get-started-create-support-ticket.md)
+* [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+* [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
+* [Twitter](https://twitter.com/hashtag/SQLDW)
 
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
-
-<!--Article references-->
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL pool]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[Azure Synapse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for Azure Synapse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/
