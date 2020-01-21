@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Add an external user to a lab in Azure DevTest Labs | Microsoft Docs"
+title: PowerShell - Add an external user to a lab in Azure DevTest Labs
 description: This PowerShell script adds an external user to a lab in Azure DevTest Labs.  
 services: lab-services
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 ---
 
