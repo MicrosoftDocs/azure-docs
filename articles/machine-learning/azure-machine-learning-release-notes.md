@@ -25,13 +25,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 The designer is now generally available.
 
 + **New features**
-    + Added `Regenerate Output` option for individual modules. Force the designer to ignore cached results for modules.
+    + Added `Regenerate Output` module option to force the designer to ignore cached results.
     + Added new views to pipeline run details:
-        + Pipeline list view added.
-        + View log files directly in-browser.
+        + Pipeline list view.
+        + In-browser log view.
     + Added labels to module input and output ports.
-    + Added set default pipeline option in the Endpoints tab.
-    + Added keyboard shortcuts and screen reader accessibility features.
+    + Added `Set as Default` pipeline option in the [Endpoints tab](how-to-run-batch-predictions-designer.md#versioning-endpoints).
+    + Added keyboard shortcuts and screen reader [accessibility features](designer-accessibility.md).
 
 ## 2020-01-06
 
