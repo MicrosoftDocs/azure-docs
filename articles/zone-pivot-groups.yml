@@ -142,7 +142,5 @@ groups:
     title: Node.js
   - id: programming-language-java
     title: Java (V3 only)
-  - id: programming-language-go
-    title: Go (v2 only)
-  - id: programming-language-ruby
-    title: Ruby(v2 only)
+  - id: programming-language-other
+    title: Other languages...

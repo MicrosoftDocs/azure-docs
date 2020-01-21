@@ -155,6 +155,8 @@ Language:
 
 ## Named Entity recognition (public preview)
 
+# [Version 3.0-preview](#tab/version-3)
+
 > [!NOTE]
 > The below code is for Named Entity Recognition v3, which is in public preview.
 
@@ -184,6 +186,7 @@ Named Entities:
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
+# [Version 2](#tab/version-3)
 ## Named Entity Recognition - personal information (public preview)
 
 > [!NOTE]
