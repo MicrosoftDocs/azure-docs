@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: azure-app-configuration
 
 ---
-# Sync your App Configuration Instance using GitHub Actions
+# Sync your App Configuration instance using GitHub Actions
 Azure App Configuration uses GitHub Actions to update an App Configuration instance when triggered by an action performed on a GitHub repository. You can leverage GitHub workflows to update app configuration, enabling the integration of app configuration updates into the same workflow used to update app code.
 
 A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process defined in your GitHub repository. This process tells GitHub how to build and deploy your GitHub project. Azure App Configuration provides the *Azure App Configuration Sync* Action to enable updates to an App Configuration instance when changes are made to the source repository. 
@@ -173,14 +173,14 @@ Given a depth of 2, the example above now returns the following key:value pair:
 | --- | --- |
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
-## Understand Action Inputs
+## Understand action inputs
 Input parameters specify data used by the action during runtime.  The following table contains input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, see  GitHub's [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs).
 
 > [!Note]
 > Input IDs are case insensitive.
 
 
-| Input Name | Required? | Value |
+| Input name | Required? | Value |
 |----|----|----|
 | configurationFile | Yes | Path to the configuration file in the repository, relative to the root of the repository.  Glob patterns are supported and can include multiple files. |
 | format | Yes | File format of the configuration file.  Valid formats are: JSON, YAML, properties. |
