@@ -16,7 +16,7 @@ This article explains how to authenticate and send real-time messages to clients
 
 ## Packages - Functions 2.x and higher
 
-The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) Nuget package, version 1.*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
+The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
@@ -1007,9 +1007,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**|| Must be set to `signalRConnectionInfo`.|
-|**direction**|| Must be set to `in`.|
-|**name**|| Variable name used in function code for connection info object. |
+|**type**| n/a | Must be set to `signalRConnectionInfo`.|
+|**direction**| n/a | Must be set to `in`.|
+|**name**| n/a | Variable name used in function code for connection info object. |
 |**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**userId**|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
 |**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
@@ -1020,9 +1020,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**|| Must be set to `signalR`.|
-|**direction**|| Must be set to `out`.|
-|**name**|| Variable name used in function code for connection info object. |
+|**type**| n/a | Must be set to `signalR`.|
+|**direction**| n/a | Must be set to `out`.|
+|**name**| n/a | Variable name used in function code for connection info object. |
 |**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
 

@@ -1,16 +1,14 @@
 ---
-title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery 
+title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
-ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ---
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell
-
 
 In this article, you see how to setup and test disaster recovery for Azure virtual machines using Azure PowerShell.
 
@@ -28,8 +26,7 @@ You learn how to:
 
 > [!NOTE]
 > Not all scenario capabilities available through the portal may be available through Azure PowerShell. Some of the scenario capabilities not currently supported through Azure PowerShell are:
-> - The ability to specify that all disks in a virtual machine should be replicated without having to explicitly specify each disk of the virtual machine.  
-
+> - The ability to specify that all disks in a virtual machine should be replicated without having to explicitly specify each disk of the virtual machine.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,26 +39,27 @@ Before you start:
 
 ## Log in to your Microsoft Azure subscription
 
-Log in to your Azure subscription using the Connect-AzAccount cmdlet
+Log in to your Azure subscription using the `Connect-AzAccount` cmdlet.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Select your Azure subscription. Use the Get-AzSubscription cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription to work with using the Select-AzSubscription cmdlet.
+
+Select your Azure subscription. Use the `Get-AzSubscription` cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription to work with using the `Set-AzContext` cmdlet.
 
 ```azurepowershell
-Select-AzSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 ## Get details of the virtual machine(s) to be replicated
 
-In the example in this article, a virtual machine in the East US region will be replicated to and recovered in the West US 2 region. The virtual machine being replicated is a virtual machine with an OS disk and a single data disk. The name of the virtual machine used in the example is AzureDemoVM.
+In the example in this article, a virtual machine in the East US region will be replicated to and recovered in the West US 2 region. The virtual machine being replicated is a virtual machine with an OS disk and a single data disk. The name of the virtual machine used in the example is `AzureDemoVM`.
 
 ```azurepowershell
 # Get details of the virtual machine
 $VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
-Write-Output $VM     
+Write-Output $VM
 ```
 
 ```
@@ -96,12 +94,13 @@ Create a resource group in which to create the Recovery Services vault.
 > * The resource group of the Recovery services vault, and the virtual machines being protected, must be in different Azure locations.
 > * The Recovery services vault, and the resource group to which it belongs, can be in the same Azure location.
 
-In the example in this article, the virtual machine being protected is in the East US region. The recovery region selected for disaster recovery is the West US 2 region. The recovery services vault, and the resource group of the vault, are both in the recovery region (West US 2)
+In the example in this article, the virtual machine being protected is in the East US region. The recovery region selected for disaster recovery is the West US 2 region. The recovery services vault, and the resource group of the vault, are both in the recovery region (West US 2).
 
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
 New-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 ```
+
 ```
 ResourceGroupName : a2ademorecoveryrg
 Location          : westus2
@@ -110,7 +109,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Create a Recovery services vault. In the example below a Recovery Services vault named a2aDemoRecoveryVault is created in the West US 2 region.
+Create a Recovery services vault. In the example below a Recovery Services vault named `a2aDemoRecoveryVault` is created in the West US 2 region.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -118,6 +117,7 @@ $vault = New-AzRecoveryServicesVault -Name "a2aDemoRecoveryVault" -ResourceGroup
 
 Write-Output $vault
 ```
+
 ```
 Name              : a2aDemoRecoveryVault
 ID                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoRecoveryVault
@@ -127,20 +127,20 @@ ResourceGroupName : a2ademorecoveryrg
 SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
-## Set the vault context
 
+## Set the vault context
 
 Set the vault context for use in the PowerShell session. Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
 
- ```azurepowershell
+```azurepowershell
 #Setting the vault context.
-Set-AsrVaultSettings -Vault $vault
-
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 ```
+
 ```
 ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
-a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults     
+a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 ```
 
 ```azurepowershell
@@ -148,13 +148,11 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-For an Azure-to-Azure migration, you can set the vault context to the newly created vault: 
+For an Azure-to-Azure migration, you can set the vault context to the newly created vault:
 
 ```azurepowershell
-
 #Set the vault context for the PowerShell session.
 Set-AzRecoveryServicesAsrVaultContext -Vault $vault
-
 ```
 
 ## Prepare the vault to start replicating Azure virtual machines
@@ -166,25 +164,25 @@ The fabric object in the vault represents an Azure region. The primary fabric ob
 - Only one fabric object can be created per region.
 - If you've previously enabled Site Recovery replication for a VM in the Azure portal, Site Recovery creates a fabric object automatically. If a fabric object exists for a region, you can't create a new one.
 
-
-Before you start, note that Site Recovery operations are executed asynchronously. When you initiate an operation, an Azure Site Recovery job is submitted and a job tracking object is returned. Use the job tracking object to get the latest status for the job (Get-ASRJob), and to monitor the status of the operation.
+Before you start, note that Site Recovery operations are executed asynchronously. When you initiate an operation, an Azure Site Recovery job is submitted and a job tracking object is returned. Use the job tracking object to get the latest status for the job (`Get-AzRecoveryServicesAsrJob`), and to monitor the status of the operation.
 
 ```azurepowershell
 #Create Primary ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS"
+$TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS"
 
 # Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
-$PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
+$PrimaryFabric = Get-AzRecoveryServicesAsrFabric -Name "A2Ademo-EastUS"
 ```
+
 If virtual machines from multiple Azure regions are being protected to the same vault, create one fabric object for each source Azure region.
 
 ### Create a Site Recovery fabric object to represent the recovery region
@@ -193,19 +191,18 @@ The recovery fabric object represents the recovery Azure location. Virtual machi
 
 ```azurepowershell
 #Create Recovery ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS"
+$TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS"
 
 # Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
-$RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
-
+$RecoveryFabric = Get-AzRecoveryServicesAsrFabric -Name "A2Ademo-WestUS"
 ```
 
 ### Create a Site Recovery protection container in the primary fabric
@@ -219,13 +216,14 @@ $TempASRJob = New-AzRecoveryServicesAsrProtectionContainer -InputObject $Primary
 #Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 Write-Output $TempASRJob.State
 
-$PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
+$PrimaryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
+
 ### Create a Site Recovery protection container in the recovery fabric
 
 ```azurepowershell
@@ -235,65 +233,66 @@ $TempASRJob = New-AzRecoveryServicesAsrProtectionContainer -InputObject $Recover
 #Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 
 Write-Output $TempASRJob.State
 
-$RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
+$RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
 ### Create a replication policy
 
 ```azurepowershell
 #Create replication policy
-$TempASRJob = New-ASRPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
+$TempASRJob = New-AzRecoveryServicesAsrPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
 
 #Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
-$ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
+$ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "A2APolicy"
 ```
+
 ### Create a protection container mapping between the primary and recovery protection container
 
 A protection container mapping maps the primary protection container with a recovery protection container and a replication policy. Create one mapping for each replication policy that you'll use to replicate virtual machines between a protection container pair.
 
 ```azurepowershell
 #Create Protection container mapping between the Primary and Recovery Protection Containers with the Replication policy
-$TempASRJob = New-ASRProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
+$TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
 
 #Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
-$EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
+$EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
 ### Create a protection container mapping for failback (reverse replication after a failover)
 
-After a failover, when you are ready to bring the failed over virtual machine back to the original Azure region, you failback. To failback, the failed over virtual machine is reverse replicated from the failed over region to the original region. For reverse replication the roles of the original region and the recovery region switch. The original region now becomes the new recovery region, and what was originally the recovery region now becomes the primary region. The protection container mapping for reverse replication represents the switched roles of the original and recovery regions.
+After a failover, when you're ready to bring the failed over virtual machine back to the original Azure region, you failback. To failback, the failed over virtual machine is reverse replicated from the failed over region to the original region. For reverse replication the roles of the original region and the recovery region switch. The original region now becomes the new recovery region, and what was originally the recovery region now becomes the primary region. The protection container mapping for reverse replication represents the switched roles of the original and recovery regions.
 
 ```azurepowershell
 #Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
-$TempASRJob = New-ASRProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
+$TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
@@ -309,19 +308,18 @@ A cache storage account is a standard storage account in the same Azure region a
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-For virtual machines **not using managed disks**, the target storage account is the storage account(s) in the recovery region to which disks of the virtual machine are replicated. The target storage account can be either a standard storage account or a premium storage account. Select the kind of storage account required based on the data change rate(IO write rate) for the disks and the Azure Site Recovery supported churn limits for the storage type.
+For virtual machines **not using managed disks**, the target storage account is the storage account(s) in the recovery region to which disks of the virtual machine are replicated. The target storage account can be either a standard storage account or a premium storage account. Select the kind of storage account required based on the data change rate (IO write rate) for the disks and the Azure Site Recovery supported churn limits for the storage type.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
 $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -ResourceGroupName "a2ademorecoveryrg" -Location 'West US 2' -SkuName Standard_LRS -Kind Storage
-
 ```
 
 ## Create network mappings
 
 A network mapping maps virtual networks in the primary region to virtual networks in the recovery region. The network mapping specifies the Azure virtual network in the recovery region, that a virtual machine in the primary virtual network should failover to. One Azure virtual network can be mapped to only a single Azure virtual network in a recovery region.
 
-- Create an Azure virtual network in the recovery region to failover to
+- Create an Azure virtual network in the recovery region to failover to:
 
    ```azurepowershell
     #Create a Recovery Network in the recovery region
@@ -331,7 +329,9 @@ A network mapping maps virtual networks in the primary region to virtual network
 
     $WestUSRecoveryNetwork = $WestUSRecoveryVnet.Id
    ```
-- Retrieve the primary virtual network (the vnet that the virtual machine is connected to)
+
+- Retrieve the primary virtual network (the VNet that the virtual machine is connected to):
+
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
 
@@ -351,32 +351,35 @@ A network mapping maps virtual networks in the primary region to virtual network
     $PrimarySubnet = $NIC.IpConfigurations[0].Subnet
 
     # Extract the resource ID of the Azure virtual network the nic is connected to from the subnet ID
-    $EastUSPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")  
+    $EastUSPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")
    ```
-- Create network mapping between the primary virtual network and the recovery virtual network
+
+- Create network mapping between the primary virtual network and the recovery virtual network:
+
    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
-    $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $EastUSPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $WestUSRecoveryNetwork
+    $TempASRJob = New-AzRecoveryServicesAsrNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $EastUSPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $WestUSRecoveryNetwork
 
     #Track Job status to check for completion
     while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
             sleep 10;
-            $TempASRJob = Get-ASRJob -Job $TempASRJob
+            $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
     }
 
     #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
-
    ```
-- Create network mapping for the reverse direction (failback)
+
+- Create network mapping for the reverse direction (failback):
+
     ```azurepowershell
     #Create an ASR network mapping for failback between the recovery Azure virtual network and the primary Azure virtual network
-    $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
+    $TempASRJob = New-AzRecoveryServicesAsrNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
 
     #Track Job status to check for completion
     while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
             sleep 10;
-            $TempASRJob = Get-ASRJob -Job $TempASRJob
+            $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
     }
 
     #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
@@ -388,7 +391,6 @@ A network mapping maps virtual networks in the primary region to virtual network
 Replicate the Azure virtual machine with **managed disks**.
 
 ```azurepowershell
-
 #Get the resource group that the virtual machine must be created in when failed over.
 $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 
@@ -416,10 +418,8 @@ $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicat
 $diskconfigs = @()
 $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 
-
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
-$TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
-
+$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
 Replicate the Azure virtual machine with **unmanaged disks**.
@@ -440,15 +440,14 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 #Get the resource group that the virtual machine must be created in when failed over.
 $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 
-#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.  
-$TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
+#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
+$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 
 #Track Job status to check for completion
 while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         sleep 10;
-        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
 }
-
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
@@ -458,21 +457,23 @@ Once the start replication operation succeeds, virtual machine data is replicate
 
 The replication process starts by initially seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase.
 
-Once initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected and a test failover operation can be performed on it. The replication state of the replicated item representing the virtual machine goes to the "Protected" state after initial replication completes.
+Once initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected and a test failover operation can be performed on it. The replication state of the replicated item representing the virtual machine goes to the **Protected** state after initial replication completes.
 
 Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item corresponding to it.
+
 ```azurepowershell
- Get-ASRReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
+Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
+
 ```
 FriendlyName ProtectionState ReplicationHealth
 ------------ --------------- -----------------
-AzureDemoVM  Protected       Normal           
+AzureDemoVM  Protected       Normal
 ```
 
 ## Perform a test failover, validate, and cleanup test failover
 
-Once replication for the virtual machine has reached a protected state, a test failover operation can be performed on the virtual machine (on the replication protected item of the virtual machine.)
+Once replication for the virtual machine has reached a protected state, a test failover operation can be performed on the virtual machine (on the replication protected item of the virtual machine).
 
 ```azurepowershell
 #Create a separate network for test failover (not connected to my DR network)
@@ -484,17 +485,17 @@ $TFONetwork= $TFOVnet.Id
 ```
 
 Perform test failover.
+
 ```azurepowershell
-$ReplicationProtectedItem = Get-ASRReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
+$ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
 
-$TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
-
-
+$TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
 ```
 
 Wait for the test failover operation to complete.
+
 ```azurepowershell
-Get-ASRJob -Job $TFOJob
+Get-AzRecoveryServicesAsrJob -Job $TFOJob
 ```
 
 ```
@@ -516,18 +517,20 @@ AllowedActions   :
 Tasks            : {Prerequisites check for test failover, Create test virtual machine, Preparing the virtual machine, Start the virtual machine}
 Errors           : {}
 ```
+
 Once the test failover job completes successfully, you can connect to the test failed over virtual machine, and validate the test failover.
 
 Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
 
 ```azurepowershell
-$Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicationProtectedItem
+$Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $ReplicationProtectedItem
 
-Get-ASRJob -Job $Job_TFOCleanup | Select State
+Get-AzRecoveryServicesAsrJob -Job $Job_TFOCleanup | Select State
 ```
+
 ```
-State    
------    
+State
+-----
 Succeeded
 ```
 
@@ -536,36 +539,38 @@ Succeeded
 Failover the virtual machine to a specific recovery point.
 
 ```azurepowershell
-$RecoveryPoints = Get-ASRRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem
+$RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem
 
 #The list of recovery points returned may not be sorted chronologically and will need to be sorted first, in order to be able to find the oldest or the latest recovery points for the virtual machine.
 "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[-1].RecoveryPointTime
 ```
+
 ```
 CrashConsistent 4/24/2018 11:10:25 PM
 ```
 
-
 ```azurepowershell
 #Start the failover job
-$Job_Failover = Start-ASRUnplannedFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[-1]
+$Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[-1]
 
 do {
-        $Job_Failover = Get-ASRJob -Job $Job_Failover;
+        $Job_Failover = Get-AzRecoveryServicesAsrJob -Job $Job_Failover;
         sleep 30;
 } while (($Job_Failover.State -eq "InProgress") -or ($JobFailover.State -eq "NotStarted"))
 
 $Job_Failover.State
 ```
+
 ```
 Succeeded
 ```
 
 Once failed over successfully, you can commit the failover operation.
-```azurepowershell
-$CommitFailoverJOb = Start-ASRCommitFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem
 
-Get-ASRJOb -Job $CommitFailoverJOb
+```azurepowershell
+$CommitFailoverJOb = Start-AzRecoveryServicesAsrCommitFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem
+
+Get-AzRecoveryServicesAsrJob -Job $CommitFailoverJOb
 ```
 
 ```
@@ -590,7 +595,7 @@ Errors           : {}
 
 ## Reprotect and failback to source region
 
-After a failover, when you are ready to go back to the original region, start reverse replication for the replication protected item using the Update-AzRecoveryServicesAsrProtectionDirection cmdlet.
+After a failover, when you're ready to go back to the original region, start reverse replication for the replication protected item using the `Update-AzRecoveryServicesAsrProtectionDirection` cmdlet.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -607,11 +612,12 @@ Once reprotection is complete, you can initiate failover in reverse direction (W
 
 ## Disable replication
 
-You can disable replication by using Remove-ASRReplicationProtectedItem cmdlet.
+You can disable replication by using the `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
-Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
 ```
 
 ## Next steps
-View the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/az.RecoveryServices) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
+
+View the [Azure Site Recovery PowerShell reference](/powershell/module/az.RecoveryServices) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.

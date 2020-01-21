@@ -140,7 +140,7 @@ Import the downloaded file, and create the VM.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 ### Configure the appliance
 
