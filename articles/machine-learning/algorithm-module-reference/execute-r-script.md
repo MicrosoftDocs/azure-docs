@@ -14,7 +14,7 @@ ms.date: 11/19/2019
 
 # Execute R Script
 
-This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) pipeline.
+This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer pipeline.
 
 With R, you can perform tasks that aren't currently supported by existing modules such as: 
 - Create custom data transformations

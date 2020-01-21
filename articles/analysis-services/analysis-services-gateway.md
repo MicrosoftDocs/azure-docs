@@ -4,13 +4,15 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ---
 # Connecting to on-premises data sources with On-premises data gateway
 
-The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Power Automate. You can associate multiple services in the same subscription and same region with a single gateway. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Power Automate. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
+
+Information provided here is specific to how Azure Analysis Services works with the On-premises Data Gateway. To learn more about the gateway in general and how it works with other services, see [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem).
 
 For Azure Analysis Services, getting setup with the gateway the first time is a four-part process:
 
@@ -18,9 +20,11 @@ For Azure Analysis Services, getting setup with the gateway the first time is a 
 
 - **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
 
-- **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
+- **Create a gateway resource in Azure** - In this step, you create a gateway resource in an Azure.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources, provided they are in the same subscription and same region.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource, you can begin connecting your servers to it. You can connect multiple servers and other resources, provided they are in the same region.
+
+
 
 ## <a name="how-it-works"> </a>How it works
 The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create an On-premises data gateway resource for your Azure subscription. Your Azure Analysis Services servers are then connected to your Azure gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 

@@ -43,6 +43,7 @@ Let's add some code that works as a skeleton for our project. Make note that you
 using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 
 namespace HelloWorld
 {
@@ -145,6 +146,7 @@ At this point, your code should look like this:
 using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 
 namespace HelloWorld
 {
