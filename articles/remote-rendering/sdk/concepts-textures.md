@@ -12,6 +12,7 @@ ms.service: azure-remote-rendering
 # Textures
 
 Textures are immutable shared resources that can be used in various places in the API. Textures can be encountered in a loaded model when inspecting its meshes and materials or loaded on demand by the user. There are three distinguished types of textures:
+
 * 2D Textures - Mainly used in [Materials](../sdk/concepts-materials.md)
 * Cube Maps - Example of use is setting the [Sky](../sdk/features-sky.md#example-calls)
 * 3D Textures - Not used at the moment
@@ -26,7 +27,7 @@ LoadTextureAsync _async = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
      _async  = session.Actions.LoadTextureAsync(
-    	new LoadTextureParams(textureUri, TextureType.Texture2D )).Completed +=
+        new LoadTextureParams(textureUri, TextureType.Texture2D )).Completed +=
         (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)

@@ -11,11 +11,11 @@ ms.service: azure-remote-rendering
 ---
 # Authentication
 
-ARR uses the same authentication mechanism as Azure Spatial Anchors (ASA), for detailed documentation, see https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp. Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
+Azure Remote Rendering uses the same authentication mechanism as Azure Spatial Anchors (ASA), for detailed documentation, see https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp. Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
 
 ## AzureFrontendAccountInfo
 
-AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend.
+AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend instance in the SDK.
 
 The important fields are:
 
@@ -40,11 +40,11 @@ The important fields are:
 
 ## Azure Frontend
 
-The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset ingestion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, and stopping.
+The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset ingestion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
 
 Each opened/created ```AzureSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
 
-Deallocating a session will not stop the VM on Azure, Stop must be explicitly called.
+Deallocating a session will not stop the VM on Azure, `AzureSession.StopAsync` must be explicitly called.
 
 Once a session has been created and its state has been marked as ready, it can be connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
 
@@ -54,7 +54,7 @@ All AzureSession and AzureFrontend async calls are completed in a background thr
 
 ### Azure Frontend APIs
 
-This section will cover Azure Frontend APIs, which are C++ and C# APIs to interact with ingestion service and rendering service REST APIs.
+This section will cover Azure Frontend APIs, which SDK wrappers around the the ingestion service and rendering service REST APIs.
 
 ### Ingestion APIs
 
@@ -69,7 +69,6 @@ void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelU
 {
     _pendingAsync = frontend.StartIngestionAsync(
         new IngestAssetParams(modelName, modelUrl, assetContainerUrl));
-        
     _pendingAsync.Completed +=
         (StartIngestionAsync res) =>
         {
@@ -215,11 +214,11 @@ void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
         {
             if (res.IsRanToCompletion)
             {
-                Console.WriteLine("Rendering session update succeeded!");
+                Console.WriteLine("Rendering session renewed succeeded!");
             }
             else
             {
-                Console.WriteLine("Failed to update rendering session!");
+                Console.WriteLine("Failed to renew rendering session!");
             }
             _pendingAsync = null;
         };
@@ -238,11 +237,11 @@ void StopRenderingSession(AzureSession session)
         {
             if (res.IsRanToCompletion)
             {
-                Console.WriteLine("Rendering session update succeeded!");
+                Console.WriteLine("Rendering session stopped successfully!");
             }
             else
             {
-                Console.WriteLine("Failed to update rendering session!");
+                Console.WriteLine("Failed to stop rendering session!");
             }
             _pendingAsync = null;
         };
@@ -269,8 +268,6 @@ void ConnectToArrInspector(AzureSession session, string hostname)
                     var file = await Windows.Storage.StorageFile.GetFileFromPathAsync(htmlPath);
                     await Windows.System.Launcher.LaunchFileAsync(file);
                 }, true);
-#elif UNITY_EDITOR
-                UnityEngine.Application.OpenURL("file:///" + htmlPath);
 #else
                 InvokeOnAppThreadAsync(() =>
                 {

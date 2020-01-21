@@ -22,23 +22,11 @@ For presentation purposes, there are some additional parameters that affect the 
 ## Adding cut planes to the scene programmatically
 Since a cut plane is implemented as a component, it must be attached to a game object. This game object serves as the spatial location and orientation of the plane. Here is some code to create a new cut plane component programmatically:
 
-```cpp
-
-void createCutPlaneComponent(RemoteRenderingClient& client, ObjectId componentOwner)
-{
-    if (CutPlaneComponent* cutPlane = client.AccessObjectDatabase().CreateComponent<CutPlaneComponent>(componentOwner))
-    {
-        cutPlane->SetNormal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
-        cutPlane->SetFadeColor(ColorUb(255,0,0,128)); // fade to 50% red
-        cutPlane->SetFadeLength(0.05f); // gradient width: 5cm
-    }
-}
-```
-
-Or using the C# API:
-
 ```cs
-    CutPlaneComponent cutplane = (CutPlaneComponent)RemoteManager.CreateComponent(ObjectType.CutPlaneComponent, OwnerEntity);
+    // Get the connected azure session via application logic
+    AzureSession session = GetRenderingSession();
+
+    CutPlaneComponent cutplane = (CutPlaneComponent)session.Actions.CreateComponent(ObjectType.CutPlaneComponent, OwnerEntity);
     cutPlane.Normal = Axis.X; // normal points along the positive x-axis of the owner object's orientation
     cutPlane.FadeColor = new ColorUb(255,0,0,128); // fade to 50% red
     cutPlane.FadeLength = 0.05f; // gradient width: 5cm

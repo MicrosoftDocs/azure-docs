@@ -15,18 +15,19 @@ Due to the nature of integrating into a third-party engine, there are some speci
 
 ## Session management
 
-```RemoteManagerUnity.Initialize(RemoteUnityClientInit)``` should be called instead of `RemoteManager.StartRemoteRendering.` If the ```RemoteManagerUnity.Initialize``` has not been called, the system will not be capable of connecting or rendering content.
+```RemoteManagerUnity.Initialize(RemoteUnityClientInit)``` should be called instead of `RemoteManager.StartRemoteRendering.` If ```RemoteManagerUnity.Initialize``` has not been called, the system will not be capable of connecting or rendering content.
 
-If the ```RemoteManager.StartRemoteRendering``` has already been called or ```RemoteManagerUnity.Initialize``` has already been called, an exception will be thrown.
+If ```RemoteManager.StartRemoteRendering``` or ```RemoteManagerUnity.Initialize``` has already been called, an exception will be thrown on subsequent calls.
 
-`RemoteUnityClientInit` initializes the session using Unity's coordinate system and initialize the graphics system for rendering into a Unity application. After initializing the ```RemoteManagerUnity```, ```RemoteManager``` can be accessed directly as normal.
+`RemoteUnityClientInit` initializes the session using Unity's coordinate system and initialize the graphics system for rendering into a Unity application.
 
-After an AzureSession has been created and chosen as the session to connect to for rendering, it should be registered with ```RemoteManagerUnity``` by calling ```RemoteManagerUnity.CurrentSession = session```.
+After an AzureSession has been created and chosen as the primary rendering session, it must be registered with ```RemoteManagerUnity``` by calling ```RemoteManagerUnity.CurrentSession = session```. `ARRServiceUnity` is provided to streamline this process.
 
 ```RemoteManagerUnity``` emits a few events for when its session state changes via ```RemoteManagerUnity.OnSessionUpdate```:
-* SessionSet: Emitted during the assignment of ```RemoteManagerUnity.CurrentSession```.
-* SessionRemoved: Emitted during the removal of a previous session, but before the new session has been assigned during ```RemoteManagerUnity.CurrentSession```.
-* SessionConnected: Emitted once the session successfully connects to the remote renderer.
+
+* SessionSet: Emitted during the assignment of ```RemoteManagerUnity.CurrentSession``` after the internal reference has been assigned.
+* SessionRemoved: Emitted when a previous session is removed during ```RemoteManagerUnity.CurrentSession```. SessionRemoved is emitted before the new session has been assigned.
+* SessionConnected: Emitted once the registered session successfully connects to the remote renderer. The application is still responsible for calling `AzureSession.ConnectToRuntime`. 
 * SessionDisconnected: Emitted if the connection to the session has been lost.
 
 On application shutdown, ```RemoteManager.ShutdownRemoteRendering()``` should be called.
@@ -42,14 +43,19 @@ AzureFrontend frontend = createFrontendForMyAccount();
 AzureSession session = await frontend.CreateNewRenderingSessionAsync(new CreateRenderingSessionParams(RenderingSessionVmSize.Small, 0, 30)).AsTask();
 
 RemoteManagerUnity.CurrentSession = session;
-// Connect...
+
+session.ConnectToRuntime();
+
+/// When connected, load and modify content
 
 RemoteManager.ShutdownManager();
 ```
 
 ### ARRServiceUnity
 
-```ARRServiceUnity``` is an optional component to perform session management in a Unity game session. It enables the user to stop any outstanding session automatically when the application is exiting, automatically renew leases when the application is running, and to keep a cache of the last known session properties. 
+```ARRServiceUnity``` is an optional component to perform session management in a Unity game session. It contains options to automatically stop its session when the application is exiting or play mode is exited in the Unity editor as well as automatically renew the session lease if the application is running.
+
+A local cache of the session properties can be accessed through `LastProperties`, which will be updated at a user specified interval.
 
 ```ARRServiceUnity``` can only have a single session at a time. It will register the session with ```RemoteManagerUnity``` on the user's behalf.
 
@@ -58,11 +64,11 @@ RemoteManager.ShutdownManager();
 * OnSessionStarted: Emitted when the session has been created.
 * OnSessionStatusChange: Emitted when a session state change has been detected.
 
+`ARRServiceUnity` must be initialized with `ARRServiceUnity.Initialize(AzureFrontendAccountInfo)`.
+
 ## Unity GameObjects and Azure remote rendering Entities
 
-See InteractionSample.cs for an example of the binding between Azure remote rendering entities and Unity game objects.
-
-Unity will lose performance if too many GameObjects are in the scene, yet Azure remote rendering content is often dense and complex. By default, an Azure remote rendering entity will have no Unity GameObject representation, but an on-demand version can be created with the extension method ```Entity.GetOrCreateGameObject(UnityCreationMode)```. ```Entity.GetOrCreateGameObject``` has a single argument of type UnityCreationMode that controls whether or not MonoBehaviors should be created for each Azure remote rendering Component. In general, UnityCreationMode should be set to ```DoNotCreateUnityComponents``` where possible to avoid additional performance overhead of MonoBehaviors.
+Unity will lose performance if too many GameObjects are in the scene, yet Azure Remote Rendering content is often dense and complex. By default, an Azure Remote Rendering entity will have no Unity GameObject representation, but an on-demand version can be created with the extension method ```Entity.GetOrCreateGameObject(UnityCreationMode)```. ```Entity.GetOrCreateGameObject``` has a single argument of type UnityCreationMode that controls whether or not MonoBehaviors should be created for each Azure Remote Rendering component. In general, UnityCreationMode should be set to ```DoNotCreateUnityComponents``` when possible to avoid additional performance overhead of MonoBehaviors.
 
 As an example for loading a model and, on the load completion, creating a unity game object from the root:
 
@@ -85,7 +91,6 @@ As an example for loading a model and, on the load completion, creating a unity 
             // do something...
             // Since the updates are triggered by the main thread, we may access unity objects here.
         }
-    
     }
 
 ```
@@ -110,6 +115,7 @@ IEnumerator SampleLoadModel(string modelId)
     _pendingLoadTask = null;
 }
 ```
+
 Using the await pattern:
 
 ```cs
@@ -122,15 +128,15 @@ void async SampleLoadModel(string modelId)
 
 ```
 
-Creating the Unity GameObject will implicitly add a ```RemoteEntitySyncObject``` component to the GameObject. The default configuration of ```RemoteEntitySyncObject``` requires the user to explicitly call SyncToRemote to synchronize the local Unity state of the object to the remote engine. An object can be automatically synchronized if the property SyncEveryFrame can be enabled on ```RemoteEntitySyncObject```. 
+Creating the Unity GameObject will implicitly add a ```RemoteEntitySyncObject``` component to the GameObject. `RemoteEntitySyncObject` synchronizes the entity transform to the server. The default configuration of ```RemoteEntitySyncObject``` requires the user to explicitly call `RemoteEntitySyncObject.SyncToRemote` to synchronize the local Unity state of the object to the remote engine. An object can be automatically synchronized if the property `SyncEveryFrame` is enabled on ```RemoteEntitySyncObject```.
 
-Objects in the Unity Editor with a ```RemoteEntitySyncObject``` can have the Azure remote rendering children instantiated and shown in Unity through the 'Show Children' button.
+Objects in the Unity Editor with a ```RemoteEntitySyncObject``` can have the Azure Remote Rendering children instantiated and shown in Unity through the 'Show Children' button.
 
 ![RemoteEntitySyncObject](./media/remote-entity-sync-object.png)
 
 ### Lifetime
 
-The lifetime of an Azure remote rendering Entity and a Unity Game Object is coupled while they are bound. To destroy Unity GameObject without destroying the Azure remote rendering Entity ```RemoteEntitySyncComponent.Unbind()``` has to be called before destroying the Unity Game Object or extension function ```Entity.DestroyGameObject()``` can be used.
+The lifetime of an Azure remote rendering Entity and a Unity Game Object is coupled while they are bound. To destroy Unity GameObject without destroying the Azure Remote Rendering Entity ```RemoteEntitySyncComponent.Unbind()``` has to be called before destroying the Unity Game Object or extension function ```Entity.DestroyGameObject()``` can be used.
 
 ## Override SetFocusPoint
 
@@ -178,8 +184,9 @@ For each component, there is additionally an extension method on the Unity GameO
     object.CreateArrComponent<ARRHierarchicalStateOverrideComponent>(AzureSession);
 ```
 
-This function takes in a valid, connected AzureSession as an argument. Both functions will fail if the component already exists on the GameObject. To either create a component or get an existing instance then ```EnsureArrComponent``` can be called:
+This function takes in a valid, connected AzureSession as an argument. Both functions will fail if the component already exists on the GameObject or the AzureSession is not connected.
 
+To either create a component or get an existing instance then ```EnsureArrComponent``` can be called:
 
 ```cs
     GameObject object = GetGameObject();

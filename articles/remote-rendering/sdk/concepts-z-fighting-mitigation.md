@@ -40,7 +40,7 @@ The ZFightingMitigationSettings state provides the necessary object to toggle th
 
 ### Example calls
 
-Enabling the z-fighting mitigation and the checkerboard intersection highlighting can be done as follows in the c++ and c# APIs:
+Enabling the z-fighting mitigation and the checkerboard intersection highlighting can be done as follows:
 
 ``` cs
 public void exampleZFightingMitigation(AzureSession session)

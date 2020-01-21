@@ -11,7 +11,7 @@ ms.service: azure-remote-rendering
 ---
 # Remote rendering modes
 
-Remote Rendering offers two main modes of operation, the `Balanced` mode and the `Quality` mode. These modes fundamentally govern how assets are rendered on the service VMs and thus cannot be changed during the runtime of a rendering process. They present trade-offs between resource usage, performance and rendering quality and are built to accommodate different use cases and rendering needs. Most of the supported use cases are a product of technical realities when it comes to rendering scenes containing massive amounts of data. Still, the two modes allow the user to choose a suitable approach for their needs and thus provide a base amount of versatility and adaptability.
+Remote Rendering offers two main modes of operation, the `Balanced` mode and the `Quality` mode. These modes fundamentally govern how assets are rendered on the service VMs and cannot be changed during the runtime of a rendering process. They present trade-offs between resource usage, performance and rendering quality and are built to accommodate different use cases and rendering needs. Most of the supported use cases are a product of technical realities when it comes to rendering scenes containing massive amounts of data. Still, the two modes allow the user to choose a suitable approach for their needs and thus provide a base amount of versatility and adaptability.
 
 As best practices to quickly decide which mode is most appropriate, the following two rules generally apply:
 
@@ -21,9 +21,7 @@ As best practices to quickly decide which mode is most appropriate, the followin
 
 ## Usage
 
-The render mode used on a Remote Rendering VM is switchable during its lease time, but only during the connection operation. Subsequent switches require the user to orderly disconnect from the VM and specify the desired mode during the following connect operation.
-
-C# sample code:
+The render mode used on a Remote Rendering VM is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`. A single VM can have multiple rendering modes during different connections.
 
 ```cs
 public void ExampleConnect(AzureSession session)
@@ -31,10 +29,17 @@ public void ExampleConnect(AzureSession session)
     ConnectToRuntimeParams params = new ConnectToRuntimeParams();
     params.mode = ServiceRenderMode.Quality;
     session.ConnectToRuntime(params);
-```
+    // Wait for connection to be formed, do operations.
+ 
+    // Disconnect
+    session.DisconnectFromRuntime();
 
-> [!NOTE]
-> To switch the render mode the service runs with, call `RemoteManager.Disconnect` respectively, wait until the disconnect event has been triggered and reconnect with the desired mode.
+    // Wait until session.IsConnected == false
+
+    // Reconnect with a different mode
+    params.mode = ServiceRenderMode.Default;
+    session.ConnectToRuntime(params);
+```
 
 ## Modes
 

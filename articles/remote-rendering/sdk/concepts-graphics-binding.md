@@ -39,7 +39,7 @@ RemoteManagerStatic.StartupRemoteRendering(managerInit);
 
 The call above is necessary to initialize Azure Remote Rendering into the holographic APIs and must be called before any holographic API is called and before any other Remote Rendering APIs are accessed. Similarly, the corresponding de-init functions should be called after no holographic APIs are being called anymore.
 
-##<span id="access">Accessing graphics binding
+## <span id="access">Accessing graphics binding
 
 Once a client is set up, the basic graphics binding can be accessed with the `AzureSession.GraphicsBinding` getter. As an example, the focus point mode can be set with:
 

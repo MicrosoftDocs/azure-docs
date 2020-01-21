@@ -17,9 +17,7 @@ The axis aligned and local bounding box of a mesh can be queried directly from t
 
 Traversing large SceneGraphs can be computationally expensive so utility functions are provided to offload the computation to the server for the axis aligned local or world bounds of an entity inclusive of its children. These queries will be performed against the state of the SceneGraph on the frame that the query is issued.
 
-The asynchronous server query can be performed in C++ from the RemoteRenderingClient interface.
-
-And in C# on the Entity class directly.
+The asynchronous server query can be performed via the `QueryLocalBoundsAsync` and `QueryWorldBoundsAsync` calls in `Entity` interface.
 
 ``` cs
     private BoundsQueryAsync _boundsQuery = null;

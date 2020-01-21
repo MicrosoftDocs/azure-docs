@@ -35,7 +35,7 @@ The `SingleSidedSettings` state provides the necessary object to change the sett
 
 ### Example calls
 
-Changing the single sided rendering settings can be done as follows in the C++ and C# APIs:
+Changing the single sided rendering settings can be done as follows:
 
 ``` cs
 public void exampleSingleSidedRendering(AzureSession session)

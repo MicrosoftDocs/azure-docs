@@ -11,18 +11,18 @@ ms.service: azure-remote-rendering
 ---
 # Components
 
-Components add some functionality to an entity. For example, a cut plane component adds functionality to cut the rendered meshes open at the location of its owner entity, whereas a mesh component adds the functionality to render a specific mesh at the location of the entity.
+Components add some functionality to an entity. For example, a [cut plane component](features-cut-plane.md) adds functionality to cut the rendered meshes open at the location of the component's owner entity, whereas a mesh component adds the functionality to render a specific mesh at the location of the entity.
 
 Components can be added programmatically in code with the Client SDK:
 
 ```cs
     AzureSession session = GetCurrentlyConnectedSession();
-    var component = session.Actions.CreateComponent(ObjectType.ComponentType, Entity);
+    var component = session.Actions.CreateComponent(ObjectType.ComponentType, OwnerEntity);
 ```
 
-Components are explicitly deleted by the user with `Component.Destroy()` or automatically deleted when the component's entity is destroyed via its parent being destroyed or explicitly `Entity.Destroy()`.  
+Components are explicitly deleted by the user with `Component.Destroy()` or automatically deleted when the component's entity is destroyed with `Entity.Destroy()`. Components can also be destroyed when its owner's parent is destroyed.
 
-Only one type of a particular component can exist on an `Entity` at a time. 
+Only one type of a particular component can exist on an `Entity` at a time.
 
 For `CreateComponent` call to succeed, the `AzureSession` must be connected with `ConnectToRuntime` to a remote rendering machine.
 
