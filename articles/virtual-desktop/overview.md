@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/21/2020
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
@@ -81,17 +81,27 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs:
 
-* *.wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Address|Outbound port|Purpose|
+|---|---|---|
+|*.wvd.microsoft.com|TCP port 443|Service traffic|
+|*.blob.core.windows.net|TCP port 443|Agent, SXS stack updates, and Agent traffic|
+|*.core.windows.net|TCP port 443|Agent traffic|
+|*.servicebus.windows.net|TCP port 443|Agent traffic|
+|prod.warmpath.msftcloudes.com|TCP port 443|Agent traffic|
+|catalogartifact.azureedge.net|TCP port 443|Azure Marketplace|
+|kms.core.windows.net|TCP port 1688|Windows 10 activation|
+
+>[!IMPORTANT]
+>Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLs for other services like Azure AD.
 
 >[!NOTE]
->Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
+>You must use the wildcard character (*) for URLs involving service traffic. If you prefer to not use * for agent-related traffic, here's how to find the URLs without wildcards:
+>
+>1. Register your virtual machines to the Windows Virtual Desktop host pool.
+>2. Open **Event viewer** and navigate to **Windows** > **Application logs** and look for Event ID 3712.
+>3. Whitelist the URLs that you find under Event ID 3712. The URLs under Event ID 3712 are region-specific. You'll need to repeat the whitelisting process with the relevant URLs for each region you want to deploy your virtual machines in.
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
