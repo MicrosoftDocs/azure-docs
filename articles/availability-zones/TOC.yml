@@ -33,7 +33,7 @@
     - name: Load Balancer
       items:
       - name: What is Load Balancer?
-        href: ../load-balancer/load-balancer-standard-overview.md
+        href: ../load-balancer/load-balancer-overview.md
       - name: Load Balancer Standard and Availability Zones
         href: ../load-balancer/load-balancer-standard-availability-zones.md
       - name: Create a zone redundant public Standard Load Balancer
