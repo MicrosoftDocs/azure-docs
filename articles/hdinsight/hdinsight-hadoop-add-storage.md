@@ -47,7 +47,7 @@ Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-a
 |---|---|
 |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Node type(s)|Head|
-|Parameters|`ACCOUNTNAME` `ACCOUNTKEY` </br> `-p` (optional)|
+|Parameters|`ACCOUNTNAME` `ACCOUNTKEY` `-p` (optional)|
 
 * `ACCOUNTNAME` is the name of the storage account to add to the HDInsight cluster.
 * `ACCOUNTKEY` is the access key for `ACCOUNTNAME`.
@@ -121,9 +121,9 @@ If you change the key for a storage account, HDInsight can no longer access the 
 
 Running the script action again does __not__ update the key, as the script checks to see if an entry for the storage account already exists. If an entry already exists, it doesn't make any changes.
 
-To work around this problem:
-    1. Remove the storage account.
-    1. Add the storage account.
+To work around this problem:  
+1. Remove the storage account.
+1. Add the storage account.
 
 > [!IMPORTANT]  
 > Rotating the storage key for the primary storage account attached to a cluster is not supported.
