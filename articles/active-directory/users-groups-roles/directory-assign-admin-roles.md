@@ -405,7 +405,7 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Service Support Administrator." It is "Service Administrator" in the [Azure portal](https://portal.azure.com), the [Microsoft 365 admin center](https://admin.microsoft.com), and the Intune portal.
+> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the exsiting name in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.
 
 ### [SharePoint Administrator](#sharepoint-service-administrator-permissions)
 
