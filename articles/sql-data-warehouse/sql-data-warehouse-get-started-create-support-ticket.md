@@ -23,7 +23,7 @@ If you're having any issues with your SQL Data Warehouse, create a support ticke
     ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
 3. On the Help + Support blade, click **New support request** and fill out the **Basics** blade.
 
-   Select your [Azure support plan][Azure support plan].
+   Select your [Azure support plan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
    
    * **Billing, quota, and subscription management** support are available at all support levels.
    * **Break-fix** support is provided through [Developer](https://azure.microsoft.com/support/plans/developer/), [Standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/), or [Premier](https://azure.microsoft.com/support/plans/premier/) support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.

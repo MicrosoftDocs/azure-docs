@@ -24,11 +24,11 @@ This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT)
 
 ## Continuous integration with Visual Studio build
 
-1. Navigate to Azure Pipelines and create a new build pipeline
+1. Navigate to Azure Pipelines and create a new build pipeline.
 
       ![New Pipeline](media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "New Pipeline")
 
-2. Select your source code repository (Azure Repos Git) and select the .NET Desktop app template
+2. Select your source code repository (Azure Repos Git) and select the .NET Desktop app template.
 
       ![Pipeline Setup](media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Pipeline Setup") 
 
@@ -41,7 +41,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Continuous deployment with the Azure SQL Data Warehouse (or Database) deployment task
 
-1. Add a new task using the [Azure SQL Database deployment task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) and fill in the required fields to connect to your target data warehouse. When this task runs, the DACPAC generated from the previous build process is deployed to the target data warehouse. You can also use the [Azure SQL Data Warehouse deployment task](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
+1. Add a new task using the [Azure SQL Database deployment task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) and fill in the required fields to connect to your target data warehouse. When this task runs, the DACPAC generated from the previous build process is deployed to the target data warehouse. You can also use the [Azure SQL Data Warehouse deployment task](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). 
 
       ![Deployment Task](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Deployment Task")
 
@@ -57,5 +57,5 @@ At this point, you have a simple environment where any check-in to your source c
 
 - Explore [Azure SQL Data Warehouse architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a SQL Data Warehouse](create-data-warehouse-portal.md)
-- [Load sample data](sql-data-warehouse-load-sample-databases.md).
+- [Load sample data](sql-data-warehouse-load-sample-databases.md)
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
