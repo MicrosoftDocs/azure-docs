@@ -3438,7 +3438,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/extension-resource-types.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/extension-resource-types",
+      "redirect_url": "/azure/azure-resource-manager/management/extension-resource-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/extension-resource-types.md",
+      "redirect_url": "/azure/azure-resource-manager/management/extension-resource-types",
       "redirect_document_id": false
     },
     {
