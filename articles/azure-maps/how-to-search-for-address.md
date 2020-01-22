@@ -28,7 +28,7 @@ To complete the steps in this article, you need to first create an Azure Maps ac
 
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 
-## Request latitude and longitude coordinates for an address (geocoding)
+## Request latitude and longitude for an address (geocoding)
 
 In this example, we are using Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert street address into latitude and longitude coordinates. You can pass a complete or partial street address to the API and receive a response that includes detailed address properties such as street, postal code and country/region, as well as positional values in latitude and longitude.
 
@@ -74,7 +74,7 @@ In this case, you specified a complete address query and receive a single result
 
 The **typeahead** flag tells the Address Search API to treat the query as a partial input and return an array of predictive values.
 
-## Search for an address or Point of Interest (POI) using Fuzzy Search API
+## Search for an address using Fuzzy Search API
 
 Azure Maps[ Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) is recommended service to use when you do not know what your user inputs are for a search query. The API combines Point of Interest (POI) search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. It can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
 
@@ -233,7 +233,7 @@ You can pass a complete or partial street address to the search address API. You
 
     You can restrict the reverse geocode query to a specific type of road using the [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter.
   
-## Search for the cross street using Reverse Address Cross Street Search
+## Search for cross street using Reverse Address Cross Street Search
 
 1. In Postman, click **New Request** | **GET request** and name it **Reverse Address Cross Street Search**.
 
