@@ -125,4 +125,4 @@ landingContent:
       - linkListType: video
         links:
           - text: Dynamic scalability
-            url: media/sql-database-scalability/scale-performance.svg
+            url: https://azure.microsoft.com/resources/videos/azure-sql-database-dynamically-scale-up-or-scale-down/
