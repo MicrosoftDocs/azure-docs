@@ -22,12 +22,12 @@ ms.date: 01/22/2020
 |Deployment option |Single database|[Single databases](sql-database-single-database.md)|
 ||Elastic pool|[Elastic pool](sql-database-elastic-pool.md)|
 ||Managed instance|[Managed instance](sql-database-managed-instance.md)|
-|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|[Single database and elastic pool](sql-database-service-tiers-vcore.md#service-tiers) and [Managed instance](sql-database-managed-instance.md#managed-instance-service-tiers). See also [DTU model](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers)|
-|Compute tier|Serverless compute|[Serverless computer](sql-database-service-tiers-vcore.md#compute-tiers)
+|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [single database and elastic pool](sql-database-service-tiers-vcore.md#service-tiers) and [managed instance](sql-database-managed-instance.md#managed-instance-service-tiers). For service tiers in the DTU model, see [DTU model](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Compute tier|Serverless compute|[Serverless compute](sql-database-service-tiers-vcore.md#compute-tiers)
 ||Provisioned compute|[Provisioned compute](sql-database-service-tiers-vcore.md#compute-tiers)
-|Compute generation|Gen5, M-series, Fsv2-series|See [Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations)
+|Compute generation|Gen5, M-series, Fsv2-series|[Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations)
 |Server entity|SQL Database server or database server|[Database server](sql-database-servers.md)|
 ||SQL Database managed instance server, managed instance server, or instance server|[Managed instance](sql-database-managed-instance.md)|
-|Resource type|vCore|A core provided to the guest OS by the hypervisor.|
+|Resource type|vCore|A CPU core provided to the compute resource for a single database, elastic pool, or managed instance.|
 ||Compute size|The amount of compute resources for a single database, elastic pool, or managed instance within a service tier|
 ||Storage amount|The amount of storage available to a single database, elastic pool, or managed instance|
