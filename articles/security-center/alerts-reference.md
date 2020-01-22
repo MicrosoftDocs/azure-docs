@@ -30,6 +30,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
 [Further details and notes](security-center-alerts-iaas.md#windows-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**A logon from a malicious IP has been detected**|A successful remote authentication for the account 'tristan.schleining' and process 'Advapi' occurred, however the logon IP address [IP address] has previously been reported as malicious or highly unusual. A successful attack has probably occurred.|-|
@@ -119,6 +120,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-linux"></a>Alerts for Linux machines
 
 [Further details and notes](security-center-alerts-iaas.md#linux-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access can indicate that an attacker is attempting to gain persistent access to a machine.|-|
@@ -207,6 +209,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
 [Further details and notes](security-center-alerts-compute.md#azure-app-service-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Suspicious WordPress theme invocation detected**|The App Service activity log indicates a possible code injection activity on your App Service resource.<br>This suspicious activity resembles activity that manipulates a WordPress theme to support server-side execution of code, followed by a direct web request to invoke the manipulated theme file. This type of activity can be part of an attack campaign over WordPress.|-|
@@ -230,6 +233,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-akscluster"></a>Alerts for AKS cluster level
 
 [Further details and notes](security-center-alerts-compute.md#azure-containers-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**PREVIEW - Role binding to the cluster-admin role detected**|Kubernetes audit log analysis detected a new binding to the cluster-admin role resulting in administrator privileges. Unnecessarily providing administrator privileges might result in privilege escalation issues in the cluster.|Persistence|
@@ -244,6 +248,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-containerhost"></a>Alerts for Containers' host level
 
 [Further details and notes](security-center-alerts-compute.md#azure-containers-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Privileged Container Detected**|Machine logs indicate that a privileged Docker container is running. A privileged container has full access to the host's resources. If compromised, an attacker can use the privileged container to gain access to the host machine.|PrivilegeEscalation / Execution|
@@ -259,6 +264,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and SQL Data Warehouse
 
 [Further details and notes](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**A possible vulnerability to SQL Injection**|An application has generated a faulty SQL statement in the database. This can indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for a faulty statement. A defect in application code might have constructed the faulty SQL statement. Or, application code or stored procedures didn't sanitize user input when constructing the faulty SQL statement, which can be exploited for SQL injection.|-|
@@ -276,6 +282,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
 
 [Further details and notes](security-center-alerts-data-services.md#azure-storage-)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Access from an unusual location to a storage account**|Indicates that there was a change in the access pattern to an Azure Storage account. Someone has accessed this account from an IP address considered unfamiliar when compared with recent activity. Either an attacker has gained access to the account, or a legitimate user has connected from a new or unusual geographic location. An example of the latter is remote maintenance from a new application or developer.|Exploitation|
@@ -296,6 +303,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
 
 [Further details and notes](security-center-alerts-data-services.md#azure-cosmos-db)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Access from an unusual location to a Cosmos DB account**|Indicates that there was a change in the access pattern to an Azure Cosmos DB account. Someone has accessed this account from an unfamiliar IP address, compared to recent activity. Either an attacker has accessed the account, or a legitimate user has accessed it from a new and unusual geographical location. An example of the latter is remote maintenance from a new application or developer.|Exploitation|
@@ -305,7 +313,8 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurenetlayer"></a>Alerts for Azure network layer
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-network-layer)||
+[Further details and notes](security-center-alerts-service-layer.md#azure-network-layer)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Traffic detected from IP addresses recommended for blocking**|Azure Security Center detected inbound traffic from IP addresses that are recommended to be blocked. This typically occurs when this IP address doesn't communicate regularly with this resource. Alternatively, the IP address has been flagged as malicious by Security Center's threat intelligence sources.|Probing|
@@ -329,7 +338,8 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureresourceman"></a>Alerts for Azure Resource Manager (Preview)
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)||
+[Further details and notes](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**PREVIEW - MicroBurst toolkit function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool [MicroBurst](https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscriptions' resources, identify insecure configurations, and leak confidential information.|-|
@@ -347,6 +357,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault (Preview)
 
 [Further details and notes](security-center-alerts-service-layer.md#azure-keyvault)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**Access from a TOR exit node to a Key Vault**|The Key Vault has been accessed by someone using the TOR IP anonymization system to hide their location. Malicious actors often try to hide their location when attempting to gain unauthorized access to internet-connected resources.|-|
@@ -364,6 +375,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ## <a name="alerts-azureddos"></a>Alerts for Azure DDoS Protection
 
 [Further details and notes](security-center-alerts-integration.md#azure-ddos)
+
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
 |**DDoS Attack detected for Public IP**|DDoS Attack detected for Public IP (IP address) and being mitigated.|Probing|
