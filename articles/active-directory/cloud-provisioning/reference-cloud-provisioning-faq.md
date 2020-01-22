@@ -52,7 +52,7 @@ Yes, cloud provisioning creates a service principal for the provisioning configu
 
 **Q: What happens when a synced user is required to change password on next logon?**
 
-If password hash sync is enabled in cloud provisioning and the synced user is required to change password on next logon in on-premises AD, cloud provisioning does not provisioned the to be changed password hash to Azure AD. Once the user changes the password, the user password hash is provisioned from AD to Azure AD.
+If password hash sync is enabled in cloud provisioning and the synced user is required to change password on next logon in on-premises AD, cloud provisioning does not provision the to be changed password hash to Azure AD. Once the user changes the password, the user password hash is provisioned from AD to Azure AD.
 
 **Q: Does cloud provisioning support writeback of ms-ds-consistencyGUID for any object?**
 
