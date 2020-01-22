@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
+ms.date: 01/21/2020
 
 ---
 
-# Collect Azure Activity log with legacy settings
-The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. Until recently, you created a log profile to send Activity log entries to [an event hub or storage account](activity-log-export.md) and used a connector to collect them into a [Log Analytics workspace](activity-log-collect.md). This article describes the difference between the methods, how to work with existing legacy settings, and how to clear legacy settings in preparation for diagnostic settings.
+# Update to Azure Activity log collection and export
+The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. The method to send Activity log entries to [an event hub or storage account](activity-log-export.md) or to a [Log Analytics workspace](activity-log-collect.md) has changed to use [diagnostic settings](diagnostic-settings.md). This article describes the difference between the methods and how to clear legacy settings in preparation to change to diagnostic settings.
 
 
 ## Differences between methods
