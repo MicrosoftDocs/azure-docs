@@ -296,7 +296,7 @@ The `ServiceBusQueueTrigger` annotation allows you to create a function that run
 
 The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subscription to target what data triggers the function.
 
-See the trigger [example](#example) for more detail.
+See the trigger [example](#trigger---example) for more detail.
 
 ---
 
