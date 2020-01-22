@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Multiclass Decision Forest module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model based on the *decision forest* algorithm. A decision forest is an ensemble model that rapidly builds a series of decision trees, while learning from tagged data.
 
@@ -71,12 +71,6 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
 11. Run the pipeline.
 
-## Results
-
-After training is complete:
-
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
-+ To see the rules for each node, click each tree to drill down into the splits.
 
 
 ## Next steps

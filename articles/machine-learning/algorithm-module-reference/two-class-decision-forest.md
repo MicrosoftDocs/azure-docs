@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Two-Class Decision Forest module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model based on the decision forests algorithm.  
 
@@ -82,17 +82,12 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 9. Attach a labeled dataset, and one of the [training modules](module-reference.md):  
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
-  
     
 ## Results
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
-  
-    Click each tree to drill down into the splits and see the rules for each node.
-
-+ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the pipeline.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To use the model for scoring, add the **Score Model** module to a pipeline.
 
