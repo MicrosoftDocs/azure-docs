@@ -126,3 +126,5 @@ landingContent:
         links:
           - text: Dynamic scalability
             url: https://azure.microsoft.com/resources/videos/azure-sql-database-dynamically-scale-up-or-scale-down/
+          - text: Dynamic scalability
+            url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player  
