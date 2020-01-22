@@ -220,7 +220,8 @@ After the service is created, locate it within the Azure portal, open it, and th
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
 
     ![Map to target databases](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
-
+	> [!NOTE] 
+    	> Though you can select multiple databases in this step, each DMS service can only support four databases for concurrent migration. Also, there is a limit of two DMS services per region in a subscription. So, for example you have 40 databases to be migrated, only 8 of them can be concurrently migrated with two DMS services being created.
 3. Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 
     ![Migration Summary](media/tutorial-mysql-to-azure-mysql-online/dms-migration-summary.png)
