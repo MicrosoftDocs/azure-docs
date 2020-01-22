@@ -1,7 +1,7 @@
 ---
-title: Live Events and Live Outputs in Media Services
+title: Live Events and Live Outputs concepts in Azure Media Services v3
 titleSuffix: Azure Media Services
-description: An overview of Live Events and Live Outputs in Azure Media Services v3.
+description: This topic provides an overview of live events and live outputs in Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
