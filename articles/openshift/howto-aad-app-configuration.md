@@ -56,7 +56,7 @@ To grant cluster admin access, the memberships in an Azure AD security group are
 10. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 > [!IMPORTANT]
-> In order to sync this group with the "osa-customer-admins" OpenShift group, create the cluster via the Azure CLI. The Azure Portal currently lacks a field to set this group.
+> To sync this group with the osa-customer-admins OpenShift group, create the cluster by using the Azure CLI. The Azure portal currently lacks a field to set this group.
 
 ## Create an Azure AD app registration
 
