@@ -47,7 +47,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |Name|myVirtualNetwork1|
 
 4. On the **IP Addresses** tab, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter *Subnet1* for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
-5. Select **Review + Create**, and then select **Create**.
+5. Select **Review + Create** and then select **Create**.
    
 5. Complete steps 1-5 again, with the following changes:
 
@@ -108,9 +108,6 @@ Create a VM in each virtual network so that you can communicate between them in 
     |---|---|
     |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1**.|
     |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1**.|
-    
-
-    ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
    
 6. Select **Networking**. Choose **Allow selected ports** for the **Public inbound ports** option. Choose **RDP** for the **Select inbound ports** option below this. 
 
