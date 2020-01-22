@@ -12,7 +12,7 @@ ms.date: 11/12/2019
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
-# What is Azure Machine Learning designer (preview)? 
+# What is Azure Machine Learning designer? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
@@ -112,7 +112,7 @@ The designer creates the same [PublishedPipeline](https://docs.microsoft.com/pyt
 
 ## Moving from the visual interface to the designer
 
-The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
+The visual interface (preview) has been updated and is now Azure Machine Learning designer. The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
 
 As a result of these updates, some concepts and terms for the visual interface have been changed or renamed. See the table below for the most important conceptual changes. 
 
