@@ -3,7 +3,6 @@ title: Commercial marketplace policies and terms | Azure
 description: Microsoft commercial marketplace policies and terms apply to all publishers and offerings in the Microsoft Azure Marketplace.
 services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: MaggiePucciEvans
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article

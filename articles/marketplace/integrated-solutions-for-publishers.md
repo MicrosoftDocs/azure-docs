@@ -24,13 +24,13 @@ For an overview of the Integrated Solutions program, watch [this video](https://
 * Customers can find packaged solutions that solve end-to-end business challenges through the marketplace. They get accelerated time to value because the technology is integrated up front. Customers avoid having to engage separately with multiple apps deployed in a fragmented way.
 * IP is packaged along with other solutions and services that enhance the value of the technology that's delivered by expert services partners.
 * Services partners create predefined, preintegrated solutions with best-of-breed technology to scale, land, and expand in more customer accounts.
-* Microsoft can use these preintegrated, industry-aligned solutions to more easily co-sell to customers. Pricing and terms are sorted in advance. 
+* Microsoft can use these preintegrated, industry-aligned solutions to more easily co-sell to customers. Pricing and terms are sorted in advance.
 
 ## Eligibility criteria
 
 * Participating partners must have an MPN ID.
 * Participating services providers should be co-sell ready.
-* Participating software vendors should be IP co-sell ready. 
+* Participating software vendors should be IP co-sell ready.
 * At least one participating partner must have Gold Competency in one of the following areas:
 
     * Application Development
@@ -49,13 +49,13 @@ For an overview of the Integrated Solutions program, watch [this video](https://
 
 ## Submit a nomination
 
-Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated Solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps. 
+Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated Solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
 
-## Develop an integrated solution 
+## Develop an integrated solution
 
-After your nomination is approved, use the linked program resources to develop your integrated solution. Follow these steps: 
+After your nomination is approved, use the linked program resources to develop your integrated solution. Follow these steps:
 
-1. Complete key business and technical discussions in a workshop format to define the solution and integration approach. 
+1. Complete key business and technical discussions in a workshop format to define the solution and integration approach.
 
     Your discussion about the solution should involve the following points:
     * Scope
@@ -69,7 +69,7 @@ After your nomination is approved, use the linked program resources to develop y
     * Sales process
     * Activities
 
-    Your discussion about the integration approach should involve the following points: 
+    Your discussion about the integration approach should involve the following points:
     * Integration points
     * Solution architecture
     * Authentication
@@ -97,15 +97,15 @@ After your nomination is approved, use the linked program resources to develop y
     * A listing description of the integrated solution. Follow [offer-listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
     * A one-page pitch to customers. Use the [one-pager template](https://aka.ms/AA5s08a).
     * A customer presentation. Use the [presentation template](https://aka.ms/AA5s7ql).
-    * A logo for the combined solution. 
+    * A logo for the combined solution.
 
-## Publish your integrated solution 
+## Publish your integrated solution
 
 After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
 
 Although five service types are available for consulting-service offers, an integrated solution must be either a proof of concept or a full implementation.
 
-## Go to market with your integrated solution 
+## Go to market with your integrated solution
 
 When your solution is live in Microsoft AppSource or Azure Marketplace, you'll want to drive awareness and demand through marketing activities. Review the activities listed in the [Project plan and timeline](https://aka.ms/AA5qiuc). This resource includes activities that partners can drive within their own teams and with one another. Then access the [go-to-market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) for partners who publish in the marketplace. All integrated-solution offers are eligible for trial-level benefits.
 

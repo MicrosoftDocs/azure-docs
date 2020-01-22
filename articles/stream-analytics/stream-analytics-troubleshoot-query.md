@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 This article describes common issues with developing Stream Analytics queries and how to troubleshoot them.
 
-## Query is not producing expected output 
+## Query is not producing expected output
 1.  Examine errors by testing locally:
     - On the **Query** tab, select **Test**. Use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.   
     - You can also [test your query directly on live input](stream-analytics-live-data-local-testing.md) using Stream Analytics tools for Visual Studio.
@@ -27,10 +27,10 @@ This article describes common issues with developing Stream Analytics queries an
     - When you use window functions, wait for the entire window duration to see an output from the query.
     - The timestamp for events precedes the job start time and, therefore, events are being dropped.
 
-4.  Ensure event ordering policies are configured as expected. Go to the **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
+4.  Ensure event ordering policies are configured as expected. Go to the **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production.
 
 5. Debug by using audit and diagnostic logs:
-    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
+    - Use [Audit Logs](../azure-resource-manager/management/view-activity-logs.md), and filter to identify and debug errors.
     - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
 
 ## Job is consuming too many Streaming Units
@@ -47,7 +47,7 @@ The following example query in an Azure Stream Analytics job has one stream inpu
 Note that the job is running, but no events are being produced in the output. On the **Monitoring** tile, shown here, you can see that the input is producing data, but you don’t know which step of the **JOIN** caused all the events to be dropped.
 
 ![The Stream Analytics Monitoring tile](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
- 
+
 In this situation, you can add a few extra SELECT INTO statements to "log" the intermediate JOIN results and the data that's read from the input.
 
 In this example, we've added two new "temporary outputs." They can be any sink you like. Here we use Azure Storage as an example:

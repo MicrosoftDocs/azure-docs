@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/8/2020
+ms.date: 1/15/2020
 ms.author: raiye
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -208,9 +208,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.94_201912-01 | January 8, 2020 | Post 2.95 |  
-| WA-GUEST-OS-2.93_201911-01 | December 5, 2019 | Post 2.94 |  
-|~WA-GUEST-OS-2.91_201910-01~| November 1, 2019 | January 8, 2020 |  
+| WA-GUEST-OS-2.93_201912-01 | January 8, 2020 | Post 2.95 |  
+| WA-GUEST-OS-2.92_201911-01 | December 5, 2019 | Post 2.94 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| November 1, 2019 | January 8, 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| October 7, 2019 | December 5, 2019 |  
 |~~WA-GUEST-OS-2.89_201908-01~~| August 4, 2019 | November 1, 2019 |  
 |~~WA-GUEST-OS-2.88_201907-01~~| July 26, 2019 | October 7, 2019 |
