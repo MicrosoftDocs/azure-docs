@@ -67,10 +67,11 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
 
 #### Step 1: Modules
 
-1. Choose the **AzureSecurityCenterforIoT** Module
-1. In the **Module Settings** tab, change the **name** to **azureiotsecurity**.
-1. In the **Enviroment Variables** tab, add variable if needed (like debug level)
-1. In the **Container Create Options** tab, add the following configuration:      
+1. Select the **AzureSecurityCenterforIoT** module.
+1. On the **Module Settings** tab, change the **name** to **azureiotsecurity**.
+1. On the **Enviroment Variables** tab, add a variable if needed (for example, debug level).
+1. On the **Container Create Options** tab, add the following configuration:
+
     ``` json
     {
         "NetworkingConfig": {
@@ -88,18 +89,20 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
         }
     }    
     ```
-1. In the **Module Twin Settings** tab, add the following configuration:
+    
+1. On the **Module Twin Settings** tab, add the following configuration:
       
     ``` json
       "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Click **update**.
+1. Select **Update**.
 
-#### Step 2: Runtime Settings
-1. Select **Runtime Settings** 
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
-1. Verify **Create Options** is set to: 
+#### Step 2: Runtime settings
+
+1. Select **Runtime Settings**.
+1. Under **Edge Hub**, change the **Image** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Verify **Create Options** is set to the following configuration: 
          
     ``` json
     { 
@@ -124,27 +127,30 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
        }
     }
     ```
-1. Click **Save**.
+    
+1. Select **Save**.
    
-1. Click **Next**.
+1. Select **Next**.
 
 #### Step 3: Specify routes 
 
-1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream** according to the following examples, only then click **Next**. 
+1. On the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream** according to the following examples. Only when the route is in place, select **Next**.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   Example routes:
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-1. Click **Next**.
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
+
+1. Select **Next**.
 
 #### Step 4: Review deployment
 
-- In the **Review Deployment** tab, review your deployment information, then select **Create** to complete the deployment.
+- On the **Review Deployment** tab, review your deployment information, then select **Create** to complete the deployment.
 
 ## Diagnostic steps
 
