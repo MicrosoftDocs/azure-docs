@@ -43,6 +43,8 @@ Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string that 
 
  ![Set secret data](./media/github-actions/actions2.png)
 
+You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in Github Actions](./spring-cloud-github-actions-key-vault.md).
+
 ## Provision Azure Spring Cloud service instance
 To provision your service instance, run the following commands using the Azure CLI.
 ```

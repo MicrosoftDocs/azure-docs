@@ -56,13 +56,13 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
-- name: DevOps
+- name: DevOps Deployment to Azure Spring Cloud
   items:
-    - name: Automate your CI/CD pipeline in Azure Spring Cloud
+    - name: Automate CI/CD pipeline in Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
     - name: CI/CD with GitHub Actions
       href: spring-cloud-howto-github-actions.md
-    - name: Key Vault for Spring Cloud GitHub actions
+    - name: Key Vault for Azure Spring Cloud GitHub actions
       href: spring-cloud-github-actions-key-vault.md
     - name: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
