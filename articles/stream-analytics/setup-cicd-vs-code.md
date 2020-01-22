@@ -1,5 +1,5 @@
 ---
-title:  Deploy an Azure Stream Analytics job using CI/CD npm package 
+title: Deploy an Azure Stream Analytics job using CI/CD npm package 
 description: This article describes how to use Azure Stream Analytics CI/CD npm package to set up a continuous integration and deployment process.
 services: stream-analytics
 author: mamccrea
@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/21/2020
 ---
 
-# Use the Stream Analytics CI/CD npm package
+# Deploy an Azure Stream Analytics job using CI/CD npm package 
 
 You can use the Azure Stream Analytics CI/CD npm package to set up a continuous integration and deployment process for your Stream Analytics jobs. This article describes how to use the npm package in general with any CI/CD system, as well as specific instructions for deployment with Azure Pipelines.
 
@@ -53,7 +53,7 @@ The default parameters in the parameters.json file are from the settings in your
 
 This section details how to create Azure Pipelines [build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) and [release](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) pipelines using npm.
 
-Open a web browser and navigate to the project you created in [Azure DevOps](https://app.vsaex.visualstudio.com/).
+Open a web browser and navigate to your Azure Stream Analytics Visual Studio Code project.
 
 1. Under **Pipelines** in the left navigation menu, select **Builds**. Then select **New pipeline**
 
@@ -98,6 +98,7 @@ Open a web browser and navigate to the project you created in [Azure DevOps](htt
 1. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Copy files**. Then enter the following configurations.
 
    |Parameter|Input|
+   |-|-|
    |Display name|Copy Files to: $(build.artifactstagingdirectory)|
    |Source Folder|`$(system.defaultworkingdirectory)`| 
    |Contents| `**\Deploy\**` |
