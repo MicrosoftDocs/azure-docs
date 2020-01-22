@@ -14,13 +14,14 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
+# Make a group an eligible member of an Azure AD role via Privileged Identity Management
 ---
 
-# Make a group an eligible member of an Azure AD role via Privileged Identity Management
+# Assign a role to a group using Privilaged Identity Management
 
-This article describes how an IT admin can make Azure Active Directory (Azure AD) roles eligible for activation in Azure AD Privileged Identity Management.
+This article describes how an IT admin can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management.
 
-## Using Azure AD Admin Center
+## Using Azure AD admin center
 
 	TBD
 
