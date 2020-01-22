@@ -31,9 +31,45 @@ As with the developer virtual machine before, using Azure notebooks ensures a co
 > [!NOTE]
 > Once set up, the Azure Notebooks service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
 
+Azure Notebook accounts are independent from Azure subscriptions.
+
+### Create an Azure Notebooks account
+
+To use Azure Notebooks, you need to create an account.
+
+1. Navigate to [Azure notebooks](https://notebooks.azure.com).
+
+1. Click **Sign In** in the upper, right-hand corner of the page.
+
+1. Sign in with either your work or school account (Azure Active Directory) or your personal account (Microsoft Account).
+
+1. If you have not used Azure Notebooks before, you will be prompted to grant access for the Azure Notebooks app.
+
+1. Create a user ID for Azure Notebooks.
+
+### Upload Jupyter notebook files
+
+We will create a new Azure Notebooks project and upload files to it.
+
+1. From the user page of your new account, select **My Projects** from the top menu bar.
+
+1. On the **Create New Project** dialog  box, provide a **Project Name** that also automatically forms the **Project ID**.
+
+1. Leave **Public** and **README** unchecked as there is no need for the project to be public or to have a readme.
+
+1. Select **Create**.
+
+1. Select **Upload** (the up arrow icon) and choose **From Computer**.
+
+1. Select **Choose files**.
+
+1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all the files in the list and click **Open**.
+
+1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
+
 ### Azure notebook files
 
-The activities in this portion of the tutorial span across two notebooks. We will create a new Azure Notebooks project and upload files to it. Specifically, the files that we will upload are:
+Let's review the files you uploaded from from the sample source files into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files and a few supporting files.
 
 * **01-turbofan\_regression.ipynb:** This notebook uses the Machine Learning service workspace to create and run a machine learning experiment. Broadly, the notebook performs the following steps:
 
@@ -56,38 +92,6 @@ The activities in this portion of the tutorial span across two notebooks. We wil
 * **Utils.py:** Contains a set of Python utility functions for working with data. The first notebook contains a detailed explanation of the functions.
 
 * **README.md:** Readme describing the use of the notebooks.  
-
-Azure Notebook accounts are independent from Azure subscriptions. To use Azure Notebooks, you need to create an account.
-
-### Create an Azure Notebooks account
-
-1. Navigate to [Azure notebooks](https://notebooks.azure.com).
-
-1. Click **Sign In** in the upper, right-hand corner of the page.
-
-1. Sign in with either your work or school account (Azure Active Directory) or your personal account (Microsoft Account).
-
-1. If you have not used Azure Notebooks before, you will be prompted to grant access for the Azure Notebooks app.
-
-1. Create a user ID for Azure Notebooks.
-
-### Upload Jupyter notebook files
-
-1. From the user page of your new account, select **My Projects** from the top menu bar.
-
-1. On the **Create New Project** dialog  box, provide a **Project Name** that also automatically forms the **Project ID**.
-
-1. Leave **Public** and **README** unchecked as there is no need for the project to be public or to have a readme.
-
-1. Select **Create**.
-
-1. Select **Upload** (the up arrow icon) and choose **From Computer**.
-
-1. Select **Choose files**.
-
-1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all the files in the list and click **Open**.
-
-1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
 
 ## Run Azure Notebooks
 
