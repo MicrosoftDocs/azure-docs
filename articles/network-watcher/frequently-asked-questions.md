@@ -72,17 +72,17 @@ Azure network resources can be combined and managed through [Network Security Gr
 
 To use a Storage account with a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
-* Find the name of the storage account by locating the NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
-* Navigate to the storage account by typing the storage account's name in the global search on the portal
+* Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 * Under the **SETTINGS** section, select **Firewalls and virtual networks**
 * In "Allow access from", select **Selected networks**. Then under **Exceptions**, tick the box next to **"Allow trusted Microsoft services to access this storage account"** 
 * If it is already selected, no change is needed.  
+* Locate your target NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
 
 ### How do I use NSG Flow Logs with Service Endpoints for storage?
 
-Please see the [tutorial enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
+Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
 
 
 ### What is the difference between flow logs versions 1 & 2?
