@@ -47,6 +47,7 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for PostgreSQL - Single server         | All public regions      |   Preview      |
 |  |  Azure Database for MySQL         | All public regions      |   Preview      |
 |  |  Azure Database for MariaDB         | All public regions      |   Preview      |
+
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## Logging and monitoring

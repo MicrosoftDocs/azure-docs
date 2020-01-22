@@ -13,7 +13,7 @@ ms.date: 11/19/2019
 ---
 # Module: K-Means Clustering
 
-This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer to create an untrained K-means clustering model. 
+This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer (preview) to create an untrained K-means clustering model. 
  
 K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
 
