@@ -44,7 +44,7 @@ The parameter is incorrect.
 
 To resolve, install the latest updates for Windows Server 2012 R2 and restart the server.
 
-<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**
+<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**  
 This message appears if Az or AzureRM PowerShell module is not installed on PowerShell 5.1. 
 
 > [!Note]  
