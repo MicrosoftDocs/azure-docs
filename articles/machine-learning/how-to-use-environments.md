@@ -247,7 +247,9 @@ Additionally, the service automatically uses one of the Ubuntu Linux-based [base
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 # Alternatively, you can specify the contents of dockerfile of your base image
-myenv.docker.base_dockerfile="dockerfile_contents_of_your_base_image" 
+with open("docker_file_of_your_base_image", 'r') as f:
+    dockerfile_contents_of_your_base_image=f.read()
+myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
 ```
 
 > [!NOTE]
