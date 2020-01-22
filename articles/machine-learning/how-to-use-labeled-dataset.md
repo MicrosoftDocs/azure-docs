@@ -13,12 +13,11 @@ ms.date: 01/21/2020
 
 # Create and explore Azure Machine Learning dataset with labels
 
-In this article, you'll learn how to export the data labels from a labeling project
-and load them into popular formats such as, a pandas dataframe for data exploration.
+In this article, you'll learn how to export the data labels from an Azure Machine Learning data labeling project and load them into popular formats such as, a pandas dataframe for data exploration or a Torchvision dataset for image transformation. 
 
 ## What are datasets with labels 
 
-Azure Machine Learning datasets with labels are [TabularDatasets](how-to-create-register-datasets.md#dataset-types) with a label property, we will refer to them as labeled datasets. These specific types of TabularDatasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md).
+Azure Machine Learning datasets with labels are [TabularDatasets](how-to-create-register-datasets.md#dataset-types) with a label property, we will refer to them as labeled datasets. These specific types of TabularDatasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 ## Prerequisites
 
@@ -30,11 +29,11 @@ Azure Machine Learning datasets with labels are [TabularDatasets](how-to-create-
 
 ## Export data labels 
 
-When you complete a data labeling project, you can then export the label data from a labeling project. Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
+When you complete a data labeling project, you can export the label data from a labeling project. Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
 
 ### COCO 
 
-Use the **Export** button on the **Project details** page of your labeling project. The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. 
+ The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. 
 
 ### Azure Machine Learning dataset
 
