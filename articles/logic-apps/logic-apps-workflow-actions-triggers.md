@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 01/19/2020
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -2679,7 +2679,7 @@ By default, logic app instances run at the same time (concurrently or in paralle
 
 To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations for when you want to enable the concurrency control:
 
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is signficantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * While concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
@@ -2813,7 +2813,7 @@ and recurring triggers start skipping polling attempts.
 
 To change the default limit on waiting runs, in the underlying trigger definition, 
 add the `runtimeConfiguration.concurency.maximumWaitingRuns` property with 
-a value between `0` and `100`. 
+a value between `1` and `100`. 
 
 ```json
 "<trigger-name>": {

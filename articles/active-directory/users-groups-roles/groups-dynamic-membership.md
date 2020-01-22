@@ -316,7 +316,12 @@ You can create a group containing all users within a tenant using a membership r
 The "All users" rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+If you want your group to exclude guest users and include only members of your tenant, you can use the following syntax:
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### Create an "All devices" rule
@@ -326,7 +331,7 @@ You can create a group containing all devices within a tenant using a membership
 The "All Devices" rule is constructed using single expression using the -ne operator and the null value:
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## Extension properties and custom extension properties

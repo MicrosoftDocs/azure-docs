@@ -497,7 +497,7 @@ Resource Manager provides several benefits:
 - You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
 > [!Note]
-> Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
+> Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 

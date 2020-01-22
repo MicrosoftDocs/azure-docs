@@ -94,4 +94,4 @@ For more information, see the following resources:
 
 * [Create a function using a custom image](functions-create-function-linux-custom-image.md)
 * [Code and test Azure Functions locally](functions-develop-local.md)
-* [How the Azure Function consumption plan works](functions-scale.md)
+* [How the Azure Function Consumption plan works](functions-scale.md)

@@ -184,7 +184,7 @@
       items:
       - name: GPU optimized
         href: sizes-gpu.md
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: n-series-amd-driver-setup.md      

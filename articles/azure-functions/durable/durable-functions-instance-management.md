@@ -35,7 +35,7 @@ The parameters for starting a new orchestration instance are as follows:
 
 The following code is an example function that starts a new orchestration instance:
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -52,7 +52,40 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript
+# [JavaScript](#tab/javascript)
+
+<a name="javascript-function-json"></a>Unless otherwise specified, the examples on this page use the HTTP trigger with the following function.json.
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["post"]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
+
+**index.js**
 
 ```javascript
 const df = require("durable-functions");
@@ -64,6 +97,8 @@ module.exports = async function(context, input) {
     context.log(`Started orchestration with ID = ${instanceId}.`);
 };
 ```
+
+---
 
 ### Azure Functions Core Tools
 
@@ -116,7 +151,7 @@ The method returns an object with the following properties:
 
 This method returns `null` (.NET) or `undefined` (JavaScript) if the instance doesn't exist.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -132,7 +167,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -144,6 +179,10 @@ module.exports = async function(context, instanceId) {
     // do something based on the current status.
 }
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 ### Azure Functions Core Tools
 
@@ -177,7 +216,7 @@ Rather than query one instance in your orchestration at a time, you might find i
 
 You can use the `GetStatusAsync` (.NET) or `getStatusAll` (JavaScript) method to query the statuses of all orchestration instances. In .NET, you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -197,7 +236,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -211,6 +250,10 @@ module.exports = async function(context, req) {
     });
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 ### Azure Functions Core Tools
 
@@ -231,7 +274,7 @@ What if you don't really need all the information that a standard instance query
 
 Use the `GetStatusAsync` (.NET) or `getStatusBy` (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -259,7 +302,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -281,6 +324,10 @@ module.exports = async function(context, req) {
     });
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 ### Azure Functions Core Tools
 
@@ -306,7 +353,7 @@ If you have an orchestration instance that is taking too long to run, or you jus
 
 You can use the `TerminateAsync` (.NET) or the `terminate` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to terminate instances. The two parameters are an `instanceId` and a `reason` string, which are written to logs and to the instance status. A terminated instance stops running as soon as it reaches the next `await` (.NET) or `yield` (JavaScript) point, or it terminates immediately if it's already on an `await` or `yield`.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -322,7 +369,7 @@ public static Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -334,6 +381,10 @@ module.exports = async function(context, instanceId) {
     return client.terminate(instanceId, reason);
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
@@ -365,7 +416,7 @@ The parameters to `RaiseEventAsync` (.NET) and `raiseEvent` (JavaScript) are as 
 * **EventName**: The name of the event to send.
 * **EventData**: A JSON-serializable payload to send to the instance.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEvent")]
@@ -381,7 +432,7 @@ public static Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -393,6 +444,10 @@ module.exports = async function(context, instanceId) {
     return client.raiseEvent(instanceId, "MyEvent", eventData);
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 > [!NOTE]
 > If there is no orchestration instance with the specified instance ID, the event message is discarded. If an instance exists but it is not yet waiting for the event, the event will be stored in the instance state until it is ready to be received and processed.
@@ -423,9 +478,17 @@ The `WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET) or the `waitForCo
 
 Here is an example HTTP-trigger function that demonstrates how to use this API:
 
+# [C#](#tab/csharp)
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
+# [JavaScript](#tab/javascript)
+
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
 
@@ -489,7 +552,7 @@ The methods return an object with the following string properties:
 
 Functions can send instances of these objects to external systems to monitor or raise events on the corresponding orchestrations, as shown in the following examples:
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -511,7 +574,7 @@ public static void SendInstanceInfo(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableActivityContext` instead of `IDurableActivityContext`, you must use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -529,6 +592,10 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
+
 ## Rewind instances (preview)
 
 If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
@@ -543,7 +610,7 @@ For example, let's say you have a workflow involving a series of [human approval
 > [!NOTE]
 > The *rewind* feature doesn't support rewinding orchestration instances that use durable timers.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RewindInstance")]
@@ -559,7 +626,7 @@ public static Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -571,6 +638,10 @@ module.exports = async function(context, instanceId) {
     return client.rewind(instanceId, reason);
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
 
 ### Azure Functions Core Tools
 
@@ -591,6 +662,8 @@ To remove all the data associated with an orchestration, you can purge the insta
 
 This method has two overloads. The first overload purges history by the ID of the orchestration instance:
 
+# [C#](#tab/csharp)
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -601,6 +674,8 @@ public static Task Run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -610,7 +685,13 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
+---
+
 The next example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -631,8 +712,49 @@ public static Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-**JavaScript**
+# [JavaScript](#tab/javascript)
+
 The `purgeInstanceHistoryBy` method can be used to conditionally purge instance history for multiple instances.
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "schedule": "0 0 12 * * *",
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
+
+**index.js**
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, myTimer) {
+    const client = df.getClient(context);
+    const createdTimeFrom = new Date(0);
+    const createdTimeTo = new Date().setDate(today.getDate() - 30);
+    const runtimeStatuses = [ df.OrchestrationRuntimeStatus.Completed ];
+    return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
+};
+```
+
+---
 
 > [!NOTE]
 > For the purge history operation to succeed, the runtime status of the target instance must be **Completed**, **Terminated**, or **Failed**.

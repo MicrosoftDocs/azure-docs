@@ -99,7 +99,7 @@ The following table shows approximately how many agents can communicate with a g
 
 ## Download the Log Analytics gateway
 
-Get the latest version of the Log Analytics gateway Setup file from either [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=54443) or the Azure portal.
+Get the latest version of the Log Analytics gateway Setup file from either Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)) or the Azure portal.
 
 To get the Log Analytics gateway from the Azure portal, follow these steps:
 

@@ -26,22 +26,23 @@ The IP addresses that Azure Integration Runtime uses depends on the region where
 
 Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located:
 
-| Country        | Region              | Allowed Source IP addresses                                  |
+|                | Region              | IP addresses                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
 | Asia           | East Asia           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
 | &nbsp;         | Southeast Asia      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
 | Australia      | Australia East      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
 | &nbsp;         | Australia Southeast | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
 | Brazil         | Brazil South        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
-| &nbsp;         | Canada Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
+| Canada         | Canada Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
 | Europe         | North Europe        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | West Europe         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | France         | France Central      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
 | India          | Central India       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Japan          | Japan East          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Korea          | Korea Central       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| South Africa   | South Africa North  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | United Kingdom | UK South            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
-| United States  | Central US          | 20.37.156.0/26,</br>20.37.156.0/26,</br>20.44.10.64/28       |
+| United States  | Central US          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | East US             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
 |                | East US2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
 |                | East US 2 EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |

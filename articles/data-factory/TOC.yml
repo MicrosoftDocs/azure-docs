@@ -132,6 +132,12 @@
       href: tutorial-deploy-ssis-packages-azure.md
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure-powershell.md
+    - name: Join virtual network
+      href: tutorial-deploy-ssis-virtual-network.md  
+  - name: End-to-end labs
+    items:
+    - name: Data integration using data factory and data share
+      href: lab-data-flow-data-share.md
 - name: Samples
   items:
   - name: Code samples
@@ -611,6 +617,8 @@
       href: solution-template-copy-new-files-lastmodifieddate.md
     - name: Bulk copy from database
       href: solution-template-bulk-copy-with-control-table.md
+    - name: Bulk copy from files to database
+      href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
     - name: Migrate data from Amazon S3 to Azure Storage
@@ -673,18 +681,18 @@
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
+  - name: Whitepapers
+    href: whitepapers.md
+  - name: FAQ
+    href: frequently-asked-questions.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Ask a question - MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
     href: https://feedback.azure.com/forums/270578-azure-data-factory
-  - name: FAQ
-    href: frequently-asked-questions.md
-  - name: Whitepapers
-    href: whitepapers.md
-  - name: Roadmap
-    href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

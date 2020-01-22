@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 You can save incoming emails and attachments as blobs in an [Azure storage container](../storage/common/storage-introduction.md).
 
-1. Before you can create a storage container, [create a storage account](../storage/common/storage-quickstart-create-account.md) with these settings on the **Basics** tab in the Azure portal:
+1. Before you can create a storage container, [create a storage account](../storage/common/storage-account-create.md) with these settings on the **Basics** tab in the Azure portal:
 
    | Setting | Value | Description |
    |---------|-------|-------------|
@@ -80,8 +80,8 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
       ![Copy and save storage account name and key](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   To get your storage account's access key, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 
+   To get your storage account's access key, you can also use
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
 1. Create a blob storage container for your email attachments.
@@ -156,7 +156,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
    ![Created function app](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   To create a function app, you can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
+   To create a function app, you can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. In the **Function Apps** list, expand your function app, if not already expanded. Under your function app, select **Functions**. On the functions toolbar, select **New function**.
 
@@ -279,7 +279,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
       | **Interval** | 1 | The number of intervals to wait between checks |
       | **Frequency** | Minute | The unit of time for each interval between checks |
       ||||
-  
+
    1. From the **Add new parameter** list, select **Subject Filter**.
 
    1. After the **Subject Filter** box appears in the action, specify the subject as listed here:
@@ -374,10 +374,10 @@ Now, test whether the condition works correctly:
 Next, define the actions to take for the **If true** branch. To save the email along with any attachments, remove any HTML from the email body, then create blobs in the storage container for the email and attachments.
 
 > [!NOTE]
-> Your logic app doesn't have to do anything for the 
-> **If false** branch when an email doesn't have attachments. 
-> As a bonus exercise after you finish this tutorial, 
-> you can add any appropriate action that you want to take 
+> Your logic app doesn't have to do anything for the
+> **If false** branch when an email doesn't have attachments.
+> As a bonus exercise after you finish this tutorial,
+> you can add any appropriate action that you want to take
 > for the **If false** branch.
 
 ## Call RemoveHTMLFunction
@@ -606,13 +606,13 @@ Next, add an action so that your logic app sends email to review the attachments
    ||||
 
    > [!NOTE]
-   > If you select a field that contains an array, 
-   > such as the **Content** field, which is an array that contains attachments, 
-   > the designer automatically adds a "For each" loop 
-   > around the action that references that field. 
-   > That way, your logic app can perform that action on each array item. 
-   > To remove the loop, remove the field for the array, 
-   > move the referencing action to outside the loop, 
+   > If you select a field that contains an array,
+   > such as the **Content** field, which is an array that contains attachments,
+   > the designer automatically adds a "For each" loop
+   > around the action that references that field.
+   > That way, your logic app can perform that action on each array item.
+   > To remove the loop, remove the field for the array,
+   > move the referencing action to outside the loop,
    > select the ellipses (**...**) on the loop's title bar, and select **Delete**.
 
 1. Save your logic app.

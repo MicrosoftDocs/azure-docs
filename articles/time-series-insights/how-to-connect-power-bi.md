@@ -48,7 +48,7 @@ To connect your Time Series Insights environment to Power BI, follow these steps
 To get started:
 
 1. Open the Time Series Insights Preview Explorer and curate your data.
-1. Once you have created a view you are satisfied with, navigate to the **More actions** dropdown menu and click on **Connect to Power BI**.
+1. Once you have created a view you are satisfied with, navigate to the **More actions** dropdown menu and select **Connect to Power BI**.
 
     [![Time Series Insights Preview Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
@@ -115,7 +115,7 @@ Now that you have imported the data into Power BI, it’s time to build a report
 
     [![Create a line chart](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.	To add another chart to your canvas, click anywhere on the canvas outside the line chart and repeat this process.
+1.	To add another chart to your canvas, select anywhere on the canvas outside the line chart and repeat this process.
 
     [![Create additional charts to share](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -135,7 +135,7 @@ As an overview:
 1. Modify the JSON payload as desired.
 1. Select **Done** and then **Close & Apply** within the **Power Query Editor Window**.
 
-You should see the desired changes applied.  
+The interface will now reflect the desired changes you applied.  
 
 ## Next Steps
 
@@ -143,4 +143,4 @@ You should see the desired changes applied.
 
 * Learn more about [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* See [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Read [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

@@ -22,12 +22,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview
-            url: overview.md
-          - text: Introduction to Security Controls
+          - text: Azure Security Benchmark Introduction
             url: introduction.md
-          - text: Shared responsibility in the cloud
-            url: ../fundamentals/shared-responsibility.md
+          - text: Overview of Azure Security Controls
+            url: overview.md
+
+
   # Card  
   - title: Security Controls
     linkLists:
@@ -50,10 +50,9 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-
           - text: Azure Security Fundamentals
             url: ../fundamentals/index.yml
+          - text: Shared responsibility in the cloud
+            url: ../fundamentals/shared-responsibility.md
           - text: Azure Security Center
             url: ../../security-center/index.yml
-          - text: Azure Key Vault
-            url: ../../key-vault/index.yml
