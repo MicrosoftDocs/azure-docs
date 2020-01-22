@@ -42,6 +42,8 @@
     href: relay-hybrid-connections-protocol.md
 - name: How To
   items:
+  - name: Migrate from Azure Service Manager to Resource Manager
+    href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json    
   - name: Plan and design
     items:
     - name: Migrate from ACS to SAS
