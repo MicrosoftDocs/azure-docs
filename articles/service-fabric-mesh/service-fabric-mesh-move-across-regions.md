@@ -1,56 +1,58 @@
 ---
 title: Move a Service Fabric Mesh application to another region
-description: The meta-description is not crawled for search rank, but is displayed in the browser. Include the words "move" and "region".
+description: You can move Service Fabric Mesh resources by deploying a copy of your current template to a new Azure region.
 author: erikadoyle
 ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
-
+ms.custom: subject-moving-resources
+#Customer intent: As an Azure service administrator, I want to move my Service Fabric Mesh resources to another Azure region.
 ---
 # Move a Service Fabric Mesh application to another Azure region
 
-Introductory paragraph.
-<!---Required:
-- Lead with a intro that sets the context to help customers understand why they might move resources to another region.
-- Answer the fundamental “why would I want to do this?” question.
-- Exact detail and scope of the intro will depend on your service.
-- Sample paragraph:
---->
 This article describes how to move your Service Fabric Mesh application and its resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, in response to outages, to gain features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
+ [Service Fabric Mesh does not support](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/region-move-support#microsoftservicefabricmesh) the ability to directly move resources across Azure regions. However, you can move resources indirectly by deploying a copy of your current Azure Resource Manager (ARM) template to the new target region and then redirecting ingress traffic and dependencies to the newly created Service Fabric Mesh application.
+
 ## Prerequisites
-<!---Required:
-- Mention anything that must be in place before starting to move resources to another region.
-- These might be requirements or limitations to be aware of, checks that should be made, or steps that must be taken before the move.
-begin.
---->
 
-## Prepare and move resources
-<!---Required:
-These are all the steps you need to do to prepare and actually move the resources.
-- As an example, you might describe how to export a resource group and then import it into the new region.
-- The actual steps will depend on the solution your service uses to shift resources across regions.
---->
+* Ingress controller (such as [Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/)) to serve as an intermediary for routing traffic between clients and your Service Fabric Mesh application
+* Service Fabric Mesh (Preview) availability in the target Azure region (`westus`, `eastus`, or `westeurope`)
 
-## Verify the move
-<!---Required:
-Short instructions to check that the resources now appear in the target region.
---->
+## Prepare
 
+1. Take a "snapshot" of the current state of your Service Fabric Mesh application by exporting the Azure Resource Manager template and parameters from the most recent deployment. To do this, follow the steps in [Export template after deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-after-deployment) using the Azure portal. You can also use [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
-## Discard target resources
-<!---Required:
-This section contains instructions that explain how to remove the target resources after they've been moved from the source region. IT's optional, but useful if customers do a move as a POC only, or if they no longer need the resources after the move.
---->
+2. If applicable, [export other resources in the same resource group](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) for redeployment in the target region.
+
+3. Review (and edit, if needed) the exported template to ensure the existing property values are the ones you want to use in the target region. The new `location` (Azure region) is a parameter that you will supply during redeployment.
+
+## Move
+
+1. Create a new resource group (or use an existing one) in the target region.
+
+2. With your exported template, follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) using the Azure portal. You can also use [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), or [REST API](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
+
+3. For guidance on moving related resources such as [Azure Storage accounts](../storage/common/storage-account-move), refer to guidance for individual services listed under the topic [Moving Azure resources across regions](../azure-resource-manager/management/move-region.md).
+
+## Verify
+
+1. When the deployment is complete, test the application endpoint(s) to verify the functionality of your application.
+
+2. You can also verify the status of your application by checking the application status ([az mesh app show](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) and reviewing the application logs and ([az mesh code-package-log](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) commands using the [Azure Service Fabric Mesh CLI](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container#set-up-service-fabric-mesh-cli).
+
+## Commit
+
+Once you've confirmed equivalent functionality of your Service Fabric Mesh application in the target region, configure your ingress controller (for example, [Application Gateway](../application-gateway/redirect-overview.md)) to redirect traffic to the new application.
 
 ## Clean up source resources
-<!---Required:
-Instructions in this section describe how to clean up/delete the resources in the source region, after they've been moved and verified in the target region.
---->
 
+To complete the move of the Service Fabric Mesh application, [delete the source application and/or parent resource group](../azure-resource-manager/management/delete-resource-group.md).
 
 ## Next steps
 
-<!---Optional
-Required if it makes sense for your service
---->
+* [Move Azure resources across regions](../azure-resource-manager/management/move-region.md)
+* [Support for moving Azure resources across regions](../azure-resource-manager/management/region-move-support.md)
+* [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md
+)
