@@ -1293,7 +1293,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Model Deploy Started|Model Deploy Started|Count|Total|Number of model deployments started in this workspace|Scenario|
 |Model Deploy Succeeded|Model Deploy Succeeded|Count|Total|Number of model deployments that succeeded in this workspace|Scenario|
 |Model Deploy Failed|Model Deploy Failed|Count|Total|Number of model deployments that failed in this workspace|Scenario,StatusCode|
-|Total Nodes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Premepted Nodes, Leaving Nodes|Scenario,ClusterName|
+|Total Nodes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes|Scenario,ClusterName|
 |Active Nodes|Active Nodes|Count|Average|Number of Acitve nodes. These are the nodes which are actively running a job.|Scenario,ClusterName|
 |Idle Nodes|Idle Nodes|Count|Average|Number of idle nodes. Idle nodes are the nodes which are not running any jobs but can accept new job if available.|Scenario,ClusterName|
 |Unusable Nodes|Unusable Nodes|Count|Average|Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes.|Scenario,ClusterName|

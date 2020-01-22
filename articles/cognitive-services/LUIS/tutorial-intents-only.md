@@ -62,6 +62,7 @@ These intentions are categorized into **Intents**.
     |`delivery for a small pepperoni pizza`|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
+    |`Order a pizza for me`|
 
     ![Add example utterances](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 

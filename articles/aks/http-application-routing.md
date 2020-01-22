@@ -3,8 +3,6 @@ title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
 description: Use the HTTP application routing add-on on Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019

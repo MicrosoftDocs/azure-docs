@@ -43,7 +43,7 @@ Create a new file called *sample.js* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **createProject** call.
 
 ```javascript
 const fs = require('fs');
@@ -82,7 +82,10 @@ To create classification tags to your project, add the following code to the end
 
 ### Upload and tag images
 
-When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
+When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. 
+
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
 
 To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height. You can upload up to 64 images in a single batch.
 
@@ -183,7 +186,7 @@ await Promise.all(fileUploadPromises);
 
 ### Train the project and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```javascript
 console.log("Training...");
@@ -193,6 +196,7 @@ let trainingIteration = await trainer.trainProject(sampleProject.id);
 console.log("Training started...");
 while (trainingIteration.status == "Training") {
     console.log("Training status: " + trainingIteration.status);
+    // wait for one second
     await setTimeoutPromise(1000, null);
     trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
 }

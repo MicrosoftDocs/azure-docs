@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Face documentation # < 60 chars
-summary: The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+summary: The cloud-based Face service provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Face API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
+  title: Face Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: The cloud-based Face service provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: face-api
@@ -21,11 +21,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card 
-  - title: About the Face API
+  - title: About the Face service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Face API?
+          - text: What is the Face service?
             url: Overview.md
 
   - title: Detect faces
