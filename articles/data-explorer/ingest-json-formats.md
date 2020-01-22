@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/12/2020
+ms.date: 01/22/2020
 ---
 
 # Ingest json formatted sample data into Azure Data Explorer
@@ -643,3 +643,8 @@ Dictionary structured json contains key-value pairs. Json records undergo ingest
     ```
 
 ---    
+
+## Next steps
+
+* [Data ingestion overview](ingest-data-overview.md)
+* [Write queries](write-queries.md)
