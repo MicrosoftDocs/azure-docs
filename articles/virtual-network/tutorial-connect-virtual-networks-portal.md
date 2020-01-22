@@ -46,7 +46,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |Region| Select **East US**.|
     |Name|myVirtualNetwork1|
 
-4. On the **IP Addresses** tab, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter Subnet1 for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
+4. On the **IP Addresses** tab, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter *Subnet1* for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
 5. Select **Review + Create**, and then select **Create**.
    
 5. Complete steps 1-5 again, with the following changes:
@@ -56,7 +56,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |Name|myVirtualNetwork2|
     |Address space|10.1.0.0/16|
     |Resource group| Select **Use existing** and then select **myResourceGroup**.|
-    |Subnet name | 
+    |Subnet name | Subnet2|
     |Subnet Address range|10.1.0.0/24|
 
 ## Peer virtual networks
