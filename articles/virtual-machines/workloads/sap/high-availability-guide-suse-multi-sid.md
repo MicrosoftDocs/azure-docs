@@ -129,8 +129,8 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
 
 * Frontend configuration
   * IP address for NW1 10.3.1.15
-  * IP address for NW1 10.3.1.17
-  * IP address for NW1 10.3.1.19
+  * IP address for NW2 10.3.1.17
+  * IP address for NW3 10.3.1.19
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
