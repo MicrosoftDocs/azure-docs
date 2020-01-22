@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2019
+ms.date: 11/27/2019
 ms.author: aschhab
 
 ---
@@ -71,16 +71,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     static ITopicClient topicClient;
     ``` 
 
-3. Replace the default contents of `Main()` with the following line of code:
+3. Replace the `Main()` method with the following **async** `Main` method that sends messages asynchronously using the SendMessagesAsync method that you will add in the next step. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the send messages method:
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -97,8 +91,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
         await topicClient.CloseAsync();
     }
     ```
-
-5. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
+5. Directly after the `Main` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -142,25 +135,20 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -218,17 +206,11 @@ To receive the messages you sent, create another .NET Core console application a
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Replace the default contents of `Main()` with the following line of code:
+3. Replace the `Main()` method with the following **async** `Main` method. It calls the `RegisterOnMessageHandlerAndReceiveMessages()` method that you will add in the next step. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the `RegisterOnMessageHandlerAndReceiveMessages()` method:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -240,11 +222,10 @@ To receive the messages you sent, create another .NET Core console application a
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. Directly after the `MainAsync()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
+   ```
+5. Directly after the `Main()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -318,25 +299,20 @@ To receive the messages you sent, create another .NET Core console application a
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()

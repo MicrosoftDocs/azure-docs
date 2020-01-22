@@ -12,10 +12,10 @@ ms.date: 09/30/2019
 
 # Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor
 
-> [!NOTE]
-> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md).
+> [!WARNING]
+> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-legacy.md).
 
-The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. This article describes how to collect the Activity Log into a Log Analytics workspace and how to use the Activity Log Analytics [monitoring solution](../insights/solutions.md), which provides log queries and views for analyzing this data. 
+The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. This article describes how to collect the Activity Log into a Log Analytics workspace and how to use the Activity Log Analytics [monitoring solution](../insights/solutions.md), which provides log queries and views for analyzing this data. 
 
 Connecting the Activity Log to a Log Analytics workspace provides the following benefits:
 
@@ -28,7 +28,7 @@ Connecting the Activity Log to a Log Analytics workspace provides the following 
 A single workspace can be connected to the Activity Log for multiple subscriptions in the same Azure tenant. For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
-> You may receive an error with the following procedure if the Microsoft.OperationalInsights and Microsoft.OperationsManagement resource providers aren't registered for your subscription. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register these providers.
+> You may receive an error with the following procedure if the Microsoft.OperationalInsights and Microsoft.OperationsManagement resource providers aren't registered for your subscription. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md) to register these providers.
 
 Use the following procedure to connect the Activity Log to your Log Analytics workspace:
 
@@ -43,7 +43,7 @@ Use the following procedure to connect the Activity Log to your Log Analytics wo
     ![Connect Workspaces](media/activity-log-export/connect-workspace.png)
 
 ## Analyze in Log Analytics workspace
-When you connect an Activity Log to a Log Analytics workspace, entries will be written to the workspace into a table called **AzureActivity** that you can retrieve with a [log query](../log-query/log-query-overview.md). The structure of this table varies depending on the [category of log entry](activity-logs-overview.md#categories-in-the-activity-log). See [Azure Activity Log event schema](activity-log-schema.md) for a description of each category.
+When you connect an Activity Log to a Log Analytics workspace, entries will be written to the workspace into a table called **AzureActivity** that you can retrieve with a [log query](../log-query/log-query-overview.md). The structure of this table varies depending on the [category of log entry](activity-log-view.md#categories-in-the-activity-log). See [Azure Activity Log event schema](activity-log-schema.md) for a description of each category.
 
 ## Activity Logs Analytics monitoring solution
 The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace.
@@ -70,6 +70,6 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 ## Next steps
 
-- Learn more about the [Activity Log](activity-logs-overview.md).
+- Learn more about the [Activity Log](platform-logs-overview.md).
 - Learn more about the [Azure Monitor data platform](data-platform.md).
 - Use [log queries](../log-query/log-query-overview.md) to view detailed information from your Activity Log.

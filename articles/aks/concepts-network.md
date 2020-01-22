@@ -88,7 +88,7 @@ Both kubenet and Azure CNI provide network connectivity for your AKS clusters. H
     * You must manually manage and maintain user-defined routes (UDRs).
     * Maximum of 400 nodes per cluster.
 * **Azure CNI**
-    * Pods get full virtual network connectivity and can be directly reached from outside of the cluster.
+    * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
     * Requires more IP address space.
 
 The following behavior differences exist between kubenet and Azure CNI:

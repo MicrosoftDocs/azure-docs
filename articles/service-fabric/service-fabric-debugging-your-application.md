@@ -1,22 +1,11 @@
 ---
-title: Debug your application in Visual Studio | Microsoft Docs
+title: Debug your application in Visual Studio 
 description: Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
 
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-
 ---
 # Debug your Service Fabric application by using Visual Studio
 > [!div class="op_single_selector"]

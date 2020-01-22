@@ -1,6 +1,6 @@
 ---
 title: Azure Government Web, Mobile and API | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,10 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/28/2018
+ms.date: 11/22/2019
 ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
+
+This article outlines the web and mobile services for the Azure Government environment, describing feature variations that differ from the public version, as well as any environment-specific considerations.
+
+## Azure Cognitive Search
+
+[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government. For a self-directed exploration of search functionality using public government data, visit the [Content Search and Intelligence](https://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
+
+Search features that have been widely adopted in government search applications include [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), useful for extracting structure and information from large undifferentiated text documents.
+
+Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](https://docs.microsoft.com/azure/search/query-simple-syntax) and [full](https://docs.microsoft.com/azure/search/query-lucene-syntax). You can review [query expression examples](https://docs.microsoft.com/azure/search/search-query-simple-examples) for an orientation.
+
+### Variations
+The endpoint for search services created in Azure Government is as follows:
+
+| Service Type | Azure Public | Azure Government |
+| ------------ | ------------ | ---------------- |
+| Azure Cognitive Search Service |\*.search.windows.net |\*.search.windows.us|
+
+All generally available and preview features in the public cloud are also available in Azure Government.
+
+### Considerations
+
+The following information identifies the Azure Government boundary for Azure Cognitive Search:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| ----------------------------------- | --------------------------------------- |
+| All data stored and processed in Azure Cognitive Search can contain Azure Government-regulated data. | Azure Cognitive Search metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your service. Do not enter regulated/controlled data into the following fields: Subscription name, Resource groups, Service name, Resource names, Resource tags, or any object you name or describe in Cognitive Search (indexes, indexers, data sources, synonym maps, and skillsets). Do not include sensitive data in HTTP headers sent to the REST API pr in search/query strings sent as part of the API.|
+
 ## App Services
 ### Variations
 Azure App Services is generally available in Azure Government.

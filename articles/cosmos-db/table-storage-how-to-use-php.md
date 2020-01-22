@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
+title: Use Azure Storage Table service or Azure Cosmos DB Table API from PHP
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 author: wmengmsft
 ms.author: wmeng

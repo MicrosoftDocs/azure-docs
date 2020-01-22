@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
 ---
 
@@ -252,3 +252,8 @@ You can also interact with users on the session host:
 - [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Threshold: Higher than 2000 ms is marked as unhealthy.
+
+## Next steps
+
+- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](diagnostics-log-analytics.md).
+- Read about common error scenarios and how to fix them at [Identify and diagnose issues](diagnostics-role-service.md).

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 11/06/2019
+ ms.date: 12/05/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -104,7 +104,7 @@ IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Bas
 Yes. Transit between IKEv1 and IKEv2 connections is supported.
 
 ### Can I have IKEv1 site-to-site connections on Basic SKUs of RouteBased VPN type?
-No. All RouteBased VPN SKUs except Basic SKUs of Route-based VPN type support IKEv1 connections for site-to-site.
+No. The Basic SKU does not support this.
 
 ### Can I change the connection protocol type after the connection is created (IKEv1 to IKEv2 and vice versa)?
 No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.

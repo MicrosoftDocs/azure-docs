@@ -1,7 +1,7 @@
 ---
 title: "Evaluate Recommender: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Evaluate Recommender module in the Azure Machine Learning service to evaluate the accuracy of recommender model predictions.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Evaluate Recommender module in Azure Machine Learning to evaluate the accuracy of recommender model predictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -85,4 +85,4 @@ Because it's impossible to know the actual "ground truth" for the recommended it
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

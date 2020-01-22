@@ -79,11 +79,6 @@ A. Many features are supported, the ones that are not supported and are document
 
 ## Tooling and administration
 
-Q. Do you support Database projects in Visual Studio.
-
-A. We currently do not support Database projects in Visual Studio. If you'd like to cast a vote to get this feature, visit our User Voice 
-[Database projects feature request].
-
 Q. Does SQL Analytics support REST APIs?
 
 A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Analytics. You can find API information within REST documentation pages or

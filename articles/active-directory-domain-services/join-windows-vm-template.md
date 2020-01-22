@@ -89,7 +89,7 @@ To create a Windows Server VM then join it to an Azure AD DS managed domain, com
     | Existing Subnet Name      | The name of the existing virtual network subnet, such as *Workloads*. |
     | DNS Label Prefix          | Enter a DNS name to use for the VM, such as *myvm*. |
     | VM size                   | Specify a VM size, such as *Standard_DS2_v2*. |
-    | Domain To Join            | The Azure AD DS managed domain DNS name, such as *contoso.com*. |
+    | Domain To Join            | The Azure AD DS managed domain DNS name, such as *aadds.contoso.com*. |
     | Domain Username           | The user account in the Azure AD DS managed domain that should be used to join the VM to the managed domain. This account must be a member of the *Azure AD DC administrators* group. |
     | Domain Password           | The password for the user account specified in the previous setting. |
     | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *AAD DC Computers* OU. |
@@ -139,6 +139,6 @@ In this article, you used the Azure portal to configure and deploy resources usi
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/template-deployment-overview.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
+[template-overview]: ../azure-resource-manager/templates/overview.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

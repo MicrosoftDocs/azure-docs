@@ -1,18 +1,16 @@
 ---
-title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility 
+title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility
 description: Learn how to execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 09/21/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility

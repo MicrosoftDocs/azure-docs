@@ -1,14 +1,12 @@
 ---
-title: X12 tracking schemas for B2B messages - Azure Logic Apps | Microsoft Docs
+title: X12 tracking schemas for B2B messages
 description: Create X12 tracking schemas that monitor B2B messages in integration accounts for Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ---
 

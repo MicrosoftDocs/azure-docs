@@ -1,22 +1,18 @@
 ---
-title: Create multi-container app in Web App for Containers - Azure App Service
-description: Learn how to use multiple containers on Azure with Docker Compose, WordPress and MySQL.
+title: 'Tutorial: Create a multi-container app'
+description: Learn how to use build a multi-container app on Azure App Service that contains a WordPress app and a MySQL container, and configure the WordPress app.
 keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, wordpress, azure db for mysql, production database with containers
-services: app-service
-documentationcenter: ''
 author: msangapu-msft
-manager: gwallace
-editor: ''
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
 #Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
+
+> [!NOTE]
+> Multi-container is in preview.
 
 [Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.32 or later).
 

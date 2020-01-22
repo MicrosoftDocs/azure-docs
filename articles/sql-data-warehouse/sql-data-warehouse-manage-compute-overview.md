@@ -2,13 +2,13 @@
 title: Manage compute resource
 description: Learn about performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs, or lower costs by pausing the data warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
@@ -54,7 +54,7 @@ To see the performance benefits of scaling out, especially for larger data wareh
 
 Recommendations for finding the best number of data warehouse units:
 
-- For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400 or DW200.
+- For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400c or DW200c.
 - Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
 - Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. 
 - Continue making adjustments until you reach an optimum performance level for your business requirements.

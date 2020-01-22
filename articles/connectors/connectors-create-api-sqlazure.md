@@ -1,16 +1,12 @@
 ---
-title: Connect to SQL Server or Azure SQL Database - Azure Logic Apps
+title: Connect to SQL Server or Azure SQL Database
 description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam; LADocs
-manager: carmonm
+ms.reviewer: klam; logicappspm
 ms.topic: conceptual
-tags: connectors
 ms.date: 11/08/2019
+tags: connectors
 ---
 
 # Automate workflows for SQL Server or Azure SQL Database by using Azure Logic Apps

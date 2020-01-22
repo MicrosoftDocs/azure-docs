@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Authenticate users in a native client application - Azure Active Directory B2C
+title: "Tutorial: Authenticate users in a native client application"
+titleSuffix: Azure AD B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a .NET desktop application.
 services: active-directory-b2c
 author: mmacy
@@ -39,7 +40,7 @@ Record the **Application (client) ID** for use in a later step.
 
 ## Configure the sample
 
-In this tutorial, you configure a sample that you can download from GitHub. The sample WPF desktop application demonstrates sign-up, sign-in, and can call a protected web API in Azure AD B2C. [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [browse the repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample from GitHub.
+In this tutorial, you configure a sample that you can download from GitHub. The sample WPF desktop application demonstrates sign-up, sign-in, and can call a protected web API in Azure AD B2C. [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip), [browse the repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample from GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

@@ -4,8 +4,8 @@ description: Update the Azure Diagnostics public configuration to send data to A
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2016
 
 ---

@@ -16,7 +16,7 @@ ms.date: 04/25/2019
 # Linked services in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
-> * [Current version](concepts-datasets-linked-services.md)
+> * [Current version](concepts-linked-services.md)
 
 This article describes what linked services are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.
 
@@ -72,10 +72,7 @@ The following linked service is an Azure Storage linked service. Notice that the
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -90,7 +87,7 @@ The following linked service is an Azure Storage linked service. Notice that the
 You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
 ## Data store linked services
-You can find the list of data stored supported by Data Factory from [connector overview](copy-activity-overview.md#supported-data-stores-and-formats) article. Click a data store to learn the supported connection properties.
+You can find the list of data stores supported by Data Factory from [connector overview](copy-activity-overview.md#supported-data-stores-and-formats) article. Click a data store to learn the supported connection properties.
 
 ## Compute linked services
 Reference [compute environments supported](compute-linked-services.md) for details about different compute environments you can connect to from your data factory as well as the different configurations.

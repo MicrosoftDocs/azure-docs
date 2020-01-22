@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ This guide describes how to use the Microsoft Graph API and the Microsoft Graph 
 * If ***SkipOutOfScopeDeletions*** is set to 1 (true), then accounts that go out of scope will get not be disabled in the target
 This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
-As this configuration is widely used with the *Workday to Active Directory user provisioning* app, the steps below include screenshots of the Workday application. However this can also be used with other provisioning apps.
+As this configuration is widely used with the *Workday to Active Directory user provisioning* app, the steps below include screenshots of the Workday application. However this can also be used with **all other apps** such (ServiceNow, Salesforce, Dropbox, etc.).
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 

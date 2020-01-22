@@ -3,7 +3,7 @@ title: Machine learning capability in Azure Data Explorer
 description: Use machine learning clustering for Root Cause Analysis in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
@@ -19,7 +19,9 @@ Azure Data Explorer has three Machine Learning plugins: [`autocluster`](/azure/k
 
 ## Clustering a single record set
 
-A common scenario includes a data set selected by a specific criteria such as time window that exhibits anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like a simple and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
+A common scenario includes a data set selected by a specific criteria such as time window that exhibits anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like an easy and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPsaoCQQyF4d6nCFa7oHCtZd9B0F6G8ajByWTJZHS5+PDOgpVgYRn485EkOAnno9NAriWGFKw7QfQYUy0O43zZ0JNKFQnG/5jrbmeIXHBgwd6DjH2/JVqk2QrTL1aYvlifa4tni29YlzaiUK4yRK3Zu54006dBZ1N5/+X6PqpRI23+pFGGfIKRtz5egzk92K+dsycMyz3szhGEKWJ01lxI760O9ABuq0bMcvV2hqFoqnOz7F9BdSHlSgEAAA==)**\]**
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -35,6 +37,8 @@ The service exception count correlates with the overall service traffic. You can
 
 The second spike in the data occurs on Tuesday afternoon. The following query is used to further diagnose this spike. Use the query to redraw the chart around the spike in higher resolution (eight hours in one-minute bins) to verify whether it’s a sharp spike, and view its borders.
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAyXNwQrCMBAE0Hu/YvHUooWkghSl/yDoyUsJyWpCk2xJNnjx403pbeYwbzwyBBdnnoxiZBewHYS89GLshzNIeRWiuzUGA83al8yYXPzI5gdBLdjnWjFDLGHSVCK3HVCEe0LtMj4r9mAVVngnCvsLMO3hOFqo2goyVCxhNJhgu9dWJYavY9uyY4/T4UV1XVm2CEM0kFe34AnkBhXGOs7kCzuKh+4P3/XM5M8AAAA=)**\]**
+
 ```kusto
 let min_t=datetime(2016-08-23 11:00);
 demo_clustering1
@@ -45,6 +49,8 @@ demo_clustering1
 ![Focus on spike timechart](media/machine-learning-clustering/focus-spike-timechart.png)
 
 We see a narrow two-minute spike from 15:00 to 15:02. In the following query, count the exceptions in this two-minute window:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVHIzcyLL0hNzI4vsU1JLEktycxN1TAyMDTTNbDQNTJWMDS1MjDQtObKASlNrCCk1AioNCU1Nz8+Oae0uCS1KDMv3ZCrRqE8I7UoVSGgKDU5szg1BKgvuCQxt0AhKbWkPDU1TwPhBj09hCWaQI3J+aV5JQACnQoRpwAAAA==)**\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -59,6 +65,8 @@ demo_clustering1
 |972    |
 
 In the following query, sample 20 exceptions out of 972:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4XOsQrCMBSF4b1Pccd2aLmJKKL4DoLu4doeNDSJJb1SBx/eOHV0/37OCVCKPrkJMjo9DaJQH1FbNruW963dkNkemJtjFX5U3v+oLXRAfLo+vGZF9uluqg8tD2TQOaP3M66lu6jEiW7QBUj1+qHr1pGmhCojyPIX7QHvzakAAAA=)**\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -95,6 +103,8 @@ demo_clustering1
 
 Even though there are less than a thousand exceptions, it’s still hard to find common segments, as there are multiple values in each column. You can use [`autocluster()`](/azure/kusto/query/autoclusterplugin) plugin to instantly extract a small list of common segments and find the interesting clusters within the spike's two minutes as seen in the following query:
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQrCMBRF937FG5OhJYkoovQfBN1DbC8aTNqSvlgHP94IQkf3c+65AUzRD3aCe1hue8dgHyGM0rta7WuzIb09KCWPVfii7vUPNQXtEUfbhTwzkh9uunrTckcCnRI6P+NSvDO7ONEVvACDWD80zRqRRcTThVxa5DKPv00hP81KL1+4AAAA)**\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -118,6 +128,8 @@ Autocluster uses a proprietary algorithm for mining multiple dimensions and extr
 ### Use basket() for single record set clustering
 
 You can also use the [`basket()`](/azure/kusto/query/basketplugin) plugin as seen in the following query:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQ6CMBgGd57iH9sB0tZojMZ3MNG9KfBFG1og7Y84+PDWidH9LncBTNGPdoYbLF96x2AfIYzSh1oda7MjvT8pJc9V+KHu/Q81Be0RJ9uFJTOSHx+6+tD6RAJdEzqfcS/ejV2cqQWvwCi2h6bZIrKIeLmwlBa1Lg9gIb9KJv2TswAAAA==)**\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -145,13 +157,15 @@ demo_clustering1
 
 Basket implements the Apriori algorithm for item set mining and extracts all segments whose coverage of the record set is above a threshold (default 5%). You can see that more segments were extracted with similar ones (for example, segments 0,1 or 2,3).
 
-Both plugins are powerful and easy to use, but their significant limitation is due to the fact that they cluster a single record set in an unsupervised manner (with no labels). It's therefore unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
+Both plugins are powerful and easy to use, but their significant limitation is that they cluster a single record set in an unsupervised manner (with no labels). It's therefore unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
 
 ## Clustering the difference between two records sets
 
 The [`diffpatterns()`](/azure/kusto/query/diffpatternsplugin) plugin overcomes the limitation of `autocluster` and `basket`. `Diffpatterns` takes two record sets and extracts the main segments that are different between them. One set usually contains the anomalous record set being investigated (one analyzed by `autocluster` and `basket`). The other set contains the reference record set (baseline). 
 
 In the query below, we use `diffpatterns` to find interesting clusters within the spike's two minutes, which are different than clusters within the baseline. We define the baseline window as the eight minutes before 15:00 (when the spike started). We also need to extend by a binary column (AB) specifying whether a specific record belongs to the baseline or to the anomalous set. `Diffpatterns` implements a supervised learning algorithm, where the two class labels were generated by the anomalous versus the baseline flag (AB).
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA42QzU+DQBDF7/wVcwOi5UtrmhJM4OzBRO9kWqbtpssuYacfGv94t0CrxFTd02by5jfvPUkMtVBlQ7gtOauQiUVNXhLFD5NoNknuIJ7Oo8hPHXmS4vEvaXKWWuoCDUmh6Jr8fj79Tv6HfOanEIbwRLgnQFhjAwviA5EC3hCcCYCq6gamEVsC1oB7LfoRt6iMYKEVvGtFQXfeNFKc7mXe2MjNVzl+mARR6lRU63Ipd4apFWodOx9w2FBL4D23tBSGXi3mhbG+OPPGVQTB+ITvg24dGN7vlN5JTxhc+dYAHZls4LzIxGr1k/B4iXcLbq50jfLNtd9i8OB2jD3KnW0dKstokG08Zby8uLbyCfX/tG46AgAA)**\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -177,6 +191,8 @@ demo_clustering1
 | 6 | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
 
 The most dominant segment is the same segment that was extracted by `autocluster`, its coverage on the two-minute anomalous window is also 65.74%. But its coverage on the eight-minute baseline window is only 1.7%. The difference is 64.04%. This difference seems to be related to the anomalous spike. You can verify this assumption by splitting the original chart into the records belonging to this problematic segment versus the other segments as seen in the query below:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WRsWrDMBCG9zzF4cmGGuJUjh2Ktw7tUkLTzuEsnRNRnRQkuSQlD185yRTo0EWIO913/J8MRWBttxE6iC5INOhzRey20owhktd2V8EZwsiMXv/Q9Dpfe5I60Idm2kTkQ1E8AczMxMLjf1h4/IN1PzY7Ax0jWQWBdomvhyF/p512FroOMsIxA0zdTdpKn1bHSzmMzbX8TAfjTkw2vqpLp69VpYQaatEogXOBsqrbtl5WDake6yabXWjkv7WkFxeuPGqG5VzWqhQrIUqx6B/L1WKB6aBViy01imT2ANnau94QT9c35xlNVqQAjF9UhpSHAtiRO+lGG/MCUoZ7CTB4x7ePie5mNbk4QDVn6E+ThUT0SQh5iGlM7tHHX4WFgLHOAQAA)**\]**
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  

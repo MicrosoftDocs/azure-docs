@@ -8,7 +8,7 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
 
 ---
@@ -18,6 +18,10 @@ ms.author: shvija
 Azure Event Hubs is a Big Data streaming platform and event ingestion service that can receive and process millions of events per second. Event Hubs can process and store events, data, or telemetry from distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For more information about Event Hubs, see [Azure Event Hubs](event-hubs-about.md) and [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
 This quickstart shows how to create Python applications that send events to and receive events from an event hub. 
+
+> [!IMPORTANT]
+> This quickstart uses version 1 of the Azure Event Hubs Python SDK. If you are new to Azure Event Hubs, use version 5 of the Python SDK. For a quickstart that uses version 5 of the Python SDK, see [this article](get-started-python-send-v2.md). To migrate existing code from version 1 to version 5, see the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+
 
 > [!NOTE]
 > Instead of working through the quickstart, you can download and run the [sample apps](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) from GitHub. Replace the `EventHubConnectionString` and `EventHubName` strings with your event hub values. 

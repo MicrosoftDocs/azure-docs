@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
 ---
 
@@ -38,7 +38,7 @@ The following code gets defines and sends the request. It is implemented in the 
 
 The complete code for this demo follows:
 
-```
+```javascript
 'use strict';
 
 let https = require('https');

@@ -58,7 +58,7 @@ It takes about 10 minutes to create the blockchain member and supporting resourc
 
 ## Clean up resources
 
-You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created by the Azure Blockchain Service.
+You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created for the quickstart.
 
 Run the following command to remove the resource group and all related resources.
 
@@ -73,4 +73,4 @@ az group delete \
 In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
+> [Use Visual Studio Code to connect to Azure Blockchain Service](connect-vscode.md)

@@ -1,5 +1,5 @@
 ---
-title: FedRAMP Moderate blueprint sample - Control mapping
+title: FedRAMP Moderate blueprint sample controls
 description: Control mapping of the FedRAMP Moderate blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
 ms.date: 10/31/2019
 ms.topic: sample

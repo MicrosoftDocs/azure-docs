@@ -1,11 +1,7 @@
 ---
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.topic: conceptual 
 ms.date: 01/29/2019
 ---
 
