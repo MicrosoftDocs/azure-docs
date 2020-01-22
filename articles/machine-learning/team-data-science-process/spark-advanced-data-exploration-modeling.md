@@ -36,10 +36,12 @@ The models we use include logistic and linear regression, random forests, and gr
 
 Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.   
 
+<!-- -->
+
 > [!NOTE]
 > Although the Spark MLlib toolkit is designed to work on large datasets, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used here for convenience. The exercise given here runs efficiently (in about 10 minutes) on an HDInsight cluster with 2 worker nodes. The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory and changing the cluster size.
-> 
-> 
+
+<!-- -->
 
 ## Setup: Spark clusters and notebooks
 Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter notebooks for Spark 1.6 and 2.0 to be run in the pyspark kernel of the Jupyter Notebook server:
@@ -203,10 +205,12 @@ This query retrieves the trips by passenger count.
 
 This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
 
+<!-- -->
+
 > [!NOTE]
 > This PySpark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
-> 
-> 
+
+<!-- -->
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -569,10 +573,12 @@ We show how to do cross-validation (CV) with parameter sweeping in two ways:
 ### Generic cross validation and hyperparameter sweeping used with the logistic regression algorithm for binary classification
 The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.   
 
+<!-- -->
+
 > [!NOTE]
 > The execution of this custom CV code can take several minutes.
-> 
-> 
+
+<!-- -->
 
 **Train the logistic regression model using CV and hyperparameter sweeping**
 
@@ -795,10 +801,12 @@ Time taken to execute above cell: 34.57 seconds
 ### Use MLlib's CrossValidator pipeline function with logistic regression (Elastic regression) model
 The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.   
 
+<!-- -->
+
 > [!NOTE]
 > The execution of this MLlib CV code can take several minutes.
-> 
-> 
+
+<!-- -->
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -992,12 +1000,19 @@ These models were described in the introduction. Each model building code sectio
 2. **Model evaluation** on a test data set with metrics
 3. **Saving model** in blob for future consumption   
 
-> [!NOTE] Cross-validation is not used with the three regression models in this section, since this was shown in detail for the logistic regression models. An example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
+<!-- -->
 
- 
-> [!NOTE] In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be used instead of LinearRegressionWithSGD.
-> 
-> 
+> [!NOTE] 
+> Cross-validation is not used with the three regression models in this section, since this was shown in detail for the logistic regression models. An example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
+
+<!-- -->
+
+<!-- -->
+
+> [!NOTE] 
+> In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be used instead of LinearRegressionWithSGD.
+
+<!-- -->
 
 ### Linear regression with SGD
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
@@ -1060,10 +1075,12 @@ Time taken to execute above cell: 38.62 seconds
 ### Random Forest regression
 The code in this section shows how to train, evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.   
 
+<!-- -->
+
 > [!NOTE]
 > Cross-validation with parameter sweeping using custom code is provided in the appendix.
-> 
-> 
+
+<!-- -->
 
     #PREDICT TIP AMOUNTS USING RANDOM FOREST
 
