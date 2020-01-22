@@ -15,7 +15,7 @@ When you set up disaster recovery for VMware VMs and physical servers using [Azu
 
 - [Push installation](#push-installation): Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
 - Install manually: You can install the Mobility service manually on each machine through [UI](#install-mobility-agent-through-ui) or [command prompt](#install-mobility-agent-through-command-prompt).
-- [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as System Center Configuration Manager.
+- [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as Configuration Manager.
 
 ## Anti-virus on replicated machines
 
