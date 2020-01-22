@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Clip Values
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Use the Clip Values module to identify and optionally replace data values that are above or below a specified threshold with a mean, a constant, or other substitute value.  
 
@@ -82,7 +82,7 @@ If you need to apply clipping methods or different criteria to some columns, you
   
 1.  Run the pipeline.  
   
-    Right-click the output of the **Clip Values** module and select **Visualize** to review the values and make sure the clipping operation met your expectations.  
+    Right-click the **Clip Values** module and select **Visualize** or select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs**, to review the values and make sure the clipping operation met your expectations.  
  
 ### Examples for clipping using percentiles
 

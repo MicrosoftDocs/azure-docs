@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: Service tags
       href: service-tags.md
+    - name: Compliance certifications
+      href: compliance-certifications.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell

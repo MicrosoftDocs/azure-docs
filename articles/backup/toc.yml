@@ -148,10 +148,28 @@
       href: backup-mabs-sharepoint-azure-stack.md
     - name: Protect SQL Server database
       href: backup-mabs-sql-azure-stack.md
-  - name: Azure File shares
+  - name: Azure File share backup
     items:
-    - name: Back up Azure File shares
-      href: backup-azure-files.md
+      - name: From the Azure portal
+        items:
+            - name: Back up Azure File shares
+              href: backup-afs.md
+            - name: Restore Azure File shares
+              href: restore-afs.md
+            - name: Manage Azure File share backups
+              href: manage-afs-backup.md
+      - name: With Azure CLI
+        items:
+            - name: Back up Azure File shares with CLI
+              href: backup-afs-cli.md
+            - name: Restore Azure File shares with CLI
+              href: restore-afs-cli.md
+            - name: Manage Azure File share backups with CLI
+              href: manage-afs-backup-cli.md
+      - name: With PowerShell
+        items:
+            - name: Azure File share backup with Powershell
+              href: backup-azure-afs-automation.md
   - name: Back up Azure VMs
     items:
     - name: About Azure VM backup
@@ -222,8 +240,6 @@
       href: backup-dpm-automation.md
     - name: Windows Server in the Azure portal
       href: backup-client-automation.md
-    - name: Azure File shares in the Azure portal
-      href: backup-azure-afs-automation.md
     - name: SQL in Azure VM backups
       href: backup-azure-sql-automation.md
   - name: Use Azure Backup REST API

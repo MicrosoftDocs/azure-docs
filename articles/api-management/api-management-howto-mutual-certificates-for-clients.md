@@ -56,7 +56,7 @@ Below policies can be configured to check the thumbprint of a client certificate
 
 ```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || !context.Request.Certificate.Verify() || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
+    <when condition="@(context.Request.Certificate == null || !context.Request.Certificate.Verify() || context.Request.Certificate.Thumbprint != "DESIRED-THUMBPRINT-IN-UPPER-CASE")" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
