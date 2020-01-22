@@ -40,7 +40,7 @@ landingContent:
     - linkListType: whats-new
       links:
         - text: What's new?
-          url: whats-new.md
+          url: releasenotes.md
 
 - title: Speech-to-text
   linkLists:
@@ -86,7 +86,7 @@ landingContent:
         - text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
         - text: Async synthesis for long-form audio
-          url: quickstarts/async-synthesis-long-form-audio.md
+          url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
     - linkListType: how-to-guide
       links:
         - text: Use speech synthesis with Docker containers
@@ -111,11 +111,11 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Recognize speech intents with LUIS and C#
-          url: how-to-recognize-intents-from-speech-csharp
+          url: how-to-recognize-intents-from-speech-csharp.md
     - linkListType: reference
       links:
         - text: LUIS developer resources
-          url: ~cognitive-services/luis/developer-reference-resource.md
+          url: ../luis/developer-reference-resource.md
 
 - title: Speech translation
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
     - linkListType: learn
       links:
       - text: Translate speech in real time
-        url: ~learn/modules/convert-speech-to-text
+        url: ../../learn/modules/convert-speech-to-text
     - linkListType: quickstart
       links:
         - text: Translate speech-to-text
@@ -138,7 +138,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: Translate and synthesize text with REST APIs
-          url: ~cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md
+          url: ../translator/tutorial-build-flask-app-translation-synthesis.md
     - linkListType: reference
       links:
         - text: Speech translation FAQ
@@ -151,17 +151,17 @@ landingContent:
       - text: What is conversation transcription?
         url: conversation-transcription.md
       - text: What is multi-device conversation?
-        url: multi-device-transcription.md
+        url: multi-device-conversation.md
     - linkListType: quickstart
       links:
         - text: Start and join a conversation
-          url: quickstarts/multi-device-transcription.md
+          url: quickstarts/multi-device-conversation.md
     - linkListType: how-to-guide
       links:
         - text: Real time conversation transcription
           url: how-to-use-conversation-transcription.md
         - text: Asynchronous conversation transcription
-          url: how-to-use-async-conversation-transcription.md
+          url: how-to-async-conversation-transcription.md
     - linkListType: reference
       links:
         - text: Conversation transcription REST APIs
