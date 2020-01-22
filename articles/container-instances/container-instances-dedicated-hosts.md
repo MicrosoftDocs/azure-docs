@@ -114,7 +114,7 @@ Following is a complete template that deploys a sample container group running a
                     ],
                     "type": "Public"
                 },
-                "osType": "Linux",
+                "osType": "Linux"
             },
             "tags": {}
         }
