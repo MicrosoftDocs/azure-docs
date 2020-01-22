@@ -6,7 +6,7 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 01/27/2019
 ---
 
 # Add database principals for Azure Data Explorer by using Python

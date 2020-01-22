@@ -6,7 +6,7 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 01/27/2019
 ---
 
 # Add database principals for Azure Data Explorer by using an Azure Resource Manager template
@@ -23,7 +23,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Create [a cluster and database](create-cluster-database-portal.md)
 
-## Azure Resource Manager template for adding a cluster principal
+## Azure Resource Manager template for adding a database principal
 
 The following example shows an Azure Resource Manager template for adding a database principal.  You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
 
