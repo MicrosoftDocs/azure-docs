@@ -11,15 +11,11 @@ ms.date: 01/22/2020
 
 # Integrate a static website with Azure CDN
 
-You can enable [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) to cache content from a [static website](storage-blob-static-website.md) that is hosted in an Azure storage account. Azure CDN offers developers a global solution for delivering high-bandwidth content. It can cache static website content at physical nodes in the United States, Europe, Asia, Australia, and South America. It is also required in cases where you want to map a custom domain to a static website because Azure Storage doesn't yet natively support HTTPS with custom domains. 
-
-You can use Azure CDN to configure the custom domain endpoint for your static website. You can also use it to provision custom SSL certificates, use a custom domain, and configure custom rewrite rules all at the same time. Configuring Azure CDN results in additional charges, but provides consistent low latencies to your website from anywhere in the world. Azure CDN also provides SSL encryption with your own certificate. 
+You can enable [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) to cache content from a [static website](storage-blob-static-website.md) that is hosted in an Azure storage account. You can use Azure CDN to configure the custom domain endpoint for your static website. You can also use it to provision custom SSL certificates and configure custom rewrite rules. Configuring Azure CDN results in additional charges, but provides consistent low latencies to your website from anywhere in the world. Azure CDN also provides SSL encryption with your own certificate. 
 
 For information on Azure CDN pricing, see [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-## Enable Azure CDN for the storage account
+## Enable Azure CDN for your static website
 
 You can enable Azure CDN for your static website directly from your storage account. If you want to specify advanced configuration settings for your CDN endpoint, such as [large file download optimization](../../cdn/cdn-optimization-overview.md#large-file-download), you can instead use the [Azure CDN extension](../../cdn/cdn-create-new-endpoint.md) to create a CDN profile and endpoint.
 
@@ -31,7 +27,7 @@ You can enable Azure CDN for your static website directly from your storage acco
 
 	![Create CDN endpoint](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
 
-3. In the **CDN profile** section, specify a new or existing CDN profile. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](../../cdn/cdn-create-new-endpoint.md).
+3. In the **CDN profile** section, specify a new or existing CDN profile. 
 
 4. Specify a pricing tier for the CDN endpoint. To learn more about pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/). For more information about the features available with each tier, see [Compare Azure CDN product features](../../cdn/cdn-features.md).
 
@@ -55,34 +51,11 @@ You can enable Azure CDN for your static website directly from your storage acco
 
     ![Screenshot showing overview of CDN endpoint](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-    Screenshot 2
+9. Once the CDN endpoint propagation is complete, navigating to the CDN endpoint displays the contents of the index.html file that you previously uploaded to your static website.
 
-	![Storage new CDN endpoint](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
-
-    Once the CDN endpoint propagation is complete, navigating to the CDN endpoint displays the contents of the index.html file that you previously uploaded to your static website.
-
-9. To review the origin settings for your CDN endpoint, navigate to **Origin** under the **Settings** section for your CDN endpoint. You will see that the **Origin type** field is set to *Custom Origin* and that the **Origin hostname** field displays your static website endpoint.
+10. To review the origin settings for your CDN endpoint, navigate to **Origin** under the **Settings** section for your CDN endpoint. You will see that the **Origin type** field is set to *Custom Origin* and that the **Origin hostname** field displays your static website endpoint.
 
     ![Screenshot showing Origin settings for CDN endpoint](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
-
-## Enable additional CDN features
-
-From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page. From this page, you can enable additional CDN features for your delivery, such as [compression](../../cdn/cdn-improve-performance.md), [query string caching](../../cdn/cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country.md). 
-	
-![Storage CDN endpoint configuration](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
-
-## Enable SAS
-
-If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. For more information, see [Using Azure CDN with SAS](../../cdn/cdn-sas-storage-support.md).
-
-## Access CDN content
-
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob has the following format:
-
-http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
-
-> [!NOTE]
-> After you enable Azure CDN access to a storage account, all publicly available objects are eligible for CDN POP caching. If you modify an object that's currently cached in the CDN, the new content will not be available via Azure CDN until Azure CDN refreshes its content after the time-to-live period for the cached content expires.
 
 ## Remove content from Azure CDN
 
@@ -94,7 +67,6 @@ If you no longer want to cache an object in Azure CDN, you can take one of the f
 
 An object that's already cached in Azure CDN remains cached until the time-to-live period for the object expires or until the endpoint is [purged](../../cdn/cdn-purge-endpoint.md). When the time-to-live period expires, Azure CDN determines whether the CDN endpoint is still valid and the object is still anonymously accessible. If they are not, the object will no longer be cached.
 
-
 ## Next steps
 
-Put something here.
+(Optional) Add a custom domain to your Azure CDN endpoint. See [Tutorial: Add a custom domain to your Azure CDN endpoint](../../cdn/cdn-map-content-to-custom-domain.md).
