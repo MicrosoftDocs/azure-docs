@@ -15,7 +15,7 @@ services: iot-edge
 > [!NOTE]
 > This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-In this article, we use Azure Notebooks first to train a machine learning model using Azure Machine Learning and then package that model as a container image that can be deployed as an Azure IoT Edge Module. The Azure Notebooks take advantage of an Azure Machine Learning workspace, which is a foundational block used to experiment, train, and deploy machine learning models.
+In this article, we use Azure Notebooks first to train a machine learning model using Azure Machine Learning, and then package that model as a container image to deploy as an Azure IoT Edge Module. The Azure Notebooks take advantage of an Azure Machine Learning workspace, which is a foundational block used to experiment, train, and deploy machine learning models.
 
 The steps in this article might be typically performed by data scientists.
 
@@ -26,20 +26,18 @@ We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. H
 * **Quickstart:** [Create and share a notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
 * **Tutorial:** [Create and run a Jupyter notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-As with the developer virtual machine before, using Azure notebooks ensures a consistent environment for the exercise.
+Using Azure notebooks ensures a consistent environment for the exercise.
 
 > [!NOTE]
 > Once set up, the Azure Notebooks service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
 
-Azure Notebook accounts are independent from Azure subscriptions.
-
 ### Create an Azure Notebooks account
 
-To use Azure Notebooks, you need to create an account.
+To use Azure Notebooks, you need to create an account. Azure Notebook accounts are independent from Azure subscriptions.
 
 1. Navigate to [Azure notebooks](https://notebooks.azure.com).
 
-1. Click **Sign In** in the upper, right-hand corner of the page.
+1. Click **Sign In** in the upper right corner of the page.
 
 1. Sign in with either your work or school account (Azure Active Directory) or your personal account (Microsoft Account).
 
@@ -49,7 +47,7 @@ To use Azure Notebooks, you need to create an account.
 
 ### Upload Jupyter notebook files
 
-We will create a new Azure Notebooks project and upload files to it.
+We will uploaded sample notebook files into a new Azure Notebooks project.
 
 1. From the user page of your new account, select **My Projects** from the top menu bar.
 
@@ -69,7 +67,7 @@ We will create a new Azure Notebooks project and upload files to it.
 
 ### Azure notebook files
 
-Let's review the files you uploaded from from the sample source files into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files and a few supporting files.
+Let's review the files you uploaded into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files and a few supporting files.
 
 * **01-turbofan\_regression.ipynb:** This notebook uses the Machine Learning service workspace to create and run a machine learning experiment. Broadly, the notebook performs the following steps:
 
@@ -87,7 +85,7 @@ Let's review the files you uploaded from from the sample source files into your 
 
 * **Test\_FD003.txt:** This file contains the data we will use as our test set when validating our trained classifier. We chose to use the test data as provided for the original contest as our test set for simplicity of the example.
 
-* **RUL\_FD003.txt:** This file contains the RUL for the last cycle of each device in the Test\_FD003.txt file. See the **readme.txt** and the **Damage Propagation Modeling.pdf** files in the C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan for a detailed explanation of the data.
+* **RUL\_FD003.txt:** This file contains the RUL for the last cycle of each device in the Test\_FD003.txt file. See the readme.txt and the Damage Propagation Modeling.pdf files in the C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan for a detailed explanation of the data.
 
 * **Utils.py:** Contains a set of Python utility functions for working with data. The first notebook contains a detailed explanation of the functions.
 
