@@ -34,7 +34,7 @@ Use this module to concatenate two datasets. You combine all columns from the tw
 ### Results
 After the pipeline has run:
 
-- To see the first rows of the new dataset, right-click the output of **Add Columns** and select Visualize.
+- To see the first rows of the new dataset, right-click the **Add Columns** module and select Visualize. Or Select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
 
 The number of columns in the new dataset equals the sum of the columns of both input datasets.
 
