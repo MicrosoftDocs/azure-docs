@@ -99,7 +99,7 @@ landingContent:
       links:
         - text: Text-to-speech REST API
           url: rest-text-to-speech.md
-        - text: Speech-to-text FAQ
+        - text: Text-to-speech FAQ
           url: faq-text-to-speech.md
 
 - title: Intent recognition
