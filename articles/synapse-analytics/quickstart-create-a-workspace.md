@@ -147,4 +147,4 @@ Do not use a "More info section" or a "Resources section" or a "See also section
 - [Setup permissions on Azure storage](sql-analytics/tutorial-connect-power-bi-desktop.md)
 - [Query files on Azure Storage using SQL On-Demand](sql-analytics/quickstart-sql-on-demand.md)
 - [Create Spark Pool](spark/apache-spark-notebook-create-spark-use-sql.md)
-- [Create PowerBI report on files stored on Azure storage](sql-analytics/tutorial-connect-power-bi-desktop.md)
+- [Create Power BI report on files stored on Azure storage](sql-analytics/tutorial-connect-power-bi-desktop.md)
