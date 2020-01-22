@@ -69,7 +69,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Using Query Store
-            url: monitoring-performance-by-using-the-query-store.md
+            url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
           - text: Using DMVs
             url: sql-database-monitoring-with-dmvs.md
           - text: Using extended events
@@ -83,7 +83,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Single database vCore resource limits
-            url: sql-database-vcore-resource-limits-single-databases,nd
+            url: sql-database-vcore-resource-limits-single-databases.md
           - text: Single database DTU resource limits
             url: sql-database-dtu-resource-limits-single-databases.md
           - text: Elastic pool vCore resource limits
