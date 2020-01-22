@@ -82,25 +82,25 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
-- name: How to
+- name: How to guides
   items:
   - name: Recovery Services vault
     items:
-    - name: Overview of Recovery Services vaults
+    - name: Overview
       href: backup-azure-recovery-services-vault-overview.md
-    - name: Create Recovery Services vault
+    - name: Create 
       href: backup-create-rs-vault.md
-    - name: Delete a Recovery Services vault
+    - name: Delete
       href: backup-azure-delete-vault.md
-    - name: Move a Recovery Services vault
+    - name: Move 
       href: backup-azure-move-recovery-services-vault.md
-    - name: Monitor and manage Recovery Services vaults
+    - name: Monitor and Manage 
       href: backup-azure-manage-windows-server.md
   - name: Azure VM Backup
     items:
-    - name: Azure VM backup overview
+    - name: Overview
       href: backup-azure-vms-introduction.md
-    - name: Back up Azure VMs
+    - name: Backup
       items:
       - name: Back up and restore Azure VMs with Azure Backup Instant Restore
         href: backup-instant-restore-capability.md
@@ -114,11 +114,7 @@
         href: backup-azure-vms-encryption.md
       - name: Configure app-consistent backups of Azure VMs running Linux
         href: backup-azure-linux-app-consistent.md
-    - name: Manage and monitor Azure VM backup
-      items:
-      - name: Manage Azure VM backups
-        href: backup-azure-manage-vms.md
-    - name: Restore Azure VMs
+    - name: Restore
       items:
       - name: Restore Azure VMs in the portal
         href: backup-azure-arm-restore-vms.md
@@ -128,61 +124,69 @@
         href: backup-azure-vms-encryption.md
       - name: Restore keys and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
+    - name: Manage and Monitor
+      items:
+      - name: Manage Azure VM backups
+        href: backup-azure-manage-vms.md
   - name: SQL Server databases on Azure VM backup
     items:
-    - name: SQL Server Backup in Azure VMs overview
+    - name: Overview
       href: backup-azure-sql-database.md
-    - name: Back up SQL Server databases in Azure VMs
+    - name: Backup
       href: backup-sql-server-database-azure-vms.md
-    - name: Restore SQL Server databases in Azure VMs
+    - name: Restore
       href: restore-sql-database-azure-vm.md
-    - name: Manage backed up SQL Server databases
+    - name: Manage and Monitor
       href: manage-monitor-sql-database-backup.md
   - name: Windows Server backup using MARS
     items:
-    - name: MARS agent overview
+    - name: Overview
       href: backup-azure-about-mars.md
-    - name: Back up Windows Server files and folders
-      href: backup-configure-vault.md
-    - name: Back up Windows Server System State
-      href: backup-azure-system-state.md
-    - name: Recover files from Azure to Windows Server
-      href: backup-azure-restore-windows-server.md
-    - name: Restore Windows Server System State
-      href: backup-azure-restore-system-state.md
-    - name: Manage Windows Server files and folders backup
+    - name: Backup
+      items:
+      - name: Back up Windows Server files and folders
+        href: backup-configure-vault.md
+      - name: Back up Windows Server System State
+        href: backup-azure-system-state.md
+    - name: Restore
+      items:
+      - name: Recover files from Azure to Windows Server
+        href: backup-azure-restore-windows-server.md
+      - name: Restore Windows Server System State
+        href: backup-azure-restore-system-state.md
+    - name: Manage
       href: backup-azure-manage-mars.md
   - name: Azure File share backup
     items:
     - name: From the Azure portal
       items:
-      - name: Back up Azure File shares
+      - name: Backup
         href: backup-afs.md
-      - name: Restore Azure File shares
+      - name: Restore
         href: restore-afs.md
-      - name: Manage Azure File share backups
+      - name: Manage
         href: manage-afs-backup.md
     - name: With Azure CLI
       items:
-      - name: Back up Azure File shares with CLI
+      - name: Backup
         href: backup-afs-cli.md
-      - name: Restore Azure File shares with CLI
+      - name: Restore
         href: restore-afs-cli.md
-      - name: Manage Azure File share backups with CLI
+      - name: Manage
         href: manage-afs-backup-cli.md
     - name: With PowerShell
       items:
-      - name: Azure File share backup with Powershell
+      - name: Backup
         href: backup-azure-afs-automation.md
   - name: SAP HANA databases on Azure VMs
     items:
-    - name: SAP HANA Backup on Azure VMs overview
+    - name: Overview
       href: sap-hana-db-about.md
-    - name: Back up SAP HANA databases on Azure VMs
+    - name: Backup
       href: backup-azure-sap-hana-database.md
-    - name: Restore SAP HANA databases in Azure VMs
+    - name: Restore
       href: sap-hana-db-restore.md
-    - name: Manage backed up SAP HANA databases
+    - name: Manage 
       href: sap-hana-db-manage.md
   - name: Offline Backup
     items:
