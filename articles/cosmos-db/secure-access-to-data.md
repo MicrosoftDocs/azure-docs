@@ -129,21 +129,15 @@ user.CreatePermissionAsync(
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 
-### Code sample to read permissions for user
+### Code sample to read permission for user
 
-To easily obtain all permission resources associated with a particular user, Cosmos DB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new CosmosClient on behalf of the user.
+The following code snippet shows how to retrieve the permission associated with the user created above and instantiate a new CosmosClient on behalf of the user, scoped to a single partition key.
 
 ```csharp
-//Read a permission feed.
-List<PermissionProperties> user1Permissions = new List<PermissionProperties>();
-FeedIterator<PermissionProperties> feedIterator = user1.GetPermissionQueryIterator<PermissionProperties>();
-while (feedIterator.HasMoreResults)
-{
-    FeedResponse<PermissionProperties> permissions = await feedIterator.ReadNextAsync();
-    user1Permissions.AddRange(permissions);
-}
+//Read a permission, create user client session.
+PermissionProperties permissionProperties = await user.GetPermission("permissionUser1Orders")
 
-CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: user1Permissions.ToString());
+CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permissionProperties.Token);
 ```
 
 ## Add users and assign roles
