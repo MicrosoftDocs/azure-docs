@@ -1,4 +1,3 @@
-
 ---
 title: Make a group eligible for an Azure Active Directory role in PIM | Microsoft Docs
 description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/07/2020x
+ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
