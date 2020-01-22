@@ -50,7 +50,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ### Acquire tokens via MSAL
 
-MSAL allows apps to acquire tokens silently and interactively. When you call these methods, MSAL returns an access token for the requested scopes. The correct pattern is to make a silent request and then fall back to an interactive request.
+MSAL allows apps to acquire tokens silently and interactively. When you call `AcquireTokenSilent()` or `AcquireTokenInteractive()`, MSAL returns an access token for the requested scopes. The correct pattern is to make a silent request and then fall back to an interactive request.
 
 #### Android
 

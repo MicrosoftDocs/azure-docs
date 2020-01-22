@@ -124,7 +124,7 @@ If you need to call the same API several times, or if you need to call multiple 
 
 - **Conditional access**: When you make several API requests, in certain scenarios you might have to meet additional conditional-access requirements. Requirements can increase in this way if the first request has no conditional-access policies and your app attempts to silently access a new API that requires conditional access. To handle this problem, be sure to catch errors from silent requests, and be prepared to make an interactive request.  For more information, see [Guidance for conditional access](conditional-access-dev-guide.md).
 
-## Call several APIs in Xamarin or UWP: Incremental consent and conditional access
+## Call several APIs by using incremental consent and conditional access
 
 If you need to call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token:
 
