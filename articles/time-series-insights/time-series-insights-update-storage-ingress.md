@@ -16,15 +16,15 @@ ms.custom: seodec18
 
 This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. It also discusses the underlying ingress process, best practices, and current preview limitations.
 
-# Data ingress
+## Data ingress
 
 Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). 
 
 In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
 
-## Ingress policies
+### Ingress policies
 
-### Event Sources
+#### Event Sources
 
 Time Series Insights Preview supports the following event sources:
 
@@ -38,7 +38,7 @@ Time Series Insights Preview supports a maximum of two event sources per instanc
 > Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
 > * High latency will subside after event source data is first ingested. Contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
 
-### Supported data format and types
+#### Supported data format and types
 
 Azure Time Series Insights supports UTF8 encoded JSON submitted through Azure IoT Hub or Azure Event Hubs. 
 
@@ -56,7 +56,7 @@ Below is the list of supported data types.
 You can send complex types such as objects and arrays as part of your event payload, but your data will undergo a flattening process when stored. For more information on how to shape your JSON events as well as details on complex type and nested object flattening, see the page on [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
 
-## Ingress best practices
+### Ingress best practices
 
 We recommend that you employ the following best practices:
 
@@ -132,13 +132,13 @@ Time Series Insights Preview partitions and indexes data for optimum query perfo
 > [!IMPORTANT]
 > The upcoming general availability (GA) release of Time Series Insights will make data available in  under 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
-# Azure Storage
+## Azure Storage
 
 This section describes Azure Storage details relevant to Azure Time Series Insights Preview.
 
 For a thorough description of Azure Blob storage, read the [Storage blobs introduction](../storage/blobs/storage-blobs-introduction.md).
 
-## Your storage account
+### Your storage account
 
 When you create a Time Series Insights Preview pay-as-you-go environment, an Azure Storage general-purpose V1 blob account is created as your long-term cold store.  
 
@@ -148,11 +148,11 @@ Time Series Insights Preview repartitions the Parquet files to optimize for the 
 
 During public preview, data is stored indefinitely in your Azure Storage account.
 
-### Writing and editing Time Series Insights blobs
+#### Writing and editing Time Series Insights blobs
 
 To ensure query performance and data availability, don't edit or delete any blobs that Time Series Insights Preview creates.
 
-### Accessing and exporting data from Time Series Insights Preview
+#### Accessing and exporting data from Time Series Insights Preview
 
 You might want to access data viewed in the Time Series Insights Preview explorer to use in conjunction with other services. For example, you can use your data to build a report in Power BI or to train a machine learning model by using Azure Machine Learning Studio. Or, you can use your data to transform, visualize, and model in your Jupyter Notebooks.
 
@@ -162,11 +162,11 @@ You can access your data in three general ways:
 * From the Time Series Insights Preview API using Get Events Query. To learn more about this API, read [Time Series Query](./time-series-insights-update-tsq.md).
 * Directly from an Azure Storage account. You need read access to whatever account you're using to access your Time Series Insights Preview data. For more information, read [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 
-### Data deletion
+#### Data deletion
 
 Don't delete your Time Series Insights Preview files. Manage related data from within Time Series Insights Preview only.
 
-## Parquet file format and folder structure
+### Parquet file format and folder structure
 
 Parquet is an open-source columnar file format that was designed for efficient storage and performance. Time Series Insights Preview uses Parquet for these reasons. It partitions data by Time Series ID for query performance at scale.  
 
