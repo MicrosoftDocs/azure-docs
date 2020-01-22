@@ -25,14 +25,15 @@ Meanwhile, [Azure Machine Learning](overview-what-is-azure-ml.md) provides both 
 Azure Machine Learning designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources, is scalable, and is fully integrated into Azure Machine Learning.  
 
 > [!TIP]
-> Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer), which provides drag and drop ML modules __plus__ scalability, version control, and enterprise security.
+> Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) (preview), which provides drag and drop ML modules __plus__ scalability, version control, and enterprise security.
 
 ## Comparison: Azure Machine Learning vs. Machine Learning Studio (classic)
 
 Here is a quick comparison.
 
 ||  Azure Machine Learning designer|Studio (classic) |
-|---| --- | --- | 
+|---| --- | --- |
+||The designer is in preview, Azure Machine Learning is GA|Generally available (GA) | 
 |Drag-and-drop interface| Yes | Yes|
 |Experiment| Scale with compute target|Scale (10GB training data limit) | 
 |Modules for interface| [Many popular modules](algorithm-module-reference/module-reference.md) | Many |
