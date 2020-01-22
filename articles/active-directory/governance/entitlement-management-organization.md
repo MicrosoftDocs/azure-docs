@@ -35,7 +35,7 @@ For example, suppose you work at Woodgrove Bank and you want to collaborate with
 - Graphic Design Institute uses Azure AD and their users have a user principal name that ends with `graphicdesigninstitute.com`
 - Contoso does not yet use Azure AD. Contoso users have a user principal name that ends with `contoso.com`.
 
-In this case, you can configure two connected organizations. You would create one connected organization for Graphic design institute and one for Contoso. If you then add those two connected organizations to a policy, users from each organization with a user principal name matching the policy can request access packages. Furthermore, because Graphic Design Institute uses Azure AD, then any users with a principal name matching a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) added to their tenant, such as graphicdesigninstitute.example will also be able to request access packages using the same policy.
+In this case, you can configure two connected organizations. You would create one connected organization for Graphic design institute and one for Contoso. If you then add those two connected organizations to a policy, users from each organization with a user principal name matching the policy can request access packages. Furthermore, because Graphic Design Institute uses Azure AD, any users with a principal name matching a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) added to their tenant, such as graphicdesigninstitute.example will also be able to request access packages using the same policy.
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
