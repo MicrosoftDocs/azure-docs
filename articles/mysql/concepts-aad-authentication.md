@@ -1,7 +1,7 @@
 ---
 title: Active Directory authentication - Azure Database for MySQL - Single Server
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL - Single Server
-author: lfittl
+author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
