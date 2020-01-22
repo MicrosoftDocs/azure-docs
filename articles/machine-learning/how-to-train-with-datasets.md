@@ -81,7 +81,7 @@ This code creates a generic estimator object, `est`, that specifies
 
 * A script directory for your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The training script, *train_titanic.py*.
-* The input dataset for training, `titanic`.
+* The input dataset for training, `titanic`. `as_named_input()` is required so that the input dataset can be referenced by the assigned name in your training script. 
 * The compute target for the experiment.
 * The environment definition for the experiment.
 
@@ -125,7 +125,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### Configure the estimator
 
-Instead of passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can access your data and use an existing training script.
+Besides passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can keep your training script independent of azureml-sdk. In other words, you will be able use the same training script for local debugging and remote training on any cloud platform.
 
 An [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) estimator object is used to submit the run for scikit-learn experiments. Learn more about training with the [SKlearn estimator](how-to-train-scikit-learn.md).
 
