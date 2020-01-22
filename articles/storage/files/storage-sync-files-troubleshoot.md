@@ -4,7 +4,7 @@ description: Troubleshoot common issues with Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -452,6 +452,17 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
 2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364014"></a>**Sync failed due to storage account locked.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83092 |
+| **HRESULT (decimal)** | -2134364014 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **Remediation required** | Yes |
+
+This error occurs because the storage account has a read-only [resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources). To resolve this issue, remove the read-only resource lock on the storage account. 
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
