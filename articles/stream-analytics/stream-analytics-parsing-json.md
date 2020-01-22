@@ -12,8 +12,6 @@ ms.date: 06/21/2019
 Azure Stream Analytics support processing events in CSV, JSON, and Avro data formats. Both JSON and Avro data can be structured and contain some complex types such as nested objects (records) and arrays. 
 
 
-
-
 ## Record data types
 Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here is example of a single event:
 
@@ -49,9 +47,17 @@ SELECT
     DeviceID,
     Location.Lat,
     Location.Long,
+    SensorReadings.Temperature,
     SensorReadings.SensorMetadata.Version
 FROM input
 ```
+
+The result is:
+
+|DeviceID|Lat|Long|Temperature|Version|
+|-|-|-|-|-|
+|12345|47|122|80|1.2.45|
+
 
 ### Select all properties
 You can select all the properties of a nested record using '*' wildcard. Consider the following example:
@@ -63,39 +69,53 @@ FROM input
 
 The result is:
 
-```json
-{
-    "Lat" : 47,
-    "Long" : 122
-}
-```
+|Lat|Long|
+|-|-|
+|47|122|
 
 
 ### Access nested fields when property name is a variable
-Use the [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) function if the property name is a variable. 
 
-For example, imagine a sample data stream needs to be joined with reference data containing thresholds for each device sensor. A snippet of such reference data is shown below.
+Use the [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) function if the property name is a variable. This allows for building dynamic queries without hardcoding property names.
+
+For example, imagine the sample data stream needs **to be joined with reference data** containing thresholds for each device sensor. A snippet of such reference data is shown below.
 
 ```json
 {
     "DeviceId" : "12345",
     "SensorName" : "Temperature",
-    "Value" : 75
+    "Value" : 85
+},
+{
+    "DeviceId" : "12345",
+    "SensorName" : "Humidity",
+    "Value" : 65
 }
 ```
+
+The goal here is to join our sample dataset from the top of the article to that reference data, and output one event for each sensor measure above its threshold. That means our single event above can generate multiple output events if multiple sensors are above their respective thresholds.
 
 ```SQL
 SELECT
     input.DeviceID,
-    thresholds.SensorName
+    thresholds.SensorName,
+    "Alert : Sensor above threshold" AS AlertMessage
 FROM input      -- stream input
 JOIN thresholds -- reference data input
 ON
     input.DeviceId = thresholds.DeviceId
 WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
-    -- the where statement selects the property value coming from the reference data
 ```
+
+The GetRecordPropertyValue selects the property in SensorReadings which names match the property name coming from the reference data, then it extracts the value associated from SensorReadings
+
+The result is:
+
+|DeviceID|SensorName|AlertMessage|
+|-|-|-|
+|12345|Humidity|Alert : Sensor above threshold|
+
 
 ### Convert record fields into separate events
 To convert record fields into separate events, use the [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) operator together with the [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) function. 
