@@ -34,28 +34,7 @@ Although a function can have only one trigger, it can have multiple input and ou
 
 From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:
 
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-}
-```
+:::code language="python" source="snippets/http-trigger-basics.md" range="90-109":::
 
 Each binding has at least a type, a direction, and a name. In the example above, the first binding is of type `httpTrigger` with the direction `in`. For the `in` direction, `name` specifies the name of an input parameter that's sent to the function when invoked by the trigger.
 
@@ -63,7 +42,7 @@ The second binding is of type `http` with the direction `out`, in which case the
 
 To write to an Azure Storage queue from this function, add an `out` binding of type `queue` with the name `msg`, as shown in the code below:
 
-:::code language="json" source="code/quickstarts-python/function-json-python-storage-queue.json" highlight="18-25":::
+:::code language="python" source="snippets/storage-binding-use-queue.md" range="178-204" highlight="195-202":::
 
 In this case, `msg` is given to the function as an output argument. For a `queue` type, you must also specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json*) in `connection`.
 
@@ -75,7 +54,7 @@ With the queue binding specified in *function.json*, you can now update your fun
 
 Update *HttpExample\\\_\_init\_\_.py* to match the following code, adding the `msg` parameter to the function definition and `msg.set(name)` under the `if name:` statement.
 
-:::code language="python" source="code/quickstarts-python/init-py-storage-queue.py" highlight="6,18":::
+:::code language="python" source="snippets/storage-binding-use-queue.md" range="210-233" highlight="215,227":::
 
 The `msg` parameter is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). Its `set` method writes a string message to the queue, in this case the name passed to the function in the URL query string.
 

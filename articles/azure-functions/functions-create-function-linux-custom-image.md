@@ -541,19 +541,12 @@ In a C# class library project, the bindings are defined as binding attributes on
     ```
     
 1. Add the following parameter to the `Run` method definition:
-
-    ```cs
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-    ```
+    
+    :::code language="cs" source="snippets/storage-binding-use-queue.md" range="24":::    
     
     The `Run` method definition should now look like the following code:  
 
-    ```cs
-    [FunctionName("HttpTrigger")]
-    public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-        [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-    ```
+    :::code language="cs" source="snippets/storage-binding-use-queue.md" range="21-24":::    
     
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The connection string for the Storage account is set by the `StorageAccountAttribute`. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you're already using the default storage account.
 
@@ -563,7 +556,7 @@ The `msg` parameter is an `ICollector<T>` type, which represents a collection of
 
 Update *function.json* to match the following by adding the queue binding:
 
-:::code language="javascript" source="code/create-function-linux-custom-image/function-json-javascript-storage-queue.json" highlight="17-24":::
+:::code language="json" source="snippets/storage-binding-use-queue.md" range="51-76" highlight="67-74":::
 
 ::: zone-end
 
@@ -571,7 +564,7 @@ Update *function.json* to match the following by adding the queue binding:
 
 Update *function.json* to match the following by adding the queue binding:
 
-:::code language="powershell" source="code/create-function-linux-custom-image/function-json-powershell-storage-queue.json" highlight="17-24":::
+:::code language="json" source="snippets/storage-binding-use-queue.md" range="109-134" highlight="125-132":::
 
 ::: zone-end
 
@@ -579,7 +572,7 @@ Update *function.json* to match the following by adding the queue binding:
 
 Update *function.json* to match the following by adding the queue binding:
 
-:::code language="python" source="code/create-function-linux-custom-image/function-json-python-storage-queue.json" highlight="18-25":::
+:::code language="json" source="snippets/storage-binding-use-queue.md" range="178-204" highlight="195-202":::
 
 ::: zone-end
 
@@ -587,7 +580,7 @@ Update *function.json* to match the following by adding the queue binding:
 
 Update *function.json* to match the following by adding the queue binding:
 
-:::code language="javascript" source="code/create-function-linux-custom-image/function-json-typescript-storage-queue.json" highlight="17-24":::
+:::code language="json" source="snippets/storage-binding-use-queue.md" range="241-266" highlight="257-264":::
 
 ::: zone-end
 
@@ -595,25 +588,24 @@ Update *function.json* to match the following by adding the queue binding:
 
 After the binding is defined, the name of the binding, in this case `msg`, appears in the function code as an argument (or in the `context` object in JavaScript and TypeScript). You can then use that variable to write messages to the queue. You need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
-
 ::: zone pivot="programming-language-csharp"
-:::code language="csharp" source="code/create-function-linux-custom-image/use-queue-csharp.cs" highlight="4,14-18":::
+:::code language="cs" source="snippets/storage-binding-use-queue.md" range="21-43" highlight="24,34-38":::
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-:::code language="javascript" source="code/create-function-linux-custom-image/use-queue-javascript.js" highlight="5-7":::
+:::code language="javascript" source="snippets/storage-binding-use-queue.md" range="82-101" highlight="86-88":::
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-:::code language="powershell" source="code/create-function-linux-custom-image/use-queue-powershell.ps1" highlight="16-17":::
+:::code language="powershell" source="snippets/storage-binding-use-queue.md" range="140-170" highlight="155-156":::
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-:::code language="python" source="code/create-function-linux-custom-image/use-queue-python.py" highlight="6,18":::
+:::code language="python" source="snippets/storage-binding-use-queue.md" range="210-233" highlight="215,227":::
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-:::code language="typescript" source="code/create-function-linux-custom-image/use-queue-typescript.ts" highlight="8-10":::
+:::code language="typescript" source="snippets/storage-binding-use-queue.md" range="272-296" highlight="279-281":::
 ::: zone-end
 
 ### Update the image in the registry
