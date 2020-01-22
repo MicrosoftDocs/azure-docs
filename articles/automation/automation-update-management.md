@@ -94,7 +94,7 @@ The following information describes OS-specific client requirements. For additio
 
 Windows agents must be configured to communicate with a WSUS server, or they must have access to Microsoft Update.
 
-You can use Update Management with System Center Configuration Manager. To learn more about integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
+You can use Update Management with Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
 
 By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows VMs to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
 
@@ -186,15 +186,65 @@ We recommend that you use the addresses listed when defining exceptions. For IP 
 
 Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that don't have internet access.
 
-## Integrate with System Center Configuration Manager
+## View update assessments
 
-Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
+In your Automation account, select **Update Management** to view the status of your machines.
 
-To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+This view provides information about your machines, missing updates, update deployments, and scheduled update deployments. In the **COMPLIANCE** column, you can see the last time the machine was assessed. In the **UPDATE AGENT READINESS** column, you can check the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
+
+To run a log search that returns information about the machine, update, or deployment, select the corresponding item in the list. The **Log Search** pane opens with a query for the item selected:
+
+![Update Management default view](media/automation-update-management/update-management-view.png)
+
+## View missing updates
+
+Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, the operating system, and a link for more information is shown. The **Log search** pane shows more details about the updates.
+
+![Missing Updates](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+
+## Update classifications
+
+The following tables list the update classifications in Update Management, with a definition for each classification.
+
+### Windows
+
+|Classification  |Description  |
+|---------|---------|
+|Critical updates     | An update for a specific problem that addresses a critical, non-security-related bug.        |
+|Security updates     | An update for a product-specific, security-related issue.        |
+|Update rollups     | A cumulative set of hotfixes that are packaged together for easy deployment.        |
+|Feature packs     | New product features that are distributed outside a product release.        |
+|Service packs     | A cumulative set of hotfixes that are applied to an application.        |
+|Definition updates     | An update to virus or other definition files.        |
+|Tools     | A utility or feature that helps complete one or more tasks.        |
+|Updates     | An update to an application or file that currently is installed.        |
+
+### <a name="linux-2"></a>Linux
+
+|Classification  |Description  |
+|---------|---------|
+|Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
+|Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
+
+For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
+
+```bash
+sudo yum -q --security check-update
+```
+
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own. 
+
+To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself, there is no need to install anything. For further information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
+
+## Integrate with Configuration Manager
+
+Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
+
+To learn how to integrate the management solution with Configuration Manager, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ### Third-party patches on Windows
 
-Update Management relies on the locally configured update repository to patch supported Windows systems. This is either WSUS or Windows Update. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use System Center Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Update Management relies on the locally configured update repository to patch supported Windows systems. This is either WSUS or Windows Update. Tools like [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
 
 ## Patch Linux machines
 
