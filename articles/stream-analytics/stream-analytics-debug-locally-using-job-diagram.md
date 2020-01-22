@@ -1,5 +1,5 @@
 ---
-title: Debug Azure Stream Analytics query locally using job diagram in Visual Studio
+title: Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
 description: This article describes how to debug queries locally using job diagram in Azure Stream Analytics Tools for Visual Studio.
 author: su-jie
 ms.author: sujie
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 01/9/2020
 ---
 
-# Debug Azure Stream Analytics query locally using job diagram in Visual Studio
+# Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
 
-Job outputing no result or unexpected result are common trouble shooting scenarios for streaming queries. You can use the job diagram while testing your query locally in Visual Studio to examine the intermediate result set and metrics for each step, to more quickly isolate the source of a problem when you trouble shoot issues.
+Jobs that output no result or unexpected results are common troubleshooting scenarios for streaming queries. You can use the job diagram while testing your query locally in Visual Studio to examine the intermediate result set and metrics for each step. Job diagrams can help you quickly isolate the source of a problem when you troubleshoot issues.
 
-## Debug query step by step using job diagram
+## Debug a query using job diagram
 
-An Azure Stream Analytics script represents the logic of transforming input data to output data. The job diagram is to show how data flows from input sources (Event Hub, IoT Hub, etc) through multiple query steps and finally output to sinks. Each query step is mapped to a temporary result set defined in the script using WITH statement. You can view the data as well as metrics in each query step in each intermediate result set to find the source of the issue.
+An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc) through multiple query steps and finally output to sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
 
 > [!NOTE]
-> This job diagram only shows the data and metrics for local testing in a single node. It should not be used for performance tuning and trouble shooting.
+> This job diagram only shows the data and metrics for local testing in a single node. It should not be used for performance tuning and troubleshooting.
 
 ### Start local testing
 
-Use this [Quickstart](stream-analytics-quick-create-vs.md) to learn how to create a Stream Analytics job using Visual Studio or [export an existing job to a local project](stream-analytics-vs-tools.md#export-jobs-to-a-project). If you want to test the query with local input data, follow this [instruction](stream-analytics-live-data-local-testing.md). Or if you want to test with live input, you can move to the next step.
+Use this [Quickstart](stream-analytics-quick-create-vs.md) to learn how to create a Stream Analytics job using Visual Studio or [export an existing job to a local project](stream-analytics-vs-tools.md#export-jobs-to-a-project). If you want to test the query with local input data, follow these [instructions](stream-analytics-live-data-local-testing.md). If you want to test with live input, move to the next step.
 
 > [!NOTE]
-> If you export a job to local project and want to test against live input stream, you need to specify the credentials for all inputs again.  
+> If you export a job to local project and want to test against a live input stream, you need to specify the credentials for all inputs again.  
 
-Choose the input and output source from the script editor and then click **Run locally**. Then the job diagram shows up on the right side.
+Choose the input and output source from the script editor and select **Run locally**. The job diagram appears on the right side.
 
-### View intermediate result set  
+### View the intermediate result set  
 
 #### Navigate to script
 
-Select the query step and it brings you to the corresponding script in the editor on the left.
+1. Select the query step to navigate to the script. You are automatically directed to the corresponding script in the editor on the left.
 
 ![Job diagram navigate script](./media/vs-job-diagram/navigate-script.png)
 
@@ -98,7 +98,7 @@ If you don't need the job diagram anymore, select **Close** on the top right cor
 
 ### View job level metrics and stop running
 
-Other job level metrics shows up in the pop up console. Press Ctrl+C in the console if you want to stop the job.
+Other job level metrics shows up in the pop up console. Press **Ctrl+C** in the console if you want to stop the job.
 
 ![Job diagram stop job](./media/vs-job-diagram/stop-job.png)
 
