@@ -53,7 +53,7 @@ Assign new Office 365 cloud group with the isAssignableToRole set to true to a b
 Create a new security cloud group with the isAssignableToRole property set to true.  | Supported  | Supported  | Not supported
 Assign new security group with the isAssignableToRole set to true to a built-in Azure AD role.  | Supported  | Supported  | Supported
 Put users into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role)  | Supported  | Supported  | Supported
-Put service principals into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role). | Supported  | Supported  | Not supported
+Put service principals into a role-eligible group and assign it to a built-in Azure AD role | Supported  | Supported  | Not supported
 Assign groups with isAssignableToRole set to true to built-in roles scoped to Admin Units.  | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020
 Delegate the management of group that has been assigned to a built-in role.  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
 Assign a new on-premises security group to an Azure AD role (no Office 365 group on-prem).  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020

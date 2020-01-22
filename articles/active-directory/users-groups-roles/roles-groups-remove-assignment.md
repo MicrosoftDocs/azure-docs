@@ -52,9 +52,12 @@ This section describes how an IT admin can remove Azure AD role assigned to grou
 
 ## Using Microsoft Graph API
 
-    //Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups
+    //Create a group that can be assigned Azure AD role. 
+    
+    POST https://graph.microsoft.com/beta/groups
+    
     {
-    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD",
     "displayName": "Contoso_Helpdesk_Administrators",
     "groupTypes": [
     "Unified"
