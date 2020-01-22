@@ -153,4 +153,3 @@ In the example above, the flattened `data_flow` property would present a naming 
 ## Next steps
 
 - To put these guidelines into practice, read [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview REST API for data access.
-- To learn about supported JSON shapes, read [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).
