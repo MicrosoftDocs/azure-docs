@@ -42,7 +42,7 @@ Select the tab for the platform you're interested in:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Because user sign-in is delegated to the Open ID connect (OIDC) middleware, you must interact with the OIDC process. How you do that depends on the framework you use.
+Because user sign-in is delegated to the Open ID connect (OIDC) middleware, you must interact with the OIDC process. How you interact depends on the framework you use.
 
 For ASP.NET Core, you'll subscribe to middleware OIDC events:
 
@@ -57,7 +57,7 @@ Code examples in this article and the following one are extracted from the [ASP.
 
 # [ASP.NET](#tab/aspnet)
 
-Because user sign-in is delegated to the Open ID connect (OIDC) middleware, you must interact with the OIDC process. How you do that depends on the framework you use.
+Because user sign-in is delegated to the Open ID connect (OIDC) middleware, you must interact with the OIDC process. How you interact depends on the framework you use.
 
 For ASP.NET, you'll subscribe to middleware OIDC events:
 
@@ -85,7 +85,7 @@ The sample currently lets MSAL.Python produce the authorization-code URL and han
 
 ### Startup.cs
 
-In ASP.NET Core, in the `Startup.cs` file, you subscribe to the `OnAuthorizationCodeReceived` OpenID Connect event. From this event, call the MSAL.NET `AcquireTokenFromAuthorizationCode` method. This method stores the following in the token cache:
+In ASP.NET Core, in the `Startup.cs` file, you subscribe to the `OnAuthorizationCodeReceived` OpenID Connect event. From this event, call the MSAL.NET `AcquireTokenFromAuthorizationCode` method. This method stores the following tokens in the token cache:
 
 - The *access token* for the requested `scopes`.
 - A *refresh token*. This token will be used to refresh the access token when it's close to expiry, or to get another token on behalf of the same user but for a different resource.
@@ -96,7 +96,7 @@ Following is the code from [Startup.cs#L40-L42](https://github.com/Azure-Samples
 
 - The `AddMicrosoftIdentityPlatformAuthentication` method, which adds authentication to the web app.
 - The `AddMsal` method, which adds the capability of calling Web APIs.
-- The `AddInMemoryTokenCaches` method, which is about choosing a token-cache implementation from among those available.
+- The `AddInMemoryTokenCaches` method, which is about choosing a token-cache implementation.
 
 ```csharp
 public class Startup
@@ -254,9 +254,9 @@ public class TokenAcquisition : ITokenAcquisition
 
 ### The TokenAcquisition.BuildConfidentialClientApplication method
 
-In ASP.NET Core, building the confidential client application uses information that's in the `HttpContext`. The `HttpContext` associated with the request is accessed by means of the `CurrentHttpContext` property. `HttpContext` has information about the URL for the web app and about the signed-in user (in a  `ClaimsPrincipal`). 
+In ASP.NET Core, building the confidential client application uses information that's in the `HttpContext`. The `HttpContext` associated with the request is accessed by using the `CurrentHttpContext` property. `HttpContext` has information about the URL for the web app and about the signed-in user (in a  `ClaimsPrincipal`). 
 
-The `BuildConfidentialClientApplication` method also uses the ASP.NET Core configuration. The configuration has an "AzureAD" section, and also is bound to  both of the following:
+The `BuildConfidentialClientApplication` method also uses the ASP.NET Core configuration. The configuration has an "AzureAD" section, and also is bound to  both of the following elements:
 
 - The `_applicationOptions` data structure of type [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet).
 - the `azureAdOptions` instance of type [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs), defined in ASP.NET Core `Authentication.AzureAD.UI`.
@@ -334,7 +334,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 # [ASP.NET](#tab/aspnet)
 
-ASP.NET handles things similarly to to ASP.NET Core, except that the configuration of OpenID Connect and the subscription to the `OnAuthorizationCodeReceived` event happen in the [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) file. The concepts are also similar to those in ASP.NET Core, except that in ASP.NET you must specify the `RedirectUri` in [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). This configuration is a bit less robust than the one in ASP.NET Core, because you'll need to change it when you deploy your application.
+ASP.NET handles things similarly to ASP.NET Core, except that the configuration of OpenID Connect and the subscription to the `OnAuthorizationCodeReceived` event happen in the [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) file. The concepts are also similar to those in ASP.NET Core, except that in ASP.NET you must specify the `RedirectUri` in [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). This configuration is a bit less robust than the one in ASP.NET Core, because you'll need to change it when you deploy your application.
 
 Here's the code for Startup.Auth.cs:
 

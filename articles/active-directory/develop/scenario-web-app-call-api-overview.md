@@ -25,7 +25,7 @@ Learn how to build a web app that signs users in to the Microsoft identity platf
 
 ## Prerequisites
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 This scenario assumes that you've already gone through the following scenario:
 

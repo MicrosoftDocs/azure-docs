@@ -21,19 +21,19 @@ ms.collection: M365-identity-device-management
 
 # Web app that calls web APIs: Move to production
 
-Now that you know how to acquire a token to call Web APIs, learn how to move to production.
+Now that you know how to acquire a token to call web APIs, learn how to move to production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Next steps
 
-Learn more by trying out the full ASP.NET Core web app progressive tutorial, which shows:
+Learn more by trying out the full, progressive tutorial for ASP.NET Core web apps. The tutorial:
 
-- How to sign in users with multiple audiences, national clouds, or with social identities
-- Calls Microsoft Graph
-- Calls several Microsoft APIs
-- Handles incremental consent
-- Calls your own Web API
+- Shows how to sign users in to multiple audiences or to national clouds, or by using social identities.
+- Calls Microsoft Graph.
+- Calls several Microsoft APIs.
+- Handles incremental consent.
+- Calls your own web API.
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core web app tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
