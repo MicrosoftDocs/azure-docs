@@ -104,8 +104,10 @@ If you want to make your data files available on the compute target for training
 
 ### Mount v.s. Download
 When you mount a dataset, you attach the files referenced by the dataset to a directory (mount point) and make it available on the compute target. Mounting is supported for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. If your data size exceeds the compute disk size, or you are only loading part of dataset in your script, mounting is recommended. Because downloading a dataset bigger than the disk size will fail, and mounting will only load the part of data used by your script at the time of processing. 
+
 When you download a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. If your script process all files referenced by the dataset, and your compute disk can fit in your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services.
 
+Mounting or downloading files of any format are supported for datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. 
 
 ### Create a FileDataset
 
