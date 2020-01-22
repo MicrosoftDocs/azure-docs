@@ -1,5 +1,5 @@
 ---
-title: Security recommendations in Azure Security Center  | Microsoft Docs
+title: Security recommendations in Azure Security Center
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na

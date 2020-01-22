@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center and Azure Kubernetes Service | Microsoft Docs
+title: Azure Security Center and Azure Kubernetes Service
 description: "Learn about Azure Security Center's integration with Azure Kubernetes Services"
 services: security-center
 documentationcenter: na
