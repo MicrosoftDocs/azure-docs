@@ -1,5 +1,5 @@
 ---
-title: Protect NDES with Azure AD Application Proxy
+title: Integrate with AD Application Proxy on an NDES server
 description: Guidance on deploying an Azure Active Directory Application Proxy to protect your NDES server.
 services: active-directory
 author: CelesteDG
@@ -14,7 +14,7 @@ ms.author: baselden
 ms.reviewer: mimart
 ---
 
-# Protect Network Device Enrollment Service (NDES) with Azure Active Directory (AD) Application Proxy
+# Integrate with AD Application Proxy on a Network Device Enrollment Service (NDES) server
 
 Azure Active Directory (AD) Application Proxy lets you publish applications inside your network. These applications are ones such as SharePoint sites, Microsoft Outlook Web App, and other web applications. It also provides secure access to users outside your network via Azure.
 
