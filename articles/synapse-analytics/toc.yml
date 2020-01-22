@@ -8,6 +8,8 @@
     href: overview-who-can-benefit-azure-synapse-analytics.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
+  - name: Features 
+    href: overview-features.md
   - name: FAQ
     href: overview-faq.md
 - name: Release notes
@@ -68,14 +70,14 @@
     items:
     # - name: Overview
     #   href: article-template.md
-    - name: Analytics resources
-      items:
-      # - name: SQL pool
-      #   href: article-template.md
-      - name: SQL on-demand
-        href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
-      - name: Spark pool 
-        href: ./spark/apache-spark-overview.md
+    # - name: Analytics resources
+    #   items:
+    #   - name: SQL pool
+    #     href: article-template.md
+    #   - name: SQL on-demand
+    #     href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
+    #   - name: Spark pool 
+    #     href: ./spark/apache-spark-overview.md
     - name: Metadata management
       items:
       # - name: Overview
@@ -146,8 +148,8 @@
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Virtual network service endpoints
         href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: Virtual network private link
-      #   href: article-template.md
+      - name: Virtual network private link
+        href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
@@ -224,8 +226,8 @@
       items:
       # - name: Overview, using tools to interact with Apache Spark
       #  href: article-template.md
-      # - name: Spark Job definitions
-      #   href: article-template.md
+      - name: Spark Job definitions
+        href: ../hdinsight/spark/azure-synapse-analytics-job-definition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
       #  items:

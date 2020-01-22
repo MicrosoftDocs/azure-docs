@@ -6,7 +6,7 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/15/2020
 ms.author: cherylmc
 ---
 
@@ -94,9 +94,14 @@ Use the following steps to configure the native VPN client on Mac for certificat
 4. In the **Generic** folder, from the **VpnSettings.xml** file, copy the **VpnServer** tag value. Paste this value in the **Server Address** and **Remote ID** fields of the profile.
 
    ![server info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. Click **Authentication Settings** and select **Certificate**. 
+5. Click **Authentication Settings** and select **Certificate**. For **Catalina**, click **None** and then **certificate**
 
    ![authentication settings](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
+
+   * For Catalina, select **None** and then **Certificate**. **Select** the correct certificate:
+   
+   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+
 6. Click **Select…** to choose the client certificate that you want to use for authentication. This is the certificate that you installed in Step 2.
 
    ![certificate](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)

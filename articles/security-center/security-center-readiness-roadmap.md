@@ -80,7 +80,7 @@ Videos
 
 Articles	
 * [Using Azure Security Center for an incident response](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automate response with security playbook](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [Automate response with Workflow Automation](workflow-automation.md)
 
 ## Advanced cloud defense
 

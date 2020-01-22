@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 01/13/2020
 ---
 
 # Create a new SaaS offer
@@ -162,7 +162,7 @@ Select **Save** after completing these fields.
 
 ### Category
 
-Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Call out how your offer supports these categories in the offer description.
 
 ### Industry
 
@@ -170,7 +170,7 @@ Select a minimum of one (1) and a maximum of three (3) categories used for group
 
 ### App version
 
-This is an optional field used in the AppSource marketplace to identify the version number of your offer.
+This field is optional and used in the AppSource marketplace to identify the version number of your offer.
 
 ### Standard Contract for the Microsoft commercial marketplace
 
@@ -199,12 +199,12 @@ There are two kinds of amendments available for commercial marketplace publisher
 >[!NOTE]
 > These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
 
-**Universal amendment terms to the Standard Contract for Microsoft’s commercial marketplace**: Enter the universal amendment terms in this box. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These are displayed to customers in AppSource, Azure Marketplace, and/or Azure portal during the discovery and purchase flow.
+**Universal amendment terms to the Standard Contract for Microsoft’s commercial marketplace**: Enter the universal amendment terms in this box. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or Azure portal during the discovery and purchase flow.
 
 **Custom amendment terms to the Standard Contract for Microsoft’s commercial marketplace**: Start by selecting **Add custom amendment terms**. You can provide up to 10 custom amendment terms per offer.
 
 - **Custom amendment terms**: Enter your custom amendment terms in the custom amendment terms box. You can enter an unlimited number of characters in this box. Only customers from the tenant IDs you specify for these custom terms will be presented with the custom amendment terms in the offer’s purchase flow in the Azure portal.  
-- **Tenant IDs** (required): Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment you must provide at least one tenant ID. The tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by navigating to portal.azure.com > Azure Active Directory > Properties. The directory ID value is the tenant ID (e.g. 50c464d3-4930-494c-963c-1e951d15360e). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com).
+- **Tenant IDs** (required): Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID. The tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by navigating to portal.azure.com > Azure Active Directory > Properties. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com).
 - **Description** (optional): Optionally provide a friendly description for the tenant ID that helps you identify the customer you're targeting with the amendment.
 
 #### Terms and conditions
@@ -226,7 +226,7 @@ The Offer listing tab displays the languages (and markets) where your offer is a
 
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
 - **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
 Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -235,7 +235,7 @@ Up to 3,000 characters of text can be entered in this field. For additional tips
 
 #### **Description**
 
-This is a required field. Items to include in the description:
+This field is a required. Items to include in **Description**:
 
 * Clearly describe your offer's value proposition in the first few sentences of your description.  
 * Keep in mind that the first few sentences might be displayed in search engine results.  
@@ -248,76 +248,28 @@ Core components of your value proposition should include the following informati
 * Type of user that benefits from the product.
 * Customer needs or pain that the product addresses.
 
-To make your offer description more engaging you can use HTML tags to format the description.
+To make your offer **Description** more engaging, use the rich text editor to format your description.
 
-1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
+![Using the rich text editor](./media/text-editor2.png)
 
-    **Example**:
+Use the following instructions to use the rich text editor:
 
-    `<p>` This is my first paragraph. `</p>` <br>
-    `<p>` This is my second paragraph. `</p>` <br>
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
 
-    The above would look like this:
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
 
-    <p> This is my first paragraph. </p>
-    <p> This is my second paragraph. </p>
+- To add a bulleted or numbered list to the text, use the options below:
 
-1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`.
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
 
-    **Example**:
+- To add or remove indentation to the text, use the options below:
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    The above would look like this:
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul> 
-
-1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold.
-
-    **Example**: `<b>` FREE TRIAL `</b>`
-    
-    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront.
-
-    **FREE TRIAL**
-
-1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content.
-
-    **Example**:
-
-    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below.
-
-    The above would look like this:
-
-    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below.
-
-1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text.
-
-    **Example**:
-
-    `<h1>`This is heading 1`</h1>` <br>
-    `<h2>`This is heading 2`</h2>` <br>
-    `<h3>`This is heading 3`</h3>` <br>
-    `<h4>`This is heading 4`</h4>` <br>
-    `<h5>`This is heading 5`</h5>` <br>
-    `<h6>`This is heading 6`</h6>` 
-
-    The above would look like this:
-
-    ![Sample headings](./media/heading.png)
+     ![Using the rich text editor to indent](./media/text-editor5.png)
 
 #### Links
 
 - **Privacy Policy** (required): Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
-- **CSP Program Marketing Materials** (optional): You must provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **CSP Program Marketing Materials** (optional): Provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 - **Useful Links** (optional): Optional supplemental online documents about your app or related services listed by providing a **Title**  and  **URL**. Add additional useful links by clicking  **+ Add a URL**.
 
 #### Contact information
@@ -348,7 +300,7 @@ Remember to **Save** before moving on to the next section.
 The **Preview** tab enables you to define a limited **Preview Audience** for releasing your offer prior to publishing your offer live to the broader marketplace audience.
 
 > [!IMPORTANT]
-> You must select **Go live** before your offer will be published live to the marketplace public audience after checking your offer in Preview.
+> After checking your offer in Preview, select **Go live** so that your offer can be published live to the marketplace public audience.
 
 - **Define a Preview Audience: Add a single AAD/MSA account email per line, along with an optional description.**
 
@@ -363,11 +315,11 @@ The **Technical configuration** tab defines the technical details (URL path, web
 
 - **Landing page URL** (required): Define the site URL that customers will land on after acquiring your offer from the marketplace. This URL will be the endpoint that receives a token when a customer is routed to the page. That token can be exchanged for provisioning details using resolve in the fulfillment APIs. Those details and any others you collect can be used as part of a customer-interactive web page built in your experience to complete registration and activate their purchase.
 
-- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
 >[!Note]
 >The Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
@@ -385,8 +337,8 @@ Once created, you will see your plan names, IDs, pricing models, availability (P
 
 **Create new plan** (minimum of one plan for those who select to sell through Microsoft)
 
-- **Plan ID:** Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). Use only lowercase, alphanumeric characters, dashes or underscores. A maximum of 50 characters are allowed for this plan ID. Note that the ID cannot be modified after selecting create.
-- **Plan name:** Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (E.g. Offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
+- **Plan ID:** Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores. A maximum of 50 characters are allowed for this plan ID. The ID cannot be modified after selecting create.
+- **Plan name:** Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
 
 ### Plan listing
 
@@ -419,7 +371,7 @@ The ability to configure a free trial is available for each plan in your offer. 
 >[!Note]
 >Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
 >Free trials are not supported for plans that leverage the marketplace metering service.

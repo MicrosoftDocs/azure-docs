@@ -137,26 +137,16 @@ Execute the following three queries and check if the credentials are created cor
 > All URIs in the sample queries use a storage account located in the North Europe Azure region. Make sure that you created the appropriate credential. Run the query below and make sure the storage account is listed.
 
 ```sql
--- QUERY 1 - Validate CSV credential
 SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-
--- QUERY 2 - Validate Parquet credential
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/parquet'
-
--- QUERY 3 - Validate JSON credential
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/json'
+FROM sys.credentials
+WHERE
+     name IN ( 'https://sqlondemandstorage.blob.core.windows.net/csv',
+     'https://sqlondemandstorage.blob.core.windows.net/parquet',
+     'https://sqlondemandstorage.blob.core.windows.net/json')
 ```
 
-If you can't find the appropriate credential, review [First-time setup](#first-time-setup).
+If you can't find the appropriate credential, check [First-time setup](#first-time-setup).
+
 
 ### Sample query
 
