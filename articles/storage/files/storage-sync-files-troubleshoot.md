@@ -44,6 +44,19 @@ The parameter is incorrect.
 
 To resolve, install the latest updates for Windows Server 2012 R2 and restart the server.
 
+<a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
+When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.
+
+This issue occurs because ServerRegistration.exe does not currently support multi-tenant environments. This issue will be fixed in a future Azure File Sync agent update.
+
+To workaround this issue, use the following PowerShell commands to register the server:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
+
 <a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**  
 This message appears if Az or AzureRM PowerShell module is not installed on PowerShell 5.1. 
 
