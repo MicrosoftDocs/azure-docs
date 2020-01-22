@@ -46,4 +46,4 @@ The matrix below describes scenarios based on the values of the cache metrics:
 > If the cache hit percentage or cache used percentage isn't updating after rerunning your workload, your working set can already be residing in memory. Only clustered columnstore tables are cached.
 
 ## Next steps
-For more information on general query performance tuning, see [Monitor query execution](./sql-data-warehouse-manage-monitor#monitor-query-execution.md).
+For more information on general query performance tuning, see [Monitor query execution](../sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
