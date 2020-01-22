@@ -22,7 +22,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * If you don't have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Create [a cluster](create-cluster-database-csharp.md)
+* [Create a cluster](create-cluster-database-csharp.md).
 
 ## Install C# NuGet
 
@@ -32,7 +32,9 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add a cluster principal
-The following example shows how to add a cluster principal programmatically.
+
+The following example shows you how to add a cluster principal programmatically.
+
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
@@ -57,6 +59,7 @@ string principalType = "App";//User, App, or Group
 var clusterPrincipalAssignment = new ClusterPrincipalAssignment(principalId, role, principalType, tenantId: tenantIdForPrincipal);
 await kustoManagementClient.ClusterPrincipalAssignments.CreateOrUpdateAsync(resourceGroupName, clusterName, principalAssignmentName, clusterPrincipalAssignment);
 ```
+
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
 | tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
@@ -69,7 +72,7 @@ await kustoManagementClient.ClusterPrincipalAssignments.CreateOrUpdateAsync(reso
 | principalId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The principal ID, which can be user email, application ID, or security group name.|
 | role | *AllDatabasesAdmin* | The role of your cluster principal, which can be 'AllDatabasesAdmin' or 'AllDatabasesViewer'.|
 | tenantIdForPrincipal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The tenant ID of the principal.|
-| principalType | *App* | The type of the principal, which can be 'User', 'App' or 'Group'|
+| principalType | *App* | The type of the principal, which can be 'User', 'App', or 'Group'|
 
 ## Next steps
 

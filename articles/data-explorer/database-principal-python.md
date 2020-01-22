@@ -21,7 +21,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Create [a cluster and database](create-cluster-database-python.md)
+* [Create a cluster and database](create-cluster-database-python.md)
 
 ## Install Python package
 
@@ -35,7 +35,9 @@ pip install azure-mgmt-kusto
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add a database principal
-The following example shows how to add a database principal programmatically.
+
+The following example shows you how to add a database principal programmatically.
+
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
 from azure.mgmt.kusto.models import DatabasePrincipalAssignment
@@ -71,6 +73,7 @@ principal_type = "App"
 #Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.database_principal_assignments.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, principal_assignment_name= principal_assignment_name, parameters=DatabasePrincipalAssignment(principal_id=principal_id, role=role, tenant_id=tenant_id_for_principal, principal_type=principal_type))
 ```
+
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
 | tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
@@ -79,12 +82,12 @@ poller = kusto_management_client.database_principal_assignments.create_or_update
 | client_secret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resource_group_name | *testrg* | The name of the resource group containing your cluster.|
 | cluster_name | *mykustocluster* | The name of your cluster.|
-| database_name | *mykustodatabase* | The name of the target database in your cluster.|
-| principal_assignment_name | *clusterPrincipalAssignment1* | The name of your cluster principal resource.|
+| database_name | *mykustodatabase* | The name of your database.|
+| principal_assignment_name | *databasePrincipalAssignment1* | The name of your database principal resource.|
 | principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The principal ID, which can be user email, application ID, or security group name.|
-| role | *AllDatabasesAdmin* | The role of your cluster principal, which can be 'AllDatabasesAdmin' or 'AllDatabasesViewer'.|
+| role | *Admin* | The role of your database principal, which can be 'Admin', 'Ingestor', 'Monitor', 'User', 'UnrestrictedViewers', 'Viewer'.|
 | tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The tenant ID of the principal.|
-| principal_type | *App* | The type of the principal, which can be 'User', 'App' or 'Group'|
+| principal_type | *App* | The type of the principal, which can be 'User', 'App', or 'Group'|
 
 ## Next steps
 

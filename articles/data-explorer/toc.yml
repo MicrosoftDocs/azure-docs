@@ -162,6 +162,8 @@
         items:
           - name: C#
             href: cluster-principal-csharp.md
+          - name: Python
+            href: cluster-principal-python.md
           - name: Azure Resource Manager template
             href: cluster-principal-resource-manager.md
     - name: Database
@@ -174,6 +176,8 @@
         items:
           - name: C#
             href: database-principal-csharp.md
+          - name: Python
+            href: database-principal-python.md
           - name: Azure Resource Manager template
             href: database-principal-resource-manager.md
       - name: Policies

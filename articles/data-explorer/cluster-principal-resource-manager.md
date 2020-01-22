@@ -21,9 +21,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Create [a cluster](create-cluster-database-portal.md)
+* [Create a cluster](create-cluster-database-portal.md).
 
 ## Azure Resource Manager template for adding a cluster principal
+
 The following example shows an Azure Resource Manager template for adding a cluster principal.  You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
 
 ```json

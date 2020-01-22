@@ -13,6 +13,7 @@ ms.date: 01/05/2019
 
 > [!div class="op_single_selector"]
 > * [C#](database-principal-csharp.md)
+> * [Python](database-principal-python.md)
 > * [Azure Resource Manager template](database-principal-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. In this article, you add database principals for Azure Data Explorer by using an Azure Resource Manager template.
@@ -23,6 +24,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 * Create [a cluster and database](create-cluster-database-portal.md)
 
 ## Azure Resource Manager template for adding a cluster principal
+
 The following example shows an Azure Resource Manager template for adding a database principal.  You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
 
 ```json

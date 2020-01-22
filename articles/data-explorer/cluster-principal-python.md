@@ -21,7 +21,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Create [a cluster](create-cluster-database-python.md)
+* [Create a cluster](create-cluster-database-python.md).
 
 ## Install Python package
 
@@ -35,7 +35,9 @@ pip install azure-mgmt-kusto
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add a cluster principal
-The following example shows how to add a cluster principal programmatically.
+
+The following example shows you how to add a cluster principal programmatically.
+
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
 from azure.mgmt.kusto.models import ClusterPrincipalAssignment
@@ -70,6 +72,7 @@ principal_type = "App"
 #Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.cluster_principal_assignments.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, principal_assignment_name= principal_assignment_name, parameters=ClusterPrincipalAssignment(principal_id=principal_id, role=role, tenant_id=tenant_id_for_principal, principal_type=principal_type))
 ```
+
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
 | tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
@@ -82,7 +85,7 @@ poller = kusto_management_client.cluster_principal_assignments.create_or_update(
 | principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The principal ID, which can be user email, application ID, or security group name.|
 | role | *AllDatabasesAdmin* | The role of your cluster principal, which can be 'AllDatabasesAdmin' or 'AllDatabasesViewer'.|
 | tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The tenant ID of the principal.|
-| principal_type | *App* | The type of the principal, which can be 'User', 'App' or 'Group'|
+| principal_type | *App* | The type of the principal, which can be 'User', 'App', or 'Group'|
 
 ## Next steps
 
