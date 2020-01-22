@@ -16,6 +16,7 @@ ms.author: diberry
 Use the Language Understanding (LUIS) prediction client library for Python to:
 
 * Get prediction by slot
+* Get prediction by version
 
 [Reference documentation](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Prediction runtime Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
 
@@ -28,12 +29,17 @@ Use the Language Understanding (LUIS) prediction client library for Python to:
 
 ### Create an environment variable
 
-Using your key, and the name of your resource, create two environment variables for authentication:
+Using your LUIS runtime resource information of key and endpoint, you can access a public IoT LUIS app. Create environment variables for authentication and app access:
 
 * LUIS_RUNTIME_KEY
 * LUIS_RUNTIME_ENDPOINT
 * LUIS_APP_ID - The public LUIS IoT app ID is `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
 * LUIS_APP_SLOT_NAME - `production` or `staging`
+
+If you intent to use this quickstart to access your own app, you need to take additional steps:
+* Create the app and get the app ID
+* Assign the runtime key to the app in the LUIS portal
+* Test the URL on the , with the browser, that you can access the app
 
 Use the instructions for your operating system.
 
