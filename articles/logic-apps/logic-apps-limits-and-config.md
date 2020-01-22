@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 01/18/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -42,8 +42,8 @@ Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | The run duration is calculated by using the run's start time and the run duration value *at start time* in the workflow's [**Run history retention in days** setting](#change-duration). <p><p>The default duration is the same as the limit. To change the default limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days | 366 days | The retention period is calculated by using the run's start time and the run history retention value *at the current time* in the workflow's [**Run history retention in days** setting](#change-retention). If you change this setting, the current value is always used, no matter the previous value. If the run's duration exceeds the current retention period, the run is removed from the runs history. <p><p>For example, suppose you reduce the retention period from 90 days to 30 days. A run that's been kept for 60 days is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's been kept for 30 days stays in the runs history for another 30 days. <p><p>Whether a logic app completes or times out, the retention calculation always uses the run's start time. <p><p>The default retention is the same as the limit. To change the default limit, see [change storage retention](#change-retention). |
+| Run duration | 90 days | 366 days | The run duration is calculated by using the run's start time and the run duration value *at start time* in the workflow's setting, [**Run history retention in days**](#change-duration). <p><p>The default duration value is the same as the limit. To change the default limit, see [change run duration](#change-duration). |
+| Storage retention | 90 days | 366 days | The retention period is calculated by using the run's start time and the run history retention value *at the current time* in the workflow's setting [**Run history retention in days**](#change-retention). When the run's retention period exceeds the *current* run history retention value, the run is removed from the runs history. Whether a logic app completes or times out, the retention calculation always uses the run's start time. <p><p>If you change this setting, the current value is always used, no matter the previous value. For example, if you reduce the retention period from 90 days to 30 days, a run that's been kept for 60 days is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's been kept for 30 days remains in the runs history for another 30 days. <p><p>The default retention value is the same as the limit. To change the default limit, see [change storage retention](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
