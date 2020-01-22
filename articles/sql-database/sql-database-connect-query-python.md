@@ -25,9 +25,9 @@ To complete this sample, make sure you have the following:
 - Azure SQL database - [create and configure a database](sql-database-single-database-get-started.md)
 
   > [!NOTE]
-  > To use managed instances, create an instance using the Azure [Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), and configure connectivity using a [VM](sql-database-managed-instance-configure-vm.md) or [on-site](sql-database-managed-instance-configure-p2s.md).
+  > To use managed instances, create an instance using the Azure [Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), and configure [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
   >
-  > To load data, see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) or [restore with BACPAC](sql-database-import.md) using the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file.
+  > To load data, see [restore with BACPAC](sql-database-import.md) using the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md).
   
 - [Python](https://python.org) and related software
 
@@ -36,10 +36,13 @@ To complete this sample, make sure you have the following:
   Install Homebrew and Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server using steps **1.2**, **1.3**, and **2.1** in [create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   # [Ubuntu](#tab/ubuntu)
+
   Install Python and other required packages with `sudo apt-get install python python-pip gcc g++ build-essential`.
 
   Install the ODBC driver, SQLCMD, and the Python driver for SQL Server, see [configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+
   # [Windows](#tab/windows)
+
   Install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, see [configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
   ---
 
