@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics (formerly SQL DW) architecture 
-description: Learn how Azure Synapse Analytics (formerly SQL DW) combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
+description: Learn how Azure Synapse Analytics (formerly SQL DW) combines massively parallel processing (MPP) with Azure Storage to achieve high performance and scalability. 
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -17,22 +17,22 @@ ms.reviewer: igorstan
 Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
 
  Azure Synapse has four components:
-- SQL Analytics : Complete T-SQL based analytics 
+- SQL Analytics: Complete T-SQL based analytics 
     - SQL pool (pay per DWU provisioned) – Generally Available
     - SQL on-demand (pay per TB processed) – (Preview)
-- Spark : Deeply integrated Apache Spark (Preview) 
-- Data Integration : Hybrid data integration (Preview)
-- Studio : unified user experience.  (Preview)
+- Spark: Deeply integrated Apache Spark (Preview) 
+- Data Integration: Hybrid data integration (Preview)
+- Studio: unified user experience.  (Preview)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## SQL Analytics MPP architecture components
 
-[SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage which enables you to scale compute independently of the data in your system.
+[SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
 
 ![SQL Analytics architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for SQL Analytics. The Control node runs the MPP engine which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. 
+SQL Analytics uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for SQL Analytics. The Control node runs the MPP engine, which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. 
 
 The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
 
@@ -43,9 +43,9 @@ With decoupled storage and compute, when using SQL Analytics one can:
 * Pause compute capacity while leaving data intact, so you only pay for storage.
 * Resume compute capacity during operational hours.
 
-### Azure storage
+### Azure Storage
 
-SQL Analytics leverages Azure storage to keep your user data safe.  Since your data is stored and managed by Azure storage, there is a separate charge for your storage consumption. The data itself is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+SQL Analytics leverages Azure Storage to keep your user data safe.  Since your data is stored and managed by Azure Storage, there is a separate charge for your storage consumption. The data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
 
 * Hash
 * Round Robin
@@ -88,15 +88,15 @@ There are performance considerations for the selection of a distribution column,
 ## Round-robin distributed tables
 A round-robin table is the simplest table to create and delivers fast performance when used as a staging table for loads.
 
-A round-robin distributed table distributes data evenly across the table but without any further optimization. A distribution is first chosen at random and then buffers of rows are assigned to distributions sequentially. It is quick to load data into a round-robin table, but query performance can often be better with hash distributed tables. Joins on round-robin tables require reshuffling data and this takes additional time.
+A round-robin distributed table distributes data evenly across the table but without any further optimization. A distribution is first chosen at random and then buffers of rows are assigned to distributions sequentially. It is quick to load data into a round-robin table, but query performance can often be better with hash distributed tables. Joins on round-robin tables require reshuffling data, which takes additional time.
 
 
 ## Replicated Tables
 A replicated table provides the fastest query performance for small tables.
 
-A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical.  
+A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data, which make large tables impractical.  
 
-The diagram below shows a replicated table which is cached on the first distribution on each compute node.  
+The diagram below shows a replicated table that is cached on the first distribution on each compute node.  
 
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
@@ -107,7 +107,6 @@ Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 * [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
-* [Customer Advisory Team blogs](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
 * [Create support ticket](./sql-data-warehouse-get-started-create-support-ticket.md)
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 * [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
