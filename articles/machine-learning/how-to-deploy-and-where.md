@@ -328,6 +328,8 @@ def run(data):
         return error
 ```
 
+##### Generating a Power BI compatible inference endpoint
+
 The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
@@ -364,8 +366,9 @@ input_sample = pd.DataFrame(data=[{
 # This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
+# When we decorate the schema for the run function here, we are setting enforce_shape=False to indicate that we support a variable length of data inputs to the model
 
-@input_schema('data', PandasParameterType(input_sample))
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
