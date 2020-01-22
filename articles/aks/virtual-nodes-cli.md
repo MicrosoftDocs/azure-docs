@@ -300,7 +300,7 @@ Close the terminal session to your test pod with `exit`. When your session is en
 
 If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. 
 
-First, delete the aci-helloworld pod running on the virtual node:
+First, delete the `aci-helloworld` pod running on the virtual node:
 
 ```azurecli-interactive
 kubectl delete -f virtual-node.yaml
