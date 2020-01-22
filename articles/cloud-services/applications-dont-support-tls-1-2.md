@@ -15,9 +15,7 @@ ms.workload:
 ms.date: 01/17/2020
 ms.author: tagore
 ---
-# Troubleshooting issues caused by applications that don’t support TLS 1.2
-
-## Summary
+# Troubleshooting applications that don’t support TLS 1.2
 This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) as well as applying legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles. 
 
 We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article. 
