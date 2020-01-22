@@ -18,7 +18,7 @@ Let's learn, how to:
 
 * Request latitude and longitude coordinates for an address (geocode address location) by using [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
 * Search for an address or Point of Interest (POI) using [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* Search for an address along with properties and coordinates 
+* Search for an address along with properties and coordinates
 * Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address
 * Search for a cross street using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
@@ -32,7 +32,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 In this example, we are using Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert street address into latitude and longitude coordinates. You can pass a complete or partial street address to the API and receive a response that includes detailed address properties such as street, postal code and country/region, as well as positional values in latitude and longitude.
 
-If you have a set of addresses to geocode, you can use [Post Search Address Batch API](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
+If you have a set of addresses to geocode, you can use [Post Search Address Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
 
 1. In Postman, click **New Request** | **GET request** and name it **Address Search**.
 
@@ -74,9 +74,9 @@ In this case, you specified a complete address query and receive a single result
 
 The **typeahead** flag tells the Address Search API to treat the query as a partial input and return an array of predictive values.
 
-## Search for an address or Point of Interest (POI)
+## Search for an address or Point of Interest (POI) using Fuzzy Search API
 
-The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). This service is useful when you are not sure of the user input format in a search query. The API combines POI search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. Also, it can be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
+Azure Maps[ Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) is recommended service to use when you do not know what your user inputs are for a search query. The API combines Point of Interest (POI) search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. It can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
 
 Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce unusual results. This default can be overridden as needed per request by passing in the query parameter `maxFuzzyLevel=2` or `3`.
 
