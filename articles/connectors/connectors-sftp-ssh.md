@@ -26,7 +26,10 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the **Copy File action**, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
+* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the **Copy File action**, which can handle only 15 MB files. The connector uses adaptive chunking to adjust for various factors such as network latency, server response time, and so on, starting with 10 MB and gradually increasing to 50 MB.
+
+While the **Get file content** action implicitly uses message chunking, other actions need you to manually enable chunking. 
+  To better control the chunk sizes that the connector uses, you can [specify a constant chunk size](#enable-chunking).
 
 * SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
@@ -164,6 +167,8 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 1. When you're done entering the connection details, select **Create**.
 
 1. Now provide the necessary details for your selected trigger or action and continue building your logic app's workflow.
+
+<a name="enable-chunking"></a>
 
 ## Enable chunking
 
