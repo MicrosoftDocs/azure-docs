@@ -33,7 +33,7 @@ The device platform is characterized by the operating system that runs on a devi
 
 ## Locations
 
-When configuring location as a condition organizations can choose to include or exclude locations. These named locations may include the public IPv4 network information, country or region, or even unknown areas that dont map to countries or regions. Only IP ranges can be marked as a trusted location.
+When configuring location as a condition organizations can choose to include or exclude locations. These named locations may include the public IPv4 network information, country or region, or even unknown areas that don't map to specific countries or regions. Only IP ranges can be marked as a trusted location.
 
 When including **any location** this includes any IP address on the internet not just configured named locations. When selecting **any location** administrators can choose to exclude **all trusted** or **selected locations**.
 
@@ -41,7 +41,39 @@ For example, some organizations may choose to not require multi-factor authentic
 
 ## Client apps (preview)
 
+Conditional Access policies by default apply to browser based applications and applications that utilize modern authentication protocols. In addition to these applications, administrators can choose to include Exchange ActiveSync clients and other clients that utilize legacy protocols.
+
+- Browser
+   - These include web based applications that use protocols like SAML, WS-Federation, OpenID Connect, or services registered as an OAuth confidential clent.
+- Mobile apps and desktop clients
+   - Modern authentication clients
+      - This would include applications like the Office desktop and phone applications.
+   - Exchange ActiveSync clients
+      - When policy blocks the use of Exchange ActiveSync the affected user will receive a single quarantine email. This email with provide information on why they are blocked and include remediation instructions if able.
+   - Other clients
+      - This includes clients that use basic/legacy authentication protocols uncluding IMAP, MAPI, POP, SMTP, and legacy Office applications that do not support modern authentication.
+
+These conditions are commonly used when requiring a managed device, blocking legacy authentication, and blocking web applicaitons but allowing mobile or desktop apps.
+
+### Exchange ActiveSync clients
+
+- Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to become blocked.
+- When creating a policy assigned to Exchange ActiveSync clients, **Office 365 Exchange Online** should be the only cloud application assigned to the policy. 
+- Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
+
+If the access control assigned to the policy uses **Require approved client app** the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication** is required, affected users are blocked, because basic authentication does not support multi-factor authentication.
+
+For more information, see the following articles:
+
+- [Block legacy authentication with Conditional Access](block-legacy-authentication.md)
+- [Requiring approved client apps with Conditional Access](app-based-conditional-access.md)
+
 ## Device state (preview)
+
+The device state condition can be used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
+
+For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
+   - This would create a policy that only allows access to Microsoft Azure Management from devices that are hybrid Azure AD joined and/or devices marked as compliant.
 
 ## Next steps
 
