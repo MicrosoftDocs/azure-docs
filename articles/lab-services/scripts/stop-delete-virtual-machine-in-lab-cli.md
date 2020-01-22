@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Stop and delete a virtual machine in a lab | Microsoft Docs
+title: Azure CLI - Stop and delete a virtual machine in a lab
 description: This Azure CLI script stops and delets a virtual machine in a lab. 
 services: lab-services
 author: spelluru
@@ -12,7 +12,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 ms.custom: mvc
 ---
