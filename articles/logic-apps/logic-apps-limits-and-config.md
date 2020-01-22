@@ -43,7 +43,7 @@ Here are the limits for a single logic app run:
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified *at start time* by the workflow setting, [**Run history retention in days**](#change-duration). <p><p>To change the default limit, which is 90 days, see [change run duration](#change-duration). |
-| Run retention in storage | 90 days | 366 days | Run retention is calculated by using a run's start time and the limit that's specified *at the current time* by the workflow setting, [**Run history retention in days**](#change-retention). <p><p>When a run's duration exceeds the *current* retention limit, the run is removed from the runs history. Whether a run completes or times out, the retention calculation always uses the run's start time. <p><p>If you change this setting, the current limit is always used for calculating retention, no matter the previous limit. For example, if you reduce the retention limit from 90 days to 30 days, a run that's 60 days old is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's 30 days old stays in the runs history for another 30 days. <p><p>To change the default limit, which is 90 days, see [change run retention in storage](#change-retention). |
+| Run retention in storage | 90 days | 366 days | Run retention is calculated by using a run's start time and the limit that's specified *at the current time* by the workflow setting, [**Run history retention in days**](#change-retention). Whether a run completes or times out, the retention calculation always uses the run's start time. When a run's duration exceeds the *current* retention limit, the run is removed from the runs history. <p><p>If you change this setting, the current limit is always used for calculating retention, no matter the previous limit. For example, if you reduce the retention limit from 90 days to 30 days, a run that's 60 days old is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's 20 days old stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run retention in storage](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -68,6 +68,8 @@ To change the default limit for run duration and run retention in storage, follo
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
 1. Drag the slider to change the number of days that you want.
+
+1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
 <a name="looping-debatching-limits"></a>
 
