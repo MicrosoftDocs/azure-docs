@@ -144,7 +144,7 @@ Advance to the next article to learn how to create...
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
 Do not use a "More info section" or a "Resources section" or a "See also section". --->
 
-- [Setup permissions on Azure storage](sql-analytics/tutorial-power-bi-professional.md)
+- [Setup permissions on Azure storage](sql-analytics/tutorial-connect-power-bi-desktop.md)
 - [Query files on Azure Storage using SQL On-Demand](sql-analytics/quickstart-sql-on-demand.md)
 - [Create Spark Pool](spark/apache-spark-notebook-create-spark-use-sql.md)
-- [Create PowerBI report on files stored on Azure storage](sql-analytics/tutorial-power-bi-professional.md)
+- [Create PowerBI report on files stored on Azure storage](sql-analytics/tutorial-connect-power-bi-desktop.md)
