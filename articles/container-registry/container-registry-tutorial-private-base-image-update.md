@@ -1,23 +1,21 @@
 ---
-title: Tutorial - Trigger image build on base image update
-description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated.
+title: Tutorial - Trigger image build on private base image update
+description: In this tutorial, you configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image in another private Azure container registry is updated.
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.custom: "seodec18, mvc"
-# Customer intent: As a developer or devops engineer, I want container
-# images to be built automatically when the base image of a container is
-# updated in the registry.
+ms.date: 01/22/2020
 ---
 
-# Tutorial: Automate container image builds when a base image is updated in an Azure container registry 
+# Tutorial: Automate container image builds when a base image is updated in another Azure container registry 
 
-ACR Tasks supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images. In this tutorial, you learn how to create a task in ACR Tasks that triggers a build in the cloud when a container's base image has been pushed to your registry.
+ACR Tasks supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images. In this tutorial, you learn how to create a task in ACR Tasks that triggers a build in the cloud when a container's base image has been pushed to another Azure container registry. 
+
+This scenario reflects a recommended development workflow to manage base images in a common, private container registry when creating application images in other registries. Developers developing application images in separate registries can access a set of base images maintained in a base registry accessible by multiple teams. The base registry can be another region or even geo-replicated.
 
 In this tutorial:
 
 > [!div class="checklist"]
-> * Build the base image
-> * Create an application image build task
+> * Build the base image in a base registry
+> * Create an application build task in another registry to track the private base image 
 > * Update the base image to trigger an application image task
 > * Display the triggered task
 > * Verify updated application image
@@ -48,7 +46,8 @@ If you haven't already done so, complete the first two tutorials before proceedi
 Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever they appear in the example commands.
 
 ```azurecli-interactive
-ACR_NAME=<registry-name>        # The name of your Azure container registry
+BASE_ACR=<base-registry-name>   # The name of your Azure container registry for base images
+APP_ACR=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 ```
@@ -68,7 +67,7 @@ When a base image is updated, you're presented with the need to rebuild any cont
 * For image builds from a Dockerfile, an ACR task detects dependencies on base images in the following locations:
 
   * The same Azure container registry where the task runs
-  * Another Azure container registry in the same region 
+  * Another Azure container registry in the same or a different region 
   * A public repo in Docker Hub 
   * A public repo in Microsoft Container Registry
 
@@ -88,7 +87,7 @@ When a base image is updated, you're presented with the need to rebuild any cont
 
 ### Base image update scenario
 
-This tutorial walks you through a base image update scenario. The [code sample][code-sample] includes two Dockerfiles: an application image, and an image it specifies as its base. In the following sections, you create an ACR task that automatically triggers a build of the application image when a new version of the base image is pushed to the same container registry.
+This tutorial walks you through a base image update scenario. The [code sample][code-sample] includes two Dockerfiles: an application image, and an image it specifies as its base. In the following sections, you create an ACR task that automatically triggers a build of the application image when a new version of the base image is pushed to a different Azure container registry.
 
 [Dockerfile-app][dockerfile-app]: A small Node.js web application that renders a static web page displaying the Node.js version on which it's based. The version string is simulated: it displays the contents of an environment variable, `NODE_VERSION`, that's defined in the base image.
 
@@ -103,28 +102,28 @@ In this tutorial, your ACR task builds and pushes an application container image
 Start by building the base image with an ACR Tasks *quick task*. As discussed in the [first tutorial](container-registry-tutorial-quick-task.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
+az acr build --registry $BASE_ACR --image baseimages/node:9-alpine --file Dockerfile-base .
 ```
 
-## Create a task
+## Create a task to track the private base image
 
-Next, create a task with [az acr task create][az-acr-task-create]:
+Next, create a task in the application registry with [az acr task create][az-acr-task-create], enabling a system-assigned [managed identity](container-registry-tasks-authentication-managed-identity.md).
 
 ```azurecli-interactive
 az acr task create \
-    --registry $ACR_NAME \
+    --registry $APP_ACR \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
     --git-access-token $GIT_PAT
+    --arg REGISTRY_NAME=$BASE_ACR
+    --assign-identity
 ```
 
-> [!IMPORTANT]
-> If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
 
-This task is similar to the quick task created in the [previous tutorial](container-registry-tutorial-build-task.md). It instructs ACR Tasks to trigger an image build when commits are pushed to the repository specified by `--context`. While the Dockerfile used to build the image in the previous tutorial specifies a public base image (`FROM node:9-alpine`), the Dockerfile in this task, [Dockerfile-app][dockerfile-app], specifies a base image in the same registry:
+This task is similar to the quick task created in the [previous tutorial](container-registry-tutorial-build-task.md). It instructs ACR Tasks to trigger an image build when commits are pushed to the repository specified by `--context`. While the Dockerfile used to build the image in the previous tutorial specifies a public base image (`FROM node:9-alpine`), the Dockerfile in this task, [Dockerfile-app][dockerfile-app], specifies a base image in the base image registry:
 
 ```Dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
@@ -132,12 +131,18 @@ FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 
 This configuration makes it easy to simulate a framework patch in the base image later in this tutorial.
 
-## Build the application container
+## Give identity pull permissions to base registry
+
+
+## Add target registry credentials to the task
+
+
+## Manually run the task
 
 Use [az acr task run][az-acr-task-run] to manually trigger the task and build the application image. This step ensures that the task tracks the application image's dependency on the base image.
 
 ```azurecli-interactive
-az acr task run --registry $ACR_NAME --name taskhelloworld
+az acr task run --registry $APP_ACR --name taskhelloworld
 ```
 
 Once the task has completed, take note of the **Run ID** (for example, "da6") if you wish to complete the following optional step.
