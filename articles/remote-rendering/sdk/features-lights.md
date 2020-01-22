@@ -11,14 +11,14 @@ ms.service: azure-remote-rendering
 ---
 # Lights
 
-Lights can be added to the scene to change the lighting conditions of all remotely rendered geometry. By default the scene is only lit by a [global sky light](../sdk/features-sky.md). Any new user allocated light is added on top of that. User lights are always considered as 'dynamic lights', that is, they can dynamically change any property such as position, intensity, or color over time.
+Lights can be added to the scene to change the lighting conditions of all remotely rendered geometry. By default the scene is only lit by a [global sky light](../sdk/features-sky.md). Any new user allocated light is added on top of the base lighting. User lights are always considered as 'dynamic lights'. That is, they can dynamically change any property such as position, intensity, or color over time.
 
 Lights are added to the scene as components of respective type attached to a game object. The game object serves as the spatial transform of the light source.
 
 > [!NOTE]
-> Lights only affect [Pbr material types](../concepts/materials-overview.md#pbr-material), not [Color materials](../concepts/materials-overview.md#color-material)
+> Lights only affect [PBR material types](../concepts/materials-overview.md#pbr-material), not [Color materials](../concepts/materials-overview.md#color-material)
 
-The way how Pbr materials respond to lights is defined by the pbr material properties such as albedo color, roughness or metalness.
+The way how PBR materials respond to lights is defined by the per material properties such as albedo color, roughness, or metalness.
 
 ## Light types
 There are three distinct types of dynamic lights, represented by dedicated component classes that inherit from a common light component base class `LightComponent`. This base class cannot be instantiated directly but it provides properties that are common to all light types:
@@ -26,7 +26,7 @@ There are three distinct types of dynamic lights, represented by dedicated compo
 | Property      | Type    | Default | Description                                             | 
 |---------------|---------|---------|---------------------------------------------------------| 
 | `Color`       | ColorUb | white   | The color of the light in linear color space. The alpha portion is ignored    |
-| `Intensity`   | float   | 10.0    | The intensity of the light. This value has no physical measure however it can be considered to be proportional to the physical power of the light source. If the light has a fall-off (point and spotlight) this value also defines the maximum range of light influence. An intensity of 1000 roughly has a range of 100 world units, but note this does not scale linearly. |
+| `Intensity`   | float   | 10.0    | The intensity of the light. This value has no physical measure however it can be considered to be proportional to the physical power of the light source. If the light has a fall-off (point and spotlight), this value also defines the maximum range of light influence. An intensity of 1000 roughly has a range of 100 world units, but note this does not scale linearly. |
 
 ### Point light
 Point lights are represented by component `PointLightComponent`. A point light simulates light emitted equally in all directions form a point (or small sphere/tube) in space. Point light components can be used to create local light effects such as light from bulbs. In addition to the base class, the following properties are supported by point lights:

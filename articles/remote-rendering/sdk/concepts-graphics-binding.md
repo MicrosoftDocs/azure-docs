@@ -17,7 +17,7 @@ Once set up, the graphics binding gives access to various functions that affect 
 
 ## Graphics binding in Unity
 
-In Unity the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `graphicsApi` field has to be set to the chosen binding. The field will be automatically populated depending on an XRDevice is present, but may be manually overridden with the following behaviors:
+In Unity, the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `graphicsApi` field has to be set to the chosen binding. The field will be automatically populated depending on an XRDevice is present, but may be manually overridden with the following behaviors:
 
 * **Hololens 2**: the [Windows Mixed Reality](#windows-mixed-reality) graphics binding is always used.
 * **Flat UWP desktop app**: [Simulation](#simulation) is always used. To use this mode, make sure to follow the steps in [create new Unity project](../quickstarts/create-new-unity-project.md#player-settings).
@@ -27,7 +27,7 @@ The only other relevant part for Unity is accessing the [basic binding](#access)
 
 ## Graphics binding setup in custom applications
 
-To select a graphics binding two steps have to be taken: First, the graphics binding has to be statically initialized when the program is initialized:
+To select a graphics binding, take the following two steps: First, the graphics binding has to be statically initialized when the program is initialized:
 
 ``` cs
 ClientInit managerInit = new ClientInit;
@@ -59,7 +59,7 @@ There are currently two graphics APIs that can be selected, `SimD3D11` and `WmrD
 ### Windows Mixed Reality
 `GraphicsApi.WmrD3D11` is the default binding to run on Hololens 2. It will create the `GraphicsBindingWmrD3d11` binding. In this mode Azure Remote Rendering hooks directly into the holographic APIs.
 
-To access the derived graphics binding for each of these the base `GraphicsBinding`  has to be casted. 
+To access the derived graphics binding for each of these, the base `GraphicsBinding` has to be cast.
 
 ``` cs
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
