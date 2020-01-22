@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Integrated DevOps for IaaS and PaaS on Azure 
-description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of an app to Azure VMs using Azure pipelines.
+description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of an app to Azure VMs using Azure Pipelines.
 author: ushan
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -19,7 +19,7 @@ ms.custom: devops
 
 # Tutorial: Integrated DevOps for IaaS and PaaS on Azure
 
-With end-to-end solutions on Azure, teams can implement DevOps practices in each of the application lifecycle phases: plan, develop, deliver and operate. 
+With end-to-end solutions on Azure, teams can implement DevOps practices in each of the application lifecycle phases: plan, develop, deliver, and operate. 
 
 Below are some of the Azure Services that simplify cloud workloads and can be combined to enable amazingly powerful scenarios.
 These technologies, combined with people and processes, enable teams to continually provide value to customers. 
@@ -30,20 +30,21 @@ These technologies, combined with people and processes, enable teams to continua
  
 
 Azure DevOps is a built-in Azure service that automates each part of the DevOps process with continuous integration and continuous delivery for any Azure resource.
-Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement, infrastructure as code, continuous integration, continuous testing, continuous delivery and continuous monitoring with Azure and Azure DevOps.  
+Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement, infrastructure as code, continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.  
 ![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
  
  
 ## IaaS - Configure CI/CD 
-Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure Portal. This document contains the steps associated with setting up a CI/CD pipeline for multi-machine deployments from Azure portal. 
-Configure CI/CD on Virtual Machines 
+Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for multi-machine deployments from Azure portal. 
+Configure CI/CD on Virtual Machines.
+
 Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine rolling updates. Deployment history views within Deployment groups provide traceability from VM to the pipeline and then to the commit. 
  
-**Rolling updates**: A rolling deployment replaces instances of the previous version of an application with instances of the new version of the application on a fixed set of machines (rolling set) in each iteration. Let’s walkthrough how you can configure a rolling updates to virtual machines.  
+**Rolling updates**: A rolling deployment replaces instances of the previous version of an application with instances of the new version of the application on a fixed set of machines (rolling set) in each iteration. Let’s walkthrough how you can configure a rolling update to virtual machines.  
 You can configure rolling updates to your “**virtual machines**” within the Azure portal using continuous delivery option. 
 
 Here is the step-by-step walkthrough. 
-1. Sign in to your Azure Portal and navigate to a virtual machine. 
+1. Sign in to your Azure portal and navigate to a virtual machine. 
 2. In the VM left pane, navigate to the **continuous delivery** menu. Then click on **Configure**. 
    ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azdevops-configure.png) 
 3. In the configuration panel, click on “Azure DevOps Organization” to select an existing account or create one. Then select the project under which you would like to configure the pipeline.  
@@ -54,7 +55,7 @@ Here is the step-by-step walkthrough.
    ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-pipeline.png)
 7. You will see that the deployment to the virtual machine is in progress. You can click on the link to navigate to the pipeline. Click on **Release-1** to view the deployment. Or you can click on the **Edit** to modify the release pipeline definition. 
 8. If you have multiple VMs to be configured, repeat the steps 2-5, for other VMs to be added to the deployment group. 
-9. Once done, click on the pipeline definition, navigate to the Azure DevOps account and click on **Edit** release pipeline. 
+9. Once done, click on the pipeline definition, navigate to the Azure DevOps organization, and click on **Edit** release pipeline. 
    ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-edit-pipeline.png)
 10. Click on the link **1 job, 1 task** in **dev** stage. Click on the **Deploy** phase.  
    ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azdevops-deployment-group.png)
@@ -66,8 +67,8 @@ You can configure canary deployments to your “**virtual machines**” with the
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
 2. Follow the steps 2-5 in the previous section to add multiple VMs to the deployment group. 
-3. Add a custom tags to the VMs that are to be part of canary deployments. For example, “canary”.
-4. Once the pipeline is configured for the VMs, click on the pipeline, launch Azure DevOps account, **Edit** the pipeline, and navigate to the **dev** stage. Add tag to the filter “canary”. 
+3. Add a custom tag to the VMs that are to be part of canary deployments. For example, “canary”.
+4. Once the pipeline is configured for the VMs, click on the pipeline, launch Azure DevOps organization, **Edit** the pipeline, and navigate to the **dev** stage. Add tag to the filter “canary”. 
 5. Add another deployment group phase, configure the phase with the tags to target remaining VMs in the deployment group.  
 6. Optionally, configure a manual validation step that can promote/reject the canary deployments. 
    ![AzDevOps_Canary](media/tutorial-devops-azure-pipelines-classic/azdevops-canary-deploy.png)
@@ -77,17 +78,17 @@ You can configure Blue-Green deployments to your “**virtual machines**” from
 
 Here is the step-by-step walkthrough. 
 
-1. Sign in to your Azure Portal and navigate to a Virtual Machine 
-2. Follow the steps 2-5 under the **Rolling updates** section to add multiple VMs to the deployment group. Add a custom tags to the VMs that are to be part of blue-green deployments. For example, “blue” or “green” for the VMs that are for the stand-by role. 
-3. Once the pipeline is configured for the VMs, click on the pipeline, launch Azure DevOps account, **Edit** the pipeline, navigate to the **dev** stage. Add tag to the filter “green”. 
-4. Add a agent-less phase, configure the phase with manual validation step and an invoke-REST api step to swap the tags. 
+1. Sign in to your Azure portal and navigate to a Virtual Machine 
+2. Follow the steps 2-5 under the **Rolling updates** section to add multiple VMs to the deployment group. Add a custom tag to the VMs that are to be part of blue-green deployments. For example, “blue” or “green” for the VMs that are for the stand-by role. 
+3. Once the pipeline is configured for the VMs, click on the pipeline, launch Azure DevOps organization, **Edit** the pipeline, navigate to the **dev** stage. Add tag to the filter “green”. 
+4. Add an agent-less phase, configure the phase with manual validation step and an invoke-REST api step to swap the tags. 
    ![AzDevOps_BlueGreen](media/tutorial-devops-azure-pipelines-classic/azdevops-blue-green-deploy.png)
  
  
 ## Azure DevOps project 
 Get started with Azure more easily than ever.
  
-With DevOps Projects, start running your application on any Azure service in just three steps: simply select an application language, a runtime, and an Azure service 
+With DevOps Projects, start running your application on any Azure service in just three steps: select an application language, a runtime, and an Azure service.
  
 [Learn more](https://azure.microsoft.com/features/devops-projects/ ).
  
