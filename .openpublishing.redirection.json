@@ -4248,7 +4248,7 @@
     },
     {
       "source_path": "articles/billing-how-to-create-billing-support-ticket.md",
-      "redirect_url": "/azure/azure-supportability/how-to-create-azure-support-request",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
       "redirect_document_id": false
     },
     {
@@ -4258,7 +4258,7 @@
     },
     {
       "source_path": "articles/billing-how-to-use-file-uploader.md",
-      "redirect_url": "/azure/azure-supportability/how-to-use-file-uploader",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-use-file-uploader",
       "redirect_document_id": false
     },
     {
@@ -17349,7 +17349,7 @@
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_url": "/azure/virtual-machine-scale-sets/use-spot",
       "redirect_document_id": true
     },
     {
@@ -46619,6 +46619,16 @@
       "source_path": "articles/load-balancer/load-balancer-arm.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-2-setup-environment.md",
+      "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-3-connect-to-endpoint.md",
+      "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+      "redirect_document_id": false
     }
   ]
 }
