@@ -141,6 +141,6 @@ groups:
   - id: programming-language-nodejs
     title: Javascript
   - id: programming-language-java
-    title: Java (V3 only)
+    title: Java 
   - id: programming-language-other
     title: Other languages...
