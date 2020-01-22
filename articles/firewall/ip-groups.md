@@ -29,9 +29,9 @@ IP Groups can be reused in Azure Firewall DNAT, network, and application rules a
 
 The following IPv4 address format examples are valid to use in IP Groups:
 
-- Single address: 192.168.0.1
-- CIDR notation: 192.268.0.0/32
-- Address range: 192.168.0.5-192.168.9.90
+- Single address: 10.0.0.0
+- CIDR notation: 10.1.0.0/32
+- Address range: 10.2.0.0-10.2.0.31
 
 ## Create an IP Group
 
@@ -55,7 +55,7 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 ## Use an IP Group
 
-You can now select **IP Group** as a **Source type** for the IP address(es) when you create an Azure Firewall DNAT, application, or network rule.
+You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
 -- screenshot --
 
