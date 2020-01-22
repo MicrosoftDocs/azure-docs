@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 01/19/2020
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -2813,7 +2813,7 @@ and recurring triggers start skipping polling attempts.
 
 To change the default limit on waiting runs, in the underlying trigger definition, 
 add the `runtimeConfiguration.concurency.maximumWaitingRuns` property with 
-a value between `0` and `100`. 
+a value between `1` and `100`. 
 
 ```json
 "<trigger-name>": {
