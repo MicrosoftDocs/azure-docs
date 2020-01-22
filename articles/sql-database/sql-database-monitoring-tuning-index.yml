@@ -58,6 +58,12 @@ landingContent:
             url: sql-database-intelligent-insights-troubleshoot-performance.md
           - text: Automatic tuning
             url: sql-database-automatic-tuning.md
+      - linkListType: video
+        links:
+          - text: Intelligent Insights
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
+          - text: Automatic tuning
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 
   # Card
   - title: Manual performance tuning capabilities
@@ -116,3 +122,7 @@ landingContent:
             url: sql-database-managed-instance.md#managed-instance-management-operations
           - text: Read scale-out
             url: sql-database-read-scale-out.md
+      - linkListType: video
+        links:
+          - text: Dynamic scalability
+            url: media/sql-database-scalability/scale-performance.svg
