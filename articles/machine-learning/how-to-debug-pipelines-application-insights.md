@@ -59,7 +59,7 @@ except ValueError as ex:
 
 ## Logging with Custom Dimensions
  
-Plaintext strings logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment alrea
+Plaintext strings logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment area.
 
 In other cases, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run ID.
 
@@ -92,7 +92,7 @@ custom_dimensions = {
     "experiment_name": run.experiment.name,
     "run_url": run.parent.get_portal_url(),
     "build_id": build_id, 
-    # construct Azure DevOps url from helper given this id
+    # construct Azure DevOps url from helper given this ID
     "build_url": "https://dev.azure.com/<your org here>/<your project here>/_build/results?buildId={build_id}&view=results",
     "run_type": "training"
 }
@@ -104,13 +104,13 @@ logger.info("Info for application insights", custom_dimensions)
 
 ## OpenCensus Python logging considerations
 
-The OpenCensus AuzreLogHandler is used to route Python logs to Application Insights. As a result, Python logging nuances should be considered. Wen a logger is created, it has a default log level and will show logs greater than or equal to that level. A good reference for using Python logging features is the [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
+The OpenCensus AzureLogHandler is used to route Python logs to Application Insights. As a result, Python logging nuances should be considered. When a logger is created, it has a default log level and will show logs greater than or equal to that level. A good reference for using Python logging features is the [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
 
 The `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable is needed for the OpenCensus library. We recommend setting this environment variable instead of passing it in as a pipeline parameter to avoid passing around plaintext connection strings.
 
 ## Querying logs in Application Insights
 
-The logs routed to Application Insights will show up under 'traces'. Be sure to adjust your time window to include your pipeline run.
+The logs routed to Application Insights will show up under 'traces' or 'exceptions'. Be sure to adjust your time window to include your pipeline run.
 
 ![Application Insights Query result](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
 
@@ -118,11 +118,11 @@ The result in Application Insights will show the log message and level, file pat
 
 ## Additional helpful queries
 
-Some of the queries below use 'severityLevel'. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Some of the queries below use 'severityLevel'. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language). You can also query on `customDimensions.Level`, which is included as an option in the table below.
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Log results for specific custom dimension, for example 'parent_run_id' | `traces | where customDimensions.['parent_run_id'] == '931024c2-3720-11ea-b247-c49deda841c1'` |
 | Log results for training runs over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions['run_type'] == 'training'`           |
-| Log results with severityLevel Error from the last 7 days              | `traces | where timestamp > ago(7d) and severityLevel == 3`                                   |
-| Count of log results with severityLevel Error over the last 7 days     | `traces | where timestamp > ago(7d) and severityLevel == 3 | summarize count()`          |
+| Log results with severityLevel Error from the last 7 days              | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING'`<br>`traces | where timestamp > ago(7d) and severityLevel == 3`                                     |
+| Count of log results with severityLevel Error over the last 7 days     | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING' | summarize count()`<br>`traces | where timestamp > ago(7d) and severityLevel == 3 | summarize count()`          |
