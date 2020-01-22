@@ -132,7 +132,7 @@ groups:
     title: C++
 - id: programming-languages-text-analytics
   title: Programming languages
-  prompt: Choose a programming language. Some languages are only available in select versions.
+  prompt: Choose a programming language.
   pivots:
   - id: programming-language-csharp
     title: C#
