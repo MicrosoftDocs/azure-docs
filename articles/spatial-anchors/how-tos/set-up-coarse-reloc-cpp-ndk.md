@@ -8,9 +8,9 @@ services: azure-spatial-anchors
 ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
-ms.service: azure-spatial-anchors
+ms.service: azure-spatial-anchors 
 ---
-# how to create and locate anchors using coarse relocalization in C++/NDK
+# How to create and locate anchors using coarse relocalization in C++/NDK
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)

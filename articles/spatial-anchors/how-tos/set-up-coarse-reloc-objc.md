@@ -10,7 +10,7 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-# how to create and locate anchors using coarse relocalization in Objective-C
+# How to create and locate anchors using coarse relocalization in Objective-C
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
