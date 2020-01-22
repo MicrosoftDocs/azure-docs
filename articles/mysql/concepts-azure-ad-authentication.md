@@ -36,7 +36,7 @@ To configure and use Azure Active Directory authentication, use the following pr
 5. Connect to your database by retrieving a token for an Azure AD identity and logging in.
 
 > [!NOTE]
-> To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-aad-authentication.md).
+> To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
 ## Architecture
 
@@ -54,7 +54,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 To create new users that can authenticate with Azure AD, you must be the designed Azure AD administrator. This user is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
 
-To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for MySQL](howto-configure-sign-in-aad-authentication.md).
+To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
 Any Azure AD authentication is only possible if the Azure AD admin was created for Azure Database for MySQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously can no longer connect to the database using their Azure Active Directory credentials.
 
@@ -70,7 +70,7 @@ Azure Active Directory authentication supports the following methods of connecti
 Once you have authenticated against the Active Directory, you then retrieve a token. This token is your password for logging in.
 
 > [!NOTE]
-> For more details on how to connect with an Active Directory token, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-aad-authentication.md).
+> For more details on how to connect with an Active Directory token, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
 ## Additional considerations
 
@@ -84,10 +84,10 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 
 ## Next steps
 
-- To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-aad-authentication.md).
+- To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 - For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL - Single Server](howto-create-users.md).
 
 <!--Image references-->
 
-[1]: ./media/concepts-aad-authentication/authentication-flow.png
-[2]: ./media/concepts-aad-authentication/admin-structure.png
+[1]: ./media/concepts-azure-ad-authentication/authentication-flow.png
+[2]: ./media/concepts-azure-ad-authentication/admin-structure.png

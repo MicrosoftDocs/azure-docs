@@ -1,6 +1,6 @@
 ---
 title: Use Azure Active Directory - Azure Database for MySQL - Single Server
-description: Learn about how to set up Azure Active Directory (AAD) for authentication with Azure Database for MySQL - Single Server
+description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for MySQL - Single Server
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
@@ -197,9 +197,9 @@ Most drivers are supported, however make sure to use the settings for sending th
 
 ## Next steps
 
-* Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL - Single Server](concepts-aad-authentication.md)
+* Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL - Single Server](concepts-azure-ad-authentication.md)
 
 <!--Image references-->
 
-[1]: ./media/concepts-aad-authentication/authentication-flow.png
-[2]: ./media/concepts-aad-authentication/set-aad-admin.png
+[1]: ./media/concepts-azure-ad-authentication/authentication-flow.png
+[2]: ./media/concepts-azure-ad-authentication/set-azure-ad-admin.png
