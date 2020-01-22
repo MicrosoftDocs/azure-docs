@@ -29,7 +29,7 @@ Only an Azure AD Admin user can create/enable users for Azure AD-based authentic
 3. Select a valid Azure AD user in the customer tenant to be Azure AD administrator.
 
 > [!IMPORTANT]
-> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. The Azure AD Admin user in Azure Database for MySQL will have the role `azure_ad_admin`.
+> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions.
 
 Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
 
@@ -41,8 +41,7 @@ To add an Azure AD user to your Azure Database for MySQL database, perform the f
 
 1. First ensure that the Azure AD user `<user>@yourtenant.onmicrosoft.com` is a valid user in Azure AD tenant.
 2. Sign in to your Azure Database for MySQL instance as the Azure AD Admin user.
-3. Create role `<user>@yourtenant.onmicrosoft.com` in Azure Database for MySQL.
-4. Make `<user>@yourtenant.onmicrosoft.com` a member of role azure_ad_user. This must only be given to Azure AD users.
+3. Create user `<user>@yourtenant.onmicrosoft.com` in Azure Database for MySQL.
 
 **Example:**
 

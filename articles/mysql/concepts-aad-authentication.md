@@ -24,7 +24,7 @@ Benefits of using Azure AD include:
 - Management of password policies and password rotation in a single place
 - Multiple forms of authentication supported by Azure Active Directory, which can eliminate the need to store passwords
 - Customers can manage database permissions using external (Azure AD) groups.
-- Azure AD authentication uses MySQL database roles to authenticate identities at the database level
+- Azure AD authentication uses MySQL database users to authenticate identities at the database level
 - Support of token-based authentication for applications connecting to Azure Database for MySQL
 
 To configure and use Azure Active Directory authentication, use the following process:
@@ -52,7 +52,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 ## Permissions
 
-To create new users that can authenticate with Azure AD, you must be the designed Azure AD administrator. This role is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
+To create new users that can authenticate with Azure AD, you must be the designed Azure AD administrator. This user is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
 
 To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for MySQL](howto-configure-sign-in-aad-authentication.md).
 
@@ -74,19 +74,18 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 
 ## Additional considerations
 
-- To enhance manageability, we recommend you provision a dedicated Azure AD group as an administrator.
-- Only one Azure AD administrator (a user or group) can be configured for a Azure Database for MySQL server at any time.
+- Only one Azure AD administrator can be configured for a Azure Database for MySQL server at any time.
 - Only an Azure AD administrator for MySQL can initially connect to the Azure Database for MySQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
-- If a user is deleted from Azure AD, that user will no longer be able to authenticate with Azure AD, and therefore it will no longer be possible to acquire an access token for that user. In this case, although the matching role will still be in the database, it will not be possible to connect to the server with that role.
+- If a user is deleted from Azure AD, that user will no longer be able to authenticate with Azure AD, and therefore it will no longer be possible to acquire an access token for that user. In this case, although the matching user will still be in the database, it will not be possible to connect to the server with that user.
 > [!NOTE]
 > Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for MySQL this access will be revoked immediately.
 - If the Azure AD admin is removed from the server, the server will no longer be associated with an Azure AD tenant, and therefore all Azure AD logins will be disabled for the server. Adding a new Azure AD admin from the same tenant will re-enable Azure AD logins.
-- Azure Database for MySQL matches access tokens to the Azure Database for MySQL role using the user’s unique Azure AD user ID, as opposed to using the username. This means that if an Azure AD user is deleted in Azure AD and a new user created with the same name, Azure Database for MySQL considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name added, the new user will not be able to connect with the existing role. To allow that, the Azure Database for MySQL Azure AD admin must revoke and then grant the role “azure_ad_user” to the user to refresh the Azure AD user ID.
+- Azure Database for MySQL matches access tokens to the Azure Database for MySQL user using the user’s unique Azure AD user ID, as opposed to using the username. This means that if an Azure AD user is deleted in Azure AD and a new user created with the same name, Azure Database for MySQL considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name added, the new user will not be able to connect with the existing user.
 
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-aad-authentication.md).
-- For an overview of logins, users, and database roles Azure Database for MySQL, see [Create users in Azure Database for MySQL - Single Server](howto-create-users.md).
+- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL - Single Server](howto-create-users.md).
 
 <!--Image references-->
 
