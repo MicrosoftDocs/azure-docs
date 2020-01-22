@@ -18,13 +18,13 @@ Based on the top-level key used for the encryption, there are two models for enc
 -	Using Microsoft-managed keys
 -	Using customer-managed keys
 
-### Microsoft-managed Keys
+## Microsoft-managed Keys
 
 By default, your Azure Automation account uses Microsoft-managed keys.
 
 Each secure asset is encrypted and stored in Azure Automation using a unique key (Data Encryption key) that is generated for each automation account. These keys themselves are encrypted and stored in Azure Automation using yet another unique key that is generated for each account called an Account Encryption Key (AEK). These account encryption keys encrypted and stored in Azure Automation using Microsoft Managed Keys. 
 
-### Customer-managed Keys with Key Vault (preview)
+## Customer-managed Keys with Key Vault (preview)
 
 You can manage encryption of secure assets in Azure Automation at the level of an automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the automation account, which in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your secure assets. 
 
@@ -36,12 +36,12 @@ When you enable encryption with customer-managed keys for an automation account,
 
 A new automation account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the automation account. The managed identity is available only after the storage account is created.
 
-When you modify the key being used for Azure Automation secure asset encryption by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, then the encryption of the root key changes, but the secure assets in your Azure Automation account do not need to be re-encrypted.
+When you modify the key being used for Azure Automation secure asset encryption by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, then the encryption of the account encryption key changes, but the secure assets in your Azure Automation account do not need to be re-encrypted.
 
 The following three sections describe the mechanics of enabling customer-managed keys for an Automation account. 
 
 > [!NOTE] 
-> To enable customer-managed keys, you will currently need to make Azure Automation REST APIs using api version 2020-01-13-preview
+> To enable customer-managed keys, you will currently need to make Azure Automation REST API calls using api version 2020-01-13-preview
 
 ### Pre-requisites for using Customer-managed keys in Azure Automation
 
@@ -122,7 +122,7 @@ Request body
 ```
 
 > [!NOTE] 
-> The tenantId and objectId fields must be provided with values of identity.tenantId and identity.principalId from the response of managed identity for the automation account.
+> The **tenantId** and **objectId** fields must be provided with values of **identity.tenantId** and **identity.principalId** respectively from the response of managed identity for the automation account.
 
 ### Change the configuration of automation account to use customer managed key
 
@@ -175,11 +175,11 @@ Sample response
 
 You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the automation account to use the new key URI. 
 
-Rotating the key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
+Rotating the key does not trigger re-encryption of secure assets in the automation account. There is no further action required from the user.
 
-## Revoke access to customer-managed keys
+### Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all secure assets in the automation account, as the encryption key is inaccessible by Azure Automation.
 
 ## Next steps
 

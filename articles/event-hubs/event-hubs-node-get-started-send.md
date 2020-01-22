@@ -9,8 +9,9 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: spelluru
+
 
 ---
 
@@ -19,6 +20,9 @@ ms.author: spelluru
 Azure Event Hubs is a Big Data streaming platform and event ingestion service that can receive and process millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This tutorial describes how to create Node.js applications to send events to or receive events from an event hub.
+
+> [!IMPORTANT]
+> This quickstart uses version 2 of the Azure Event Hubs Java Script SDK. If you are new to Azure Event Hubs, use version 5 of the Java Script SDK. For a quickstart that uses version 5 of the Java Script SDK, see [this article](get-started-node-send-v2.md). If you need to migrate existing code from version 2 to version 5, see the [migration guide](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
 
 > [!NOTE]
 > You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
@@ -34,11 +38,11 @@ To complete this tutorial, you need the following prerequisites:
 
 
 ### Install npm package
-To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has `npm` in its path, change the directory
+To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0), open a command prompt that has `npm` in its path, change the directory
 to the folder where you want to have your samples and then run this command
 
 ```shell
-npm install @azure/event-hubs
+npm install @azure/event-hubs@2
 ```
 
 To install the [npm package for Event Processor Host](https://www.npmjs.com/package/@azure/event-processor-host), run the below command instead
@@ -55,7 +59,7 @@ This section shows you how to create a Node.js application that sends events to 
 2. Create a file called `send.js` and paste the below code into it. Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs");
+    const { EventHubClient } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -94,7 +98,7 @@ of the default consumer group in an event hub.
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `receive.js` and paste the below code into it.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs");
+    const { EventHubClient, delay } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

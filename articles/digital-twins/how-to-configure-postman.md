@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ---
 
 # How to configure Postman for Azure Digital Twins
@@ -126,6 +126,12 @@ After completing the previous steps, configure Postman to make an authenticated 
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
 1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. The appropriate response message will appear in the client interface.
+
+1. Validate your HTTP POST request data by calling the API endpoint: 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## Next steps
 

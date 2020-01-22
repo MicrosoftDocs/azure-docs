@@ -162,7 +162,7 @@ Yes. DNS zones can be moved between resource groups or between subscriptions.
 
 There's no effect on DNS queries when you move a DNS zone. The name servers assigned to the zone stay the same. DNS queries are processed as normal throughout.
 
-For more information and instructions on how to move DNS zones, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+For more information and instructions on how to move DNS zones, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### How long does it take for DNS changes to take effect?
 

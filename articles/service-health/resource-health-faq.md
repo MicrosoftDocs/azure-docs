@@ -41,7 +41,7 @@ Yes, when a resource is unavailable, Resource Health identifies the root cause w
 In the portal, user initiated actions are shown using a blue notification icon, while planned and unplanned events are shown using a red warning icon. More details are provided in the [Resource Health overview](Resource-health-overview.md).  
 
 ## Can I integrate Resource Health with my monitoring tools?
-Resource health has [support](resource-health-alert-arm-template-guide.md) for Activity Log based alerts. Activity Log alerts use [action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) to notify users that an alert has been triggered. Action groups support a variety of notification channels such as email, SMS, webhook, and ITSM actions.
+Resource health has [preview support](resource-health-alert-arm-template-guide.md) for Activity Log based alerts. Activity Log alerts use [action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) to notify users that an alert has been triggered. Action groups support a variety of notification channels such as email, SMS, webhook, and ITSM actions.
 
 ## Where do I find Resource Health?
 After you log in to the Azure portal, there are multiple ways you can access Resource Health:

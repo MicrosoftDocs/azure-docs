@@ -139,7 +139,7 @@
       - name: Built-in security controls
         href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
-        href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
+        href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -172,7 +172,7 @@
       - name: Latency in Blob storage
         href: storage-blobs-latency.md
       - name: Azure Storage reserved capacity
-        href: storage-blob-reserved-capacity.md  
+        href: storage-blob-reserved-capacity.md
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Search and understand blob data
@@ -180,7 +180,7 @@
       - name: Use AI to understand blob data
         href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Full text search for blob data
-        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
+        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data migration
       items:
       - name: Compare data transfer solutions
@@ -343,7 +343,7 @@
           - name: Check the encryption key model for the account
             href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Configure customer-managed encryption keys
-            items:  
+            items:
             - name: Portal
               href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: PowerShell
@@ -666,7 +666,7 @@
     - name: Security
       items:
       - name: Storage security overview
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Access control
         href: data-lake-storage-access-control.md
     - name: Logging
@@ -737,7 +737,7 @@
           href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Set file and directory-level permissions
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Optimize performance  
+    - name: Optimize performance
       items:
       - name: Overview
         href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

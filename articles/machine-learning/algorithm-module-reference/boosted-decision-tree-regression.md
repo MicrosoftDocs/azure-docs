@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 
 # Boosted Decision Tree Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
   
@@ -25,8 +25,6 @@ This regression method is a supervised learning method, and therefore requires a
 
 After you have defined the model, train it by using the [Train Model](./train-model.md).
 
-> [!TIP]
-> Want to know more about the trees that were created? After the model has been trained, right-click the output of the [Train Model](./train-model.md) module and select **Visualize** to see the tree that was created on each iteration. You can drill down into the splits for each tree and see the rules for each node.  
   
 ## More about boosted regression trees  
 
@@ -87,13 +85,9 @@ The gradient boosting method can also be used for classification problems by red
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](train-model.md) module and select **Visualize**.
-  
-     Click each tree to drill down into the splits and see the rules for each node.  
-
 + To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
 
-+ To save a snapshot of the trained model, right-click the **Trained model** output of the training module and select **Save As**. The copy of the trained model that you save is not updated on successive runs of the pipeline.
++ To save a snapshot of the trained model, select **Outputs** tab in the right panel of **Trained model** and click **Register dataset** icon. The copy of the trained model will be saved as a module in the module tree and will not be updated on successive runs of the pipeline.
 
 ## Next steps
 
