@@ -126,7 +126,7 @@ landingContent:
     - linkListType: learn
       links:
       - text: Translate speech in real time
-        url: ../../learn/modules/convert-speech-to-text
+        url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
     - linkListType: quickstart
       links:
         - text: Translate speech-to-text
