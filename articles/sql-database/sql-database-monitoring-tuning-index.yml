@@ -26,10 +26,6 @@ landingContent:
         links:
           - text: Monitoring and performance tuning
             url: sql-database-monitor-tune-overview.md
-      - linkListType: concept
-        links:
-          - text: Performance tuning guidance
-            url: sql-database-performance-guidance.md
 
   # Card (optional)
   - title: Collecting metrics and diagnostic log data
@@ -38,32 +34,48 @@ landingContent:
         links:
           - text: Metrics and diagnostics logging
             url: sql-database-metrics-diag-logging.md
+          - text: Understand the performance diagnostics log
+            url: sql-database-intelligent-insights-use-diagnostics-log
 
   # Card (optional)
   - title: Intelligent performance tuning capabilities
     linkLists:
+      - linkListType: overview
+        links: 
+          - text: Using artifical intelligence in the Azure portal to tune performance
+            url: sql-database-performance.md
       - linkListType: concept
         links:
+          - text: SQL Database Advisor tuning recommendations
+            url: sql-database-advisor.md
           - text: Query Performance Insight
             url: sql-database-query-performance.md
           - text: Azure SQL Analytics
             url: /azure/azure-monitor/insights/azure-sql.md
-          - text: Automatic tuning
-            url: sql-database-automatic-tuning.md
           - text: Intelligent Insights
             url: sql-database-intelligent-insights.md
           - text: Detectable performance patterns
             url: sql-database-intelligent-insights-troubleshoot-performance.md
+          - text: Automatic tuning
+            url: sql-database-automatic-tuning.md
 
   # Card
   - title: Manual performance tuning capabilities
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Manual performance tuning guidance
+            url: sql-database-performance-guidance.md
       - linkListType: concept
         links:
-          - text: Query Store
+          - text: Using Query Store
             url: monitoring-performance-by-using-the-query-store.md
-          - text: DMVs
+          - text: Using DMVs
             url: sql-database-monitoring-with-dmvs.md
+          - text: Using extended events
+            url: sql-database-xevent-db-diff-from-svr.md
+          - text: Hyperscale performance diagnostics
+            url: sql-database-hyperscale-performance-diagnostics.md
 
   # Card
   - title: Resource limits
@@ -101,6 +113,6 @@ landingContent:
           - text: Scaling elastic pool resources
             url: sql-database-elastic-pool-scale.md
           - text: Scaling managed instance resources
-            url: file2.md
+            url: sql-database-managed-instance.md#managed-instance-management-operations
           - text: Read scale-out
             url: sql-database-read-scale-out.md
