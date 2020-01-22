@@ -1,7 +1,7 @@
 ---
 title: MLflow Tracking for ML experiments
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to log metrics & artifacts, and deploy models from Databricks, your local environment, or VM environment. 
+description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from ML models created in Databricks clusters, your local environment, or VM environment. 
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,11 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 01/27/2020
 ms.custom: seodec18
 ---
 
 # Track models metrics with MLflow and Azure Machine Learning (preview)
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article demonstrates how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect your MLflow experiments and Azure Machine Learning. Doing so enables you to track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models.
@@ -38,7 +39,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
  MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
+| | MLflow&nbsp;Tracking <!--& Deployment--> | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Manage workspace |   | ✓ | ✓ | ✓ |
 | Use data stores  |   | ✓ | ✓ | |
@@ -46,10 +47,11 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 | Upload artifacts | ✓ | ✓ |   | |
 | View metrics     | ✓ | ✓ | ✓ | ✓ |
 | Manage compute   |   | ✓ | ✓ | ✓ |
-| Deploy models    | ✓ | ✓ | ✓ | ✓ |
+
+<!--| Deploy models    | ✓ | ✓ | ✓ | ✓ |
 |Monitor model performance||✓|  |   |
 | Detect data drift |   | ✓ |   | ✓ |
-
+-->
 ## Prerequisites
 
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
