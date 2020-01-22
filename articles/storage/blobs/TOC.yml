@@ -82,11 +82,7 @@
       - name: 4 - Verify throughput and latency metrics
         href: storage-blob-scalable-app-verify-metrics.md
     - name: Host a static website
-      items:
-      - name: 1 - Create a static website
-        href: storage-blob-static-website-host.md
-      - name: 2 - Enable a custom domain with SSL
-        href: storage-blob-static-website-custom-domain.md
+      href: storage-blob-static-website-host.md
     - name: Design applications for high availability
       items:
       - name: 1 - Make your application highly available
