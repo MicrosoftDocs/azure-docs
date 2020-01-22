@@ -100,7 +100,7 @@ For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the
                 }
 ```
 
-To delete the instance after it has been evicted, change the 'evictionPolicy' parameter to `Delete`.
+To delete the instance after it has been evicted, change the `evictionPolicy` parameter to `Delete`.
 
 ## FAQ
 
