@@ -174,9 +174,9 @@ data:
           }
 ```
 
-## Enable Logging for DNS Query Debugging 
+## Enable logging for DNS query debugging 
 
-Applying the following configuration within your coredns-custom configmap will enable DNS query logging:
+To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
 
 ```yaml
 apiVersion: v1
