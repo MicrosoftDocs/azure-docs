@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 01/20/2020
 ms.author: swmachan
 ---
 
@@ -29,22 +29,12 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Request parameters passed on the query string are:
 
-<table width="100%">
-  <th width="20%">Query parameter</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
-  </tr>
-  <tr>
-    <td>from</td>
-    <td>*Required parameter*.<br/>Specifies the language of the input text. The source language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope.</td>
-  </tr>
-</table>
+| Query Parameter | Description |
+| ------ | ----------- |
+| api-version   | **Required parameter**.<br/>Version of the API requested by the client. Value must be `3.0` |
+| from | **Required parameter**.<br/>Specifies the language of the input text. The source language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope. |
+| to   | **Required parameter**.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](v3-0-languages.md) included in the `dictionary` scope. |
+
 
 Request headers include:
 
