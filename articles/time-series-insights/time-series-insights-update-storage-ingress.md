@@ -130,7 +130,7 @@ Time Series Insights Preview saves your cold store data to Azure Blob storage in
 Time Series Insights Preview partitions and indexes data for optimum query performance. Data becomes available to query after it’s indexed. The amount of data that's being ingested can affect this availability.
 
 > [!IMPORTANT]
-> The upcoming general availability (GA) release of Time Series Insights will make data available in  under 60 seconds after it's read from the event source. During the preview, you might experience a longer period before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
+> During the preview, you might experience a period of up to 60 seconds before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
 ## Azure Storage
 
