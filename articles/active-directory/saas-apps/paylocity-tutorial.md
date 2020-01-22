@@ -97,7 +97,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ---------------| --------------- |
 	| PartnerID | `P8000010` |
 	| PaylocityUser | `user.mail`|
-	| PaylocityEntity | `12345` |
+	| PaylocityEntity | < `PaylocityEntity` > |
+
+    > [!NOTE]
+    > The PaylocityEntity is Paylocity Company ID.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
