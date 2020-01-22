@@ -65,7 +65,7 @@ const publishIterationName = "detectModel";
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 /* Helper function to let us use await inside a forEach loop.
- * This let us insert delays between image uploads to accommodate the rate limit.
+ * This lets us insert delays between image uploads to accommodate the rate limit.
  */
 async function asyncForEach (array, callback) {
     for (let i = 0; i < array.length; i++) {
