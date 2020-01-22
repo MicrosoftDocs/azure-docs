@@ -40,6 +40,7 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 | India          | Central India       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Japan          | Japan East          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Korea          | Korea Central       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| South Africa   | South Africa North  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | United Kingdom | UK South            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | United States  | Central US          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | East US             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
