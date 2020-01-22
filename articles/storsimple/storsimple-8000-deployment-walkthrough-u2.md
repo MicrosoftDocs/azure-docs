@@ -1,18 +1,9 @@
 ---
-title: Deploy your StorSimple 8000 series device in Azure portal | Microsoft Docs
+title: Deploy your StorSimple 8000 series device in Azure portal
 description: Describes the steps and best practices for deploying the StorSimple 8000 series device running Update 3 and later, and StorSimple Device Manager service.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
 

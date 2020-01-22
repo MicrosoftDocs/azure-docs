@@ -45,9 +45,7 @@ The most common scenario would be, when a new employee joins your company, they 
 
 ![cloud provisioning](media/what-is-provisioning/cloud3.png)
 
-App provisioning involves the provisioning of users and roles in the applications the user needs access to.  
-
-The most common scenario would be, when a user in Azure AD is provisioned into O365 or Salesforce.
+In Azure Active Directory (Azure AD), the term **[app provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refers to automatically creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), and more.
 
 ## Directory provisioning
 
