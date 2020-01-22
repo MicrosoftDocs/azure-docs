@@ -527,7 +527,7 @@ The following table explains the binding configuration properties that you set i
   > [!NOTE]
   > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 * **Read one row in**
 
@@ -540,15 +540,15 @@ The following table explains the binding configuration properties that you set i
   > [!NOTE]
   > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-# [C#](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
-# [C#](#tab/python)
+# [Python](#tab/python)
 
 **todo**
 
-# [C#](#tab/java)
+# [Java](#tab/java)
 
 **todo**
 
