@@ -88,50 +88,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## Resource Manager templates
 
-The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Spot* as the value. Be sure to use *2019-03-01* API version or higher. 
+The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). 
 
-In order to set the eviction policy to deletion, add the 'evictionPolicy' parameter and set it to *delete*.
-
-The following example creates a Linux Spot scale set named *myScaleSet* in *West Central US*, which will *delete* the VMs in the scale set on eviction:
+For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":` section in your template: 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+To delete the instance after it has been evicted, change the `evictionPolicy` parameter to `Delete`.
+
 ## FAQ
 
 **Q:** Once created, is a Spot instance the same as standard instance?
