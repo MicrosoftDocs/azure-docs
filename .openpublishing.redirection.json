@@ -43769,11 +43769,6 @@
       "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/healthcare-apis/tutorial-2-setup-environment.md",
-      "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
-      "redirect_document_id": false
     }
   ]
 }
