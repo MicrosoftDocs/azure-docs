@@ -104,48 +104,49 @@ These code snippets show you how to do the following with the Language Understan
 
 From the project directory, open the *prediction_quickstart.py* file in your preferred editor or IDE. Add the following dependencies:
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LanguageUnderstanding/prediction_quickstart.py?name=Dependencies)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
 
 ## Authenticate the client
 
-1. Create variables for the key, name and app ID:
+1. Create variables for your own required LUIS information:
 
-    A variables to manage your prediction key pulled from an environment variable named `LUIS_PREDICTION_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+    Add variables to manage your prediction key pulled from an environment variable named `LUIS_RUNTIME_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-    Create a variable to hold your resource name `LUIS_ENDPOINT_NAME`.
+    Create a variable to hold your resource name `LUIS_RUNTIME_ENDPOINT`.
 
-    Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app:
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
 
-    **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
+1. Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Create a variable to set the `production` published slot.
 
-    [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_variables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
 
-1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
 
-    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_create_client)]
+1. Create an [CognitiveServicesCredentials]() object with your key, and use it with your endpoint to create an [LUISRuntimeClient]() object.
+
+        [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
 
 ## Get prediction from runtime
 
 Add the following method to create the request to the prediction runtime.
 
-The user utterance is part of the [PredictionRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) object.
+The user utterance is part of the [prediction_request]() object.
 
-The **GetSlotPredictionAsync** method needs several parameters such as the app ID, the slot name, the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
+The **get_slot_prediction** method needs several parameters such as the app ID, the slot name, and the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
 
-[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_maintask)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=predict)]
 
 ## Main code for the prediction
 
 Use the following main method to tie the variables and methods together to get the prediction.
 
-[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_main)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=main)]
 
 ## Run the application
 
-Run the application with the `dotnet run` command from your application directory.
+Run the application with the `python prediction_quickstart.py` command from your application directory.
 
-```dotnetcli
-dotnet run
+```python
+python prediction_quickstart.py
 ```
 
 ## Clean up resources
