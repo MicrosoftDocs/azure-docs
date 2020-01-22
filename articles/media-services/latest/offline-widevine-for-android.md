@@ -1,5 +1,5 @@
 ---
-title: Offline Widevine streaming for Android with Azure Media Services v3
+title: Stream Widevine Android Offline with Azure Media Services v3
 description: This topic shows how to configure your Azure Media Services account for offline streaming of Widevine protected content.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
