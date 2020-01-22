@@ -36,7 +36,7 @@ If you try to install the sync agent on an Active Directory domain controller wh
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
-<a id="parameter-is-incorrect"></a>**Accessing a volume on Windows Server 2012 R2 fails with error: The parameter is incorrect**
+<a id="parameter-is-incorrect"></a>**Accessing a volume on Windows Server 2012 R2 fails with error: The parameter is incorrect**  
 After creating a server endpoint on Windows Server 2012 R2, the following error occurs when accessing the volume:
 
 driveletter:\ is not accessible.  
