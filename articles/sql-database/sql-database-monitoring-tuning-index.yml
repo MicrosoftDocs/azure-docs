@@ -28,16 +28,6 @@ landingContent:
             url: sql-database-monitor-tune-overview.md
 
   # Card (optional)
-  - title: Collecting metrics and diagnostic log data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Metrics and diagnostics logging
-            url: sql-database-metrics-diag-logging.md
-          - text: Understand the performance diagnostics log
-            url: sql-database-intelligent-insights-use-diagnostics-log
-
-  # Card (optional)
   - title: Intelligent performance tuning capabilities
     linkLists:
       - linkListType: overview
@@ -82,6 +72,16 @@ landingContent:
             url: sql-database-xevent-db-diff-from-svr.md
           - text: Hyperscale performance diagnostics
             url: sql-database-hyperscale-performance-diagnostics.md
+
+  # Card (optional)
+  - title: Collecting metrics and diagnostic log data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Metrics and diagnostics logging
+            url: sql-database-metrics-diag-logging.md
+          - text: Understand the performance diagnostics log
+            url: sql-database-intelligent-insights-use-diagnostics-log
 
   # Card
   - title: Resource limits
