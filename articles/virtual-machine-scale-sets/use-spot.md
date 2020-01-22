@@ -90,7 +90,7 @@ $vmssConfig = New-AzVmssConfig `
 
 The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). 
 
-For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template: 
+For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":` section in your template: 
 
 ```json
                 "priority": "Spot",
@@ -100,7 +100,7 @@ For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the
                 }
 ```
 
-To delete the instance after it has been evicted, change the 'evictionPolicy' parameter and set it to *delete*.
+To delete the instance after it has been evicted, change the 'evictionPolicy' parameter to `Delete`.
 
 ## FAQ
 
