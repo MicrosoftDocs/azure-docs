@@ -139,7 +139,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-nodejs
-    title: Node.js
+    title: Javascript
   - id: programming-language-java
     title: Java (V3 only)
   - id: programming-language-other
