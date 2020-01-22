@@ -99,7 +99,7 @@ Follow these steps to change the Service Administrator in **Account Center**.
 
 ### Account Center
 
-1. Make sure your scenario is supported by checking the limitations for changing Service Administrators.
+1. Make sure your scenario is supported by checking the [limitations for changing the Service Administrator](#limitations-for-changing-the-service-administrator).
 
 1. Sign in to [Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 
