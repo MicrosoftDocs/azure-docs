@@ -26,7 +26,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the Copy File action, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
+* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the **Copy File action**, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
 
 * SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
@@ -135,13 +135,13 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
 
-1. For blank logic apps, in the search box, enter "sftp ssh" as your filter. Under the triggers list, select the trigger you want.
+1. For blank logic apps, in the search box, enter `sftp ssh` as your filter. Under the triggers list, select the trigger you want.
 
    -or-
 
-   For existing logic apps, under the last step where you want to add an action, choose **New step**. In the search box, enter "sftp ssh" as your filter. Under the actions list, select the action you want.
+   For existing logic apps, under the last step where you want to add an action, select **New step**. In the search box, enter `sftp ssh` as your filter. Under the actions list, select the action you want.
 
-   To add an action between steps, move your pointer over the arrow between steps. Choose the plus sign (**+**) that appears, and then select **Add an action**.
+   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
 1. Provide the necessary details for your connection.
 
@@ -161,9 +161,27 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
    1. In the SFTP-SSH trigger or action you added, paste the *complete* key you copied into the **SSH private key** property, which supports multiple lines.  ***Make sure you paste*** the key. ***Don't manually enter or edit the key***.
 
-1. When you're done entering the connection details, choose **Create**.
+1. When you're done entering the connection details, select **Create**.
 
 1. Now provide the necessary details for your selected trigger or action and continue building your logic app's workflow.
+
+## Enable chunking
+
+To enable chunking for actions that support this capability and specify the chunk size, follow these steps:
+
+1. In the action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
+
+   ![Open SFTP-SSH settings](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. For actions that don't implicitly enable chunking, under **Content Transfer**, change **Allow chunking** from **Off** to **On**.
+
+   ![Turn on "Allow chunking" setting](./media/connectors-sftp-ssh/turn-on-allow-chunking.png)
+
+1. After the **Chunk size** property appears, enter an integer value from `5` to `50`, for example:
+
+   ![Specify chunk size to use instead](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. When you're finished, select **Done**.
 
 ## Examples
 
@@ -183,7 +201,7 @@ This action gets the content from a file on an SFTP server. So for example, you 
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/sftpconnector/).
+For technical details about this connector, such as triggers, actions, and limits, see the connector's [reference page](/connectors/sftpconnector/).
 
 ## Next steps
 
