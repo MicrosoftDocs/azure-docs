@@ -96,6 +96,8 @@ groups:
     title: Python
   - id: programming-language-nodejs
     title: Node.js
+  - id: programming-language-java
+    title: Java
 - id: programming-languages-set-seven
   title: Programming languages
   prompt: Choose a programming language
@@ -104,8 +106,6 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
-  - id: programming-language-java
-    title: Java
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following

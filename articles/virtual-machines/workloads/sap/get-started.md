@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/16/2020
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -119,6 +119,9 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+
+- 01/17/2020: Change in [Azure proximity placement groups for optimal network latency with SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to change the section of moving existing VMs into a proximity placement group
+- 01/17/2020: Change in [SAP workload configurations with Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) to point to procedure that automates measurements of latency between Availability Zones
 - 01/16/2020: Change in [How to install and configure SAP HANA (Large Instances) on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) to adapt OS releases to HANA IaaS hardware directory
 - 01/16/2020: Changes in [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) to add instructions for SAP systems, using enqueue server 2 architecture (ENSA2)
 - 01/10/2020: Changes in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) and in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) to add instructions on how to make `nfs4_disable_idmapping` changes permanent.

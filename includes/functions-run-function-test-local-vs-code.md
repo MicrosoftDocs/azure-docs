@@ -2,7 +2,6 @@
 title: include file
 description: include file
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 05/31/2019

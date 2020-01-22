@@ -100,7 +100,7 @@ On Windows:
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead. Top-level elements should have no leading spaces.
 
 On Linux:
 
@@ -116,7 +116,7 @@ On Windows:
 
 ### Check container logs for issues
 
-Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing. 
+Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing.
 
    ```cmd
    iotedge logs <container name>
@@ -158,7 +158,7 @@ Replace `env: {}` with:
    ```
 
    > [!WARNING]
-   > YAML files cannot contain tabs as identation. Use 2 spaces instead.
+   > YAML files cannot contain tabs as identation. Use 2 spaces instead. Top-level items cannot have leading whitespace.
 
 Save the file and restart the IoT Edge security manager.
 
@@ -244,7 +244,7 @@ A container fails to run, and the edgeAgent logs show a 403 error.
 
 **Root cause**
 
-The Iot Edge agent doesn't have permissions to access a module's image.
+The IoT Edge agent doesn't have permissions to access a module's image.
 
 **Resolution**
 
@@ -430,6 +430,6 @@ Be sure to set this for the *edgeAgent* and *edgeHub* modules as well.
 
 ## Next steps
 
-Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
+Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve.
 
 If you have more questions, create a [Support request](https://portal.azure.com/#create/Microsoft.Support) for help.

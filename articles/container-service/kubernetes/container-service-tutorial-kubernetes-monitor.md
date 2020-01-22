@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Monitor Kubernetes
 description: Azure Container Service tutorial - Monitor Kubernetes with Log Analytics
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
