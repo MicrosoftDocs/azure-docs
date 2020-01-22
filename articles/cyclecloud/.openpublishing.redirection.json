@@ -159,6 +159,11 @@
             "source_path": "storage-nfs-mounts.md",
             "redirect_url": "how-to/mount-fileserver.md",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "container-distribution.md",
+            "redirect_url": "how-to/run-in-container.md",
+            "redirect_document_id": true
         }
     ]
 }
