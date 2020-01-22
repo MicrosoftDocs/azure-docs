@@ -716,6 +716,9 @@
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
+        ],
+        "articles/active-directory/**/*.md": [
+          "binaryRatingUpdate"
         ]
       },
       "learn_banner_products": {

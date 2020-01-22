@@ -11,9 +11,9 @@ ms.author: v-umha
 
 Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Datahub. Currently, the following sensor device partners are supported.
 
-  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the datahub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
+Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the data hub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
 
 To start sensor data streaming, ensure the following:
 
@@ -39,7 +39,7 @@ Alternatively, you can generate the credentials by running this script from Azur
 1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
 2. Sign in to https://portal.azure.com/ and go to Azure Active Directory -> App Registrations
 
-3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats Datahub.
+3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats data hub.
 
 4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
 
