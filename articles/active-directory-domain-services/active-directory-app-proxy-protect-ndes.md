@@ -14,8 +14,7 @@ ms.author: baselden
 ms.reviewer: mimart
 ---
 
-
-# Azure Active Directory Application Proxy
+# Protect Network Device Enrollment Service (NDES) with Azure Active Directory (AD) Application Proxy
 
 Azure Active Directory (AD) Application Proxy lets you publish applications inside your network. These applications are ones such as SharePoint sites, Microsoft Outlook Web App, and other web applications. It also provides secure access to users outside your network via Azure.
 
@@ -25,9 +24,9 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 > Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see Azure Active Directory Editions. 
 > If you have Enterprise Mobility Suite (EMS) licenses you are eligible of using this solution.
-> The Azure AD Application Proxy connector only installs on a Windows Server 2012 R2 Operating system, this is also a requirement of the NDES server anyway.
+> The Azure AD Application Proxy connector only installs on a Windows Server 2012 R2 Operating system, this is also a requirement of the NDES server.
 
-## Install the connector
+## Download the connector
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
@@ -42,7 +41,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 1. Follow the instructions in the wizard to install the service. When you're prompted to register the connector with the Application Proxy for your Azure AD tenant, provide your application administrator credentials.
     - For Internet Explorer (IE), if **IE Enhanced Security Configuration** is set to **On**, you may not see the registration screen. To get access, follow the instructions in the error message. Make sure that **Internet Explorer Enhanced Security Configuration** is set to **Off**.
 
-## Install and register the Azure AD Application Proxy connector
+## Install and register the Azure AD Application Proxy connector on the NDES server
 
 With an NDES server ready to be used as the Azure AD Application Proxy connector, now copy and run the setup file downloaded from the Azure portal.
 
