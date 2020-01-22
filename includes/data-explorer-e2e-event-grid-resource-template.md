@@ -2,7 +2,7 @@
 author: lugoldbemicrosoft
 ms.service: data-explorer
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 01/27/2020
 ms.author: lugoldbe
 ---
 
@@ -86,7 +86,7 @@ In this article, you use an Azure Resource Manager template to create a resource
         },
         "roleForClusterPrincipal": {
             "type": "string",
-			"defaultValue": "AllDatabasesViewer",
+            "defaultValue": "AllDatabasesViewer",
             "metadata": {
                 "description": "Specifies the cluster principal role. It can be 'AllDatabasesAdmin', 'AllDatabasesViewer'"
             }
@@ -99,7 +99,7 @@ In this article, you use an Azure Resource Manager template to create a resource
         },
         "principalTypeForCluster": {
             "type": "string",
-			"defaultValue": "App",
+            "defaultValue": "App",
             "metadata": {
                 "description": "Specifies the principal type. It can be 'User', 'App', 'Group'"
             }
@@ -119,7 +119,7 @@ In this article, you use an Azure Resource Manager template to create a resource
         },
         "roleForDatabasePrincipal": {
             "type": "string",
-			"defaultValue": "Admin",
+            "defaultValue": "Admin",
             "metadata": {
                 "description": "Specifies the database principal role. It can be 'Admin', 'Ingestor', 'Monitor', 'User', 'UnrestrictedViewers', 'Viewer'"
             }
@@ -132,7 +132,7 @@ In this article, you use an Azure Resource Manager template to create a resource
         },
         "principalTypeForDatabase": {
             "type": "string",
-			"defaultValue": "App",
+            "defaultValue": "App",
             "metadata": {
                 "description": "Specifies the principal type. It can be 'User', 'App', 'Group'"
             }
@@ -225,8 +225,8 @@ In this article, you use an Azure Resource Manager template to create a resource
             "properties": {
                 "principalId": "[parameters('principalIdForCluster')]",
                 "role": "[parameters('roleForClusterPrincipal')]",
-				"tenantId": "[parameters('tenantIdForClusterPrincipal')]",
-				"principalType": "[parameters('principalTypeForCluster')]"
+                "tenantId": "[parameters('tenantIdForClusterPrincipal')]",
+                "principalType": "[parameters('principalTypeForCluster')]"
             }
         }, {
             "type": "Microsoft.Kusto/Clusters/Databases/principalAssignments",
@@ -236,8 +236,8 @@ In this article, you use an Azure Resource Manager template to create a resource
             "properties": {
                 "principalId": "[parameters('principalIdForDatabase')]",
                 "role": "[parameters('roleForDatabasePrincipal')]",
-				"tenantId": "[parameters('tenantIdForDatabasePrincipal')]",
-				"principalType": "[parameters('principalTypeForDatabase')]"
+                "tenantId": "[parameters('tenantIdForDatabasePrincipal')]",
+                "principalType": "[parameters('principalTypeForDatabase')]"
             }
         }
     ]

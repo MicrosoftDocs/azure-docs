@@ -6,7 +6,7 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 01/27/2020
 ---
 
 # End-to-end blob ingestion into Azure Data Explorer through C#
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 The following code example gives you a step-by-step process that results in data ingestion into Azure Data Explorer. 
 
-You first create a resource group. You also create Azure resources such as a storage account and container, an event hub, and an Azure Data Explorer cluster and database and principals. You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account. 
+You first create a resource group. You also create Azure resources such as a storage account and container, an event hub, and an Azure Data Explorer cluster and database, and add principals. You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -82,7 +82,7 @@ await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(resourceGroupN
     new ResourceGroup() { Location = locationSmallCase });
 
 Console.WriteLine(
-    "Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, database and principals by using an Azure Resource Manager template.");
+    "Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, database, and add principals by using an Azure Resource Manager template.");
 var parameters = $"{{\"eventHubNamespaceName\":{{\"value\":\"{eventHubNamespaceName}\"}},\"eventHubName\":{{\"value\":\"{eventHubName}\"}},\"storageAccountName\":{{\"value\":\"{storageAccountName}\"}},\"containerName\":{{\"value\":\"{storageContainerName}\"}},\"kustoClusterName\":{{\"value\":\"{kustoClusterName}\"}},\"kustoDatabaseName\":{{\"value\":\"{kustoDatabaseName}\"}},\"principalIdForCluster\":{{\"value\":\"{principalIdForCluster}\"}},\"roleForClusterPrincipal\":{{\"value\":\"{roleForClusterPrincipal}\"}},\"tenantIdForClusterPrincipal\":{{\"value\":\"{tenantIdForClusterPrincipal}\"}},\"principalTypeForCluster\":{{\"value\":\"{principalTypeForCluster}\"}},\"principalIdForDatabase\":{{\"value\":\"{principalIdForDatabase}\"}},\"roleForDatabasePrincipal\":{{\"value\":\"{roleForDatabasePrincipal}\"}},\"tenantIdForDatabasePrincipal\":{{\"value\":\"{tenantIdForDatabasePrincipal}\"}},\"principalTypeForDatabase\":{{\"value\":\"{principalTypeForDatabase}\"}}}}";
 string template = File.ReadAllText(azureResourceTemplatePath, Encoding.UTF8);
 await resourceManagementClient.Deployments.CreateOrUpdateAsync(resourceGroupName, deploymentName,
