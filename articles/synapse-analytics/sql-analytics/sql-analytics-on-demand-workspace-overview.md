@@ -34,7 +34,7 @@ Different professional roles can benefit from SQL on-demand:
 - Data Engineers can explore the lake, transform and prepare data using this service, and simplify their data transformation pipelines. For more information, check this tutorial
 - Data Scientists can quickly reason about the contents and structure of the data in the lake, thanks to features such as OPENROWSET and automatic schema inference
 - Data Analysts can [explore data and Spark tables](development-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools that can connect to SQL on-demand
-- BI Professionals can quickly [create Power BI reports on top of data in the lake](tutorial-power-bi-professional.md) and Spark tables 
+- BI Professionals can quickly [create Power BI reports on top of data in the lake](tutorial-connect-power-bi-desktop.md) and Spark tables 
 
  
 

@@ -83,7 +83,7 @@ You can use various tools to connect to synapse capabilities and query data.
 |   | SQL Pool | SQL On-demand |
 | --- | --- | --- |
 | Synapse Studio | Yes, SQL scripts | Yes, SQL scripts |
-| Power BI | Yes | [Yes](sql-analytics/tutorial-power-bi-professional.md) |
+| Power BI | Yes | [Yes](sql-analytics/tutorial-connect-power-bi-desktop.md) |
 | Azure Analysis Service | Yes | Yes |
 | Azure Data Studio | Yes | Yes, version 1.14 or higher |
 | SQL Server Management Studio | Yes | Yes, version 18.4 or higher |
