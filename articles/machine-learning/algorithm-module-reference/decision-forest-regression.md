@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 
 # Decision Forest Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model based on an ensemble of decision trees.
 
@@ -84,11 +84,7 @@ For more information about the theoretical framework for this algorithm and its 
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the training module, and select **Visualize**.
-
-+ To see the rules for each node, click each tree and drill down into the splits.
-
-+ To save a snapshot of the trained model, right-click the output of the training module, and select **Save As Trained Model**. This copy of the model is not updated on successive runs of the pipeline. 
++ To save a snapshot of the trained model, select the training module, then switch to **Outputs** tab in the right panel. Click on the icon **Register model**.  You can find the saved model as a module in the module tree. 
 
 ## Next steps
 

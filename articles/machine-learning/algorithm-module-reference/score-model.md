@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Score Model module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to generate predictions using a trained classification or regression model.
 
