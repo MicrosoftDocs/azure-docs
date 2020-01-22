@@ -246,7 +246,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-This error occurs because AKS nodes run an older version of Docker that doesn't support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
+This error occurs because Azure Dev Spaces does not currently support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
