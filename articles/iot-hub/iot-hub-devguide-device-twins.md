@@ -282,11 +282,11 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 ## Device twin size
 
-IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements, such as [device twin metadata](#device-twin-metadata) elements like `$etag`, `$version`, and `$lastUpdated`.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
 
-The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants. 
+The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
 
-For example, consider the following JSON fragment for reported properties. Device twin metadata elements like `$version` and `$lastUpdated` are not shown as they are excluded from computation of the property size limit.
+For example, consider the following JSON fragment for reported properties. Read-only elements like `$version` and `$metadata/$lastUpdated` are not shown as they are excluded from computation of the property size limit.
 
 ```json
 "properties" : {
@@ -304,7 +304,7 @@ For example, consider the following JSON fragment for reported properties. Devic
 }
 ```
 
-The size of the reported properties would be computed based on the UTF-8 encoded value of the following JSON, which represents the value of `properties/reported` with the white-space removed:
+The size of the reported properties for this fragment would be computed based on the UTF-8 encoded value of the following JSON, which represents the value of `properties/reported` with the white-space removed:
 
 ```json
 {"intProperty":14000,"boolProperty":true,"floatProperty":1.463E+2,"stringProperty":"This is a string value","objectProperty":{"property1":1,"property2":2}}
@@ -366,8 +366,6 @@ For example:
 ```
 
 This information is kept at every level (not just the leaves of the JSON structure) to preserve updates that remove object keys.
-
-In addition to timestamp metadata, IoT Hub also maintains read-only, versioning metadata. This metadata is represented by the `$etag` element for tags and in the `$version` element for the desired and reported properties. See the next section for details.
 
 ## Optimistic concurrency
 
