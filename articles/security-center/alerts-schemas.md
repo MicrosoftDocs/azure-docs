@@ -15,7 +15,7 @@ ms.author: memildin
 
 ---
 
-# SchemaSecurity alerts - a reference guide
+# Security alerts schemas
 
 Azure Security Center's advanced threat detection mechanisms generate security alerts when they detect threats to your resources.
 
