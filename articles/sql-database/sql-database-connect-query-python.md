@@ -18,36 +18,34 @@ This article demonstrates how to use Python to connect to an Azure SQL database 
 
 ## Prerequisites
 
-To complete the sample, make sure you have the following:
+To complete this sample, make sure you have the following:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-- Azure SQL database - [create and configure an Azure SQL database](sql-database-single-database-get-started.md)
+- Azure SQL database - [create and configure a database](sql-database-single-database-get-started.md)
 
   > [!NOTE]
-  > For managed instances, [create an instance using the Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then [configure connectivity using a VM](sql-database-managed-instance-configure-vm.md) or [on-site](sql-database-managed-instance-configure-p2s.md).
+  > To use managed instances, create an instance using the Azure [portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), and configure connectivity using a [VM](sql-database-managed-instance-configure-vm.md) or [on-site](sql-database-managed-instance-configure-p2s.md).
   >
-  > To load data, see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) or [use BACPAC](sql-database-import.md) to restore the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file.
+  > To load data, see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) or [restore using BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file.
 
   > [!IMPORTANT]
-  > The scripts in this article are written to use the **Adventure Works** database. With a managed instance, you must either import the **Adventure Works** database into an instance database or modify the scripts in this article to use the **Wide World Importers** database.
+  > The scripts in this article are written to use the **Adventure Works** database.
+  > 
+  > With a managed instance, you must import the **Adventure Works** database into an instance database or modify the scripts in this article to use the **Wide World Importers** database.
   
 - [Python](https://python.org) and related software
 
   # [macOS](#tab/macos)
 
-  Install Homebrew and Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server using steps **1.2**, **1.3**, and **2.1** in [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+  Install Homebrew and Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server using steps **1.2**, **1.3**, and **2.1** in [create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   # [Ubuntu](#tab/ubuntu)
-
   Install Python and other required packages with `sudo apt-get install python python-pip gcc g++ build-essential`.
 
-  Install the ODBC driver, SQLCMD, and the Python driver for SQL Server, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
-
+  Install the ODBC driver, SQLCMD, and the Python driver for SQL Server, see [configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
   # [Windows](#tab/windows)
-
-  Install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
-
+  Install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, see [configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
   ---
 
   > [!NOTE]
