@@ -1767,6 +1767,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/change-feed-hl7-fhir-logic-apps.md",
+      "redirect_url": "/azure/cosmos-db/change-feed",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/spark-api-introduction.md",
       "redirect_url": "/azure/cosmos-db/analytics-usecases",
       "redirect_document_id": false
@@ -3433,7 +3438,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/extension-resource-types.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/extension-resource-types",
+      "redirect_url": "/azure/azure-resource-manager/management/extension-resource-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/extension-resource-types.md",
+      "redirect_url": "/azure/azure-resource-manager/management/extension-resource-types",
       "redirect_document_id": false
     },
     {
