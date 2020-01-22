@@ -59,7 +59,7 @@ Currently, Azure FarmBeats is supported in public cloud environments in the foll
 * West US 2
 * North Europe
 * West Europe
-* East Asia
+* gitEast Asia
 * SouthEast Asia
 
 ### Time taken
@@ -121,7 +121,7 @@ Your Azure FarmBeats setup enables you to get satellite imagery from European Sp
 
 Follow the steps to create a free account with Sentinel:
 
-1. Go to the official [sign-up](https://scihub.copernicus.eu/dhus/#/self-registration) page.
+1. Go to the official [sign-up](https://aka.ms/SentinelRegistration) page.
 2. Provide the required details (first name, last name, username, password, and email ID) and complete the form.
 3. A verification link will be sent to the registered email ID. Select the link provided in the email and complete the verification.
 
