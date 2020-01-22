@@ -34,11 +34,11 @@ If a group is assigned a role, any IT admin who can manage group membership coul
 
 - Only Global Administrator and Privileged Role Administrator can create a group with the "isAssignableToRole" property enabled.
 - It can't be an Azure AD dynamic group. It must have a membership type of "Assigned." Automated population of dynamic groups could lead to an unwanted account being added that then could then use the role permissions to manage group membership and thus assignments to the role.
-- There can't be an owner of a role-enabled group. Only Global Administrator and Privileged Role Administrator can manage the membership of this group by default. We will bring the ability to delegate the management of such groups to other people in future.
-- No nesting. A group can't be added as a member of a role-enable group.
+- Only Global Administrator and Privileged Role Administrator can manage the membership of this group by default.     You can delegate the management of role-eligible groups by adding owners to those groups.
+- No nesting. A group can't be added as a member of a role-eligible group.
 
 > [!IMPORTANT]
-> If you use Office 365 groups to assign to roles, they can expire. Because role-eligible groups can't have owners, the expiration email will be sent to the alternate email address you provide. Be sure to provide an email address that you monitor. Otherwise, use a security group for assigning to roles.
+> If you use Office 365 groups to assign to roles, they can expire. When a role-eligible group doesn't have owners, the expiration email will be sent to the alternate email address you provide. Be sure to provide an email address that you monitor. Otherwise, use a security group for assigning to roles.
 
 ## Required license plan
 
@@ -48,14 +48,15 @@ Using this feature requires an Azure AD Premium P1 license. To find the right li
 
 Scenario | Azure AD portal | MS Graph API | PowerShell
 -------- | --------------- | ------------ | ----------
-Create a new Office 365 cloud group with the isAssignableToRole property set to true. | Supported | Supported | Not supported
+Create a new Office 365 cloud group with the isAssignableToRole property set to true. | Supported | Supported | Supported
 Assign new Office 365 cloud group with the isAssignableToRole set to true to a built-in Azure AD role.  | Supported | Supported  | Supported
-Create a new security cloud group with the isAssignableToRole property set to true.  | Supported  | Supported  | Not supported
+Create a new security cloud group with the isAssignableToRole property set to true.  | Supported  | Supported  | Supported
 Assign new security group with the isAssignableToRole set to true to a built-in Azure AD role.  | Supported  | Supported  | Supported
 Put users into a group and assign it to a built-in Azure AD role (assuming the group can be assigned to a role)  | Supported  | Supported  | Supported
-Put service principals into a role-eligible group and assign it to a built-in Azure AD role | Supported  | Supported  | Not supported
+Put service principals into a role-eligible group and assign it to a built-in Azure AD role | Supported  | Supported  | Supported
 Assign groups with isAssignableToRole set to true to built-in roles scoped to Admin Units.  | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020
 Delegate the management of group that has been assigned to a built-in role.  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
+Assign an Office/security group to be eligible for an Azure AD role in Privileged Identity Management | Supported | TBD | TBD
 Assign a new on-premises security group to an Azure AD role (no Office 365 group on-prem).  | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
 Assign an existing on-premises security group to an Azure AD role (no Office 365 group on-premises). | First half of calendar 2020  | First half of calendar 2020  | First half of calendar 2020
 Nest another group with isAssignableToRole set to true into a group that is assigned a role. | First half of calendar 2020  | First half of calendar 2020 | First half of calendar 2020

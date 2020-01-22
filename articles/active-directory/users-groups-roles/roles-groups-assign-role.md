@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 01/07/2020x
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,11 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Assign a role to a group in Azure Active Directory
 
-This section describes how an IT admin can assign Azure AD role to a group.
+This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to a group.
 
 ## Using Azure AD admin center
 
-Assigning a group to a user is similar to users and service principals with one caveat. Only groups that are eligible (the cloud groups created with "Eligible for role assignment") for role assignment are shown in the menu.
+Assigning a group to an Azure AD role is similar to assigning users and service principals with one difference: Only groups that are eligible (that is, created with "Eligible for role assignment" selected) for role assignment are shown in the menu.
 
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 
@@ -75,6 +75,20 @@ For more information on assigning role permissions, see [Assign administrator an
     "roleDefinitionId":"<Id of role definition>", 
     "resourceScope":"/" 
     } 
+
+## Make a group an eligible member of an Azure AD role via Privileged Identity Management
+
+### Using Azure AD Admin Center
+
+	TBD
+
+### Using PowerShell
+
+	TBD
+
+### Using Microsoft Graph API
+
+	TBD
 
 ## Next steps
 
