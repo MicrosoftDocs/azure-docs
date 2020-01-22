@@ -76,20 +76,6 @@ For more information on assigning role permissions, see [Assign administrator an
     "resourceScope":"/" 
     } 
 
-## Make a group an eligible member of an Azure AD role via Privileged Identity Management
-
-### Using Azure AD Admin Center
-
-	TBD
-
-### Using PowerShell
-
-	TBD
-
-### Using Microsoft Graph API
-
-	TBD
-
 ## Next steps
 
 - [Create a role-eligible group](roles-groups-create-eligible.md)
