@@ -25,3 +25,10 @@ To change this setting in the Azure portal, you can navigate to your Azure API f
 > Higher value means higher Azure API for FHIR throughput and higher cost of the service.
 
 ![Config Cosmos DB](media/database/database-settings.png)
+
+## Next steps
+
+In this article, you learned how to update your RUs for Azure API for FHIR. Next deploy a fully managed Azure API for FHIR:
+ 
+>[!div class="nextstepaction"]
+>[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
