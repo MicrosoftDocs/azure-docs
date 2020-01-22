@@ -20,11 +20,12 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Deploying your app
 
-You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
 
 - To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Do not deploy your .war using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
 
@@ -124,9 +125,9 @@ Java applications running in App Service have the same set of [security best pra
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](app-service-authentication-how-to.md) article.
 
-#### Tomcat and Wildfly
+#### Tomcat
 
-Your Tomcat or Wildfly application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
+Your Tomcat application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -282,6 +283,10 @@ To edit Tomcat's `server.xml` or other configuration files, first take a note of
 1. Once you have identified the Tomcat home directory for your version, copy the configuration directory to `D:\home`. For example, if `AZURE_TOMCAT85_HOME` had a value of `D:\Program Files (x86)\apache-tomcat-8.5.37`, the new path of the copied directory would be `D:\home\apache-tomcat-8.5.37`.
 
 Finally, restart your App Service. Your deployments should go to `D:\home\site\wwwroot\webapps` just as before.
+
+## Configure Java SE
+
+When running a .JAR application on Java SE on Windows, `server.port` is passed as a command line option as your application starts. You can manually resolve the HTTP port from the environment variable, `HTTP_PLATFORM_PORT`. The value of this environment variable will be the HTTP port your application should listen on. 
 
 ## Java runtime statement of support
 
