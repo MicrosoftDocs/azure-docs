@@ -17,7 +17,7 @@ This article shows you how to create and configure the virtual network resources
 
 ## Before you begin
 
-Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
 If you have not previously used ACI, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
@@ -153,7 +153,7 @@ You deploy an AKS cluster into the AKS subnet created in a previous step. Get th
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Replace `<subnetId>` with the ID obtained in the previous step, and then `<appId>` and `<password>` with the 
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Replace `<subnetId>` with the ID obtained in the previous step, and then `<appId>` and `<password>` with the values gathered in the previous section.
 
 ```azurecli-interactive
 az aks create \
@@ -300,7 +300,7 @@ Close the terminal session to your test pod with `exit`. When your session is en
 
 If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. 
 
-First, delete the helloworld pod running on the virtual node:
+First, delete the aci-helloworld pod running on the virtual node:
 
 ```azurecli-interactive
 kubectl delete -f virtual-node.yaml
