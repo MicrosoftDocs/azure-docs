@@ -26,6 +26,11 @@ landingContent:
         links:
           - text: Monitoring and performance tuning
             url: sql-database-monitor-tune-overview.md
+    linkLists:
+      - linkListType: video
+        links:
+          - text: Microsoft Azure Database Monitoring Playbook
+            url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
 
   # Card (optional)
   - title: Intelligent performance tuning capabilities
@@ -120,7 +125,5 @@ landingContent:
             url: sql-database-read-scale-out.md
       - linkListType: video
         links:
-          - text: Dynamic scalability
-            url: https://azure.microsoft.com/resources/videos/azure-sql-database-dynamically-scale-up-or-scale-down/
           - text: Dynamic scalability
             url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player  
