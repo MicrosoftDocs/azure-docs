@@ -31,7 +31,7 @@ For example, having the `list` verb means that you can display a list of all obj
 
 ## Configure the customer administrator role
 
-You can configure the customer-admin-cluster cluster role only during cluster creation by providing the flag `--customer-admin-group-id`. To learn how to configure Azure Active Directory and the Administrators group, see [Azure Active Directory integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md).
+You can configure the customer-admin-cluster cluster role only during cluster creation by providing the flag `--customer-admin-group-id`. This field is not currently configurable in the Azure portal. To learn how to configure Azure Active Directory and the Administrators group, see [Azure Active Directory integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md).
 
 ## Next steps
 
