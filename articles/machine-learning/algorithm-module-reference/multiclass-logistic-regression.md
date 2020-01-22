@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Multiclass Logistic Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a logistic regression model that can be used to predict multiple values.
 
@@ -55,9 +55,6 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 9. Run the pipeline.
 
-## Results
-
-After training is complete, you can see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
 
 
 ## Next steps
