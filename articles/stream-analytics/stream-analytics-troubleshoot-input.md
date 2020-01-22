@@ -25,6 +25,8 @@ This page describes common issues with input connections and how to troubleshoot
         
     Inspect the sample data to understand the shape of the data: the schema and the [data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
+3.  Ensure you have selected a time range in the input preview. Click the “Select time range” and provide a sample duration before testing your query.
+
 ## Malformed input events causes deserialization errors 
 Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages. For example, a malformed message could be caused by a missing parenthesis or a brace in a JSON object, or an incorrect timestamp format in the time field. 
  
