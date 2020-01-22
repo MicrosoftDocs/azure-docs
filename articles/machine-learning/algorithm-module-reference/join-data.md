@@ -14,7 +14,7 @@ ms.date: 11/19/2019
 
 # Join Data
 
-This article describes how to use the **Join Data** module in Azure Machine Learning designer to merge two datasets using a database-style join operation.  
+This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
 
 ## How to configure Join Data
 
