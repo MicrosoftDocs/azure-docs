@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ---
 
-# Tutorial: Predict automobile price with the designer
+# Tutorial: Predict automobile price with the designer (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this two-part tutorial, you learn how to use the Azure Machine Learning designer to develop and deploy a predictive analytics solution that predicts the price of any car. 

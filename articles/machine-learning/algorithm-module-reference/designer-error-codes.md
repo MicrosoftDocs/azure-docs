@@ -11,9 +11,9 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
 ---
-# Exceptions and error codes for the designer
+# Exceptions and error codes for the designer (preview)
 
-This article describes the error messages and exception codes in Azure Machine Learning designer to help you troubleshoot your machine learning pipelines.
+This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
 
 There are two ways to get the full text of an error message in the designer:  
 
