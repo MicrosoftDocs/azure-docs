@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
@@ -85,9 +85,9 @@ In the preceding example, you created a budget for a subscription. However, you 
 
 ## Costs in budget evaluations
 
-Budget cost evaluations now include Azure Marketplace consumption, reserved instance, and purchase data. If the charges apply to you, then you might receive alerts as charges are incorporated into your evaluations. We recommend that you sign in to the [Azure portal](https://portal.azure.com) to verify that budget thresholds are properly configured to account for the new costs. Your Azure billed charges aren't changed. Budgets now evaluate against a more complete set of your costs. If the charges don't apply to you, then your budget behavior remains unchanged.
+Budget cost evaluations now include reserved instance and purchase data. If the charges apply to you, then you might receive alerts as charges are incorporated into your evaluations. We recommend that you sign in to the [Azure portal](https://portal.azure.com) to verify that budget thresholds are properly configured to account for the new costs. Your Azure billed charges aren't changed. Budgets now evaluate against a more complete set of your costs. If the charges don't apply to you, then your budget behavior remains unchanged.
 
-If you want to filter out the new costs so that budgets are evaluated against first party Azure consumption charges only, add the following filters to your budget:
+If you want to filter the new costs so that budgets are evaluated against first party Azure consumption charges only, add the following filters to your budget:
 
 - Publisher Type: Azure
 - Charge Type: Usage
