@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs API overview | Microsoft Docs
-description: Overview of available Azure Event Hubs APIs
+description: This article provides an overview of available APIs (runtime and management) for using the Azure Event Hubs service.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
