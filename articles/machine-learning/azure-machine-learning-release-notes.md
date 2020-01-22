@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 ---
 
@@ -53,22 +53,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-runtime**
     + Added Matthews Correlation Coefficient as a classification metric, for both binary and multiclass classification.
     + Deprecate preprocess flag from code and replaced with featurization -featurization is on by default
-
-
-## 2020-01-21
-
-### Azure Machine Learning designer generally available (GA)
-
-The designer is now generally available.
-
-+ **New features**
-    + Added `Regenerate Output` module option to force the designer to ignore cached results.
-    + Added new views to pipeline run details:
-        + Pipeline list view.
-        + In-browser log view.
-    + Added labels to module input and output ports.
-    + Added `Set as Default` pipeline option in the [Endpoints tab](how-to-run-batch-predictions-designer.md#versioning-endpoints).
-    + Added keyboard shortcuts and screen reader [accessibility features](designer-accessibility.md).
 
 ## 2020-01-06
 
