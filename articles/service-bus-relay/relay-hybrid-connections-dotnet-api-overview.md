@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
-description: Azure Relay .NET Standard API overview
+description: This article summarizes some of the key an overview of Azure Relay Hybrid Connections .NET Standard API.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
