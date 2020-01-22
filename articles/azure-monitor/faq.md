@@ -91,7 +91,7 @@ All data is retrieved from a Log Analytics workspace using a log query written u
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
 
 ### Can you move an existing Log Analytics workspace to another Azure subscription?
-You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](/platform/move-workspace.md).
+You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](platform/move-workspace.md).
 
 
 ## Alerts
@@ -342,7 +342,7 @@ Use a single resource for all the components or roles in a single business syste
 ### What are the User and Session counts?
 
 * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
-* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/).
+* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
@@ -452,7 +452,7 @@ Your gateway should route traffic to our endpoint's base address. In your config
 #### Proxy passthrough
 
 Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
-For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings).
+For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Example Web.config:
  ```xml

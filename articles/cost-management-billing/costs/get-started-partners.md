@@ -115,7 +115,7 @@ Regardless of the policy, partners can also view the costs if they have access t
 
 Partners use the following information to enable to the policy to view Azure usage charges for their customers.
 
-In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select a billing account and then select **Customers**. The list of customers is associated with the billing account.
+In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select the relevant Microsoft Partner Agreement billing account, and then select **Customers**. The list of customers is associated with the billing account.
 
 In the list of customers, select the customer that you want to allow to view costs.
 
@@ -132,7 +132,7 @@ When the cost policy is set to **Yes**, subscription users associated to the cus
 
 When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope.
 
-To view costs for the customer tenant, open Cost Management + Billing and then select Billing accounts. In the list of billing accounts, select a billing account.
+To view costs for the customer tenant, open **Cost Management + Billing** and select the relevant Microsoft Partner Agreement billing account.
 
 ![Select a billing account](./media/get-started-partners/select-billing-account.png)
 
@@ -258,7 +258,7 @@ Users with RBAC access to the subscription can also export the cost data to an A
 
 ### Create an export in a partner tenant or customer tenant
 
-In the Azure portal, sign in to the partner tenant or customer tenant and select **Cost Management + Billing**. Select an appropriate scope, for example a billing account, and then select **Cost Analysis**. When the page loads, select **Export**. Select **View all exports** under Schedule Export.
+In the Azure portal, sign in to the partner tenant or customer tenant and select **Cost Management + Billing**. Select an appropriate scope, for example a Microsoft Partner Agreement billing account, and then select **Cost Analysis**. When the page loads, select **Export**. Select **View all exports** under Schedule Export.
 
 ![Select Export and View all exports](./media/get-started-partners/export01.png)
 
