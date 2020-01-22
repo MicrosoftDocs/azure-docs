@@ -119,7 +119,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 > [!NOTE]
 > This feature is in Public Preview right now.
 
-#### Public Preview of synchronizing temporary passwords and "Force Password on Next Logon"
+#### Public Preview of synchronizing temporary passwords and "Force Password Reset on Next Logon"
 
 It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
   
