@@ -59,6 +59,7 @@ Currently, Azure FarmBeats is supported in public cloud environments in the foll
 * West US 2
 * North Europe
 * West Europe
+* East Asia
 * SouthEast Asia
 
 ### Time taken
