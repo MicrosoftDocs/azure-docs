@@ -171,7 +171,7 @@ Azure Container Instance does not support disk encryption. If you need disk encr
 
 #### Azure Kubernetes Service
 
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [https://aka.ms/aks/byok](https://aka.ms/aks/byok). 
+You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
 
 This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
 
