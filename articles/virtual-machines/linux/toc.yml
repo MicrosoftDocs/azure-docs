@@ -43,9 +43,11 @@
     href: tutorial-azure-security.md
   - name: 14a - Build with Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 14b - Deploy with Azure Pipelines(Classic)
+  - name: 14b - Integrate Jenkins with Azure DevOps
     href: tutorial-build-deploy-jenkins.md
-  - name: 15 - CI/CD with Azure Pipelines(YAML)
+  - name: 15a - DevOps for IaaS and PaaS on Azure
+    href: tutorial-devops-azure-pipelines-classic.md
+  - name: 15b - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
