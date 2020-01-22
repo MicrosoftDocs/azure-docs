@@ -81,7 +81,7 @@ landingContent:
           - text: Metrics and diagnostics logging
             url: sql-database-metrics-diag-logging.md
           - text: Understand the performance diagnostics log
-            url: sql-database-intelligent-insights-use-diagnostics-log
+            url: sql-database-intelligent-insights-use-diagnostics-log.md
 
   # Card
   - title: Resource limits
