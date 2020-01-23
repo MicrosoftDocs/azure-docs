@@ -18,7 +18,7 @@ ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
-# Web app that calls web APIs: Move to production
+# A web app that calls web APIs: Move to production
 
 Now that you know how to acquire a token to call web APIs, learn how to move to production.
 
