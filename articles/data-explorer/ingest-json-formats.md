@@ -25,7 +25,7 @@ Azure Data Explorer supports two json file formats:
 
 ### Ingest and map json formatted data
 
-Ingestion of json formatted data requires you to specify the *format* using [ingestion property](/azure/kusto/management/data-ingestion/index#ingestion-properties). Ingestion of json data requires [mapping](/azure/kusto/management/mappings), which maps a json source entry to its target column. When ingesting data, use the pre-defined `jsonMappingReference` ingestion property or specify the `jsonMapping`ingestion property. This article will use the `jsonMappingReference` ingestion property which is pre-defined on the table used for ingestion. In the examples below, we'll start by ingesting json records as raw data to a single column table. Then we'll use the mapping to ingest each property to its mapped column. 
+Ingestion of json formatted data requires you to specify the *format* using [ingestion property](/azure/kusto/management/data-ingestion/index#ingestion-properties). Ingestion of json data requires [mapping](/azure/kusto/management/mappings), which maps a json source entry to its target column. When ingesting data, use the pre-defined `jsonMappingReference` ingestion property or specify the `jsonMapping`ingestion property. This article will use the `jsonMappingReference` ingestion property, which is pre-defined on the table used for ingestion. In the examples below, we'll start by ingesting json records as raw data to a single column table. Then we'll use the mapping to ingest each property to its mapped column. 
 
 ### Simple json example
 
@@ -51,7 +51,7 @@ Use Kusto query language to ingest data in a raw json format.
 
 1. Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-1. In the upper-left of the application, select **Add cluster**.
+1. Select **Add cluster**.
 
 1. In the **Add cluster** dialog box, enter your cluster URL in the form `https://<ClusterName>.<Region>.kusto.windows.net/`, then select **Add**.
 
@@ -228,7 +228,7 @@ In this example, you ingest json records data. Each json property is mapped to a
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
     ```
 
-    The file 'simple.json' has a few line-separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
+    The file 'simple.json' has a few line-separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you created.
 
 # [C#](#tab/c-sharp)
 
@@ -287,7 +287,7 @@ In this example, you ingest json records data. Each json property is mapped to a
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-    The file 'simple.json' has a few line-separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
+    The file 'simple.json' has a few line-separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you created.
 
 # [Python](#tab/python)
 
@@ -320,7 +320,7 @@ In this example, you ingest json records data. Each json property is mapped to a
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-    The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.    
+    The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you created.    
 ---
 
 ## Ingest multi-lined json records
@@ -369,7 +369,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
 ## Ingest json records containing arrays
 
-Array data types are an ordered collection of values. Ingestion of a json array is done by an [update policy](/azure/kusto/management/update-policy). The json is ingested as-is to an intermediate table. An update policy runs a pre-defined function on the `RawEvents` table, re-ingesting the results to the target table. We will ingest data with the following structure:
+Array data types are an ordered collection of values. Ingestion of a json array is done by an [update policy](/azure/kusto/management/update-policy). The json is ingested as-is to an intermediate table. An update policy runs a pre-defined function on the `RawEvents` table, reingesting the results to the target table. We will ingest data with the following structure:
 
 ```json
 {
