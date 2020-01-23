@@ -8,7 +8,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 01/23/2020
 ms.author: tamram
 ---
 
