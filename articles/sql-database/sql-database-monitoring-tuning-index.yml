@@ -32,7 +32,35 @@ landingContent:
             url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
 
   # Card (optional)
-  - title: Getting started
+  - title: Collecting metrics and diagnostic log data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Metrics and diagnostics logging
+            url: sql-database-metrics-diag-logging.md
+          - text: Understand the performance diagnostics log
+            url: sql-database-intelligent-insights-use-diagnostics-log.md
+
+  # Card
+  - title: Resource limits
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Single database vCore resource limits
+            url: sql-database-vcore-resource-limits-single-databases.md
+          - text: Single database DTU resource limits
+            url: sql-database-dtu-resource-limits-single-databases.md
+          - text: Elastic pool vCore resource limits
+            url: sql-database-vcore-resource-limits-elastic-pools.md
+          - text: Elastic pool DTU resource limits
+            url: sql-database-dtu-resource-limits-elastic-pools.md
+          - text: Managed instance resource limits
+            url: sql-database-managed-instance-resource-limits.md
+          - text: Managed instance pools resource limits
+            url: sql-database-instance-pools.md#instance-pools-resource-limitations
+
+  # Card (optional)
+  - title: Getting started - Azure portal
     linkLists:
       - linkListType: overview
         links: 
@@ -76,34 +104,6 @@ landingContent:
             url: sql-database-xevent-db-diff-from-svr.md
           - text: Hyperscale performance diagnostics
             url: sql-database-hyperscale-performance-diagnostics.md
-
-  # Card (optional)
-  - title: Collecting metrics and diagnostic log data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Metrics and diagnostics logging
-            url: sql-database-metrics-diag-logging.md
-          - text: Understand the performance diagnostics log
-            url: sql-database-intelligent-insights-use-diagnostics-log.md
-
-  # Card
-  - title: Resource limits
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Single database vCore resource limits
-            url: sql-database-vcore-resource-limits-single-databases.md
-          - text: Single database DTU resource limits
-            url: sql-database-dtu-resource-limits-single-databases.md
-          - text: Elastic pool vCore resource limits
-            url: sql-database-vcore-resource-limits-elastic-pools.md
-          - text: Elastic pool DTU resource limits
-            url: sql-database-dtu-resource-limits-elastic-pools.md
-          - text: Managed instance resource limits
-            url: sql-database-managed-instance-resource-limits.md
-          - text: Managed instance pools resource limits
-            url: sql-database-instance-pools.md#instance-pools-resource-limitations
 
   # Card
   - title: Resource scaling
