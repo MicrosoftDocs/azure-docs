@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 01/23/2020
 ---
 
 # Ingest json formatted sample data into Azure Data Explorer
@@ -410,12 +410,11 @@ Array data types are an ordered collection of values. Ingestion of a json array 
     }
     ```
 
-    > [!NOTE]
-    > The schema received by the function must match the schema of the target table. Use `getschema` operator to review the schema.
-    > 
-    >     ```Kusto
-    >     EventRecordsExpand() | getschema
-    >     ```
+1. The schema received by the function must match the schema of the target table. Use `getschema` operator to review the schema.
+
+    ```Kusto
+    EventRecordsExpand() | getschema
+    ```
 
 1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the `RawEvents` intermediate table and ingest the results into the `Events` table. Define a zero-retention policy to avoid persisting the intermediate table.
 
