@@ -35,9 +35,11 @@
 
         Select **Public client (mobile & desktop)** and enter `http://localhost:8080/`.
 
-    1. Check **Access tokens** to configure the **oauth2AllowImplicitFlow** setting to `true` in your Manifest.json.
+        [![Configure Redirect URIs](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
 
-    [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+    1. Check **Access tokens** to configure the **oauth2AllowImplicitFlow** setting to `true` in your resource's **Manifest** JSON.
+
+        [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  Open the **Overview** pane of your registered app, and copy the values of the following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
 
