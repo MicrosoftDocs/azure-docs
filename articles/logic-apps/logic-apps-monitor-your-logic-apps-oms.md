@@ -137,23 +137,17 @@ After your logic app runs, you can view the status and count for those runs on t
 
    ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary-details.png)
 
-1. To view all the runs for a specific logic app or status, select the row for a logic app or a status.
+1. To view all the runs for a specific logic app or status, select the row for that logic app or status.
 
    Here is an example that shows all the runs for a specific logic app:
 
    ![View logic app runs and status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   This page has advanced options:
-
-   * **Tracked properties** column: For a logic app where you set up tracked properties, which are grouped by actions, you can view those properties from this column. To view these tracked properties, select **View**. To search the tracked properties, use the column filter.
+   In the **Tracked properties** column, you can also view any tracked properties that you set up for the logic app. To view these tracked properties, select **View**. To search the tracked properties, use the column filter.
 
       ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
       Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
-
-   * **Resubmit**: You can resubmit one or more logic apps runs that failed, succeeded, or are still running. Select the check boxes for the runs that you want to resubmit, and then select **Resubmit**.
-
-     ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. To filter your results, you can perform both client-side and server-side filtering.
 
@@ -170,6 +164,12 @@ After your logic app runs, you can view the status and count for those runs on t
    Here is an example that shows all the actions and triggers for a specific logic app run:
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+
+<!-------------
+   * **Resubmit**: You can resubmit one or more logic apps runs that failed, succeeded, or are still running. Select the check boxes for the runs that you want to resubmit, and then select **Resubmit**.
+
+     ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
+--------------->
 
 <a name="view-query-logs"></a>
 
@@ -189,7 +189,7 @@ From within the Logic Apps Management solution, you can view the query behind a 
 
 1. On the **Logs** page, you can select these options:
 
-   * To view the query results in a table, select **Table**.
+   * To view the query results in a table, under the query editor, select **Table**.
 
    * Queries use [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results. To change the query, update the query string and select **Run** to view the results in the table.
 
