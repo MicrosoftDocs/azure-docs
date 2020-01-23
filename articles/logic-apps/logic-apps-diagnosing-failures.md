@@ -61,15 +61,13 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 1. Review the details for each step in a specific run. Under **Runs history**, select the run that you want to examine.
 
-   ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
+   ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
    ![View details for a logic app run](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
 1. To examine the inputs, outputs, and any error messages for a specific step, choose that step so that the shape expands and shows the details. For example:
 
    ![View step details](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
-
-   review-action-outputs-for-errors.png
 
 ## Perform runtime debugging
 
