@@ -5447,6 +5447,56 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-twitter-idp.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter-custom",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet.md",
+        "redirect_url": "/azure/active-directory-b2c/manage-user-accounts-graph-api",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-overview.md",
+        "redirect_url": "/azure/active-directory-b2c/overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-oidc.md",
+        "redirect_url": "/azure/active-directory-b2c/openid-connect",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-spa.md",
+        "redirect_url": "/azure/active-directory-b2c/implicit-flow-single-page-application",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-goog-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-twitter-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-wechat-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-wechat",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-weibo-app.md",
+        "redirect_url": "/azure/active-directory-b2c/identity-provider-weibo",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
+        "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google-custom",
       "redirect_document_id": true
@@ -14911,7 +14961,7 @@
       "source_path": "articles/machine-learning/studio/algorithm-choice.md",
       "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize",

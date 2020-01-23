@@ -28,7 +28,7 @@ Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple au
 
 The implicit sign-in flow looks something like the following figure. Each step is described in detail later in the article.
 
-![Swimlane-style diagram showing the OpenID Connect implicit flow](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Swimlane-style diagram showing the OpenID Connect implicit flow](./media/implicit-flow-single-page-application/convergence_scenarios_implicit.png)
 
 ## Send authentication requests
 

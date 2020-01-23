@@ -23,9 +23,9 @@ The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 
 This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens.
 
 > [!NOTE]
-> To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](active-directory-b2c-reference-oidc.md) instead of OAuth 2.0.
+> To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](openid-connect.md) instead of OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [user flow](active-directory-b2c-reference-policies.md). With user flows, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. Identity providers that use the OAuth 2.0 protocol include [Amazon](identity-provider-amazon.md), [Azure Active Directory](identity-provider-azure-ad-single-tenant.md), [Facebook](identity-provider-facebook.md), [GitHub](identity-provider-github.md), [Google](active-directory-b2c-setup-goog-app.md), and [LinkedIn](identity-provider-linkedin.md).
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [user flow](active-directory-b2c-reference-policies.md). With user flows, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. Identity providers that use the OAuth 2.0 protocol include [Amazon](identity-provider-amazon.md), [Azure Active Directory](identity-provider-azure-ad-single-tenant.md), [Facebook](identity-provider-facebook.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), and [LinkedIn](identity-provider-linkedin.md).
 
 To try the HTTP requests in this article:
 

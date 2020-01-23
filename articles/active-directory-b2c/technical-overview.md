@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Technical and feature overview of Azure Active Directory B2C
 
-A companion to [About Azure Active Directory B2C](active-directory-b2c-overview.md), this article provides a more in-depth introduction to the service. Discussed here are the primary resources you work with in the service, its features, and how these enable you to provide a fully custom identity experience for your customers in your applications.
+A companion to [About Azure Active Directory B2C](overview.md), this article provides a more in-depth introduction to the service. Discussed here are the primary resources you work with in the service, its features, and how these enable you to provide a fully custom identity experience for your customers in your applications.
 
 ## Azure AD B2C tenant
 

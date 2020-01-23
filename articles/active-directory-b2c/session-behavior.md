@@ -22,7 +22,7 @@ This feature gives you fine-grained control, on a [per-user flow basis](active-d
 
 These settings are not available for password reset user flows.
 
-Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
+Azure AD B2C supports the [OpenID Connect authentication protocol](openid-connect.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
 
 ## Session behavior properties
 
