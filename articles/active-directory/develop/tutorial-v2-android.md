@@ -157,7 +157,7 @@ If you do not already have an Android application, follow these steps to set up 
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{
-        exclude("META-INT/jersey-module-version") 
+        exclude("META-INF/jersey-module-version") 
     }
     ```
     [More on the Microsoft Graph SDK](https://github.com/microsoftgraph/msgraph-sdk-java/)
