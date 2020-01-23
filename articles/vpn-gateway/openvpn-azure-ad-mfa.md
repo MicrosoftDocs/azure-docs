@@ -37,8 +37,11 @@ Conditional Access allows for fine-grained access control on a per-application b
 
 1. On the **Enterprise applications - All applications** page, select **Azure VPN**, select **Conditional Access**, and click **New policy**.
 2. Under Users and groups, on the *Include* tab check **Select users and groups**, check **Users and groups**, and select a group or set of users that should be subject for MFA.  Click **Done**.
+![Assignments](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
 3. Under **Grant**, check **Grant access**, check **Require multi-factor authentication**, check **Require all the selected controls**, and click the **Select** button.
+![Grant access - MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
 4. Check **On** under **Enable policy** and click the **Create** button.
+![Enable Policy](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
 
 ## Option 2) Enable Multi-Factor AUthentication (MFA) per User
 
