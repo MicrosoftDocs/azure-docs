@@ -542,46 +542,158 @@ In a C# class library project, the bindings are defined as binding attributes on
     
 1. Add the following parameter to the `Run` method definition:
     
-    :::code language="cs" source="snippets/storage-binding-use-queue.md" range="24":::    
+    ```csharp
+    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
+    ```
     
-    The `Run` method definition should now look like the following code:  
+    The `Run` method definition should now match the following code:
+    
+    ```csharp
+    [FunctionName("HttpTrigger")]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
+        [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
+    ```
 
-    :::code language="cs" source="snippets/storage-binding-use-queue.md" range="21-24":::    
-    
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The connection string for the Storage account is set by the `StorageAccountAttribute`. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you're already using the default storage account.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-Update *function.json* to match the following by adding the queue binding:
+Update *function.json* to match the following by adding the queue binding after the HTTP binding:
 
-:::code language="json" source="snippets/storage-binding-use-queue.md" range="51-76" highlight="17-24":::
-
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 
-Update *function.json* to match the following by adding the queue binding:
+Update *function.json* to match the following by adding the queue binding after the HTTP binding:
 
-:::code language="json" source="snippets/storage-binding-use-queue.md" range="109-134" highlight="17-24":::
-
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-Update *function.json* to match the following by adding the queue binding:
+Update *function.json* to match the following by adding the queue binding after the HTTP binding:
 
-:::code language="json" source="snippets/storage-binding-use-queue.md" range="178-204" highlight="18-25":::
-
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
 
-Update *function.json* to match the following by adding the queue binding:
+Update *function.json* to match the following by adding the queue binding after the HTTP binding:
 
-:::code language="json" source="snippets/storage-binding-use-queue.md" range="241-266" highlight="17-24":::
-
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 ::: zone-end
 
 ## Add code to use the output binding
@@ -589,23 +701,151 @@ Update *function.json* to match the following by adding the queue binding:
 After the binding is defined, the name of the binding, in this case `msg`, appears in the function code as an argument (or in the `context` object in JavaScript and TypeScript). You can then use that variable to write messages to the queue. You need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
 ::: zone pivot="programming-language-csharp"
-:::code language="cs" source="snippets/storage-binding-use-queue.md" range="21-43" highlight="4,14-18":::
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
+    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string name = req.Query["name"];
+
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
+    name = name ?? data?.name;
+
+    if (!string.IsNullOrEmpty(name))
+    {
+        // Add a message to the output collection.
+        msg.Add(string.Format("Name passed to the function: {0}", name));
+    }
+    
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+}
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-:::code language="javascript" source="snippets/storage-binding-use-queue.md" range="82-101" highlight="5-7":::
+```js
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    if (req.query.name || (req.body && req.body.name)) {
+        // Add a message to the Storage queue.
+        context.bindings.msg = "Name passed to the function: " +
+            (req.query.name || req.body.name);
+
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-:::code language="powershell" source="snippets/storage-binding-use-queue.md" range="140-170" highlight="16-17":::
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$name = $Request.Query.Name
+if (-not $name) {
+    $name = $Request.Body.Name
+}
+
+if ($name) {
+    $outputMsg = "Name passed to the function: $name"
+    Push-OutputBinding -name msg -Value $outputMsg
+
+    $status = [HttpStatusCode]::OK
+    $body = "Hello $name"
+}
+else {
+    $status = [HttpStatusCode]::BadRequest
+    $body = "Please pass a name on the query string or in the request body."
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = $status
+    Body = $body
+})
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-:::code language="python" source="snippets/storage-binding-use-queue.md" range="210-233" highlight="6,18":::
+```python
+import logging
+
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        msg.set(name)
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-:::code language="typescript" source="snippets/storage-binding-use-queue.md" range="272-296" highlight="8-10":::
+```typescript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log('HTTP trigger function processed a request.');
+    const name = (req.query.name || (req.body && req.body.name));
+
+    if (name) {
+        // Add a message to the Storage queue.
+        context.bindings.msg = "Name passed to the function: " +
+            (req.query.name || req.body.name);
+        
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+
+export default httpTrigger;
+```
 ::: zone-end
 
 ### Update the image in the registry
