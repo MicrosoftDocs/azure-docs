@@ -72,7 +72,8 @@ Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
 - A Windows domain on Azure virtual machines.
-- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
+- A domain user account that has permissions to create objects on both Azure virtual machines and in Active Directory.
+- A domain user account to run the SQL Server service and that you can log into the virtual machine with when mounting the file share.  
 - An Azure virtual network and subnet with enough IP address space for these components:
    - Two virtual machines.
    - The failover cluster IP address.
@@ -297,7 +298,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the account you persisted the file share with is the same account that the SQL Server service uses to avoid possible failures.
+   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you RDP'd into the VM with when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
