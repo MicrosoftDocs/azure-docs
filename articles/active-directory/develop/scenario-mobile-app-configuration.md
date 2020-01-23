@@ -17,7 +17,6 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Configure a mobile app that calls web APIs
@@ -103,7 +102,7 @@ var pca = PublicClientApplicationBuilder
 
 ##### Find more app-building parameters
 
-For a list of all modifiers that are available on `PublicClientApplicationBuilder`, see the [Methods list](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+For a list of all methods that are available on `PublicClientApplicationBuilder`, see the [Methods list](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
 
 For a description of all options that are exposed in `PublicClientApplicationOptions`, see the[reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
@@ -244,11 +243,11 @@ MSAL.NET uses URLs to invoke the broker and then return the broker response back
 To register your app's URL scheme, follow these steps:
 
 1. Prefix `CFBundleURLSchemes` with `msauth`. 
-1. Add `CFBundleURLName` to the end. 
+1. Add `CFBundleURLName` to the end. Follow this pattern: 
 
     `$"msauth.(BundleId)"`
 
-    For example: `msauth.com.yourcompany.xforms`
+    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
     
     > [!NOTE]
     > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
@@ -324,26 +323,26 @@ To register a scheme for your app:
 
 1. Prefix your custom URL scheme with `msauth`. 
 
-1. Add your bundle identifier to the end of your scheme. 
+1. Add your bundle identifier to the end of your scheme. Follow this pattern: 
 
-Here's the scheme format: `msauth.(BundleId)`
+  `$"msauth.(BundleId)"`
 
-For example: `msauth.com.yourcompany.xforms`
-
-> [!NOTE]
-> This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
-
-```XML
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>msauth.[BUNDLE_ID]</string>
-        </array>
-    </dict>
-</array>
-```
+  Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
+  
+  > [!NOTE]
+  > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
+  
+  ```XML
+  <key>CFBundleURLTypes</key>
+  <array>
+      <dict>
+          <key>CFBundleURLSchemes</key>
+          <array>
+              <string>msauth.[BUNDLE_ID]</string>
+          </array>
+      </dict>
+  </array>
+  ```
 
 #### Step 3: Add LSApplicationQueriesSchemes
 

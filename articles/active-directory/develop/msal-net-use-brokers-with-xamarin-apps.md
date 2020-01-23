@@ -14,7 +14,6 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to use brokers with my Xamarin iOS or Android application.
-ms.collection: M365-identity-device-management
 ---
 
 # Use Microsoft Authenticator or Intune Company Portal on Xamarin applications
@@ -117,13 +116,9 @@ To set up the object window:
 ### Step 5: Register a URL scheme
 MSAL.NET uses URLs to invoke the broker and then return the broker response to your app. To finish the round trip, register a URL scheme for your app in the `Info.plist` file.
 
-The `CFBundleURLSchemes` name must include `msauth.` as a prefix. Follow the prefix with `CFBundleURLName`.
+The `CFBundleURLSchemes` name must include `msauth.` as a prefix. Follow the prefix with `CFBundleURLName`. 
 
-`$"msauth.(BundleId)"`
-
-Here's an example:
-
-`msauth.com.yourcompany.xforms`
+In the URL scheme, `BundleId` uniquely identifies the app: `$"msauth.(BundleId)"`. So if `BundleId` is `com.yourcompany.xforms`, then the URL scheme is `msauth.com.yourcompany.xforms`.
 
 > [!NOTE]
 > This URL scheme becomes part of the redirect URI that uniquely identifies your app when it receives the response from the broker.

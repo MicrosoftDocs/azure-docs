@@ -101,7 +101,14 @@ Your application can use Microsoft Authenticator as a broker to enable:
 
 For details about how to enable a broker, see [Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications](msal-net-use-brokers-with-xamarin-apps.md).
 
-### Properties specific to Xamarin iOS
+## Known issues with iOS 12 and authentication
+Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps developers understand how to remove ASP.NET security restrictions from their applications to make them compatible with iOS 12.  
+
+When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. This behavior is similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+
+You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safari. For more information, see this [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=188165).
+
+## Next steps
 
 For information about properties for Xamarin iOS, see the [iOS-specific considerations](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) paragraph of the following sample's README.md file:
 
@@ -110,10 +117,3 @@ Sample | Platform | Description
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | A simple Xamarin Forms app that shows how to use MSAL to authenticate Microsoft personal accounts and Azure AD via the Azure AD 2.0 endpoint. The app also shows how to use the resulting token to access Microsoft Graph.
 
 <!--- https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png -->
-
-## Known issues with iOS 12 and authentication
-Microsoft released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) about an incompatibility between iOS 12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC sign-ins. The security advisory helps developers understand how to remove ASP.NET security restrictions from their applications to make them compatible with iOS 12.  
-
-When you develop MSAL.NET applications on Xamarin iOS, you might see an infinite loop when you try to sign in to websites from iOS 12. This behavior is similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
-
-You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safari. For more information, see this [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=188165).

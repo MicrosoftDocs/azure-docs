@@ -18,7 +18,6 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Prepare mobile apps for production
@@ -37,7 +36,7 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 
 ## Mitigate and investigate issues
 
-To better diagnose issues in your app, collect data. For information about the kinds of data that you can collect, see the MSAL platform wikis. 
+To better diagnose issues in your app, collect data. For information about the kinds of data that you can collect, see [Logging in MSAL applications](https://docs.microsoft.com/azure/active-directory/develop/msal-logging).
 
 Here are some suggestions for data collection:
 

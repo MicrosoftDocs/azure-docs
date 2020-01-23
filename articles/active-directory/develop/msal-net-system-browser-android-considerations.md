@@ -65,7 +65,7 @@ The following table lists the devices and browsers that have been tested for aut
 | Huawei/One+ | UC Browser | User canceled authentication|
 | One+ | Dolphin | User canceled authentication|
 | One+ | CM Browser | User canceled authentication|
-| Huawei/One+ | None installed | AndroidActivityNotFound ex|
+| Huawei/One+ | None installed | AndroidActivityNotFound exception|
 
 \* Supports custom tabs
 

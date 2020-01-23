@@ -18,7 +18,6 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Get a token for a mobile app that calls web APIs
@@ -212,7 +211,7 @@ catch(MsalUiRequiredException)
 
 For example, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
-On Android, you can specify parent activity when you build the app. If you don't specify the parent activity at that time, later you can specify it by using `.WithParentActivityOrWindow` as in the following section. If you specify parent activity, then the token gets back to that parent activity after the interaction. If you don't specify it, then the `.ExecuteAsync()` call throws an exception.
+On Android, you can specify parent activity when you create the app by using `PublicClientApplicationBuilder`. If you don't specify the parent activity at that time, later you can specify it by using `.WithParentActivityOrWindow` as in the following section. If you specify parent activity, then the token gets back to that parent activity after the interaction. If you don't specify it, then the `.ExecuteAsync()` call throws an exception.
 
 #### Specific optional parameters in MSAL.NET
 
@@ -235,7 +234,7 @@ The class defines the following constants:
 - `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed. 
 
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
-- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. (See below: Web Views in MSAL.NET.) 
+- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
 
     If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then you need to use another `Prompt` parameter.
 - `NoPrompt` doesn't send a prompt to the identity provider. 

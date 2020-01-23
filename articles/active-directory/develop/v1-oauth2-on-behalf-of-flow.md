@@ -18,7 +18,6 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Service-to-service calls that use delegated user identity in the On-Behalf-Of flow
