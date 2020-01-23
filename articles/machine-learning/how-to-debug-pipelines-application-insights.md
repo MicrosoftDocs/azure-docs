@@ -149,7 +149,7 @@ The logs routed to Application Insights will show up under 'traces' or 'exceptio
 
 The result in Application Insights will show the log message and level, file path, and code line number. It will also show any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-a-custom-dimensions-dictionary).
 
-## Additional helpful queries
+### Additional helpful queries
 
 Some of the queries below use 'customDimensions.Level'. These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
@@ -159,3 +159,9 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 | Log results for all training runs over the last 7 days                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
 | Log results with severityLevel Error from the last 7 days              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Count of log results with severityLevel Error over the last 7 days     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
+
+## Next Steps
+
+Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) basedon query results.
+
+You can also add results from queries to an [Azure Dashboard](../azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) for additional insights.
