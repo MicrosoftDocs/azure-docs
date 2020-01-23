@@ -338,4 +338,4 @@ GROUP BY p.[BrandName]
 
 ## Next steps
 To load the full data set, run the example [load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
-For more development tips, see [ Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
+For more development tips, see [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
