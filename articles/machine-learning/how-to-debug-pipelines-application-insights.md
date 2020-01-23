@@ -1,5 +1,5 @@
 ---
-title: Debug and troubleshoot Machine Learning Pipelines in Application Insights
+title: Debug and troubleshoot machine learning pipelines in Application Insights
 titleSuffix: Azure Machine Learning
 description: Add logging to your training and batch scoring pipelines and view the logged results in Application Insights.
 services: machine-learning
@@ -13,20 +13,18 @@ ms.date: 01/16/2020
 
 ms.custom: seodec18
 ---
-# Debug and troubleshoot Machine Learning Pipelines in Application Insights
+# Debug and troubleshoot machine learning pipelines in Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. It can be used to show all logs for pipeline runs in once place. Application Insights will allow you to track trends over time or compare pipeline runs with different parameters and inputs.
+The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. It can be used to query all logs for pipeline runs in once place. Application Insights will allow you to track logs over time and compare pipeline logs across runs with different parameters and inputs.
 
 Having your logs in once place will provide a history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
 
 ## Prerequisites
 
 * Follow the steps to create an [Azure Machine Learning](./how-to-manage-workspace.md) workspace and [create your first pipeline](./how-to-create-your-first-pipeline.md)
-* [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK. We used Visual Studio Code to write the python scripts in this example
-  * Follow this [guide](https://code.visualstudio.com/docs/python/python-tutorial) to set up your Visual Studio Code Python environment
-  * We recommend creating a virtual environment and [installing new packages](https://code.visualstudio.com/docs/python/python-tutorial#_install-and-use-packages) there
-* Install the [Python opencensus-ext-azure](https://pypi.org/project/opencensus-ext-azure/) package locally:
+* [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK.
+* Install the [OpenCensus Azure Monitor Exporter](https://pypi.org/project/opencensus-ext-azure/) package locally:
   ```python
   pip install opencensus-ext-azure
   ```
@@ -34,7 +32,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 ## Getting Started
 
-This section is an introduction to using OpenCensus logging in an Azure ML Pipeline. For a detailed OpenCensus tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+This section is an introduction specific to using OpenCensus from an Azure Machine Learning pipeline. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
 Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
 
@@ -95,9 +93,9 @@ except ValueError as ex:
 
 ## Logging with Custom Dimensions
  
-Plaintext strings logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment area.
+Plaintext string logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment area. By default, logs forwarded to Application Insights will not have context to trace back to the run or experiment.
 
-In other cases, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run ID.
+To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run ID.
 
 Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries)
 
@@ -109,17 +107,21 @@ Custom Dimensions make up a dictionary of key-value (stored as string, string) p
 | step_id                        | Can query logs for ones with the same step_id to see where an issue occurred with a narrow scope to just the individual step                                                        |
 | step_name                      | Can query logs to see step performance over time. Also helps to find a step_id for recent runs without diving into the portal UI                                          |
 | experiment_name                | Can query across logs to see experiment performance over time. Also helps find a parent_run_id or step_id for recent runs without diving into the portal UI                   |
-| experiment_url                 | Can provide a link directly back to the experiment run for investigation. |
-| build_url/build_version | Can correlate logs to the code version that provided the step and pipeline logic. This link can further help to diagnose issues, or identify models with specific traits (log/metric values) |
+| run_url                 | Can provide a link directly back to the run for investigation. |
 | run_type                       | Can differentiate between different model types, or training vs. scoring runs                                                                                                           |
+
+**Other helpful fields**
+
+May require additional code instrumentation, and are not provided by the run context.
+
+| Field                   | Reasoning/Example                                                                                                                                                                                                           |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| build_url/build_version | If using CI/CD to deploy, this field can correlate logs to the code version that provided the step and pipeline logic. This link can further help to diagnose issues, or identify models with specific traits (log/metric values) |
 
 ### Creating a custom dimensions dictionary
 
 ```python
 run = Run.get_context(allow_offline=False)
-
-# get value from environment variable
-build_id = os.environ["BUILD_ID"]
 
 custom_dimensions = {
     "parent_run_id": run.parent.id,
@@ -127,9 +129,6 @@ custom_dimensions = {
     "step_name": run.name,
     "experiment_name": run.experiment.name,
     "run_url": run.parent.get_portal_url(),
-    "build_id": build_id, 
-    # construct Azure DevOps url from helper given this ID
-    "build_url": "https://dev.azure.com/<your org here>/<your project here>/_build/results?buildId={build_id}&view=results",
     "run_type": "training"
 }
 
@@ -158,7 +157,7 @@ Some of the queries below use 'severityLevel'. For more information on Applicati
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Log results for specific custom dimension, for example 'parent_run_id' | `traces | where customDimensions.['parent_run_id'] == '931024c2-3720-11ea-b247-c49deda841c1'` |
-| Log results for training run over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions['run_type'] == 'training'`           |
+| Log results for specific custom dimension, for example 'parent_run_id' | `traces | where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1'` |
+| Log results for training runs over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions.run_type == 'training'`           |
 | Log results with severityLevel Error from the last 7 days              | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING'`<br>`traces | where timestamp > ago(7d) and severityLevel == 3`                                     |
 | Count of log results with severityLevel Error over the last 7 days     | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING' | summarize count()`<br>`traces | where timestamp > ago(7d) and severityLevel == 3 | summarize count()`          |

@@ -144,7 +144,7 @@ You can also find the log files of specific runs in the pipeline run detail page
 1. Select the log file `70_driver_log.txt`
 
 ## Debug and troubleshoot in Application Insights
-For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot Machine Learning Pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
+For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
 
 ## Next steps
 
