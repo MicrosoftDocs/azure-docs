@@ -35,14 +35,16 @@ Consider the following details of Activity log collection using diagnostic setti
 ### Differences in data
 Diagnostic settings collect the same data as the previous methods used to collect the Activity log with the following current differences:
 
-The following properties have been removed:
+The following columns have been removed. The replacement for these columns are in a different format, so you may need to modify log queries that use them:
 
-- ActivityStatus
-- ActivitySubstatus
-- OperationName
-- ResourceProvider
+| Removed column | Replacement column |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | ResourceProviderValue  |
 
-The following properties have been added:
+The following column have been added:
 
 - Authorization_d
 - Claims_d

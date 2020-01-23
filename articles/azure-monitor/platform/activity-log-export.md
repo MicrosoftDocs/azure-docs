@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -68,9 +68,14 @@ If retention policies are set, but storing logs in a storage account is disabled
 
 Create or edit a log profile with the **Export to Event Hub** option in the Azure portal.
 
-1. From the **Monitor** menu in the Azure portal, select  **Export to Event Hub**.
+1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
+3. Click **Diagnostic settings**.
 
-    ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
+   ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Click the purple banner for the legacy experience.
+
+    ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. In the blade that appears, specify the following:
    * Regions with the events to export. You should select all regions to ensure that you don't miss key events since the Activity Log is a global (non-regional) log and so most events do not have a region associated with them.
