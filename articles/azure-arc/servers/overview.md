@@ -1,39 +1,42 @@
 ---
 title: Azure Arc for servers Overview
-description: Learn how to use Azure Arc for servers to automate the lifecycle of infrastructure and applications.
+description: Learn how to use Azure Arc for servers to manage machines that are hosted outside of Azure as if it is an Azure resource.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 11/04/2019
+ms.date: 01/23/2020
 ms.custom: mvc
 ms.topic: overview
 ---
 
-# What is Azure Arc for servers
+# What is Azure Arc for servers (preview)
 
-Azure Arc for servers allows you to manage machines which are outside of Azure.
-When a non-Azure machine is connected to Azure, it becomes a **Connected Machine** and is treated as a resource in Azure. Each **Connected Machine**
-has a Resource ID, is managed as part of a Resource Group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and tagging.
+Azure Arc for servers (preview) allows you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider, similarly to how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a **Connected Machine** and is treated as a resource in Azure. Each **Connected Machine** has a Resource ID, is managed as part of a resource group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and applying tags.
 
-An agent package needs to be installed on each machine to connect it to Azure. The rest of this document explains the process in more detail.
+To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../security-center/security-center-intro.md).
 
-Machines will have a status of **Connected** or **Disconnected** based on how recently the agent has checked in. Each check-in is called a heartbeat. If a machine has not checked-in within the past 5 minutes, it will show as offline until connectivity is restored.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for servers](troubleshoot/arc-for-servers.md). -->
+>[!NOTE]
+>The Public Preview release is designed for evaluation purposes and we recommend not managing critical production resources.
+>
 
-![Connected servers](./media/overview/arc-for-servers-onboarded-servers.png)
+## Supported scenarios
 
-## Clients
+Azure Arc for servers (preview) supports the following scenarios with connected machines:
 
-### Supported Operating Systems
+- Assign [Azure Policy guest configurations](../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
+- Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../azure-monitor/platform/design-logs-deployment#access-mode.md) log access.
 
-In Public Preview, we support:
+## Prerequisites
 
-- Windows Server 2012 R2 and newer
+### Supported operating systems
+
+The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent: 
+
+- Windows Server 2012 R2 and higher
 - Ubuntu 16.04 and 18.04
-
-The Public Preview release is designed for evaluation purposes and should not be used to manage critical production resources.
 
 ## Azure Subscription and Service Limits
 
@@ -139,38 +142,16 @@ Files added to the server:
 * `/var/opt/azcmagent/**` - Location of **Azure Connected Machine Agent** files.
 * `/var/lib/GuestConfig/**` - **Guest Configuration** logs.
 
-## Supported Scenarios
 
-After you register a node you can start managing your nodes using other Azure services.
 
-In Public Preview, the following scenarios are supported for **Connected Machines**.
+## Installing the agent 
 
-## Guest Configuration
+Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
 
-After connect the machine to Azure, you can assign Azure policies to **Connected Machines** using the same experience as policy assignment to Azure virtual machines.
+| Method | Description | 
+|--------|-------------|
+| Interactively | Manually install the agent on a single or small number of machines following the [Portal Quickstart](quickstart-onboard-portal.md).<br> From the Azure portal you can generate a script and execute it on the machine to automate the install and configuration steps.|
+| At scale | Install and configure the agent for multiple machines following the [PowerShell Quickstart](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
+ 
+ ## Next steps
 
-For more information, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md).
-
-The Guest Configuration Agent logs for a **Connected Machine** are in the following locations:
-
-* Windows - `%ProgramFiles%\AzureConnectedMachineAgent\logs\dsc.log`
-* Linux: - `/opt/logs/dsc.log`
-
-## Log Analytics
-
-Log data collected by the [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) and stored in Log Analytics workspace will now contain properties specific to the machine such as **ResourceId**, which can be used for the Resource centric log access.
-
-- Machines that already have the MMA agent installed, will have **Azure Arc** functionality enabled via updated Management Packs.
-- [MMA agent version 10.20.18011 or above](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) is required for Azure Arc for servers integration.
-- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
-
-For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
-
-<!-- MMA agent version 10.20.18011 and later -->
-
-## Next Steps
-
-There are two methods to connect machines using Azure Arc for servers.
-
-* **Interactively** - Follow the [Portal Quickstart](quickstart-onboard-portal.md) to generate a script from the portal and execute it on the machine. This is the best option if you are connecting one machine at a time.
-* **At Scale** - Follow the [PowerShell Quickstart](quickstart-onboard-powershell.md) to create a Service Principal to connect machines non-interactively.
