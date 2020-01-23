@@ -67,9 +67,9 @@ In a web application, each execution of a [policy](active-directory-b2c-referenc
 
 Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](active-directory-b2c-overview.md).
+To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](overview.md).
 
-In addition to facilitating simple sign-in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](active-directory-b2c-reference-oidc.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
+In addition to facilitating simple sign-in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
 
 ## Web APIs
 
@@ -99,7 +99,7 @@ A web API can receive tokens from many types of clients, including web applicati
 
 To learn more about authorization codes, refresh tokens, and the steps for getting tokens, read about the [OAuth 2.0 protocol](authorization-code-flow.md).
 
-To learn how to secure a web API by using Azure AD B2C, check out the web API tutorials in our [Getting started section](active-directory-b2c-overview.md).
+To learn how to secure a web API by using Azure AD B2C, check out the web API tutorials in our [Getting started section](overview.md).
 
 ## Mobile and native applications
 

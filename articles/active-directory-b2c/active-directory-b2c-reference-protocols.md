@@ -70,6 +70,6 @@ More information about the different types of tokens that are used in Azure AD B
 When you're ready to review some example requests, you can start with one of the following tutorials. Each corresponds to a particular authentication scenario. If you need help determining which flow is right for you, check out [the types of apps you can build by using Azure AD B2C](application-types.md).
 
 * [Build mobile and native applications by using OAuth 2.0](authorization-code-flow.md)
-* [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
-* [Build single-page apps using the OAuth 2.0 implicit flow](active-directory-b2c-reference-spa.md)
+* [Build web apps by using OpenID Connect](openid-connect.md)
+* [Build single-page apps using the OAuth 2.0 implicit flow](implicit-flow-single-page-application.md)
 

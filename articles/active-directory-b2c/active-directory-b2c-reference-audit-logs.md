@@ -254,4 +254,4 @@ Here's the JSON representation of the example activity event shown earlier in th
 
 ## Next steps
 
-You can automate other administration tasks, for example, [manage users with .NET](active-directory-b2c-devquickstarts-graph-dotnet.md).
+You can automate other administration tasks, for example, [manage users with .NET](manage-user-accounts-graph-api.md).

@@ -29,7 +29,7 @@ Your Azure AD B2C directory comes with a built-in set of attributes. Examples ar
 * An identity provider has a unique user identifier like **uniqueUserGUID** that must be saved.
 * A custom user journey needs to persist for a state of a user like **migrationStatus**.
 
-Azure AD B2C extends the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
+Azure AD B2C extends the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](manage-user-accounts-graph-api.md).
 
 Extension properties extend the schema of the user objects in the directory. The terms *extension property*, *custom attribute*, and *custom claim* refer to the same thing in the context of this article. The name varies depending on the context, such as application, object, or policy.
 
