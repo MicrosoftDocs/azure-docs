@@ -413,7 +413,7 @@ Supported customization includes:
 |Customization|Definition|
 |--|--|
 |Column purpose update|Override feature type for the specified column.|
-|Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer and HashOneHotEncoder.|
+|Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer (mean, most frequent & median) and HashOneHotEncoder.|
 |Drop columns |Columns to drop from being featurized.|
 |Block transformers| Block transformers to be used on featurization process.|
 

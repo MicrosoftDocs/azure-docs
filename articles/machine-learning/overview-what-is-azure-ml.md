@@ -61,7 +61,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free or low-code training and deployment, try:
 
-+ **Azure Machine Learning designer (preview)**
++ **Azure Machine Learning designer**
 
   Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 

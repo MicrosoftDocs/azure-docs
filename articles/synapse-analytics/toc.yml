@@ -8,6 +8,8 @@
     href: overview-who-can-benefit-azure-synapse-analytics.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
+  - name: Features 
+    href: overview-features.md
   - name: FAQ
     href: overview-faq.md
 - name: Release notes
@@ -40,8 +42,8 @@
       href: ./sql-analytics/quickstart-sql-on-demand.md
 - name: Tutorials
   items:
-  - name: Power BI Professional
-    href: ./sql-analytics/tutorial-power-bi-professional.md
+  - name: Connect to Power BI
+    href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
     - name: Predict NYC Taxi cab tips
@@ -104,8 +106,8 @@
           href: ./spark/apache-spark-development-using-notebooks.md
         # - name: SQL script
         #   href: article-template.md
-        # - name: Mapping Data Flow
-        #   href: article-template.md
+        - name: Mapping Data Flow
+          href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Backup and restore  
@@ -151,13 +153,11 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: AAD pass-through
-        href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Multi-Factor Auth
-        href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: SQL authorization
-        href: ../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Access control
       items:
       - name: Overview
@@ -224,8 +224,8 @@
       items:
       # - name: Overview, using tools to interact with Apache Spark
       #  href: article-template.md
-      # - name: Spark Job definitions
-      #   href: article-template.md
+      - name: Spark Job definitions
+        href: ../hdinsight/spark/azure-synapse-analytics-job-definition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
       #  items:

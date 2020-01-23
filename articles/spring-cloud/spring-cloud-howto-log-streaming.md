@@ -42,16 +42,29 @@ This will return logs:
 ```
 
 ### Tail log for app with multiple instances
-If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. For example, you can stream the log of an instance of one app by specifying the app name and instance name:
+If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. 
+
+First, you can get the app instance names with following command.
+
+```
+az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
+```
+With results:
+
+```
+Name                                         Status    DiscoveryStatus
+-------------------------------------------  --------  -----------------
+auth-service-default-12-75cc4577fc-pw7hb  Running   UP
+auth-service-default-12-75cc4577fc-8nt4m  Running   UP
+auth-service-default-12-75cc4577fc-n25mh  Running   UP
+``` 
+Then, you can stream logs of an app instance with the option `-i/--instance` option:
 
 ```
 az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
-You can also get the app instances from the Azure portal. 
-1. Navigate to your resource group and select your Azure Spring Cloud instance.
-1. From the Azure Spring Cloud instance overview select **Apps** in the left navigation pane.
-1. Select your app, and then click **App Instances** in the left navigation pane. 
-1. App instances will be displayed.
+
+You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Cloud service, select **App Instances**.
 
 ### Continuously stream new logs
 By default, `az spring-cloud ap log tail` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):  
