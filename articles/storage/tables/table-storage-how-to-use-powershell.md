@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
+ms.subservice: tables
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
