@@ -125,6 +125,7 @@ asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArg
         successfulCompletionLatch.countDown();
         System.out.println(storedProcedureResponse.getActivityId());
     }, error -> {
+        successfulCompletionLatch.countDown();
         System.err.println("an error occurred while executing the stored procedure: actual cause: "
                 + error.getMessage());
     });

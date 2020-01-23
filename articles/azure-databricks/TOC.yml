@@ -1682,6 +1682,9 @@
           - name: Databricks Runtime 6.3 ML
             href: /azure/databricks/release-notes/runtime/6.3ml
             maintainContext: true
+          - name: Databricks Runtime 6.3 Genomics
+            href: /azure/databricks/release-notes/runtime/6.3genomics
+            maintainContext: true
           - name: Databricks Runtime 6.2
             href: /azure/databricks/release-notes/runtime/6.2
             maintainContext: true

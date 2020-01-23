@@ -124,6 +124,8 @@ landingContent:
             url: ./kafka/apache-kafka-get-started.md
       - linkListType: concept
         links:
+          - text: Kafka REST proxy
+            url: ./kafka/rest-proxy.md
           - text: Migrate 3.6 to 4.0
             url: ./kafka/migrate-versions.md
           - text: Optimize Kafka performance

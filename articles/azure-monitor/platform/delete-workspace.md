@@ -55,6 +55,29 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
+## Permanent workspace delete
+The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and “override” the soft-delete period. The permanent workspace delete operation releases the workplace name and you can create a new workspace using the same name.
+
+
+> [!IMPORTANT]
+> Use caution when permanently deleting your workspace since the operation is irreversible, and your workspace and its data won’t be recoverable.
+
+The permanent workspace delete can currently be performed via REST API.
+
+> [!NOTE]
+> Any API request must include a Bearer authorization token in the request header.
+>
+> You can acquire the token using:
+> - [App registrations](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - Navigate to Azure portal using the developer's console (F12) in the browser. Look in one of the **batch?** instances for the authentication string under **Request Headers**. This will be in the pattern *authorization: Bearer <token>*. Copy and add this to your API call as shown in the examples.
+> - Navigate to the Azure REST documentation site. press **Try it** on any API, copy the Bearer token, and add it to your API call.
+To permanently delete your workspace, use the [Workspaces - Delete REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) API call with a force tag:
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
+
 ## Recover workspace
 
 If you have Contributor permissions to the subscription and resource group where the workspace was associated before the soft-delete operation, you can recover it during its soft-delete period including its data, configuration and connected agents. After the soft-delete period, the workspace is non-recoverable and assigned for permanent deletion. Names of deleted workspaces are preserved during the soft-delete period and can't be used when attempting to create a new workspace.  
