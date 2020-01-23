@@ -32,7 +32,7 @@ When you first configure automatic provisioning, the **Current Status** section 
 - The type of provisioning cycle (initial or incremental) that is currently running or was last completed.
 - A **progress bar** showing the percentage of the provisioning cycle that has completed. The percentage reflects the count of pages provisioned. Note that each page could contain multiple users or groups, so the percentage doesn't directly correlate to the number of users, groups, or roles provisioned.
 - A **Refresh** button you can use to keep the view updated.
-- The number of **Users** and **Groups** in the connector data store. The count increases anytime an object is added to the scope of provisioning. The count will not go down if a user is soft-deleted or hard-deleted as this does not remove the object from the connector data store. The count will be re-caculated the first sync after the CDS is [reset](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- The number of **Users** and **Groups** in the connector data store. The count increases anytime an object is added to the scope of provisioning. The count will not go down if a user is soft-deleted or hard-deleted as this does not remove the object from the connector data store. The count will be recaculated the first sync after the CDS is [reset](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
 - A **View Audit Logs** link, which opens the Azure AD provisioning logs for details about all operations run by the user provisioning service, including provisioning status for individual users (see the [Use provisioning logs](#use-provisioning-logs-to-check-a-users-provisioning-status) section below).
 
 After a provisioning cycle is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last cycle. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the provisioning job, and is specific to the app in your tenant.
@@ -57,7 +57,7 @@ The provisioning logs record all the operations performed by the provisioning se
 For more information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How long will it take to provision users?
-When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) at a regularly scheduled time interval, typically every 40 minutes.
+When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](assign-user-or-group-access-portal.md) at a regularly scheduled time interval, typically every 40 minutes.
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial cycle or an incremental cycle.
 
@@ -99,7 +99,7 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 - The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
 
-- If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+- If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## Next steps
-[Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
+[Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
