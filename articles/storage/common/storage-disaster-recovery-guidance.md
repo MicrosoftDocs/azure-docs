@@ -150,7 +150,7 @@ Because the Azure Storage resource provider does not fail over, the [Location](/
 
 #### Azure virtual machines
 
-Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover.
+Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends the following [high availability](../../virtual-machines/windows/manage-availability.md) and [disaster recovery](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) guidance specific to virtual machines in Azure.
 
 #### Azure unmanaged disks
 
@@ -182,6 +182,10 @@ The following features and services are not supported for account failover for t
 ## Copying data as an alternative to failover
 
 If your storage account is configured for RA-GRS, then you have read access to your data using the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
+
+> [!CAUTION]
+> An account failover should not be used as part of your data migration strategy.
+
 
 ## Microsoft-managed failover
 
