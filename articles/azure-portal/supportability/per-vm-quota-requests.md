@@ -77,7 +77,7 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
       Under **Types**, you can request both standard and spot quota types from a single support case through multi-selection support.
 
-      For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-sets/use-spot.md).
+      For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-scale-sets/use-spot.md).
 
    1. In **Standard**, select the SKU series for increased quotas.
 
@@ -134,7 +134,7 @@ To request a standard vCPU quota increase per VM series from **Subscriptions**:
 
       Under **Types**, you can request both standard and low-priority quota types from a single support case through multi-selection support.
 
-      For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-sets/use-spot.md).
+      For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-scale-sets/use-spot.md).
 
    1. For **Standard**, select the SKU series whose quotas you want to increase.
 

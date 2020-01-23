@@ -12,7 +12,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 # Spot quota: Increase limits for all VM series
 
-Spot virtual machines (VMs) provide a different model of Azure usage. They let you assume lower costs in exchange for letting Azure remove virtual machines as needed for pay-as-you-go or reserved VM instance deployments. For more information about spot VMs, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-sets/use-spot.md).
+Spot virtual machines (VMs) provide a different model of Azure usage. They let you assume lower costs in exchange for letting Azure remove virtual machines as needed for pay-as-you-go or reserved VM instance deployments. For more information about spot VMs, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-scale-sets/use-spot.md).
 
 Azure Resource Manager supports two types of vCPU quotas for virtual machines:
 
