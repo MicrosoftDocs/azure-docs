@@ -8,22 +8,20 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/21/2020
+ms.date: 01/23/2020
 ms.author: diberry
 ---
+Use the Language Understanding (LUIS) runtime client library for Node.js to:
 
+* Prediction by slot
+* Prediction by Version
 
-Use the Language Understanding (LUIS) prediction client library for Python to:
-
-* Get prediction by slot
-* Get prediction by version
-
-[Reference documentation](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Prediction runtime Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Runtime Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
 
 ## Prerequisites
 
-* Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
-* [Python 3.x](https://www.python.org/)
+* Language Understanding runtime resource: [Create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+* [Node.js](https://nodejs.org)
 
 ## Setting up
 
@@ -46,18 +44,6 @@ If you intent to use this quickstart to access your own app, you need to take ad
 * Test the URL on the , with the browser, that you can access the app
 
 Use the instructions for your operating system.
-
-#### [Windows](#tab/windows)
-
-```console
-setx LUIS_RUNTIME_KEY <replace-with-your-resource-key>
-setx LUIS_RUNTIME_ENDPOINT <replace-with-your-resource-endpoint>
-setx LUIS_APP_ID <replace-with-your-app-id>
-setx LUIS_APP_SLOT_NAME <replace-with-production-or-staging>
-```
-
-After you add the environment variables, restart the console window.
-
 #### [Linux](#tab/linux)
 
 ```bash
@@ -82,21 +68,21 @@ export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 
 After you add the environment variables, run `source .bash_profile` from your console window to make the changes effective.
 
-### Create a new python file
+### Create a new javascript (Node.js) file
 
-Create a new python file in your preferred editor or IDE, named `prediction_quickstart.py`.
+Create a new javascript file in your preferred editor or IDE, named `luis_prediction.js`.
 
-### Install the SDK
+### Install the NPM library for the LUIS runtime
 
-Within the application directory, install the Language Understanding (LUIS) prediction runtime client library for Python with the following command:
+Within the application directory, install the dependencies with the following command:
 
-```python
-python -m pip install azure-cognitiveservices-language-luis
+```console
+npm install @azure/cognitiveservices-luis-runtime @azure/ms-rest-js
 ```
 
 ## Object model
 
-The Language Understanding (LUIS) prediction runtime client is a [LUISRuntimeClient]() object that authenticates to Azure, which contains your resource key.
+The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) object that authenticates to Azure, which contains your authoring key.
 
 Once the client is created, use this client to access functionality including:
 
@@ -111,7 +97,7 @@ These code snippets show you how to do the following with the Language Understan
 
 ## Add the dependencies
 
-From the project directory, open the *prediction_quickstart.py* file in your preferred editor or IDE. Add the following dependencies:
+From the project directory, open the *luis_prediction_quickstart.py* file in your preferred editor or IDE. Add the following dependencies:
 
 [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
 
