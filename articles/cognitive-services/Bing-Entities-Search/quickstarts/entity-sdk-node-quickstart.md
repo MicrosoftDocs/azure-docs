@@ -37,7 +37,7 @@ To install the Bing Entity Search SDK:
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-    const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
+    const EntitySearchAPIClient = require('@azure/cognitiveservices-entitysearch');
     ```
 
 2. Create an instance of `CognitiveServicesCredentials` using your subscription key. Then create an instance of the search client with it.

@@ -34,7 +34,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
     ```javascript
     'use strict';
-    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
