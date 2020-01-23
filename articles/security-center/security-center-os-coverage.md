@@ -44,6 +44,10 @@ The following sections list the supported server operating systems on which the 
 
 To learn more about the supported features for the Windows operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md#vm-server-features).
 
+### Windows operating systems <a name="os-windows (non-server)"></a>
+
+Azure Security Center integrates with Azure services to monitor and protect your Windows-based virtual machines.
+
 ### Linux operating systems <a name="os-linux"></a>
 
 64-bit

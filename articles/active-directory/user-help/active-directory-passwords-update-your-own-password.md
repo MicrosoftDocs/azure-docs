@@ -12,7 +12,6 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Reset your work or school password using security info

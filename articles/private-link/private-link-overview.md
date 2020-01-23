@@ -9,6 +9,7 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 
 ---
 # What is Azure Private Link? (Preview)

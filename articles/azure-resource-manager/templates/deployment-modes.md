@@ -2,13 +2,15 @@
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 01/17/2020
 ---
 # Azure Resource Manager deployment modes
 
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update.  The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. The default mode is incremental.
+When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template.
 
 For both modes, Resource Manager tries to create all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, no operation is taken for that resource. If you change the property values for a resource, the resource is updated with those new values. If you try to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
+
+The default mode is incremental.
 
 ## Complete mode
 
@@ -40,7 +42,8 @@ If the resource group is [locked](../management/lock-resources.md), complete mod
 
 In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template. Resources in the template **are added** to the resource group.
 
-It's important to note that incremental mode applies to the whole resource, not to individual properties on an existing resource. When redeploying an existing resource in incremental mode, all properties are reapplied. The **properties aren't incrementally added**. A common misunderstanding is to think properties that aren't specified in the template are left unchanged. If you don't specify certain properties, Resource Manager interprets the deployment as overwriting those values. Properties that aren't included in the template are reset to the default values set by the resource provider. Specify all non-default values for the resource, not just the ones you're updating. The resource definition in the template always contains the final state of the resource. It can't represent a partial update to an existing resource.
+> [!NOTE]
+> When redeploying an existing resource in incremental mode, all properties are reapplied. The **properties aren't incrementally added**. A common misunderstanding is to think properties that aren't specified in the template are left unchanged. If you don't specify certain properties, Resource Manager interprets the deployment as overwriting those values. Properties that aren't included in the template are reset to the default values. Specify all non-default values for the resource, not just the ones you're updating. The resource definition in the template always contains the final state of the resource. It can't represent a partial update to an existing resource.
 
 ## Example result
 
