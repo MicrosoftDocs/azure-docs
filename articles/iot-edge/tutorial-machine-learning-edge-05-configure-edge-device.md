@@ -257,7 +257,7 @@ Next we will update the certificates and hostname by directly editing the config
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Make sure the “certificates:” has no preceding whitespace and that each of the certificates is preceded by two spaces.
+    Make sure the **certificates:** line has no preceding whitespace and that each of the nested certificates is indented by two spaces.
 
     Right-clicking in nano will paste the contents of your clipboard to the current cursor position. To replace the string, use your keyboard arrows to navigate to the string you want to replace, delete the string, then right-click to paste from the buffer.
 

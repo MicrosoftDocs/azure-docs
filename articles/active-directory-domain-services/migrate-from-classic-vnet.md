@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
 
 ---
 
 # Preview - Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager
 
-Azure Active Directory Domain Services (AD DS) supports a one-time move for customers currently using the Classic virtual network model to the Resource Manager virtual network model.
+Azure Active Directory Domain Services (AD DS) supports a one-time move for customers currently using the Classic virtual network model to the Resource Manager virtual network model. Azure AD DS managed domains that use the Resource Manager deployment model provide additional features such as fine-grained password policy, audit logs, and account lockout protection.
 
-This article outlines the benefits and considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance. This feature is currently in preview.
+This article outlines the benefits and considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance. This migration feature is currently in preview.
 
 ## Overview of the migration process
 
@@ -103,7 +103,7 @@ As you prepare and then migrate an Azure AD DS managed domain, there are some co
 
 ### IP addresses
 
-The domain controller IP addresses for an Azure AD DS managed domain change after migration. This includes the public IP address for the secure LDAP endpoint. The new IP addresses are inside the address range for the new subnet in the Resource Manager virtual network.
+The domain controller IP addresses for an Azure AD DS managed domain change after migration. This change includes the public IP address for the secure LDAP endpoint. The new IP addresses are inside the address range for the new subnet in the Resource Manager virtual network.
 
 In the case of rollback, the IP addresses may change after rolling back.
 
@@ -119,13 +119,13 @@ Azure AD DS managed domains that run on Classic virtual networks don't have AD a
 
 By default, 5 bad password attempts in 2 minutes lock out an account for 30 minutes.
 
-A locked out account can't be signed in to, which may interfere with the ability to manage the Azure AD DS managed domain or applications managed by the account. After an Azure AD DS managed domain is migrated, accounts can experience what feels like a permanent lockout due to repeated failed attempts to sign in. Two common scenarios after migration include the following:
+A locked out account can't be used to sign in, which may interfere with the ability to manage the Azure AD DS managed domain or applications managed by the account. After an Azure AD DS managed domain is migrated, accounts can experience what feels like a permanent lockout due to repeated failed attempts to sign in. Two common scenarios after migration include the following:
 
 * A service account that's using an expired password.
     * The service account repeatedly tries to sign in with an expired password, which locks out the account. To fix this, locate the application or VM with expired credentials and update the password.
 * A malicious entity is using brute-force attempts to sign in to accounts.
     * When VMs are exposed to the internet, attackers often try common username and password combinations as they attempt to sign. These repeated failed sign-in attempts can lock out the accounts. It's not recommended to use administrator accounts with generic names such as *admin* or *administrator*, for example, to minimize administrative accounts from being locked out.
-    * Minimize the number of VMs that are exposed to the internet. You can use [Azure Bastion (currently in preview)][azure-bastion] to securely connect to VMs using the Azure portal.
+    * Minimize the number of VMs that are exposed to the internet. You can use [Azure Bastion][azure-bastion] to securely connect to VMs using the Azure portal.
 
 If you suspect that some accounts may be locked out after migration, the final migration steps outline how to enable auditing or change the fine-grained password policy settings.
 
@@ -161,11 +161,11 @@ The migration to the Resource Manager deployment model and virtual network is sp
 
 ## Update and verify virtual network settings
 
-Before you begin the migration, complete the following initial checks and updates. These steps can happen at any time before the migration and don't affect the operation of the Azure AD DS managed domain.
+Before you begin the migration process, complete the following initial checks and updates. These steps can happen at any time before the migration and don't affect the operation of the Azure AD DS managed domain.
 
 1. Update your local Azure PowerShell environment to the latest version. To complete the migration steps, you need at least version *2.3.2*.
 
-    For information on how to check and update, see [Azure PowerShell overview][azure-powershell].
+    For information on how to check and update your PowerShell version, see [Azure PowerShell overview][azure-powershell].
 
 1. Create, or choose an existing, Resource Manager virtual network.
 
@@ -207,7 +207,8 @@ To prepare the Azure AD DS managed domain for migration, complete the following 
 
     ```powershell
     Migrate-Aadds `
-        -Prepare -ManagedDomainFqdn contoso.com `
+        -Prepare `
+        -ManagedDomainFqdn contoso.com `
         -Credentials $creds​
     ```
 
@@ -270,27 +271,27 @@ The second domain controller should be available 1-2 hours after the migration c
 
 When the migration process is successfully complete, some optional configuration steps include enabling audit logs or e-mail notifications, or updating the fine-grained password policy.
 
-#### Subscribe to audit logs using Azure Monitor
+### Subscribe to audit logs using Azure Monitor
 
 Azure AD DS exposes audit logs to help troubleshoot and view events on the domain controllers. For more information, see [Enable and use audit logs][security-audits].
 
 You can use templates to monitor important information exposed in the logs. For example, the audit log workbook template can monitor possible account lockouts on the Azure AD DS managed domain.
 
-#### Configure Azure AD Domain Services email notifications
+### Configure Azure AD Domain Services email notifications
 
 To be notified when a problem is detected on the Azure AD DS managed domain, update the email notification settings in the Azure portal. For more information, see [Configure notification settings][notifications].
 
-#### Update fine-grained password policy
+### Update fine-grained password policy
 
 If needed, you can update the fine-grained password policy to be less restrictive than the default configuration. You can use the audit logs to determine if a less restrictive setting makes sense, then configure the policy as needed. Use the following high-level steps to review and update the policy settings for accounts that are repeatedly locked out after migration:
 
 1. [Configure password policy][password-policy] for fewer restrictions on the Azure AD DS managed domain and observe the events in the audit logs.
 1. If any service accounts are using expired passwords as identified in the audit logs, update those accounts with the correct password.
-1. If VM is exposed to the internet, review for generic account names like *administrator*, *user*, or *guest* with high sign-in attempts. Where possible, update those VMs to use less generically named accounts.
-1. Use a network trace on the VM to locate the source of the attacks and block those IP addresses for being able to attempt sign-ins.
+1. If a VM is exposed to the internet, review for generic account names like *administrator*, *user*, or *guest* with high sign-in attempts. Where possible, update those VMs to use less generically named accounts.
+1. Use a network trace on the VM to locate the source of the attacks and block those IP addresses from being able to attempt sign-ins.
 1. When there are minimal lockout issues, update the fine-grained password policy to be as restrictive as necessary.
 
-#### Creating a network security group
+### Creating a network security group
 
 Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain, and isn't automatically created. To create the network security group and open the required ports, review the following steps:
 
@@ -298,6 +299,8 @@ Azure AD DS needs a network security group to secure the ports needed for the ma
 1. If you use secure LDAP, add a rule to the network security group to allow incoming traffic for *TCP* port *636*. For more information, see [Configure secure LDAP][secure-ldap].
 
 ## Roll back and restore from migration
+
+Up to a certain point in the migration process, you can choose to roll back or restore the Azure AD DS managed domain.
 
 ### Roll back
 
