@@ -15,15 +15,14 @@ ms.subservice: blobs
 
 You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
 
-[!NOTE] This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. The step within that section for enabling HTTPS is optional. 
+> [!NOTE] 
+> This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), then you'll have to use Azure CDN. For guidance, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. Because your going to that section of this article to enable the root domain of your custom domain, the step within that section for enabling HTTPS is optional. 
 
 <a id="enable-http" />
 
 ## Map a custom domain with only HTTP enabled
 
-This approach is easier, but enables only HTTP access. 
-
-> [!NOTE] If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then users must use the HTTPS endpoint. 
+This approach is easier, but enables only HTTP access. If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then you must enable HTTPS access for your custom domain. 
 
 To enable HTTPS access, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. 
 
@@ -309,7 +308,8 @@ To map a custom domain and enable HTTPS access, do the following:
 
 3. [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
-   > [!NOTE] When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
+   > [!NOTE] 
+   > When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
 
 4. (Optional) Review the following guidance:
 
