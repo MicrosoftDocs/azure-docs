@@ -40,7 +40,7 @@ The following versions of the Windows and Linux operating system are officially 
 
 ## Azure subscription and service limits
 
-Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager and resource group limits to plan for the number of machines to be connected. Specifically, review the [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)
+Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
 ## Networking Configuration
 
