@@ -199,7 +199,7 @@ module.exports = function (context, myQueueItem) {
 
 # [Python](#tab/python)
 
-The following example shows how to send a SMS message using the output binding as defined in the following *function.js*.
+The following example shows how to send an SMS message using the output binding as defined in the following *function.js*.
 
 ```json
     {
@@ -237,7 +237,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # [Java](#tab/java)
 
-The following example shows how to use the [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send a SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
+The following example shows how to use the [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send an SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
 
 ```java
 package com.function;
@@ -328,8 +328,8 @@ The following table explains the binding configuration properties that you set i
 |**type**|**type**| must be set to `twilioSms`.|
 |**direction**|**direction**| must be set to `out`.|
 |**name**|**name**| Variable name used in function code for the Twilio SMS text message. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| This value must be set to the name of an app setting that holds your Twilio Account Sid e.g. TwilioAccountSid. If not set, the default app setting name is "AzureWebJobsTwilioAccountSid". |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token e.g. TwilioAccountAuthToken. If not set, the default app setting name is "AzureWebJobsTwilioAuthToken". |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| This value must be set to the name of an app setting that holds your Twilio Account Sid (`TwilioAccountSid`). If not set, the default app setting name is "AzureWebJobsTwilioAccountSid". |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). If not set, the default app setting name is "AzureWebJobsTwilioAuthToken". |
 |**to**| N/A - specify in code | **To**| This value is set to the phone number that the SMS text is sent to.|
 |**from**|**from** | **From**| This value is set to the phone number that the SMS text is sent from.|
 |**body**|**body** | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |  
