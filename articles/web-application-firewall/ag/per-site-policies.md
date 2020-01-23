@@ -22,9 +22,11 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
+> * Create a global and a per-site policy
 > * Create an application gateway with WAF enabled
 > * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
+> * Test the application gateway
 
 ![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
