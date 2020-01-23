@@ -20,22 +20,14 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Python](create-cassandra-python.md)
 >  
 
-This quickstart shows how to use Java and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also shows you how to use the web-based Azure portal to create an Azure Cosmos DB account.
-
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+In this quickstart, you connect a Cassandra Java app cloned from GitHub to an Azure Cosmos DB with Cassandra API account. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
-
-In addition, you need:
-
-* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
-    * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
-    * On Ubuntu, you can run `apt-get install maven` to install Maven.
-* [Git](https://www.git-scm.com/)
-    * On Ubuntu, you can run `sudo apt-get install git` to install Git.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or, [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- A [Maven](https://maven.apache.org/download.cgi) binary archive. On Linux, you can run `apt-get install maven` to install Maven.
+- [Git](https://www.git-scm.com/). On Linux, you can run `apt-get install git` to install Git.
 
 ## Create a database account
 
@@ -145,7 +137,7 @@ The following snippets are from the *src/main/java/com/azure/cosmosdb/cassandra/
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string details enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
@@ -199,7 +191,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by ID and displays the value.  
 
-    Select **CTRL + C** to stop execution of the program and close the console window.
+    Press Ctrl+C to stop execution of the program and close the console window.
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
@@ -215,7 +207,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, Cassandra database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos container. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account with Cassandra API, and run a Cassandra Java app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB container. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)

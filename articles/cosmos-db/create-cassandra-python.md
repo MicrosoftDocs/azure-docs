@@ -18,18 +18,14 @@ ms.date: 09/24/2018
 > * [Python](create-cassandra-python.md)
 >  
 
-This quickstart shows how to use Python and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also shows you how to use the web-based Azure portal to create an Azure Cosmos DB account.
-
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
-
+In this quickstart, you connect a Cassandra Python app cloned from GitHub to an Azure Cosmos DB with Cassandra API account. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+run an app that creates a database and container in an Azure Cosmos DB Cassandra API account. 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
-
-In addition, you need:
-* [Python](https://www.python.org/downloads/) version v2.7.14
-* [Git](https://git-scm.com/)
-* [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or, [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- [Python](https://www.python.org/downloads/) version v2.7.14 or above.
+- [Git](https://git-scm.com/).
+- [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver).
 
 ## Create a database account
 
@@ -130,7 +126,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     Use the ![Copy button](./media/create-cassandra-python/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 
@@ -189,7 +185,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Verify the results as expected from the command line.
 
-    Press CTRL + C to stop execution of the program and close the console window. 
+    Press CTRL+C to stop execution of the program and close the console window. 
 
     ![View and verify the output](./media/create-cassandra-python/output.png)
     
@@ -207,7 +203,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account with Cassandra API, and run a Cassandra Python app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB container. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)
