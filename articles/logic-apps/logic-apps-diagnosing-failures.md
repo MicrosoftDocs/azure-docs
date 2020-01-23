@@ -21,7 +21,7 @@ Your logic app generates information that can help you diagnose and debug proble
 
 Each logic app run starts with a trigger attempt, so if the trigger doesn't fire, follow these steps:
 
-1. Check the trigger's status by [checking the trigger history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
+1. Check the trigger's status by [checking the trigger history](../logic-apps/logic-apps-monitor-your-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
    ![View trigger status and history](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
@@ -49,7 +49,7 @@ Each logic app run starts with a trigger attempt, so if the trigger doesn't fire
 
 Each time that the trigger fires for an item or event, the Logic Apps engine creates and runs a separate workflow instance for each item or event. If a run fails, follow these steps to review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
-1. Check the workflow's run status by [checking the runs history](../logic-apps/logic-apps-monitor-your-logic-app.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+1. Check the workflow's run status by [checking the runs history](../logic-apps/logic-apps-monitor-your-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
    ![View run history and select failed run](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
