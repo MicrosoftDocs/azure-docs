@@ -82,7 +82,7 @@ Likely an issue with the custom DNS setup.
 
 ### Resolution
 
-Validate that 168.63.129.16 is in the custom DNS chain. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network. For more information, see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16.
+Validate that 168.63.129.16 is in the custom DNS chain. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network. For more information, see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16.
 
 1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
@@ -109,7 +109,7 @@ Validate that 168.63.129.16 is in the custom DNS chain. DNS servers within a vir
 #### 168.63.129.16 is not in this list
 
 **Option 1**  
-Add 168.63.129.16 as the first custom DNS for the virtual network using the steps described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md#example-dns). These steps are applicable only if your custom DNS server runs on Linux.
+Add 168.63.129.16 as the first custom DNS for the virtual network using the steps described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md). These steps are applicable only if your custom DNS server runs on Linux.
 
 **Option 2**  
 Deploy a DNS server VM for the virtual network. This involves the following steps:
