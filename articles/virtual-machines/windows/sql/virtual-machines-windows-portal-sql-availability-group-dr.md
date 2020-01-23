@@ -92,7 +92,8 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Add the new SQL Server to the Windows Server Failover Cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. Add an IP address resource to the cluster. 
+1. Add an IP address resource to the cluster.
+
    You can create the IP address resource in Failover Cluster Manager. Select the name of the cluster, then right-click the cluster name under **Cluster Core Resources** and select **Properties**: 
 
    ![Cluster properties](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
@@ -102,7 +103,8 @@ To create a replica in a remote data center, do the following steps:
    ![Add cluster IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
 
 
-1. Add the IP address as a dependency for the core cluster name. 
+1. Add the IP address as a dependency for the core cluster name.
+
    Open the cluster properties once more, and select the **Dependencies** tab. Configure an OR dependency for the two IP addresses: 
 
    ![Cluster properties](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
