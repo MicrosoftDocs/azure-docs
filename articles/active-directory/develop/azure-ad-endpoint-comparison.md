@@ -13,7 +13,6 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Why update to Microsoft identity platform (v2.0)?

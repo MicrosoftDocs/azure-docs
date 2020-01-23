@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about passing custom state in authentication requests so I can create more robust applications.
-ms.collection: M365-identity-device-management
 ---
 
 # Pass custom state in authentication requests using MSAL.js
