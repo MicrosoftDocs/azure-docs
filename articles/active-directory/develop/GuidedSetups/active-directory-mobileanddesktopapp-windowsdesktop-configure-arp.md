@@ -16,8 +16,6 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: ryanwi
 ms.custom: aaddev
-
-ms.collection: M365-identity-device-management
 ---
 
 # Add the application’s registration information to your app
