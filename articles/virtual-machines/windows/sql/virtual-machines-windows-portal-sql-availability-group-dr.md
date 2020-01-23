@@ -97,17 +97,15 @@ To create a replica in a remote data center, do the following steps:
 
    ![Cluster properties](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
 
-   On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. 
+   On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK**. 
 
    ![Add cluster IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
 
 
 1. Add the IP address as a dependency for the core cluster name. 
-   Right-click the **IP Address**  and select **Properties**. 
+   Open the cluster properties once more, and select the **Dependencies** tab. Configure an OR dependency for the two IP addresses: 
 
-   ![IP Address properties](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-properties.png)
-
-   On the **Dependencies** tab, create an OR dependency for both IP addresses: 
+   ![Cluster properties](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
 
 1. Add an IP address resource to the availability group role in the cluster. 
 
