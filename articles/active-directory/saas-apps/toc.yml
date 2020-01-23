@@ -494,6 +494,8 @@
         href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
+      - name: Fastly Edge Cloud
+        href: fastly-edge-cloud-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
       - name: Fieldglass
@@ -1430,6 +1432,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: Upshotly
+        href: upshotly-tutorial.md
       - name: Upwork Enterprise
         href: upwork-enterprise-tutorial.md
       - name: Useall

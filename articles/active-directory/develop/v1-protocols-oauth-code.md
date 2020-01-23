@@ -17,7 +17,6 @@ ms.date: 12/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
