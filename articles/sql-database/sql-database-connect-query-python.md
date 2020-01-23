@@ -20,7 +20,7 @@ This article demonstrates how to use Python to connect to an Azure SQL database 
 
 To complete this sample, make sure you have the following:
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 - Azure SQL database - [create and configure a database](sql-database-single-database-get-started.md)
 
@@ -30,11 +30,11 @@ To complete this sample, make sure you have the following:
   > [!NOTE]
   > You can optionally choose to use an Azure SQL managed instance.
   >
-  > To create a managed instance, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+  > To create, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
   >
-  > To configure a managed instance, use [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
+  > To configure, use [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
   >
-  > To load data to a managed instance, see [restore with BACPAC](sql-database-import.md) using the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
+  > To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
   
 - [Python](https://python.org) and related software
 
