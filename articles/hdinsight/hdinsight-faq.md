@@ -226,9 +226,9 @@ In scenarios in which you must control the schedule, you can use the following s
 For more information about how to set up and run a cron job, see [How do I set up a Cron job](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
 
 ### Why is LLAP available on Spark ESP clusters?
-On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accomodate for the resource usage of LLAP (e.g. minimum D13V2). 
+On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accommodate for the resource usage of LLAP (e.g. minimum D13V2). 
 
-### How can I add addional AAD groups after creating an ESP cluster?
+### How can I add additional AAD groups after creating an ESP cluster?
 There are two ways to achieve this:
 1- You can recreate the cluster and add the additional group at the time of cluster creation. If you are using scoped synchronization in AAD-DS, please make sure group B is included in the scoped synchronization.
 2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you have created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 
