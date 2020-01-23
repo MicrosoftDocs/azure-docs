@@ -1,17 +1,13 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/25/2019
-ms.topic: overview
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Azure Lighthouse in enterprise scenarios
 
-The most common scenario for Azure Lighthouse is a service provider managing resources in its customers’ Azure  Active Directory (Azure AD) tenants. However, the capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+The most common scenario for [Azure Lighthouse](../overview.md) is a service provider managing resources in its customers’ Azure  Active Directory (Azure AD) tenants. However, the capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
 
 ## Single vs. multiple tenants
 
@@ -37,7 +33,7 @@ Either way, be sure to [follow the principle of least privilege when defining wh
 
 Azure Lighthouse and Azure delegated resource management only provide logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
 
-Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can monitor and gain visibility to actions taken by the users in the other tenant by viewing logged activity.
+Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](../../azure-monitor/platform/platform-logs-overview.md) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can monitor and gain visibility to actions taken by the users in the other tenant by viewing logged activity.
 
 ## Onboarding process considerations
 

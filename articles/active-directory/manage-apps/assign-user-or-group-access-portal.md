@@ -1,5 +1,5 @@
 ---
-title: Assign a user or group to an enterprise app in Azure Active Directory | Microsoft Docs
+title: Assign a user or group to an enterprise app in Azure AD
 description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
 services: active-directory
 author: msmimart

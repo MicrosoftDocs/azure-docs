@@ -1,5 +1,5 @@
 ---
-title: Configure virtual network and subnet-based access for your Azure Cosmos DB account
+title: Configure virtual network based access for an Azure Cosmos account
 description: This document describes the steps required to set up a virtual network service endpoint for Azure Cosmos DB. 
 author: markjbrown
 ms.service: cosmos-db
@@ -48,7 +48,7 @@ The following sections describe how to configure a virtual network service endpo
 > To enable virtual network service endpoints, you need the following subscription permissions:
 >   * Subscription with virtual network: Network contributor
 >   * Subscription with Azure Cosmos DB account: DocumentDB account contributor
->   * If your virtual network and Azure Cosmos DB account are in different subscriptions, make sure that the subscription that has virtual network also has `Microsoft.DocumentDB` resource provider registered. To register a resource provider, see [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) article.
+>   * If your virtual network and Azure Cosmos DB account are in different subscriptions, make sure that the subscription that has virtual network also has `Microsoft.DocumentDB` resource provider registered. To register a resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) article.
 
 Here are the directions for registering subscription with resource provider.
 
@@ -64,7 +64,7 @@ Here are the directions for registering subscription with resource provider.
 
    ![Select a virtual network and subnet for a new virtual network](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-If your Azure Cosmos DB account is used by other Azure services like Azure Search, or is accessed from Stream analytics or Power BI, you allow access by selecting **Accept connections from within global Azure datacenters**.
+If your Azure Cosmos DB account is used by other Azure services like Azure Cognitive Search, or is accessed from Stream analytics or Power BI, you allow access by selecting **Accept connections from within global Azure datacenters**.
 
 To ensure that you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access from Azure portal** options. To learn more about these options, see the [Configure an IP firewall](how-to-configure-firewall.md) article. After you enable access, select **Save** to save the settings.
 

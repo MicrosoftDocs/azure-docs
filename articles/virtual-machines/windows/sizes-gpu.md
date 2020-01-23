@@ -1,5 +1,5 @@
 ---
-title: Azure Windows VM sizes - GPU | Microsoft Docs
+title: Azure Windows VM sizes - GPU 
 description: Lists the different GPU optimized sizes available for Windows virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -27,9 +27,13 @@ ms.author: jonbeck
 
 ## Supported operating systems and drivers
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows, NVIDIA GPU drivers must be installed. The [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](../extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](../extensions/overview.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows, NVIDIA or AMD GPU drivers must be installed. 
+
+The [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](../extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](../extensions/overview.md).
 
 If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](n-series-driver-setup.md) for supported operating systems, drivers, and installation and verification steps.
+
+To install AMD GPU drivers manually, see [N-series AMD GPU driver setup for Windows](n-series-amd-driver-setup.md) for supported operating systems, drivers, and installation and verification steps.
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 

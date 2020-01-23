@@ -1,7 +1,7 @@
 ---
 title:  "Apply SQL Transformation"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply SQL Transformation module in Azure Machine Learning service to run a SQLite query on input datasets to transform the data.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Apply SQL Transformation module in Azure Machine Learning to run a SQLite query on input datasets to transform the data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -60,4 +60,4 @@ In addition to the list of non-supported functions provided on the official SQLi
     
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

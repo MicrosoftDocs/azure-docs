@@ -1,11 +1,8 @@
 ---
-title: FedRAMP Moderate blueprint samples - Overview
+title: FedRAMP Moderate blueprint sample overview
 description: Overview of the FedRAMP Moderate blueprint sample. This blueprint sample helps customers assess specific FedRAMP Moderate controls.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
-ms.service: blueprints
 ---
 # Overview of the FedRAMP Moderate blueprint sample
 
@@ -30,7 +27,7 @@ following articles to learn about the control mapping and how to deploy this sam
 > [FedRAMP Moderate blueprint - Control mapping](./control-mapping.md)
 > [FedRAMP Moderate blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

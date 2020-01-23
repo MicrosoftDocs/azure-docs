@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search REST API and C#"
+title: "Quickstart: Search for videos using the REST API and C# - Bing Video Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using C#.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -38,7 +38,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     using System.Collections.Generic;
     ```
 
-2. Add variables for your subscription key, endpoint, and search term.
+2. Add variables for your subscription key, endpoint, and search term. `uriBase` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     const string accessKey = "enter your key here";

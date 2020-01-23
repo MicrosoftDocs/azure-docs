@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a data science experiment'
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) - Azure
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
 ms.service: machine-learning
@@ -42,7 +42,7 @@ This quickstart follows the default workflow for an experiment:
 ## Get the data
 
 The first thing you need in machine learning is data.
-There are several sample datasets included with the classic version of Studio that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
+There are several sample datasets included with Studio (classic) that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
 This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.
 
 > [!TIP]

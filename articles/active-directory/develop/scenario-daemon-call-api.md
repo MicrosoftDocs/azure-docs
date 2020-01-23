@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling web APIs (calling web APIs) - Microsoft identity platform
-description: Learn how to build a daemon app that calls web APIs (calling web APIs)
+title: Call a web API from a daemon app - Microsoft identity platform | Azure
+description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,7 +17,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Daemon app that calls web APIs - call a web API from the app
@@ -26,7 +25,7 @@ A daemon app can call a web API from a .NET daemon application or call several p
 
 ## Calling a web API daemon application
 
-Here is how to use the token to call an API
+Here is how to use the token to call an API:
 
 # [.NET](#tab/dotnet)
 

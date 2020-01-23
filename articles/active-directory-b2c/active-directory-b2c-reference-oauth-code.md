@@ -98,8 +98,8 @@ Now that you've acquired an authorization code, you can redeem the `code` for a 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -111,6 +111,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 |{tenant}| Required | Name of your Azure AD B2C tenant|
 |{policy}| Required| The user flow that was used to acquire the authorization code. You cannot use a different user flow in this request. |
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com).|
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
 | grant_type |Required |The type of grant. For the authorization code flow, the grant type must be `authorization_code`. |
 | scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | code |Required |The authorization code that you acquired in the first leg of the flow. |
@@ -164,8 +165,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. To do this, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -176,7 +177,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 |{tenant}| Required | Name of your Azure AD B2C tenant|
 |{policy} |Required |The user flow that was used to acquire the original refresh token. You cannot use a different user flow in this request. |
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
-| client_secret |Required |The client_secret associated to your client_id in the [Azure portal](https://portal.azure.com). |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
 | grant_type |Required |The type of grant. For this leg of the authorization code flow, the grant type must be `refresh_token`. |
 | scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app will need a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | redirect_uri |Optional |The redirect URI of the application where you received the authorization code. |

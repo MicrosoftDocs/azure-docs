@@ -484,6 +484,8 @@
         href: service-fabric-tutorial-deploy-api-management.md
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
+      - name: Using Service Fabric Secrets Store
+        href: service-fabric-application-secret-store.md
         items:
         - name: Set up an encryption certificate and encrypt secrets on Windows
           href: service-fabric-application-secret-management-windows.md
@@ -879,6 +881,8 @@
     href: service-fabric-common-questions.md
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+  - name: Azure Resource Manager Deployment Guardrails
+    href: service-fabric-azure-resource-manager-guardrails.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator

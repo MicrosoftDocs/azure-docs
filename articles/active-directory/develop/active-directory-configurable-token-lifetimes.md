@@ -1,26 +1,20 @@
 ---
-title: Configurable token lifetimes in Azure Active Directory 
+title: Configurable Azure AD token lifetimes
 titleSuffix: Microsoft identity platform
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
-
-ms.collection: M365-identity-device-management
 ---
 # Configurable token lifetimes in Azure Active Directory (Preview)
 
@@ -38,7 +32,6 @@ You can designate a policy as the default policy for your organization. The poli
 >* The default lifetime for the SharePoint Online access token is 1 hour. 
 >* The default max inactive time of the SharePoint Online refresh token is 90 days.
 
-
 ## Token types
 
 You can set token lifetime policies for refresh tokens, access tokens, SAML tokens, session tokens, and ID tokens.
@@ -49,11 +42,11 @@ Clients use access tokens to access a protected resource. An access token can be
 
 ### SAML tokens
 
-SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint.  They are also consumed by applications using WS-Federation.    The default lifetime of the token is 1 hour. After  From and applications perspective the validity period of the token is specified by the NotOnOrAfter value of the <conditions …>    element in the token.  After the token validity period the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
+SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint. They are also consumed by applications using WS-Federation. The default lifetime of the token is 1 hour. From an application's perspective, the validity period of the token is specified by the NotOnOrAfter value of the `<conditions …>` element in the token. After the validity period of the token has ended, the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
 
-The value of NotOnOrAfter can be changed using the AccessTokenLifetime parameter in a TokenLifetimePolicy.  It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
+The value of NotOnOrAfter can be changed using the `AccessTokenLifetime` parameter in a `TokenLifetimePolicy`. It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
 
-Note that the subject confirmation NotOnOrAfter specified in the <SubjectConfirmationData> element is not affected by the Token Lifetime configuration. 
+Note that the subject confirmation NotOnOrAfter specified in the `<SubjectConfirmationData>` element is not affected by the Token Lifetime configuration. 
 
 ### Refresh tokens
 

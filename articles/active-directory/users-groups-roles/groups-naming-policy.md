@@ -1,21 +1,18 @@
 ---
-title: Enforce group naming policy on Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Enforce group naming policy in Azure Active Directory | Microsoft Docs
 description: How to set up naming policy for Office 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -63,7 +60,12 @@ Blocked word list rules:
 - There are no character restrictions on blocked words.
 - There is an upper limit of 5000 phrases that can be configured in the blocked words list. 
 
-### Administrator override
+### Roles and permissions
+
+To configure naming policy, one of the folowing roles is required:
+- Global administrator
+- Group administrator
+- User administrator
 
 Selected administrators can be exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following are the list of administrator roles exempted from the group naming policy.
 
@@ -75,7 +77,7 @@ Selected administrators can be exempted from these policies, across all group wo
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global Administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)

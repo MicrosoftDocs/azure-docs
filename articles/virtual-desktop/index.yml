@@ -2,10 +2,10 @@
 documentType: LandingData
 title: Windows Virtual Desktop Documentation
 metadata:
-  title: Windows Virtual Desktop Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Windows Virtual Desktop Documentation | Microsoft Docs
   description: Windows Virtual Desktop for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
   author: Heidilohr
-  manager: daveba
+  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page

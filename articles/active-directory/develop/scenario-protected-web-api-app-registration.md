@@ -1,5 +1,5 @@
 ---
-title: Protected web API - app registration 
+title: Protected web API app registration | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and the information you need to register the app.
 services: active-directory
@@ -18,7 +18,6 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Protected web API: App registration

@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Kubernetes Service (AKS)
 metadata:
-  document_id:
   title: Azure Kubernetes Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
@@ -65,6 +64,7 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Upgrade AKS cluster</a>
+    - html: <a href="/azure/architecture/reference-architectures/microservices/aks">Learn and implement the microservices reference architecture</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list

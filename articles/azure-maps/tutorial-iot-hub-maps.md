@@ -1,9 +1,9 @@
 ---
-title: Implement IoT spatial analytics using Azure Maps | Microsoft Docs
-description: Integrate IoT Hub with Azure Maps service APIs.
+title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
+description: Integrate IoT Hub with Microsoft Azure Maps service APIs.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 #Customer intent: As a customer, I want to build an IoT system so that I can use Azure Maps APIs for spatial analytics on the device data.
 ---
 
-# Implement IoT spatial analytics using Azure Maps
+# Tutorial: Implement IoT spatial analytics using Azure Maps
 
 Tracking and capturing relevant events that occur in space and time is a common IoT scenario. For example, in fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern for using Azure Maps APIs against relevant events captured by IoT Hub, using the event subscription model provided by Event Grid.
 
@@ -101,7 +101,8 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
 ### Create an Azure Maps account 
 
-In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
+In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+
 
 
 ### Create a storage account
@@ -164,7 +165,7 @@ Open the Postman app and follow the steps below to upload the geofence using the
     
     The "geojson" value against the `dataFormat` parameter in the URL path represents the format of the data being uploaded.
 
-3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps primary subscription key.
+3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps key.
    
     ![Key-Value params Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

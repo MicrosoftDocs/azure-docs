@@ -6,13 +6,13 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
 ---
 
 # Import and export IoT Hub device identities in bulk
 
-Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
+Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when cloning a hub to a different region, see [How to Clone an IoT Hub](iot-hub-how-to-clone.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -86,7 +86,7 @@ Only 1 active device import or export job is allowed at a time for all IoT Hub t
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.yml) blob container using a [Shared Access Signature](../storage/common/storage-security-guide.md#authorization).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an Azure Storage blob container using a shared access signature (SAS). For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
@@ -416,7 +416,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Next steps
 
-In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Many of these operations, including how to move devices from one hub to another, are used in the [Managing devices registered to the IoT hub section of How to Clone an IoT Hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
+
+The cloning article has a working sample associated with it, which is located in the IoT C# samples on this page: [Azure IoT Samples for C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), with the project being ImportExportDevicesSample. You can download the sample and try it out; there are instructions in the [How to Clone an IoT Hub](iot-hub-how-to-clone.md) article.
+
+To learn more about managing Azure IoT Hub, check out the following articles:
 
 * [IoT Hub metrics](iot-hub-metrics.md)
 * [IoT Hub logs](iot-hub-monitor-resource-health.md)

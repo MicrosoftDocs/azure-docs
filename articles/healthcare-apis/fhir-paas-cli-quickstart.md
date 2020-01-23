@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure API for FHIR using Azure CLI
-description: Deploy Azure API for FHIR using Azure CLI.
+title: 'Quickstart: Deploy Azure API for FHIR using Azure CLI'
+description: In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -73,7 +73,7 @@ az group delete --name "myResourceGroup"
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

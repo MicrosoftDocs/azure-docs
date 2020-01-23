@@ -1,10 +1,10 @@
 ---
-title: Develop module for Windows devices - Azure IoT Edge | Microsoft Docs
+title: 'Tutorial - Develop module for Windows devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Windows containers for Windows devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/15/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -153,7 +153,7 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
 
 1. Open the **deployment.template.json** file in your module solution.
 
-1. Find the **registryCredentials** property in the $edgeAgent desired properties and ensure it contains the correct information.
+1. Find the **registryCredentials** property in the $edgeAgent desired properties. It should have your registry address autofilled from the information you provided when creating the project, and then username and password fields should contain variable names. For example: 
 
    ```json
    "registryCredentials": {

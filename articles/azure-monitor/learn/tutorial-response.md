@@ -4,8 +4,8 @@ description: This tutorial helps you understand alerting with Log Analytics to i
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
 
 ms.custom: mvc

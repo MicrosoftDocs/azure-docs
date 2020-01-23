@@ -1,6 +1,6 @@
 ---
-title: Create an image factory in Azure DevTest Labs | Microsoft Docs
-description: Learn how to create a custom image factory in Azure DevTest Labs. 
+title: Set up retention policy in Azure DevTest Labs | Microsoft Docs
+description: Learn how to configure a retention policy, clean up the factory, and retire old images from DevTest Labs. 
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -16,7 +16,7 @@ ms.author: spelluru
 
 ---
 
-# Create a custom image factory in Azure DevTest Labs
+# Set up retention policy in Azure DevTest Labs
 This article covers setting a retention policy, cleaning up the factory, and retiring old images from all the other DevTest Labs in the organization. 
 
 ## Prerequisites

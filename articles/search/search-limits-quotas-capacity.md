@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ---
 
 # Service limits in Azure Cognitive Search
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
 
@@ -47,7 +47,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximum complex collection fields per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximum elements across all complex collections per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximum elements across all complex collections per document&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
@@ -55,17 +55,18 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
+<sup>2</sup> Having a very large number of elements in complex collections per document currently causes high storage utilization. This is a known issue. In the meantime, a limit of 3000 is a safe upper bound for all service tiers. This limit is only enforced for indexing operations that utilize the earliest generally available (GA) API version that supports complex type fields (`2019-05-06`) onwards. To not break clients who might be using earlier preview API versions (that support complex type fields), we will not be enforcing this limit for indexing operations that use these preview API versions. Note that preview API versions are not meant to be used for production scenarios and we highly recommend customers move to the latest GA API version.
+
 <a name="document-limits"></a>
 
 ## Document limits 
 
-As of October 2018, there are no longer any document limits<sup>1</sup> for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
+As of October 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were a few regions that continued to impose document limits after that date. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
 
-To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
+To determine whether your service has document limits, use the [GET Service Statistics REST API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Document limits are reflected in the response, with `null` indicating no limits.
 
-  ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
-
-<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
+> [!NOTE]
+> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
 
 ### Regions previously having document limits
 
@@ -124,9 +125,12 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
 
+> [!NOTE]
+> As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
+
 ## Synonym limits
 
-The maximum number of synonym maps allowed varies by pricing tier. Each rule can have up to 20 expansions, where an expansion is an equivalvent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
+The maximum number of synonym maps allowed varies by pricing tier. Each rule can have up to 20 expansions, where an expansion is an equivalent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|

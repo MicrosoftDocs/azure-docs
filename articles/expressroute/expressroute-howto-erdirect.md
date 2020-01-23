@@ -1,20 +1,19 @@
 ---
-title: Configure ExpressRoute Direct - Azure | Microsoft Docs
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
 description: This page helps you configure ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/22/2020
 ms.author: jaredro
-ms.custom: seodec18
 
 ---
 
 # How to configure ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Create the resource
 

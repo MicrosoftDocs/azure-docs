@@ -1,19 +1,9 @@
 ---
-title: Buy custom domain name in Azure - App Service 
-description: Learn how to buy a custom domain name with a web app in Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
+title: Buy a custom domain name
+description: Learn how to buy an App Service domain and use it as a custom domain for your app Azure App Service. 
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -29,7 +19,7 @@ For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azu
 To complete this tutorial:
 
 * [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
-* [Remove the spending limit on your subscription](../billing/billing-spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
+* [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
 
 ## Prepare the app
 

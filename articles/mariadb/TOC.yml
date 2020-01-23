@@ -43,20 +43,26 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md  
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Virtual Network
-      href: concepts-data-access-security-vnet.md
     - name: Connectivity architecture
       href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
+    - name: Virtual Network
+      href: concepts-data-access-security-vnet.md
+    - name: Private Link
+      href: concepts-data-access-security-private-link.md
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md      
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -172,6 +178,12 @@
       href: howto-manage-vnet-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-cli.md
+  - name: Private Link
+    items:
+    - name: Azure portal
+      href: howto-configure-privatelink-portal.md
+    - name: Azure CLI
+      href: howto-configure-privatelink-cli.md
   - name: Restart server
     items:
     - name: Azure portal

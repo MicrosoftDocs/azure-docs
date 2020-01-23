@@ -1,5 +1,6 @@
 ---
-title: Set up sign-up and sign-in with a Microsoft Account - Azure Active Directory B2C
+title: Set up sign-up and sign-in with a Microsoft Account
+titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Microsoft Accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -33,7 +34,7 @@ To use a Microsoft account as an [identity provider](active-directory-b2c-refere
 1. Select **Certificates & secrets**
 1. Click **New client secret**
 1. Enter a **Description** for the secret, for example *Application password 1*, and then click **Add**.
-1. Record the application password shown in the **VALUE** column. You need this when you configure the identity provider in the next section.
+1. Record the application password shown in the **Value** column. You need this when you configure the identity provider in the next section.
 
 ## Configure a Microsoft account as an identity provider
 

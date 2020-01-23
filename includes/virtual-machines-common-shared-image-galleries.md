@@ -6,7 +6,7 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 05/06/2019
- ms.author: akjosh; cynthn
+ ms.author: akjosh
  ms.custom: include file
 ---
 
@@ -28,9 +28,10 @@ The Shared Image Gallery feature has multiple resource types:
 
 | Resource | Description|
 |----------|------------|
-| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
+| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from [generalized](#generalized-and-specialized-images) VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
+| **Snapshot** | A copy of a VHD that can be used to make an **image version**. Snapshots can be taken from a [specialized](#generalized-and-specialized-images) VM (one that hasn't been generalized) then used alone or with snapshots of data disks, to create a specialized image version.
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is Windows or Linux, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is generalized or specialized, the operating system, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
@@ -53,31 +54,55 @@ All three of these have unique sets of values. The format is similar to how you 
 
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
-* Operating system state - You can set the OS state to generalized or specialized, but only generalized is currently supported. Images must be created from VMs that have been generalized using Sysprep for Windows or `waagent -deprovision` for Linux.
+* Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images).
 * Operating system - can be either Windows or Linux.
 * Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
 * Eula - can be used to point to an end-user license agreement specific to the image definition.
 * Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
 * End-of-life date - attach an end-of-life date to your image definition to be able to use automation to delete old image definitions.
-* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/resource-group-using-tags.md)
+* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
 * Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
+
+## Generalized and specialized images
+
+There are two operating system states supported by Shared Image Gallery. Typically images require that the VM used to create the image has been generalized before taking the image. Generalizing is a process that removes machine and user specific information from the VM. For Windows, the Sysprep too is used. For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters.
+
+Specialized VMs have not been through a process to remove machine specific information and accounts. Also, VMs created from specialized images do not have an `osProfile` associated with them. This means that specialized images will have some limitations.
+
+- Accounts that could be used to log into the VM can also be used on any VM created using the specialized image that is created from that VM.
+- VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
+- The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
+
+> [!IMPORTANT]
+> Specialized images are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Known preview limitations**
+> VMs can only be created from specialized images using the portal or API. The is no CLI or PowerShell support for the preview.
+
 
 ## Regional Support
 
 Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Source regions |
-|---------------------|-----------------|------------------|-----------------|
-| Australia Central   | Central US EUAP | Korea Central    | West Central US |
-| Australia Central 2 | East Asia       | Korea South      | West Europe     |
-| Australia East      | East US         | North Central US | West India      |
-| Australia Southeast | East US 2       | North Europe     | West US         |
-| Brazil South        | East US 2 EUAP  | South Central US | West US 2       |
-| Canada Central      | France Central  | South India      | China East      |
-| Canada East         | France South    | Southeast Asia   | China East 2    |
-| Central India       | Japan East      | UK South         | China North     |
-| Central US          | Japan West      | UK West          | China North 2   |
+
+| Source regions        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Australia Central     | China East        | South India        | West Europe        |
+| Australia Central 2   | China East 2      | Southeast Asia     | UK South           |
+| Australia East        | China North       | Japan East         | UK West            |
+| Australia Southeast   | China North 2     | Japan West         | US DoD Central     |
+| Brazil South          | East Asia         | Korea Central      | US DoD East        |
+| Canada Central        | East US           | Korea South        | US Gov Arizona     |
+| Canada East           | East US 2         | North Central US   | US Gov Texas       |
+| Central India         | East US 2 EUAP    | North Europe       | US Gov Virginia    |
+| Central US            | France Central    | South Central US   | West India         |
+| Central US EUAP       | France South      | West Central US    | West US            |
+|                       |                   |                    | West US 2          |
+
+
 
 ## Limits 
 
@@ -85,6 +110,7 @@ There are limits, per subscription, for deploying resources using Shared Image G
 - 100 shared image galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+- Any disk attached to the image must be less than or equal to 1TB in size
 
 For more information, see [Check resource usage against limits](https://docs.microsoft.com/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
  
@@ -158,7 +184,7 @@ The following SDKs support creating Shared Image Galleries:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -210,17 +236,18 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image, then you can create an image definition and image version from it.
+ Scenario 1: If you have a managed image in the same subscription as your SIG, then you can create an image definition and image version from it.
 
- Scenario 2: If you have an unmanaged generalized image, you can create a managed image from it, and then create an image definition and image version from it. 
+ Scenario 2: If you have an unmanaged image in the same subscription as your SIG, you can create a managed image from it, and then create an image definition and image version from it. 
 
- Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it.
-- If the VHD is of a Windows VM, see [Upload a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+ Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD to a managed image, then you can create an image definition and image version from it.
+
+- If the VHD is of a Windows VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 ### Can I create an image version from a specialized disk?
 
-No, we do not currently support specialized disks as images. If you have a specialized disk, you need to [create a VM from the VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) by attaching the specialized disk to a new VM. Once you have a running VM, you need to follow the instructions to create a managed image from the [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) or [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Once you have a generalized managed image, you can start the process to create a shared image description and image version.
+Yes, support for specialized disks as images is in preview. You can only create a VM from a specialized image using the portal ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) or [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) and API. There is no PowerShell support for the preview.
 
 ### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
 
@@ -230,7 +257,7 @@ No, you cannot move the shared image gallery resource to a different subscriptio
 
 No, you cannot replicate image versions across clouds.
 
-### Can I replicate my image versions across subscriptions? 
+### Can I replicate my image versions across subscriptions?
 
 No, you may replicate the image versions across regions in a subscription and use it in other subscriptions through RBAC.
 

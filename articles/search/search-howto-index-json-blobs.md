@@ -1,5 +1,5 @@
 ---
-title: Index JSON blobs from Azure Blob indexer for full text search
+title: Search over JSON blobs
 titleSuffix: Azure Cognitive Search
 description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
@@ -29,7 +29,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document (pa
 
 The easiest method for indexing JSON documents is to use a wizard in the [Azure portal](https://portal.azure.com/). By parsing metadata in the Azure blob container, the [**Import data**](search-import-data-portal.md) wizard can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
-We recommend using the same Azure subscription for both Azure Cognitive Search and Azure storage, preferably in the same region.
+We recommend using the same region or location for both Azure Cognitive Search and Azure Storage for lower latency and to avoid bandwidth charges.
 
 ### 1 - Prepare source data
 
@@ -61,17 +61,11 @@ In the **data source** page, the source must be **Azure Blob Storage**, with the
 
    ![Blob data source definition](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### 4 - Skip the "Add cognitive search" page in the wizard
+### 4 - Skip the "Enrich content" page in the wizard
 
-Adding cognitive skills is not necessary for JSON document import. Unless you have a specific need to [add AI enrichment](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
+Adding cognitive skills (or enrichment) is not an import requirement. Unless you have a specific need to [add AI enrichment](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
 
-To skip the step, first go to the next page.
-
-   ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
-
-From that page you can skip ahead to index customization.
-
-   ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
+To skip the step, click the blue buttons at the bottom of the page for "Next" and "Skip".
 
 ### 5 - Set index attributes
 

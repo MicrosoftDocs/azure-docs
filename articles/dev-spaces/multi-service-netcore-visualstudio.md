@@ -1,18 +1,14 @@
 ﻿---
-title: "Running multiple dependent services using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
+title: "Running multiple dependent services: .NET Core & Visual Studio"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio to debug a multi-service .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Multi-service development with Azure Dev Spaces
+# Running multiple dependent services: .NET Core and Visual Studio with Azure Dev Spaces
 
 In this tutorial, you'll learn how to develop multi-service applications using Azure Dev Spaces, along with some of the added benefits that Dev Spaces provides.
 

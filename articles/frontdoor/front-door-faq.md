@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Frequently Asked Questions for Front Door | Microsoft Docs
+title: Azure Front Door Service - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
@@ -94,7 +94,7 @@ To lock down your application to accept traffic only from your specific Front Do
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
 
 -	Filter on the values for the incoming header '**X-Forwarded-Host**' sent by Front Door. The only allowed values for the header should be all of the frontend hosts as defined in your Front Door config. In fact even more specifically, only the host names for which you want to accept traffic from, on this particular backend of yours.
-    - Example – let’s say your Front Door config has the following frontend hosts _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C), and _`notifications.contoso.com`_ (D). Let’s assume that you have two backends X and Y. 
+    - Example – let’s say your Front Door config has the following frontend hosts _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C), and _`notifications.contoso.com`_ (D). Let’s assume that you have two backends X and Y. 
     - Backend X should only take traffic from host names A and B. Backend Y can take traffic from A, C, and D.
     - So, on Backend X you should only accept traffic that has the header '**X-Forwarded-Host**' set to either _`contoso.azurefd.net`_ or _`www.contoso.com`_. For everything else, backend X should reject the traffic.
     - Similarly, on Backend Y you should only accept traffic that has the header “**X-Forwarded-Host**” set to either _`contoso.azurefd.net`_, _`api.contoso.com`_ or _`notifications.contoso.com`_. For everything else, backend Y should reject the traffic.
@@ -127,7 +127,7 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 
 ### What are the various timeouts and limits for Azure Front Door Service?
 
-Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## Performance
 
@@ -175,6 +175,8 @@ The following are the current cipher suites supported by Azure Front Door Servic
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### Does Azure Front Door Service also support re-encryption of traffic to the backend?
 

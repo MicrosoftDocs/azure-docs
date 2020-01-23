@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling web APIs (app configuration) - Microsoft identity platform
-description: Learn how to build a daemon app that calls web APIs (app configuration)
+title: Configure daemon apps that call web APIs - Microsoft identity platform | Azure
+description: Learn how to configure the code for your daemon application that calls web APIs (app configuration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,7 +17,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Daemon app that calls web APIs - code configuration
@@ -31,8 +30,8 @@ The Microsoft libraries supporting daemon apps are:
   MSAL library | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms to build a daemon application are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Development in progress - in public preview
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Development in progress - in public preview
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for daemon applications in Python
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for daemon applications in Java
 
 ## Configuration of the Authority
 
@@ -133,7 +132,7 @@ Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Iden
 In MSAL.NET, the confidential client application is represented by the `IConfidentialClientApplication` interface.
 Use MSAL.NET namespace in the source code
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
@@ -161,7 +160,7 @@ Here is the code to instantiate the confidential client application with a clien
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
@@ -201,7 +200,7 @@ Here is the code to build an application with a certificate:
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithCertificate(certificate)
@@ -268,7 +267,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 
 When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -278,7 +277,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 When you use `WithClientClaims`, MSAL.NET will compute itself a signed assertion containing the claims expected by Azure AD plus additional client claims that you want to send.
 Here is a code snippet on how to do that:
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 var claims = new Dictionary<string, string> { { "client_ip", ipAddress } };
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);

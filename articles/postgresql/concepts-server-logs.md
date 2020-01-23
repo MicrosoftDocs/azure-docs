@@ -1,6 +1,6 @@
 ﻿---
-title: Logs in Azure Database for PostgreSQL - Single Server
-description: Concepts of logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
+title: Logs - Azure Database for PostgreSQL - Single Server
+description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -24,7 +24,7 @@ To learn more about Postgres log parameters, visit the [When To Log](https://www
 To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> Configuring a high volume of logs, for example statement logging, can add significant perfomance overhead. 
+> Configuring a high volume of logs, for example statement logging, can add significant performance overhead. 
 
 ## Access .log files
 The default log format in Azure Database for PostgreSQL is .log. A sample line from this log looks like:
