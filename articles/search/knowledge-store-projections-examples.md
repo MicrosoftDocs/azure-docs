@@ -31,7 +31,7 @@ Object and file projections are written to blob storage, object projections are 
 To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process specifically, [skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md) for details. For all the scenarios, we will work with a sample skillset that you can use the [`import data wizard`](cognitive-search-quickstart-blob.md) to generate. In the `import data wizard` start with a blob datasource, on the add cognitive skills tab, add the entity recognition, key phrases, and language detection skills. Be sure to select the `Enable OCR and merge all text into merged_content field` option. Leave the knowledge store options empty, we'll be working with the knowledge store object in the skillset in the rest of this tutorial. Once you complete the import data workflow, you should have a valid enrichment pipeline of a datasource, skillset, indexer, and index. In the following sections of this tutorial, we will use the [REST APIs to work with the enrichment pipeline](search-get-started-postman.md).
 
 > [!IMPORTANT] 
-> When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and the projections updated, skillset executions for previously enriched documents do not result in any Cognitive Services charges.
+> When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any Cognitive Services charges.
 
 If you view the skillset JSON in the portal, or GET the skillset using the REST API, you will see a skillset similar to the following snippet.
 
@@ -203,7 +203,7 @@ Power BI can read from tables and discover relationships based on the keys that 
 Create a custom shape that you would like to project, here we create a custom object that contains some metadata properties, key phrases, and entities. The object is called pbiShape and is parented under `/document`. 
 
 > [!IMPORTANT] 
-Source paths for enrichments are required to be well formed JSON objects, before they can be projected. The enrichment tree can represent enrichments that are not well formed JSON, for example when a enrichment is parented to a primitve like a string. Note how `KeyPhrases` and `Entities` are wrapped into a valid JSON object with the `sourceContext`, this is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
+> Source paths for enrichments are required to be well formed JSON objects, before they can be projected. The enrichment tree can represent enrichments that are not well formed JSON, for example when a enrichment is parented to a primitve like a string. Note how `KeyPhrases` and `Entities` are wrapped into a valid JSON object with the `sourceContext`, this is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
 
 ```json
 {
@@ -271,7 +271,8 @@ Source paths for enrichments are required to be well formed JSON objects, before
 ```
 Now that we have all the data needed to project to tables we can update the knowledgeStore object with the table definitions.
 
-Start by setting the knowledgeStore property to the object 
+Start by setting the knowledgeStore property on the skillset. 
+
 ```json
 {
     "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
@@ -301,21 +302,21 @@ Start by setting the knowledgeStore property to the object
 }
 ```
 
-Set the ```storageConnectionString``` property to a valid storage account connection string. Now we define two tables in the projection object, note that each table requires a ```tableName```, ```source``` and ```generatedKeyName``` property, the ```referenceKeyName``` property is optional. 
+Set the ```storageConnectionString``` property to a valid V2 general purpose storage account connection string. In this scenario we define three tables in the projection object, note that each table requires a ```tableName```, ```source``` and ```generatedKeyName``` property, there is an additional ```referenceKeyName``` property that is optional. 
 
 ### Slicing 
 
-When starting with a consolidated shape where all the content that needs to be projected is in a single shape, slicing provides you with the ability to slice a single node into multiple tables or objects. In this case, the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out a part of the shape, ```keyPhrases``` and ```Entities``` here into separate tables. Slicing implicity generates a relationship between the parent and child tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
+When starting with a consolidated shape where all the content that needs to be projected is in a single shape (or node), slicing provides you with the ability to slice a single node into multiple tables or objects. Here, the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out parts of the shape, ```keyPhrases``` and ```Entities``` into separate tables. This is useful as multiple entities and keyPhrases are associated with each document. Slicing implicity generates a relationship between the parent and child tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
 
 ### Naming relationships
 The ```generatedKeyName``` and ```referenceKeyName``` properties are used to relate data across tables or even across projection types. Each row in the child table/projection has a property pointing back to the parent. The name of the column or property in the child is the ```referenceKeyName``` from the parent. When the ```referenceKeyName``` is not provided, the service defaults it to the ```generatedKeyName``` from the parent. PowerBI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the parent table. One example would be to set the ```generatedKeyName``` as ID on the pbiDocument table and the ```referenceKeyName``` as DocumentID. This would result in the column in the pbiEntities and pbiKeyPhrases tables containing the document id being named DocumentID.
 
-You now have a working projection with two tables that when imported into Power BI should auto discover the relationships and allow you to filter.
+You now have a working projection with three tables. Importing these tables into Power BI should result in Power BI auto discovering the relationships, allowing you to filter.
 
 ## Projecting to Objects
 
-When projecting large documents, object projections do not have the same limitations as table projections. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container.
-To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. This example demonstrates the use of inline shaping.
+Object projections do not have the same limitations as table projections, are better suited for projecting large documents. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container.
+To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping.
 
 ```json
 {
@@ -391,7 +392,7 @@ File projections are images that are either extracted from the source document o
 
 ## Projecting to multiple types
 
-Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now modify the projection object in the knowledge store to add an object projection definition for the text and layout text.
+Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now create a projection object in the knowledge store to project the document, key phrases and entities as tables, OCR text and layout text as object projections and the images as files.
 
 ```json
 {
@@ -436,17 +437,22 @@ Sometimes you might need to project content across projection types. For example
                         ]
                     }
                 ],
-                "files": []
+                "files": [
+                    {
+                        "storageContainer": "fullfile",
+                        "source": "/document/normalized_images/*"
+                    }
+                ]
             }
         ]
     }
 ```
 
-Object projections require a container name for each projection, multiple object projections or file projections cannot share containers. Notice that the `generatedKeyName` and `referenceKeyName` properties are optional and when not provided they are auto generated.
+Object projections require a container name for each projection, multiple object projections or file projections cannot share containers. Notice that the `generatedKeyName` and `referenceKeyName` properties are optional for objects and files.
 
 ### Relationships
 
-This example also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files) of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in no relationship between the document table and the OCR text projections. Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard and another projection group for using the data to train a AI model for a skill.
+This example also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files) of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in the tbles being related, but no relationships between the tables and the OCR text projections. Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard and another projection group for using the data to train a AI model for a skill.
 When building projections of different types, file and object projections are generated first and the paths are added to the tables.
 
 ```json
