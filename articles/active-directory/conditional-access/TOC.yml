@@ -19,10 +19,16 @@
     href: concept-conditional-access-policy-common.md
   - name: Conditional Access policy components
     href: concept-conditional-access-policies.md
-  - name: Cloud apps or actions
-    href: concept-conditional-access-cloud-apps.md
-  - name: Conditions
-    href: conditions.md
+  - name: Assignments
+    items: 
+     - name: Users and groups
+       href: concept-conditional-access-users-groups.md
+     - name: Cloud apps or actions
+       href: concept-conditional-access-cloud-apps.md
+     - name: Conditions
+       href: concept-conditional-access-conditions.md
+  - name: Access controls
+    items:    
   - name: Location conditions
     href: location-condition.md
   - name: Controls
