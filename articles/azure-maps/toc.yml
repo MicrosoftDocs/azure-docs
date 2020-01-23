@@ -263,12 +263,14 @@
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo    
 - name: Related
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/
   - name: Solutions
     items:
     - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /azure/iot-central/iot-support-help
   - name: Platform services
     items:
     - name: IoT Hub
