@@ -25,16 +25,20 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 > Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see Azure Active Directory Editions. 
 > If you have Enterprise Mobility Suite (EMS) licenses you are eligible of using this solution.
 > The Azure AD Application Proxy connector only installs on a Windows Server 2012 R2 Operating system, this is also a requirement of the NDES server.
-
-[!INCLUDE [active-directory-download-connector](../../includes/active-directory-download-connector.md)]
-
+ 
 ## Install and register the Azure AD Application Proxy connector on the NDES server
 
-With an NDES server ready to be used as the Azure AD Application Proxy connector, now copy and run the setup file downloaded from the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+1. In left navigation panel, select **Azure Active Directory**.
+1. Under **Manage**, select **Application proxy**.
+1. Select **Download connector service**.
 
+    ![Download connector service to see the Terms of Service](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
+
+1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
+1. Copy the Azure AD Application Proxy connector setup file to your NDES server. 
    > You can install the connector on any server within your corporate network with access to NDES. You don't have to install it on the NDES server itself.
-
-1. Copy the Azure AD Application Proxy connector setup file to your NDES server.
 1. Run the setup file, such as *AADApplicationProxyConnectorInstaller.exe*. Accept the software license terms.
 1. During the install, you're prompted to register the connector with the Application Proxy in your Azure AD directory.
    * Provide the credentials for a global administrator in your Azure AD directory. The Azure AD global administrator credentials may be different from your  Azure credentials in the portal
