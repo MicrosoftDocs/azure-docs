@@ -20,7 +20,7 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Python](create-cassandra-python.md)
 >  
 
-In this quickstart, you connect a Cassandra Java app cloned from GitHub to an Azure Cosmos DB with Cassandra API account. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you use a Cassandra Java app cloned from GitHub to connect to an Azure Cosmos DB account, and create a database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 

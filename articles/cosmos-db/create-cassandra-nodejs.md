@@ -18,7 +18,7 @@ ms.date: 09/24/2018
 > * [Python](create-cassandra-python.md)
 >  
 
-In this quickstart, you connect a Cassandra Node.js app cloned from GitHub to an Azure Cosmos DB with Cassandra API account. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you use a Cassandra Node.js app cloned from GitHub to connect to an Azure Cosmos DB account, and create a database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 

@@ -18,8 +18,8 @@ ms.date: 09/24/2018
 > * [Python](create-cassandra-python.md)
 >  
 
-In this quickstart, you connect a Cassandra Python app cloned from GitHub to an Azure Cosmos DB with Cassandra API account. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
-run an app that creates a database and container in an Azure Cosmos DB Cassandra API account. 
+In this quickstart, you use a Cassandra Python app cloned from GitHub to connect to an Azure Cosmos DB account, and create a database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or, [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
