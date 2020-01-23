@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) authoring client library for Node.js to:
@@ -222,3 +222,7 @@ Current model status: ["Success"]
 Application published. Endpoint URL: https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e137a439-b3e0-4e16-a7a8-a9746e0715f7
 Application with ID e137a439-b3e0-4e16-a7a8-a9746e0715f7 deleted. Operation result: Operation Successful
 ```
+
+## Clean up resources
+
+When you are done with your predictions, clean up the work from this quickstart by deleting the file and its subdirectories.

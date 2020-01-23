@@ -38,10 +38,10 @@ Using your runtime key, and the runtime endpoint, create environment variables f
 * `LUIS_APP_ID` - The public LUIS IoT app ID is `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
 * `LUIS_APP_SLOT_NAME` - `production` or `staging`
 
-If you intent to use this quickstart to access your own app, you need to take additional steps:
+If you intend to use this quickstart to access your own app, you need to take additional steps:
 * Create the app and get the app ID
 * Assign the runtime key to the app in the LUIS portal
-* Test the URL on the , with the browser, that you can access the app
+* Test the URL with the browser, that you can access the app
 
 Use the instructions for your operating system.
 #### [Linux](#tab/linux)
@@ -86,8 +86,8 @@ The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](ht
 
 Once the client is created, use this client to access functionality including:
 
-* Prediction by [staging or product slot]()
-* Prediction by [version]()
+* [Prediction](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) by `staging` or `production` slot
+* [Prediction by version](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getversionprediction-string--string--predictionrequest--models-predictiongetversionpredictionoptionalparams-)
 
 ## Code examples
 
@@ -97,9 +97,9 @@ These code snippets show you how to do the following with the Language Understan
 
 ## Add the dependencies
 
-From the project directory, open the *luis_prediction_quickstart.py* file in your preferred editor or IDE. Add the following dependencies:
+From the project directory, open the `luis_prediction.js` file in your preferred editor or IDE. Add the following dependencies:
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
+[!code-javascript [Dependencies](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Dependencies)]
 
 ## Authenticate the client
 
@@ -109,41 +109,85 @@ From the project directory, open the *luis_prediction_quickstart.py* file in you
 
     Create a variable to hold your resource name `LUIS_RUNTIME_ENDPOINT`.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
+    [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Variables)]
 
 1. Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Create a variable to set the `production` published slot.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
+    [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=OtherVariables>)]
 
 
-1. Create an [CognitiveServicesCredentials]() object with your key, and use it with your endpoint to create an [LUISRuntimeClient]() object.
+1. Create an msRest.ApiKeyCredentials object with your key, and use it with your endpoint to create an [LUIS.LUISRuntimeClient](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) object.
 
-        [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
+    [!code-javascript [LUIS Runtime client is required to access predictions for LUIS apps](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=AuthoringCreateClient>)]
 
 ## Get prediction from runtime
 
 Add the following method to create the request to the prediction runtime.
 
-The user utterance is part of the [prediction_request]() object.
+The user utterance is part of the [predictionRequest](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest?view=azure-node-latest) object.
 
-The **get_slot_prediction** method needs several parameters such as the app ID, the slot name, and the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
+The **[luisRuntimeClient.prediction.getSlotPrediction](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** method needs several parameters such as the app ID, the slot name, and the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=predict)]
+[!code-javascript [LUIS prediction request and response in Node.js NPM SDK](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=predict>)]
 
 ## Main code for the prediction
 
 Use the following main method to tie the variables and methods together to get the prediction.
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=main)]
+[!code-javascript [Main method and main call](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Main>)]
 
 ## Run the application
 
-Run the application with the `python prediction_quickstart.py` command from your application directory.
+Run the application with the `node luis_prediction.js` command from your application directory.
 
-```python
-python prediction_quickstart.py
+```console
+node luis_prediction.js
 ```
+
+The prediction result returns a JSON object:
+
+```console
+{
+   "query":"turn on all lights",
+   "prediction":{
+      "topIntent":"HomeAutomation.TurnOn",
+      "intents":{
+         "HomeAutomation.TurnOn":{
+            "score":0.5375382
+         },
+         "None":{
+            "score":0.08687421
+         },
+         "HomeAutomation.TurnOff":{
+            "score":0.0207554
+         }
+      },
+      "entities":{
+         "HomeAutomation.Operation":[
+            "on"
+         ],
+         "$instance":{
+            "HomeAutomation.Operation":[
+               {
+                  "type":"HomeAutomation.Operation",
+                  "text":"on",
+                  "startIndex":5,
+                  "length":2,
+                  "score":0.724984169,
+                  "modelTypeId":-1,
+                  "modelType":"Unknown",
+                  "recognitionSources":[
+                     "model"
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
+```
+
 
 ## Clean up resources
 
-When you are done with your predictions, clean up the work from this quickstart by deleting the program.cs file and its subdirectories.
+When you are done with your predictions, clean up the work from this quickstart by deleting the file and its subdirectories.

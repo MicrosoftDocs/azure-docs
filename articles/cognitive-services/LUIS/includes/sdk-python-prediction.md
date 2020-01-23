@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/21/2020
+ms.date: 01/23/2020
 ms.author: diberry
 ---
 
@@ -160,4 +160,4 @@ python prediction_quickstart.py
 
 ## Clean up resources
 
-When you are done with your predictions, clean up the work from this quickstart by deleting the program.cs file and its subdirectories.
+When you are done with your predictions, clean up the work from this quickstart by deleting the file and its subdirectories.
