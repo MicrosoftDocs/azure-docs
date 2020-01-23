@@ -167,7 +167,7 @@ Observe that you *don't* need to write any code for authentication, getting a qu
 
 ## View the message in the Azure Storage queue
 
-When your function generates an HTTP response for the web browser, it also calls `msg.set(name)`, which writes a message to an Azure Storage queue named `outqueue`, as specified in the queue binding. You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer][https://storageexplorer.com/]. You can also view the queue in the Azure CLI as described in the following steps:
+When your function generates an HTTP response for the web browser, it also calls `msg.set(name)`, which writes a message to an Azure Storage queue named `outqueue`, as specified in the queue binding. You can view the queue in the [Azure portal](../storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). You can also view the queue in the Azure CLI as described in the following steps:
 
 1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, pasting your specific connection string in place of  `<connection_string>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
 

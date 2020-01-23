@@ -868,7 +868,7 @@ export default httpTrigger;
 
 In a browser, use the same URL as before to invoke your function. The browser should display the same response as before, because you didn't modify that part of the function code. The added code, however, wrote a message using the `name` URL parameter to the `outqueue` storage queue.
 
-You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer][https://storageexplorer.com/]. You can also view the queue in the Azure CLI as described in the following steps:
+You can view the queue in the [Azure portal](../storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). You can also view the queue in the Azure CLI as described in the following steps:
 
 1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, pasting your specific connection string in place of  `<connection_string>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
 
