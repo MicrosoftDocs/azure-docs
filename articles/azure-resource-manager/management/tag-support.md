@@ -2076,4 +2076,4 @@ Jump to a resource provider namespace:
 
 ## Next steps
 
-To learn how to apply tags to resources, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
+To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
