@@ -41,7 +41,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |parallelCollectionScan  | Yes   |
 |resetError |	No  |
 |update  |   Yes  |
-|Change streams  |  Yes  |
+|[Change streams](mongodb-change-streams.md)  |  Yes  |
 |GridFS |   Yes  |
 
 ### Authentication commands
@@ -77,7 +77,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |listIndexes     |  Yes       |
 |reIndex     |    Yes     |
 |renameCollection     |    No     |
-|connectionStatus    |     Yes    |
+|connectionStatus    |     No    |
 
 ### Diagnostics commands
 
@@ -86,7 +86,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |buildInfo	     |   Yes      |
 |collStats    |  Yes       |
 |connPoolStats     |  No       |
-|connectionStatus     |  Yes       |
+|connectionStatus     |  No       |
 |dataSize     |   No      |
 |dbHash    |    No     |
 |dbStats     |   Yes      |
