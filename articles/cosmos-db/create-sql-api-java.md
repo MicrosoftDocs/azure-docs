@@ -21,21 +21,14 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-This quickstart shows you how to use a Java application to create and manage a document database from your Azure Cosmos DB SQL API account. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the SQL Java SDK, and then add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos DB databases, containers in either the UI or programmatically, whichever is your preference.
+In this quickstart, you create and manage a document database from your Azure Cosmos DB SQL API account, both from the Azure portal, and by using a Java app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-In addition: 
-
-* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
-    * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
-    * On Ubuntu, you can run `apt-get install maven` to install Maven.
-* [Git](https://www.git-scm.com/)
-    * On Ubuntu, you can run `sudo apt-get install git` to install Git.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or, [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](local-emulator.md) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- A [Maven binary archive](https://maven.apache.org/download.cgi). On Linux, you can run `apt-get install maven` to install Maven.
+- [Git](https://www.git-scm.com/). On Linux, you can run `apt-get install git` to install Git.
 
 ## Create a database account
 
