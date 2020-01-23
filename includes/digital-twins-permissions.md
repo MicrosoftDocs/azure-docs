@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 01/06/2020
+ ms.date: 01/23/2020
  ms.custom: include file
 ---
 
@@ -28,7 +28,14 @@
 
 1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
 
-    Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
+    1. **Redirect URIs** must match the address supplied by the authentication request:
+
+        * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set the **Default client type** to yes.
+        * For Single-Page apps hosted on Azure App Service, select **Web**.
+
+        Select **Public client (mobile & desktop)** and enter `http://localhost:8080/`.
+
+    1. Check **Access tokens** to configure the **oauth2AllowImplicitFlow** setting to `true` in your Manifest.json.
 
     [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
