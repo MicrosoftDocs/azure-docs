@@ -14,18 +14,18 @@ ms.author: baselden
 ms.reviewer: mimart
 ---
 
-# Integrate with AD Application Proxy on a Network Device Enrollment Service (NDES) server
+# Integrate with Azure AD Application Proxy on a Network Device Enrollment Service (NDES) server
 
 Azure Active Directory (AD) Application Proxy lets you publish applications inside your network. These applications are ones such as SharePoint sites, Microsoft Outlook Web App, and other web applications. It also provides secure access to users outside your network via Azure.
 
-If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to internal applications](https://docs.microsoft.com/azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context).
+If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](application-proxy.md).
 
-Azure AD Application Proxy is built on Azure. It gives you a massive amount of network bandwidth and server infrastructure to have better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there's no need to open external firewall ports to your on-premise network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Azure AD Application Proxy is built on Azure. It gives you a massive amount of network bandwidth and server infrastructure for better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there's no need to open external firewall ports to your on-premises network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
-> Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see Azure Active Directory Editions. 
-> If you have Enterprise Mobility Suite (EMS) licenses you are eligible of using this solution.
-> The Azure AD Application Proxy connector only installs on a Windows Server 2012 R2 Operating system, this is also a requirement of the NDES server.
- 
+> Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/). 
+> If you have Enterprise Mobility Suite (EMS) licenses, you are eligible to use this solution.
+> The Azure AD Application Proxy connector only installs on Windows Server 2012 R2 or later. This is also a requirement of the NDES server.
+
 ## Install and register the Azure AD Application Proxy connector on the NDES server
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
@@ -41,7 +41,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
    > You can install the connector on any server within your corporate network with access to NDES. You don't have to install it on the NDES server itself.
 1. Run the setup file, such as *AADApplicationProxyConnectorInstaller.exe*. Accept the software license terms.
 1. During the install, you're prompted to register the connector with the Application Proxy in your Azure AD directory.
-   * Provide the credentials for a global administrator in your Azure AD directory. The Azure AD global administrator credentials may be different from your  Azure credentials in the portal
+   * Provide the credentials for a global administrator in your Azure AD directory. The Azure AD global administrator credentials may be different from your Azure credentials in the portal
 
         > [!NOTE]
         > The global administrator account used to register the connector must belong to the same directory where you enable the Application Proxy service.
@@ -70,7 +70,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
    * **Name**: Enter a name for the application.
    * **Internal Url**: Enter the internal URL/FQDN of your NDES server on which you installed the connector.
-   * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre-authentication, the protocol used for Certificate Requests (SCEP) doesn't provide such option.
+   * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre-authentication. The protocol used for Certificate Requests (SCEP) doesn't provide such option.
    * Copy the provided **External URL** to your clipboard.
 
 1. Select **+Add** to save your application.
