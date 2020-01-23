@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Connect machines to Azure using Azure Arc for servers - Portal
-description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers from the portal
+title: 'Quickstart: Connect machines to Azure by using Azure Arc for servers from the Azure portal'
+description: In this quickstart, you learn how to connect machines to Azure by using Azure Arc for servers from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -11,78 +11,79 @@ ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
 ---
-# Quickstart: Connect machines to Azure using Azure Arc for servers - Portal
+# Quickstart: Connect machines to Azure by using Azure Arc for servers
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-Review the supported clients and required network configuration in the [Azure Arc for servers Overview](overview.md).
+Review the supported clients and required network configuration in the [Azure Arc for servers overview](overview.md).
 
-## Generate the agent install script using the Azure portal
+## Generate an agent installation script by using the Azure portal
 
-1. Launch [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
-1. Click on **+Add**
-1. Follow the wizard to completion
-1. The last page has a script generated which you can copy (or download).
+1. Open the [Azure portal](https://aka.ms/hybridmachineportal).
+1. Select **Add**.
+1. Follow the wizard to completion.
+1. The final page of the wizard displays an installation script, which you can copy or download.
 
-The script must be run on the target machine you want to connect. It downloads the agent, installs it, and connects the machine as a single operation.
+The script must be run on the target machine that you want to connect. The script downloads the agent, installs it, and connects the machine as a single operation.
 
-On the Non-Azure servers you want to manage:
+On the non-Azure servers that you want to manage, do the following:
 
-1. Logon to the server (using SSH, RDP or PowerShell Remoting)
-1. Start a shell: bash on Linux, PowerShell as Administrator on Windows
-1. Paste in the script from the portal and execute it on the server to be connected to Azure.
-1. The default authentication for onboarding an individual server is *interactive* using Azure 'device login'. When you run the script, you will see a message similar to:
+1. Log in to the server by using Secure Shell (SSH), the Remote Desktop Protocol (RDP), or PowerShell remoting.
+1. Start a shell by running either of the following:
+   * On Linux, use Bash.
+   * On Windows, use PowerShell as administrator.
+1. In the shell, paste the script that you copied from the portal, and run it on the server to connect to Azure.
 
-  ```none
-  To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B3V3NLWRF to authenticate.
-  ```
+   The default authentication for onboarding an individual server is *interactive* using Azure "device login." When you run the script, you'll see a message similar to:
+
+   "To sign in, use a web browser to open the page `https://microsoft.com/devicelogin` and enter the code B3V3NLWRF to authenticate."
   
-   Open a browser and enter the code to authenticate. The browser doesn't need to be running on the server you are onboarding, it could be on another computer such as your laptop.
+1. Open a browser, and enter the code to authenticate. The browser doesn't need to be running on the server that you're onboarding. It could be on another computer, such as your laptop.
 
-1. If you would like to authenticate non-interactively, follow the steps in [Create a Service Principal](quickstart-onboard-powershell.md#create-a-service-principal-for-onboarding-at-scale) and modify the script generated from the portal.
+1. If you want to authenticate non-interactively, follow the instructions in [Create a Service Principal](quickstart-onboard-powershell.md#create-a-service-principal-for-onboarding-at-scale), and modify the script that's generated from the portal.
 
 > [!NOTE]
-> If you are using Internet Explorer on the server for the very first time to logon, it will error out. You can just reopen the browser and do it again.
+> If you're using Internet Explorer to log in to the server for the first time, an error will occur. If it does, reopen the browser and log in again.
 
-## Execute the script on target nodes
+## Run the script on target nodes
 
-Log in to each Node and execute the script you generated from the portal. After the script completes successfully, go to the Azure portal verify that the server has been successfully connected.
+Log in to each node, and run the script that you generated from the Azure portal. After the script has run successfully, go to the Azure portal to verify that the server has been successfully connected.
 
-![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
+![A successful server connection](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
 ## Clean up
 
-To disconnect a machine from Azure Arc for servers, you need to perform two steps.
+To disconnect a machine from Azure Arc for servers, do the following:
 
-1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
-1. Uninstall the agent from the machine.
+1. In the [Azure portal](https://aka.ms/hybridmachineportal), select the machine, select the ellipsis (**...**), and then select **Delete**.
+1. Uninstall the agent from the machine by doing either of the following:
 
-   On Windows, you can use the "Apps & Features" control panel to uninstall the agent.
+   * **On Windows**, go to the **Settings** > **Apps & features** pane to uninstall the agent.
   
-  ![Apps & Features](./media/quickstart-onboard/apps-and-features.png)
+     ![The "Settings > Apps & features" pane](./media/quickstart-onboard/apps-and-features.png)
 
-   If you would like to script the uninstall, you can use the following example which retrieves the **PackageId** and uninstall the agent using `msiexec /X`.
+     If you want to script the uninstallation, you can use the following example, which retrieves the *PackageId*, and then uninstall the agent by using `msiexec /X`.
 
-   look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the **PackageId**. You can then uninstall the agent using `msiexec`.
+     In the registry, under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for *PackageId*. You can then uninstall the agent by using `msiexec`.
 
-   The example below demonstrates uninstalling the agent.
+     The following example demonstrates how to uninstall the agent:
 
-   ```powershell
-   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-   Get-ItemProperty | `
-   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
-   ```
+      ```powershell
+      Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+      Get-ItemProperty | `
+      Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+      ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+      ```
 
-   On Linux, execute the following command to uninstall the agent.
+   * **On Linux**, uninstall the agent by running the following command:
 
-   ```bash
-   sudo apt purge hybridagent
-   ```
+      ```bash
+      sudo apt purge hybridagent
+      ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Assign a Policy to Connected Machines](../../governance/policy/assign-policy-portal.md)
+> [Assign a policy to connected machines](../../governance/policy/assign-policy-portal.md)
