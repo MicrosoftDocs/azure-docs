@@ -32,9 +32,11 @@ To complete this sample, make sure you have the following:
   >
   > To create a managed instance, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
   >
-  > To configure a managed instance, use [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity, and load data using [restore with BACPAC](sql-database-import.md) and the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
+  > To configure a managed instance, use [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
+  >
+  > To load data to a managed instance, see [restore with BACPAC](sql-database-import.md) using the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
   
-- [Python](https://python.org) and related software - see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), and the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/) and [sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
+- [Python](https://python.org) and related software
 
   # [macOS](#tab/macos)
 
@@ -44,7 +46,7 @@ To complete this sample, make sure you have the following:
 
   # [Ubuntu](#tab/ubuntu)
 
-  To install Python and other required packages use `sudo apt-get install python python-pip gcc g++ build-essential`.
+  To install Python and other required packages, use `sudo apt-get install python python-pip gcc g++ build-essential`.
 
   To install the ODBC driver, SQLCMD, and the Python driver for SQL Server, see [configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
 
@@ -56,7 +58,9 @@ To complete this sample, make sure you have the following:
 
   For further information, see [Microsoft ODBC Driver](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
 
-  ---
+---
+  
+To further explore Python and the Azure SQL database, see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/) and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## Get SQL server connection information
 
