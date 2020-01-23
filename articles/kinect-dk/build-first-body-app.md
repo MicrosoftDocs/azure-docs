@@ -15,7 +15,7 @@ keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
 
 # Quickstart: Build an Azure Kinect body tracking application
 
-Getting started with the Body Tracking SDK? This quickstart will get you up and running with body tracking!
+Getting started with the Body Tracking SDK? This quickstart will get you up and running with body tracking! You can find more examples in this [Azure-Kinect-Sample repo](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples).
 
 ## Prerequisites
 
