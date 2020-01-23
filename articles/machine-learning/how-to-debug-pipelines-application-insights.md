@@ -26,35 +26,71 @@ Having your logs in once place will provide a history of exceptions and error me
 * [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK. We used Visual Studio Code to write the python scripts in this example
   * Follow this [guide](https://code.visualstudio.com/docs/python/python-tutorial) to set up your Visual Studio Code Python environment
   * We recommend creating a virtual environment and [installing new packages](https://code.visualstudio.com/docs/python/python-tutorial#_install-and-use-packages) there
-* Install the [Python OpenCensus package](https://pypi.org/project/opencensus/)
-* Create an [Application Insights instance](../azure-monitor/app/opencensus-python.md)(this doc also contains information on getting the connection string for the resource)
+* Install the [Python opencensus-ext-azure](https://pypi.org/project/opencensus-ext-azure/) package locally:
+  ```python
+  pip install opencensus-ext-azure
+  ```
+* Create an [Application Insights instance](../azure-monitor/app/opencensus-python.md) (this doc also contains information on getting the connection string for the resource)
 
 ## Getting Started
 
-This section is a brief introduction to using OpenCensus specific to Python logging. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+This section is an introduction to using OpenCensus logging in an Azure ML Pipeline. For a detailed OpenCensus tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-After installing the OpenCensus Python library, import the AzureLogHandler class to route logs to Application Insights. You'll also need to import the Python Logging library.
+Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
+
+```python
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import RunConfiguration
+from azureml.pipeline.core import Pipeline
+from azureml.pipeline.steps import PythonScriptStep
+
+# TO-DO: Get workspace and compute
+
+# Add pip dependency on OpenCensus
+dependencies = CondaDependencies()
+dependencies.add_pip_package("opencensus-ext-azure")
+run_config = RunConfiguration(conda_dependencies=dependencies)
+
+# Add environment variable with Application Insights Connection String
+# Replace the value with your own connection string
+run_config.environment.environment_variables = {
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": 'InstrumentationKey=00000000-0000-0000-0000-000000000000'
+}
+
+# Configure step with runconfig
+sample_step = PythonScriptStep(
+        script_name="sample_step.py",
+        compute_target=compute_target,
+        runconfig=run_config
+)
+
+pipeline = Pipeline(workspace=ws, steps=[sample_step])
+pipeline.submit(experiment_name="Logging_Experiment")
+```
+
+Create a file called `sample_step.py`. Import the AzureLogHandler class to route logs to Application Insights. You'll also need to import the Python Logging library.
 
 ```python
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 import logging
 ```
 
-Next, create a Python logger with an AzureLogHandler added. Be sure to set the required `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable or provide the instrumentation key inline.
+Next, add the AzureLogHandler to the python logger.
 
 ```python
 # Use OpenCensus Logging
 
-# If you do not want to use env variable, instantiate handler this way:
-handler = AzureLogHandler(connection_string='<connection string>')
-logger.addHandler(handler)
-
-#   Otherwise, you must set the env variable APPLICATIONINSIGHTS_CONNECTION_STRING
+# Assumes the environment variable APPLICATIONINSIGHTS_CONNECTION_STRING is already set
 try:        
-    logger.addHandler(AzureLogHandler()).
+    logger = logging.getLogger(__name__)
+    logger.addHandler(AzureLogHandler())
+    logger.warning("I will be sent to Application Insights")
+
 except ValueError as ex:
-    logger.warning("Could not find application insights key. Either set the APPLICATIONINSIGHTS_CONNECTION_STRING " \
-        "environment variable or pass in a connection_string to AzureLogHandler.")
+    logger.error("Could not find application insights key. "\
+        "Either set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable " \
+        "or pass in a connection_string to AzureLogHandler.")
+
 ```
 
 ## Logging with Custom Dimensions
@@ -123,6 +159,6 @@ Some of the queries below use 'severityLevel'. For more information on Applicati
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Log results for specific custom dimension, for example 'parent_run_id' | `traces | where customDimensions.['parent_run_id'] == '931024c2-3720-11ea-b247-c49deda841c1'` |
-| Log results for training runs over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions['run_type'] == 'training'`           |
+| Log results for training run over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions['run_type'] == 'training'`           |
 | Log results with severityLevel Error from the last 7 days              | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING'`<br>`traces | where timestamp > ago(7d) and severityLevel == 3`                                     |
 | Count of log results with severityLevel Error over the last 7 days     | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING' | summarize count()`<br>`traces | where timestamp > ago(7d) and severityLevel == 3 | summarize count()`          |
