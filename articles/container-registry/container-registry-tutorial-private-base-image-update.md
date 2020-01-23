@@ -80,7 +80,7 @@ az acr build --registry $BASE_ACR --image baseimages/node:9-alpine --file Docker
 
 Next, create a task in the application image registry with [az acr task create][az-acr-task-create], enabling a [managed identity](container-registry-tasks-authentication-managed-identity.md). The managed identity is used in later steps so that the task authenticates with the base image registry. 
 
-This example uses a system-assigned identity, but you could create and assign a user-assigned managed identity for certain scenarios. For details, see [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md).
+This example uses a system-assigned identity, but you could create and enable a user-assigned managed identity for certain scenarios. For details, see [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md).
 
 ```azurecli-interactive
 az acr task create \
