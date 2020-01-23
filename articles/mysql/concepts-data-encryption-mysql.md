@@ -64,7 +64,7 @@ The following are requirements for configuring Key Vault:
 
 * When you're using a firewall with Key Vault, you must enable the option **Allow trusted Microsoft services to bypass the firewall**.
 
-The following are requirements for configuring the customer key:
+The following are requirements for configuring the customer-managed key:
 
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2028.
 * The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
