@@ -45,6 +45,7 @@ nuget.exe sources Add -Name "ArrPackages" -Source <https://pkgs.dev.azure.com/ar
     "com.unity.render-pipelines.core": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.core",
     "com.unity.render-pipelines.lightweight": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.lightweight",
     "com.unity.shadergraph": "file:../../ScriptableRenderPipeline/com.unity.shadergraph",
+    "com.unity.render-pipelines.universal": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.universal"
     ```
 
     - Once added, Unity will refresh. Confirm the packages have been loaded in the Project Window:
