@@ -535,12 +535,12 @@
         href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
-        - name: Overview
-          href: platform/diagnostics-extension-overview.md
-        - name: Collect logs
-          href: platform/azure-storage-iis-table.md
         - name: Windows 
           items:   
+          - name: Overview
+            href: platform/diagnostics-extension-overview.md
+          - name: Collect logs
+            href: platform/azure-storage-iis-table.md
           - name: Version history
             href: platform/diagnostics-extension-schema.md
           - name: Schema
@@ -571,7 +571,7 @@
             href: ../virtual-machines/extensions/diagnostics-linux.md   
           - name: Custom metrics with Telegraf
             href: platform/collect-custom-metrics-linux-telegraf.md   
-      - name: Log Analytics agents
+      - name: Log Analytics agent
         items:
         - name: Overview
           href: platform/log-analytics-agent.md
@@ -589,6 +589,28 @@
           href: platform/agent-manage.md
         - name: Agent Health
           href: insights/solution-agenthealth.md
+      - name: Data sources
+        items:
+        - name: Overview
+          href: platform/agent-data-sources.md
+        - name: Windows events
+          href: platform/data-sources-windows-events.md
+        - name: Custom JSON data
+          href: platform/data-sources-json.md
+        - name: CollectD performance data
+          href: platform/data-sources-collectd.md
+        - name: Syslog
+          href: platform/data-sources-syslog.md
+        - name: Performance counters
+          href: platform/data-sources-performance-counters.md
+        - name: Linux application performance
+          href: platform/data-sources-linux-applications.md
+        - name: IIS logs
+          href: platform/data-sources-iis-logs.md
+        - name: Custom logs
+          href: platform/data-sources-custom-logs.md
+        - name: Custom fields
+          href: platform/custom-fields.md
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
@@ -600,28 +622,6 @@
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
           href: platform/agent-linux-troubleshoot.md
-    - name: Agent data sources
-      items:
-      - name: Overview
-        href: platform/agent-data-sources.md
-      - name: Windows events
-        href: platform/data-sources-windows-events.md
-      - name: Custom JSON data
-        href: platform/data-sources-json.md
-      - name: CollectD performance data
-        href: platform/data-sources-collectd.md
-      - name: Syslog
-        href: platform/data-sources-syslog.md
-      - name: Performance counters
-        href: platform/data-sources-performance-counters.md
-      - name: Linux application performance
-        href: platform/data-sources-linux-applications.md
-      - name: IIS logs
-        href: platform/data-sources-iis-logs.md
-      - name: Custom logs
-        href: platform/data-sources-custom-logs.md
-      - name: Custom fields
-        href: platform/custom-fields.md
     - name: Azure Monitor for VMs
       items:
       - name: Overview
