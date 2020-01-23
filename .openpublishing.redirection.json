@@ -1767,6 +1767,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/change-feed-hl7-fhir-logic-apps.md",
+      "redirect_url": "/azure/cosmos-db/change-feed",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/spark-api-introduction.md",
       "redirect_url": "/azure/cosmos-db/analytics-usecases",
       "redirect_document_id": false
@@ -11687,6 +11692,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
       "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
       "redirect_document_id": false
@@ -14689,9 +14699,14 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-choice.md",
-      "redirect_url": "/azure/machine-learning/studio/algorithm-choice",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/machine-learning/studio/algorithm-choice.md",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize",
@@ -27974,6 +27989,11 @@
     {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-playbooks.md",
+      "redirect_url": "/azure/security-center/workflow-automation",
       "redirect_document_id": false
     },
     {
@@ -46574,6 +46594,16 @@
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-azure-ad-graph.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-overview",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/backup/backup-azure-files.md",
+        "redirect_url": "/azure/backup/backup-afs",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/load-balancer/load-balancer-arm.md",

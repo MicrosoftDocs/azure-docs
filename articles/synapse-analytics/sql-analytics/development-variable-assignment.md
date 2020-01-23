@@ -1,6 +1,6 @@
 ---
-title: Assign variables
-description: Tips for assigning T-SQL variables in Azure Synapse Analytics for developing solutions.
+title: Assign variables with SQL Analytics
+description: In this article, you'll find tips for assigning T-SQL variables with SQL Analytics.
 services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,20 +11,20 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Assigning variables in Azure SQL analytics
+# Assigning variables with SQL Analytics
 
-Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
+In this article, you'll find tips for assigning T-SQL variables with SQL Analytics.
 
 ## Setting variables with DECLARE
 
-Variables in SQL analytics are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL analytics.
+Variables in SQL Analytics are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Analytics.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-You can also use DECLARE to set more than one variable at a time. You cannot use SELECT or UPDATE to do the following:
+You can also use DECLARE to set more than one variable at a time. You can't use SELECT or UPDATE to do the following:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -32,7 +32,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-You cannot initialize and use a variable in the same DECLARE statement. To illustrate the point, the following example is **not** allowed since @p1 is both initialized and used in the same DECLARE statement. The following example gives an error.
+You can't initialize and use a variable in the same DECLARE statement. To illustrate, the following example isn't allowed since *@p1* is both initialized and used in the same DECLARE statement. The following example gives an error.
 
 ```sql
 DECLARE @p1 int = 0
@@ -57,8 +57,8 @@ You can only set one variable at a time with SET. However, compound operators ar
 
 ## Limitations
 
-You cannot use UPDATE for variable assignment.
+You can't use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](development-overview.md).
+For more development tips, see the [SQL Analytics development overview](development-overview.md) article.
