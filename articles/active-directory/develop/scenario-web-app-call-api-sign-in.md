@@ -16,7 +16,6 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # A web app that calls web APIs: Remove accounts from the token cache on global sign-out
@@ -33,7 +32,7 @@ To clear the token-cache entry associated with the account that signed out, your
 
 For ASP.NET Core, the interception mechanism is illustrated in the `AddMsal()` method of [WebAppServiceCollectionExtensions.cs#L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157).
 
-The **Logout Url** that you previously registered for your application enables you to implement single sign-out. The Microsoft identity platform `logout` endpoint calls your **Logout URL**. This call happens if the sign-out started from your web app, or from another web app or the browser. For more information, see [Single sign-out](v2-protocols-oidc.md#single-sign-out).
+The Logout URL that you previously registered for your application enables you to implement single sign-out. The Microsoft identity platform `logout` endpoint calls your Logout URL. This call happens if the sign-out started from your web app, or from another web app or the browser. For more information, see [Single sign-out](v2-protocols-oidc.md#single-sign-out).
 
 ```csharp
 public static class WebAppServiceCollectionExtensions

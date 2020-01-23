@@ -13,11 +13,11 @@ ms.date: 12/25/2019
 ---
 # Use regression to predict car prices with Azure Machine Learning designer
 
-**Designer sample 1**
+**Designer (preview) sample 1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning regression model without writing a single line of code using the designer.
+Learn how to build a machine learning regression model without writing a single line of code using the designer (preview).
 
 This pipeline trains a **linear regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 

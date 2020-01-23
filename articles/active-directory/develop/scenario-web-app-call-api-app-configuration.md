@@ -16,7 +16,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # A web app that calls web APIs: Code configuration
@@ -125,7 +124,7 @@ public static class Constants
 }
 ```
 
-You've already studied the content of `AddMicrosoftIdentityPlatformAuthentication` in [Web app that signs in users - code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore#initialization-code)
+You've already studied the content of `AddMicrosoftIdentityPlatformAuthentication` in [Web app that signs in users - code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore#initialization-code).
 
 ### The AddMsal method
 
@@ -141,7 +140,7 @@ public static class WebAppServiceCollectionExtensions
   // Code omitted here
 
   /// <summary>
-  /// Add MSAL support to the web app or web API
+  /// Add MSAL support to the web app or web API.
   /// </summary>
   /// <param name="services">Service collection to which to add authentication</param>
   /// <param name="initialScopes">Initial scopes to request at sign-in</param>
@@ -503,7 +502,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 
 > [!IMPORTANT]
 > The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
-> For security and performance reasons, it's important to ensure that for web apps and web APIs there is be one token cache per user account. You must serialize the token cache for each account.
+> For security and performance reasons, it's important to ensure that for web apps and web APIs there is one token cache per user account. You must serialize the token cache for each account.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -515,7 +514,7 @@ The ASP.NET core tutorial uses dependency injection to let you decide the token 
             .AddMsal(new string[] { scopesToRequest })
             .AddDistributedTokenCaches();
 
-// and then choose your implementation.
+// Then, choose your implementation.
 
 // For instance, the distributed in-memory cache (not cleared when you stop the app):
 services.AddDistributedMemoryCache()
@@ -542,7 +541,7 @@ For details about the token-cache providers, see also the [ASP.NET Core Web app 
 
 The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
 
-The web-app implementation can use the ASP.NET session or the server memory. for example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51):
+The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51):
 
 ```csharp
 public static class MsalAppBuilder
@@ -594,7 +593,7 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
 }
 ```
 
-The detail of the `SessionManagementHelper` class is provided in [](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java).
+The detail of the `SessionManagementHelper` class is provided in the [MSAL sample for Java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java).
 
 # [Python](#tab/python)
 

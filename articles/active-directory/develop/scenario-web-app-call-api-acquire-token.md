@@ -16,7 +16,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # A web app that calls web APIs: Acquire a token for the app
@@ -28,7 +27,7 @@ You've built your client application object. Now, you'll use it to acquire a tok
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the web app. Here's the code that calls Microsoft Graph.
+The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the web app. Here's the code that calls Microsoft Graph:
 
 ```csharp
 [Authorize]
@@ -48,7 +47,7 @@ public class HomeController : Controller
 
 The `ITokenAcquisition` service is injected by ASP.NET by using dependency injection.
 
-Here's simplified code for the action of the `HomeController`, which gets a token to call Microsoft Graph.
+Here's simplified code for the action of the `HomeController`, which gets a token to call Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
@@ -66,7 +65,7 @@ public async Task<IActionResult> Profile()
 
 To better understand the code required for this scenario, see the phase 2 ([2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial.
 
-There are many other complex variations, such as:
+There are other complex variations, such as:
 
 - Calling several APIs.
 - Processing incremental consent and conditional access.
@@ -78,7 +77,7 @@ These advanced steps are covered in chapter 3 of the [3-WebApp-multi-APIs](https
 The code for ASP.NET is similar to the code shown for ASP.NET Core:
 
 - A controller action, protected by an [Authorize] attribute, extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller. (ASP.NET uses `HttpContext.User`.)
-- From there, it builds an MSAL.NET `IConfidentialClientApplication`.
+- From there, it builds an MSAL.NET `IConfidentialClientApplication` object.
 - Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
 
 # [Java](#tab/java)
