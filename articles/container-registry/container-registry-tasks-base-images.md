@@ -30,7 +30,7 @@ For image builds from a Dockerfile, an ACR task detects dependencies on base ima
 * A public repo in Docker Hub 
 * A public repo in Microsoft Container Registry
 
-If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
+If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt anytime its base is updated.
 
 ## Additional considerations
 
@@ -46,7 +46,7 @@ If the base image specified in the `FROM` statement resides in one of these loca
 
 * **Stable tag for base image** - To trigger a task on base image update, the base image must have a *stable* tag, such as `node:9-alpine`. This tagging is typical for a base image that is updated with OS and framework patches to a latest stable release. If the base image is updated with a new version tag, it does not trigger a task. For more information about image tagging, see the [best practices guidance](container-registry-image-tag-version.md). 
 
-* **Other task triggers** - In a task triggered by base image updates, you can also enable triggers based on [source code commit](container-registry-tutorial-build-task.md) or [a schedule](container-registry-tasks-scheduled.md). A base image update can also trigger a [multi-step task](container0registry-tasks-multi-step.md).
+* **Other task triggers** - In a task triggered by base image updates, you can also enable triggers based on [source code commit](container-registry-tutorial-build-task.md) or [a schedule](container-registry-tasks-scheduled.md). A base image update can also trigger a [multi-step task](container-registry-tasks-multi-step.md).
 
 ## Next steps
 
