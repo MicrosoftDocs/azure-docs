@@ -255,7 +255,7 @@ Source paths for enrichments are required to be well formed JSON objects, which 
                     "inputs": [
                         {
                             "name": "Entities",
-                            "source": "/document/merged_content/entities/*"
+                            "source": "/document/merged_content/entities/*/name"
                         }
 
                     ]
