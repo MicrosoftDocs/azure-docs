@@ -1,6 +1,6 @@
 ---
 title: Connect to and query SQL Analytics with Visual Studio and SSDT | Microsoft Docs
-description: Use Visual Studio to query the SQL Pool resource within Azure Synapse Analytics.
+description: Use Visual Studio to query SQL Pool using Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use Visual Studio to query the SQL Pool resource within Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
+Use Visual Studio to query SQL pool using Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
 ### Supported tools for SQL on-demand
 Visual studio is not currently supported for SQL on-demand. However, Azure Data Studio is a fully supported tool. SQL Server Management Studio is partially supported from version 18.4 and has limited features such as connecting and querying.
@@ -29,7 +29,7 @@ Visual studio is not currently supported for SQL on-demand. However, Azure Data 
 ## Prerequisites
 To use this tutorial, you need to have the following components:
 
-* An existing SQL Pool. If you do not have one, see [Create a SQL Pool](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) to complete this prerequisite.
+* An existing SQL Pool. If you do not have one, see [Create a SQL Pool](../../sql-data-warehouse/create-data-warehouse-portal.md) to complete this prerequisite.
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 * The fully qualified SQL server name. To find this, see [Connect to SQL Pool](connect-overview.md).
 
