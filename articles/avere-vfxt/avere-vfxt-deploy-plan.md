@@ -4,7 +4,7 @@ description: Explains planning to do before deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
 ---
 
@@ -170,6 +170,6 @@ Two built-in Azure roles are used for the Avere vFXT virtual machines:
 
 If you need to customize access roles for Avere vFXT components, you must define your own role and then assign it to the VMs at the time they are created. You cannot use the deployment template in the Azure Marketplace. Consult Microsoft Customer Service and Support by opening a ticket in the Azure portal as described in [Get help with your system](avere-vfxt-open-ticket.md).
 
-## Next step: Understand the deployment process
+## Next steps
 
 [Deployment overview](avere-vfxt-deploy-overview.md) gives the big-picture view of the steps needed to create an Avere vFXT for Azure system and get it ready to serve data.

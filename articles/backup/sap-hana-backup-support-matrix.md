@@ -34,7 +34,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **HANA deployments**       | SAP HANA on a single Azure VM -  Scale up only               | Scale-out                                                    |
 | **HANA Instances**         | A single SAP HANA instance on a  single Azure VM – scale up only | Multiple SAP HANA instances on a  single VM                  |
 | **HANA database types**    | Single Database Container (SDC)  ON 1.x, Multi-Database Container (MDC) on 2.x | MDC in HANA 1.x                                              |
-| **HANA database size**     | 2-TB full backup size after  compression (M series 2 TB, 4-TB RAM) |                                                              |
+| **HANA database size**     | 2-TB full backup size as reported by HANA) |                                                              |
 | **Backup types**           | Full, Differential, and Log backups                           | Incremental, Snapshots                                       |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Backup limits**          | Up to 2 TB of full backup size per SAP HANA instance  |                                                              |

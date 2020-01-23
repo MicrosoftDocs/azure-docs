@@ -13,7 +13,6 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)
