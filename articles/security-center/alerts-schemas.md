@@ -40,7 +40,8 @@ You can easily view the security alerts events in Activity log by searching for 
 
 ### Sample JSON for an alert sent to Azure Activity Log
 
-```xml
+
+```json
 {
     "channels": "Operation",
     "correlationId": "2518250008431989649_e7313e05-edf4-466d-adfd-35974921aeff",
@@ -98,6 +99,8 @@ You can easily view the security alerts events in Activity log by searching for 
     "relatedEvents": []
 }
 ```
+
+
 ### The data model of the schema
 
 |Field|Description|
@@ -130,7 +133,8 @@ You can easily view the security alerts events in Activity log by searching for 
 
 ### Sample JSON for an alert sent to Workflow Automation or Azure Sentinel
 
-```xml
+
+```json
 {
   "VendorName": "Microsoft",
   "AlertType": "SUSPECT_SVCHOST",
@@ -177,6 +181,8 @@ You can easily view the security alerts events in Activity log by searching for 
 }
 ```
 
+
+
 ### The data model of the schema
 
 |Field|Description|
@@ -216,8 +222,7 @@ You can easily view the security alerts events in Activity log by searching for 
 
 ### Schema for accessing alerts via the REST API
 
-
-```xml
+```json
 {
   "swagger": "2.0",
   "info": {
@@ -963,7 +968,4 @@ You can easily view the security alerts events in Activity log by searching for 
   }
 }
 ```
-
-
-
 --- 
