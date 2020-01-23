@@ -247,7 +247,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$map	|No|
 |$let	|Yes|
 
-### System Variables
+### System variables
 
 |Command  |Supported |
 |---------|---------|
@@ -381,7 +381,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$not	|	Yes|
 |$nor	|	Yes| 
 
-### Element Operators
+### Element operators
 
 |Command  |Supported |
 |---------|---------|
@@ -531,7 +531,7 @@ $polygon |  Yes |
 |cursor.tailable()|	No|
 |cursor.toArray()	|Yes|
 
-## Sort Operations
+## Sort operations
 
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
