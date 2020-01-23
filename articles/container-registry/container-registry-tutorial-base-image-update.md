@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Trigger image build on base image update
-description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated.
+description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated in the same registry.
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 01/22/2020
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want container
 # images to be built automatically when the base image of a container is
@@ -13,7 +13,7 @@ ms.custom: "seodec18, mvc"
 
 ACR Tasks supports automated container image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
 
-In this tutorial, you learn how to create an ACR task that triggers a build in the cloud when a container's base image has been pushed to your registry.
+In this tutorial, you learn how to create an ACR task that triggers a build in the cloud when a container's base image is pushed to the same registry. For an example ACR task that triggers an image build when a base image is pushed to another Azure container registry, see [Automate container image builds when a base image is updated in another Azure container registry](container-registry-private-base-image-update.md). 
 
 In this tutorial:
 
