@@ -27,35 +27,33 @@ When you enable AD for Azure Files over SMB access, your AD domain joined machin
  
 ## Prerequisites 
 
-Before you enable AD Authentication for Azure Files, make sure you have completed the following prerequisites: 
+Before you enable AD authentication for Azure Files, make sure you have completed the following prerequisites: 
 
 - Select or create your AD environment and sync it to Azure AD. 
 
     You can enable the feature on a new or existing AD environment. Identities used for access must be synced to Azure AD. The Azure AD tenant and the file share that you want to access must be associated with the same subscription. 
 
-    To setup an AD domain environment, you can refer to the [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you have not synced your AD to Azure AD, follow the guidance in [What is hybrid identity with Azure Active Directory?](../../active-directory/hybrid/whatis-hybrid-identity.md) to determine your preferred authentication method and Azure AD Connect setup option. 
+    To setup an AD domain environment, refer to [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you have not synced your AD to your Azure AD, follow the guidance in [What is hybrid identity with Azure Active Directory?](../../active-directory/hybrid/whatis-hybrid-identity.md) to determine your preferred authentication method and Azure AD Connect setup option. 
 
 - Domain-join an on-premises machine or Azure VM with AD DS. 
 
-    To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For more information about how to domain-join to AD, see [Join a Computer to a Domain](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
+    To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For more information about how to domain-join to AD, refer to [Join a Computer to a Domain](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
 
 - Select or create an Azure storage account in the France Central region. 
 
     The France Central region is the only region available for this preview feature, so your storage account will need to be using that region to make use of the feature. Also, make sure your storage account is associated with the same subscription as your Azure AD tenant.
 
-    Make sure that the storage account you plan to deploy share to is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS Authentication is enabled on the storage account, it needs to be disabled before changing to use AD DS. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). For optimal performance, we recommend that your file share be in the same region as the VM from which you plan to access the share. 
+    Make sure that the storage account containing your file shares is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS Authentication is enabled on the storage account, it needs to be disabled before changing to use AD. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). For optimal performance, we recommend that your storage account be in the same region as the VM from which you plan to access the share. 
 
-- Verify Azure Files connectivity by mounting Azure file shares using your storage account key. 
+- Verify connectivity by mounting Azure file shares using your storage account key. 
 
     To verify that your device and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
 
- 
-
 ## Workflow overview
 
-Before you enable AD Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all the required steps. This will validate that your AD, Azure AD and Azure Storage environments are properly configured. 
+Before you enable AD Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all required steps. This validates that your AD, Azure AD and Azure Storage environments are properly configured. 
 
-Next, grant access to Azure Files resources with AD credentials by following these steps: 
+Next, grant access to Azure Files resources with AD credentials with the following steps: 
 
 - Enable Azure Files AD authentication on your storage account.  
 
@@ -65,23 +63,23 @@ Next, grant access to Azure Files resources with AD credentials by following the
 
 - Mount an Azure file share from an AD domain joined VM. 
 
-The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files. 
+The following diagram illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure Files. 
 
 ![Files AD workflow diagram](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
 > [!NOTE]
 > AD authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
 
-## Enable AD DS authentication for your account 
+## Enable AD authentication for your account 
 
-To enable AD authentication over SMB for Azure Files, you need to first register your storage account with AD and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end to end workflow in the section below. 
+To enable AD authentication over SMB for Azure Files, you need to first register your storage account with AD and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end-to-end workflow in the section below. 
 
 > [!IMPORTANT]
-> The join-AzStorageAccountForAuth cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
+> The `join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
 
-The `join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) (recommended) or a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures in accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password)
+The `join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) (recommended) or a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password)
 
-You can either use the following script to perform the registration and enable the feature. Alternatively. you can perform the operations that the script would, manually. Those operations are described in the section following the script. You do not need to do both.
+You can use the following script to perform the registration and enable the feature or, alternatively, you can manually perform the operations that the script would. Those operations are described in the section following the script. You do not need to do both.
 
 ### Script prerequisites
 
