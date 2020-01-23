@@ -315,7 +315,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-Place [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`]() parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
+Place [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
 
 ---
 
