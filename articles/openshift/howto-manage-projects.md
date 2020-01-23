@@ -63,7 +63,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 2. Edit the self-provisioners cluster role binding.
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
 3. Remove the role from the ARO update process by adding the following annotation: `openshift.io/reconcile-protect: "true"`.
@@ -79,7 +79,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 4. Change the cluster role binding to prevent `system:authenticated:oauth` from creating projects:
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding

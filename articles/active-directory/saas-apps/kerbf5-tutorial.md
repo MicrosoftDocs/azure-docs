@@ -371,7 +371,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
     >[!Note]
     > You will need the Kerberos Delegation Account to be created and specified. Refer KCD Section (Refer Appendix for Variable References)
 
-    * **Username Source**: session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Username Source**: session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **User Realm Source**: session.logon.last.domain
 

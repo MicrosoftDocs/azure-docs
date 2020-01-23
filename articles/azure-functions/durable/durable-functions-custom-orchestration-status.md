@@ -8,7 +8,7 @@ ms.author: azfuncdf
 
 # Custom orchestration status in Durable Functions (Azure Functions)
 
-Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) or the [`GetStatusAsync` API](durable-functions-instance-management.md#query-instances) on the orchestration client.
 
 ## Sample use cases
 
@@ -19,7 +19,7 @@ Custom orchestration status lets you set a custom status value for your orchestr
 
 Clients can poll the status end point and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +46,9 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
+
+`E1_HelloSequence` orchestrator function:
 
 ```javascript
 const df = require("durable-functions");
@@ -66,15 +68,19 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
+`E1_SayHello` activity function:
+
 ```javascript
 module.exports = async function(context, name) {
     return `Hello ${name}!`;
 };
 ```
 
+---
+
 And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -107,7 +113,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -139,11 +145,13 @@ module.exports = async function(context, req) {
 > [!NOTE]
 > In JavaScript, the `customStatus` field will be set when the next `yield` or `return` action is scheduled.
 
+---
+
 ### Output customization
 
 Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side as shown in the following sample:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -181,7 +189,7 @@ public static void Run(
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -214,11 +222,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 ### Instruction specification
 
 The orchestrator can provide unique instructions to the clients via the custom state. The custom status instructions will be mapped to the steps in the orchestration code:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -246,7 +256,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -273,11 +283,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 ## Sample
 
 In the following sample, the custom status is set first;
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -292,7 +304,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -307,6 +319,8 @@ module.exports = df.orchestrator(function*(context) {
     // ...do more work...
 });
 ```
+
+---
 
 While the orchestration is running, external clients can fetch this custom status:
 

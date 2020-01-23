@@ -1,5 +1,5 @@
 ---
-title: Configure usage settings in classroom labs of Azure Lab Services | Microsoft Docs
+title: Configure usage settings in classroom labs of Azure Lab Services
 description: Learn how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 services: lab-services
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---

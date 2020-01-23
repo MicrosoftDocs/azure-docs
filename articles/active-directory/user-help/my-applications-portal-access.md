@@ -12,7 +12,6 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Access and start apps from the My Apps (preview) portal

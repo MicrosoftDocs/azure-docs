@@ -18,7 +18,6 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure SSO on macOS and iOS
