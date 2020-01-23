@@ -88,7 +88,7 @@ landingContent:
             url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 
   # Card
-  - title: Manual performance tuning capabilities
+  - title: Manual performance tuning
     linkLists:
       - linkListType: overview
         links:
