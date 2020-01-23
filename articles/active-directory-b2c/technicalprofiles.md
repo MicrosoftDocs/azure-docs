@@ -95,6 +95,7 @@ The **TechnicalProfile** contains the following elements:
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. For more information, see [validation technical profile](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controls the production of the subject name in tokens where the subject name is specified separately from claims. For example, OAuth or SAML.  |
+| IncludeInSso | 0:1 |  Whether usage of this technical profile should apply single sign-on (SSO) behavior for the session, or instead require explicit interaction. Possible values: `true` (default), or `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | An identifier of a technical profile from which you want all of the input and output claims to be added to this technical profile. The referenced technical profile must be defined in the same policy file. |
 | IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. The referenced technical profile must exist in the same policy file. |
 | UseTechnicalProfileForSessionManagement | 0:1 | A different technical profile to be used for session management. |
