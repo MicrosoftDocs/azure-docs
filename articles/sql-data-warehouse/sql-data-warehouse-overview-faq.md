@@ -75,7 +75,7 @@ A. See  [data types](sql-data-warehouse-tables-data-types.md).
 
 Q. What table features do you support?
 
-A. Many features are supported. Features that aren't supported ones that aren't supported can be found in [Unsupported Table Features](sql-data-warehouse-tables-data-types.md).
+A. Many features are supported. Features that aren't supported can be found in [Unsupported Table Features](sql-data-warehouse-tables-data-types.md).
 
 ## Tooling and administration
 
@@ -89,7 +89,7 @@ A. Yes. Most REST functionality that can be used with SQL Database is also avail
 
 Q. What client drivers do you support?
 
-A. Driver support for DW can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
+A. Driver support for SQL Analytics can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
 
 Q: What file formats are supported by PolyBase?
 
