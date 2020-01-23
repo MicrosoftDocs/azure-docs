@@ -32,7 +32,7 @@ azds prep --enable-ingress
 ```
 
 > [!TIP]
-> The `prep` command attempts to generate [a Dockerfile and Helm chart](../how-dev-spaces-works.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The `prep` command attempts to generate [a Dockerfile and Helm chart](../how-dev-spaces-works-prep.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 Create a [requirements.yaml][helm-requirements] file with your chart in your application's chart directory. For example, if your application is named *app1*, you would create *charts/app1/requirements.yaml*.
 
