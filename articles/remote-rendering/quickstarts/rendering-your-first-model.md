@@ -14,6 +14,7 @@ ms.service: azure-remote-rendering
 
 This is a tutorial describing the steps to configure a workstation to work with Azure Remote Rendering (ARR) and render your first model using the ARR service.
 
+
 You will learn how to:
 - set up your local development environment
 - get and build the Unity example app
