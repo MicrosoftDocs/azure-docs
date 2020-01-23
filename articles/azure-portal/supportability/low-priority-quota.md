@@ -3,7 +3,7 @@ title: Spot virtual machine quota - Azure
 description: Increase quota limits for spot VMs, which provide a model of Azure usage that lets you assume lower costs in exchange for letting Azure remove VMs as needed.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 11/19/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
