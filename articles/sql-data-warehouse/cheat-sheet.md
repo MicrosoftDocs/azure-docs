@@ -40,11 +40,7 @@ First, load your data into [Azure Data Lake Storage](../data-factory/connector-a
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-<<<<<<< HEAD
 Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](../synapse-analytics/sql-analytics/data-loading-overview.md), and the [Extract, Load, and Transform (ELT) process](../synapse-analytics/sql-analytics/data-loading-overview.md). 
-=======
-Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](design-elt-data-loading.md). 
->>>>>>> 0dbf6831b04522a39192ab26fa9d81e8b425d93a
 
 ## Distributed or replicated tables
 
@@ -107,11 +103,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](sq
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-<<<<<<< HEAD
 Learn more about [statistics](../synapse-analytics/sql-analytics/development-tables-statistics.md).
-=======
-Learn more about [statistics](sql-data-warehouse-tables-statistics.md).
->>>>>>> 0dbf6831b04522a39192ab26fa9d81e8b425d93a
 
 ## Resource class
 Resource groups are used as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.
