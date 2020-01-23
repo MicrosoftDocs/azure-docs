@@ -21,7 +21,7 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-In this quickstart, you create and manage a document database from your Azure Cosmos DB SQL API account, both from the Azure portal, and by using a Java app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you create and manage an Azure Cosmos DB SQL API account, both from the Azure portal, and by using a Java app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
@@ -53,11 +53,11 @@ Before you can create a document database, you need to create a SQL API account 
 
 Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
-    ```
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
+```
 
 ## Review the code
 

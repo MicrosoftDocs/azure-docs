@@ -20,7 +20,7 @@ ms.author: dech
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-In this quickstart, you create and manage a document database from your Azure Cosmos DB SQL API account, both from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you create and manage a Azure Cosmos DB SQL API account, both from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ Now go back to the Azure portal to get the connection string details of your Azu
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. In Open the `config.js` file. 
+2. In Open the *config.js* file. 
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in *config.js*. 
 
