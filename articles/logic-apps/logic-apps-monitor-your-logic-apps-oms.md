@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/31/2020
 ---
 
 # Set up diagnostic logging for Azure Logic Apps by using Azure Monitor logs
@@ -49,7 +49,7 @@ You can turn on Log Analytics when you create your logic app.
 
 If you turned on Log Analytics when you created your logic app, skip this step. You already have the Logic Apps Management solution installed.
 
-1. In the [Azure portal](https://portal.azure.com)'s search box, find and select "log analytics workspaces", and select **Log Analytics workspaces**.
+1. In the [Azure portal](https://portal.azure.com)'s search box, enter `log analytics workspaces`, and then select **Log Analytics workspaces**.
 
    ![Select "Log Analytics workspaces"](./media/logic-apps-monitor-your-logic-apps-oms/find-select-log-analytics-workspaces.png)
 
