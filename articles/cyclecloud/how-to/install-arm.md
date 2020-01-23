@@ -1,14 +1,14 @@
 ---
-title: Quickstart - Install using ARM template
-description: Use this quickstart to learn how to run CycleCloud using an ARM template
-author: KimliW
-ms.date: 08/01/2018
+title: Install CycleCloud using ARM template
+description: How to install CycleCloud using an ARM template
+author: adriankjohnson
+ms.date: 01/22/2020
 ms.author: adjohnso
 ---
 
-# Quickstart - Install CycleCloud using an ARM template
+# Running CycleCloud using an ARM template
 
-Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this quickstart, you will install CycleCloud on Azure resources, using an Azure Resource Manager (ARM) template that is stored on GitHub. The ARM template:
+Azure CycleCloud can be installed on Azure resources using an Azure Resource Manager (ARM) template that is stored on GitHub. The ARM template handles the majority of the CycleCloud setup. The ARM template:
 
 1. Deploys a virtual network with three separate subnets:
   * *cycle*: The subnet in which the CycleCloud server is started in
@@ -16,11 +16,11 @@ Azure CycleCloud is a free application that provides a simple, secure, and scala
   * *user*: The subnet for creating user logins
 2. Provisions a VM in the *cycle* subnet and installs Azure CycleCloud on it.
 
-For the purposes of this quickstart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation](installation.md) documentation.
+The recommended method of installing CycleCloud is via the CycleCloud Marketplace Image. Please follow the [CycleCloud Marketplace Installation Quickstart](../qs-install-marketplace.md). CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](../qs-install-manual.md).
 
 ## Prerequisites
 
-For this quickstart, you will need:
+You will need:
 
 1. An Azure account with an active subscription.
 2. A Shell session in a terminal.
@@ -29,10 +29,6 @@ For this quickstart, you will need:
 
 [!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
 
-> [!NOTE]
-> The "Try It" button opens a Cloud Shell in your current browser window. It does not enter the command for you. You will need to click the "Copy" button to save to your clipboard, then paste the command into your Shell.
-
-Select **Bash** as the shell type. If you are prompted to create storage, the default option is fine.
 
 ### Service Principal
 
@@ -123,7 +119,9 @@ The Azure CycleCloud End User License Agreement will be displayed - click to acc
 
 Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
 
-That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template.
+You should now have a running CycleCloud application that allows you to create and run clusters.
 
-> [!div class="nextstepaction"]
-> [Continue to Quickstart 2](quickstart-create-and-run-cluster.md)
+## Further Reading
+* [Run CycleCloud using a Marketplace VM](../qs-install-marketplace.md)
+* [Install CycleCloud manually](../qs-install-manual.md)
+* [Explore CycleCloud features with the tutorial](../tutorials/create-cluster.md)

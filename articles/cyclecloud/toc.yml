@@ -10,8 +10,6 @@
     href: qs-install-marketplace.md
   - name: Install - manually
     href: qs-install-manual.md
-  - name: Install - using ARM template
-    href: qs-install-arm.md
 - name: Tutorials
   items:
   - name: 1. Create a Cluster
@@ -58,6 +56,8 @@
       href: ./how-to/install-cyclecloud-cli.md
     - name: Run in a Container Instance
       href: ./how-to/run-in-container.md
+    - name: Run CycleCloud using ARM Template
+      href: ./how-to/install-arm.md
     - name: Prepare Your Azure Subscription
       href: ./how-to/configuration.md
     - name: Use Service Principals with CycleCloud
