@@ -143,11 +143,13 @@ After your logic app runs, you can view the status and count for those runs on t
 
    ![View logic app runs and status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   In the **Tracked properties** column, you can also view any tracked properties that you set up for the logic app. To view these tracked properties, select **View**. To search the tracked properties, use the column filter.
+   For actions where you [set up tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
 
       ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-      Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+      > [!NOTE]
+      > When a logic app is still running, tracked properties or completed events might 
+      > might experience delays before appearing in your log analytics workspace.
 
 1. To filter your results, you can perform both client-side and server-side filtering.
 
