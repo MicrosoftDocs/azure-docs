@@ -7,12 +7,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 01/17/2020
+ms.date: 01/23/2020
 ---
 # Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 
 
 > [!NOTE]
 > The tutorial presented is in **public preview**. 
+>
+> We use SQL Server 2017 with RHEL 7.6 in this tutorial, but it is possible to use SQL Server 2019 in RHEL 8 to configure HA. The commands to configure availability group resources has changed in RHEL 8, and you'll want to look at the article, [Create availability group resource](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) and RHEL 8 resources for more information on the correct commands.
 
 In this tutorial, you learn how to:
 
@@ -34,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-## Create a Resource Group and a VNet
+## Create a Resource Group
 
 If you have more than one subscription, [set the subscription](/cli/azure/manage-azure-subscriptions-azure-cli) that you want deploy these resources to.
 
@@ -149,6 +151,8 @@ You should get the following results once the command completes:
     done
     ```
 
+The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](https://docs.microsoft.com/en-us/cli/azure/vm) article.
+
 You should get results similar to the following once the command completes for each VM:
 
 ```output
@@ -191,7 +195,7 @@ Type `exit` to leave the SSH session.
 > [!IMPORTANT]
 > In order to complete this portion of the tutorial, you must have a subscription for RHEL and the High Availability Add-on. If you are using an image recommended in the previous section, you do not have to register another subscription.
  
-Connect to each VM node and follow the guide to [enable the high availability subscription for RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
+Connect to each VM node and follow the guide below to enable HA. For more information, see [enable high availability subscription for RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
 
 > [!TIP]
 > It will be easier if you open an SSH session to each of the VMs simultaneously as the same commands will need to be run on each VM throughout the article.
@@ -317,12 +321,17 @@ In this section, we will enable and start the pcsd service, and then configure t
 
 ## Configure the fencing agent
 
-A STONITH device provides a fencing agent. Follow the guide to [create a STONITH device](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device) for this cluster in Azure. The below instructions are modified for this tutorial.
+A STONITH device provides a fencing agent. The below instructions are modified for this tutorial. For more information, see [create a STONITH device](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device).
  
-[Check the version of the Azure Fence Agent to ensure that it's updated](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation).
+[Check the version of the Azure Fence Agent to ensure that it's updated](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation). Use the following command:
 
 ```bash
-[<username>@<VM1> ~]$  sudo yum info fence-agents-azure-arm
+sudo yum info fence-agents-azure-arm
+```
+
+You should see a similar output to the below example.
+
+```output
 Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
 Installed Packages
 Name        : fence-agents-azure-arm
@@ -341,8 +350,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### Register a new application in Azure Active Directory
  
  1. Go to https://portal.azure.com
- 2. Open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
-Go to Properties and write down the Directory ID. This is the `tenant ID`
+ 2. Open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Go to Properties and write down the Directory ID. This is the `tenant ID`
  3. Click [**App registrations**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Click **New registration**
  5. Enter a **Name** like `<resourceGroupName>-app`, select **Accounts in this organization directory only**
@@ -354,7 +362,7 @@ Go to Properties and write down the Directory ID. This is the `tenant ID`
  
 ### Create a custom role for the fence agent
 
-Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md).
+Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Your json file should look similar to the following:
 
@@ -445,10 +453,10 @@ sudo pcs property set stonith-timeout=900
 sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" passwd="<servicePrincipalPassword>" resourceGroup="<resourceGroupName>" tenantId="<tenantID>" subscriptionId="<subscriptionId>" power_timeout=240 pcmk_reboot_timeout=900
 ```
 
-Open the following firewall ports on all nodes 2224, 3121, 21064, 5405:
+Since we already added a rule to our firewall to allow the HA service (`--add-service=high-availability`), there's no need to open the following firewall ports on all nodes: 2224, 3121, 21064, 5405. However, if you are experiencing any type of connection issues with HA, use the following command to open these ports that are associated with HA.
 
 > [!TIP]
-> You can optionally add all ports in this tutorial at once to save some time. The ports that need to be opened are explained in their relative sections below. If you would like to add all ports now, add the following ports in addition to 1433: 5022, 2224, 3121, 21064, 5405.
+> You can optionally add all ports in this tutorial at once to save some time. The ports that need to be opened are explained in their relative sections below. If you would like to add all ports now, add the additional ports: 1433 and 5022.
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=2224/tcp --add-port=3121/tcp --add-port=21064/tcp --add-port=5405/tcp --permanent
@@ -457,7 +465,7 @@ sudo firewall-cmd --reload
 
 ## Install SQL Server and mssql-tools
  
-Follow the guide to [install SQL Server on the Red Hat VM](/sql/linux/quickstart-install-connect-red-hat). Perform each of these actions on all nodes.
+Use the below section to install SQL Server and mssql-tools on the VMs. Perform each of these actions on all nodes. For more information, see [install SQL Server a Red Hat VM](/sql/linux/quickstart-install-connect-red-hat).
 
 ### Installing SQL Server on the VMs
 
@@ -481,9 +489,7 @@ sudo firewall-cmd --reload
 
 ### Installing SQL Server command-line tools
 
-Follow the guide to [install the SQL Server command-line tools](/sql/linux/quickstart-install-connect-red-hat#tools).
-
-The following commands are used to install SQL Server command-line tools:
+The following commands are used to install SQL Server command-line tools. For more information, see [install the SQL Server command-line tools](/sql/linux/quickstart-install-connect-red-hat#tools).
 
 ```bash
 sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo
@@ -534,21 +540,29 @@ sudo systemctl restart mssql-server
 ### Create a certificate
 
 We currently don't support AD authentication to the AG endpoint. Therefore, we must use a certificate for AG endpoint encryption.
- 
-1. Connect to the primary replica using SQL Server Management Studio (SSMS) or SQL CMD. 
+
+1. Connect to **all nodes** using SQL Server Management Studio (SSMS) or SQL CMD. Run the following commands to enable AlwaysOn_health session and create a master key:
 
     > [!IMPORTANT]
     > If you are connecting remotely to your SQL Server instance, you will need to have port 1433 open on your firewall. You'll also need to allow inbound connections to port 1433 in your NSG for each VM. For more information, see [Create a security rule](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) for creating an inbound security rule.
 
-1. The below commands will create a certificate at `/var/opt/mssql/data/dbm_certificate.cer` and a private key at `var/opt/mssql/data/dbm_certificate.pvk` on your primary SQL Server replica:
+    - Replace the `<Master_Key_Password>` with your own password.
 
-    - Replace the `<Master_Key_Password>` and `<Private_Key_Password>` with your own passwords.
+
+    ```sql
+    ALTER EVENT SESSION  AlwaysOn_health ON SERVER WITH (STARTUP_STATE=ON);
+    GO
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Master_Key_Password>';
+    ```
+
+ 
+1. Connect to the primary replica using SSMS or SQL CMD. The below commands will create a certificate at `/var/opt/mssql/data/dbm_certificate.cer` and a private key at `var/opt/mssql/data/dbm_certificate.pvk` on your primary SQL Server replica:
+
+    - Replace the `<Private_Key_Password>` with your own password.
 
 ```sql
-ALTER EVENT SESSION  AlwaysOn_health ON SERVER WITH (STARTUP_STATE=ON);
-GO
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Master_Key_Password>';
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+GO
 BACKUP CERTIFICATE dbm_certificate
    TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
    WITH PRIVATE KEY (
@@ -568,8 +582,11 @@ Exit the SQL CMD session by running the `exit` command, and return back to your 
     - Replace `<username>` and `<VM2>` with the user name and target VM name that you are using.
     - Run this command for all secondary replicas.
 
+    > [!NOTE]
+    > You don't have to run `sudo -i`, which gives you the root environment. You could just run the `sudo` command in front of each command as we previously did in this tutorial.
+
     ```bash
-    # The below command allows you to run commands as the root user
+    # The below command allows you to run commands in the root environment
     sudo -i
     ```
 
@@ -591,10 +608,9 @@ Exit the SQL CMD session by running the `exit` command, and return back to your 
     chown mssql:mssql dbm_certificate.*
     ```
 
-1. The following Transact-SQL script creates a master key and a certificate from the backup that you created on the primary SQL Server replica. Update the script with strong passwords. The decryption password is the same password that you used to create the .pvk file in the previous step. To create the certificate, run the following script using SQL CMD or SSMS on all secondary servers:
+1. The following Transact-SQL script creates a certificate from the backup that you created on the primary SQL Server replica. Update the script with strong passwords. The decryption password is the same password that you used to create the .pvk file in the previous step. To create the certificate, run the following script using SQL CMD or SSMS on all secondary servers:
 
     ```sql
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Master_Key_Password>';
     CREATE CERTIFICATE dbm_certificate
         FROM FILE = '/var/opt/mssql/data/dbm_certificate.cer'
         WITH PRIVATE KEY (
@@ -615,6 +631,8 @@ CREATE ENDPOINT [Hadr_endpoint]
     AUTHENTICATION = CERTIFICATE dbm_certificate,
 ENCRYPTION = REQUIRED ALGORITHM AES
 );
+GO
+
 ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
 ```
 
@@ -650,7 +668,8 @@ CREATE AVAILABILITY GROUP [ag1]
             FAILOVER_MODE = EXTERNAL,
             SEEDING_MODE = AUTOMATIC
             );
- 
+GO
+
 ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
 ```
 
@@ -663,23 +682,34 @@ On all SQL Servers, create a SQL login for Pacemaker. The following Transact-SQL
 ```sql
 USE [master]
 GO
-CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>'
- 
-ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin]
+CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>';
+GO
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 ```
 
-On all SQL Servers, save the credentials used for the SQL Server login.
+On all SQL Servers, save the credentials used for the SQL Server login. 
 
-```bash
-sudo vi /var/opt/mssql/secrets/passwd
+1. Create the file:
 
-# Add the following 2 lines to the file
-pacemakerLogin
-<password>
+    ```bash
+    sudo vi /var/opt/mssql/secrets/passwd
+    ```
 
-sudo chown root:root /var/opt/mssql/secrets/passwd
-sudo chmod 400 /var/opt/mssql/secrets/passwd # Makes it only readable by root
-```
+1. Add the following 2 lines to the file:
+
+    ```bash
+    pacemakerLogin
+    <password>
+    ```
+
+    To exit the **vi** editor, first hit the **Esc** key, and then enter the command `:wq` to write the file and quit.
+
+1. Make the file only readable by root:
+
+    ```bash
+    sudo chown root:root /var/opt/mssql/secrets/passwd
+    sudo chmod 400 /var/opt/mssql/secrets/passwd
+    ```
 
 ### Join secondary replicas to the availability group
 
@@ -694,15 +724,18 @@ sudo chmod 400 /var/opt/mssql/secrets/passwd # Makes it only readable by root
 
     ```sql
     ALTER AVAILABILITY GROUP [ag1] JOIN WITH (CLUSTER_TYPE = EXTERNAL);
-     
+    GO
+
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
     ```
 
 1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
 
     ```sql
-    GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin
-    GRANT VIEW SERVER STATE TO pacemakerLogin
+    GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
+    GO
+    
+    GRANT VIEW SERVER STATE TO pacemakerLogin;
     ```
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
@@ -711,15 +744,20 @@ sudo chmod 400 /var/opt/mssql/secrets/passwd # Makes it only readable by root
 
 ### Add a database to the availability group
 
-Follow the [configure availability group article on adding a database](/sql/linux/sql-server-linux-availability-group-configure-ha#add-a-database-to-the-availability-group).
+We will follow the [configure availability group article on adding a database](/sql/linux/sql-server-linux-availability-group-configure-ha#add-a-database-to-the-availability-group).
 
-The following Transact-SQL commands are used in this step. These commands are run on the primary replica:
+The following Transact-SQL commands are used in this step. Run these commands on the primary replica:
 
 ```sql
 CREATE DATABASE [db1]; -- creates a database named db1
+GO
+
 ALTER DATABASE [db1] SET RECOVERY FULL; -- set the database in full recovery mode
+GO
+
 BACKUP DATABASE [db1] -- backs up the database to disk
    TO DISK = N'/var/opt/mssql/data/db1.bak';
+GO
 
 ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to the AG
 ```
