@@ -12,7 +12,6 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Edit or revoke application permissions in the My Apps (preview) portal
