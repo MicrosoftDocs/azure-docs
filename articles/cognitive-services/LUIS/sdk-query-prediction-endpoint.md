@@ -10,7 +10,7 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/17/2020
 ms.author: diberry
-zone_pivot_groups: programming-languages-set-eight
+zone_pivot_groups: programming-languages-set-six
 ---
 
 # Quickstart: Query V3 prediction endpoint with SDK
@@ -26,7 +26,7 @@ Use the SDK, to send a user utterance to Language Understanding (LUIS) and recei
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get prediction with Node.js SDK](../includes/sdk-nodejs-prediction.md)]
+[!INCLUDE [Get prediction with Node.js SDK](./includes/sdk-nodejs-prediction.md)]
 ::: zone-end
 
 
