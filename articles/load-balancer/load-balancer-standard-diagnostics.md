@@ -22,7 +22,7 @@ Azure Standard Load Balancer exposes the following diagnostic capabilities:
 
 * **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for Standard Load Balancer. 
 
-This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer.
+This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer. 
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
@@ -56,7 +56,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api).
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
