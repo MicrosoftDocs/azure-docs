@@ -33,7 +33,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-If the provider shows as *NotRegistered*, register the provider using the `az provider register` as shown in the following example:
+If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -242,3 +242,4 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
