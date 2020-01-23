@@ -17,7 +17,7 @@ Azure Maps is a portfolio of geospatial service APIs that are natively integrate
 
 The Azure Maps REST APIs can be called from languages such as Python and R to enable geospatial data analysis and machine learning scenarios. Azure Maps offers a robust set of [routing APIs](https://docs.microsoft.com/rest/api/maps/route) that allow users to calculate routes between several data points. The calculations are based on various conditions, such as vehicle type or reachable area. 
 
-In this tutorial, you walk through a scenario to help a driver whose electric vehicle battery charge is low to find the closest possible charging station, based on the drive time from the vehicle's location.
+In this tutorial, you walk help a driver whose electric vehicle battery is low. The driver needs to find the closest possible charging station from the vehicle's location.
 
 In this tutorial, you will:
 
@@ -34,7 +34,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
 
-To create an Azure Maps account subscription in the S1 pricing tier, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier. 
+To create an Azure Maps account subscription, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps). You need an Azure Maps account subscription with the S1 price tier. 
 
 To get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
@@ -59,7 +59,7 @@ To follow along with this tutorial, you need to create an Azure notebook project
 
 1. Select **Create**.
 
-1. After your project is created, download the [Jupyter notebook document file](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) from the [Azure Maps Jupyter notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
+1. After your project is created, download this [Jupyter notebook document file](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) from the [Azure Maps Jupyter notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
 
 1. In the projects list on the **My Projects** page, select your project, and then select **Upload** to upload the Jupyter notebook document file. 
 
@@ -67,7 +67,7 @@ To follow along with this tutorial, you need to create an Azure notebook project
 
 1. Upload the file from your computer, and then select **Done**.
 
-1. After the upload has finished successfully, your file is displayed on your project page. Select the file to open it as a Jupyter notebook.
+1. After the upload has finished successfully, your file is displayed on your project page. Double-click on the file to open it as a Jupyter notebook.
 
 To help you better understand the functionality that's implemented in the notebook file, we recommend that you run the code in the notebook one cell at a time. You can run the code in each cell by selecting the **Run** button at the top of the notebook app.
 
@@ -90,7 +90,7 @@ To run the code in the notebook, install packages at the project level by doing 
 
 ## Load the required modules and frameworks
 
-To load all the required modules and frameworks, run the following script:
+To load all the required modules and frameworks, run the following script inside the Python interpreter. The Python interpreter inside Azure Notebooks can be accessed from the terminal icon inside your project. Once the terminal starts, type "python" to enter the Python interpreter. Notice "python" is typed in all lower-cased letters. The python version inside the interpreter must be version 3.5.3 or higher, aiohttp  is only compatible with Python 3.5.3 or higher.
 
 ```python
 import time
@@ -98,6 +98,7 @@ import aiohttp
 import urllib.parse
 from IPython.display import Image, display
 ```
+After your run the script, enter "Ctrl" and "Z" together, to leave the Python interpreter and go back to the console.
 
 ## Request the reachable range boundary
 
