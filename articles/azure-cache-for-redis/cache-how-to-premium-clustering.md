@@ -49,6 +49,8 @@ Once the cache is created you connect to it and use it just like a non-clustered
 
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
+<a name="cluster-size"></a>
+
 ## Change the cluster size on a running premium cache
 To change the cluster size on a running premium cache with clustering enabled, click **Cluster Size** from the **Resource menu**.
 
