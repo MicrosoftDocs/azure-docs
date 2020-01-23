@@ -1,14 +1,14 @@
 ---
 title: Predictive maintenance for aerospace with Azure - Team Data Science Process
-description: Architecture diagram of the Microsoft Cortana Intelligence Solution Template for predictive maintenance in aerospace, utilities, transportation
+description: Predictive maintenance architecture diagram of the Microsoft Cortana Intelligence Solution Template -- for aerospace, utilities, transportation
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ---

@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 01/23/2020
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -21,6 +21,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
+* verificationKeys
 
 ## Microsoft.BotService
 
@@ -77,6 +78,7 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.GuestConfiguration
 
+* autoManagedVmConfigurationProfiles
 * configurationProfileAssignments
 * guestConfigurationAssignments
 * software
@@ -173,6 +175,10 @@ For some resource types, you need to contact support to have the 800 instance li
 * apiManagementAccounts/apis
 * sites
 
+## microsoft.insights
+
+* metricalerts
+
 ## Next steps
 
-For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
