@@ -26,18 +26,17 @@ landingContent:
         links:
           - text: Monitoring and performance tuning
             url: sql-database-monitor-tune-overview.md
-    linkLists:
-      - linkListType: video
+      - linkListType: learn
         links:
           - text: Microsoft Azure Database Monitoring Playbook
             url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
 
   # Card (optional)
-  - title: Intelligent performance tuning capabilities
+  - title: Getting started
     linkLists:
       - linkListType: overview
         links: 
-          - text: Using artifical intelligence in the Azure portal to tune performance
+          - text: Using artificial intelligence in the Azure portal to tune performance
             url: sql-database-performance.md
       - linkListType: concept
         links:
