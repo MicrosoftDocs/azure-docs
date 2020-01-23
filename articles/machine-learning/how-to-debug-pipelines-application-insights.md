@@ -153,11 +153,11 @@ The result in Application Insights will show the log message and level, file pat
 
 ## Additional helpful queries
 
-Some of the queries below use 'severityLevel'. For more information on Application Insights severity levels, see this [reference](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.severitylevel?view=azure-dotnet). These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language). You can also query on `customDimensions.Level`, which is included as an option in the table below.
+Some of the queries below use 'customDimensions.Level'. These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Log results for specific custom dimension, for example 'parent_run_id' | `traces | where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1'` |
-| Log results for training runs over the last 7 days                     | `traces | where timestamp > ago(7d) and customDimensions.run_type == 'training'`           |
-| Log results with severityLevel Error from the last 7 days              | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING'`<br>`traces | where timestamp > ago(7d) and severityLevel == 3`                                     |
-| Count of log results with severityLevel Error over the last 7 days     | `traces | where timestamp > ago(7d) and customDimensions.Level == 'WARNING' | summarize count()`<br>`traces | where timestamp > ago(7d) and severityLevel == 3 | summarize count()`          |
+| Log results for specific custom dimension, for example 'parent_run_id' | <pre>traces \| <br>where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1</pre> |
+| Log results for training runs over the last 7 days                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
+| Log results with severityLevel Error from the last 7 days              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
+| Count of log results with severityLevel Error over the last 7 days     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
