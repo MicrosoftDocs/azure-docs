@@ -16,7 +16,7 @@ This article describes how to move your Service Fabric Mesh application and its 
 
 ## Prerequisites
 
-* Ingress controller (such as [Application Gateway](../application-gateway)) to serve as an intermediary for routing traffic between clients and your Service Fabric Mesh application
+* Ingress controller (such as [Application Gateway](../application-gateway/index.md) to serve as an intermediary for routing traffic between clients and your Service Fabric Mesh application
 * Service Fabric Mesh (Preview) availability in the target Azure region (`westus`, `eastus`, or `westeurope`)
 
 ## Prepare
