@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # Introduction to the Azure Cosmos DB Cassandra API
 
-Azure Cosmos DB Cassandra API can be used as the data store for apps written for [Apache Cassandra](https://cassandra.apache.org/). This means that by using existing [Apache drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) compliant with CQLv4, your existing Cassandra application can now communicate with the Azure Cosmos DB Cassandra API. In many cases, you can switch from using Apache Cassandra to using Azure Cosmos DB 's Cassandra API, by just changing a connection string. 
+Azure Cosmos DB Cassandra API can be used as the data store for apps written for [Apache Cassandra](http://cassandra.apache.org). This means that by using existing [Apache drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) compliant with CQLv4, your existing Cassandra application can now communicate with the Azure Cosmos DB Cassandra API. In many cases, you can switch from using Apache Cassandra to using Azure Cosmos DB 's Cassandra API, by just changing a connection string. 
 
 The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language (CQL) , Cassandra-based tools (like cqlsh) and Cassandra client drivers that you’re already familiar with.
 

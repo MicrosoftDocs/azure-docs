@@ -49,7 +49,7 @@ The Consumption plan is the default hosting plan and offers the following benefi
 * Pay only when your functions are running
 * Scale out automatically, even during periods of high load
 
-Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
+Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same Consumption plan has no impact on resilience, scalability, or reliability of each app.
 
 To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
@@ -64,14 +64,14 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 * More predictable pricing
 * High-density app allocation for plans with multiple function apps
 
-Information on how you can configure these options can be found in the [Azure Functions premium plan document](functions-premium-plan.md).
+Information on how you can configure these options can be found in the [Azure Functions Premium plan document](functions-premium-plan.md).
 
 Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there is a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
-Consider the Azure Functions premium plan in the following situations:
+Consider the Azure Functions Premium plan in the following situations:
 
 * Your function apps run continuously, or nearly continuously.
-* You have a high number of small executions and have a high execution bill but low GB second bill in the consumption plan.
+* You have a high number of small executions and have a high execution bill but low GB second bill in the Consumption plan.
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on a Premium plan, such as virtual network connectivity.
@@ -132,7 +132,7 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 ## How the consumption and premium plans work
 
-In the consumption and premium plans, the Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the consumption plan is limited to 1.5 GB of memory and one CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same consumption plan are scaled independently.  In the premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
+In the Consumption and Premium plans, the Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the Consumption plan is limited to 1.5 GB of memory and one CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same Consumption plan are scaled independently.  In the Premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 

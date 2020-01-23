@@ -1,0 +1,95 @@
+### YamlMime:Landing
+
+title: Get started with Azure Billing
+summary: Learn about how to get started with Azure Billing by reviewing your bill and viewing cost and usage information.
+metadata:
+  title: Get started with Azure Billing
+  description: Get started with Azure Billing
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Review individual accounts
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your individual account bill
+        url: review-individual-bill.md
+    - linkListType: concept
+      links:
+      - text: Usage terms explained
+        url: understand-usage.md
+      - text: Invoice terms explained
+        url: understand-invoice.md
+    - linkListType: how-to-guide
+      links:
+        - text: View and download your Azure invoice
+          url: download-azure-invoice.md
+        - text: View and download your Azure usage and charges
+          url: download-azure-daily-usage.md
+        - text: View external service charges
+          url: understand-azure-marketplace-charges.md
+
+  # Card (optional)
+  - title: Review Microsoft Customer Agreement accounts
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your Microsoft Customer Agreement bill
+        url: review-customer-agreement-bill.md
+    - linkListType: concept
+      links:
+      - text: Billing accounts for Microsoft Customer Agreement
+        url: mca-overview.md
+      - text: Microsoft Customer Agreement usage terms
+        url: mca-understand-your-usage.md
+      - text: Microsoft Customer Agreement invoice terms
+        url: mca-understand-your-invoice.md
+    - linkListType: how-to-guide
+      links:
+      - text: View and download Azure invoice
+        url: download-azure-invoice.md
+      - text: View and download Azure usage and charges
+        url: download-azure-daily-usage.md
+      - text: View and download tax documents
+        url: mca-download-tax-document.md
+      - text: View external service charges
+        url: understand-azure-marketplace-charges.md
+      - text: Pay your Microsoft Customer Agreement bill
+        url: pay-bill.md
+
+  # Card (optional)
+  - title: Review Microsoft Partner Agreement accounts
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your Microsoft Partner Agreement bill
+        url: review-partner-agreement-bill.md
+    - linkListType: concept
+      links:
+      - text: Billing accounts for Microsoft Partner Agreement
+        url: mpa-overview.md
+      - text: Microsoft Customer Agreement invoice terms
+        url: mpa-invoice-terms.md
+
+  # Card (optional)
+  - title: Review Enterprise Agreement accounts
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your Enterprise Agreement bill
+        url: review-enterprise-agreement-bill.md
+    - linkListType: concept
+      links:
+      - text: Get started in the Azure EA portal
+        url: ../manage/ea-portal-get-started.md

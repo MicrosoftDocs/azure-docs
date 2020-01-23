@@ -3,7 +3,7 @@ title: Quickstart - Use symmetric key to provision simulated device to Azure IoT
 description: In this quickstart you will use the C device SDK to create a simulated device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 01/14/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -47,6 +47,8 @@ The SDK includes the sample code for a simulated device. This simulated device w
 1. Download the [CMake build system](https://cmake.org/download/).
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+
+    Older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use a newer version of CMake.
 
 2. Click **Tags** and find the tag name for the latest release on the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -132,6 +134,8 @@ In this section, update the sample code to send the device's boot sequence to yo
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
+
+    If the file was not generated in your cmake directory, make sure you used a recent version of the CMake build system.
 
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 

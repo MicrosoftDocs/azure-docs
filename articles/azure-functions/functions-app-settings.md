@@ -136,7 +136,7 @@ The language worker runtime to load in the function app.  This will correspond t
 
 ## WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-For consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
+For Consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -144,7 +144,7 @@ For consumption & Premium plans only. Connection string for storage account wher
 
 ## WEBSITE\_CONTENTSHARE
 
-For consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
+For Consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|

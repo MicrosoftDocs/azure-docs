@@ -27,9 +27,11 @@
     href: visualize-power-bi.md  
 - name: Concepts
   items:
-  - name: Data ingestion overview
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
+  - name: Data ingestion
+    items:  
+    - name: Data ingestion overview
+      displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
+      href: ingest-data-overview.md
   - name: Data visualization overview
     href: viz-overview.md
   - name: Security overview
@@ -84,18 +86,20 @@
       href: ingest-data-one-click.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
+    - name: Using SDKs
+      items: 
+      - name: Python
+        href: python-ingest-data.md
+      - name: Node SDK
+        href: node-ingest-data.md
+      - name: .NET Standard SDK
+        href: net-standard-ingest-data.md
     - name: Kafka
       href: ingest-data-kafka.md
-    - name: Python
-      href: python-ingest-data.md
-    - name: Node SDK
-      href: node-ingest-data.md
-    - name: .NET Standard SDK
-      href: net-standard-ingest-data.md
     - name: Logstash
       href: ingest-data-logstash.md
-    - name: Copy data using Azure Data Factory
-      href: data-factory-load-data.md   
+    - name: json formatted data
+      href: ingest-json-formats.md  
   - name: Query data
     items:
     - name: Write queries
@@ -204,6 +208,8 @@
       items:
       - name: Integration with Data Factory 
         href: data-factory-integration.md 
+      - name: Copy data using Azure Data Factory
+        href: data-factory-load-data.md  
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory

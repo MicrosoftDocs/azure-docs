@@ -54,7 +54,7 @@ Two sample prediction problems are addressed in this walkthrough:
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
-1. [Create a storage account](../../storage/common/storage-quickstart-create-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+1. [Create a storage account](../../storage/common/storage-account-create.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 2. [Customize Azure HDInsight Hadoop Clusters for Data Science](customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
    * You must link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.

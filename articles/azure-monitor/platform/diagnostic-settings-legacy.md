@@ -24,7 +24,7 @@ Using diagnostic settings has the following advantages over the current methods:
 - Filter collection to only collect logs for particular categories.
 - Collect all Activity log categories. Some categories are not collected using legacy method.
 - Faster latency for log ingestion. The previous method has about 15 minutes latency while diagnostic settings adds only about 1 minute.
-  
+
 ### Considerations
 Consider the following details of Activity log collection using diagnostic settings before enabling this feature.
 
@@ -40,7 +40,7 @@ The following properties have been removed:
 - ActivityStatus
 - ActivitySubstatus
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 The following properties have been added:
 
@@ -53,10 +53,10 @@ Legacy settings for collecting the Activity log will continue to work if you don
 
 1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
 3. Click **Diagnostic settings**.
-   
+
    ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. Click the purple banner for the legacy experience. 
+
+4. Click the purple banner for the legacy experience.
 
     ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -80,7 +80,7 @@ You should disable existing collection of the Activity before enabling it using 
 ### Disable log profile
 
 1. Use the procedure described in [Work with legacy settings](#work-with-legacy-settings) to open legacy settings.
-2. Disable any current collection to storage or event hubs. 
+2. Disable any current collection to storage or event hubs.
 
 
 
@@ -89,5 +89,5 @@ The Azure Log Analytics monitoring solution includes multiple log queries and vi
 
 ## Next steps
 
-* [Learn more about the Activity Log](../../azure-resource-manager/resource-group-audit.md)
+* [Learn more about the Activity Log](../../azure-resource-manager/management/view-activity-logs.md)
 * [Learn more about diagnostic settings](diagnostic-settings.md)

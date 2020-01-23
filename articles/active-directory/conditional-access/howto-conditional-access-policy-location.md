@@ -22,12 +22,12 @@ With the location condition in Conditional Access, you can control access to you
 ## Define locations
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
 1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
    1. Provide the **IP ranges** or select the **Countries/Regions** for the location you are specifying.
-      * If you chose Countries/Regions, you can optionally choose to include unknown areas.
+      * If you choose Countries/Regions, you can optionally choose to include unknown areas.
 1. Choose **Save**
 
 More information about the location condition in Conditional Access can be found in the article, 

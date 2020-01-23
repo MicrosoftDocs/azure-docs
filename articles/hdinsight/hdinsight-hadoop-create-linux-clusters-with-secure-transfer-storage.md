@@ -7,26 +7,28 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
+ms.date: 01/22/2020
 ---
 
 # Create Apache Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
 The [Secure transfer required](../storage/common/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer.
 
+**Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster with the property enabled.**
+
 ## Prerequisites
 
 Before you begin this article, you must have:
 
 * Azure subscription: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* An Azure Storage account with secure transfer enabled. For the instructions, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md). Enabling secure storage transfer after creating a cluster requires additional steps not covered in this article.
+* An Azure Storage account with secure transfer enabled. For the instructions, see [Create a storage account](../storage/common/storage-account-create.md) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md). 
 * A Blob container on the storage account.
 
 ## Create cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Resource Manager template experience isn't required for following this article. For other cluster creation methods and understanding the properties used in this article, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md). The template is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Resource Manager template experience isn't required for following this article. For other cluster creation methods and understanding the properties used in this article, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal.
 

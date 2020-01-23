@@ -78,7 +78,7 @@ To get the login server address, use the [az acr list][az-acr-list] command and 
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Now, tag your local *azure-vote-front* image with the *acrloginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
+Now, tag your local *azure-vote-front* image with the *acrLoginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1

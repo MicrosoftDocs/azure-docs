@@ -1,11 +1,11 @@
 ---
 title: Set up a staging environment in Azure Spring Cloud | Microsoft Docs
 description: Learn how to use blue-green deployment with Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 
