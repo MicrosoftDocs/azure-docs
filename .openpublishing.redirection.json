@@ -46629,6 +46629,16 @@
       "source_path": "articles/healthcare-apis/tutorial-3-connect-to-endpoint.md",
       "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-1-decision-flow.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-app-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/overview-open-source-server.md",
+      "redirect_url": "/azure/healthcare-apis/overview",
+      "redirect_document_id": false
     }
   ]
 }

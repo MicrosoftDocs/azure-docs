@@ -15,7 +15,6 @@ ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to learn how to implement Microsoft sign-in with an ASP.NET solution with a browser-based app using the OpenID Connect standard.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
