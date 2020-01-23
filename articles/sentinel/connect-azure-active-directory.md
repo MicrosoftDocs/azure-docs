@@ -1,5 +1,5 @@
 ---
-title: Connect Azure AD data to Azure Sentinel | Microsoft Docs
+title: Connect Azure Active Directory data to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Azure Active Directory data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -26,25 +26,25 @@ Azure Sentinel enables you to collect data from [Azure Active Directory](../acti
 
 ## Prerequisites
 
-- If you want to export sign-in data from Active Directory, you must have an Azure AD P1 or P2 license.
+- If you want to export sign-in data from Azure Active Directory, you must have an Azure AD P1 or P2 license.
 
 - User with global admin or security admin permissions on the tenant you want to stream the logs from.
 
-- To be able to see the connection status, you must have permission to access Azure AD diagnostic logs. 
+- To be able to see the connection status, you must have permission to access Azure Active Directory diagnostic logs. 
 
 
-## Connect to Azure AD
+## Connect to Azure Active Directory
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Azure Active Directory** tile.
 
 1. Click **Open Connector Page**. Next to the logs you want to stream into Azure Sentinel, click **Connect**.
 
-1. To use the relevant schema in Log Analytics for the Azure AD alerts, search for **SigninLogs** and **AuditLogs**.
+1. To use the relevant schema in Log Analytics for the Azure Activity Directory alerts, search for **SigninLogs** and **AuditLogs**.
 
 
 
 
 ## Next steps
-In this document, you learned how to connect Azure AD to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Azure Active Directory to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
