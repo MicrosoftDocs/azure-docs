@@ -108,5 +108,6 @@ When the user's access package assignment expires, is canceled by the user, or r
 
 ## Next steps
 
+- [Archive reports and Logs](entitlement-management-logs-and-reporting.md)
 - [Troubleshoot Azure AD entitlement management](entitlement-management-troubleshoot.md)
 - [Common scenarios](entitlement-management-scenarios.md)
