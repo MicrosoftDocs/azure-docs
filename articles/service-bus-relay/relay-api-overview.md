@@ -1,6 +1,6 @@
 ---
 title: Azure Relay API overview | Microsoft Docs
-description: Overview of available Azure Relay APIs
+description: This article provides an overview of available Azure Relay APIs (.NET Standard, .NET Framework, Node.js, etc.)
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 01/21/2020
 ms.author: spelluru
 ---
 

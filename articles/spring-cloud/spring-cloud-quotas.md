@@ -1,12 +1,11 @@
 ---
 title:  Service plans and quotas for Azure Spring Cloud
 description: Learn about service quotas and service plans for Azure Spring Cloud
-author:  jpconnock
-
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 # Quotas and Service Plans for Azure Spring Cloud
 

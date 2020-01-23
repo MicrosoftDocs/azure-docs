@@ -8,21 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/16/2020
 ms.author: jhakulin
 ---
 
 # Configure OpenSSL for Linux
 
-OpenSSL is dynamically configured to the host-system version when using any Speech SDK release version prior to 1.9.0.
-
-Starting at the Speech SDK version 1.9.0 and onwards, OpenSSL (version 1.1.1b) is statically linked to the Speech SDK core library.
+When using any Speech SDK version before 1.9.0, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. In later versions of the Speech SDK, OpenSSL (version [1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)) is statically linked to the core library of the Speech SDK.
 
 ## Troubleshoot connectivity
 
-In case of connection failures with 1.9.0 release, please check that OpenSSL `ssl/certs` directory exists in `/usr/lib` directory under the Linux system. If `ssl/certs` does not exist, please check where OpenSSL is installed in your system (using `which openssl` command), and locate openssl `certs`directory and copy the content of that directory into `/usr/lib/ssl/certs` directory.
+If there are connection failures when using the 1.9.0 release of the Speech SDK, ensure that the `ssl/certs` directory exists in `/usr/lib` directory - which is found in the Linux file system. If the `ssl/certs` directory *doesn't exist*, check where OpenSSL is installed in your system, using the following command:
+
+```bash
+which openssl
+```
+
+Then, locate the OpenSSL `certs` directory, and copy the contents of that directory into `/usr/lib/ssl/certs` directory. Next, try again to see if connectivity issues have been resolved.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Check the general overview about the Speech SDK capabilities and supported platforms](speech-sdk.md)
+> [About the Speech SDK](speech-sdk.md)

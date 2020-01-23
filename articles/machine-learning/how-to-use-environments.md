@@ -244,6 +244,10 @@ Additionally, the service automatically uses one of the Ubuntu Linux-based [base
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
+# Alternatively, you can specify the contents of dockerfile of your base image
+with open("docker_file_of_your_base_image", "r") as f:
+    dockerfile_contents_of_your_base_image=f.read()
+myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
 ```
 
 > [!NOTE]
@@ -337,7 +341,15 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## Use the CLI to create and manage environments
+## Example notebooks
+
+This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
+
+[Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
+
+This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) demonstrates how to deploy a Spark model as a Web service.
+
+## Create and manage environments with the CLI
 
 The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate basic functionality.
 
