@@ -40,7 +40,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 ## Release notes
 
 ### <a name="2.4.6"/>2.4.6
-* Updated correct replica policy tag on database account and made databaseAccount configuration reads from cache.
+* Updated correct client side replica policy tag on databaseAccount and made databaseAccount configuration reads from cache.
 
 ### <a name="2.4.5"/>2.4.5
 * Avoiding retry on invalid partition key range error, if user provides pkRangeId.
