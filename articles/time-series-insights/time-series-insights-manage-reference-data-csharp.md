@@ -166,8 +166,8 @@ namespace CsharpTsiMsalGaSample
              if (response.IsSuccessStatusCode)
              {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                var r = JsonConvert.DeserializeObject<object>(jsonString);
-                Console.WriteLine("HTTP JSON Response Body: {0}", r);
+                var jsonStringTransferObject = JsonConvert.DeserializeObject<object>(jsonString);
+                Console.WriteLine("HTTP JSON Response Body: {0}", jsonStringTransferObject);
                 Console.WriteLine("");
                 return response;
              }
