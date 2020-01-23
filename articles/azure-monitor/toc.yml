@@ -14,11 +14,11 @@
     href: learn/quick-monitor-azure-resource.md
   - name: Monitor virtual machines
     items:
-    - name: Collect - Azure VMs
+    - name: Azure VMs
       href: learn/quick-collect-azurevm.md
-    - name: Collect - Linux computer
+    - name: Linux computer
       href: learn/quick-collect-linux-computer.md
-    - name: Collect - Windows computer
+    - name: Windows computer
       href: learn/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
