@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Cloud apps or actions
 
-Cloud apps or actions is a key signal in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions. 
+Cloud apps or actions are a key signal in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
@@ -123,6 +123,5 @@ User actions are tasks that can be performed by a user. The only currently suppo
 
 - [Conditional Access: Conditions](concept-conditional-access-conditions.md)
 
-- [Conditional Access policy components](concept-conditional-access-policies.md)
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Client application dependencies](service-dependencies.md)
-- [Microsoft Intune: Require MFA for device enrollment](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)

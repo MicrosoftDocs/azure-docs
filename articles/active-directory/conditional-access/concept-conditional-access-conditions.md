@@ -79,4 +79,6 @@ For example, *All users* accessing the *Microsoft Azure Management* cloud app in
 
 ## Next steps
 
+- [Conditional Access: Grant]
 
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
