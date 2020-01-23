@@ -27,7 +27,7 @@
     href: visualize-power-bi.md  
 - name: Concepts
   items:
-  - name: Data Ingestion
+  - name: Data ingestion
     items:  
     - name: Data ingestion overview
       displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
