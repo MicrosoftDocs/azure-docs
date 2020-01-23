@@ -174,6 +174,12 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 }
 ```
 
+If you get a "503 service unavailable exception" error, it's possible that the required ports for the connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+
+```csharp
+tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
+```
+
 ## Define the entity 
 
 Entities map to C# objects by using a custom class derived from [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). To add an entity to a table, create a class that defines the properties of your entity.

@@ -30,7 +30,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 * Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or Azure Machine Learning studio.
 
 > [!IMPORTANT]
-> The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detatched or deleted, you will no longer be able to deploy to the cluster.
+> The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detached or deleted, you will no longer be able to deploy to the cluster.
 
 ## Prerequisites
 
