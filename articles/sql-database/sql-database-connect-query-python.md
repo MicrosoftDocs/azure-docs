@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Python to query an Azure SQL database'
+title: Use Python to query an Azure SQL database
 description: This topic shows you how to use Python to create a program that connects to an Azure SQL database and query it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
@@ -14,15 +14,13 @@ ms.date: 03/25/2019
 ---
 # Quickstart: Use Python to query an Azure SQL database
 
-This article demonstrates how to use Python to connect to an Azure SQL database and use T-SQL statements to query data.
+In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this sample, make sure you have the following:
+- an Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-
-- Azure SQL database - [create and configure a database](sql-database-single-database-get-started.md)
+- an [Azure SQL database](sql-database-single-database-get-started.md)
 
   > [!IMPORTANT]
   > The scripts in this article are written to use the **Adventure Works** database.
@@ -34,7 +32,7 @@ To complete this sample, make sure you have the following:
   >
   > To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
   
-- [Python](https://python.org) and related software
+- [Python](https://python.org/downloads) 3 and related software
 
   # [macOS](#tab/macos)
 

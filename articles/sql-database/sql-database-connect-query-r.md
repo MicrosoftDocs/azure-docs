@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use R with Machine Learning Services to query an Azure SQL database (preview)"
+title: Use R with Machine Learning Services to query an Azure SQL database (preview)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: This article shows you how to use an R script with Azure SQL Database Machine Learning Services to connect to an Azure SQL database and query it using Transact-SQL statements.
 services: sql-database
@@ -16,17 +16,15 @@ ms.date: 05/29/2019
 ---
 # Quickstart: Use R with Machine Learning Services to query an Azure SQL database (preview)
 
-This article demonstrates how to use R with Machine Learning Services to connect to an Azure SQL database and use T-SQL statements to query data.
+In this quickstart, you use R with Machine Learning Services to connect to an Azure SQL database and use T-SQL statements to query data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
-To complete the sample, make sure you have the following:
+- an Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-
-- Azure SQL database - [create and configure an Azure SQL database](sql-database-single-database-get-started.md)
+- an [Azure SQL database](sql-database-single-database-get-started.md)
 
   > [!IMPORTANT]
   > The scripts in this article are written to use the **Adventure Works** database.
