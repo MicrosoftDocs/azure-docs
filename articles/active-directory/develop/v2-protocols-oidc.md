@@ -18,7 +18,6 @@ ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and OpenID Connect protocol

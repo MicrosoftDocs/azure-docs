@@ -13,7 +13,6 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Provide optional claims to your Azure AD app

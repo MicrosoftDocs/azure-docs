@@ -67,7 +67,7 @@ Follow these steps.
 
  Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by calling FarmBeats APIs. Please note you will need to call the APIs as the client app that you created in the above section
 
- FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata.
+ FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata. Please note that as a partner you have access to only read, create and update the metadata; **Delete is not allowed by a partner.**
 
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
 - /**Device**: Device corresponds to a physical device present on the farm.
@@ -376,6 +376,41 @@ Here's an example of a telemetry message:
       ]
     }
   ]
+}
+```
+
+## Troubleshooting
+
+### Can't view telemetry data after ingesting historical/streaming data from your sensors
+
+**Symptom**: Devices or sensors are deployed, and you've created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
+
+**Corrective action**:
+
+1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, please follow the [steps here](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+2. Ensure that you have created the metadata (DeviceModel, Device, SensorModel, Sensor) using the partner client credentials.
+3. Ensure that you have used the correct Telemetry message format (as specified below):
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 
