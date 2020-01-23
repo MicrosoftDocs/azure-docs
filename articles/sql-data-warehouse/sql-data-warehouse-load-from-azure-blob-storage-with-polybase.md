@@ -24,7 +24,7 @@ In this tutorial you will:
 3. Perform optimizations after the load is finished.
 
 ## Before you begin
-To run this tutorial, you need an Azure account that already has a SQ Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a SQL data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
+To run this tutorial, you need an Azure account that already has a SQ Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
 
 ## 1. Configure the data source
 PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in your SQL Analytics data warehouse. The data is stored externally.
@@ -68,7 +68,7 @@ WITH (
 ```
 
 ### 1.2. Create the external data source
-Use this [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) command to store the location of the data, and the type of data. 
+Use this [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) command to store the location of the data, and the data type. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -85,7 +85,7 @@ WITH
 > 
 
 ## 2. Configure data format
-The data is stored in text files in Azure blob storage, and each field is separated with a delimiter. In SSMS, run the following [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx) command to specify the format of the data in the text files. The Contoso data is uncompressed and pipe delimited.
+The data is stored in text files in Azure blob storage, and each field is separated with a delimiter. In SSMS, run the following CREATE EXTERNAL FILE FORMAT command to specify the format of the data in the text files. The Contoso data is uncompressed and pipe delimited.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -209,7 +209,7 @@ GO
 ```
 
 ### 4.2. Load the data into new tables
-To load data from Azure blob storage into the data warehouse table, use the [CREATE TABLE AS SELECT (Transact-SQL)](https://msdn.microsoft.com/library/mt204041.aspx) statement. Loading with [CTAS](sql-data-warehouse-develop-ctas.md) leverages the strongly typed external tables you've created. To load the data into new tables, use one CTAS statement per table. 
+To load data from Azure blob storage into the data warehouse table, use the [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) statement. Loading with [CTAS](sql-data-warehouse-develop-ctas.md) leverages the strongly typed external tables you've created. To load the data into new tables, use one CTAS statement per table. 
  
 CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.
 
@@ -338,4 +338,4 @@ GROUP BY p.[BrandName]
 
 ## Next steps
 To load the full data set, run the example [load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
-For more development tips, see [SQL data warehouse development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [ Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).

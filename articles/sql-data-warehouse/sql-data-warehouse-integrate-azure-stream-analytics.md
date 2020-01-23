@@ -13,10 +13,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Use Azure Stream Analytics with SQL Data Warehouse
+# Use Azure Stream Analytics with Azure Synapse Analytics
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md). You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics](../stream-analytics/stream-analytics-real-time-fraud-detection.md) tutorial.
 
-In this article, you will learn how to use your Azure SQL Data Warehouse database as an output sink for your Stream Analytics jobs.
+In this article, you will learn how to use your data warehouse database as an output sink for your Stream Analytics jobs.
 
 ## Prerequisites
 First, run through the following steps in the [Get started using Azure Stream Analytics](../stream-analytics/stream-analytics-real-time-fraud-detection.md) tutorial.  
@@ -59,6 +59,6 @@ Click the check button to add this job output and to verify that Stream Analytic
 When the connection to the database succeeds, you will see a notification in the portal. You can click Test to test the connection to the database.
 
 ## Next steps
-For an overview of integration, see [SQL Data Warehouse integration overview](sql-data-warehouse-overview-integrate.md).
-For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).
+For more development tips, see [ Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
 
