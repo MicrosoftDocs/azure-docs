@@ -13,7 +13,6 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources

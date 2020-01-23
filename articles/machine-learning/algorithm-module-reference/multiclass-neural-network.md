@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Multiclass Neural Network module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a neural network model that can be used to predict a target that has multiple values. 
 

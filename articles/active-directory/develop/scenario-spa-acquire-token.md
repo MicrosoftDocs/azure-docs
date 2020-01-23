@@ -16,7 +16,6 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Single-page application: Acquire a token to call an API
