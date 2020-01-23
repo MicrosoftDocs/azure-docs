@@ -66,14 +66,13 @@ The following URLs are required in addition to the Service Tag IP address range 
 |*-agentservice-prod-1.azure-automation.net|Guest Configuration|
 |*.his.hybridcompute.azure-automation.net|Hybrid Identity Service|
 
-## Installing the agent 
+## Installing the agent
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
 
-| Method | Description | 
+| Method | Description |
 |--------|-------------|
 | Interactively | Manually install the agent on a single or small number of machines following the [Portal Quickstart](quickstart-onboard-portal.md).<br> From the Azure portal you can generate a script and execute it on the machine to automate the install and configuration steps.|
 | At scale | Install and configure the agent for multiple machines following the [PowerShell Quickstart](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
- 
- ## Next steps
 
+## Next steps
