@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 01/23/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
@@ -84,7 +84,7 @@ There are two methods you can use to register the connector:
         /// <summary>
         /// The reply address of the connector application in AAD
         /// </summary>
-        static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
+        static readonly Uri ConnectorRedirectAddress = new Uri("https://login.microsoftonline.com/common/oauth2/nativeclient");
 
         /// <summary>
         /// The AppIdUri of the registration service in AAD
@@ -137,7 +137,7 @@ There are two methods you can use to register the connector:
         [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
         
         # The reply address of the connector application in AAD
-        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob" 
+        [uri]$ConnectorRedirectAddress = "https://login.microsoftonline.com/common/oauth2/nativeclient" 
         
         # The AppIdUri of the registration service in AAD
         [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"
