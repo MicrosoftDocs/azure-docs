@@ -1,4 +1,3 @@
-file:///Users/larryobrien/Documents/src/AzureDocs/azure-docs-pr/articles/machine-learning/how-to-manage-rest.md {"mtime":1578512330548,"ctime":1578511816918,"size":6283,"etag":"34elljb926gl","orphaned":false}
 ---
 title: Use REST to manage ML resources  
 description: How to use REST APIs to create, run, and delete Azure ML resources 
@@ -12,6 +11,9 @@ ms.date: 01/31/2020
 ---
 
 TODO:s/119ec674-a66c-4b3b-8514-57cb582c4c8c/your-subscription-id/
+TODO: s/laobri-rest/example-rest/
+TODO: Reference is https://docs.microsoft.com/rest/api/azureml/
+TODO: According to ^ its OAuth2 implicit
 
 # Create, run, and delete Azure ML resources using REST
 
@@ -27,7 +29,8 @@ In this article, you learn how to:
 > * Retrieve an authorization token
 > * Create a properly-formatted REST request using service principal authentication
 > * Use GET requests to retrieve information about Azure ML's hierarchical resources
-> * Use POST requests to create resources, run training experiments and pipelines, and score against deployed models
+> * Use PUT and POST requests to create and modify resources
+> * Use tk authorization and score against deployed models
 > * Use DELETE requests to clean up resources 
 
 
@@ -172,6 +175,213 @@ Again you'll receive a JSON list, this time containing a list, each item of whic
     }
 }
 ```
+
+To work with resources within a workspace, you will need to switch from the general **management.azure.com** server to a REST API server specific to the location of the workspace. Note the value of the `discoveryUrl` key in the above JSON response. If you GET that URL, you'll receive a response along the lines of:
+
+```json
+{
+  "api": "https://centralus.api.azureml.ms",
+  "catalog": "https://catalog.cortanaanalytics.com",
+  "experimentation": "https://centralus.experiments.azureml.net",
+  "gallery": "https://gallery.cortanaintelligence.com/project",
+  "history": "https://centralus.experiments.azureml.net",
+  "hyperdrive": "https://centralus.experiments.azureml.net",
+  "labeling": "https://centralus.experiments.azureml.net",
+  "modelmanagement": "https://centralus.modelmanagement.azureml.net",
+  "pipelines": "https://centralus.aether.ms",
+  "studiocoreservices": "https://centralus.studioservice.azureml.com"
+}
+```
+
+The value of the `api` response is the URL of the server that you will use for additional requests. To list experiments, for instance, send the following. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
+
+```bash
+curl https://regional-api-server/history/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
+providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/experiments?api-version=2019-11-01 \
+-H "Authorization: Bearer your-access-token"
+```
+
+Similarly, to retrieve registered models in your workspace, send:
+
+```bash
+curl https://regional-api-server/modelmanagement/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
+providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/models?api-version=2019-11-01 \
+-H "Authorization: Bearer your-access-token"
+```
+
+Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. The API Reference docs at the links below list the operations, parameters, and response codes for the various operations.
+
+|Area|Path|Reference|
+|-|-|-|
+|Artifacts|artifact/v2.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Data stores|datastore/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/datastores)|
+|Hyperparameter tuning|hyperdrive/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
+|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodel)|
+|Run history|execution/v1.0/ and history/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/runs)|
+
+You can explore the REST API using the general pattern of:
+
+|_|Example|
+| https://| |
+| regional-api-server/ | centralus.experiments.azureml.net/ |
+| operations-path/ | history/v1.0/ |
+| subscriptions/your-subscription-id/ | subscriptions/d2128fd5-c6c5-402a-8ffb-052d91a0a6aa/ |
+| resourceGroups/your-resource-group/ | resourceGroups/MLProjectRG/ |
+| providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
+| provider-resource-path | workspaces/MLWorkspace/experiments/FirstExperiment/runs/1/ |
+| operations-endpoint/ | artifacts/metadata/ |
+
+The details of 
+
+## Create and modify resources using PUT and POST requests
+
+In addition to resource retrieval with the GET verb, the REST API supports the creation of many resources. Commonly, you'll want to create training runs, tune hyperparameters, register a trained model, and deploy it. All of these steps can be achieved with the REST API. 
+
+Training and running ML models require compute resources. You can list the compute resources of a workspace with: 
+
+
+```bash
+curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
+providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/computes?api-version=2019-11-01 \
+-H "Authorization: Bearer your-access-token"
+```
+
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. The following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/computes/your-compute-name?api-version=2019-11-01' \
+  -H 'Authorization: Bearer your-access-token' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "your-azure-location",
+    "properties": {
+        "computeType": "AmlCompute",
+        "properties": {
+            "vmSize": "Standard_D1",
+            "vmPriority": "Dedicated",
+            "scaleSettings": {
+                "maxNodeCount": 1,
+                "minNodeCount": 0,
+                "nodeIdleTimeBeforeScaleDown": "PT30M"
+            }
+        }
+    },
+    "userAccountCredentials": {
+        "adminUserName": "admin",
+        "adminUserPassword": "stairway_seam_retiring_caveman"
+    }
+}'
+```
+
+> [!Note]
+> In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
+
+A successful request will get a `201 Created` response, but note that this simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm the completion. 
+
+To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python such as the following into a folder called **train.zip**. 
+
+```python
+# hello.py
+# Entry file for run
+print("Hello, REST!")
+```
+
+Save the following as **definition.json**. Confirm the "Script" value matches the name of the Python file you just zipped up. Confirm the "Target" value matches the name of an available compute resource. 
+
+```json
+{
+    "Configuration":{  
+       "Script":"hello.py",
+       "Arguments":[  
+          "234"
+       ],
+       "SourceDirectoryDataStore":null,
+       "Framework":"Python",
+       "Communicator":"None",
+       "Target":"cpu-compute",
+       "MaxRunDurationSeconds":1200,
+       "NodeCount":1,
+       "Environment":{  
+          "Python":{  
+             "InterpreterPath":"python",
+             "UserManagedDependencies":false,
+             "CondaDependencies":{  
+                "name":"project_environment",
+                "dependencies":[  
+                   "python=3.6.2",
+                   {  
+                      "pip":[  
+                         "azureml-defaults"
+                      ]
+                   }
+                ]
+             }
+          },
+          "Docker":{  
+             "BaseImage":"mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
+          }
+      },
+       "History":{  
+          "OutputCollection":true
+       }
+    }
+}
+```
+
+Post these files to the server using `multipart/form-data` content:
+
+```bash
+curl https://regional-api-server/execution/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace/experiments/your-experiment-name/startrun?api-version=2019-11-01 \
+  -X POST \
+  -H "Content-Type: multipart/form-data" \
+  -H "Authorization: Bearer your-access-token" \
+  -F projectZipFile=@train.zip \
+  -F runDefinitionFile=@runDefinition.json
+```
+
+A successful POST request will generate a `200 OK` status, with a response body containing the identifier of the created run:
+
+```json
+{
+  "runId": "my-first-experiment_1579642222877"
+}
+```
+
+You can monitor a run using the REST-ful pattern that should now be familiar:
+
+```bash
+curl 'https://regional-api-server/history/v1.0/subscriptions/your-subscription/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace/experiments/your-experiment/runs/your-run-id?api-version=2019-11-01' \
+  -H 'Authorization: Bearer your-access-token' 
+```
+
+After training, but before deployment, you will want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
+
+~~You may have a model that you have trained entirely outside of Azure. You can register such a model by ~~
+
+To register the outputs of a run as a model, 
+
+tk Well, all the business of registering a model seems problematic. So skip to: 
+
+Some, but not all, resources support the DELETE verb. Check the [API Reference](https://docs.microsoft.com/rest/api/azureml/) prior to committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
+
+```bash
+curl
+  -X DELETE \
+'https://regional-api-server/modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models/{id}' \
+  -H 'Authorization: Bearer your-access-token' 
+```
+
+## Using REST on a deployed model
+
+While it's possible to deploy a model so that it authenticates with a service principal, most client-facing deployments use key-based authentication. To authent
+
+## Deploy a model 
+The REST API also supports updating many resources. For instance, 
+
+
+## tk 
+
 Deployed ML Web services use token-based authentication. 
 
 
