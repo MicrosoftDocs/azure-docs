@@ -24,15 +24,17 @@ To complete this sample, make sure you have the following:
 
 - Azure SQL database - [create and configure a database](sql-database-single-database-get-started.md)
 
-  > [!NOTE]
-  > You can also use an Azure SQL managed instance, though this optional, see [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) to create a managed instance.
-  >
-  > You will need to configure the managed instance with [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity, and to load data to the managed instance using [restore with BACPAC](sql-database-import.md) and the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md).
-
   > [!IMPORTANT]
   > The scripts in this article are written to use the **Adventure Works** database.
+
+  > [!NOTE]
+  > You can optionally choose to use an Azure SQL managed instance.
+  >
+  > To create a managed instance, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+  >
+  > To configure a managed instance, use [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity, and load data using [restore with BACPAC](sql-database-import.md) and the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
   
-- [Python](https://python.org) and related software - see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
+- [Python](https://python.org) and related software - see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), and the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/) and [sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
 
   # [macOS](#tab/macos)
 
