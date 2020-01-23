@@ -54,7 +54,9 @@ For more information on assigning role permissions, see [Assign administrator an
 
 ## Using Microsoft Graph API
 
-    //Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups 
+### Create a group that can be assigned Azure AD role
+
+    POST https://graph.microsoft.com/beta/groups 
     { 
     "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.", 
     "displayName": "Contoso_Helpdesk_Administrators", 
@@ -66,10 +68,14 @@ For more information on assigning role permissions, see [Assign administrator an
     "mailNickname": "contosohelpdeskadministrators", 
     "isAssignableToRole": true, 
     } 
-    
-    //Get the role definition. GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’ 
-    
-    //Create the role assignment. POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments 
+
+### Get the role definition
+
+    GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’ 
+
+### Create the role assignment
+
+    POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments 
     { 
     "principalId":"<Object Id of Group>", 
     "roleDefinitionId":"<Id of role definition>", 
