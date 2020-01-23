@@ -9,7 +9,7 @@ ms.date: 1/23/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ---
-# Use Azure Active Directory Authentication for authentication with SQL
+# Use Azure Active Directory Authentication for authentication with SQL Analytics
 
 Azure Active Directory authentication is a mechanism of connecting to Azure [Synapse Analytics](../overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
 
@@ -32,8 +32,6 @@ The configuration steps include the following procedures to configure and use Az
 2. Create an Azure Active Directory identity
 3. Assign role to created Azure Active Directory identity in Azure Synapse Analytics workspace
 4. Connect to Synapse Studio by using Azure AD identities.
-
-# SQL Analytics
 
 ## AAD pass-through in Azure Synapse Analytics
 
