@@ -1,6 +1,6 @@
 ---
-title: Request an increase in Azure regional vCPU quota limits | Microsoft Docs
-description: Regional quota increase requests
+title: Request an increase in Azure regional vCPU quota limits
+description: How to request an increase in the vCPU quota limit for a region in the Azure portal.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
@@ -31,7 +31,7 @@ To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../.
 
 To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
 
-You can request an increase in your vCPU standard quota limit by region in either of two ways, as described in the next sections.
+You can request an increase in your vCPU standard quota limit by region in either of two ways.
 
 ## Request a quota increase by region from Help + support
 
@@ -39,23 +39,23 @@ To request a vCPU quota increase by region from **Help + support**:
 
 1. From the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 
-   ![The "Help + support" link](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![The "Help + support" link](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
 1. In **Help + support**, select **New support request**.
 
-    ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![New support request](./media/resource-manager-core-quotas-request/new-support-request.png)
 
 1. For **Issue type**, select **Service and subscription limits (quotas)**.
 
-   ![The "Issue type" drop-down list](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Select an issue type](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
 1. For **Subscription**, select the subscription whose quota you want to increase.
 
-   ![The "Subscription" drop-down list](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![Select a subscription](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
 1. For **Quota type** drop-down list, select **Other Requests**.
 
-   ![The "Quota type" drop-down list](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Select a quota type](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
 1. Select **Next: Solutions** to open **PROBLEM DETAILS**. In **Description**, provide the following information:
 
@@ -63,7 +63,7 @@ To request a vCPU quota increase by region from **Help + support**:
     1. For **Region**, specify your required region, for example, **East US 2**.  
     1. For **New Limit**, specify a new vCPU limit for the region. This value shouldn't exceed the sum of the approved quotas for individual SKU series for this subscription.
 
-    ![The "Problem Details" pane](./media/resource-manager-core-quotas-request/regional-details.png)
+    ![Enter details for the quota request](./media/resource-manager-core-quotas-request/regional-details.png)
 
 1. Select **Review + create** to continue creating the support request.
 
@@ -73,23 +73,23 @@ To request a vCPU quota increase by region from **Subscriptions**:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Subscriptions**.
 
-   ![The "Subscriptions" link](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Go to Subscriptions in the Azure portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Select the subscription for the quota you want to increase.
 
-   ![The "Subscriptions" pane](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Select a subscription to modify](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
 1. In the left pane, select **Usage + quotas**.
 
-   ![The "Usage + quotas" link](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Follow Usage and quotas link](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
 1. At the top right, select **Request increase**.
 
-   ![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Select to increase quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
 1. From **Quota type**, select **Other Requests**.
 
-   ![The "Quota type" drop-down list](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Select the quota type](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
 1. Select **Next: Solutions** to open **PROBLEM DETAILS**. In the **Description** box, provide the following additional information:
 
@@ -97,6 +97,6 @@ To request a vCPU quota increase by region from **Subscriptions**:
     1. For **Region**, specify your required region, for example, **East US 2**.  
     1. For **New Limit**, specify a new vCPU limit for the region. This value shouldn't exceed the sum of the approved quotas for individual SKU series for this subscription.
 
-    ![The "Problem Details" pane](./media/resource-manager-core-quotas-request/regional-details.png)
+    ![Enter information in details](./media/resource-manager-core-quotas-request/regional-details.png)
 
 1. Select **Review + create** to continue creating the support request.

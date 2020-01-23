@@ -1,6 +1,6 @@
 ---
-title: SKU series unavailable | Microsoft Docs
-description: Some SKU series are unavailable for the selected subscription for this region.
+title: Region or SKU series unavailable - Azure
+description: Some SKU series are unavailable for the selected subscription for this region, which may require subscription management support request.
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
@@ -46,29 +46,31 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-When creating a support request to increase compute core quota, a region or a SKU family is not available for selection.
+When creating a support request to increase compute core quota, a region or a SKU family isn't available for selection.
 
 ## Solution
 
-We first recommend that you consider an alternative region or SKU that meets your business needs. If you're unable to find a suitable region or SKU, create a **Subscription management** [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the steps below:
+We first recommend that you consider an alternative region or SKU that meets your business needs.
 
-1. On **Basics**, for **Issue type**, select **Subscription management**.
+If you're unable to find a suitable region or SKU, create a **Subscription management** [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following these steps:
+
+1. From the [Azure portal](https://portal.azure.com) menu, select **Help + support**. Then select **New support request**.
+
+1. In **Basics**, for **Issue type**, select **Subscription management**.
 
 1. Select a **Subscription** and enter a brief description in **Summary**.
 
-1. For **Problem type**, choose **Select problem type**.
+![Basics tab of New support request](./media/SKU-series-unavailable/support-request-basics.png)
 
-![Basics tab of New support request](./media/SKU-series-unavailable/BasicsSubMgmt.png)
+1. For **Problem type**, choose **Select problem type**.
 
 1. For **Select problem type**, choose an option, for instance, **Unable to access my subscription or resource** > **My issue is not listed above**. Select **Save**.
 
-![Problem](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+![Specify a problem for the request](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
 1. Select **Next: Solutions** to explore possible solutions. If necessary, select **Next: Details** to continue.
 
 1. Enter any additional information you can provide, along with your contact information.
-
-![Contact Information](./media/SKU-series-unavailable/ContactInformation.png)
 
 1. Select **Review + create**. After you verify your information, select **Create** to create the request.
 
