@@ -218,7 +218,7 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 ### Create Conditional Access policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
-1. Browse to **Azure Active Directory**, **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
    ![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Provide a meaningful name for your policy.

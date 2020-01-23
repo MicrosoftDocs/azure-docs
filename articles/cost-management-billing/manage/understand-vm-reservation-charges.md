@@ -41,7 +41,7 @@ When you shut down a resource, the reservation discount automatically applies to
 
 ![Screenshot of one applied reservation and two matching VM instances](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the reservations line, since it has been already paid as part of reservation purchase.
+1. Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charged for any usage below the reservations line, since it has been already paid as part of reservation purchase.
 2. In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.
 3. For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
 4. For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.

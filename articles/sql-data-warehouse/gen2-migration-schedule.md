@@ -9,7 +9,7 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
 ---
 # Upgrade your data warehouse to Gen2
@@ -27,41 +27,12 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Australia East |Available |Complete |
-| Australia Southeast |Available |Complete |
-| Brazil South |Available |Complete |
-| Canada Central |Available |Complete |
 | Canada East |June 1, 2020 |July 1, 2020 |
-| Central US |Available |Complete |
 | China East |\* |\* |
-| China East 2 |Available |Complete |
 | China North |\* |\* |
-| China North 2 |Available |Complete |
-| East Asia |Available |Complete |
-| East US |Available |Complete |
-| East US 2 |Available |Complete |
-| France Central |Available |In-progress |
 | Germany Central |\* |\* |
-| Germany West Central |September 1, 2019|October 1, 2019 |
-| India Central |Available |Complete |
-| India South |Available |Complete |
-| India West |July 1, 2019 |In-progress |
-| Japan East |Available |Complete |
-| Japan West |Available |Complete |
-| Korea Central |Available |Complete |
-| Korea South |Available |Complete |
-| North Central US |Available |Complete |
-| North Europe |Available |Complete |
-| South Africa North |July 12, 2019 |Complete |
-| South Central US |Available |Complete |
-| South East Asia |Available |Complete |
-| UAE North |July 20, 2019 |Complete |
-| UK South |Available |In-progress |
-| UK West |Available |In-progress |
-| West Central US |November 1, 2019 |December 1, 2019|
-| West Europe |Available |Complete |
-| West US |Available |Complete |
-| West US 2 |Available |Complete |
+| Germany West Central |Available |May 1, 2020 |
+| India West |Available |May 1, 2020  |
 
 ## Automatic upgrade process
 

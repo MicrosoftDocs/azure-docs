@@ -9,7 +9,7 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 01/14/2020
 ms.author: anzaman
 ---
 
@@ -31,38 +31,7 @@ Each account has a limit of 50 Person models. If you do not need the multiple Pe
 
 ## Create a new Person model
 
-Create a new Person model in the specified account. 
-
-### Request URL
-
-This is a POST request.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}
-```
-
-Below is the request in Curl.
-
-```curl
-curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
-```
-
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
-
-### Request parameters 
-
-|**Name**|**Type**|**Required**|**Description**|
-|---|---|---|---|
-|location|string|Yes|The Azure region to which the call should be routed. For more information, see [Azure regions and Video Indexer](regions.md).|
-|accountId|string|Yes|Globally unique identifier for the account|
-|name|string|Yes|The name for the Person model|
-|accessToken|string|Yes|Access token (must be of scope [Account Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) to authenticate against the call. Access tokens expire within 1 hour.|
-
-### Request body
-
-There is no further request body required for this call.
-
-### Response
+To create a new Person model in the specified account, use the [create a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) API.
 
 The response provides the name and generated model ID of the Person model that you just created following the format of the example below.
 
@@ -77,73 +46,15 @@ You should then use the **id** value for the **personModelId** parameter when [u
 
 ## Delete a Person model
 
-Delete a custom Person model from the specified account. 
+To delete a custom Person model from the specified account, use the [delete a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) API. 
 
 Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you reindex them. Upon reindexing, the faces that were named in the deleted model will not be recognized by Video Indexer in your current videos that were indexed using that model; however, those faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
-
-### Request URL
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}
-```
-
-Below is the request in Curl.
-```curl
-curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
-```
-
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
-
-### Request parameters
-
-|**Name**|**Type**|**Required**|**Description**|
-|---|---|---|---|
-|location|string|Yes|The Azure region to which the call should be routed. For more information, see [Azure regions and Video Indexer](regions.md).|
-|accountId|string|Yes|Globally unique identifier for the account|
-|id|string|Yes|The Person model id (generated when the Person model is created)|
-|accessToken|string|Yes|Access token (must be of scope [Account Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) to authenticate against the call. Access tokens expire within 1 hour.|
-
-### Request body
-
-There is no further request body required for this call.
-
-### Response
 
 There is no returned content when the Person model is deleted successfully.
 
 ## Get all Person models
 
-Get all Person models in the specified account. 
-
-### Request Call
-
-This is a GET request.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}
-```
-
-Below is the request in Curl.
-
-```curl
-curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
-```
-
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
-
-### Request parameters
-
-|**Name**|**Type**|**Required**|**Description**|
-|---|---|---|---|
-|location|string|Yes|The Azure region to which the call should be routed. For more information, see [Azure regions and Video Indexer](regions.md).|
-|accountId|string|Yes|Globally unique identifier for the account|
-|accessToken|string|Yes|Access token (must be of scope [Account Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) to authenticate against the call. Access tokens expire within 1 hour.|
-
-### Request body
-
-There is no further request body required for this call.
-
-### Response
+To get all Person models in the specified account, use the [get a person model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) API.
 
 The response provides a list of all of the Person models in your account (including the default Person model in the specified account) and each of their names and ids following the format of the example below.
 
@@ -170,42 +81,9 @@ Once this happens, it recognizes the occurrences of the same face in your other 
 
 You can update a face that Video Indexer recognized as a celebrity with a new name. The new name that you give will take precedence over the built-in celebrity recognition.
 
-### Request Call
-
-This is a POST request.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}
-```
-
-Below is the request in Curl.
-
-```curl
-curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
-```
-
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
-
-### Request parameters
-
-|**Name**|**Type**|**Required**|**Description**|
-|---|---|---|---|
-|location|string|Yes|The Azure region to which the call should be routed. For more information, see [Azure regions and Video Indexer](regions.md).|
-|accountId|string|Yes|Globally unique identifier for the account|
-|videoId|string|Yes|Id for the video in which the face that you want to update appears. This is created when the video is uploaded and indexed.|
-|faceId|integer|Yes|Id for the face that will be updated. You can get the faceId from the video index|
-|accessToken|string|Yes|Access token (must be of scope [Account Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) to authenticate against the call. Access tokens expire within 1 hour.|
-|name|string|Yes|New name to update the face with.|
+To update the face, use the [update a video face](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) API.
 
 Names are unique for Person models, so if you give two different faces in the same Person model the same **name** parameter value, Video Indexer views the faces as the same person and converges them once you reindex your video. 
-
-### Request body
-
-There is no further request body required for this call.
-
-### Response
-
-There is no returned content when the face has been updated successfully.
 
 ## Next steps
 

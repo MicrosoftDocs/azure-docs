@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Two-Class Boosted Decision Tree module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
@@ -58,15 +58,14 @@ You can train this type of model using [Train Model](././train-model.md).
 9. Train the model.
   
     + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.  
-  
    
 ## Results
 
-After model training is complete, right-click the output of [Train Model](./train-model.md) to view the results:
+After training is complete:
 
-+ To see the tree that was created on each iteration, select **Visualize**. 
-+ To drill down into the splits and see the rules for each node, click each tree.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 ## Next steps
 
