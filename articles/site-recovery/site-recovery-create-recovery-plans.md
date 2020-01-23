@@ -51,7 +51,7 @@ You can customize a recovery plan by adding a script or manual action. Note that
 - If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan. [Learn more](site-recovery-runbook-automation.md).
 - If you're replicating Hyper-V VMs managed by System Center VMM, you can create a script on the on-premises VMM server, and include it in the recovery plan.
 - When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 is created with the name *Group 1: pre-steps*. All pre-steps are listed inside this set. You can add a script on the primary site only if you have a VMM server deployed.
-- If you add an manual action, when the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
+- If you add a manual action, when the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
 - To create a script on the VMM server, follow the instructions in [this article](hyper-v-vmm-recovery-script.md).
 - Scripts can be applied during failover to the secondary site, and during failback from the secondary site to the primary. Support depends on your replication scenario:
     
