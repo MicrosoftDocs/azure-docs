@@ -5,7 +5,7 @@ description: Map a custom domain to a Blob Storage or web endpoint in an Azure s
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -15,13 +15,17 @@ ms.subservice: blobs
 
 You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
 
+[!NOTE] This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. The step within that section for enabling HTTPS is optional. 
+
 <a id="enable-http" />
 
 ## Map a custom domain with only HTTP enabled
 
-This approach is easier, but enables users to access your site only by using HTTP (not HTTPS), and only with subdomains (for example: `www.contoso.com`). 
+This approach is easier, but enables only HTTP access. 
 
-If you want to users to access your site by using HTTPS, or you want have your web endpoint to be available on the root domain (for example: `contoso.com`), then see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. 
+> [!NOTE] If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then users must use the HTTPS endpoint. 
+
+To enable HTTPS access, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. 
 
 <a id="map-a-domain" />
 
@@ -289,29 +293,31 @@ To remove a custom domain registration, use the [Set-AzStorageAccount](/powershe
 
 ## Map a custom domain with HTTPS enabled
 
-This approach involves more steps because you'll have to map your custom domain by using [Azure CDN](../../cdn/cdn-overview.md), but it enables users to access your site by using the HTTPS protocol. 
+This approach involves more steps, but it enables HTTPS access. 
 
-If you don't need users to access your site by using HTTPS, see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article. 
+If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article. 
 
-To enable HTTPS for your custom Blob storage endpoint, do the following:
+To map a custom domain and enable HTTPS access, do the following:
 
-1. Enable Azure CDN on your blob or web endpoint. 
+1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint. 
 
-   To enable Azure CDN for your blob endpoint, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md). 
+   For a Blob Storage endpoint, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md). 
 
-   To enable Azure CDN for your web endpoint (static website), see [Integrate a static website with Azure CDN](storage-blob-static-website-cdn.md).
+   For a static website endpoint, see [Integrate a static website with Azure CDN](storage-blob-static-website-cdn.md).
 
 2. [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
 
 3. [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
+   > [!NOTE] When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
+
 4. (Optional) Review the following guidance:
 
-   * If you're using shared access signatures (SAS) tokens with Azure CDN, review [best practice guidance](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures) for using them.
+   * [Shared access signature (SAS) tokens with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
 
-   * If using Azure CDN, learn how to [redirect HTTP traffic to HTTPS](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [HTTP-to-HTTPS redirection with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
 
-   * If using Azure CDN, learn about [pricing and billing](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Pricing and billing when using Blob Storage with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
 
 ## Next steps
 
