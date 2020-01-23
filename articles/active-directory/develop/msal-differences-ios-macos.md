@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about the Microsoft Authentication Library for macOS and iOS differences so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Authentication Library for iOS and macOS differences

@@ -2,12 +2,12 @@
 title: Tasks for an individual contributor in the Team Data Science Process
 description: A detailed walkthrough of the tasks for an individual contributor on a data science team project.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -37,7 +37,7 @@ This tutorial assumes that the following resources and permissions have been set
 - Azure **file storage** set up for shared assets for your team or project, if applicable
 - **Permissions** for you to clone from and push back to your project repository 
 
-To clone repositories and modify content on your local machine or DSVM, or mount Azure file storage to your DSVM, you need the following:
+To clone repositories and modify content on your local machine or DSVM, or mount Azure file storage to your DSVM, you need to consider this checklist:
 
 - An Azure subscription.
 - Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
