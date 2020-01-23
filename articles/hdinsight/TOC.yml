@@ -513,6 +513,8 @@
         href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
       - name: Apache Ambari directory alerts
         href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
+      - name: Invalid BCFile error from Yarn log
+        href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
 - name: Apache Kafka
   items:
   - name: Overview
