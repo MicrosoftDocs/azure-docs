@@ -18,7 +18,7 @@ To learn more about these two deployment models and the advantages of using Reso
 
 When a new subscription is created, a default quota of vCPUs is assigned to it. Anytime a new virtual machine is to be deployed using the Classic deployment model, the sum of new and existing vCPU usage across all regions must not exceed the vCPU quota approved for the Classic deployment model.
 
-Learn more about quotas on the [Azure subscription and service limits](https://aka.ms/quotalimits) page.
+To learn more about quotas, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 You can request an increase in the vCPU quota limit for the Classic deployment model. Use either **Help + support** or **Usage + quotas** in the Azure portal.
 
@@ -38,7 +38,7 @@ Follow the instructions below to create a support request by using **Help + supp
 
    ![Select quotas as the type of issue](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. Select the subscription for an increased quota.
+1. Select the subscription whose quota you want to increase.
 
    ![Select subscription for which to increase a quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
@@ -58,19 +58,19 @@ Follow the instructions below to create a support request by using **Help + supp
 
    ![Specify the SKU family to increase](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-1. Enter the new limits you would like on the subscription. To remove a line, unselect the SKU from **SKU family** or select the discard "x" icon. After you enter a quota for each SKU family, select **Save and Continue** in **Quota details** to continue with the support request.
+1. Enter the new limits you would like on the subscription. To remove a line, unselect the SKU from **SKU family** or select the discard "X" icon. After you enter a quota for each SKU family, select **Save and Continue** in **Quota details** to continue with the support request.
 
    ![Request new limits](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 
 ## Request per VM series vCPU quota increase at subscription level using Usage + quotas
 
-Follow the instructions below using to create a support request by using **Usage + quotas** in the Azure portal.
+Follow the instructions below to create a support request by using **Usage + quotas** in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Subscriptions**.
 
    ![Go to Subscriptions in the Azure portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
-1. Select the subscription for an increased quota.
+1. Select the subscription whose quota you want to increase.
 
    ![Select subscription to modify](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
@@ -82,7 +82,7 @@ Follow the instructions below using to create a support request by using **Usage
 
    ![Select to increase quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the quote type.
+1. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the **Quota type**.
 
    ![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -98,7 +98,7 @@ Follow the instructions below using to create a support request by using **Usage
 
    ![Select SKU family for increase](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-1. Enter the new limits you would like on the subscription. To remove a line, unselect the SKU from **SKU family** or select the discard "x" icon. After you enter a quota for each SKU family, select **Save and Continue** in **Quota details** to continue with the support request.
+1. Enter the new limits you would like on the subscription. To remove a line, unselect the SKU from **SKU family** or select the discard "X" icon. After you enter a quota for each SKU family, select **Save and Continue** in **Quota details** to continue with the support request.
 
    ![Enter new quota](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 

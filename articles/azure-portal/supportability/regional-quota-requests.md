@@ -27,7 +27,7 @@ You can request an increase in the vCPU quota limit for the VM series by using t
 
 When you create a new subscription, the default total number of regional vCPUs might not be equal to the total default vCPU quota for all individual VM series. This discrepancy can result in a subscription with enough quota for each individual VM series that you want to deploy. But there might not be enough quota to accommodate the total regional vCPUs for all deployments. In this case, you must submit a request to explicitly increase the limit of the total number of regional vCPUs. The total regional vCPU limit can't exceed the total approved quota across all VM series for the region.
 
-To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits](https://aka.ms/quotalimits).
+To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
 
@@ -53,7 +53,7 @@ To request a vCPU quota increase by region from **Help + support**:
 
    ![Select a subscription](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. For **Quota type** drop-down list, select **Other Requests**.
+1. For the **Quota type**, select **Other Requests**.
 
    ![Select a quota type](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
@@ -75,7 +75,7 @@ To request a vCPU quota increase by region from **Subscriptions**:
 
    ![Go to Subscriptions in the Azure portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
-1. Select the subscription for the quota you want to increase.
+1. Select the subscription whose quota you want to increase.
 
    ![Select a subscription to modify](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 

@@ -19,5 +19,5 @@ You can request an increase of the vCPUs quota limit for the VM series from Azur
 
 When a new subscription is created, the default Total Regional vCPUs may not be equal to the sum of default vCPU quotas for all individual VM series. This fact can result in a subscription with enough quota for each individual VM series that you want to deploy. It could lack enough quota for Total Regional vCPUs for all deployments. In this case, you'll need to submit a request to increase the Total Regional vCPUs limit explicitly. Total Regional vCPUs limit can't exceed the sum of approved quota across all VM series for the region.
 
-Learn more about quotas on the [Virtual machine vCPU quotas page](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits](https://aka.ms/quotalimits) page.
+For more information about quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 

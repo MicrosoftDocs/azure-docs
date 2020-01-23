@@ -25,7 +25,7 @@ Whenever you deploy a new spot VM, the total new and existing vCPU usage for all
 
 This article discusses how to request an increase in the spot vCPU quota limit by using the Azure portal.
 
-To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits](https://aka.ms/quotalimits). 
+To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 To learn about increasing the vCPU limit by region, see [Standard quota: Increase limits by region](regional-quota-requests.md).
 
@@ -48,7 +48,7 @@ To request a spot quota limit increase for all virtual machine series using **He
 
    ![Select an issue type](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. For **Subscription**, select the subscription for an increased quota.
+1. For **Subscription**, select the subscription whose quota you want to increase.
 
    ![Select a subscription for an increased quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
@@ -60,13 +60,13 @@ To request a spot quota limit increase for all virtual machine series using **He
 
    ![The "Provide details" link](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In **Quota details** at the top right, do the following actions:
+1. In **Quota details**, do the following actions:
 
-   ![Provide additional quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
+   1. For **Deployment model**, select the appropriate model, and for **Locations**, select a location.
 
-   1. For **Deployment model**, select the appropriate model.
+      ![Provide additional quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   1. For **Locations**, select a location. For the selected location, under **Types**, in **Select a type**, enter **Spot**.
+   1. For the selected location, under **Types**, in **Select a type**, choose **Spot**.
 
       ![Select spot type](./media/resource-manager-core-quotas-request/select-spot-type.png)
 
@@ -76,7 +76,7 @@ To request a spot quota limit increase for all virtual machine series using **He
 
    1. Enter the new quota limit that you want for this subscription.
 
-   ![Select a new quota for spot VM](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
+      ![Select a new quota for spot VM](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
 
 1. To request a quota increase for more than one location, select an additional location in **Locations**, and then select an appropriate VM type. You can then enter a limit that applies to the additional location.
 
@@ -95,7 +95,7 @@ To request a spot quota limit increase for all VM series from the **Subscription
 
    ![Subscriptions in the Azure portal search](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
-1. Select the subscription for an increased quota.
+1. Select the subscription whose quota you want to increase.
 
    ![Subscriptions to select for changes](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
@@ -111,15 +111,13 @@ To request a spot quota limit increase for all VM series from the **Subscription
 
    ![Select a quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Select **Next: Solutions** to open **PROBLEM DETAILS**. Select **Provide details** to enter additional information. In **Quota details** at the top right, enter the following information:
+1. Select **Next: Solutions** to open **PROBLEM DETAILS**. Select **Provide details** to enter additional information. In **Quota details**, enter the following information:
 
-   ![Provide quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
+   1. For **Deployment model**, select the appropriate model, and for **Locations**, select a location.
 
-   1. For **Deployment model**, select the appropriate model.
+      ![Provide quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   1. For **Locations**, select a location.
-
-   1. For the selected location, under **Types**, in **Select a type**, enter **Spot**.
+   1. For the selected location, under **Types**, in **Select a type**, choose **Spot**.
 
       ![Select Spot type](./media/resource-manager-core-quotas-request/select-spot-type.png)
 

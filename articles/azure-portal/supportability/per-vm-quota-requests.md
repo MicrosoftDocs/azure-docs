@@ -53,7 +53,7 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
    ![Select an issue type](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. For **Subscription**, select the subscription for an increased quota.
+1. For **Subscription**, select the subscription whose quota you want to increase.
 
    ![Select a subscription for an increased quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
@@ -65,7 +65,7 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
    ![The "Provide details" link](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In the **Quota details** pane at the top right, do the following actions:
+1. In the **Quota details**, do the following actions:
 
    ![TProvide additional quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
@@ -83,9 +83,9 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
       ![Quota details - SKU series](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
-   1. Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select the discard "x" icon.
+   1. Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select the discard "X" icon.
 
-   ![Select a new vCPU Limit](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
+      ![Select a new vCPU Limit](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
 1. To request a quota increase for more than one location, select an additional location in **Locations**, and then select an appropriate VM type. You can then enter a limit that applies to the additional location.
 
@@ -104,7 +104,7 @@ To request a standard vCPU quota increase per VM series from **Subscriptions**:
 
    ![Subscriptions in the Azure portal search](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
-1. Select the subscription for an increased quota.
+1. Select the subscription whose quota you want to increase.
 
    ![Subscriptions to select for changes](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
@@ -120,19 +120,17 @@ To request a standard vCPU quota increase per VM series from **Subscriptions**:
 
    ![Select a quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. In the **Quota details** pane at the top right, do the following steps:
+1. In the **Quota details**, do the following steps:
 
-   ![Provide quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
+   1. For **Deployment model**, select the appropriate model, and for **Locations**, select a location.
 
-   1. For **Deployment model**, select the appropriate model.
-
-   1. For **Locations**, select a location.
+      ![Provide quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
    1. For the selected location, under **Types**, select **Select a type**, and then select **Standard**.
 
       ![Select Standard type](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      Under **Types**, you can request both standard and low-priority quota types from a single support case through multi-selection support.
+      Under **Types**, you can request both standard and spot quota types from a single support case through multi-selection support.
 
       For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](../../virtual-machine-scale-sets/use-spot.md).
 
@@ -140,7 +138,7 @@ To request a standard vCPU quota increase per VM series from **Subscriptions**:
 
       ![Quota details - SKU series](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
-   1. Enter the new quota limits that you want for this subscription. To remove a SKU from your list, unselect the check box next to the SKU or select the discard "x" icon.
+   1. Enter the new quota limits that you want for this subscription. To remove a SKU from your list, unselect the check box next to the SKU or select the discard "X" icon.
 
       ![Select a new vCPU limit](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
