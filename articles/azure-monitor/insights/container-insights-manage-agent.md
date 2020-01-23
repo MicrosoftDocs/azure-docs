@@ -2,7 +2,7 @@
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 
 ---
 
@@ -12,9 +12,9 @@ Azure Monitor for containers uses a containerized version of the Log Analytics a
 
 ## How to upgrade the Azure Monitor for containers agent
 
-Azure Monitor for containers uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS).  
+Azure Monitor for containers uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) the agent is not managed, and you need to [manually upgrade](container-insights-hybrid-setup.md#install-the-chart) the agent.
 
-If the agent upgrade fails, this article describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).   
+If the agent upgrade fails, this article describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### Upgrading agent on monitored Kubernetes cluster
 
