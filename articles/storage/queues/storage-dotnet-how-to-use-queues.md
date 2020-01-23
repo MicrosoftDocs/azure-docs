@@ -33,7 +33,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 * [Azure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 * [Azure Storage Queue client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* An [Azure storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* An [Azure storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

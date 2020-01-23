@@ -1,6 +1,6 @@
 ---
 title: Assessments in Azure Migrate 
-description: Learn  about assessments in Azure Migrate.
+description: Learn about assessments in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/06/2020
 ---
@@ -18,7 +18,7 @@ Performance data for compute settings is collected as follows:
 
 1. The [Azure Migrate appliance](migrate-appliance.md) collects a real-time sample point:
 
-    - **VMware VMs*: For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
+    - **VMware VMs**: For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
     - **Hyper-V VMs**: For Hyper-V VMs, the real-time sample point is collected at every 30-second interval.
     - **Physical servers**: For physical servers, the real-time sample point is collected at every five-minute interval. 
     
@@ -53,7 +53,7 @@ Performance data is collected as follows:
 
 1. The [Azure Migrate appliance](migrate-appliance.md) collects a real-time sample point:
 
-    - **VMware VMs*: For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
+    - **VMware VMs**: For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
     - **Hyper-V VMs**: For Hyper-V VMs, the real-time sample point is collected at every 30-second interval.
     - **Physical servers**: For physical servers, the real-time sample point is collected at every five-minute interval. 
     
@@ -68,20 +68,19 @@ Performance data is collected as follows:
 5. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization, memory utilization, disk IOPS (read and write), disk throughput (read and write), and network throughput (in and out) that the appliance collects.
 ## What's in an assessment?
 
-Here's what included in an assessment in Azure Migrate: Server Assessment
+Here's what included in an assessment in Azure Migrate: Server Assessment.
 
 **Property** | **Details**
 --- | ---
-**Target location** | The location to which you want to migrate.<br/><br/>Server Assessment currently supports these target Azure regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2.
-**Target storage disk: as-is sizing** | The type of disks to use for storage in Azure. <br/><br/> Specify the target storage disk as premium managed, standard SSD managed, or standard HDD managed.<br/><br/> 
-**Target storage disk: performance based sizing** | Specify the type of target storage disk as automatic, premium managed, standard HDD managed, or standard SSD managed.<br/><br/> **Automatic**: The disk recommendation is based on the performance data of the disks (the input/output operations per second (IOPS) and throughput). <br/><br/>**Premium/standard**:  The assessment recommends a disk SKU within the storage type selected.<br/><br/> If you want to achieve a single instance VM SLA of 99.9%, considering using premium managed disks. This ensures that all disks in the assessment are recommended as premium-managed disks.<br/><br/> Azure Migrate only supports managed disks for migration assessment.
+**Target location** | The location to which you want to migrate.Server Assessment currently supports these target Azure regions:<br/><br/> Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2.
+*Target storage disk (as-is sizing)** | The type of disks to use for storage in Azure. <br/><br/> Specify the target storage disk as premium managed, standard SSD managed, or standard HDD managed.
+**Target storage disk (performance based sizing)** | Specify the type of target storage disk as automatic, premium managed, standard HDD managed, or standard SSD managed.<br/><br/> **Automatic**: The disk recommendation is based on the performance data of the disks (the input/output operations per second (IOPS) and throughput).<br/><br/>**Premium/standard**:  The assessment recommends a disk SKU within the storage type selected.<br/><br/> If you want to achieve a single instance VM SLA of 99.9%, considering using premium managed disks. This ensures that all disks in the assessment are recommended as premium-managed disks.<br/><br/> Azure Migrate only supports managed disks for migration assessment.
 **Reserved Instances (RIs)** | Specify [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure, so that cost estimations in the assessment take RI discounts into account.<br/><br/> RIs are currently supported only for Pay-As-You-Go offers in Azure Migrate.
 **Sizing criteria** | Used to right-size the VM in Azure.<br/><br/> Use as-is sizing, or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Specify the duration used when evaluating performance data.
 **Percentile utilization** | Used  with performance-based sizing. Specifies the percentile value of the performance sample to be used for right-sizing. 
 **VM series** | Specify the Azure VM series that you want to consider for right-sizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list or series.
-**Comfort factor** | Buffer used during assessment. Applied on top of machine utilization data for VMs (CPU, memory, disk, and network). 
-It accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0x, the result is a four-core VM instead.
+**Comfort factor** | Buffer used during assessment. Applied on top of machine utilization data for VMs (CPU, memory, disk, and network). It accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0x, the result is a four-core VM instead.
 **Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. Server Assessment estimates the cost accordingly.
 **Currency** | Billing currency for your account.
 **Discount (%)** | Lists any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.

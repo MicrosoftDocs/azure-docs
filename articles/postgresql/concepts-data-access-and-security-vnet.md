@@ -141,7 +141,7 @@ For articles on creating VNet rules, see:
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -155,4 +155,4 @@ For articles on creating VNet rules, see:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
