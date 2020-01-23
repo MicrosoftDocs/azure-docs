@@ -19,53 +19,62 @@ Language support varies by Speech service functionality. The following tables su
 
 ## Speech-to-text
 
-Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for `en-US` and `de-DE`. Learn more about customization [here](how-to-custom-speech.md).
+Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences. Pronunciation customization is currently only available for `en-US` and `de-DE`. Learn more about customization [here](how-to-custom-speech.md).
 
- Locale | Language | Supported | Customizable
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ Locale | Language | Supported | Customizations
 ------|------------|-----------|-------------
-`ar-EG` | Arabic (Egypt), modern standard | Yes
-`ar-SA` | Arabic (Saudi Arabia) | Yes | Yes
-`ar-AE` | Arabic (UAE) | Yes | Yes
-`ar-KW` | Arabic (Kuwait) | Yes | Yes
-`ar-QA` | Arabic (Qatar) | Yes | Yes
-`ca-ES` | Catalan | Yes | No
-`da-DK` | Danish (Denmark) | Yes | No
-`de-DE` | German (Germany) | Yes | Yes
-`en-AU` | English (Australia) | Yes | Yes
-`en-CA` | English (Canada) | Yes | Yes
-`en-GB` | English (United Kingdom) | Yes | Yes
-`en-IN` | English (India) | Yes | Yes
-`en-NZ` | English (New Zealand) | Yes | Yes
-`en-US` | English (United States) | Yes | Yes
-`es-ES` | Spanish (Spain) | Yes | Yes
-`es-MX` | Spanish (Mexico) | Yes | Yes
-`fi-FI` | Finnish (Finland) | Yes | No
-`fr-CA` | French (Canada) | Yes | Yes
-`fr-FR` | French (France) | Yes | Yes
-`gu-IN` | Gujarati (Indian) | Yes | Yes
-`hi-IN` | Hindi (India) | Yes | Yes
-`it-IT` | Italian (Italy) | Yes | Yes
-`ja-JP` | Japanese (Japan) | Yes | Yes
-`ko-KR` | Korean (Korea) | Yes | Yes
-`mr-IN` | Marathi (India) | Yes | Yes
-`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | No
-`nl-NL` | Dutch (Netherlands) | Yes | Yes
-`pl-PL` | Polish (Poland) | Yes | No
-`pt-BR` | Portuguese (Brazil) | Yes | Yes
-`pt-PT` | Portuguese (Portugal) | Yes | Yes
-`ru-RU` | Russian (Russia) | Yes | Yes
-`sv-SE` | Swedish (Sweden) | Yes | No
-`ta-IN` | Tamil (India) | Yes | Yes
-`te-IN` | Telugu (India) | Yes | Yes
-`zh-CN` | Chinese (Mandarin, simplified) | Yes | Yes
-`zh-HK` | Chinese (Cantonese, Traditional) | Yes | Yes
-`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Yes
+`ar-BH` | Arabic (Bahrain) | Yes | LM<sup>2</sup>
+`ar-EG` | Arabic (Egypt), modern standard | Yes | LM<sup>2</sup>
+`ar-SA` | Arabic (Saudi Arabia) | Yes | No
+`ar-AE` | Arabic (UAE) | Yes | No
+`ar-KW` | Arabic (Kuwait) | Yes | No
+`ar-QA` | Arabic (Qatar) | Yes | No
+`ca-ES` | Catalan | Yes | LM<sup>2</sup>
+`da-DK` | Danish (Denmark) | Yes | LM<sup>2</sup>
+`de-DE` | German (Germany) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
+`en-AU` | English (Australia) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`en-CA` | English (Canada) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`en-GB` | English (United Kingdom) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
+`en-IN` | English (India) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`en-NZ` | English (New Zealand) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`en-US` | English (United States) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
+`es-ES` | Spanish (Spain) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`es-MX` | Spanish (Mexico) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`fi-FI` | Finnish (Finland) | Yes | LM<sup>2</sup>
+`fr-CA` | French (Canada) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`fr-FR` | French (France) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
+`gu-IN` | Gujarati (Indian) | Yes | LM<sup>2</sup>
+`hi-IN` | Hindi (India) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`it-IT` | Italian (Italy) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
+`ja-JP` | Japanese (Japan) | Yes | LM<sup>2</sup>
+`ko-KR` | Korean (Korea) | Yes | LM<sup>2</sup>
+`mr-IN` | Marathi (India) | Yes | LM<sup>2</sup>
+`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | LM<sup>2</sup>
+`nl-NL` | Dutch (Netherlands) | Yes | LM<sup>2</sup>
+`pl-PL` | Polish (Poland) | Yes | LM<sup>2</sup>
+`pt-BR` | Portuguese (Brazil) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
+`pt-PT` | Portuguese (Portugal) | Yes | LM<sup>2</sup>
+`ru-RU` | Russian (Russia) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`sv-SE` | Swedish (Sweden) | Yes | LM<sup>2</sup>
+`ta-IN` | Tamil (India) | Yes | LM<sup>2</sup>
+`te-IN` | Telugu (India) | Yes | No
+`zh-CN` | Chinese (Mandarin, simplified) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
+`zh-HK` | Chinese (Cantonese, Traditional) | Yes | LM<sup>2</sup>
+`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | LM<sup>2</sup>
 `th-TH` | Thai (Thailand) | Yes | No
-`tr-TR` | Turkey | Yes | Yes
+`tr-TR` | Turkey | Yes | No
 
-- **AM<sup>1</sup>:** The acoustic model is customizable.
-- **LM<sup>2</sup>:** The language model is customizable.
-- **Pronunciation<sup>3</sup>:** The pronunciation is customizable.
+**1** *The acoustic model is customizable.*<br>
+**2** *The language model is customizable.*<br>
+**3** *The pronunciation is customizable.*
 
 ## Text-to-speech
 
@@ -101,7 +110,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 Locale | Language | Gender | Full service name mapping | Short name
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
+<sup>**1**</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 `bg-BG` | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
 `ca-ES` | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
@@ -183,7 +192,7 @@ Locale | Language | Gender | Full service name mapping | Short name
 | | | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-EG supports Modern Standard Arabic (MSA).*
+**1** *ar-EG supports Modern Standard Arabic (MSA).*
 
 > [!NOTE]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
