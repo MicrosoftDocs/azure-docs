@@ -47,7 +47,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Connect Azure AD
+          - text: Connect Azure Active Directory
             url: connect-azure-active-directory.md
           - text: Connect Azure Information Protection
             url: connect-azure-information-protection.md
