@@ -15,7 +15,6 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Add app roles in your application and receive them in the token

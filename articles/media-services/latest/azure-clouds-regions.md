@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Clouds and regions in which Azure Media Services v3 is available| Microsoft Docs
+title: Clouds and regions in which Azure Media Services v3 is available
 description: This article talks about Azure clouds and regions in which Azure Media Services v3 is available.  
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ---
 

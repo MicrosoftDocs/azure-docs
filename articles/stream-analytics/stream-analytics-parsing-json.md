@@ -72,7 +72,7 @@ The result is:
 
 
 ### Access nested fields when property name is a variable
-Use the [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) function if the property name is a variable. 
+Use the [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) function if the property name is a variable. 
 
 For example, imagine a sample data stream needs to be joined with reference data containing thresholds for each device sensor. A snippet of such reference data is shown below.
 

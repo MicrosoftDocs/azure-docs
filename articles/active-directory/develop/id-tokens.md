@@ -14,7 +14,6 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform ID tokens
