@@ -15,7 +15,6 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about Microsoft Authentication Library so that I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Use Microsoft Authentication Library to interoperate with Azure Active Directory B2C
