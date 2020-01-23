@@ -148,8 +148,8 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ---
 
-> [!NOTE]
-> These Key Vault credentials are used only within your application. Your application authenticates directly to Key Vault with these credentials. They are never passed to the App Configuration service.
+    > [!NOTE]
+    > These Key Vault credentials are used only within your application. Your application authenticates directly to Key Vault with these credentials. They are never passed to the App Configuration service.
 
 1. Restart your terminal to load these new environment variables.
 
