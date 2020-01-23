@@ -27,7 +27,7 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 Azure Arc for servers (preview) supports the following scenarios with connected machines:
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
-- Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment#access-mode.md) log access.
+- Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
 ## Prerequisites
 
@@ -63,86 +63,6 @@ These DNS Names are provided in addition to the Service Tag IP range information
 |agentserviceapi.azure-automation.net|Guest Configuration|
 |*-agentservice-prod-1.azure-automation.net|Guest Configuration|
 |*.his.hybridcompute.azure-automation.net|Hybrid Identity Service|
-
-### Installation Network Requirements
-
-Download the [Azure Connected Machine Agent package](https://aka.ms/AzureConnectedMachineAgent) from our official distribution servers the below sites must be accessible from your environment. You may choose to download the package to a file share and have the agent installed from there. In this case, the onboarding script generated from the Azure portal may need to be modified.
-
-Windows:
-
-* `aka.ms`
-* `download.microsoft.com`
-
-Linux:
-
-* `aka.ms`
-* `packages.microsoft.com`
-
-See the section [Proxy server configuration](quickstart-onboard-powershell.md#proxy-server-configuration), for information on how to configure the agent to use your proxy.
-
-## Register the required Resource Providers
-
-In order to use Azure Arc for Servers, you must register the required Resource Providers.
-
-* **Microsoft.HybridCompute**
-* **Microsoft.GuestConfiguration**
-
-You can register the resource providers with the following commands:
-
-Azure PowerShell:
-
-```azurepowershell-interactive
-Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
-```
-
-Azure CLI:
-
-```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
-```
-
-You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
-
-## Machine changes after installing the agent
-
-If you have a change tracking solution deployed in your environment, you can use the list below to track, identify, and allow the changes made by the **Azure Connected Machine Agent (AzCMAgent)** installation package.
-
-After you install the agent you see the following changes made to your servers.
-
-### Windows
-
-Services installed:
-
-* `Himds` - The **Azure Connected Machine Agent** service.
-* `Dscservice` or `gcd` - The **Guest Configuration** service.
-
-Files added to the server:
-
-* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - Location of **Azure Connected Machine Agent** files.
-* `%ProgramData%\GuestConfig\*.*` - **Guest Configuration** logs.
-
-Registry key locations:
-
-* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - Registry keys for **Azure Connected Machine Agent**.
-
-### Linux
-
-Services installed:
-
-* `Himdsd` - The **Azure Connected Machine Agent** service.
-* `dscd` or `gcd` - The **Guest Configuration** service.
-
-Files added to the server:
-
-* `/var/opt/azcmagent/**` - Location of **Azure Connected Machine Agent** files.
-* `/var/lib/GuestConfig/**` - **Guest Configuration** logs.
-
-
 
 ## Installing the agent 
 
