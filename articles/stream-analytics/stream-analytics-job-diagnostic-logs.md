@@ -61,19 +61,15 @@ Turning on diagnostic logs and sending them to Azure Monitor logs is highly reco
 
     ![Settings for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. Navigate to the Log Analytics workspace and choose **Logs** under the **General** section.
+3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. To view diagnostic logs for your job, select **Logs** under the **Monitoring** section.
 
-   ![Azure Monitor logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Diagnostic Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. You can [write your own query](../azure-monitor/log-query/get-started-portal.md) to search for terms, identify trends, analyze patterns, and provide insights based on your data. For example, you can write a query to filter only diagnostic logs that have the message “The streaming job failed.” Diagnostic logs from Azure Stream Analytics are stored in the **AzureDiagnostics** table.
+4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. The 3 categories are **General**, **Input data errors** and **Output data errors**. For example, to see a summary of all the errors of your job in the last 7 days, you can select **Run** of the appropriate pre-defined query. 
 
-   ![Diagnostics query and results](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
+   ![Diagnostic Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
-5. When you have a query that is searching for the right logs, save it by selecting **Save** and provide a Name and Category. You can then create an alert by selecting **New alert rule**. Next, specify the alert condition. Select **Condition** and enter the threshold value and the frequency at which this custom log search is evaluated.  
-
-   ![Diagnostic log search query](./media/stream-analytics-job-diagnostic-logs/search-query.png)
-
-6. Choose the action group and specify alert details, like name and description, before you can create the alert rule. You can route the diagnostic logs of various jobs to the same Log Analytics workspace. This allows you to set up alerts once that work across all jobs.  
+   ![Results of logs](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
 ## Diagnostics log categories
 

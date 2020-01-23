@@ -1,0 +1,63 @@
+### YamlMime:Landing
+
+title: Azure Table storage documentation # < 60 chars
+summary: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. # < 160 chars
+
+metadata:
+  title: Azure Table storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
+  ms.subservice: tables # Optional; remove if no subservice is used.
+  ms.topic: landing-page # Required
+  ms.collection: collection # Optional; Remove if no collection is used.
+  author: tamram #Required; your GitHub user alias, with correct capitalization.
+  ms.author: tamram #Required; microsoft alias of author; optional team alias.
+  ms.date: 12/23/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Table storage
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Table storage?
+            url: table-storage-overview.md
+          - text: Choose Table storage or Table API
+            url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+  # Card
+  - title: Table design guidance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Design for efficient reads and writes
+            url: table-storage-design-guidelines.md
+          - text: Design for querying
+            url: table-storage-design-for-query.md
+          - text: Design for data modification
+            url: table-storage-design-for-modification.md
+          - text: Table design patterns
+            url: table-storage-design-patterns.md
+  # Card
+  - title: Performance, scaling, and cost optimization
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Performance checklist for Table storage
+            url: storage-performance-checklist.md
+          - text: Design for optimal performance
+            url: table-storage-design.md
+      - linkListType: reference
+        links:
+          - text: Scalability targets for Table storage
+            url: scalability-targets.md
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an table in the Azure portal
+            url: table-storage-quickstart-portal.md

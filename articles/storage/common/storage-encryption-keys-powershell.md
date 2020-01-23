@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -18,10 +18,6 @@ ms.subservice: common
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
 This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/quick-create-powershell.md).
-
-> [!IMPORTANT]
-> Using customer-managed keys with Azure Storage encryption requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default. To enable these properties, use either PowerShell or Azure CLI.
-> Only RSA keys and key size 2048 are supported.
 
 ## Assign an identity to the storage account
 
@@ -39,9 +35,9 @@ For more information about configuring system-assigned managed identities with P
 
 ## Create a new key vault
 
-To create a new key vault using PowerShell, call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). The key vault that you use to store customer-managed keys for Azure Storage encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**. 
+To create a new key vault using PowerShell, call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). The key vault that you use to store customer-managed keys for Azure Storage encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**.
 
-Remember to replace the placeholder values in brackets with your own values. 
+Remember to replace the placeholder values in brackets with your own values.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
@@ -50,6 +46,8 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnableSoftDelete `
     -EnablePurgeProtection
 ```
+
+To learn how to enable **Soft Delete** and **Do Not Purge** on an existing key vault with PowerShell, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in [How to use soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
 
 ## Configure the key vault access policy
 
@@ -76,7 +74,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 By default, Azure Storage encryption uses Microsoft-managed keys. In this step, configure your Azure Storage account to use customer-managed keys and specify the key to associate with the storage account.
 
-Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -90,6 +88,20 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 ## Update the key version
 
 When you create a new version of a key, you'll need to update the storage account to use the new version. First, call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key. Then call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings to use the new version of the key, as shown in the previous section.
+
+## Use a different key
+
+To change the key used for Azure Storage encryption, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) as shown in [Configure encryption with customer-managed keys](#configure-encryption-with-customer-managed-keys) and provide the new key name and version. If the new key is in a different key vault, also update the key vault URI.
+
+## Disable customer-managed keys
+
+When you disable customer-managed keys, your storage account is then encrypted with Microsoft-managed keys. To disable customer-managed keys, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) with the `-StorageEncryption` option, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -StorageEncryption  
+```
 
 ## Next steps
 

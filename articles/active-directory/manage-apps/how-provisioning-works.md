@@ -58,6 +58,7 @@ You can customize the default attribute-mappings according to your business need
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application. For details, see [Writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
+## Scoping 
 ### Assignment-based scoping
 
 For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.

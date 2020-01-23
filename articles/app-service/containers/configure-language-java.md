@@ -234,11 +234,9 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ### Using the Java Key Store
 
-By default, any public or private certificates [uploaded to App Service Linux](../configure-ssl-certificate.md) will be loaded into the Java Key Store as the container starts. This means your uploaded certificates will be available in the connection context when making outbound TLS connections. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store.
+By default, any public or private certificates [uploaded to App Service Linux](../configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JAVA_HOME/jre/lib/security/cacerts`, and private certificates are stored in `$JAVA_HOME/lib/security/client.jks`.
 
-You can interact or debug the Java Key Tool by [opening an SSH connection](app-service-linux-ssh-support.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. The certificates are stored in Java's default keystore file location, `$JAVA_HOME/jre/lib/security/cacerts`.
-
-Additional configuration may be necessary for encrypting your JDBC connection. Please refer to the documentation for your chosen JDBC driver.
+Additional configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Please refer to the documentation for your chosen JDBC driver.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -246,11 +244,27 @@ Additional configuration may be necessary for encrypting your JDBC connection. P
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### Manually initialize and load the key store
+#### Initializing the Java Key Store
 
-You can initialize the key store and add certificates manually. Create an app setting, `SKIP_JAVA_KEYSTORE_LOAD`, with a value of `1` to disable App Service from loading the certificates into the key store automatically. All public certificates uploaded to App Service via the Azure portal are stored under `/var/ssl/certs/`. Private certificates are stored under `/var/ssl/private/`.
+To initialize the `import java.security.KeyStore` object, load the keystore file with the password. The default password for both key stores is "changeit".
 
-For more information on the KeyStore API, please refer to [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### Manually load the key store
+
+You can load certificates manually to the key store. Create an app setting, `SKIP_JAVA_KEYSTORE_LOAD`, with a value of `1` to disable App Service from loading the certificates into the key store automatically. All public certificates uploaded to App Service via the Azure portal are stored under `/var/ssl/certs/`. Private certificates are stored under `/var/ssl/private/`.
+
+You can interact or debug the Java Key Tool by [opening an SSH connection](app-service-linux-ssh-support.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, please refer to [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## Configure APM platforms
 
@@ -368,7 +382,7 @@ Your startup script will make an [xsl transform](https://www.w3schools.com/xml/x
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 An example xsl file is provided below. The example xsl file adds a new connector node to the Tomcat server.xml.

@@ -1,24 +1,14 @@
 ---
-title: 'Service Fabric Cluster Resource Manager: Movement cost | Microsoft Docs'
-description: Overview of movement cost for Service Fabric services
-services: service-fabric
-documentationcenter: .net
+title: 'Service Fabric Cluster Resource Manager: Movement cost'
+description: Learn about the movement cost for Service Fabric services, and how it can be specified to fit any architectural need, including dynamic configuration.
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Service movement cost
-A factor that the Service Fabric Cluster Resource Manager considers when trying to determine what changes to make to a cluster is the cost of those changes. The notion of "cost" is traded off against how much the cluster can be improved. Cost is factored in when moving services for balancing, defragmentation, and other requirements. The goal is to meet the requirements in the least disruptive or expensive way. 
+A factor that the Service Fabric Cluster Resource Manager considers when trying to determine what changes to make to a cluster is the cost of those changes. The notion of "cost" is traded off against how much the cluster can be improved. Cost is factored in when moving services for balancing, defragmentation, and other requirements. The goal is to meet the requirements in the least disruptive or expensive way.
 
 Moving services costs CPU time and network bandwidth at a minimum. For stateful services, it requires copying the state of those services, consuming additional memory and disk. Minimizing the cost of solutions that the Azure Service Fabric Cluster Resource Manager comes up with helps ensure that the cluster's resources aren't spent unnecessarily. However, you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
 

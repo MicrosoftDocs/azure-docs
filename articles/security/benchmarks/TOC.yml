@@ -1,0 +1,30 @@
+- name: Azure Security Benchmarks
+  href: index.yml
+- name: Introduction
+  href: introduction.md
+- name: Security Controls
+  items:
+  - name: Overview of Azure Security Controls
+    href: overview.md
+  - name: Network Security
+    href: security-control-network-security.md
+  - name: Logging and Monitoring
+    href: security-control-logging-monitoring.md
+  - name: Identity and Access Control
+    href: security-control-identity-access-control.md
+  - name: Data Protection
+    href: security-control-data-protection.md
+  - name: Vulnerability Management
+    href: security-control-vulnerability-management.md
+  - name: Inventory and Asset Management
+    href: security-control-inventory-asset-management.md
+  - name: Secure Configuration
+    href: security-control-secure-configuration.md
+  - name: Malware Defense
+    href: security-control-malware-defense.md
+  - name: Data Recovery
+    href: security-control-data-recovery.md
+  - name: Incident Response
+    href: security-control-incident-response.md
+  - name: Penetration Tests and Red Team Exercises
+    href: security-control-penetration-tests-red-team-exercises.md

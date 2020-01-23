@@ -1,14 +1,10 @@
 ---
-title: Terminology for Azure Service Fabric Mesh | Microsoft Docs
+title: Terminology for Azure Service Fabric Mesh 
 description: This article details the terminology used by Azure Service Fabric Mesh to help you better understand the terms used in the documentation.
-services: service-fabric-mesh
-keywords:  
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt 
 ---
 # Service Fabric Mesh terminology
 

@@ -41,7 +41,7 @@ You can configure the number of pre-warmed instances in the Azure portal by sele
 
 ![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
 
-You can also configure pre-warmed instances for an app with the Azure CLI
+You can also configure pre-warmed instances for an app with the Azure CLI.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -72,7 +72,7 @@ When you create the plan, you configure two settings: the minimum number of inst
 
 If your app requires instances beyond your plan size, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit, whereas the minimum plan instances are guaranteed for your app.
 
-You can configure the plan size and maximums in the Azure portal by selected the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
+You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
 
 You can also increase the maximum burst limit from the Azure CLI:
 

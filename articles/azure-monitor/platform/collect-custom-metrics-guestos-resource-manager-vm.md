@@ -19,7 +19,7 @@ This article describes the process for sending Guest OS performance metrics for 
 
 Storing them in this location allows you to access the same actions for platform metrics. Actions include near-real time alerting, charting, routing, and access from a REST API and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.
 
-If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/resource-group-overview.md) and their structure and syntax.
+If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/management/overview.md) and their structure and syntax.
 
 ## Prerequisites
 

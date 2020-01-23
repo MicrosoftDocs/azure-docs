@@ -129,6 +129,8 @@ When using AKS and Azure AD service principals, keep the following consideration
 - When you specify the service principal **Client ID**, use the value of the `appId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [az aks create][az-aks-create] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
+- If you do not specifically pass a service principal in additional AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.  
+- You can also optionally remove the aksServicePrincipal.json file, and AKS will create a new service principal.
 - When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal that was created automatically is not deleted.
     - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad app delete][az-ad-app-delete]. Replace the following resource group and cluster names with your own values:
 

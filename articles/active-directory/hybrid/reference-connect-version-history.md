@@ -38,7 +38,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
 >
->If you run a deprecated version of Azure AD Connect you may not have the latest security fixes, performance improvements, toubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
+>If you run a deprecated version of Azure AD Connect you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
 >
 >If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
 >

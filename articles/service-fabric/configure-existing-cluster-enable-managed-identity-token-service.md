@@ -1,13 +1,9 @@
 ---
-title: Azure Service Fabric - Configure an existing Azure Service Fabric cluster to enable managed identity support | Microsoft Docs
+title: Azure Service Fabric - Configure an existing Azure Service Fabric cluster to enable managed identity support
 description: This article shows you how to configure an existing Azure Service Fabric cluster to enable support for managed identities
-services: service-fabric
-author: athinanthny
 
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
+ms.date: 12/09/2019
 ---
 
 # Configure an existing Azure Service Fabric cluster to enable Managed Identity support (preview)
