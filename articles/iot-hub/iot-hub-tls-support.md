@@ -47,7 +47,7 @@ For this purpose, provision a new IoT Hub in any of the [supported regions](#sup
 The created IoT Hub resource using this configuration will refuse device and service clients that attempt to connect using TLS versions 1.0 and 1.1. Similarly, the TLS handshake will be refused if the client HELLO message does not list any of the [recommended ciphers](#recommended-ciphers).
 
 > [!NOTE]
-> The `minTlsVersion` property is read-only and cannot be changed once your IoT Hub resource is created. It is therefore essential that you properly test and validate that* *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
+> The `minTlsVersion` property is read-only and cannot be changed once your IoT Hub resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
 
 ### Supported regions
 
