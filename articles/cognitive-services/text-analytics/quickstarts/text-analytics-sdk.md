@@ -15,23 +15,11 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: Use the Text Analytics client library
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks. There are two versions you can use:
+Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks. There are two versions you can use: `v2` or `v3.0-preview`.
 
 > [!IMPORTANT]
-> Be sure to only follow the instructions for the version (`v2` or `3.0-preview`) you are using.  
+> Be sure to only follow the instructions for the version you are using.  
 >
-
-# [Version 3.0-preview](#tab/version-3)
-
-Use the Text Analytics client library version `3.0-preview` to perform:
-
-* Sentiment analysis (public preview)
-* Language detection
-* Named Entity recognition (public preview)
-    * Entity recognition for personal information
-* Key phrase extraction
-
-# [Version 2](#tab/version-2)
 
 Use the Text Analytics client library v2 to perform:
 
@@ -39,8 +27,6 @@ Use the Text Analytics client library v2 to perform:
 * Language detection
 * Entity recognition
 * Key phrase extraction
-
----
 
 ::: zone pivot="programming-language-csharp"
 

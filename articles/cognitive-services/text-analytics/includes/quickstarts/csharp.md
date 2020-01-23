@@ -43,9 +43,9 @@ ms.reviewer: assafi
 
 ### Create a new .NET Core application
 
-#### [Version 3.0-preview](#tab/version-3)
-
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
+
+#### [Version 3.0-preview](#tab/version-3)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
@@ -86,6 +86,8 @@ static void Main(string[] args)
 
 #### [Version 2](#tab/version-2)
 
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens, select **Browse** and search for `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
 Open the *program.cs* file and add the following `using` directives:
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
@@ -119,7 +121,6 @@ The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/
 
 ---
 
-
 ## Code examples
 
 * [Sentiment analysis](#sentiment-analysis)
@@ -150,9 +151,9 @@ Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.
 
 ---
 
-#### [Version 3.0-preview](#tab/version-3)
-
 ## Sentiment analysis (public preview)
+
+#### [Version 3.0-preview](#tab/version-3)
 
 > [!NOTE]
 > The below code is for Sentiment Analysis v3, which is in public preview.
@@ -207,9 +208,10 @@ Sentiment Score: 0.87
 
 ---
 
+## Language detection
+
 #### [Version 3.0-preview](#tab/version-3)
 
-## Language detection
 
 Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectLanguageResult>` object will contain the detected language in `Value.PrimaryLanguage` if successful, and a `Value.ErrorMessage` if not.
 
@@ -250,7 +252,7 @@ Language: English
 
 ---
 
-## Named Entity recognition (public preview)
+## Named Entity recognition
 
 #### [Version 3.0-preview](#tab/version-3)
 
