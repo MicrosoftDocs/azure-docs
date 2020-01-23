@@ -305,7 +305,7 @@ To enable HTTPS for your custom Blob storage endpoint, do the following:
 
 3. [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
-4. (Optional) Review these articles
+4. (Optional) Review the following guidance:
 
    * If you're using shared access signatures (SAS) tokens with Azure CDN, review [best practice guidance](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures) for using them.
 
