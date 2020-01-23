@@ -142,7 +142,7 @@ Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
 
-### Storage resource provider
+#### Storage resource provider
 
 After a failover is complete, clients can again read and write Azure Storage data in the new primary region. However, the Azure Storage resource provider does not fail over, so resource management operations must still take place in the primary region. If the primary region is unavailable, you will not be able to perform management operations on the storage account.
 
