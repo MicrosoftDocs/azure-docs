@@ -1,6 +1,6 @@
 ---
 title: Base image updates - Tasks
-description: Learn about base images for application container images, and about how a base image update can be used to trigger an Azure Container Registry task.
+description: Learn about base images for application container images, and about how a base image update can trigger an Azure Container Registry task.
 ms.topic: article
 ms.date: 01/22/2019
 ---
@@ -46,7 +46,7 @@ If the base image specified in the `FROM` statement resides in one of these loca
 
 * **Stable tag for base image** - To trigger a task on base image update, the base image must have a *stable* tag, such as `node:9-alpine`. This tagging is typical for a base image that is updated with OS and framework patches to a latest stable release. If the base image is updated with a new version tag, it does not trigger a task. For more information about image tagging, see the [best practices guidance](container-registry-image-tag-version.md). 
 
-* **Other task triggers** - In a task triggered by base image updates, you can also enable triggers based on [source code commit](container-registry-tutorial-build-task.md) or [a schedule](container-registry-tasks-scheduled.md). 
+* **Other task triggers** - In a task triggered by base image updates, you can also enable triggers based on [source code commit](container-registry-tutorial-build-task.md) or [a schedule](container-registry-tasks-scheduled.md). A base image update can also trigger a [multi-step task](container0registry-tasks-multi-step.md).
 
 ## Next steps
 

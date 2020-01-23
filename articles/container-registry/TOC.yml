@@ -149,7 +149,7 @@
         href: container-registry-tutorial-base-image-update.md
       - name: 3b - Build on private base image update
         href: container-registry-tutorial-private-base-image-update.md
-      - name: Schedule a task
+      - name: 4 - Build on a schedule
         href: container-registry-tasks-scheduled.md
   - name: Samples
     expanded: false

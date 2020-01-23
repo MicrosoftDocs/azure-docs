@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Trigger image build on private base image update
+title: Tutorial - Trigger image build by private base image update
 description: In this tutorial, you configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image in another private Azure container registry is updated.
 ms.topic: tutorial
 ms.date: 01/22/2020
@@ -7,11 +7,9 @@ ms.date: 01/22/2020
 
 # Tutorial: Automate container image builds when a base image is updated in another Azure container registry 
 
-ACR Tasks supports automated image builds  when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
+ACR Tasks supports automated image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
 
-In this tutorial, you learn how to create an  ACR tasks that triggers a build in the cloud when a container's base image has been pushed to another Azure container registry. 
-
-This scenario reflects a common development workflow to manage base images in a common, private container registry when creating application images in other registries. Developers developing application images in separate registries can access a set of base images maintained in a base registry accessible by multiple teams. The base registry can be in another region or even geo-replicated.
+In this tutorial, you learn how to create an ACR task that triggers a build in the cloud when a container's base image has been pushed to another Azure container registry. 
 
 In this tutorial:
 
@@ -56,7 +54,9 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### Base image update scenario
 
-This tutorial walks you through a base image update scenario. The [code sample][code-sample] includes two Dockerfiles: an application image, and an image it specifies as its base. In the following sections, you create an ACR task that automatically triggers a build of the application image when a new version of the base image is pushed to a different Azure container registry.
+This tutorial walks you through a base image update scenario. This scenario reflects a development workflow to manage base images in a common, private container registry when creating application images in other registries. For example, developers who develop application images in their own registries can access a set of base images maintained in the common base registry. The base registry can be in another region or even geo-replicated.
+
+The [code sample][code-sample] includes two Dockerfiles: an application image, and an image it specifies as its base. In the following sections, you create an ACR task that automatically triggers a build of the application image when a new version of the base image is pushed to a different Azure container registry.
 
 [Dockerfile-app][dockerfile-app]: A small Node.js web application that renders a static web page displaying the Node.js version on which it's based. The version string is simulated: it displays the contents of an environment variable, `NODE_VERSION`, that's defined in the base image.
 
