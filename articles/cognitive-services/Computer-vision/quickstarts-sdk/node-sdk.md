@@ -54,7 +54,7 @@ npm init
 
 ### Install the client library
 
-Install the `ms-rest-azure` and `azure-cognitiveservices-computervision` NPM packages:
+Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM packages:
 
 ```console
 npm install @azure/cognitiveservices-computervision

@@ -22,7 +22,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 ## Prerequisites
 
 * The [Cognitive Services Image Search SDK for Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
-    * Install using `npm install azure-cognitiveservices-imagesearch`
+    * Install using `npm install @azure/cognitiveservices-imagesearch`
 * The [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure) module
     * Install using `npm install ms-rest-azure`
 
