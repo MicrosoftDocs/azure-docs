@@ -117,7 +117,6 @@ The following authentication methods are supported for Azure AD server principal
 - For an overview of access and control in SQL Analytics, see [SQL Analytics access control](access-control.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
-- For syntax on creating Azure AD server principals (logins) for SQL Analytics on-demand, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 <!--Image references-->
 
