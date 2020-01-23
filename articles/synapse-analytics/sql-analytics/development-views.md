@@ -53,7 +53,7 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Keep in mind that this approach can result in tables appearing and disappearing from a user's view, and prompts a "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer while the underlying objects are renamed. 
+Keep in mind that this approach can result in tables appearing and disappearing from a user's view, and prompts "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer while the underlying objects are renamed. 
 
 By providing access to data through views, users don't need visibility to the underlying tables. In addition to a consistent user experience, this layer ensures that analytics designers can evolve the data model. The ability to evolve the underlying tables means designers can use CTAS to maximize performance during the data loading process.   
 
