@@ -163,7 +163,7 @@ SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE
 
 Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples use the functions [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics), and the [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) operator.
 
-Here is example of a single event. Both `CustomSensor03` and `SensorMetadata` are of type **array**:
+Here is an example of a single event. Both `CustomSensor03` and `SensorMetadata` are of type **array**:
 
 ```json
 {
