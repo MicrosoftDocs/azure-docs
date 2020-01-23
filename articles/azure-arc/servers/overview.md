@@ -16,7 +16,7 @@ ms.topic: overview
 
 Azure Arc for servers (preview) allows you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider, similarly to how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a **Connected Machine** and is treated as a resource in Azure. Each **Connected Machine** has a Resource ID, is managed as part of a resource group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and applying tags.
 
-To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../security-center/security-center-intro.md).
+To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
 
 >[!NOTE]
 >The Public Preview release is designed for evaluation purposes and we recommend not managing critical production resources.
@@ -26,8 +26,8 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 
 Azure Arc for servers (preview) supports the following scenarios with connected machines:
 
-- Assign [Azure Policy guest configurations](../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
-- Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../azure-monitor/platform/design-logs-deployment#access-mode.md) log access.
+- Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
+- Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment#access-mode.md) log access.
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ The following versions of the Windows and Linux operating system are officially 
 - Windows Server 2012 R2 and higher
 - Ubuntu 16.04 and 18.04
 
-## Azure Subscription and Service Limits
+## Azure subscription and service limits
 
-Please make sure you read the Azure Resource Manager limits, and plan for the number of the machines to be connected according to the guideline listed for the [subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager), and for the [resource groups](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). In particular, by default there is a limit of 800 servers per resource group.
+Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager and resource group limits to plan for the number of machines to be connected. Specifically, review the [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)
 
 ## Networking Configuration
 
