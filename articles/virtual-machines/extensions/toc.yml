@@ -66,8 +66,8 @@
       href: hpccompute-gpu-windows.md
   - name: Monitor
     items:
-  - name: Diagnostics extension
-    items:
+    - name: Diagnostics extension
+      items:
       - name: Linux
         href: diagnostics-linux.md
       - name: Windows
