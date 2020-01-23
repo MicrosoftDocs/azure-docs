@@ -29,6 +29,13 @@ Copies source data to a destination location. The supported directions are:
 
 Please refer to the examples for more information.
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ## Advanced
 
 AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).

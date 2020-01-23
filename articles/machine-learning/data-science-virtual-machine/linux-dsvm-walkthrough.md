@@ -55,8 +55,8 @@ Then, concatenate the two files together:
 
 The dataset has several types of statistics for each email:
 
-* Columns like **word\_freq\_*WORD*** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
-* Columns like **char\_freq\_*CHAR*** indicate the percentage of all characters in the email that are *CHAR*.
+* Columns like **word\_freq\__WORD_** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
+* Columns like **char\_freq\__CHAR_** indicate the percentage of all characters in the email that are *CHAR*.
 * **capital\_run\_length\_longest** is the longest length of a sequence of capital letters.
 * **capital\_run\_length\_average** is the average length of all sequences of capital letters.
 * **capital\_run\_length\_total** is the total length of all sequences of capital letters.
@@ -171,17 +171,17 @@ Let's also try a random forest model. Random forests train a multitude of decisi
 
 ## Deploy a model to Azure Machine Learning Studio (classic)
 
-[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of the classic version of Azure Machine Learning Studio is its ability to publish any R function as a web service. The Azure Machine Learning Studio R package makes deployment easy, right from your R session on the DSVM.
+[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of Azure Machine Learning Studio (classic) is its ability to publish any R function as a web service. The Azure Machine Learning Studio (classic) R package makes deployment easy, right from your R session on the DSVM.
 
 To deploy the decision tree code from the preceding section, sign in to Azure Machine Learning Studio (classic). You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
 
 1. In the left menu, select **Settings**. Note the value for **WORKSPACE ID**.
 
-   ![The Azure Machine Learning Studio workspace ID](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![The Azure Machine Learning Studio (classic) workspace ID](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. Select the **Authorization Tokens** tab. Note the value for **Primary Authorization Token**.
 
-   ![The Azure Machine Learning Studio primary authorization token](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![The Azure Machine Learning Studio (classic) primary authorization token](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Load the **AzureML** package, and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
         if(!require("AzureML")) install.packages("AzureML")

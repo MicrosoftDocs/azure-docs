@@ -482,7 +482,7 @@ kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Delete the network policy using [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
+Delete the security policy using [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml

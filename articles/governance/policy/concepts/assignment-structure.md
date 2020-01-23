@@ -1,15 +1,12 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
 ---
 # Azure Policy assignment structure
 
-Policy assignments are used by Azure Policy to define which resources are assigned while policies or
+Policy assignments are used by Azure Policy to define which resources are assigned which policies or
 initiatives. The policy assignment can determine the values of parameters for that group of
 resources at assignment time, making it possible to reuse policy definitions that address the same
 resource properties with different needs for compliance.
@@ -59,7 +56,7 @@ characters and **description** a maximum length of _512_ characters.
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
 existing resources without initiating the policy effect or triggering entries in the
-[Azure Activity log](../../../azure-monitor/platform/activity-logs-overview.md). This scenario is
+[Azure Activity log](../../../azure-monitor/platform/platform-logs-overview.md). This scenario is
 commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
 different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
 evaluation from happening at all.
@@ -107,6 +104,6 @@ reducing the duplication and complexity of policy definitions while providing fl
 
 - Learn about the [policy definition structure](./definition-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

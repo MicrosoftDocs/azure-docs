@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Java (Android) - Speech Service'
+title: 'Quickstart: Synthesize speech, Java (Android) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Java on Android by using the Speech SDK
 services: cognitive-services

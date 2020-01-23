@@ -1,16 +1,9 @@
 ---
-title: Best Practices - Azure App Service
-description: Learn best practices and troubleshooting for Azure App Service.
-services: app-service
-documentationcenter: ''
+title: Best Practices
+description: Learn best practices and the common troubleshooting scenarios for your app running in Azure App Service.
 author: dariagrigoriu
-manager: erikre
-editor: mollybos
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
@@ -68,3 +61,13 @@ When backup failures happen, review most recent results to understand which type
 ## <a name="nodejs"></a>When new Node.js apps are deployed to Azure App Service
 Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If configuration for your Node.js app would benefit from personalized tuning to improve performance or optimize resource usage for CPU/memory/network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). This article describes the iisnode settings you may need to configure for your Node.js app, describes the various scenarios or issues that your app may be facing, and shows how to address these issues.
 
+
+## Next Steps
+For more information on best practices, visit [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to find out actionable best practices specific to your resource.
+
+- Navigate to your Web App in the [Azure portal](https://portal.azure.com).
+- Click on **Diagnose and solve problems** in the left navigation, which opens App Service Diagnostics.
+- Choose **Best Practices** homepage tile.
+- Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
+
+You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

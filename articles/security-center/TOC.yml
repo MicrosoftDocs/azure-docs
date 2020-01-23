@@ -1,4 +1,4 @@
-- name: Security Center Documentation
+- name: Security Center documentation
   href: index.yml
 - name: Overview
   items:
@@ -32,6 +32,10 @@
 
 - name: Concepts
   items:
+  - name: Secure Score in Security Center
+    href: security-center-secure-score.md
+  - name: The enhanced Secure Score
+    href: secure-score-security-controls.md
   - name: Permissions
     href: security-center-permissions.md
   - name: Data security
@@ -40,10 +44,20 @@
     href: security-center-using-recommendations.md
   - name: Cross-tenant management
     href: security-center-cross-tenant-management.md 
+  - name: Container security
+    items:
+    - name: Container security overview
+      href: container-security.md    
+    - name: Integration with Azure Container Registry
+      href: azure-container-registry-integration.md
+    - name: Integration with Azure Kubernetes Service
+      href: azure-kubernetes-service-integration.md
   - name: Threat detection alerts and incidents
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
+    - name: Reference list of alerts
+      href: alerts-reference.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
@@ -54,9 +68,9 @@
       href: security-center-alerts-compute.md
     - name: Threat detection for data services
       href: security-center-alerts-data-services.md
-    - name: Threat detection for Azure service layer
+    - name: Threat detection for Azure service layers
       href: security-center-alerts-service-layer.md   
-    - name: Integration with Azure Security Products
+    - name: Threat detection alerts from Azure WAF & Azure DDoS Protection
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
@@ -67,37 +81,57 @@
 
 - name: How-to guides
   items:
-  - name: Improve your secure score
-    href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Microsoft Defender ATP
+  - name: Scan your VMs for vulnerabilities
+    items:
+    - name: Vulnerability scanning overview
+      href: security-center-vulnerability-assessment-recommendations.md
+    - name: Integrated vulnerability scanner for VMs
+      href: built-in-vulnerability-assessment.md
+    - name: Using external scanners
+      href: partner-vulnerability-assessment.md
+  - name: Protect your servers with Microsoft Defender ATP
     href: security-center-wdatp.md
-  - name: Advanced data security for SQL on Azure VMs (Public Preview)
+  - name: Use advanced data security for SQL on Azure VMs
     href: security-center-iaas-advanced-data.md
   - name: Use App Service to protect your applications
     href: security-center-app-services.md
-  - name: Working with security policies
-    href: tutorial-security-policy.md
+  - name: Use security policies
+    items:
+    - name: Overview of security policies
+      href: tutorial-security-policy.md
+    - name: Use built-in security policies
+      href: security-center-policy-definitions.md 
+    - name: Create custom security policies
+      href: custom-security-policies.md
+    - name: Manage policies with the Azure Policy REST API
+      href: configure-security-policy-azure-policy.md
+  - name: Add dynamic compliance packages
+    href: update-regulatory-compliance-packages.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
   - name: Manage security solutions
     href: security-center-partner-integration.md
   - name: Automate onboarding using PowerShell
     href: security-center-powershell-onboarding.md
-  - name: Security Center settings
-    href: security-center-policies-overview.md
+  - name: Integrate with Windows Admin Center
+    href: windows-admin-center-integration.md
   - name: Compare baselines using File Integrity Monitoring
     href: security-center-file-integrity-monitoring-baselines.md
-  - name: Data collection
+  - name: Automate responses to alerts and recommendations
+    href: workflow-automation.md
+  - name: Export alerts and recommendations
+    href: continuous-export.md
+  - name: Configure your data collection
     href: security-center-enable-data-collection.md
-  - name: Built-in security policies
-    href: security-center-policy-definitions.md
-  - name: Email notifications
+  - name: Set up advanced threat protection for Azure Key Vault
+    href: advanced-threat-protection-key-vault.md
+  - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
   - name: Pricing
     href: security-center-pricing.md
-  - name: Tenant-wide visibility
+  - name: Gain tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
     items:
@@ -107,6 +141,8 @@
       href: security-center-remediate-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
+    - name: Reference list of recommendations
+      href: recommendations-reference.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
     - name: Protect network resources
@@ -134,8 +170,6 @@
       href: security-center-apply-system-updates.md
     - name: Install Endpoint Protection
       href: security-center-install-endpoint-protection.md
-    - name: Vulnerability assessment not installed
-      href: security-center-vulnerability-assessment-recommendations.md
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Alert confidence score
@@ -144,8 +178,6 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
-    - name: Logic Apps playbooks
-      href: security-center-playbooks.md
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
 
@@ -167,7 +199,7 @@
   - name: Manage user data
     href: security-center-privacy.md
   - name: Azure Security Center for IoT documentation
-    href: https://docs.microsoft.com/en-us/azure/asc-for-iot/
+    href: https://docs.microsoft.com/azure/asc-for-iot/
   - name: FAQ
     href: security-center-faq.md
   - name: Azure security documentation

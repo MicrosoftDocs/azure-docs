@@ -1,6 +1,6 @@
 ---
 author: ggailey777
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019	
 ms.author: glenga
@@ -8,9 +8,9 @@ ms.author: glenga
 | Resource | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Scale out | Event driven | Event driven | [Manual/autoscale](../articles/app-service/manage-scale-up.md) | 
-| Max instances | 200 | 20 | 10-20 |
-|Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
-|Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded | unbounded<sup>3</sup> |
+| Max instances | 200 | 100 | 10-20 |
+|Default [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
+|Max [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | unbounded<sup>3</sup> |
 | Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded |
 | Max request size (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Max query string length<sup>4</sup> | 4096 | 4096 | 4096 |
@@ -23,7 +23,7 @@ ms.author: glenga
 | Custom domains per app</a> |500<sup>7</sup> |500 |500 |
 | Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
 
-<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
+<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  
 <sup>3</sup> Requires the App Service plan be set to [Always On](../articles/azure-functions/functions-scale.md#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup> These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  

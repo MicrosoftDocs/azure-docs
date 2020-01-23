@@ -1,14 +1,13 @@
 ---
-title: Check run status or history and set up alerts - Azure Logic Apps
-description: Check your logic app's run status, view runs history, and set up alerts in Azure Logic Apps
+title: Check status, set up logging, and get alerts
+description: Monitor status, set up logging, and turn on alerts for diagnosing errors and problems in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, estfan, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ---
 
 # Check run status, view runs history, and set up alerts in Azure Logic Apps

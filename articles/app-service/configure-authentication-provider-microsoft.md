@@ -1,19 +1,10 @@
 ---
-title: Configure Microsoft Account authentication - Azure App Service
-description: Learn how to configure Microsoft Account authentication for your App Service app.
-author: mattchenderson
-services: app-service
-documentationcenter: ''
-manager: syntaxc4
-editor: ''
+title: Configure Microsoft authentication
+description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service app.
 
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/08/2019
-ms.author: mahender
 ms.custom: seodec18
 
 ---
@@ -28,7 +19,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
 1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal. If needed, sign in with your Microsoft account.
 1. Select **New registration**, then enter an application name.
-1. In **Redirect URIs**, select **Web**, and then enter `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Replace *\<app-domain-name>* with the domain name of your app.  For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Be sure to use the HTTPS scheme in the URL.
+1. In **Redirect URIs**, select **Web**, and then enter `https://<app-domain-name>/.auth/login/microsoftaccount/callback`. Replace *\<app-domain-name>* with the domain name of your app.  For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Be sure to use the HTTPS scheme in the URL.
 
 1. Select **Register**.
 1. Copy the **Application (Client) ID**. You'll need it later.
@@ -36,7 +27,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 1. Copy the value that appears on the **Certificates & secrets** page. After you leave the page, it won't be displayed again.
 
     > [!IMPORTANT]
-    > The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
+    > The client secret value (password) is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 

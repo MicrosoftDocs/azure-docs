@@ -13,11 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Service-to-service apps
@@ -36,7 +35,7 @@ Service-to-service applications can be a daemon or server application that needs
 
 ![Daemon or Server Application to Web API diagram](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## DProtocol flow
+## Protocol flow
 
 ### Application identity with OAuth 2.0 client credentials grant
 
@@ -55,11 +54,11 @@ The flow discussed below assumes that a user has been authenticated on another a
 
 ## Code samples
 
-See the code samples for Daemon or Server Application to Web API scenarios. And, check back frequently as new samples are added frequently. [Server or Daemon Application to Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+See the code samples for Daemon or Server Application to Web API scenarios: [Server or Daemon Application to Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## App registration
 
-* Single tenant - For both the application identity and delegated user identity cases, the daemon or server application must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the daemon or server’s access to its resources. If a delegated user identity type is being used, the server application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure portal. This step is not required if the application identity type is being used.
+* Single tenant - For both the application identity and delegated user identity cases, the daemon or server application must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the daemon or server’s access to its resources. If a delegated user identity type is being used, the server application needs to select the desired permissions. In the **API Permission** page for the application registration, after you've selected **Add a permission** and chosen the API family, choose **Delegated permissions**, and then select your permissions. This step is not required if the application identity type is being used.
 * Multi-tenant - First, the daemon or server application is configured to indicate the permissions it requires to be functional. This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization. Some applications only require user-level permissions, which any user in the organization can consent to. Other applications require administrator-level permissions, which a user in the organization cannot consent to. Only a directory administrator can give consent to applications that require this level of permissions. When the user or administrator consents, both of the web APIs are registered in their directory.
 
 ## Token expiration

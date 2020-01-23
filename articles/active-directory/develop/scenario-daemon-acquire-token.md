@@ -1,5 +1,5 @@
 ---
-title: Daemon app calling web APIs (acquiring tokens for the app) - Microsoft identity platform
+title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,7 +17,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Daemon app that calls web APIs - acquire a token
@@ -30,7 +29,7 @@ The scope to request for a client credential flow is the name of the resource fo
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -67,7 +66,7 @@ To acquire a token for the app, you'll use `AcquireTokenForClient` or the equiva
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the

@@ -1,5 +1,5 @@
 ---
-title: Web app that calls web APIs (calling a web API) - Microsoft identity platform
+title: Call a web api from a web app - Microsoft identity platform | Azure
 description: Learn how to build a Web app that calls web APIs (calling a web API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,7 +16,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Web app that calls web APIs - call a web API
@@ -38,7 +37,7 @@ Here is a simplified code of the action of the `HomeController`. This code gets 
 }
 ```
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);

@@ -1,6 +1,6 @@
 ﻿---
 title: Azure Kinect DK hardware specification
-description: Azure Kinect DK specifications and capabilities
+description: Understand the components, specifications, and capabilities of the Azure Kinect DK.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -19,11 +19,12 @@ This article provides details about how Azure Kinect hardware integrates Microso
 
 These abbreviated terms are used throughout this article.
 
-* NFOV (Narrow field-of-view depth mode)
-* WFOV (Wide field-of-view depth mode)
-* FOV (Field-of-view)
-* FPS (Frames-per-second)
-* IMU (Inertial Measurement Unit)
+- NFOV (Narrow field-of-view depth mode)
+- WFOV (Wide field-of-view depth mode)
+- FOV (Field-of-view)
+- FPS (Frames-per-second)
+- IMU (Inertial Measurement Unit)
+- FoI (Field of Interest)
 
 ## Product dimensions and weight
 
@@ -50,7 +51,7 @@ Refer to additional product [safety information](https://support.microsoft.com/h
 
 Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the [image sensor presented at ISSCC 2018](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018). The depth camera supports the modes indicated below:
 
- | Mode            | Resolution | FOI       | FPS                | Operating range* | Exposure time |
+ | Mode            | Resolution | FoI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
 | NFOV unbinned   | 640x576    | 75°x65°   | 0, 5, 15, 30       | 0.5 - 3.86 m       | 12.8 ms        |
 | NFOV 2x2 binned (SW) | 320x288    | 75°x65°   | 0, 5, 15, 30       | 0.5 - 5.46 m       | 12.8 ms        |
@@ -58,7 +59,7 @@ Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF)
 | WFOV unbinned   | 1024x1024  | 120°x120° | 0, 5, 15           | 0.25 - 2.21 m      | 20.3 ms        |
 | Passive IR      | 1024x1024  | N/A       | 0, 5, 15, 30       | N/A              | 1.6 ms         |
 
-\*15% to 95% reflectivity, 2.2 μW/cm<sup>2</sup>/nm, random error std. dev. ≤ 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
+\*15% to 95% reflectivity at 850nm, 2.2 μW/cm<sup>2</sup>/nm, random error std. dev. ≤ 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
 
 ## Color camera supported operating modes
 
@@ -97,6 +98,14 @@ Below is the mapping for the acceptable RGB camera manual exposure values:
 |  -1|  500000| 100000| 100000 |
 |   0| 1000000| 120000| 116670 |
 |   1| 2000000| 130000| 133330 |
+
+## Depth sensor raw timing
+
+Depth Mode | IR <br>Pulses | Pulse <br>Width  | Idle <br>Periods| Idle Time | Exposure <br> Time
+-|-|-|-|-|-
+NFOV Unbinned <br>  NFOV 2xx Binned <br> WFOV 2x2 Binned | 9 | 125 us | 8 | 1450 us | 12.8 ms 
+WFOV Unbinned                                            | 9 | 125 us | 8 | 2390 us | 20.3 ms
+
 
 ## Camera field of view
 
@@ -191,20 +200,6 @@ Azure Kinect DK consumes up to 5.9 W; specific power consumption is use-case dep
 ## Calibration
 
 Azure Kinect DK is calibrated at the factory. The calibration parameters for visual and inertial sensors may be queried programmatically through the Sensor SDK.
-
-## External synchronization
-
-The device includes 3.5-mm synchronization jacks that can be used to link multiple units together. When linked, cameras can coordinate the timing of Depth and RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable isn't included in box and must be purchased separately.
-
-Cable requirements:
-
-- 3.5-mm tip male-to-male cable ("3.5-mm audio cable")
-- Maximum cable length < 10 m
-- Both stereo and mono cable are supported
-
-When using multiple depth camera's in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
-
-More details on [external synchronization setup](https://support.microsoft.com/help/4494429)
 
 ## Device recovery
 

@@ -1,5 +1,5 @@
 ---
-title: Scalability and performance targets for VM disks on Windows - Microsoft Azure | Microsoft Docs
+title: Scalability and performance targets for VM disks on Windows
 description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Windows.
 author: roygara
 ms.author: rogarana
@@ -28,4 +28,4 @@ Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-d
 
 ## See also
 
-[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

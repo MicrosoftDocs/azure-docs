@@ -1,6 +1,6 @@
 ---
-title: Add your personal Microsoft accounts to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your personal Microsoft accounts, such as for Outlook.com or Xbox LIVE to the Microsoft Authenticator app for two-factor verification.
+title: Add a personal Microsoft account to the Microsoft Authenticator app - Azure AD
+description: Add personal Microsoft accounts, such as for Outlook.com or Xbox LIVE to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
-# Add your personal Microsoft accounts
+# Add personal Microsoft accounts to the Microsoft Authenticator app
 
 Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
 

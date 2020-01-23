@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services alias server names | Microsoft Docs
-description: Describes how to create and use server name aliases.
+description: Learn how to create Azure Analysis Services server name aliases. Users can then connect to your server with a shorter alias name instead of the server name.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual

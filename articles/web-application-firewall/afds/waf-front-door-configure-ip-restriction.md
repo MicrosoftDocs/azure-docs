@@ -1,5 +1,5 @@
 ---
-title: Configure an IP restriction rule with a Web Application Firewall rule for Azure Front Door Service
+title: Configure IP restriction WAF rule for Azure Front Door Service
 description: Learn how to configure a Web Application Firewall rule to restrict IP addresses for an existing Azure Front Door Service endpoint.
 services: web-application-firewall
 author: vhorne
@@ -136,10 +136,10 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      
 ### Create a custom IP allow rule
 
-Use the [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests not from client IPs that match the list will be blocked.
+Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests not from client IPs that match the list will be blocked.
 
 ```powershell
-$IPAllowRule = New-AzFrontDoorCustomRuleObject `
+$IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "IPAllowRule" `
 -RuleType MatchRule `
 -MatchCondition $IPMatchCondition `

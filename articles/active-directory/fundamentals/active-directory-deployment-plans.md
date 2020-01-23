@@ -57,9 +57,10 @@ Widening the rollout to larger groups of users should be carried out by increasi
 
 | Capability | Description|
 | -| -|
-| [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)| Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. |
+| [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. |
 | [Conditional Access](https://aka.ms/deploymentplans/ca)| With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions. |
 | [Self-service password reset](https://aka.ms/deploymentplans/sspr)| Self-service password reset helps your users reset their passwords without administrator intervention, when and where they need to. |
+| [Passwordless](https://aka.ms/deploymentplans/passwordless) | Implement passwordless authentication using the the Microsoft Authenticator app or FIDO2 Security keys in your organization |
 
 ## Deploy application management
 
@@ -76,14 +77,14 @@ Widening the rollout to larger groups of users should be carried out by increasi
 | [ADFS to Password Hash Sync](https://aka.ms/deploymentplans/adfs2phs)| With Password Hash Synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD, letting Azure AD authenticate users with no interaction with the on-premises Active Directory |
 | [ADFS to Pass Through Authentication](https://aka.ms/deploymentplans/adfs2pta)| Azure AD Pass-through Authentication helps your users sign in to both on-premises and cloud-based applications using the same passwords. This feature provides users with a better experience - one less password to remember - and reduces IT helpdesk costs because users are less likely to forget how to sign in. When people sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory. |
 | [Azure AD Application Proxy](https://aka.ms/deploymentplans/appproxy)| Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
-| [Seamless SSO](https://aka.ms/SeamlessSSODPDownload)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any additional on-premises components. |
+| [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any additional on-premises components. |
 
 ## Deploy user provisioning
 
 | Capability | Description|
 | -| -|
-| [User provisioning](https://aka.ms/UserProvisioningDPDownload)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
-| [Workday-driven Inbound User Provisioning](https://aka.ms/WorkdayDeploymentPlan)| Workday-driven Inbound User Provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable) |
+| [User provisioning](https://aka.ms/deploymentplans/userprovisioning)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
+| [Cloud HR user provisioning](https://aka.ms/deploymentplans/cloudhr)| Cloud HR user provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature with your cloud HR product, such as Workday or Successfactors, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable) |
 
 ## Deploy governance and reporting
 

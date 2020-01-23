@@ -24,7 +24,7 @@ Different matching conditions within the same rule are always compounded using *
 If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they’re using a specific browser.
 
 > [!NOTE]
-> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md#application-gateway-limits).
+> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples of these, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
@@ -157,6 +157,11 @@ List of values to match against, which can be thought of as being *OR*'ed. For e
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. Subsequent custom rules are evaluated in order of priority, followed by the managed rules.
 
 ## Geomatch custom rules (preview)
+
+Custom rules allow for the creation of tailored rules to suit the exact needs of your applications, and your security policies. Now, you are able restrict access to your web applications by country/region, which is available in public preview. As with all custom rules, this logic can be compounded with other rules to suit the needs of your application. 
+
+   > [!NOTE]
+   > Geomatch custom rules are available in South Central US and North Europe. To access them in the portal, please use [this link](https://aka.ms/AppGWWAFGeoMatch) until it goes live for everyone. 
 
 If you are using the Geomatch operator, the selectors can be any of the following two-digit country codes. 
 

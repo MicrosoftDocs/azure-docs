@@ -1,5 +1,5 @@
 ---
-title: Azure CLI script - Scale an Azure Database for MariaDB server
+title: CLI script - Scale server - Azure Database for MariaDB 
 description: This sample CLI script scales Azure Database for MariaDB server to a different performance level after querying the metrics.
 author: ajlam
 ms.author: andrela
@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/07/2019
+ms.date: 12/02/2019
 ---
 
 # Monitor and scale an Azure Database for MariaDB server using Azure CLI

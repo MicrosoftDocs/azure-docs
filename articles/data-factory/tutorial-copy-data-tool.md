@@ -1,20 +1,21 @@
 ---
-title: Copy data by using the Azure Copy Data tool | Microsoft Docs
+title: Copy data from Azure Blob storage to SQL using Copy Data tool
 description: Create an Azure data factory and then use the Copy Data tool to copy data from Azure Blob storage to a SQL database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.author: jingwang
-
 ---
+
 # Copy data from Azure Blob storage to a SQL database by using the Copy Data tool
+
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](tutorial-copy-data-tool.md)
@@ -33,7 +34,7 @@ In this tutorial, you perform the following steps:
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* **Azure storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 * **Azure SQL Database**: Use a SQL database as the _sink_ data store. If you don't have a SQL database, see the instructions in [Create a SQL database](../sql-database/sql-database-get-started-portal.md).
 
 ### Create a blob and a SQL table
@@ -72,30 +73,30 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 ## Create a data factory
 
 1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
-    
+
     ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
     The name for your data factory must be _globally unique_. You might receive the following error message:
-    
+
     ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
 
     If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 1. Select the Azure **subscription** in which to create the new data factory.
 1. For **Resource Group**, take one of the following steps:
-    
+
     a. Select **Use existing**, and select an existing resource group from the drop-down list.
 
     b. Select **Create new**, and enter the name of a resource group.
     
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 1. Under **version**, select **V2** for the version.
 1. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that are used by your data factory can be in other locations and regions.
 1. Select **Create**.
 
 1. After creation is finished, the **Data Factory** home page is displayed.
-    
+
     ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 1. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
 
@@ -119,7 +120,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     ![Select source linked service](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. On the **Choose the input file or folder** page, complete the following steps:
-    
+
     a. Click **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then click **Choose**.
 
     b. Click **Next** to move to next step.

@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform and the OpenID Connect protocol | Azure
+title: OpenID Connect protocol - Microsoft identity platform | Azure
 description: Build web applications by using the Microsoft identity platform implementation of the OpenID Connect authentication protocol.
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,6 @@ ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and OpenID Connect protocol

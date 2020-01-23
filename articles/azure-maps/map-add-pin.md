@@ -1,6 +1,6 @@
 ---
-title: Add a Symbol layer to Azure Maps | Microsoft Docs
-description: How to add symbols to the Azure Maps Web SDK.
+title: Add a Symbol layer to a map | Microsoft Azure Maps
+description: In this article, you will learn about how to use the Symbol layer to customize and add symbols on a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -17,6 +17,14 @@ A symbol can be connected up to a data source and used to render an icon and/or 
 
 > [!TIP]
 > Symbol layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
+
+The maps image sprite manager, which is used to load custom images used by the symbol layer supports the following image formats:
+
+- JPEG
+- PNG
+- SVG
+- BMP
+- GIF (no animations)
 
 ## Add a symbol layer
 

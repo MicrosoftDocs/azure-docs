@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create your first access package in Azure AD entitlement management - Azure Active Directory
+title: Tutorial - Create access package - Azure AD entitlement management
 description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''

@@ -1,12 +1,12 @@
 ---
-title: Automatically scale Windows Virtual Desktop session hosts - Azure
+title: Dynamic scale Windows Virtual Desktop session hosts - Azure
 description: Describes how to set up the automatic scaling script for Windows Virtual Desktop session hosts.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
 ---
 # Scale session hosts dynamically
@@ -45,7 +45,7 @@ First, prepare your environment for the scaling script:
 
 1. Sign in to the VM (scaler VM) that will run the scheduled task with a domain administrative account.
 2. Create a folder on the scaler VM to hold the scaling script and its configuration (for example, **C:\\scaling-HostPool1**).
-3. Download the **basicScale.ps1**, **Config.xml**, and **Functions-PSStoredCredentials.ps1** files, and the **PowershellModules** folder from the [scaling script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) and copy them to the folder you created in step 2. There are two primary ways to obtain the files before copying them to the scaler VM:
+3. Download the **basicScale.ps1**, **Config.json**, and **Functions-PSStoredCredentials.ps1** files, and the **PowershellModules** folder from the [scaling script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) and copy them to the folder you created in step 2. There are two primary ways to obtain the files before copying them to the scaler VM:
     - Clone the git repository to your local machine.
     - View the **Raw** version of each file, copy and paste the content of each file to a text editor, then save the files with the corresponding file name and file type. 
 
@@ -68,13 +68,13 @@ Next, you'll need to create the securely stored credentials:
     ```
     
     For example, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-5. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
+5. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.json**).
     - If you use different service principals or standard account, run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet once for each account to create local stored credentials.
 6. Run **Get-StoredCredential -List** to confirm the credentials were created successfully.
 
-### Configure the config.xml file
+### Configure the config.json file
 
-Enter the relevant values into the following fields to update the scaling script settings in config.xml:
+Enter the relevant values into the following fields to update the scaling script settings in config.json:
 
 | Field                     | Description                    |
 |-------------------------------|------------------------------------|
@@ -98,7 +98,7 @@ Enter the relevant values into the following fields to update the scaling script
 
 ### Configure the Task Scheduler
 
-After configuring the configuration .xml file, you'll need to configure the Task Scheduler to run the basicScaler.ps1 file at a regular interval.
+After configuring the configuration JSON file, you'll need to configure the Task Scheduler to run the basicScaler.ps1 file at a regular interval.
 
 1. Start **Task Scheduler**.
 2. In the **Task Scheduler** window, select **Create Task…**
@@ -112,13 +112,13 @@ After configuring the configuration .xml file, you'll need to configure the Task
 
 ## How the scaling script works
 
-This scaling script reads settings from a config.xml file, including the start and end of the peak usage period during the day.
+This scaling script reads settings from a config.json file, including the start and end of the peak usage period during the day.
 
-During peak usage time, the script checks the current number of sessions and the current running RDSH capacity for each host pool. It calculates if the running session host VMs have enough capacity to support existing sessions based on the SessionThresholdPerCPU parameter defined in the config.xml file. If not, the script starts additional session host VMs in the host pool.
+During peak usage time, the script checks the current number of sessions and the current running RDSH capacity for each host pool. It calculates if the running session host VMs have enough capacity to support existing sessions based on the SessionThresholdPerCPU parameter defined in the config.json file. If not, the script starts additional session host VMs in the host pool.
 
-During the off-peak usage time, the script determines which session host VMs should shut down based on the MinimumNumberOfRDSH parameter in the config.xml file. The script will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to a non-zero positive value, the script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on a session host VM, the script will shut down the server.
+During the off-peak usage time, the script determines which session host VMs should shut down based on the MinimumNumberOfRDSH parameter in the config.json file. The script will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the **LimitSecondsToForceLogOffUser** parameter in the config.json file to a non-zero positive value, the script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on a session host VM, the script will shut down the server.
 
-If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to zero, the script will allow the session configuration setting in the host pool properties to handle signing off user sessions. If there are any sessions on a session host VM, it will leave the session host VM running. If there aren't any sessions, the script will shut down the session host VM.
+If you set the **LimitSecondsToForceLogOffUser** parameter in the config.json file to zero, the script will allow the session configuration setting in the host pool properties to handle signing off user sessions. If there are any sessions on a session host VM, it will leave the session host VM running. If there aren't any sessions, the script will shut down the session host VM.
 
 The script is designed to run periodically on the scaler VM server using Task Scheduler. Select the appropriate time interval based on the size of your Remote Desktop Services environment, and remember that starting and shutting down virtual machines can take some time. We recommend running the scaling script every 15 minutes.
 

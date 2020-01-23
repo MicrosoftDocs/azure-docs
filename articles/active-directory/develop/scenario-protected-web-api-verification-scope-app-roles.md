@@ -1,5 +1,5 @@
 ---
-title: Verify scopes and app roles with protected web API
+title: Verify scopes & app roles protected Web API | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
@@ -18,7 +18,6 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how to write a protected web API using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Protected web API: Verify scopes and app roles
@@ -39,7 +38,7 @@ To protect an ASP.NET/ASP.NET Core web API, you'll need to add the `[Authorize]`
 - The controller itself, if you want all the actions of the controller to be protected
 - The individual controller action for your API
 
-```CSharp
+```csharp
     [Authorize]
     public class TodoListController : Controller
     {
@@ -56,7 +55,7 @@ But this protection isn't enough. It guarantees only that ASP.NET/ASP.NET Core w
 
 If your API is called by a client app on behalf of a user, it needs to request a bearer token that has specific scopes for the API. (See [Code configuration | Bearer token](scenario-protected-web-api-app-configuration.md#bearer-token).)
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : Controller
 {
@@ -83,7 +82,7 @@ The `VerifyUserHasAnyAcceptedScope` method would do something like the following
 - Verify that there's a claim named `http://schemas.microsoft.com/identity/claims/scope` or `scp`.
 - Verify that the claim has a value that contains the scope expected by the API.
 
-```CSharp
+```csharp
     /// <summary>
     /// When applied to a <see cref="HttpContext"/>, verifies that the user authenticated in the 
     /// web API has any of the accepted scopes.
@@ -119,7 +118,7 @@ If your web API is called by a [daemon app](scenario-daemon-overview.md), that a
 You now need to have your APIs verify that the token it received contains the `roles` claim and
 that this claim has the value it expects. The code doing this verification is similar to the code that verifies delegated permissions, except that, instead of testing for `scopes`, your controller action will test for `roles`:
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -132,7 +131,7 @@ public class TodoListController : ApiController
 
 The `ValidateAppRole()` method can be something like this:
 
-```CSharp
+```csharp
 private void ValidateAppRole(string appRole)
 {
     //
@@ -159,7 +158,7 @@ The `roles` claim is also used for users in user assignment patterns. (See [How 
 
 If you want to allow only daemon apps to call your web API, add a condition, when you validate the app role, that the token is an app-only token:
 
-```CSharp
+```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;
