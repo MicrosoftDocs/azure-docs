@@ -16,6 +16,8 @@
     href: azure-resource-manager-security-controls.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
+  - name: Extension resource types
+    href: extension-resource-types.md
   - name: Resource instance limit
     href: resources-without-resource-group-limit.md
 - name: How to

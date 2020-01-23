@@ -18,7 +18,6 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about the basic authentication concepts in Azure AD for developers (v1.0), including the app model, API, provisioning, and supported scenarios, so I understand what I need to do when I create apps that integrate Microsoft sign-in.
-ms.collection: M365-identity-device-management
 ---
 
 # What is authentication?
