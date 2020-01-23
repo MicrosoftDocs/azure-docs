@@ -46,7 +46,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). | Outbound | Yes | Yes |
+| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
 | **AzureCognitiveSearch** | Azure Cognitive Search (if using indexers with a skillset). | Both | No | No |
 | **AzureConnectors** | Azure Logic Apps connectors for probe/back-end connections. | Inbound | Yes | Yes |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |

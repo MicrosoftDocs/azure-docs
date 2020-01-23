@@ -16,7 +16,6 @@ ms.date: 11/26/2019
 ms.author: hahamil 
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40 
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph from an Android application 

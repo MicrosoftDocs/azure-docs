@@ -24,17 +24,17 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Write an application to connect to FHIR endpoint
+  - name: Deploy javascript application
     expanded: false
     items:
-    - name: 1. Get started with Azure API for FHIR
-      href: tutorial-2-setup-environment.md
-    - name: 2. Set up application configuration
-      href: tutorial-1-decision-flow.md
-    - name: 3. Configure additional settings
-      href: azure-api-for-fhir-additional-settings.md
-    - name: 4. Write an application
-      href: tutorial-3-connect-to-endpoint.md
+    - name: 1. Initial setup and FHIR deployment
+      href: tutorial-web-app-fhir-server.md
+    - name: 2. Register public client application
+      href: tutorial-web-app-public-app-reg.md
+    - name: 3. Test setup with Postman
+      href: tutorial-web-app-test-postman.md
+    - name: 4. Write web application
+      href: tutorial-web-app-write-web-app.md
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy
@@ -42,26 +42,43 @@
 - name: How-to guides
   expanded: false
   items:
-  - name: Register a resource application
-    href: register-resource-azure-ad-client-app.md
-  - name: Register a confidential client app
-    href: register-confidential-azure-ad-client-app.md
-  - name: Register a public client application
-    href: register-public-azure-ad-client-app.md
-  - name: Register a service client application
-    href: register-service-azure-ad-client-app.md
-  - name: Configure database settings
-    href: configure-database.md
+  - name: Registering applications
+    expanded: false
+    items:
+    - name: Register applications for Azure API for FHIR overview
+      href: tutorial-1-decision-flow.md
+    - name: Resource application
+      href: register-resource-azure-ad-client-app.md
+    - name: Confidential client application
+      href: register-confidential-azure-ad-client-app.md
+    - name: Public client application
+      href: register-public-azure-ad-client-app.md
+    - name: Service client application
+      href: register-service-azure-ad-client-app.md
+  - name: Configure settings
+    expanded: false
+    items:
+    - name: Configure additional Azure API for FHIR settings
+      href: azure-api-for-fhir-additional-settings.md 
+    - name: Configure database settings
+      href: configure-database.md
+    - name: Configure CORS
+      href: configure-cross-origin-resource-sharing.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®
     href: enable-diagnostic-logging.md
-  - name: Use Custom HTTP headers to add data to Audit Logs
-    href: use-custom-headers.md
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
-  - name: Configure CORS
-    href: configure-cross-origin-resource-sharing.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Azure AD and Azure API for FHIR Overview
+    href: azure-ad-hcapi.md  
+  - name: Access token validation
+    href: azure-ad-hcapi-token-validation.md
+  - name: Use Custom HTTP headers to add data to Audit Logs
+    href: use-custom-headers.md
 - name: Resources
   items:
   - name: FAQ
