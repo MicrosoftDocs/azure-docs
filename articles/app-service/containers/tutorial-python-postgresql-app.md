@@ -3,7 +3,7 @@ title: 'Tutorial: Linux Python app with Postgre'
 description: Learn how to get a Linux Python app working in Azure App Service, with connection to a PostgreSQL database in Azure. Django is used in this tutorial.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/14/2019
+ms.date: 01/23/2020
 ms.custom: [mvc, seodec18, seo-python-october2019]
 ---
 # Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service
@@ -38,6 +38,11 @@ First, connect to your local PostgreSQL server and create a database:
 In a local terminal window, run `psql` to connect to your local PostgreSQL server as the built-in `postgres` user.
 
 ```bash
+sudo su - postgres
+psql
+```
+or
+```PowerShell
 psql -U postgres
 ```
 
@@ -157,7 +162,7 @@ In the following command, replace *\<postgresql-name>* with a unique server name
 Replace *\<resourcegroup-name>* and *\<region>* with the name and region of the resource group you want to use. For *\<admin-username>* and *\<admin-password>*, create user credentials for the database administrator account. Remember the *\<admin-username>* and *\<admin-password>* to use later for signing in to the PostgreSQL server and databases.
 
 ```azurecli-interactive
-az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
+az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI returns JSON code like the following example:
@@ -165,15 +170,19 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI returns 
 ```json
 {
   "administratorLogin": "myusername",
+  "earliestRestoreDate": "2020-01-22T19:02:15.727000+00:00",
   "fullyQualifiedDomainName": "myservername.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myservername",
-  "location": "westus",
+  "location": "westeurope",
+  "masterServerId": "",
   "name": "myservername",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 1,
-    "family": "Gen4",
-    "name": "B_Gen4_1",
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "Basic"
   },
@@ -267,6 +276,8 @@ Go to *http:\//localhost:8000/admin*, sign in using the admin user you created, 
 
 Go to *http:\//localhost:8000* again, and see the poll question displayed. Your app is now writing data to the Azure Database for PostgreSQL database.
 
+To stop the Django server, type Ctrl+C in the terminal.
+
 ## Deploy the web app to Azure App Service
 
 In this step, you deploy the Azure Database for PostgreSQL database-connected Python app to Azure App Service.
@@ -344,25 +355,29 @@ For information on how your code accesses these app settings, see [Access enviro
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 7, done.
+Counting objects: 60, done.
 Delta compression using up to 8 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
-Total 7 (delta 4), reused 0 (delta 0)
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (60/60), 15.37 KiB | 749.00 KiB/s, done.
+Total 60 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '6520eeafcc'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Python deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Preparing deployment for commit id '06f3f7c0cb'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
 . 
 . 
 . 
+remote: Done in 100 sec(s).
+remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
+remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/06f3f7c0cb52ce3b4aff85c2b5099fbacb65ab94/log'
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
-   06b6df4..6520eea  master -> master
+ * [new branch]      master -> master
 ```  
 
 The App Service deployment server sees *requirements.txt* in the repository root and runs Python package management automatically after `git push`.
