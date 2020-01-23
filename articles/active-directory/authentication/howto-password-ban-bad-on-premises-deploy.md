@@ -31,7 +31,7 @@ During the audit stage, many organizations find out that:
 
 It is also possible for stronger password validation to affect your existing Active Directory domain controller deployment automation. We recommend that at least one DC promotion and one DC demotion happen during the audit period evaluation in order to help uncover such issues in advance.  For more information, see:
 
-* [Ntdsutil.exe is unable to set a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [Ntdsutil.exe is unable to set a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [Domain controller replica promotion fails because of a weak Directory Services Repair Mode password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [Domain controller demotion fails due to a weak local Administrator password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 

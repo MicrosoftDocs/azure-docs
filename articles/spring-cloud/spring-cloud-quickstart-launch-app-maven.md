@@ -1,11 +1,11 @@
 ---
 title: "Quickstart - Launch an application using Maven with Azure Spring Cloud"
 description: In this quickstart, launch a sample application using Maven
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 
@@ -23,7 +23,7 @@ Following this quickstart, you will learn how to:
 > * Assign a public endpoint for your application
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 
 >[!TIP]
@@ -53,6 +53,9 @@ To complete this quickstart:
 
 It takes about 5 minutes for the service to be deployed. After the service is deployed, select **Go to resource** and the **Overview** page for the service instance appears.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## Set up your configuration server
 
 1. On the service **Overview** page, select **Config Server**.
@@ -60,6 +63,9 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
     > [!div class="mx-imgBorder"]
     > ![Define and apply config settings](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## Clone and build the sample application repository
 
@@ -101,6 +107,9 @@ It takes about 5 minutes for the service to be deployed. After the service is de
    ```
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## Next steps
 

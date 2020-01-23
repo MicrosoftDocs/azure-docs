@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/11/2019
+ ms.date: 01/06/2020
  ms.custom: include file
 ---
 
@@ -16,7 +16,7 @@
 
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the expandable left menu, and then open the **App registrations** pane. 
 
-    [![Select the Azure Active Directory pane](./media/digital-twins-permissions/select-aad-pane.png)](./media/digital-twins-permissions/select-aad-pane.png#lightbox)
+    [![Select the Azure Active Directory pane](./media/digital-twins-permissions/azure-portal-select-aad-pane.png)](./media/digital-twins-permissions/azure-portal-select-aad-pane.png#lightbox)
 
 1. Select the **+ New registration** button.
 
@@ -30,7 +30,7 @@
 
     Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
 
-    [![Public client configuration setting](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  Open the **Overview** pane of your registered app, and copy the values of the following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
 
@@ -54,7 +54,7 @@
     > * Test tenant and customer accounts should search for `Azure Digital Twins`.
     > * Other Microsoft accounts should search for `Azure Smart Spaces Service`.
 
-1. Either API once selected shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read** drop-down option, and then select the **Read.Write** checkbox. Select the **Add permissions** button.
+1. Either API will appear as **Azure Digital Twins** in the same **Request API permissions** pane once selected. Select the **Read** drop-down option, and then select the **Read.Write** checkbox. Select the **Add permissions** button.
 
     [![Add API permissions](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 

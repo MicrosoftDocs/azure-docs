@@ -29,9 +29,11 @@ To complete this quickstart, you must have:
 
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 1. First, install Docker on a host computer. The host computer can be your local computer ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/), or [Linux](https://docs.docker.com/install/)). Or, you can use a Docker hosting service in Azure, such as the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index), or a Kubernetes cluster [deployed to an Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). The host computer must meet the following hardware requirements:
+
     | Container | Minimum | Recommended|
     |:--|:--|:--|
-    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory
+    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
+    
 1. Next, you'll need the [Azure command-line interface (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Install it on your machine if you haven't already.
 1. Then enter the following command in a command prompt. The values for `<username>` and `<password>` are in your Welcome to Form Recognizer email.
     ```
@@ -45,7 +47,8 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    This command will make the sample labeling tool available through a web browser. Go to [http://localhost:3000](http://localhost:3000).
+
+   This command will make the sample labeling tool available through a web browser. Go to [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).

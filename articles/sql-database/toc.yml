@@ -359,6 +359,8 @@
         href: sql-database-design-first-database-csharp.md
     - name: Load and move data
       items:
+      - name: Import or export from an Azure VM
+        href: import-export-from-vm.md
       - name: Import a database from a BACPAC file
         href: sql-database-import.md
       - name: Export a database to a BACPAC file
@@ -530,6 +532,8 @@
       href: sql-database-security-tutorial.md
     - name: Stream data with Stream Analytics
       href: sql-database-stream-analytics.md
+    - name: Migrate a SQLite database to Azure SQL Database Serverless
+      href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
 
   - name: Concepts
     items:
@@ -663,8 +667,6 @@
       href: sql-database-advisor-portal.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
-    - name: Troubleshoot connectivity
-      href: sql-database-troubleshoot-common-connection-issues.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues

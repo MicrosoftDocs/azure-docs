@@ -21,11 +21,11 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-From the Monitoring section, select **Diagnostic settings** and then click **Add**.
+From the **Monitoring** section, select **Diagnostic settings** and then click **Add diagnostic setting**.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-In the setting page, choose **Send to Log Analytics**, and under **LOG** choose **FunctionAppLogs**, this table contains the desired logs.
+In the **Diagnostics settings** page, choose **Send to Log Analytics**, and then select your Log Analytics workspace. Under **log** choose **FunctionAppLogs**, this table contains the desired logs.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -68,7 +68,7 @@ logging.info('My app logs here.')
 
 ## Querying the logs
 
-To query the generated logs, go to the log analytics workspace and click **Logs**.
+To query the generated logs, go to the Log Analytics workspace that you configured to send the function logs to and click **Logs**.
 
 ![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
 

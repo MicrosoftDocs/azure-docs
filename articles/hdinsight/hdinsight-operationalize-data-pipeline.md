@@ -535,7 +535,7 @@ The three preceding points combine to yield a situation where the coordinator sc
 
 As with workflows, the configuration of a coordinator is defined in a `job.properties` file, which has a superset of the settings used by the workflow.
 
-```
+```text
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
 jobTracker=[ACTIVERESOURCEMANAGER]:8050
 queueName=default

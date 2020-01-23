@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
+ms.date: 01/16/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -265,7 +265,7 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 Refer to [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md) for Azure Storage authentication in general. To use managed identities for Azure resources authentication, follow these steps:
 
-1. [Retrieve data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+1. [Retrieve data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of **managed identity object ID** generated along with your factory.
 
 2. Grant the managed identity proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
 
@@ -358,7 +358,7 @@ The following properties are supported for Azure Blob under `storeSettings` sett
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | The type property under `storeSettings` must be set to **AzureBlobStorageReadSetting**. | Yes                                           |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobStorageReadSettings**. | Yes                                           |
 | recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
 | wildcardFolderPath       | The folder path with wildcard characters under the given container configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | The file name with wildcard characters under the given container + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
@@ -392,11 +392,11 @@ The following properties are supported for Azure Blob under `storeSettings` sett
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -418,7 +418,7 @@ The following properties are supported for Azure Blob under `storeSettings` sett
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | The type property under `storeSettings` must be set to **AzureBlobStorageWriteSetting**. | Yes      |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobStorageWriteSettings**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
@@ -448,7 +448,7 @@ The following properties are supported for Azure Blob under `storeSettings` sett
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "AzureBlobStorageWriteSetting",
+                    "type": "AzureBlobStorageWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }
@@ -708,4 +708,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Next steps
 
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

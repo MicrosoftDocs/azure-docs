@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: Concepts
   items:
-    - name: TLS 1.2 enforcement
+    - name: TLS support
+      href: iot-hub-tls.md
+    - name: TLS 1.0 and 1.1 deprecation
       href: tls-1.2-everywhere.md
     - name: Message enrichments overview
       href: iot-hub-message-enrichments-overview.md

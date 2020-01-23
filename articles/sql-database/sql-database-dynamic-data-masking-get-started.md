@@ -23,7 +23,7 @@ For example, a service representative at a call center may identify callers by s
 
 ## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade.
+You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade. This feature cannot be set by using portal for SQL DW (Please use Powershell or REST API)
 
 ### Dynamic data masking permissions
 

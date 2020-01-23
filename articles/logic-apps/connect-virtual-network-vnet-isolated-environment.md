@@ -235,6 +235,12 @@ In the search box, enter "integration service environment" as your filter.
 
 1. To start creating logic apps and other artifacts in your ISE, see [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
+   > [!IMPORTANT]
+   > Managed ISE connectors that become available after you create your ISE don't automatically appear in the 
+   > connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
+   > [add those connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
+   > so that they appear in the Logic App Designer.
+
 <a name="add-capacity"></a>
 
 ## Add ISE capacity

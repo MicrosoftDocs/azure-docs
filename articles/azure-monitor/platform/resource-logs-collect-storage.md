@@ -10,10 +10,10 @@ ms.author: bwren
 ms.subservice: logs
 ---
 # Archive Azure resource logs to storage account
-[Platform logs](resource-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.  This article describes collecting platform logs to an Azure storage account to retain data for archiving.
+[Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.  This article describes collecting platform logs to an Azure storage account to retain data for archiving.
 
 ## Prerequisites
-You need to [create an Azure storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+You need to [create an Azure storage account](../../storage/common/storage-account-create.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 
 > [!IMPORTANT]
@@ -58,7 +58,7 @@ Within the PT1H.json file, each event is stored with the following format. This 
 
 ## Next steps
 
-* [Read more about resource logs](resource-logs-overview.md).
+* [Read more about resource logs](platform-logs-overview.md).
 * [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).
 * [Download blobs for analysis](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
