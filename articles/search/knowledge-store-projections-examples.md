@@ -203,7 +203,7 @@ Power BI can read from tables and discover relationships based on the keys that 
 Create a custom shape that you would like to project, here we create a custom object that contains some metadata properties, key phrases, and entities. The object is called pbiShape and is parented under `/document`. 
 
 > [!IMPORTANT] 
-Source paths for enrichments are required to be well formed JSON objects, which is not always the case in the enrichment tree. Notice how `KeyPhrases` and `Entities` are wrapped into a valid JSON object with the `sourceContext`, this is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
+Source paths for enrichments are required to be well formed JSON objects, before they can be projected. The enrichment tree can represent enrichments that are not well formed JSON, for example when a enrichment is parented to a primitve like a string. Note how `KeyPhrases` and `Entities` are wrapped into a valid JSON object with the `sourceContext`, this is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
 
 ```json
 {
@@ -321,12 +321,13 @@ To define an object projection, we will use the ```objects``` array in the proje
 {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
-            {
+             {
                 "tables": [ ],
                 "objects": [
                     {
                         "storageContainer": "sampleobject",
                         "source": null,
+                        "generatedKeyName": "myobject",
                         "sourceContext": "/document",
                         "inputs": [
                             {
@@ -344,6 +345,10 @@ To define an object projection, we will use the ```objects``` array in the proje
                             {
                                 "name": "keyPhrases",
                                 "source": "/document/merged_content/keyphrases/*"
+                            },
+                            {
+                                "name": "entities",
+                                "source": "/document/merged_content/entities/*/name"
                             },
                             {
                                 "name": "ocrText",
@@ -392,7 +397,7 @@ Sometimes you might need to project content across projection types. For example
 {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
-            {
+             {
                 "tables": [
                     {
                         "tableName": "sampleDocument",
@@ -402,17 +407,33 @@ Sometimes you might need to project content across projection types. For example
                     {
                         "tableName": "sampleKeyPhrases",
                         "generatedKeyName": "KeyPhraseid",
-                        "source": "/document/pbiShape/keyPhrases"
+                        "source": "/document/pbiShape/keyPhrases/*"
                     }
                 ],
                 "objects": [
                     {
                         "storageContainer": "sampleocrtext",
-                        "source": "/document/normalized_images/*/text"
+                        "generatedKeyName": "ocrText",
+                        "source": null,
+                        "sourceContext": "/document/normalized_images/*/text",
+                        "inputs": [
+                        	{
+                        		"name": "ocrText",
+                        		"source": "/document/normalized_images/*/text"
+                        	}
+                        ]
                     },
                     {
                         "storageContainer": "sampleocrlayout",
-                        "source": "/document/normalized_images/*/layoutText"
+                        "generatedKeyName": "ocrLayoutText",
+                        "source": null,
+                        "sourceContext": "/document/normalized_images/*/layoutText",
+                        "inputs": [
+                        	{
+                        		"name": "ocrLayoutText",
+                        		"source": "/document/normalized_images/*/layoutText"
+                        	}
+                        ]
                     }
                 ],
                 "files": []
@@ -435,12 +456,12 @@ When building projections of different types, file and object projections are ge
             {
                 "tables": [
                     {
-                        "tableName": "sampleDocument",
+                        "tableName": "unrelatedDocument",
                         "generatedKeyName": "Documentid",
                         "source": "/document/pbiShape"
                     },
                     {
-                        "tableName": "sampleKeyPhrases",
+                        "tableName": "unrelatedKeyPhrases",
                         "generatedKeyName": "KeyPhraseid",
                         "source": "/document/pbiShape/keyPhrases"
                     }
@@ -455,11 +476,25 @@ When building projections of different types, file and object projections are ge
                 "objects": [
                     {
                         "storageContainer": "unrelatedocrtext",
-                        "source": "/document/normalized_images/*/text"
+                        "source": null,
+                        "sourceContext": "/document/normalized_images/*/text",
+                        "inputs": [
+                        	{
+                        		"name": "ocrText",
+                        		"source": "/document/normalized_images/*/text"
+                        	}
+                        ]
                     },
                     {
                         "storageContainer": "unrelatedocrlayout",
-                        "source": "/document/normalized_images/*/layoutText"
+                        "source": null,
+                        "sourceContext": "/document/normalized_images/*/layoutText",
+                        "inputs": [
+                        	{
+                        		"name": "ocrLayoutText",
+                        		"source": "/document/normalized_images/*/layoutText"
+                        	}
+                        ]
                     }
                 ],
                 "files": []
@@ -480,6 +515,7 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                     {
                         "tableName": "inlineDocument",
                         "generatedKeyName": "Id",
+                        "referenceKeyName": "documentId",
                         "source": null,
                         "sourceContext": "/document",
                         "inputs": [
@@ -489,15 +525,13 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                             },
                             {
                                 "name": "inlineContent",
-                                "source": "/document/Content"
-                            },
-                            
+                                "source": "/document/content"
+                            }
                         ]
                     },
                     {
                         "tableName": "inlineKeyPhrases",
                         "generatedKeyName": "Id",
-                        "referenceKeyName": "documentId",
                         "source": null,
                         "sourceContext": "/document/merged_content/keyphrases/*",
                         "inputs": [
@@ -510,13 +544,12 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                     {
                         "tableName": "inlineEntities",
                         "generatedKeyName": "Id",
-                        "referenceKeyName": "documentId",
                         "source": null,
                         "sourceContext": "/document/merged_content/entities/*",
                         "inputs": [
                             {
                                 "name": "Entities",
-                                "source": "/document/merged_content/entities/*" 
+                                "source": "/document/merged_content/entities/*/name" 
                             }
                         ]
                     }
@@ -524,18 +557,33 @@ Continuing with the earlier scenario, if we now want to add the images as well t
                 "objects": [
                     {
                         "storageContainer": "inlineocrtext",
-                        "referenceKeyName": "documentId",
-                        "source": "/document/normalized_images/*/text"
+                        "generatedKeyName": "inlineocrtext",
+                        "source": null,
+                        "sourceContext": "/document/normalized_images/*/text",
+                        "inputs": [
+                            {
+                                "name": "inlineOcrText",
+                                "source": "/document/normalized_images/*/text"
+                            }
+                        ]
                     },
                     {
                         "storageContainer": "inlineocrlayout",
-                        "referenceKeyName": "documentId",
-                        "source": "/document/normalized_images/*/layoutText"
+                        "generatedKeyName": "inlineocrlayout",
+                        "source": null,
+                        "sourceContext": "/document/normalized_images/*/layoutText",
+                        "inputs": [
+                            {
+                                "name": "inlineOcrLayoutText",
+                                "source": "/document/normalized_images/*/layoutText"
+                            }
+                        ]
                     }
                 ],
                 "files": [
                     {
                         "storageContainer": "inlineimages",
+                        "generatedKeyName": "inlineocrimages",
                         "source": "/document/normalized_images/*"
                     }
                 ]
@@ -551,4 +599,5 @@ When defining a projection, there are a few common issues that can cause unantic
 
 1. Not shaping string enrichments. When strings are enriched, for example ```merged_content``` enriched with key phrases, the enriched property is represented as a child of merged_content within the enrichment tree. But at projection time, this needs to be transformed to a valid JSON object with a name and a value.
 2. Omitting the ```/*``` at the end of a source path. If for example, the source of a projection is ```/document/pbiShape/keyPhrases``` the key phrases array is projected as a single object/row. Setting the source path to ```/document/pbiShape/keyPhrases/*``` yields a single row or object for each of the key phrases.
+3. Path selectors are case sensitive and can lead to missing input warnings if you do not use the exact case for the selector.
 
