@@ -133,6 +133,20 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 1) Take pause view on [Azure Kinect viewer](azure-kinect-viewer.md) and take a screenshot or
 2) Take recording using [Azure Kinect recorder](azure-kinect-recorder.md), for example, `k4arecorder.exe -l 5 -r 5 output.mkv`
 
+## Color to depth timing may have an offset if setting manual exposure repeatedly
+
+Setting the exposure time will cause the timing between the depth and color camera to diverge while the device adjusts to the new exposure value. If the exposure is continuously being updated (every frame), even to the same value, then the device will appear to have a permeant offset.
+
+for example, when 
+
+/*
+*k4a_device_set_color_control
+*/
+
+is used to set exposure and the color for every frame in the loop, you may come across this issue.
+
+To avoid this, only send an exposure setting command if the exposure needs to be changed.
+
 ## USB3 host controller compatibility
 
 If the device is not enumerating under device manager, it may be because it's plugged into an unsupported USB3 controller. 
