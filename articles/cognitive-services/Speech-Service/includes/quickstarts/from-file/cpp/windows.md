@@ -2,13 +2,13 @@
 title: 'Quickstart: Recognize speech from an audio file, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: wolfma61
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/06/2020
-ms.author: wolfma61
+ms.date: 01/14/2020
+ms.author: erhopf
 ---
 
 ## Prerequisites
@@ -16,7 +16,7 @@ ms.author: wolfma61
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 

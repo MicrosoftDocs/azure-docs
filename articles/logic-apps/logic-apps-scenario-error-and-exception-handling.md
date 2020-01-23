@@ -25,7 +25,7 @@ Here's the story as the use case for this scenario:
 A well-known healthcare organization engaged us to develop an Azure solution 
 that would create a patient portal by using Microsoft Dynamics CRM Online. 
 They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce. 
-We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
+We were asked to use the [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
 The project had two major requirements:  
 

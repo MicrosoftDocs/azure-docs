@@ -1,11 +1,15 @@
 ---
 title: Quickstart to learn how to use Azure App Configuration
 description: A quickstart for using Azure App Configuration with Java Spring apps.
-author: yidon
-ms.author: yidon
+services: azure-app-configuration
+documentationcenter: ''
+author: lisaguthrie
+manager: maiye
+editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
+ms.author: lcozzens
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
@@ -42,7 +46,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
    * Generate a **Maven** project with **Java**.
    * Specify a **Spring Boot** version that's equal to or greater than 2.0.
    * Specify the **Group** and **Artifact** names for your application.
-   * Add the **Web** dependency.
+   * Add the **Spring Web** dependency.
 
 3. After you specify the previous options, select **Generate Project**. When prompted, download the project to a path on your local computer.
 
@@ -56,13 +60,17 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M5</version>
+        <version>1.1.0</version>
     </dependency>
     ```
 
 3. Create a new Java file named *MessageProperties.java* in the package directory of your app. Add the following lines:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -80,6 +88,11 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 4. Create a new Java file named *HelloController.java* in the package directory of your app. Add the following lines:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
     @RestController
     public class HelloController {
         private final MessageProperties properties;
@@ -98,11 +111,13 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 5. Open the main application Java file, and add `@EnableConfigurationProperties` to enable this feature.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
@@ -121,11 +136,13 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     mvn clean package
     mvn spring-boot:run
     ```
+
 2. After your application is running, use *curl* to test your application, for example:
 
       ```CLI
       curl -X GET http://localhost:8080/
       ```
+
     You see the message that you entered in the App Configuration store.
 
 ## Clean up resources

@@ -63,7 +63,7 @@ Telemetry related to the health and operation of your Azure subscription.
 ![Azure subscription](media/data-sources/azure-subscription.png)
 
 ### Azure Activity log 
-The [Azure Activity log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
+The [Azure Activity log](platform-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
 
 | Destination | Description | Reference |
 |:---|:---|
@@ -96,7 +96,7 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) |
 
 ### Resource logs
-[Resource logs](resource-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Resource logs are created automatically, but you must create a diagnostic setting to specify a destination for them to collected for each resource.
+[Resource logs](platform-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Resource logs are created automatically, but you must create a diagnostic setting to specify a destination for them to collected for each resource.
 
 The configuration requirements and content of resource logs vary by resource type, and not all services yet create them. See [Supported services, schemas, and categories for Azure resource logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn’t listed in this article, then that service doesn’t currently create resource logs.
 

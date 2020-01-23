@@ -25,7 +25,7 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 You can learn more about each available isolated size [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## Retiring D15_v2/DS15_v2 isolation on February 15, 2020
-Azure Dedicated Host is now GA, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **February 15, 2020** the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
+Azure Dedicated Host is now GA, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **February 15, 2020** the D15_v2/DS15_v2 Azure VMs will no longer be hardware isolated.
 
 ## How does this affect me?
 After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 

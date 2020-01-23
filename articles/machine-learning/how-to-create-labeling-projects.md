@@ -45,7 +45,7 @@ In this article, you'll learn how to:
 
 Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
 
-If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
+If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 

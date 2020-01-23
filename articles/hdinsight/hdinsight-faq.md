@@ -79,23 +79,9 @@ Yes. To install additional components or customize cluster configuration, use:
 
 - Scripts during or after creation. Scripts are invoked via [script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), which is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
 
-- `sudo` or other methods after you provision the cluster.
-  
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install ecosystem applications.
 
-However, Microsoft Support teams can offer support only for the following situations:
-
-- Issues or errors that occur when loading the script. Any errors that occur during the execution of custom scripts are outside the scope of a support ticket.
-
-- Additional applications that are part the cluster creation process. 
-
 For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
-
-Support for individual components can also vary by cluster type. For example, Spark is not supported on a Kafka cluster, and vice-versa.
-
-For applications and services outside of the cluster creation process, contact the vendor or service provider for support. You can also use many community support sites. Examples are the [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/). Apache projects also have project sites on the [Apache website](https://apache.org/). An example is [Hadoop](https://hadoop.apache.org/). 
-
-For more information about Azure support, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 

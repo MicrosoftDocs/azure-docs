@@ -83,7 +83,7 @@ Supported **JSON write settings** under `formatSettings`:
 
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | The type of formatSettings must be set to **JsonWriteSetting**. | Yes                                                   |
+| type          | The type of formatSettings must be set to **JsonWriteSettings**. | Yes                                                   |
 | filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 
 ### JSON file patterns
