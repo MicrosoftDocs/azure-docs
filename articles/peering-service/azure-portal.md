@@ -9,6 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
+ms.custom: fasttrack-edit
 ms.author: v-meravi
 ---
 
@@ -55,7 +56,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 **Azure CLI**
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Peering--name AllowPeeringService
+az feature register --namespace Microsoft.Peering --name AllowPeeringService
 ```
 
 ## Sign in to the Azure portal
