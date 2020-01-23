@@ -14,7 +14,7 @@ ms.date: 10/10/2019
 
 # Convert to Dataset
 
-This article describes how to use the Convert to Dataset module in Azure Machine Learning designer to convert any data for a pipeline to the designer's internal format.
+This article describes how to use the Convert to Dataset module in Azure Machine Learning designer (preview) to convert any data for a pipeline to the designer's internal format.
   
 Conversion is not required in most cases. Azure Machine Learning implicitly converts data to its native dataset format when any operation is performed on the data. 
 

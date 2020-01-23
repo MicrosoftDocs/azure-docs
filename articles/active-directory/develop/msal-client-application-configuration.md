@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the types of client applications so I can decide if this platform meets my app development needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Application configuration options

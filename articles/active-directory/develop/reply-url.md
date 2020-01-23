@@ -11,7 +11,6 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
 ---
 # Redirect URI/reply URL restrictions and limitations
 

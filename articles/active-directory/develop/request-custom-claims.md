@@ -18,7 +18,6 @@ ms.date: 08/26/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Request custom claims using MSAL for iOS and macOS
