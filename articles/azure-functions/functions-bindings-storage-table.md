@@ -512,7 +512,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## Input - `usage`
+## Input - usage
 
 # [C#](#tab/csharp)
 
@@ -546,18 +546,7 @@ Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Ac
 
 # [Python](#tab/python)
 
-Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the following example:
-
-```python
-import json
-
-import azure.functions as func
-
-def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
-
-    message = json.loads(messageJSON)
-    return func.HttpResponse(f"Table row: {message.RowKey}")
-```
+Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the following [example](#input).
 
 # [Java](#tab/java)
 
