@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/15/2019
+ms.date: 11/16/2019
 ---
 
 # Azure SQL Database metrics and diagnostics logging
@@ -28,7 +28,7 @@ Single databases, pooled databases in elastic pools, and instance databases in a
 For more information about the metrics and log categories supported by the various Azure services, see:
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
+- [Overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md)
 
 This article provides guidance to help you enable diagnostics telemetry for Azure SQL databases, elastic pools, and managed instances. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing database diagnostics telemetry.
 
@@ -74,15 +74,12 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 > Elastic pools and managed instances have their own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
 
 > [!NOTE]
-> To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> - To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> - Diagnostic settings cannot be configured for the **system databases**, such are master, msdb, model, resoure and tempdb databases.
 
 ## Azure portal
 
 You can use the **Diagnostics settings** menu for each single, pooled, or instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
-
-> [!NOTE]
-> Diagnostic settings cannot be configured for the **master** system database.
-
 
 ### Configure streaming of diagnostics telemetry for elastic pools
 
@@ -734,7 +731,7 @@ Learn more about the [Intelligent Insights log format](sql-database-intelligent-
 To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
+- [Overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md)
 
 To learn about Event Hubs, read:
 

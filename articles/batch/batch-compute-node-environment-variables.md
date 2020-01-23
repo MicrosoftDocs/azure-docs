@@ -2,7 +2,7 @@
 title: Task runtime environment variables - Azure Batch | Microsoft Docs
 description: Task runtime environment variable guidance and reference for Azure Batch Analytics.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 
 ms.assetid: 
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ---
 
 # Azure Batch runtime environment variables

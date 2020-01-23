@@ -2,19 +2,19 @@
 title: Track progress of Team Data Science Process projects
 description: How data science group managers, team leads, and project leads can track the progress of a data science project.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # Track the progress of data science projects
 
-Data science group managers, team leads, and project leads can track the progress of their projects, such as what work has been done, who did the work, and what work remains. 
+Data science group managers, team leads, and project leads can track the progress of their projects.  Managers want to know what work has been done, who did the work, and what work remains.   Managing expectations is an important element of success.
 
 ## Azure DevOps dashboards
 
@@ -45,4 +45,4 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 
 ## Next steps
 
-[Walkthroughs executing the Team Data Science Process](walkthroughs.md) lists walkthroughs that demonstrate all the steps in the process for specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 
+[Walkthroughs executing the Team Data Science Process](walkthroughs.md) lists walkthroughs that demonstrate all the process steps. The linked scenarios illustrate how to manage the cloud and on-premise resources into intelligent applications. 

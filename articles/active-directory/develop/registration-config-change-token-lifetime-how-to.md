@@ -16,7 +16,6 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.collection: M365-identity-device-management
 ---
 
 # How to change the token lifetime defaults for a custom-developed application

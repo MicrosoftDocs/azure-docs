@@ -65,7 +65,7 @@ The following information identifies the Azure Government boundary for Azure Cos
 
 
 ## Azure Cache for Redis
-For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.md).
+For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.yml).
 
 ### Variations
 The URLs for accessing and managing Azure Cache for Redis in Azure Government are different:

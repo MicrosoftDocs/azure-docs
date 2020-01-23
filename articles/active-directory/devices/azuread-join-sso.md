@@ -21,12 +21,17 @@ It is probably not a surprise that an Azure Active Directory (Azure AD) joined d
 
 This article explains how this works.
 
+## Prerequisites
+
+ If Azure AD joined machines are not connected to your organization's network, a VPN or other network infrastructure is required. On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers.
+
 ## How it works 
 
 Because you need to remember just one single user name and password, SSO simplifies access to your resources and improves the security of your environment. With an Azure AD joined device, your users already have an SSO experience to the cloud apps in your environment. If your environment has an Azure AD and an on-premises AD, you probably want to expand the scope of your SSO experience to your on-premises Line Of Business (LOB) apps, file shares, and printers.  
 
 Azure AD joined devices have no knowledge about your on-premises AD environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
-An environment that has both, an Azure AD and an on-premises AD, is also known has hybrid environment. If you have a hybrid environment, it is likely that you already have Azure AD Connect deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, Azure AD Connect synchronizes on-premises domain information to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
+
+An environment that has both, an Azure AD and an on-premises AD, is also known has hybrid environment. If you have a hybrid environment, it is likely that you already have Azure AD Connect deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, Azure AD Connect synchronizes on-premises user information to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
 1. Azure AD sends the name of the on-premises domain the user is a member of back to the device. 
 1. The local security authority (LSA) service enables Kerberos authentication on the device.

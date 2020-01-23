@@ -17,7 +17,7 @@ ms.author: allensu
 
 # Azure Monitor logs for public Basic Load Balancer
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md) which exposes telemetry via multi-dimensional metrics in Azure Monitor.
 
 You can use different types of logs in Azure to manage and troubleshoot Basic Load Balancers. Some of these logs can be accessed through the portal. Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  You can learn more about the different types of logs from the list below.
@@ -27,7 +27,7 @@ You can use different types of logs in Azure to manage and troubleshoot Basic Lo
 * **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
-> Azure Monitor logs currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor logs currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 ## Enable logging
 
@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
     1. Select the checkbox next to **Archive to a storage account**.
     2. Select **Configure** to open the **Select a storage account** pane.
     3. Select the **Subscription** where your storage account was created in the pull-down box.
-    4. Select the name of your storage account under **Storage account** in the pull-down box. 
+    4. Select the name of your storage account under **Storage account** in the pull-down box.
     5. Select OK.
 
     ### Stream to an event hub
@@ -155,7 +155,7 @@ The JSON output shows in the properties field the basic information for the prob
 
 You can view and analyze audit log data using any of the following methods:
 
-* **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) article.
+* **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
 * **Power BI:** If you don't already have a [Power BI](https:// .microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), you can analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
 
 ### View and analyze the health probe and event log

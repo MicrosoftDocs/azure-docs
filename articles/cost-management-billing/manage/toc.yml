@@ -1,0 +1,159 @@
+- name: Billing accounts and subscriptions documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Cost Management and Billing?
+    href: ../cost-management-billing-overview.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Free account
+    items:
+    - name: Create free services
+      href: create-free-services.md
+    - name: Avoid charges
+      href: avoid-charges-free-account.md
+    - name: Check usage
+      href: check-free-service-usage.md
+    - name: Upgrade free account
+      href: upgrade-azure-subscription.md
+  - name: Administer accounts
+    items:
+    - name: Account administrator tasks
+      href: account-admin-tasks.md
+    - name: Upgrade your Azure account
+      href: upgrade-azure-subscription.md
+    - name: Edit profile
+      href: change-azure-account-profile.md
+    - name: Resolve past due balance
+      href: resolve-past-due-balance.md
+    - name: Grant access to billing
+      href: manage-billing-access.md
+    - name: Microsoft Customer Agreements roles in Azure
+      href: understand-mca-roles.md
+    - name: Link partner ID
+      href: link-partner-id.md
+  - name: Manage accounts
+    items:
+    - name: View billing accounts
+      href: view-all-accounts.md
+    - name: Organize costs with invoice sections
+      href: mca-section-invoice.md
+    - name: Set up Microsoft Customer Agreement billing account
+      href: mca-setup-account.md
+    - name: Sign up with Office 365 account
+      href: office-365-account-for-azure-subscription.md
+    - name: Sign up for Office 365 with Azure account
+      href: azure-account-for-office-365-subscription.md
+    - name: Pay using strong customer authentication
+      href: open-banking-strong-customer-authentication.md
+  - name: Administer subscriptions
+    items:
+    - name: Subscription states
+      href: subscription-states.md
+    - name: Reactivate subscription
+      href: subscription-disabled.md
+    - name: Reactivate Azure Student subscription
+      href: azurestudents-subscription-disabled.md
+    - name: Transfer ownership
+      href: billing-subscription-transfer.md
+    - name: Request Microsoft Customer Agreement ownership
+      href: mca-request-billing-ownership.md
+    - name: Request Microsoft Partner Agreement ownership
+      href: mpa-request-ownership.md
+  - name: Manage subscriptions
+    items:
+    - name: Cancel subscription
+      href: cancel-azure-subscription.md
+    - name: Change credit card
+      href: change-credit-card.md
+    - name: Change administrator
+      href: add-change-subscription-administrator.md
+    - name: Switch subscription offer
+      href: switch-azure-offer.md
+    - name: Pay by invoice
+      href: pay-by-invoice.md
+    - name: Create additional subscriptions
+      href: create-subscription.md
+    - name: Export subscription information
+      href: export-subscriptions.md
+  - name: Manage Enterprise Agreement subscriptions
+    items:
+    - name: Get started in the Azure EA portal
+      href: ea-portal-get-started.md
+    - name: Understand your EA bill
+      href: ../understand/review-enterprise-agreement-bill.md
+    - name: EA roles in Azure
+      href: understand-ea-roles.md
+    - name: Azure EA portal administration
+      href: ea-portal-administration.md
+    - name: EA tasks in Microsoft Customer Agreement
+      href: mca-enterprise-operations.md
+    - name: Azure EA agreements and amendments
+      href: ea-portal-agreements.md
+    - name: Enterprise enrollment invoices
+      href: ea-portal-enrollment-invoices.md
+    - name: Azure Enterprise REST APIs
+      href: ea-portal-rest-apis.md
+    - name: Azure EA VM reserved instances
+      href: ea-portal-vm-reservations.md
+    - name: Troubleshoot Azure EA portal access
+      href: ea-portal-troubleshoot.md
+    - name: EA tasks in Microsoft Customer Agreement
+      href: mca-enterprise-operations.md
+- name: Troubleshoot
+  items:
+  - name: No subscriptions found
+    href: no-subscriptions-found.md
+  - name: Payment issues
+    href: billing-troubleshoot-azure-payment-issues.md
+  - name: Declined card
+    href: troubleshoot-declined-card.md
+  - name: Sign up issues
+    href: troubleshoot-azure-sign-up.md
+  - name: Subscription sign-in issues
+    href: troubleshoot-sign-in-issue.md
+  - name: Enterprise cost view disabled
+    href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+  - name: Contact support
+    href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
+- name: Samples
+  items:
+  - name: REST API
+    items:
+    - name: Review enterprise costs
+      href: review-enterprise-billing.md
+    - name: Review subscription use
+      href: review-subscription-billing.md
+    - name: Review resource usage
+      href: review-service-usage-api.md
+  - name: .NET samples
+  items:
+  - name: Invoice API code sample
+    href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+  - name: Usage API code sample
+    href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+  - name: RateCard API code sample
+    href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
+- name: Reference
+  items:
+  - name: Billing Automation Scenarios
+    href: cost-management-automation-scenarios.md
+  - name: Manage costs with Azure Budgets
+    href: cost-management-budget-scenario.md
+  - name: Azure Billing API overview
+    href: usage-rate-card-overview.md
+  - name: Azure Billing REST API
+    href: https://docs.microsoft.com/rest/api/billing
+  - name: Azure Consumption API overview
+    href: consumption-api-overview.md
+  - name: Azure Consumption REST API
+    href: https://docs.microsoft.com/rest/api/consumption
+  - name: RateCard REST API
+    href: https://msdn.microsoft.com/library/azure/mt219005.aspx
+  - name: Usage REST API
+    href: https://msdn.microsoft.com/library/azure/mt219003.aspx
+  - name: Enterprise reporting overview
+    href: enterprise-api.md
+  - name: Enterprise reporting REST API
+    href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary

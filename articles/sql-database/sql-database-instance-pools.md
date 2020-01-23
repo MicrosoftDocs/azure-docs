@@ -131,7 +131,7 @@ vCore price for a pool is charged regardless of how many instances are deployed 
 
 For the Compute price (measured in vCores), two pricing options are available:
 
-  1. *License included*: Apply existing SQL Server licenses with Software Assurance.
+  1. *License included*: Price of SQL licenses is included. This is for the customers who choose not to apply existing SQL Server licenses with Software Assurance.
   2. *Azure Hybrid Benefit*: A reduced price that includes Azure Hybrid Benefit for SQL Server. Customers can opt into this price by using their existing SQL Server licenses with Software Assurance. For eligibility and other details, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Setting different pricing options is not possible for individual instances in a pool. All instances in the parent pool must be either at License Included price or Azure Hybrid Benefit price. The license model for the pool can be altered after the pool is created.

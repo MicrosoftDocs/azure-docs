@@ -24,11 +24,11 @@ Search for and select **App Services**.
 
 ![Select App Services](./media/app-service-ssl-prepare-app/app-services.png)
 
-On the **App Services** page, select the name of your Azure app.
+On the **App Services** page, select the name of your web app.
 
 ![Portal navigation to Azure app](./media/app-service-ssl-prepare-app/select-app.png)
 
-You have landed in the management page of your web app.  
+You have landed on the management page of your web app.  
 
 ### Check the pricing tier
 

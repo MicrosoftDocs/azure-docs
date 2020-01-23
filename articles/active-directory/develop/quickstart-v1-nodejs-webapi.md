@@ -15,7 +15,6 @@ ms.date: 10/25/2019
 ms.author: ryanwi
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to build a Node.js REST web API that integrates with Azure Active Directory for authentication.
-ms.collection: M365-identity-device-management
 ms.custom: seo-javascript-september2019
 ---
 

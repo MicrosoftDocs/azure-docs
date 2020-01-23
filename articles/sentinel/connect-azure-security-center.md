@@ -1,22 +1,14 @@
 ---
-title: Connecting Azure Security Center data to Azure Sentinel| Microsoft Docs
+title: Connect Azure Security Center data to Azure Sentinel
 description: Learn how to connect Azure Security Center data to Azure Sentinel.
-services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
-
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-
 ---
 # Connect data from Azure Security Center
 

@@ -1,14 +1,14 @@
 ---
-title: Adjust network settings for the Microsoft Azure FXT Edge Filer cluster 
+title: 'Tutorial: Configure network in an Azure FXT Edge Filer cluster'
 description: How to customize network settings after creating the Azure FXT Edge Filer cluster 
 author: ekpgh
+ms.author: rohogue 
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue 
 ---
 
-# Tutorial: Configure the cluster's network settings 
+# Tutorial: Configure the cluster's network settings
 
 Before you use a newly created Azure FXT Edge Filer cluster, you should check and customize several network settings for your workflow. 
 

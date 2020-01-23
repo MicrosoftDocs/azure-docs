@@ -1,18 +1,10 @@
 ---
-title: Continuous build and integration for your Azure Service Fabric Linux applications using Jenkins | Microsoft Docs
+title: Continuous build for Linux applications using Jenkins 
 description: Continuous build and integration for your Service Fabric Linux application using Jenkins
-services: service-fabric
-documentationcenter: java
 author: sayantancs
-manager: jpconnock
-ms.service: service-fabric
-ms.devlang: java
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/31/2018
-ms.author: jeconnoc
 
+ms.topic: conceptual
+ms.date: 07/31/2018
 ---
 # Use Jenkins to build and deploy your Linux applications
 Jenkins is a popular tool for continuous integration and deployment of your apps. Here's how to build and deploy your Azure Service Fabric application by using Jenkins.

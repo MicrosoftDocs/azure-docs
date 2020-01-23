@@ -19,7 +19,7 @@ ms.date: 08/16/2016
 > To continue working with the jobs that you set up in Scheduler, please 
 > [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
 
-Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) 
+Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/framework/#resiliency) 
 and reliability for your jobs. For more information, see 
 [SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
