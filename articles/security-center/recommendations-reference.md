@@ -21,7 +21,10 @@ This article lists the recommendations you might see in Azure Security Center. T
 
 To learn about how to respond to these recommendations, see [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your secure score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
+Your Secure Score is based on the number of Security Center recommendations you've completed. To decide which  recommendations to resolve first, look at the severity of each one and its potential impact on your Secure Score.
+
+>[!TIP]
+> If a recommendation's description says "No related policy", it's usually because that recommendation is dependent on a different recommendation. For example, the recommendation “Endpoint protection health failures should be remediated...", relies on the recommendation that checks whether an endpoint protection solution is even *installed* (“Endpoint protection solution should be installed...”). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
 
 ## <a name="recs-network"></a>Network recommendations
 
