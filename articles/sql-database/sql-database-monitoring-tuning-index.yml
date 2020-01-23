@@ -32,7 +32,7 @@ landingContent:
             url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
 
   # Card (optional)
-  - title: Collecting metrics and diagnostic log data
+  - title: Collecting metrics and logs
     linkLists:
       - linkListType: concept
         links:
