@@ -3,13 +3,13 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/23/2020
+ms.author: dapine
 ms.custom: seodec18
 ---
 
@@ -23,7 +23,7 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 
  Locale | Language | Supported | Customizable
 ------|------------|-----------|-------------
-`ar-EG` | Arabic (Egypt), modern standard | Yes | Yes
+`ar-EG` | Arabic (Egypt), modern standard | Yes
 `ar-SA` | Arabic (Saudi Arabia) | Yes | Yes
 `ar-AE` | Arabic (UAE) | Yes | Yes
 `ar-KW` | Arabic (Kuwait) | Yes | Yes
@@ -62,6 +62,10 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 `zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Yes
 `th-TH` | Thai (Thailand) | Yes | No
 `tr-TR` | Turkey | Yes | Yes
+
+- **AM<sup>1</sup>:** The acoustic model is customizable.
+- **LM<sup>2</sup>:** The language model is customizable.
+- **Pronunciation<sup>3</sup>:** The pronunciation is customizable.
 
 ## Text-to-speech
 
