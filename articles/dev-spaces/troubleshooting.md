@@ -246,7 +246,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-This error occurs because AKS nodes run an older version of Docker that doesn't support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
+This error occurs because Azure Dev Spaces does not currently support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
@@ -469,3 +469,12 @@ To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from c
 | gcr.io | HTTP:443 | To pull helm/tiller images|
 | storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
 | azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json|
+
+### Error "Could not find the cluster \<cluster\> in subscription \<subscriptionId\>"
+
+You may see this error if your kubeconfig file is targeting a different cluster or subscription than you are trying to use with the Azure Dev Spaces client side tooling. The Azure Dev Spaces client side tooling replicates the behavior of *kubectl*, which uses [one or more kubeconfig files](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to select and communicate with the cluster.
+
+To fix this issue:
+
+* Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` to update the current context. This command also enables Azure Dev Spaces on your AKS cluster if is not already enabled. Alternatively, you can use `kubectl config use-context <cluster name>` to update the current context.
+* Use `az account show` to show the current Azure subscription you are targeting and verify this is correct. You can change the subscription you are targeting using `az account set`.

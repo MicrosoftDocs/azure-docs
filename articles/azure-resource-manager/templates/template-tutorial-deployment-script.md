@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates.
 services: azure-resource-manager
@@ -263,7 +263,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     * **scriptContent**: Specify the script content. To run an external script, use **primaryScriptURI** instead. For more information, see [Use external script](./deployment-script-template.md#use-external-scripts).
         Declaring **$DeploymentScriptOutputs** is only required when testing the script on a local machine. Declaring the variable allows the script to be run on a local machine and in a deploymentScript resource without having to make changes. The value assigned to $DeploymentScriptOutputs is available as outputs in the deployments. For more information, see [Work with outputs from deployment scripts](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: Specify the preference on when to delete the deployment script resources.  The default value is **Always**, which means the deployment script resources are deleted despite the terminal state (Succeeded, Failed, canceled). In this tutorial, **OnSuccess** is used so that you get a chance to view the script execution results.
-    * **retentionInterval**: Specify the interval for which the service retains the script resources after it reaches a terminal state. Resources will be deleted when this duration expires. Duration is based on ISO 8601 pattern. This tutorial uses P1D, which means one day.  This property is used when **retentionInterval** is set to **OnExpiration**. This property is not enabled currently.
+    * **retentionInterval**: Specify the interval for which the service retains the script resources after it reaches a terminal state. Resources will be deleted when this duration expires. Duration is based on ISO 8601 pattern. This tutorial uses P1D, which means one day.  This property is used when **cleanupPreference** is set to **OnExpiration**. This property is not enabled currently.
 
     The deployment script takes three parameters: key vault name, certificate name, and subject name.  It creates a certificate, and then adds the certificate to the key vault.
 
