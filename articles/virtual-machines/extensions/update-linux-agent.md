@@ -274,6 +274,75 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart waagent.service
 ```
 
+## Debian
+
+### Debian 7 “Jesse”/ Debian 7 "Stretch"
+
+#### Check your current package version
+
+```bash
+dpkg -l | grep waagent
+```
+
+#### Update package cache
+
+```bash
+sudo apt-get -qq update
+```
+
+#### Install the latest package version
+
+```bash
+sudo apt-get install waagent
+```
+
+#### Enable agent auto update
+This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate is not available for it. The output from the above command will show you if the package is up-to-date.
+
+
+
+### Debian 8 “Jessie” / Debian 9 “Stretch”
+
+#### Check your current package version
+
+```bash
+apt list --installed | grep waagent
+```
+
+#### Update package cache
+
+```bash
+sudo apt-get -qq update
+```
+
+#### Install the latest package version
+
+```bash
+sudo apt-get install waagent
+```
+
+#### Ensure auto update is enabled
+First, check to see if it is enabled:
+
+```bash
+cat /etc/waagent.conf
+```
+
+Find 'AutoUpdate.Enabled'. If you see this output, it is enabled:
+
+```bash
+AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+To enable run:
+
+```bash
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+Restart the waagent service
+sudo systemctl restart walinuxagent.service
+```
+
 ## Oracle Linux 6 and Oracle Linux 7
 
 For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.

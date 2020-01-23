@@ -683,10 +683,10 @@ Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Routing: mes
 Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Routing: message latency for Service Bus Queue | Milliseconds | Average
 Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Routing: message latency for Service Bus Topic | Milliseconds | Average
 Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Routing: message latency for storage | Milliseconds | Average
-Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: telemetry messages dropped� | Count | Total
+Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: telemetry messages dropped  | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Routing: messages delivered to fallback | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Routing: telemetry messages incompatible | Count | Total
-Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: telemetry messages orphaned� | Count | Total
+Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: telemetry messages orphaned  | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Routing: telemetry messages delivered | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Telemetry message send attempts | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Number of throttling errors | Count | Total

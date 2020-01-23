@@ -5,7 +5,6 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-
 ---
 
 # Troubleshoot Azure VM extension issues
@@ -101,8 +100,6 @@ To uninstall the extension:
 4. Select **Site Recovery Extension**.
 5. Select **Uninstall**.
 
-For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the protection. 
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the protection.
 
 Completing these steps causes the extension to be reinstalled during the protection.
-
-
