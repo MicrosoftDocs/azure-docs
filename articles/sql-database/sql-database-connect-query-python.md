@@ -25,13 +25,14 @@ To complete this sample, make sure you have the following:
 - Azure SQL database - [create and configure a database](sql-database-single-database-get-started.md)
 
   > [!NOTE]
-  > To create a managed instance, use [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+  > You can also use an Azure SQL managed instance, though this optional, see [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) to create a managed instance.
   >
-  > To configure the instance, use [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
-  >
-  > To load data to the instance, see [restore with BACPAC](sql-database-import.md) using the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md).
+  > You will need to configure the managed instance with [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity, and to load data to the managed instance using [restore with BACPAC](sql-database-import.md) and the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore Wide World Importers](sql-database-managed-instance-get-started-restore.md).
+
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the **Adventure Works** database.
   
-- [Python](https://python.org) and related software
+- [Python](https://python.org) and related software - see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
 
   # [macOS](#tab/macos)
 
@@ -54,11 +55,6 @@ To complete this sample, make sure you have the following:
   For further information, see [Microsoft ODBC Driver](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
 
   ---
-
-   For SDK details, see the [reference documentation](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
-
-> [!IMPORTANT]
-> The scripts in this article are written to use the **Adventure Works** database.
 
 ## Get SQL server connection information
 
