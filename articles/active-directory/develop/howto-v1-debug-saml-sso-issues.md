@@ -13,7 +13,6 @@ ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
-ms.collection: M365-identity-device-management
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
