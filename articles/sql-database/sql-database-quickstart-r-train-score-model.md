@@ -15,7 +15,7 @@ manager: cgronlun
 ms.date: 04/11/2019
 ---
 
-# Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+# Quickstart: Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
 In this quickstart, you'll create and train a predictive model using R, save the model to a table in your SQL database, then use the model to predict values from new data using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). 
 

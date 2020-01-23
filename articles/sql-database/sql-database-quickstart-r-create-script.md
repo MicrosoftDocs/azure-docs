@@ -15,7 +15,7 @@ manager: cgronlun
 ms.date: 04/11/2019
 ---
 
-# Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)
+# Quickstart: Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)
 
 In this quickstart, you'll create and run a set of simple R scripts using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). You'll learn how to wrap a well-formed R script in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) and execute the script in a SQL database.
 
