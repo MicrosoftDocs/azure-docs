@@ -42,7 +42,7 @@ from azureml.core.runconfig import RunConfiguration
 from azureml.pipeline.core import Pipeline
 from azureml.pipeline.steps import PythonScriptStep
 
-# TO-DO: Get workspace and compute
+# TO-DO: Get workspace and compute_target
 
 # Add pip dependency on OpenCensus
 dependencies = CondaDependencies()
@@ -62,6 +62,7 @@ sample_step = PythonScriptStep(
         runconfig=run_config
 )
 
+# Submit new pipeline run
 pipeline = Pipeline(workspace=ws, steps=[sample_step])
 pipeline.submit(experiment_name="Logging_Experiment")
 ```
@@ -76,18 +77,10 @@ import logging
 Next, add the AzureLogHandler to the python logger.
 
 ```python
-# Use OpenCensus Logging
-
 # Assumes the environment variable APPLICATIONINSIGHTS_CONNECTION_STRING is already set
-try:        
-    logger = logging.getLogger(__name__)
-    logger.addHandler(AzureLogHandler())
-    logger.warning("I will be sent to Application Insights")
-
-except ValueError as ex:
-    logger.error("Could not find application insights key. "\
-        "Either set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable " \
-        "or pass in a connection_string to AzureLogHandler.")
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler())
+logger.warning("I will be sent to Application Insights")
 ```
 
 ## Logging with Custom Dimensions
@@ -96,9 +89,9 @@ By default, logs forwarded to Application Insights won't have enough context to 
 
 To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps in the same pipeline run.
 
-Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries)
+Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries).
 
-### Helpful dimensions to include
+### Helpful Context to include
 
 | Field                          | Reasoning/Example                                                                                                                                                                       |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -117,9 +110,11 @@ These fields may require additional code instrumentation, and aren't provided by
 | build_url/build_version | If using CI/CD to deploy, this field can correlate logs to the code version that provided the step and pipeline logic. This link can further help to diagnose issues, or identify models with specific traits (log/metric values) |
 | run_type                       | Can differentiate between different model types, or training vs. scoring runs |
 
-### Creating a custom dimensions dictionary
+### Creating a Custom Dimensions dictionary
 
 ```python
+from azureml.core import Run
+
 run = Run.get_context(allow_offline=False)
 
 custom_dimensions = {
@@ -131,8 +126,8 @@ custom_dimensions = {
     "run_type": "training"
 }
 
-# logger has AzureLogHandler registered previously
-logger.info("Info for application insights", custom_dimensions)
+# Assumes AzureLogHandler was already registered above
+logger.info("Info with context attached", custom_dimensions)
 ```
 
 ## OpenCensus Python logging considerations
