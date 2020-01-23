@@ -137,7 +137,7 @@ If your template machine needs Office, we recommend installation of Office throu
 
 ### Change the Microsoft Office 365 update channel
 
-Using the Office Configuration Tool, you can set how often Office receives updates.  However, if you need to modify how often Office receives updates after installation, you can change the update channel url.  Update channel url addresses can be found at [change the update channel after you enable Office 365 clients to receive updates from Configuration Manager]/configmgr/sum/deploy-use/manage-office-365-proplus-updates#bkmk_channel). The example below shows how to set Office 365 to use the Monthly Update Channel.
+Using the Office Configuration Tool, you can set how often Office receives updates. However, if you need to modify how often Office receives updates after installation, you can change the update channel URL. Update channel URL addresses can be found at [Change the Office 365 ProPlus update channel for devices in your organization](https://docs.microsoft.com/deployoffice/change-update-channels). The example below shows how to set Office 365 to use the Monthly Update Channel.
 
 ```powershell
 # Update to the Office 365 Monthly Channel

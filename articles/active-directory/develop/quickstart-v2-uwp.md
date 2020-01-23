@@ -13,7 +13,6 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application

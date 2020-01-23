@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -20,6 +20,9 @@ ms.reviewer: bagovind
 # List role assignments using Azure RBAC and the Azure portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
+
+> [!NOTE]
+> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
 
 ## List role assignments for a user or group
 
@@ -36,6 +39,22 @@ The easiest way to see the roles assigned to a user or group in a subscription i
     ![Role assignments for a user](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. To change the subscription, click the **Subscriptions** list.
+
+## List owners of a subscription
+
+Users that have been assigned the [Owner](built-in-roles.md#owner) role for a subscription can manage everything in the subscription. Follow these steps to list the owners of a subscription.
+
+1. In the Azure portal, click **All services** and then **Subscriptions**.
+
+1. Click the subscription you want to list the owners of.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Role assignments** tab to view all the role assignments for this subscription.
+
+1. Scroll to the **Owners** section to see all the users that have been assigned the Owner role for this subscription.
+
+   ![Subscription Access control - Role assignments tab](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## List role assignments at a scope
 
@@ -102,6 +121,16 @@ To list access for a user, group, service principal, or managed identity, you li
     ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. To change the subscription, click the **Subscriptions** list.
+
+## List number of role assignments
+
+You can have up to **2000** role assignments in each subscription. To help you keep track of these limits, the **Role assignments** tab includes a chart that lists the current number of role assignments.
+
+![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. You can reduce the number of role assignments by deleting role assignments that are no longer needed or by assigning roles to groups instead of individual users.
+
+![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## Next steps
 

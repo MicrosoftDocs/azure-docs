@@ -23,7 +23,7 @@ This article explains how to:
 ## Before you start
 
 * [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the preview capabilities for [backing up Azure file shares](backup-azure-files.md).
+* Read about the preview capabilities for [backing up Azure file shares](backup-afs.md).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
@@ -414,4 +414,4 @@ $job.ErrorDetails
 
 ## Next steps
 
-[Learn about](backup-azure-files.md) backing up Azure Files in the Azure portal.
+[Learn about](backup-afs.md) backing up Azure Files in the Azure portal.

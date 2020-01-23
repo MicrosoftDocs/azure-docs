@@ -150,7 +150,7 @@ You can get information about your current Service Fabric environment by using P
 
 For more information:
 
-- Refresh your knowledge by completing the [Service Fabric tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Service Fabric tutorials](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-dotnet-app).
 - Learn how to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Review the [Service Fabric overview](../service-fabric/service-fabric-overview.md).
 
@@ -200,7 +200,7 @@ For more information:
 - Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Get an overview of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Web Apps
 

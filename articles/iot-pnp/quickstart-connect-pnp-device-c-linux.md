@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample device code to IoT Hub (Linux) |
 description: Build and run IoT Plug and Play Preview sample device code on Linux that connects to an IoT hub. Use the Azure CLI to view the information sent by the device to the hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/10/2019
+ms.date: 12/23/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp

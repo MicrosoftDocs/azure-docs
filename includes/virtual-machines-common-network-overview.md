@@ -10,7 +10,7 @@ ms.author: cynthn
 ms.custom: include file
 ---
 
-When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-subscription-service-limits.md#networking-limits).
+When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
 

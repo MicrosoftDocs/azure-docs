@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure SignalR Service Documentation
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
   title: Documentation - Azure SignalR Service
   description: Build and scale real-time web app easily in serverless or server mode. Based on WebSocket supporting broad range of languages and frameworks.
   services: azure-signalr

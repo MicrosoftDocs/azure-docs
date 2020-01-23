@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
 ---
 
@@ -189,6 +189,14 @@ After the servers, clouds, and networks are configured correctly, enable protect
 3. Enable replication for the VM.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+
+> [!NOTE]
+> If you wish to replicate to CMK enabled managed disks in Azure, do the following steps using Az PowerShell 3.3.0 onwards:
+>
+> 1. Enable failover to managed disks by updating VM properties
+> 2. Use the Get-AsrReplicationProtectedItem cmdlet to fetch the disk ID for each disk of the protected item
+> 3. Create a dictionary object using New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" cmdlet to contain the mapping of disk ID to disk encryption set. These disk encryption sets are to be pre-created by you in the target region.
+> 4. Update the VM properties using Set-AsrReplicationProtectedItem cmdlet by passing the dictionary object in -DiskIdToDiskEncryptionSetMap parameter.
 
 ## Run a test failover
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI- sfctl compose
-description: Describes the Service Fabric CLI sfctl compose commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for Docker Compose applications.
 author: jeffj6123
 
 ms.topic: reference

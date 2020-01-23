@@ -1,5 +1,5 @@
 ---
-title: Use highly available Service Fabric Reliable Disk Volume in an Azure Service Fabric Mesh application 
+title: Service Fabric Reliable Disk Volume with Service Fabric Mesh
 description: Learn how to store state in an Azure Service Fabric Mesh application by mounting Service Fabric Reliable Disk based volume inside the container using the Azure CLI.
 author: ashishnegi
 ms.topic: conceptual

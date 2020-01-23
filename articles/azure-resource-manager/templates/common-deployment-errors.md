@@ -70,6 +70,7 @@ If you're looking for information about an error code and that information isn't
 | StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Resolve storage account name](error-storage-account-name.md) |
 | StorageAccountNotFound | Check the subscription, resource group, and name of the storage account that you're trying to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotRegistered | When deploying network resources, the Microsoft.Network resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the Microsoft.Network resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross resource group deployment](cross-resource-group-deployment.md) |
 
@@ -194,19 +195,19 @@ To log debug information for a nested template, use the **debugSetting** element
 
 ```json
 {
-    "apiVersion": "2016-09-01",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-            "uri": "{template-uri}",
-            "contentVersion": "1.0.0.0"
-        },
-        "debugSetting": {
-           "detailLevel": "requestContent, responseContent"
-        }
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2016-09-01",
+  "name": "nestedTemplate",
+  "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+      "uri": "{template-uri}",
+      "contentVersion": "1.0.0.0"
+    },
+    "debugSetting": {
+       "detailLevel": "requestContent, responseContent"
     }
+  }
 }
 ```
 
@@ -219,26 +220,25 @@ In some cases, the easiest way to troubleshoot your template is to test parts of
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageName": {
-        "type": "string"
-    },
-    "storageResourceGroup": {
-        "type": "string"
-    }
+  "storageName": {
+    "type": "string"
+  },
+  "storageResourceGroup": {
+    "type": "string"
+  }
   },
   "variables": {},
   "resources": [],
   "outputs": {
-    "exampleOutput": {
-        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-        "type" : "object"
-    }
+  "exampleOutput": {
+    "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+    "type" : "object"
+  }
   }
 }
 ```
 
 Or, suppose you're getting deployment errors that you believe are related to incorrectly set dependencies. Test your template by breaking it into simplified templates. First, create a template that deploys only a single resource (like a SQL Server). When you're sure you have that resource correctly defined, add a resource that depends on it (like a SQL Database). When you have those two resources correctly defined, add other dependent resources (like auditing policies). In between each test deployment, delete the resource group to make sure you adequately testing the dependencies.
-
 
 ## Next steps
 

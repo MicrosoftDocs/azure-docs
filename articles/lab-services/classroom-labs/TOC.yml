@@ -56,6 +56,8 @@
       href: how-to-attach-detach-shared-image-gallery.md
     - name: Add user as an owner to a classroom lab
       href: how-to-add-user-lab-owner.md
+    - name: Firewall settings for Azure Lab Services 
+      href: how-to-configure-firewall-settings.md
   - name: Create and configure classroom labs (instructor)
     items:        
     - name: Create and manage classroom labs

@@ -1,6 +1,6 @@
 ﻿---
 title: Configure Azure Service Fabric Reliable Services 
-description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
+description: Learn about configuring stateful Reliable Services in an Azure Service Fabric application globally and for a single service.
 author: sumukhs
 
 ms.topic: conceptual

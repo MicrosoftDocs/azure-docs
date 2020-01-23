@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Prerequisites
 
-* *Azure Storage account*. You use the blob storage as *source* data store. If you don't have an Azure storage account, see [Create a general-purpose storage account](../storage/common/storage-quickstart-create-account.md).
+* *Azure Storage account*. You use the blob storage as *source* data store. If you don't have an Azure storage account, see [Create a general-purpose storage account](../storage/common/storage-account-create.md).
 * *Azure SQL Database*. You use the database as *sink* data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-single-database-get-started.md).
 * *Visual Studio*. The walkthrough in this article uses Visual Studio 2019.
 * *[Azure SDK for .NET](/dotnet/azure/dotnet-tools)*.
@@ -79,7 +79,7 @@ Next, create a sink SQL table:
     1. Go to the [Azure portal](https://portal.azure.com) to manage your SQL server. Search for and select **SQL servers**.
 
     2. Select your server.
-    
+
     3. Under the SQL server menu's **Security** heading, select **Firewalls and virtual networks**.
 
     4. In the **Firewall and virtual networks** page, under **Allow Azure services and resources to access this server**, select **ON**.
@@ -149,7 +149,7 @@ Follow these steps to create a data factory client.
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -260,7 +260,7 @@ Console.WriteLine(
 
 ## Create datasets
 
-In this section, you create two datasets: one for the source, the other for the sink. 
+In this section, you create two datasets: one for the source, the other for the sink.
 
 ### Create a dataset for source Azure Blob
 
@@ -278,8 +278,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -304,7 +304,7 @@ Console.WriteLine(
 
 Add the following code to the `Main` method that creates an *Azure SQL Database dataset*. For information about supported properties and details, see [Azure SQL Database dataset properties](connector-azure-sql-database.md#dataset-properties).
 
-You define a dataset that represents the sink data in Azure SQL Database. This dataset refers to the Azure SQL Database linked service you created in the previous step. It also specifies the SQL table that holds the copied data. 
+You define a dataset that represents the sink data in Azure SQL Database. This dataset refers to the Azure SQL Database linked service you created in the previous step. It also specifies the SQL table that holds the copied data.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -411,14 +411,14 @@ Now insert the code to check pipeline run states and to get details about the co
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -559,7 +559,7 @@ Press any key to exit...
 
 ## Next steps
 
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to:
 
 > [!div class="checklist"]
 > * Create a data factory.
@@ -569,7 +569,7 @@ The pipeline in this sample copies data from one location to another location in
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
-Advance to the following tutorial to learn about copying data from on-premises to cloud: 
+Advance to the following tutorial to learn about copying data from on-premises to cloud:
 
 > [!div class="nextstepaction"]
 >[Copy data from on-premises to cloud](tutorial-hybrid-copy-powershell.md)

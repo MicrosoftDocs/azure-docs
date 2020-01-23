@@ -75,11 +75,11 @@ productDirectory:
     - title: Cost Management
       imageSrc: ./media/cost-management.svg
       links:
-        - url: ../cost-management/overview-cost-mgt.md
+        - url: ../cost-management-billing/cost-management-billing-overview.md
           text: Overview
-        - url: ../cost-management/aws-integration-manage.md
+        - url: ../cost-management-billing/costs/aws-integration-manage.md
           text: Manage AWS cost and usage
-        - url: ../cost-management/index.yml
+        - url: ../cost-management-billing/index.yml
           text: See more >
 
 tools:

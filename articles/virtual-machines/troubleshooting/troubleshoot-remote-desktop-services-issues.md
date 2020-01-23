@@ -21,7 +21,7 @@ ms.author: genli
 This article describes how to troubleshoot issues when you connect to an Azure virtual machine (VM) and Remote Desktop Services, or TermService, isn't starting or fails to start.
 
 > [!NOTE]  
-> Azure has two different deployment models to create and work with resources: [Azure Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of the classic deployment model.
+> Azure has two different deployment models to create and work with resources: [Azure Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article describes using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of the classic deployment model.
 
 ## Symptoms
 

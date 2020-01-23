@@ -37,7 +37,7 @@ The Public Preview release is designed for evaluation purposes and should not be
 
 ## Azure Subscription and Service Limits
 
-Please make sure you read the Azure Resource Manager limits, and plan for the number of the machines to be connected according to the guideline listed for the [subscription](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager), and for the [resource groups](../../azure-subscription-service-limits.md#resource-group-limits). In particular, by default there is a limit of 800 servers per resource group.
+Please make sure you read the Azure Resource Manager limits, and plan for the number of the machines to be connected according to the guideline listed for the [subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager), and for the [resource groups](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). In particular, by default there is a limit of 800 servers per resource group.
 
 ## Networking Configuration
 

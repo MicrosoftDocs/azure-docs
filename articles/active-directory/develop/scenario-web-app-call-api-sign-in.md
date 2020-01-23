@@ -16,7 +16,6 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a Web app that calls Web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Remove accounts from the cache on global sign-out

@@ -2,14 +2,14 @@
 title: Container workloads - Azure Batch | Microsoft Docs
 description: Learn how to run applications from container images on Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
 
 ---

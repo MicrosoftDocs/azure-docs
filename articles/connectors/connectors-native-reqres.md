@@ -19,7 +19,17 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 > [!NOTE]
 > The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. Outgoing calls 
-> continue to support TLS 1.0, 1.1, and 1.2. If you see SSL handshake errors, make sure that you use TLS 1.2.
+> continue to support TLS 1.0, 1.1, and 1.2. If you see SSL handshake errors, make sure that you use TLS 1.2. 
+> For incoming calls, here are the supported cipher suites:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## Prerequisites
 

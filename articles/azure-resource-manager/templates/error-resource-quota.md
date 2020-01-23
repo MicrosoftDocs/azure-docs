@@ -32,7 +32,7 @@ please delete some resources of this type before creating a new one.
 ## Cause
 
 Quotas are applied per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
-For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Troubleshooting
 

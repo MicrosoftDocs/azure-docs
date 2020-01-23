@@ -1,23 +1,12 @@
 ---
-
-title: Azure Service Fabric security best practices | Microsoft Docs
+title: Best practices for Azure Service Fabric security
 description: This article provides a set of best practices for Azure Service Fabric security.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-
-ms.assetid:
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-
 ---
 # Azure Service Fabric security best practices
 Deploying an application on Azure is fast, easy, and cost-effective. Before you deploy your cloud application into production, review our list of essential and recommended best practices for implementing secure clusters in your application.
