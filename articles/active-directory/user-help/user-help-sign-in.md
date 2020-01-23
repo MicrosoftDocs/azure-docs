@@ -13,7 +13,6 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Sign in using two-step verification or security info
