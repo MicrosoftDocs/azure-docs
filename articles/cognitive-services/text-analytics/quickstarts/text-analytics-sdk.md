@@ -15,13 +15,9 @@ zone_pivot_groups: programming-languages-text-analytics
 
 # Quickstart: Use the Text Analytics client library
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks. There are two versions you can use: `v2` or `v3.0-preview`.
+Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-> [!IMPORTANT]
-> Be sure to only follow the instructions for the version you are using.  
->
-
-Use the Text Analytics client library v2 to perform:
+Use the Text Analytics client library to perform:
 
 * Sentiment analysis
 * Language detection
@@ -30,11 +26,22 @@ Use the Text Analytics client library v2 to perform:
 
 ::: zone pivot="programming-language-csharp"
 
+There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
+
+> [!IMPORTANT]
+> Be sure to only follow the instructions for the version you are using.  
+
+
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
+
+> [!IMPORTANT]
+> Be sure to only follow the instructions for the version you are using.  
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
 
@@ -42,13 +49,36 @@ Use the Text Analytics client library v2 to perform:
 
 ::: zone pivot="programming-language-java"
 
+There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
+
+> [!IMPORTANT]
+> This quickstart only contains instructions for using version `3.0-preview`.
+
 [!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
+There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
+
+> [!IMPORTANT]
+> Be sure to only follow the instructions for the version you are using.  
+
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-other"
+
+## Additional language support
+
+If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstarts available on GitHub. Use the table to find the right sample for your programming language.
+
+| Language | Additional quickstarts | 
+|----------|------------------------|
+| Ruby     | [Version 2](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/cognitive-services/text-analytics/includes/quickstarts/v2/ruby-sdk.md)          | 
+| Go       | [Version 2](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/cognitive-services/text-analytics/includes/quickstarts/v2/go-sdk.md)          | 
 
 ::: zone-end
 
