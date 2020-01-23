@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -17,7 +17,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ---
 
@@ -54,7 +54,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Subscription | Select your subscription. |
     | Resource group | Select **Create new**, enter *myResourceGroup*, and select *OK*. |
     | Location | Leave the default **East US**.
-    | BGP route propagation | Leave the default **Enabled**. |
+    | Virtual Network Gateway route propagation | Leave the default **Enabled**. |
 
 1. Select **Create**.
 
@@ -286,7 +286,7 @@ In a later step, you'll use the trace route tool to test routing. Trace route us
 1. Enter this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     You're using trace route to test routing in this tutorial. For production environments, we don't recommend allowing ICMP through the Windows Firewall.
@@ -321,7 +321,7 @@ You [turned on IP forwarding](#turn-on-ip-forwarding) for the VM's network inter
 1. Enable ICMP through the Windows firewall by entering this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## Test the routing of network traffic

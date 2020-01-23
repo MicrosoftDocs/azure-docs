@@ -1,15 +1,15 @@
 ---
-title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure | Microsoft Docs'
+title: 'Create & install P2S VPN client configuration files: certificate authentication'
+titleSuffix: Azure VPN Gateway
 description: Create and install Windows, Linux, Linux (strongSwan), and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-
 ---
+
 # Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
 
 VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux clients to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.
@@ -70,7 +70,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 ## <a name="installmac"></a>Mac (OS X)
 
- You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
+ You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.
@@ -94,9 +94,14 @@ Use the following steps to configure the native VPN client on Mac for certificat
 4. In the **Generic** folder, from the **VpnSettings.xml** file, copy the **VpnServer** tag value. Paste this value in the **Server Address** and **Remote ID** fields of the profile.
 
    ![server info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. Click **Authentication Settings** and select **Certificate**. 
+5. Click **Authentication Settings** and select **Certificate**. For **Catalina**, click **None** and then **certificate**
 
    ![authentication settings](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
+
+   * For Catalina, select **None** and then **Certificate**. **Select** the correct certificate:
+   
+   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+
 6. Click **Select…** to choose the client certificate that you want to use for authentication. This is the certificate that you installed in Step 2.
 
    ![certificate](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
@@ -110,40 +115,32 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### Extract the key and certificate
+### <a name="installstrongswan"></a>Install strongSwan
 
-For strongSwan, you need to extract the key and the cert from the client certificate (.pfx file) and save them to individual .pem files.
-Follow the steps below:
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. Download and install OpenSSL from [OpenSSL](https://www.openssl.org/source/).
-2. Open a command-line window and change to the directory where you installed OpenSSL, for example, 'c:\OpenSLL-Win64\bin\'.
-3. Run the following command to extract the private key and save it to a new file called 'privatekey.pem' from your client certificate:
+### <a name="genlinuxcerts"></a>Generate certificates
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. Now run the following command to extract the public cert and save it to a new file:
+If you have not already generated certificates, use the following steps:
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Install and configure
 
-The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
+The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
 
-1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example. If you receive an error that's related to *libcharon-extra-plugins*, replace it with 'strongswan-plugin-eap-mschapv2'.
+1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
-2. Select the **Network Manager** icon (up-arrow/down-arrow), then select **Edit Connections**.
+2. Select **Settings** , then select **Network**.
 
    ![edit connections](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Click the **Add** button to create a new connection.
+3. Click the **+** button to create a new connection.
 
    ![add a connection](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Select **IPsec/IKEv2 (strongswan)** from the drop-down menu, and then click **Create**. You can rename your connection in this step.
+4. Select **IPsec/IKEv2 (strongSwan)** from the  menu, and double-click. You can name your connection in this step.
 
    ![choose a connection type](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Open the **VpnSettings.xml** file from the **Generic** folder contained in the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with 'azuregateway' and ending with '.cloudapp.net'.
@@ -152,17 +149,20 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 6. Paste this name into the **Address** field of your new VPN connection in the **Gateway** section. Next, select the folder icon at the end of the **Certificate** field, browse to the **Generic** folder, and select the **VpnServerRoot** file.
 7. In the **Client** section of the connection, for **Authentication**, select **Certificate/private key**. For **Certificate** and **Private key**, choose the certificate and the private key that were created earlier. In **Options**, select **Request an inner IP address**. Then, click **Add**.
 
-   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Click the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. Click to initiate the connection.
+   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Turn the connection **On**.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
 ### Install strongSwan
 
-You can use the following CLI commands, or use the strongSwan steps in the [GUI](#install) to install strongSwan.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### Generate certificates
+
+If you have not already generated certificates, use the following steps:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### Install and configure
 
@@ -170,22 +170,22 @@ You can use the following CLI commands, or use the strongSwan steps in the [GUI]
 2. Extract the File.
 3. From the **Generic** folder, copy or move the VpnServerRoot.cer to /etc/ipsec.d/cacerts.
 4. Copy or move cp client.p12 to /etc/ipsec.d/private/. This file is client certificate for Azure VPN Gateway.
-5. Open VpnSettings.xml file and copy the <VpnServer> value. You will use this value in the next step.
+5. Open VpnSettings.xml file and copy the `<VpnServer>` value. You will use this value in the next step.
 6. Adjust the values in the example below, then add the example to the /etc/ipsec.conf configuration.
   
    ```
    conn azure
-   keyexchange=ikev2
-   type=tunnel
-   leftfirewall=yes
-   left=%any
-   leftauth=eap-tls
-   leftid=%client # use the DNS alternative name prefixed with the %
-   right= Enter the VPN Server value here# Azure VPN gateway address
-   rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
-   rightsubnet=0.0.0.0/0
-   leftsourceip=%config
-   auto=add
+         keyexchange=ikev2
+         type=tunnel
+         leftfirewall=yes
+         left=%any
+         leftauth=eap-tls
+         leftid=%client # use the DNS alternative name prefixed with the %
+         right= Enter the VPN Server value here# Azure VPN gateway address
+         rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+         rightsubnet=0.0.0.0/0
+         leftsourceip=%config
+         auto=add
    ```
 6. Add the following to */etc/ipsec.secrets*.
 

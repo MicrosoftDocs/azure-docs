@@ -4,8 +4,8 @@ description: Learn how to send authentication tokens from the client to the Azur
 services: media-services
 keywords: content protection, DRM, token authentication
 documentationcenter: ''
-author: dbgeorge
-manager: jasonsue
+author: Juliako
+manager: femila
 editor: ''
 
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -14,8 +14,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: dwgeo
+ms.date: 03/19/2019
+ms.author: juliako
 
 ---
 

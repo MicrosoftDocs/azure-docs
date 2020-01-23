@@ -1,13 +1,8 @@
 ---
-title: Import container images to Azure Container Registry 
+title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
-ms.author: danlep
 ---
 
 # Import container images to a container registry
@@ -97,7 +92,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-hellowo
 In the following example, *mysourceregistry* is in a different subscription from *myregistry* in the same Active Directory tenant. Supply the resource ID of the source registry with the `--registry` parameter. Notice that the `--source` parameter specifies only the source repository and image name, not the registry login server name.
  
 ```azurecli
-az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
+az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 ### Import from a registry using service principal credentials

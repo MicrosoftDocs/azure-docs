@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 08/05/2019
 ms.author: raynew
 ---
 # Replicate Azure Stack VMs to Azure
@@ -327,7 +327,7 @@ When your primary site is up and running again, you can fail back from Azure to 
         - VHD Name: copied-3676553984.vhd
 
 5. Now, use Azure Storage Explorer to download the VHD.
-6. Upload the VHD to Azure Stack with [these steps](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm).
+6. Upload the VHD to Azure Stack with [these steps](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. In the existing VM or new VM, attach the uploaded VHDs.
 8. Check that the OS Disk is correct, and start the VM.
 

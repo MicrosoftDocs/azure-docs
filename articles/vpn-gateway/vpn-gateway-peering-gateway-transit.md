@@ -1,19 +1,13 @@
 ---
-title: 'Configure VPN gateway transit for virtual network peering: Azure Resource Manager | Microsoft Docs'
+title: 'Configure VPN gateway transit for virtual network peering'
 description: Configure VPN gateway transit for virtual network peering.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 
@@ -32,9 +26,6 @@ There are two scenarios described in this document:
 
 1. Both virtual networks are using the Resource Manager deployment model
 2. The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager
-
-> [!IMPORTANT]
-> Gateway transit is currently not supported with global virtual network peering.
 
 ## Requirements
 

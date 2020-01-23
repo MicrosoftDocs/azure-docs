@@ -1,21 +1,9 @@
 ---
-title: Unit testing stateful services in Azure Service Fabric | Microsoft Docs
+title: Unit testing stateful services in Azure Service Fabric 
 description: Learn about the concepts and practices of unit testing Service Fabric Stateful Services.
-services: service-fabric
-documentationcenter: .net
-author: charleszipp
-manager: timlt
-editor: vturecek
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
-ms.author: ryanwi
-
 ---
 # Unit testing stateful services in Service Fabric
 
@@ -32,7 +20,7 @@ Unit testing stateful services can help to uncover some common mistakes that are
 
 ## Common practices
 
-The following section advises on the most common practices for unit testing a stateful service. It also advises what a mocking layer should have to closely align to the Service Fabric orchestration and state management. Mocking libraries do exist libraries that provide this functionality. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) as of 3.3.0 or later is one such library that provides the mocking functionality recommended and follows the practices outlined below.
+The following section advises on the most common practices for unit testing a stateful service. It also advises what a mocking layer should have to closely align to the Service Fabric orchestration and state management. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) as of 3.3.0 or later is one such library that provides the mocking functionality recommended and follows the practices outlined below.
 
 ### Arrangement
 
@@ -47,8 +35,8 @@ Additionally, having multiple instances allows the tests to switch the roles of 
 The State Manager should be treated as a remote resource and therefore mocked. When mocking the state manager, there needs to be some underlying in-memory storage for tracking what is saved to the state manager so that it can be read and verified. A simple way to achieve this is to create mock instances of each of the types of Reliable Collections. Within those mocks, use a data type that closely aligns with the operations performed against that collection. The following are some suggested data types for each reliable collection
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
 
 #### Many State Manager Instances, single storage
 As mentioned before, the State Manager and Reliable Collections should be treated as a remote resource. Therefore, these resources should and will be mocked within the unit tests. However, when running multiple instances of a stateful service it will be a challenge to keep each mocked state manager in sync across different stateful service instances. When the stateful service is running on the cluster, the Service Fabric takes care of keeping each secondary replica's state manager consistent with the primary replica. Therefore, the tests should behave the same so that they can simulate role changes.

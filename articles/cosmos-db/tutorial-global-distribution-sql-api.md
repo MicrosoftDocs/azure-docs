@@ -1,15 +1,15 @@
 ---
-title: Azure Cosmos DB global distribution tutorial for the SQL API
-description: Learn how to set up Azure Cosmos DB global distribution using the SQL API.
-author: rimman
+title: 'Tutorial: Azure Cosmos DB global distribution tutorial for the SQL API'
+description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API with .Net, Java, Python and various other SDKs'
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: rimman
+ms.date: 11/05/2019
 ms.reviewer: sngun
 
 ---
-# Set up Azure Cosmos DB global distribution using the SQL API
+# Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
 
 In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the SQL API.
 
@@ -73,32 +73,52 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## NodeJS, JavaScript, and Python SDKs
-The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region.
-
-In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions][regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
-
-The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
+## Node.js/JavaScript
 
 > [!NOTE]
 > The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
 >
 >
 
-Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
+Below is a code example for Node.js/Javascript.
 
 ```JavaScript
-// Creating a ConnectionPolicy object
-var connectionPolicy = new DocumentBase.ConnectionPolicy();
-
 // Setting read region selection preference, in the following order -
 // 1 - West US
 // 2 - East US
 // 3 - North Europe
-connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
+const preferredLocations = ['West US', 'East US', 'North Europe'];
 
 // initialize the connection
-var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLocations } });
+```
+
+## Python SDK
+
+The following code shows how to set preferred locations by using the Python SDK:
+
+```python
+
+connectionPolicy = documents.ConnectionPolicy()
+connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
+client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
+
+```
+
+## Java V2 SDK
+
+The following code shows how to set preferred locations by using the Java SDK:
+
+```java
+ConnectionPolicy policy = new ConnectionPolicy();
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKeyOrResourceToken(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConnectionPolicy(policy)
+                .build();
 ```
 
 ## REST

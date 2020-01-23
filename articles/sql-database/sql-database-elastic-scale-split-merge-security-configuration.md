@@ -1,5 +1,5 @@
 ---
-title: Split-merge security configuration | Microsoft Docs
+title: Split-merge security configuration
 description: Set up x409 certificates for encryption with the split/merge service for elastic scale.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Split-merge security configuration
@@ -77,17 +76,17 @@ Client certificates are required in order to authenticate requests to the servic
 3. [Update CA Certificate in Service Configuration File](#update-ca-certificate-in-service-configuration-file)
 4. [Issue Client Certificates](#issue-client-certificates)
 5. [Create PFX files for Client Certificates](#create-pfx-files-for-client-certificates)
-6. [Import Client Certificate](#Import-Client-Certificate)
+6. [Import Client Certificate](#import-client-certificate)
 7. [Copy Client Certificate Thumbprints](#copy-client-certificate-thumbprints)
 8. [Configure Allowed Clients in the Service Configuration File](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### Use existing client certificates
 1. [Find CA Public Key](#find-ca-public-key)
-2. [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
-3. [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+2. [Upload CA Certificate to Cloud Service](#upload-ca-certificate-to-cloud-service)
+3. [Update CA Certificate in Service Configuration File](#update-ca-certificate-in-service-configuration-file)
+4. [Copy Client Certificate Thumbprints](#copy-client-certificate-thumbprints)
 5. [Configure Allowed Clients in the Service Configuration File](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
+6. [Configure Client Certificate Revocation Check](#configure-client-certificate-revocation-check)
 
 ## Allowed IP addresses
 Access to the service endpoints can be restricted to specific ranges of IP addresses.

@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -105,7 +106,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 	| |
 	|--|
 	| `https://app.periscopedata.com/` |
-	| ` https://app.periscopedata.com/app/<SITENAME>` |
+	| `https://app.periscopedata.com/app/<SITENAME>` |
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://app.periscopedata.com/<SITENAME>/sso`
@@ -133,9 +134,9 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     d. Find the tag **SingleLogoutService** and paste the **Location** value in the **SLO URL** textbox.
 
-    e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
+    e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
 
-    f. The first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
+    f. Find the first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
 
     g. Find the tag **IDPSSODescriptor** with SAML protocol. Within that section, find the tag **KeyDescriptor** with **use=signing**. copy the value of **X509Certificate** and paste it in the **Certificate** textbox.
 
@@ -228,9 +229,9 @@ When you click the Periscope Data tile in the Access Panel, you should be automa
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Event Analysis with Application Insights | Microsoft Docs
+title: Azure Service Fabric Event Analysis with Application Insights 
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: timlt
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-
 ---
 
 # Event analysis and visualization with Application Insights
@@ -48,7 +38,7 @@ To further explore the capabilities of the Application Insights portal, head ove
 
 ### Configuring Application Insights with EventFlow
 
-If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
+If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
 
 ```json
 "outputs": [

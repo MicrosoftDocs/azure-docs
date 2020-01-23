@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor my IoT devices.
@@ -18,6 +18,8 @@ ms.author: dobett
 This quickstart shows you how to deploy the Azure IoT Remote Monitoring solution accelerator. In this cloud-based solution, you use the **Dashboard** page to visualize simulated devices on a map and the **Maintenance** page respond to a pressure alert from a simulated chiller device. You can use this solution accelerator as the starting point for your own implementation or as a learning tool.
 
 The initial deployment configures the solution accelerator for a company called Contoso. As an operator at Contoso, you manage a selection of different device types, such as chillers, deployed in different physical environments. A chiller device sends temperature, humidity, and pressure telemetry to the Remote Monitoring solution accelerator.
+
+This quickstart deploys a **Basic** version of the solution accelerator for test and demonstration purposes that minimizes costs. For more information about the different versions you can deploy, see [Basic and standard deployments](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 To complete this quickstart, you need an active Azure subscription.
 
@@ -33,9 +35,7 @@ Click the **Remote Monitoring** tile. On the **Remote Monitoring** page, click *
 
 ![Choose Remote Monitoring](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-On the **Create Remote Monitoring solution** page, select a **Basic** deployment. If you're deploying the solution accelerator to learn how it works or to run a demonstration, choose the **Basic** option to minimize costs.
-
-Choose **.NET** as the language. The Java and .NET implementations have the same features.
+Choose **C# Microservices** as the **Deployment options**. The Java and C# implementations have the same features.
 
 Enter a unique **Solution name** for your Remote Monitoring solution accelerator. For this quickstart, we're calling ours **contoso-rm**.
 
@@ -108,7 +108,7 @@ To act on the chiller, scroll-down to **Related information**, select the chille
 
 In the **Jobs** panel, choose **Run method** and then the **EmergencyValveRelease** method. Add the job name **ChillerPressureRelease**, and click **Apply**. These settings create a job for you that executes immediately.
 
-To view the job status, return to the **Maintenance** page and view the list of jobs in the **Jobs** view. You may need to wait a few seconds before you can see the job has run to release the valve pressure on the chiller:
+To view the job status, return to the **Maintenance** page and view the list of jobs in the **Jobs** view. You may need to wait a few seconds before you can see the job has run:
 
 [![The status of the jobs in the Jobs view](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

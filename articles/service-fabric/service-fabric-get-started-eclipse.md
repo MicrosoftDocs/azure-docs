@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs
-description:  Get started with the Service Fabric plug-in for Eclipse.  
-services: service-fabric
-documentationcenter: java
+title: Azure Service Fabric plug-in for Eclipse 
+description: Learn about getting started with Azure Service Fabric in Java using eclipse and the Service Fabric provided plug-in. 
 author: rapatchi
-manager: timlt
-editor: ''
 
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-
 ---
 
 # Service Fabric plug-in for Eclipse Java application development
@@ -23,6 +13,9 @@ Eclipse is one of the most widely used integrated development environments (IDEs
 
 > [!NOTE]
 > The Eclipse plugin is currently not supported on Windows. 
+
+> [!IMPORTANT]
+> Be sure JDK 8 is installed on the system and selected in Eclipse.
 
 ## Install or update the Service Fabric plug-in in Eclipse
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services.
@@ -51,7 +44,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 3. Once you update the Service Fabric plug-in, also refresh the Gradle project.  Right click **build.gradle**, then select **Refresh**.
 
 > [!NOTE]
-> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (https://dl.microsoft.com/eclipse/azure/servicefabric).
+> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.

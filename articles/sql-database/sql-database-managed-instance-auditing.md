@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance auditing | Microsoft Docs
+title: Managed instance auditing
 description: Learn how to get started with Azure SQL Database managed instance auditing using T-SQL
 services: sql-database
 ms.service: sql-database
@@ -9,18 +9,17 @@ ms.devlang:
 ms.topic: conceptual
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-manager: craigg
-ms.date: 02/07/2019
+ms.date: 04/08/2019
 ---
 # Get started with Azure SQL Database managed instance auditing
 
 [Managed instance](sql-database-managed-instance.md) auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
-- Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+- Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Set up auditing for your server to Azure storage
 
@@ -148,7 +147,7 @@ The following section describes the configuration of auditing on your managed in
 
 For additional information:
 
-- [Auditing differences between single databases, elastic pool,s, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Auditing differences between single databases, elastic pools, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -220,7 +219,6 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
 
 - With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-- With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
 - In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
 
 XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are **not supported**.
@@ -236,7 +234,7 @@ The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob stor
 ## Next steps
 
 - For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](sql-database-auditing.md).
-- For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+- For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 <!--Image references-->
 

@@ -1,10 +1,10 @@
 ---
-title: Move a VM (Classic) or Cloud Services role instance to a different subnet - Azure PowerShell | Microsoft Docs
+title: Move Azure VM (Classic) or Cloud Services role instances to different subnet
 description: Learn how to move VMs (Classic) and Cloud Services role instances to a different subnet using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427

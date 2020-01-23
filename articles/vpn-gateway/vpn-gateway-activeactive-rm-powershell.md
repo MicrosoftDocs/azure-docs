@@ -1,5 +1,5 @@
 ﻿---
-title: 'Configure active-active S2S VPN connections for VPN Gateways: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Configure active-active S2S Azure VPN Gateway connections'
 description: This article walks you through configuring active-active connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 author: yushwang
@@ -7,7 +7,8 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: yushwang, cherylmc
+ms.author: yushwang
+ms.reviewer: cherylmc
 
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways

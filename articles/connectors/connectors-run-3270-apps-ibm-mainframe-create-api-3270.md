@@ -1,8 +1,7 @@
 ---
-title: Connect to 3270 apps on IBM mainframes with Azure - Azure Logic Apps
+title: Connect to 3270 apps on IBM mainframes
 description: Integrate and automate 3270 screen-driven apps with Azure by using Azure Logic Apps and IBM 3270 connector
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
@@ -74,7 +73,7 @@ that Azure Logic Apps supports.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -297,7 +296,7 @@ a series of screens common to all your transactions.
 so select and use only one instance of any repeated screens 
 in your plan. Here are some examples of repeated screens:
 
-  * The sign in screen, for example, the **MSG-10** screen
+  * The sign-in screen, for example, the **MSG-10** screen
   * The welcome screen for CICS
   * The "Clear" or **Empty** screen
 
@@ -622,7 +621,7 @@ and choose **Create**.
 1. When you're done, save and run your logic app.
 
    After your logic app finishes running, the steps from the run appear. 
-   Successful steps show checkmarks, while unsuccessful steps show the letter "X".
+   Successful steps show check marks, while unsuccessful steps show the letter "X".
 
 1. To review the inputs and outputs for each step, expand that step.
 
@@ -630,16 +629,9 @@ and choose **Create**.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limit, which are described
-by the connector's OpenAPI (formerly Swagger) description, review the
-connector's reference page: [https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name>](/connectors/).
-
-## Get support
-
-* For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+For technical details about triggers, actions, and limits, which are described 
+by the connector's OpenAPI (formerly Swagger) description, review the 
+[connector's reference page](/connectors/si3270/).
 
 ## Next steps
 

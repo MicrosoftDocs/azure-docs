@@ -3,7 +3,7 @@ title: Boot diagnostics for VMs in Azure | Microsoft Doc
 description: Overview of the two debugging features for virtual machines in Azure
 services: virtual-machines
 author: Deland-Han
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -75,7 +75,7 @@ The diagnostics profile enables you to select the storage account where you want
 }
 ```
 
-For more information on deploying resources using templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+For more information on deploying resources using templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## Enable boot diagnostics on existing virtual machine 
 

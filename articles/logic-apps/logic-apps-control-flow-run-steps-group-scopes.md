@@ -1,18 +1,14 @@
 ---
-title: Add scopes that run actions based on group status - Azure Logic Apps | Microsoft Docs
-description: How to create scopes that run workflow actions based on group action status in Azure Logic Apps
+title: Group and run actions by scope
+description: Create scoped actions that run based on group status in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ---
 
-# Run actions based on group status with scopes in Azure Logic Apps
+# Run actions based on group status by using scopes in Azure Logic Apps
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 
@@ -153,7 +149,7 @@ so save your work often.
 
    1. In the **Body** field, enter this text with a trailing space: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       While your cursor appears in the **Body** field, 
       the dynamic content list stays open so that you can 
@@ -187,12 +183,14 @@ so save your work often.
 
    1. When you're done, choose **OK**.
 
+   <!-- markdownlint-disable MD038 -->
    1. After the expression resolves, 
        add this text with a leading space: ``` minutes```
   
        Your **Body** field now looks like this example:
 
        ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Save your logic app.
 

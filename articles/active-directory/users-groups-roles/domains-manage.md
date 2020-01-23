@@ -30,11 +30,11 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
 2. Select **Azure Active Directory**.
 3. Select **Custom domain names**.
   
-   ![Opening user management](./media/domains-manage/add-custom-domain.png)
+   ![Opening the user management page](./media/domains-manage/add-custom-domain.png)
 4. Select the name of the domain that you want to be the primary domain.
 5. Select the **Make primary** command. Confirm your choice when prompted.
   
-   ![Make a domain name primary](./media/domains-manage/make-primary-domain.png)
+   ![Make a domain name the primary](./media/domains-manage/make-primary-domain.png)
 
 You can change the primary domain name for your directory to be any verified custom domain that isn't federated. Changing the primary domain for your directory won't change the user name for any existing users.
 
@@ -103,7 +103,7 @@ If you find that any of the conditions haven’t been met, manually clean up the
 
 Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API.
 
-* [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+* [Using PowerShell to manage domain names in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## Next steps

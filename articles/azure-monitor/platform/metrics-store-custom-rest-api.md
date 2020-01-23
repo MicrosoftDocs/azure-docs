@@ -1,5 +1,5 @@
 ---
-title: Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API
+title: Send metrics to the Azure Monitor metric database using REST API
 description: Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API
 author: anirudhcavale
 services: azure-monitor
@@ -33,7 +33,7 @@ Give the app created as part of step 1, Monitoring Metrics Publisher, permission
 Open a command prompt and run the following command:
 
 ```shell
-curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Save the access token from the response.
 

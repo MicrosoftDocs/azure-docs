@@ -1,15 +1,10 @@
----
-title: Azure Blockchain Workbench messages integration overview
-description: Overview of using messages in Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 02/21/2019
+﻿---
+title: Use messages to integrate with Azure Blockchain Workbench
+description: Overview of using messages to integrate Azure Blockchain Workbench Preview with other systems.
+ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
+#Customer intent: As an developer, I want to use messages to integrate external systems with Azure Blockchain Workbench.
 ---
 
 # Azure Blockchain Workbench messaging integration
@@ -60,7 +55,7 @@ Blockchain Workbench returns a response with the following fields:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | Client supplied GUID |
 | userId                | ID of the user that was created |
-| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, the address is the user's **on-chain** address. |
+| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, the address is the user's **on-chain** address. |
 | connectionId          | Unique identifier for the blockchain connection|
 | messageSchemaVersion  | Messaging schema version |
 | messageName           | **CreateUserUpdate** |
@@ -166,7 +161,7 @@ Example of a submitted **create contract** response from Blockchain Workbench:
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Submitted"
+    "status": "Submitted",
     "additionalInformation": { }
 }
 ```
@@ -196,7 +191,7 @@ If the request was unsuccessful, details about the failure are included in addit
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract cannot be provisioned on connection."
@@ -282,7 +277,7 @@ Example of a committed **create contract action** response from Blockchain Workb
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Committed"
+    "status": "Committed",
     "additionalInformation": { }
 }
 ```
@@ -296,7 +291,7 @@ If the request was unsuccessful, details about the failure are included in addit
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract action cannot be provisioned on connection."
@@ -412,7 +407,7 @@ Example of a *BlockMessage* from Blockchain Workbench:
 ``` json
 {
     "block": {
-        "blockId": 123
+        "blockId": 123,
         "blockNumber": 1738312,
         "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
         "previousBlockHash": null,
@@ -420,14 +415,14 @@ Example of a *BlockMessage* from Blockchain Workbench:
     },
     "transactions": [
         {
-            "transactionId": 234
+            "transactionId": 234,
             "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
             "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
             "to": null,
             "provisioningStatus": 1
         },
         {
-            "transactionId": 235
+            "transactionId": 235,
             "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
             "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
             "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
@@ -712,8 +707,8 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
     "applicationId": 31,
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
-    "applicationVersion": “1.0”,
-    "applicationDefinitionLocation": "http://url"
+    "applicationVersion": "1.0",
+    "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
             "id": 23,
@@ -791,19 +786,19 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
                     "id": 879,
                     "name": "Description",
                     "type": {
-                                "name": "string"
+                        "name": "string"
                      }
                 },
                 {
                     "id": 880,
                     "name": "Price",
                     "type": {
-                                "name": "int"
+                        "name": "int"
                      }
                 }
             ]
         }
-    ]
+    ],
     "connectionId": [ ],
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
@@ -815,7 +810,7 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
                     "Name": "BuyerAccepted",
                     "Transitions": [
                         {
-                            "DisplayName": "Accept"
+                            "DisplayName": "Accept",
                             "AllowedRoles": [ ],
                             "AllowedInstanceRoles": [ "InstanceOwner" ],
                             "Function": "Accept",
@@ -878,7 +873,7 @@ Example of an *EventMessage RoleAssignment* from Blockchain Workbench:
     "applicationId": 31,
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
-    "applicationVersion": “1.0”,
+    "applicationVersion": "1.0",
     "applicationRole": {
         "id": 134,
         "name": "Buyer"

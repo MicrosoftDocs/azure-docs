@@ -1,6 +1,6 @@
 ---
-title: Deploy with Terraform from Bash in Azure Cloud Shell | Microsoft Docs
-description: Deploy with Terraform from Bash in Azure Cloud Shell
+title: Deploy with Terraform from Azure Cloud Shell | Microsoft Docs
+description: Deploy with Terraform from Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarchermsft

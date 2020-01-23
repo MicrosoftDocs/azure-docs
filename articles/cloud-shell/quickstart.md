@@ -1,17 +1,12 @@
 ---
-title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for Bash in Cloud Shell
-services: 
-documentationcenter: ''
+title: Azure Cloud Shell Quickstart - Bash
+description: Learn how to use the Bash command line in your browser with Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
- 
-ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
@@ -45,9 +40,9 @@ Check that the environment drop-down from the left-hand side of shell window say
    ```
 
 2. Set your preferred subscription: <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.

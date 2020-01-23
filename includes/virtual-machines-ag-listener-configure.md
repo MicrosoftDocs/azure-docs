@@ -86,7 +86,7 @@ The availability group listener is an IP address and network name that the SQL S
     
    - `$ListenerProbePort` is the port you configured on the Azure load balancer for the availability group listener.
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<IPResourceName>" # the IP Address resource name
    $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
@@ -120,7 +120,7 @@ If necessary, repeat the steps above to set the cluster parameters for the WSFC 
 
    - `$ClusterProbePort` is the port you configured on the Azure load balancer for the WSFC health probe. It is different from the probe for the availability group listener.
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
    $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
@@ -134,4 +134,4 @@ If necessary, repeat the steps above to set the cluster parameters for the WSFC 
    b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
 >[!WARNING]
->The availability group listener health probe port has to be different from the cluster core IP address health probe port. In these examples, the listener port is 59999 and the cluster core IP address is 58888. Both ports require an allow inbound firewall rule.
+>The availability group listener health probe port has to be different from the cluster core IP address health probe port. In these examples, the listener port is 59999 and the cluster core IP address health probe port is 58888. Both ports require an allow inbound firewall rule.

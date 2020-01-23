@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 04/10/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Application Insights cohorts
@@ -118,13 +114,13 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Select **Run Query**. If you don't see user IDs appear in the table, change to a country where your application has users.
+3. Select **Run Query**. If you don't see user IDs appear in the table, change to a country/region where your application has users.
 
 4. Save and name the cohort.
 
 ## Frequently asked questions
 
-_I’ve defined a cohort of users from a certain country. When I compare this cohort in the Users tool to just setting a filter on that country, I see different results. Why?_
+_I’ve defined a cohort of users from a certain country/region. When I compare this cohort in the Users tool to just setting a filter on that country/region, I see different results. Why?_
 
 Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the previous example), and you compare its results to setting the filter “Country or region = United Kingdom.”
 

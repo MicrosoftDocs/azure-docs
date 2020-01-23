@@ -3,7 +3,7 @@ title: Create an Azure IoT Hub using a template (.NET) | Microsoft Docs
 description: How to use an Azure Resource Manager template to create an IoT Hub with a C# program.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -18,13 +18,13 @@ ms.date: 08/08/2017
 You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use an Azure Resource Manager template to create an IoT hub from a C# program.
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/management/deployment-models.md).  This article covers using the Azure Resource Manager deployment model.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To complete this tutorial, you need the following:
 
-* Visual Studio 2015 or Visual Studio 2017.
+* Visual Studio.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 * An [Azure Storage account][lnk-storage-account] where you can store your Azure Resource Manager template files.
 * [Azure PowerShell 1.0][lnk-powershell-install] or later.
@@ -215,9 +215,9 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
+[lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

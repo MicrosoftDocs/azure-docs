@@ -1,7 +1,6 @@
 ---
-title: Monitor and manage Azure Stream Analytics jobs using Visual Studio
+title: Monitor and manage Azure Stream Analytics with Visual Studio
 description: This article describes how to use Visual Studio to monitor and manage Azure Stream Analytics jobs.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea

@@ -2,10 +2,6 @@
 title: Onboard update and change tracking solutions to Azure Automation
 description: Learn how to onboard update and change tracking solutions to Azure Automation.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
@@ -124,6 +120,13 @@ You must have onboarded either change tracking or update solutions to an Azure V
 
 1. Select **OK** to start the runbook job.
 1. Monitor progress and any errors on the runbook job page.
+
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 

@@ -5,12 +5,12 @@
  author: msraiye
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/22/2019
+ ms.date: 11/27/2019
  ms.author: raiye
  ms.custom: include file
 ---
 
-# Enable Write Accelerator
+
 
 Write Accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks exclusively. As the name states, the purpose of the functionality is to improve the I/O latency of writes against Azure Premium Storage. Write Accelerator is ideally suited where log file updates are required to persist to disk in a highly performant manner for modern databases.
 
@@ -43,7 +43,9 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 20000 |
+| M416ms_v2, M416s_v2| 16 | 20000 |
+| M208ms_v2, M208s_v2| 8 | 10000 |
+| M128ms, M128s | 16 | 20000 |
 | M64ms, M64ls, M64s | 8 | 10000 |
 | M32ms, M32ls, M32ts, M32s | 4 | 5000 |
 | M16ms, M16s | 2 | 2500 |
@@ -91,7 +93,7 @@ Specify either $true or $false to control support of Azure Write Accelerator wit
 
 Examples of commands could look like:
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -109,7 +111,7 @@ You can use this script to add a new disk to your VM. The disk created with this
 
 Replace `myVM`, `myWAVMs`, `log001`, size of the disk, and LunID of the disk with values appropriate for your specific deployment.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -132,7 +134,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 You can use this script to enable Write Accelerator on an existing disk. Replace `myVM`, `myWAVMs`, and `test-log001` with values appropriate for your specific deployment. The script adds Write Accelerator to an existing disk where the value for **$newstatus** is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

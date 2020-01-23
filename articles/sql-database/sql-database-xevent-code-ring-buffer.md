@@ -1,5 +1,5 @@
 ---
-title: XEvent Ring Buffer code for SQL Database | Microsoft Docs
+title: XEvent Ring Buffer code
 description: Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
 ---
 # Ring Buffer target code for extended events in SQL Database
@@ -217,7 +216,7 @@ To view the results, we clicked the cell under the column header **target_data_X
 
 Then in the results pane we clicked the cell under the column header **target_data_XML**. This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
 
-The output is shown in the following block. It looks long, but it is just two **<event>** elements.
+The output is shown in the following block. It looks long, but it is just two **\<event>** elements.
 
 &nbsp;
 

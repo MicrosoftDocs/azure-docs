@@ -4,7 +4,7 @@ description: Learn about access control lists in Azure
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 
@@ -21,7 +21,7 @@ ms.author: genli
 # What is an endpoint access control list?
 
 > [!IMPORTANT]
-> Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model. 
+> Azure has two different [deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model. 
 
 An endpoint access control list (ACL) is a security enhancement available for your Azure deployment. An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint. This packet filtering capability provides an additional layer of security. You can specify network ACLs for endpoints only. You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network. It is recommended to use network security groups (NSGs) instead of ACLs, whenever possible. When using NSGs, endpoint access control list will be replaced and no longer enforced. To learn more about NSGs, see [Network security group overview](security-overview.md)
 
@@ -35,7 +35,7 @@ Using Network ACLs, you can do the following:
 * Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)
 * Specify an ACL for a specific remote subnet IPv4 address.
 
-See the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) article for ACL limits.
+See the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) article for ACL limits.
 
 ## How ACLs work
 An ACL is an object that contains a list of rules. When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM. This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM. This prevents your VM from spending the precious CPU cycles on packet filtering.

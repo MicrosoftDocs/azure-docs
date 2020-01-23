@@ -1,20 +1,10 @@
 ---
-title: Package and deploy containers as a Service Fabric app in Azure | Microsoft Docs
+title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: timlt
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ---
@@ -117,7 +107,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 For Service Fabric to pull the container images from Azure Container Registry, we need to provide the credentials in the **ApplicationManifest.xml**.
 
-Log in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>
@@ -277,11 +267,11 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
-In order to connect to the running application, open a web browser and go to the cluster url - for example http://containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
+In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
 ![votingapp][votingapp]
 

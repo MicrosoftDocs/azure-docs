@@ -1,17 +1,16 @@
 ---
-title: Provision a device using Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision device using Azure IoT Hub Device Provisioning Service
+description: This tutorial shows how you can provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/12/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
 ---
 
-# Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
+# Tutorial: Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
 
 In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using auto-provisioning and **_enrollment lists_**. This tutorial shows you how to:
 
@@ -38,7 +37,7 @@ This step involves adding the device's unique security artifacts to the Device P
       [![Enrollment information for TPM in the portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - For X.509 based devices you need:
-    - The [certificate issued to the X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) chip or simulation, in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the per-device  *signer certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate*. 
+    - The [certificate issued to the X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) chip or simulation, in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the per-device  *signed certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate*. 
 
       [![Add individual enrollment for X.509 attestation in the portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 

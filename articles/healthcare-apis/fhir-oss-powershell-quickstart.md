@@ -1,9 +1,10 @@
 ---
-title: Deploy Open Source FHIR server for Azure using PowerShell - Microsoft Healthcare APIs
+title: 'PowerShell: Deploy FHIR server for Azure – Azure API for FHIR'
 description: This quickstart explains how to deploy the Microsoft Open Source FHIR server using PowerShell.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -11,11 +12,13 @@ ms.author: mihansen
 
 # Quickstart: Deploy Open Source FHIR server using PowerShell
 
-In this quickstart, you'll learn how to deploy the Open Source Microsoft FHIR server for Azure Using PowerShell.
+In this quickstart, learn how to deploy the Open Source Microsoft FHIR server for Azure Using PowerShell.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
@@ -23,7 +26,7 @@ Pick a name for the resource group that will contain the provisioned resources a
 
 ```azurepowershell-interactive
 $fhirServiceName = "MyFhirService"
-$rg = New-AzureRmResourceGroup -Name $fhirServiceName -Location westus2
+$rg = New-AzResourceGroup -Name $fhirServiceName -Location westus2
 ```
 
 ## Deploy the FHIR server template
@@ -31,7 +34,7 @@ $rg = New-AzureRmResourceGroup -Name $fhirServiceName -Location westus2
 The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Microsoft/fhir-server) contains a template that will deploy all necessary resources. Deploy it with:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg.ResourceGroupName -serviceName $fhirServiceName
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg.ResourceGroupName -serviceName $fhirServiceName
 ```
 
 ## Verify FHIR server is running
@@ -50,7 +53,7 @@ If you're not going to continue to use this application, delete the resource gro
 with the following steps:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $rg.ResourceGroupName
+Remove-AzResourceGroup -Name $rg.ResourceGroupName
 ```
 
 ## Next steps

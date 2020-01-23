@@ -1,5 +1,6 @@
 ---
-title: Authorize developer accounts by using Azure Active Directory B2C - Azure API Management | Microsoft Docs
+title: Authorize developer accounts by using Azure Active Directory B2C
+titleSuffix: Azure API Management
 description: Learn how to authorize users by using Azure Active Directory B2C in API Management.
 services: api-management
 documentationcenter: API Management
@@ -10,9 +11,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
@@ -65,33 +65,37 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
    ![Application ID 1][api-management-howto-aad-b2c-app-id]
 
 9. Switch back to the API Management **Add identity provider** pane and paste the ID into the **Client Id** text box.
-
-   ![Application ID 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Switch back to the B2C app registration, click the **Keys** button, and then click **Generate key**. Click **Save** to save the configuration and display the **App key**. Copy the key to the clipboard.
 
     ![App key 1][api-management-howto-aad-b2c-app-key]
 
 11. Switch back to the API Management **Add identity provider** pane and paste the key into the **Client Secret** text box.
+    
+12. Specify the domain name of the Azure Active Directory B2C tenant in **Signin tenant**.
 
-    ![App key 2][api-management-howto-aad-b2c-client-secret]
+13. The **Authority** field let you control the Azure AD B2C login URL to use. Set the value to **<your_b2c_tenant_name>.b2clogin.com**.
 
-12. Specify the domain name of the Azure Active Directory B2C tenant in **Allowed Tenant**.
+14. Specify the **Signup Policy** and **Signin Policy** from the B2C Tenant policies. Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.
 
-    ![Allowed tenant][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Specify the **Signup Policy** and **Signin Policy** from the B2C Tenant policies. Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.
-
-    ![Policies][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].
-
-14. After you've specified the desired configuration, click **Save**.
+15. After you've specified the desired configuration, click **Save**.
 
     After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
 
-## Sign up for a developer account by using Azure Active Directory B2C
+## Developer portal - add Azure AD B2C account authentication
+
+In the developer portal, sign-in with AAD B2C is possible with the **OAuth buttons** widget. The widget is already included on the sign-in page of the default developer portal content.
+
+![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Although a new account will be automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget to the sign-up page.
+
+> [!IMPORTANT]
+> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the AAD changes to take effect.
+
+## Legacy developer portal - how to sign up with Azure AD B2C
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. To sign up for a developer account by using Azure Active Directory B2C, open a new browser window and go to the developer portal. Click the **Sign up** button.
 
@@ -142,7 +146,6 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
 [api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png

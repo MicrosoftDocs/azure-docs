@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -107,7 +108,7 @@ To configure Azure AD single sign-on with UltiPro, perform the following steps:
 	|--|
 	| `https://<companyname>.ultipro.com/`|
 	| `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-	| ` https://<companyname>.ultipro.ca`|
+	| `https://<companyname>.ultipro.ca`|
 	
     b. In the **Identifier** textbox, type a URL using the following pattern:
 
@@ -213,5 +214,5 @@ When you click the UltiPro tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -3,13 +3,13 @@ title: Get started with the Bing Speech Recognition API by using the C# desktop 
 titlesuffix: Azure Cognitive Services
 description: Develop basic Windows applications that use the Bing Speech Recognition API to convert spoken audio to text.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Quickstart: Use the Bing Speech Recognition API in C&#35; for .NET on Windows

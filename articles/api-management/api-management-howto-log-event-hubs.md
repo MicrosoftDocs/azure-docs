@@ -11,7 +11,6 @@ ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
@@ -36,7 +35,7 @@ To create a logger, make an HTTP PUT request using the following URL template:
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Replace `{your service}` with the name of your API Management service instance.
-* Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+* Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub) policy
 
 Add the following headers to the request:
 

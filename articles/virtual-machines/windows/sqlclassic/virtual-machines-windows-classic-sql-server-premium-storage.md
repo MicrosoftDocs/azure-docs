@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -25,7 +25,7 @@ ms.reviewer: jroth
 [Azure premium SSDs](../disks-types.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) shows a full comprehensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
 
@@ -210,7 +210,7 @@ New-AzureService $destcloudsvc -Location $location
 #check exisitng reserved VIP
 Get-AzureReservedIP
 
-$reservedVIPName = “sqlcloudVIP”
+$reservedVIPName = "sqlcloudVIP"
 New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 ```
 
@@ -382,7 +382,7 @@ $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
 $userName = "myadmin"
-$pass = "theM)stC0mplexP@ssw0rd!”
+$pass = "theM)stC0mplexP@ssw0rd!"
 
 
 #Create VM Config
@@ -679,7 +679,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### Step 2: Increase the permitted failures on resources <Optional>
+#### Step 2: Increase the permitted failures on resources \<Optional>
 
 On certain resources that belong to your Always On Availability Group there are limits on how many failures that can occur in a period, where the cluster service attempts to restart the resource group. It is recommended you increase this whilst you are walking through this procedure, since if you don’t manually failover and trigger failovers by shutting down machines you can get close to this limit.
 
@@ -689,7 +689,7 @@ It would be prudent to double the failure allowance, to do this in Failover Clus
 
 Change the Maximum Failures to 6.
 
-#### Step 3: Addition IP Address resource for Cluster Group <Optional>
+#### Step 3: Addition IP Address resource for Cluster Group \<Optional>
 
 If you have only one IP address for the Cluster Group and this is aligned to the cloud subnet, beware, if you accidentally take offline all cluster nodes in the cloud on that network then the Cluster IP resource and Cluster Network Name are not be able to come online. In this situation, it prevents updates to other cluster resources.
 
@@ -797,7 +797,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 ##Building Existing Data Disk Configuration
 $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
 $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file “lun, vhdname, hostcaching, disklabel, diskName”
+Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
 foreach ($disk in $datadisks)
 {
     $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
@@ -1030,7 +1030,7 @@ Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 #Building Existing Data Disk Configuration
 $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
 $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file “lun, vhdname, hostcaching, disklabel, diskName”
+Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
 foreach ($disk in $datadisks)
 {
     $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"

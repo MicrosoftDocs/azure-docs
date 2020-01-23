@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Monitor Azure Kubernetes cluster - Operations Management
 description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
-services: container-service
 author: bburns
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
@@ -109,7 +107,7 @@ To protect your Log Analytics workspace ID and key you can use Kubernetes Secret
   ```
 
   - Create the secrets pod by running the following:
-  ``` kubectl create -f omsagentsecret.yaml ```
+  ```kubectl create -f omsagentsecret.yaml```
 
   - To check, run the following:
 
@@ -132,7 +130,7 @@ To protect your Log Analytics workspace ID and key you can use Kubernetes Secret
   KEY:    88 bytes
   ```
 
-  - Create your omsagent daemon-set by running ``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Create your omsagent daemon-set by running ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### Conclusion
 That's it! After a few minutes, you should be able to see data flowing to your Log Analytics dashboard.

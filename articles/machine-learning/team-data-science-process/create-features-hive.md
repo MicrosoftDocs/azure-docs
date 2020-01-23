@@ -24,7 +24,7 @@ This task is a step in the [Team Data Science Process (TDSP)](https://docs.micro
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](customize-hadoop-cluster.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow [Create and load data to Hive tables](move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
@@ -83,14 +83,14 @@ Hive comes with a set of UDFs for processing datetime fields. In Hive, the defau
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-This Hive query assumes that the *<datetime field>* is in the default datetime format.
+This Hive query assumes that the *\<datetime field>* is in the default datetime format.
 
 If a datetime field is not in the default format, you need to convert the datetime field into Unix time stamp first, and then convert the Unix time stamp to a datetime string that is in the default format. When the datetime is in default format, users can apply the embedded datetime UDFs to extract features.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In this query, if the *<datetime field>* has the pattern like *03/26/2015 12:04:39*, the *<pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
+In this query, if the *\<datetime field>* has the pattern like *03/26/2015 12:04:39*, the *\<pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

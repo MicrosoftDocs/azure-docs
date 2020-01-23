@@ -25,7 +25,7 @@ This task is a step in the [Team Data Science Process (TDSP)](https://docs.micro
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature generation with SQL
@@ -62,7 +62,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 * The sign indicates whether we are north or south, east or west on the globe.
 * A nonzero hundreds digit indicates longitude, not latitude is being used.
 * The tens digit gives a position to about 1,000 kilometers. It gives useful information about what continent or ocean we are on.
-* The units digit (one decimal degree) gives a position up to 111 kilometers (60 nautical miles, about 69 miles). It indicates, roughly, what large state or country we are in.
+* The units digit (one decimal degree) gives a position up to 111 kilometers (60 nautical miles, about 69 miles). It indicates, roughly, what large state or country/region we are in.
 * The first decimal place is worth up to 11.1 km: it can distinguish the position of one large city from a neighboring large city.
 * The second decimal place is worth up to 1.1 km: it can separate one village from the next.
 * The third decimal place is worth up to 110 m: it can identify a large agricultural field or institutional campus.

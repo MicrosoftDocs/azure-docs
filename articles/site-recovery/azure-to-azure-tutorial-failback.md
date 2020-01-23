@@ -1,69 +1,60 @@
 ---
-title: Fail back Azure IaaS VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
-description: Learn how to fail back Azure VMs with the Azure Site Recovery service.
-services: site-recovery
-author: sideeksh
-manager: rochakm
+title: Fail back Azure VMs to a primary region with the Azure Site Recovery service.
+description: Describes how to fail back Azure VMs to the primary region with Azure Site Recovery service.
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/07/2019
-ms.author: sideeksh
+ms.date: 11/14/2019
+ms.author: raynew
 ms.custom: mvc
 ---
 
-# Fail back Azure VMs between Azure regions
+# Fail back an Azure VM between Azure regions
 
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and fail back of on-premises machines, and Azure virtual machines (VMs).
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines and Azure virtual machines (VMs).
 
-This tutorial describes how to fail back a single Azure VM. After you've failed over, you fail back to the primary region when it's available. In this tutorial, you learn how to:
+This tutorial describes how to fail back a single Azure VM. After you've failed over, you must fail back to the primary region when it's available. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > 
-> * Fail back the secondary VM
-> * Re-protect the primary VM back to the secondary region
+> * Fail back the VM in the secondary region.
+> * Reprotect the primary VM back to the secondary region.
 > 
 > [!NOTE]
 > 
-> This tutorial is intended to guide the user through the steps to failover to a target region and back with minimum customization; in case you want to learn more about the various aspects associated with failover, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
+> This tutorial helps you to fail over a few VMs to a target region and back to the source region with minimum customizations. For more in-depth instructions, review the [how-to guides on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
-## Prerequisites
+## Before you start
 
-> * Make sure that the VM is in the Failover committed state, and check that the primary region is available, and you're able to create and access new resources in it.
-> * Make sure that re-protection is enabled.
+* Make sure that the status of the VM is **Failover committed**.
+* Check that the primary region is available, and that you're able to create and access new resources in it.
+* Make sure that reprotection is enabled.
 
 ## Fail back to the primary region
 
-After VMs are re-protected, you can fail back to the primary region as and when you want to.
+After VMs are reprotected, you can fail back to the primary region as needed.
 
-1. Go to your Recovery Services Vault. Click on Replicated Items and select the VM that has been re-protected.
+1. In the vault, select **Replicated items**, and then select the VM that was reprotected.
 
-2. You should see the following. Note that it is similar to the blade for test failover and failover from the primary region.
-![Failback to primary](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Failback to primary](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
-3. Click on Test Failover to perform a test failover back to your primary region. Choose the Recovery Point and Virtual Network for the test failover and select OK. You can see the test VM created in the primary region which you can access and inspect.
+2. In **Replicated items**, select the VM, and then select **Failover**.
+3. In **Failover**, select a recovery point to fail over to:
+    - **Latest (default)**: Processes all the data in the Site Recovery service and provides the lowest recovery point objective (RPO).
+    - **Latest processed**: Reverts the VM to the latest recovery point that has been processed by Site Recovery.
+    - **Custom**: Fails over to a particular recovery point. This option is useful for performing a test failover.
+4. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt a shutdown of VMs in DR region before triggering the failover. The failover continues even if shutdown fails. 
+5. Follow the failover progress on the **Jobs** page.
+6. After the failover is complete, validate the VM by logging in to it. You can change the recovery point as needed.
+7. After you've verified the failover, select **Commit the failover**. Committing deletes all the available recovery points. The change recovery point option is no longer available.
+8. The VM should show as failed over and failed back.
 
-4. Once Test Failover is satisfactory, you can click on Cleanup test failover to clean up resources created in the source region for the test failover.
-
-5. In Replicated items, select the VM that you want to failover > Failover.
-
-6. In Failover, select a Recovery Point to failover to. You can use one of the following options:
-    1. Latest (default): This option processes all the data in the Site Recovery service and provides the lowest Recovery Point Objective (RPO)
-    2. Latest processed: This option reverts the virtual machine to the latest recovery point that has been processed by Site Recovery service
-    3. Custom: Use this option to failover to a particular recovery point. This option is useful for performing a test failover
-
-7. Select Shut down machine before beginning failover if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. Note that Site Recovery does not clean up source after failover.
-
-8. Follow the failover progress on the Jobs page
-
-9. After the failover, validate the virtual machine by logging in to it. If you want to go another recovery point for the virtual machine, then you can use Change recovery point option.
-
-10. Once you are satisfied with the failed over virtual machine, you can Commit the failover. Committing deletes all the recovery points available with the service. The Change recovery point option is no longer available.
-
-![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
-
-If you see the preceding screenshot, "ContosoWin2016" VM failed over from Central US to East US and failed back from East US to Central US.
-
-Please note that the DR VMs will remain in the shutdown de-allocated state. This behavior is by design because Azure Site Recovery saves the information of the virtual machine, which may be useful in failover for the primary to the secondary region later. You aren't charged for the de-allocated virtual machines, so it should be kept as it is.
+    ![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> See the ["how to" section](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more details about the re-protection work flow and what happens during re-protection.
+> For machines running the Site Recovery extension version 9.28.x.x onwards [Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery cleans up machines in the secondary disaster recovery region, after failback is complete and VMs are re-protected. There is no need to manually delete VMs and NICs in the secondary region. If you completely disable replication after failing back, Site Recovery cleans up the disks in the disaster recovery region, in addition to the VMs and NICs.
+
+## Next steps
+
+[Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) about the reprotection flow.

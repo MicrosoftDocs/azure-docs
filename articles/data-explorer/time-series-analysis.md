@@ -1,13 +1,12 @@
 ---
-title: 'Azure Data Explorer time series analysis'
-description: 'Learn about time series analysis in Azure Data Explorer '
-services: data-explorer
+title: Analyze time series data using Azure Data Explorer
+description: Learn how to analyze time series data in the cloud using Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
-ms.reviewer: mblythe
+ms.author: orspodek
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 04/07/2019
 ---
 
 # Time series analysis in Azure Data Explorer
@@ -23,6 +22,8 @@ The first step in time series analysis is to partition and transform the origina
 
 The input table *demo_make_series1* contains 600K records of arbitrary web service traffic. Use the command below to sample 10 records:
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03MTo0vTi3KTC02VKhRKAFyFQwNADOyzKUbAAAA)**\]**
+
 ```kusto
 demo_make_series1 | take 10 
 ```
@@ -31,7 +32,7 @@ The resulting table contains a timestamp column, three contextual dimensions col
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | Country |
+|   | TimeStamp | BrowserVer | OsVer | Country/Region |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | United Kingdom |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | United Kingdom |
@@ -44,6 +45,8 @@ The resulting table contains a timestamp column, three contextual dimensions col
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | India |
 
 Since there are no metrics, we can only build a set of time series representing the traffic count itself, partitioned by OS using the following query:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPwQrCMBAE0Hu/Yo4NVLBn6Td4ULyWtV1tMJtIsoEq/XhbC4J48jgw+5h1rBDrW0UDDakjR7HsWUIrdOM2cbScakxIWYSiffJSL49W+KAkd2N2hVsMGv8yaPw2furFhCVu1gifpelC9loa9Hyh7LTZInh8FFiPSP7K5fufap1UoR4Mzg/s04njjEb2PUfofNYNFPUFtJiguAEBAAA=)**\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -77,6 +80,8 @@ Filtering is a common practice in signal processing and useful for time series p
     - [`series_iir()`](/azure/kusto/query/series-iirfunction): Applying IIR filter. Used for exponential smoothing and cumulative sum.
 - `Extend` the time series set by adding a new moving average series of size 5 bins (named *ma_num*) to the query:
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPQavCMBCE7/6KOSYQ4fXgSfobPDx517C2q4bXpLLZQBV/vKkFQTx5WRh25tvZgRUxJK9ooWPuaCAxPcfRR/pnn1kC5wZ35BIjSbjxbDf7EPlXKV6s3a6GmUHTVwya3hkf9tUds1wvEqnEthtLUmPR85HKoO0PxoQXBSFBKJ3YPP9xSyWH5mxxuGKX/1gqlCfl1Neln5EL3R+DmCodhC9MahqHjXVQKbxMW5NScyzQerA7k+gDa1tswzsBAAA=)**\]**
+
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
 let max_t = toscalar(demo_make_series1 | summarize max(TimeStamp));
@@ -95,6 +100,8 @@ ADX supports segmented linear regression analysis to estimate the trend of the t
 - Use [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) to detect trend changes, relative to the baseline, that are useful in monitoring scenarios.
 
 Example of `series_fit_line()` and  `series_fit_2lines()` functions in a time series query:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2PL04tykwtNuKqUUitKEnNS1GACMSnZZbEG+Vk5qUWa1Rq6iCLggSBYkAdRUD1qUUKIIHkjMSiEoXyzJIMjYrk/JzS3DzbCk0AUIIJ02EAAAA=)**\]**
 
 ```kusto
 demo_series2
@@ -117,6 +124,8 @@ Many metrics follow seasonal (periodic) patterns. User traffic of cloud services
 
 The following example applies seasonality detection on one month traffic of a web service (2-hour bins):
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2PL04tykwtNuaqUShKzUtJLVIoycxNTc5ILCoBAHrjE80fAAAA)**\]**
+
 ```kusto
 demo_series3
 | render timechart 
@@ -130,10 +139,12 @@ demo_series3
 > [!NOTE]
 > It's an anomaly if specific distinct periods don't exist
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12OwQ6CMBBE737FHKmpVtAr39IguwkYyzZ0IZj48TZSLx533szOEAfxieeR0/XwRpzlwb2iilkSShapl5mTQYvd5QvxxJqd1bQEi8vZor6RawaLxsA5FewcOjBKBOP0PXUMXL7lyrCeeIvdRPjrzIw35Qyoe6W2GY4qJMv9yb91xtX0AS7N323BAAAA)**\]**
+
 ```kusto
 demo_series3
 | project (periods, scores) = series_periods_detect(num, 0., 14d/2h, 2) //to detect the periods in the time series
-| mvexpand periods, scores
+| mv-expand periods, scores
 | extend days=2h*todouble(periods)/1d
 ```
 
@@ -148,6 +159,8 @@ The function detects daily and weekly seasonality. The daily scores less than th
 ### Element-wise functions
 
 Arithmetic and logical operations can be done on a time series. Using [series_subtract()](/azure/kusto/query/series-subtractfunction) we can calculate a residual time series, that is, the difference between original raw metric and a smoothed one, and look for anomalies in the residual signal:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WQQU/DMAyF7/sVT5waqWjrgRPqb+AAgmPltR6LSNLJcdhA+/G4izRAnLhEerbfl2cHVkSfBkUPnfNIgaSZOM5DpDceMovn3OGMXGIk8Z+8jDdPPvKjUjw4d78KC4NO/2LQ6Tfjz/jqjEXeVolUYj/OJWnjMPGOStB+gznhSoFPEEqv3Fz2aWukFt3eYfuBh/zMYlA+KafJmsOCrPRh56Ux2UL4wKRN1+LOtVApXF/37RTOfioUfvpz2arQqBVS2Q7rtc6wa4wlkPLVCLXIqE7DHvcsXOOh73Hz4tM0HzO6zQ1gDOx8UOvZrtayst0Y7z4babkkYQxMyQbGPYnCiGIxTS/fXGpfwk+n7uQBAAA=)**\]**
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -170,6 +183,8 @@ demo_make_series1
 
 The example below shows how these functions can run at scale on thousands of time series in seconds for anomaly detection. To see a few sample telemetry records of a DB service's read count metric over four days run the following query:
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKEnMTlUwAQArfAiiGgAAAA==)**\]**
+
 ```kusto
 demo_many_series1
 | take 4 
@@ -185,6 +200,8 @@ demo_many_series1
 
 And simple statistics:
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKC7NzU0syqxKVcgrzbVNzi/NK9HQ1FHIzcyLL7EFkhohnr6uwSGOvgEg0cQKkGhiBZIoAEq2dK9VAAAA)**\]**
+
 ```kusto
 demo_many_series1
 | summarize num=count(), min_t=min(TIMESTAMP), max_t=max(TIMESTAMP) 
@@ -196,6 +213,8 @@ demo_many_series1
 |   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 Building a time series in 1-hour bins of the read metric (total four days * 24 hours = 96 points), results in normal pattern fluctuation:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPMQvCMBSE9/6KGxOoYGfpIOjgUBDtXh7twwabFF6ittIfb2rBQSfHg+8+7joOsMZVATlC72vqSFTDtq8subHyLIZ9hgn+Zi2JefKMq/JQ7M/ltjhqvQGSbrbQ8JeFhm/LTyGZInbl1RIhTI3P6X5ROwp0ikmjd/hYYByE3IXV+1G6TEqRtTqahF3DgmAs1y1JwMOEVo0Rzdf6BbBH5FAHAQAA)**\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -211,6 +230,8 @@ The above behavior is misleading, since the single normal time series is aggrega
 
 How many time series can we create?
 
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA0tJzc2Pz03Mq4wvTi3KTC025KpRKC7NzU0syqxKVUiqVPDJT9ZR8C/QUXBxAkol55fmlQAAWEsFxjQAAAA=)**\]**
+
 ```kusto
 demo_many_series1
 | summarize by Loc, Op, DB
@@ -223,6 +244,8 @@ demo_many_series1
 |   | 18339 |
 
 Now, we're going to create a set of 18339 time series of the read count metric. We add the `by` clause to the make-series statement, apply linear regression, and select the top two time series that had the most significant decreasing trend:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPsU7DQBBE+3zFdLmTTGHSgFAKUCiQiIKIe2u5rJ0T9l3YWwcH5eO5JBIFVJSzmnmz07Gi96FWzKExOepIzIb7WPcUDnVi8ZxKHJGGvifxX3yym+pp+biu7pcv1t4Bk+5EofFfFBp/U/4EJsdse+eri4QwbdKc9q1ZkNJrVhYx4IcCHyAUWjbnRcXlpQLl1uLtgOfoCqx2BRYPGcyjctjASPoYSLhA6uKObR5waasbr3XnA5tzrc0RjTtcn0hnKyg55KtkDAvU9+y2JIpPr1ujXjueT9cse+8YlVDTeIfVoNQymiiZ5ENSCi4vM3FQxAblzWx2a6f2G2UcBRyWAQAA)**\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -237,6 +260,8 @@ demo_many_series1
 ![Time series top two](media/time-series-analysis/time-series-top-2.png)
 
 Display the instances:
+
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPvW4CMRCEe55iSlsyBWkjChApIoESAb21udsQg38O26AD8fDx3SEUJVXKWc18s2M5wxmvM6bIIVVkKYqaXdCO/EUnjobTBDekk3MUzZU7u9i+rl4229nqXcpnYGQ7CrX/olD7m/InMLoV24HHg0RkqtOUzjuxoEzroiSCx4MC4xHJ71j0i9TwksLkS+LjgmWoFN4ahcW8gLnN7GuImI4niqyQbGhYlgFDm/40WVvjWfS1skRyaPDUkXorKFXl2MSw5yr/pN9Z31SyxuhbAQAA)**\]**
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -257,3 +282,8 @@ demo_many_series1
 In less than two minutes, ADX analyzed close to 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
 
 These advanced capabilities combined with ADX fast performance supply a unique and powerful solution for time series analysis.
+
+## Next steps
+
+* Learn about [Time series anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) in Azure Data Explorer.
+* Learn about [Machine learning capabilities](/azure/data-explorer/machine-learning-clustering) in Azure Data Explorer.

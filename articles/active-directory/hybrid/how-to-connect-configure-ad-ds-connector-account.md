@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -21,7 +21,7 @@ The PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.m
 ## Overview 
 The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you select to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![overview of ad ds account](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 For Azure AD Connect Express installation, an automatically generated account (MSOL_nnnnnnnnnn) is created in Active Directory with all the necessary permissions, so there’s no need to use this ADSyncConfig module unless you have blocked permissions inheritance on organizational units or on specific Active Directory objects that you want to synchronize to Azure AD. 
  
@@ -30,12 +30,12 @@ The following table provides a summary of the permissions required on AD objects
 
 | Feature | Permissions |
 | --- | --- |
-| ms-DS-ConsistencyGuid feature |Write permissions to the ms-DS-ConsistencyGuid attribute documented in [Design Concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| ms-DS-ConsistencyGuid feature |Read and Write permissions to the ms-DS-ConsistencyGuid attribute documented in [Design Concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
-| Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
+| Exchange hybrid deployment |Read and Write permissions to the attributes documented in [Exchange hybrid writeback](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
-| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
-| Device writeback |Write permissions to device objects and containers documented in [device writeback](how-to-connect-device-writeback.md). |
+| Password writeback |Read and Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
+| Device writeback |Read and Write permissions to device objects and containers documented in [device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.  For more information see [Group Writeback](how-to-connect-preview.md#group-writeback).|
 
 ## Using the ADSyncConfig PowerShell Module 
@@ -65,13 +65,19 @@ Get-Command -Module AdSyncConfig
 
 Each cmdlet has the same parameters to input the AD DS Connector Account and an AdminSDHolder switch. To specify your AD DS Connector Account, you can provide the account name and domain, or just the account Distinguished Name (DN),
 
-e.g.: 
+e.g.:
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
+```
 
-Or; 
+Or;
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
+```
+
+Make sure to replace `<ADAccountName>`, `<ADDomainName>` and `<ADAccountDN>` with the proper values for your environment.
 
 In case you don’t want to modify permissions on the AdminSDHolder container, use the switch `-SkipAdminSdHolders`. 
 

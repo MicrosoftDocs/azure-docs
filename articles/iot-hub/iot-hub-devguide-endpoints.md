@@ -3,11 +3,11 @@ title: Understand Azure IoT Hub endpoints | Microsoft Docs
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 06/10/2019
 ---
 
 # Reference - IoT Hub endpoints
@@ -18,8 +18,6 @@ ms.date: 07/18/2018
 
 You can find the hostname of the IoT hub that hosts your endpoints in the portal on your hub's  **Overview** page. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.net`.
 
-You can use Azure DNS to create a custom DNS name for your IoT hub. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
-
 ## List of built-in IoT Hub endpoints
 
 Azure IoT Hub is a multi-tenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
@@ -28,7 +26,7 @@ Azure IoT Hub is a multi-tenant service that exposes its functionality to variou
 
 The following list describes the endpoints:
 
-* **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level security policies](iot-hub-devguide-security.md#access-control-and-permissions), as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager](../azure-resource-manager/management/overview.md) interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level security policies](iot-hub-devguide-security.md#access-control-and-permissions), as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Device identity management**. Each IoT hub exposes a set of HTTPS REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities](iot-hub-devguide-identity-registry.md) are used for device authentication and access control.
 
@@ -79,7 +77,7 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 
 For the limits on the number of endpoints you can add, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
-You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get health status of the endpoints. We recommend using the [IoT Hub metrics](iot-hub-metrics.md) related to routing message latency to identify and debug errors when endpoint health is dead or unhealthy.
+You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get health status of the endpoints. We recommend using the [IoT Hub metrics](iot-hub-metrics.md) related to routing message latency to identify and debug errors when endpoint health is dead or unhealthy, as we expect latency to be higher when the endpoint is in one of those states.
 
 |Health Status|Description|
 |---|---|
@@ -101,3 +99,4 @@ Other reference topics in this IoT Hub developer guide include:
 * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
 * [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md)
+* [Understand your IoT hub IP address](iot-hub-understand-ip-address.md)

@@ -1,20 +1,13 @@
 ---
-title: Publish Marketplace offers - Azure Marketplace | Microsoft Docs
+title: Publish Marketplace offers | Azure Marketplace 
 description: Publish offers on the Azure and AppSource Marketplaces using the Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Publish Azure Marketplace and AppSource offers

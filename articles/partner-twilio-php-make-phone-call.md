@@ -3,9 +3,7 @@ title: How to make a phone call from Twilio (PHP) | Microsoft Docs
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application.
 documentationcenter: php
 services: ''
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 
 ms.assetid: 44e35adc-be06-4700-beee-8c9e2c20c540
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to Make a Phone Call Using Twilio in a PHP Application on Azure

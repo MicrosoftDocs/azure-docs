@@ -1,26 +1,16 @@
 ---
-title: Troubleshooting application upgrades | Microsoft Docs
+title: Troubleshooting application upgrades 
 description: This article covers some common issues around upgrading a Service Fabric application and how to resolve them.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-
 ---
 # Troubleshoot application upgrades
+
 This article covers some of the common issues around upgrading an Azure Service Fabric application and how to resolve them.
 
 ## Troubleshoot a failed application upgrade
+
 When an upgrade fails, the output of the **Get-ServiceFabricApplicationUpgrade** command contains additional information for debugging the failure.  The following list specifies how the additional information can be used:
 
 1. Identify the failure type.
@@ -30,6 +20,7 @@ When an upgrade fails, the output of the **Get-ServiceFabricApplicationUpgrade**
 This information is available when Service Fabric detects the failure regardless of whether the **FailureAction** is to roll back or suspend the upgrade.
 
 ### Identify the failure type
+
 In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifies the timestamp (in UTC) at which an upgrade failure was detected by Service Fabric and **FailureAction** was triggered. **FailureReason** identifies one of three potential high-level causes of the failure:
 
 1. UpgradeDomainTimeout - Indicates that a particular upgrade domain took too long to complete and **UpgradeDomainTimeout** expired.
@@ -39,11 +30,14 @@ In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc*
 These entries only show up in the output when the upgrade fails and starts rolling back. Further information is displayed depending on the type of the failure.
 
 ### Investigate upgrade timeouts
+
 Upgrade timeout failures are most commonly caused by service availability issues. The output following this paragraph is typical of upgrades where service replicas or instances fail to start in the new code version. The **UpgradeDomainProgressAtFailure** field captures a snapshot of any pending upgrade work at the time of failure.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                : fabric:/DemoApp
 ApplicationTypeName            : DemoAppType
 TargetApplicationTypeVersion   : v2
@@ -86,11 +80,14 @@ The current **UpgradeState** is *RollingBackCompleted*, so the original upgrade 
 In rare cases, the **UpgradeDomainProgressAtFailure** field may be empty if the overall upgrade times out just as the system completes all work for the current upgrade domain. If this happens, try increasing the **UpgradeTimeout** and **UpgradeDomainTimeout** upgrade parameter values and retry the upgrade.
 
 ### Investigate health check failures
+
 Health check failures can be triggered by various issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output following this paragraph is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of health checks that failed at the time of the upgrade according to the specified [health policy](service-fabric-health-introduction.md).
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                         : fabric:/DemoApp
 ApplicationTypeName                     : DemoAppType
 TargetApplicationTypeVersion            : v4
@@ -145,6 +142,7 @@ Investigating health check failures first requires an understanding of the Servi
 The upgrade was suspended upon failing by specifying a **FailureAction** of manual when starting the upgrade. This mode allows us to investigate the live system in the failed state before taking any further action.
 
 ### Recover from a suspended upgrade
+
 With a rollback **FailureAction**, there is no recovery needed since the upgrade automatically rolls back upon failing. With a manual **FailureAction**, there are several recovery options:
 
 1.  trigger a rollback
@@ -157,9 +155,11 @@ The **Resume-ServiceFabricApplicationUpgrade** command can be used to proceed th
 
 The **Update-ServiceFabricApplicationUpgrade** command can be used to resume the monitored upgrade with both safety and health checks being performed.
 
+```powershell
+Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 ```
-PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 
+```Output
 UpgradeMode                             : Monitored
 ForceRestart                            :
 UpgradeReplicaSetCheckTimeout           :
@@ -175,14 +175,14 @@ MaxPercentUnhealthyReplicasPerPartition :
 MaxPercentUnhealthyServices             :
 MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
-
-PS D:\temp>
 ```
 
 The upgrade continues from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the preceding output can be changed in the same command when the upgrade resumes. In this example, the upgrade was resumed in Monitored mode, with the parameters and the health policies unchanged.
 
 ## Further troubleshooting
+
 ### Service Fabric is not following the specified health policies
+
 Possible Cause 1:
 
 Service Fabric translates all percentages into actual numbers of entities (for example, replicas, partitions, and services) for health evaluation and always rounds up to whole entities. For example, if the maximum *MaxPercentUnhealthyReplicasPerPartition* is 21% and there are five replicas, then Service Fabric allows up to two unhealthy replicas (that is,`Math.Ceiling (5*0.21)`). Thus, health policies should be set accordingly.
@@ -194,12 +194,15 @@ Health policies are specified in terms of percentages of total services and not 
 However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still succeed because only 25% of the services are unhealthy. However, it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies are specified per service type, different unhealthy percentage thresholds can be applied to different services. 
 
 ### I did not specify a health policy for application upgrade, but the upgrade still fails for some time-outs that I never specified
+
 When health policies aren't provided to the upgrade request, they are taken from the *ApplicationManifest.xml* of the current application version. For example, if you're upgrading Application X from version 1.0 to version 2.0, application health policies specified for in version 1.0 are used. If a different health policy should be used for the upgrade, then the policy needs to be specified as part of the application upgrade API call. The policies specified as part of the API call only apply during the upgrade. Once the upgrade is complete, the policies specified in the *ApplicationManifest.xml* are used.
 
 ### Incorrect time-outs are specified
+
 You may have wondered about what happens when time-outs are set inconsistently. For example, you may have an *UpgradeTimeout* that's less than the *UpgradeDomainTimeout*. The answer is that an error is returned. Errors are returned if the *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckRetryTimeout*, or if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckStableDuration*.
 
 ### My upgrades are taking too long
+
 The time for an upgrade to complete depends on the health checks and time-outs specified. Health checks and time-outs depend on how long it takes to copy, deploy, and stabilize the application. Being too aggressive with time-outs might mean more failed upgrades, so we recommend starting conservatively with longer time-outs.
 
 Here's a quick refresher on how the time-outs interact with the upgrade times:
@@ -211,6 +214,7 @@ Upgrade failure cannot occur faster than *HealthCheckWaitDuration* + *HealthChec
 The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If *HealthCheckRetryTimeout* and *HealthCheckStableDuration* are both non-zero and the health of the application keeps switching back and forth, then the upgrade eventually times out on *UpgradeDomainTimeout*. *UpgradeDomainTimeout* starts counting down once the upgrade for the current upgrade domain begins.
 
 ## Next steps
+
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
 [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.

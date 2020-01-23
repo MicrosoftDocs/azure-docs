@@ -3,12 +3,9 @@ title: Manage web traffic - Azure PowerShell
 description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 6/5/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -16,20 +13,22 @@ ms.custom: mvc
 
 Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
 > * Create an application gateway
 > * Create a virtual machine scale set with the default backend pool
 
+If you prefer, you can complete this procedure using [Azure CLI](tutorial-manage-web-traffic-cli.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -63,7 +62,8 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## Create an application gateway
@@ -83,7 +83,7 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
@@ -100,7 +100,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### Create the backend pool and settings
 
-Create the backend pool named *appGatewayBackendPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend address pools using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Create the backend pool named *appGatewayBackendPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend address pools using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -141,8 +141,8 @@ Now that you created the necessary supporting resources, specify parameters for 
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 
 $appgw = New-AzApplicationGateway `
@@ -178,13 +178,13 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
-  -SkuName Standard_DS2 `
+  -SkuName Standard_DS2_v2 `
   -UpgradePolicyMode Automatic
 
 Set-AzVmssStorageProfile $vmssConfig `
@@ -252,12 +252,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create a virtual machine scale set with the default backend pool
-
-> [!div class="nextstepaction"]
-> [Restrict web traffic with a web application firewall](./tutorial-restrict-web-traffic-powershell.md)
+[Restrict web traffic with a web application firewall](./tutorial-restrict-web-traffic-powershell.md)

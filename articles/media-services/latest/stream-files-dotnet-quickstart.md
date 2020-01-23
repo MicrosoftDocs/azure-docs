@@ -1,6 +1,6 @@
 ---
 title: Stream video files with Azure Media Services - .NET | Microsoft Docs
-description: Follow the steps of this quickstart to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+description: Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,19 +10,19 @@ keywords: azure media services, stream
 
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 08/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
-# Quickstart: Stream video files - .NET
+# Tutorial: Encode a remote file based on URL and stream the video - .NET
 
-This quickstart shows you how easy it is to encode and start streaming videos on a wide variety of browsers and devices using Azure Media Services. An input content can be specified using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage.
+This tutorial shows you how easy it is to encode and start streaming videos on a wide variety of browsers and devices using Azure Media Services. An input content can be specified using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage.
 The sample in this topic encodes content that you make accessible via an HTTPS URL. Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
 
-By the end of the quickstart you will be able to stream a video.  
+By the end of the tutorial you will be able to stream a video.  
 
 ![Play the video](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -86,7 +86,7 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this Quickstart, delete the resource group.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group.
 
 Execute the following CLI command:
 

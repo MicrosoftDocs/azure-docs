@@ -1,5 +1,6 @@
 ---
-title: Azure Quickstart - Create a blob in object storage with the Azure portal | Microsoft Docs
+title: Quickstart - Create a blob with the Azure portal
+titleSuffix: Azure Storage
 description: In this quickstart, you use the Azure portal in object (Blob) storage. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
@@ -7,7 +8,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ---
 
@@ -24,7 +25,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 To create a container in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
-2. In the left menu for the storage account, scroll to the **Blob service** section, then select **Blobs**.
+2. In the left menu for the storage account, scroll to the **Blob service** section, then select **Containers**.
 3. Select the **+ Container** button.
 4. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.

@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric disaster recovery | Microsoft Docs
+title: Azure Service Fabric disaster recovery 
 description: Azure Service Fabric offers the capabilities necessary to deal with all types of disasters. This article describes the types of disasters that can occur and how to deal with them.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Disaster recovery in Azure Service Fabric
 A critical part of delivering high-availability is ensuring that services can survive all different types of failures. This is especially important for failures that are unplanned and outside of your control. This article describes some common failure modes that could be disasters if not modeled and managed correctly. It also discuss mitigations and actions to take if a disaster happened anyway. The goal is to limit or eliminate the risk of downtime or data loss when they occur failures, planned or otherwise, occur.
@@ -94,7 +84,7 @@ For stateful services the situation depends on whether the service has persisted
 2. Determining if the quorum loss is permanent or not
    - Most of the time, failures are transient. Processes are restarted, nodes are restarted, VMs are relaunched, network partitions heal. Sometimes though, failures are permanent. 
      - For services without persisted state, a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it immediately proceeds to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back, because even if they were recovered they would be empty.
-     - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to start waiting for the replicas to come back and restore quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads may still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for quorum to be restored is infinite, since proceeding is a (potential) data loss event and carries other risks. Overriding the default `QuorumLossWaitDuration` value is possible but is not recommended. Instead at this time, all efforts should be made to restore the down replicas. This requires bringing the nodes that are down back up, and ensuring that they can remount the drives where they stored the local persistent state. If the quorum loss is caused by process failure, Service Fabric automatically tries to recreate the processes and restart the replicas inside them. If this fails, Service Fabric reports health errors. If these can be resolved then the replicas usually come back. Sometimes, though, the replicas can't be brought back. For example, the drives may all have failed, or the machines physically destroyed somehow. In these cases, we now have a permanent quorum loss event. To tell Service Fabric to stop waiting for the down replicas to come back, a cluster administrator must determine which partitions of which services are affected and call the `Repair-ServiceFabricPartition -PartitionId` or ` System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API.  This API allows specifying the ID of the partition to move out of QuorumLoss and into potential dataloss.
+     - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to start waiting for the replicas to come back and restore quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads may still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for quorum to be restored is infinite, since proceeding is a (potential) data loss event and carries other risks. Overriding the default `QuorumLossWaitDuration` value is possible but is not recommended. Instead at this time, all efforts should be made to restore the down replicas. This requires bringing the nodes that are down back up, and ensuring that they can remount the drives where they stored the local persistent state. If the quorum loss is caused by process failure, Service Fabric automatically tries to recreate the processes and restart the replicas inside them. If this fails, Service Fabric reports health errors. If these can be resolved then the replicas usually come back. Sometimes, though, the replicas can't be brought back. For example, the drives may all have failed, or the machines physically destroyed somehow. In these cases, we now have a permanent quorum loss event. To tell Service Fabric to stop waiting for the down replicas to come back, a cluster administrator must determine which partitions of which services are affected and call the `Repair-ServiceFabricPartition -PartitionId` or `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API.  This API allows specifying the ID of the partition to move out of QuorumLoss and into potential dataloss.
 
    > [!NOTE]
    > It is _never_ safe to use this API other than in a targeted way against specific partitions. 
@@ -135,7 +125,7 @@ In both standalone Service Fabric clusters and Azure, the "Primary Node Type" is
 ## Next steps
 - Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
-  - [Availability checklist](../best-practices-availability-checklist.md)
+  - [Availability checklist](/azure/architecture/checklist/resiliency-per-service)
   - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 - Learn about [Service Fabric support options](service-fabric-support.md)

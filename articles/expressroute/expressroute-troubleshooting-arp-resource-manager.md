@@ -1,5 +1,5 @@
 ---
-title: 'Get ARP tables - Troubleshooting - ExpressRoute: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the ARP tables for an ExpressRoute circuit
 services: expressroute
 author: ganesr
@@ -25,7 +25,7 @@ This article walks you through the steps to learn the ARP tables for your Expres
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## Address Resolution Protocol (ARP) and ARP tables
 Address Resolution Protocol (ARP) is a layer 2 protocol defined in [RFC 826](https://tools.ietf.org/html/rfc826). ARP is used to map the Ethernet address (MAC address) with an ip address.
@@ -55,6 +55,11 @@ Ensure that you have the following before you progress further
 * IP address ranges used for configuring the peerings (Azure private, Azure public and Microsoft). Review the ip address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how ip addresses are mapped to interfaces on your side and on the ExpressRoute side. You can get information on the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-arm.md).
 * Information from your networking team / connectivity provider on the MAC addresses of interfaces used with these IP addresses.
 * You must have the latest PowerShell module for Azure (version 1.50 or newer).
+
+> [!NOTE]
+> If layer 3 is provided by the service provider and the ARP tables are blank in the portal/output below, refresh the Circuit configuration using the refresh button on the portal. This operation will apply the right routing configuration on your circuit. 
+>
+>
 
 ## Getting the ARP tables for your ExpressRoute circuit
 This section provides instructions on how you can view the ARP tables per peering using PowerShell. You or your connectivity provider must have configured the peering before progressing further. Each circuit has two paths (primary and secondary). You can check the ARP table for each path independently.

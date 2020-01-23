@@ -1,36 +1,38 @@
 ---
-title: Fix dynamic membership problems for groups - Azure Active Directory | Microsoft Docs
-description: Troubleshooting tips for dynamic membership for groups in Azure AD.
+title: Fix problems with dynamic group memberships - Azure AD | Microsoft Docs
+description: Troubleshooting tips for dynamic group membership in Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Troubleshoot and resolve groups issues
 
 ## Troubleshooting group creation issues
+
 **I disabled security group creation in the Azure portal but groups can still be created via Powershell**
 The **User can create security groups in Azure portals** setting in the Azure portal controls whether or not non-admin users can create security groups in the Access panel or the Azure portal. It does not control security group creation via Powershell.
 
 To disable group creation for non-admin users in Powershell:
 1. Verify that non-admin users are allowed to create groups:
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

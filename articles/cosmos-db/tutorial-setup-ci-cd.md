@@ -1,10 +1,10 @@
 ---
-title: Set up CI/CD pipeline with the Azure Cosmos DB emulator build task
+title: Set up CI/CD pipeline with Azure Cosmos DB emulator build task
 description: Tutorial on how to set up build and release workflow in Azure DevOps using the Cosmos DB emulator build task
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
 ---
@@ -25,7 +25,7 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![Choose an Azure DevOps organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -33,7 +33,7 @@ Next, choose the organization in which to install the extension.
 
 Now that the extension is installed, sign in to your Azure DevOps account and find your project from the projects dashboard. You can add a [build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
-1. To create a new build definition, navigate to the **Builds** tab in Azure DevOps. Select **+New.** > **New build pipeline**
+1. To create a new build definition, navigate to the **Builds** tab in Azure DevOps. Select **+New.** \> **New build pipeline**
 
    ![Create a new build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -42,6 +42,9 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
    ![Select the team project, repository, and branch for the build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
+
+> [!NOTE]
+> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
 
 Now we have a build pipeline that we can set up to use the Azure Cosmos DB emulator build task. 
 
@@ -124,7 +127,7 @@ namespace todo.Tests
 }
 ```
 
-Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the **.runsettings** file. In the **Override test run parameters** option, add in ` -endpoint $(CosmosDbEmulator.Endpoint)`. Doing so will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
+Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the **.runsettings** file. In the **Override test run parameters** option, add in `-endpoint $(CosmosDbEmulator.Endpoint)`. Doing so will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
 
 ![Override endpoint variable with Emulator build task endpoint](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
@@ -141,6 +144,24 @@ Once the build has started, observe the Cosmos DB emulator task has begun pullin
 After the build completes, observe that your tests pass, all running against the Cosmos DB emulator from the build task!
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+
+## Set up using YAML
+
+If you are setting up the CI/CD pipeline by using a YAML task, you can define the YAML task as shown in the following code:
+
+```yml
+- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
+  displayName: 'Run Azure Cosmos DB Emulator'
+
+- script: yarn test
+  displayName: 'Run API tests (Cosmos DB)'
+  env:
+    HOST: $(CosmosDbEmulator.Endpoint)
+    # Hardcoded key for emulator, not a secret
+    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    # The emulator uses a self-signed cert, disable TLS auth errors
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+```
 
 ## Next steps
 

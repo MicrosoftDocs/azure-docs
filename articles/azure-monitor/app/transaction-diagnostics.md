@@ -1,18 +1,16 @@
 ---
 title: Azure Application Insights Transaction Diagnostics | Microsoft Docs
 description: Application Insights end-to-end transaction diagnostics
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.reviewer: sdash
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/19/2018
+
+ms.reviewer: sdash
 ---
+
 # Unified cross-component transaction diagnostics
 
 The unified diagnostics experience automatically correlates server-side telemetry from across all your Application Insights monitored components into a single view. It doesn't matter if you have multiple resources with separate instrumentation keys. Application Insights detects the underlying relationship and allows you to easily diagnose the application component, dependency, or exception that caused a transaction slowdown or failure.
@@ -26,7 +24,7 @@ Components are independently deployable parts of your distributed/microservices 
 * Components can be separate Application Insights instrumentation keys (even if subscriptions are different) or different roles reporting to a single Application Insights instrumentation key. The new experience shows details across all components, regardless of how they have been set up.
 
 > [!NOTE]
-> * **Missing the related item links?** All of the related telemetry are in the [top](#cross-component-transaction-chart) and [bottom](#all-telemetry-with-this-Operation-Id) sections of the left side. 
+> * **Missing the related item links?** All of the related telemetry are in the [top](#cross-component-transaction-chart) and [bottom](#all-telemetry-with-this-operation-id) sections of the left side. 
 
 ## Transaction diagnostics experience
 This view has four key parts: results list, a cross-component transaction chart, a time-sequence list of all telemetry related to this operation, and the details pane for any selected telemetry item on the left.

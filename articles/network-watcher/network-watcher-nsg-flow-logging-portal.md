@@ -1,10 +1,11 @@
 ---
-title: Log network traffic flow to and from a VM - tutorial - Azure portal | Microsoft Docs
-description: Learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
+title: 'Tutorial - Log network traffic flow to and from a VM using the Azure portal'
+titleSuffix: Azure Network Watcher
+description: In this tutorial, learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -16,7 +17,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 
 ---
@@ -89,7 +90,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
     | Location       | Select **East US**                                           |
     | Resource group | Select **Use existing**, and then select **myResourceGroup** |
 
-    The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. If you use an existing storage account instead of creating one, ensure you select a storage account that has **All networks** (default) selected for **Firewalls and virtual networks**, under the **SETTINGS** for the storage account.
+    The storage account must be in the same region as the NSG. The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created.     
 4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
 
@@ -102,6 +103,10 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
    ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Select the storage account that you created in step 3.
+   > [!NOTE]
+   > NSG Flow Logs will not work with a storage account if:
+   > * The storage account has a [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
+1. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 10. Set **Retention (days)** to 5, and then select **Save**.
 
 ## Download flow log
@@ -112,7 +117,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
    ![Download flow logs](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Select the storage account that you configured in step 2 of [Enable NSG flow log](#enable-nsg-flow-log).
-4. Under **Blob service**, select **Blobs**, and then select the **insights-logs-networksecuritygroupflowevent** container.
+4. Under **Blob service**, select **Containers**, and then select the **insights-logs-networksecuritygroupflowevent** container.
 5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention:
    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
@@ -207,7 +212,7 @@ The value for **mac** in the previous output is the MAC address of the network i
 | A            | Action                 | Whether the traffic was allowed (A) or denied (D).  
 | C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided. |
 | 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
-| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. | 
+| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. |
 | 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
 | 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.|
 

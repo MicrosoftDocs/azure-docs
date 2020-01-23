@@ -4,16 +4,17 @@ description: Throttling errors, retries and backoff in Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: vashan, rajraj, changov
+ms.author: changov
+ms.reviewer: vashan, rajraj
 ---
 
 # Troubleshooting API throttling errors 
@@ -22,7 +23,7 @@ Azure Compute requests may be throttled at a subscription and on a per-region ba
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
 
-As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
+As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
  
 When an Azure API client gets a throttling error, the HTTP status is 429 Too Many Requests. To understand if the request throttling is done by Azure Resource Manager or an underlying resource provider like CRP, inspect the `x-ms-ratelimit-remaining-subscription-reads` for GET requests and `x-ms-ratelimit-remaining-subscription-writes` response headers for non-GET requests. If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together. Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 
@@ -31,7 +32,7 @@ When an Azure API client gets a throttling error, the HTTP status is 429 Too Man
 | Header                            | Value format                           | Example                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
 
 
 Note that an API request can be subjected to multiple throttling policies. There will be a separate `x-ms-ratelimit-remaining-resource` header for each policy. 
@@ -76,7 +77,7 @@ As illustrated above, every throttling error includes the `Retry-After` header, 
 ## API call rate and throttling error analyzer
 A preview version of a troubleshooting feature is available for the Compute resource provider’s API. These PowerShell cmdlets provide statistics about API request rate per time interval per operation and throttling violations per operation group (policy):
 -	[Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--	[Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-	[Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 The API call stats can provide great insight into the behavior of a subscription’s client(s) and enable easy identification of call patterns that cause throttling.
 

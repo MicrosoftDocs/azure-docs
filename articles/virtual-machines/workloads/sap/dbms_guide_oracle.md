@@ -10,7 +10,7 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -75,8 +75,8 @@ ms.custom: H1Hack27Feb2017
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -232,9 +232,8 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -248,7 +247,7 @@ ms.custom: H1Hack27Feb2017
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -463,10 +462,10 @@ Minimum configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
-| /oracle/<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Can be used |
-| /oracle/<SID>/oraarch | Standard | None | Not needed |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Can be used |
+| /oracle/\<SID>/oraarch | Standard | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -477,13 +476,13 @@ Performance configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | None | Can be used  |
-| /oracle/<SID>/origlogaB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogAB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogBA | Premium | None | Can be used |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Recommended  |
-| /oracle/SID/sapdata(n+1)* | Premium | None | Can be used |
-| /oracle/<SID>/oraarch* | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaA | Premium | None | Can be used  |
+| /oracle/\<SID>/origlogaB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogAB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogBA | Premium | None | Can be used |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Recommended  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | None | Can be used |
+| /oracle/\<SID>/oraarch* | Premium | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0

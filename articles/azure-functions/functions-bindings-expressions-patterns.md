@@ -1,13 +1,8 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
@@ -286,7 +281,7 @@ The `{rand-guid}` binding expression creates a GUID. The following blob path in 
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -299,7 +294,7 @@ The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following b
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## Binding at runtime

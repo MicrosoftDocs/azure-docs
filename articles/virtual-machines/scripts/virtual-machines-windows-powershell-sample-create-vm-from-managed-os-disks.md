@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Create a VM by attaching a managed disk as OS disk | Microsoft Docs
+title: Create a VM by attaching a managed disk as OS disk - PowerShell Sample
 description: Azure PowerShell Script Sample - Create a VM by attaching a managed disk as OS disk
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -28,7 +28,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## Sample script
 
@@ -56,7 +56,7 @@ This script uses the following commands to get managed disk properties, attach a
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
-For marketplace images use [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) to set the plan information.
+For marketplace images use [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) to set the plan information.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

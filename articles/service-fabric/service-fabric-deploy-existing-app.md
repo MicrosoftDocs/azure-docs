@@ -1,21 +1,9 @@
 ---
-title: Deploy an existing executable to Azure Service Fabric | Microsoft Docs
+title: Deploy an existing executable to Azure Service Fabric 
 description: Learn how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: aljo-microsoft
-manager: timlt
-editor: ''
 
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: aljo
-
 ---
 # Package and deploy an existing executable to Service Fabric
 When packaging an existing executable as a [guest executable](service-fabric-guest-executables-introduction.md), you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
@@ -250,7 +238,7 @@ Log files are saved in one of the service's working directories. To determine wh
 ## Deployment
 The last step is to [deploy your application](service-fabric-deploy-remove-applications.md). The following PowerShell script shows how to deploy your application to the local development cluster, and start a new Service Fabric service.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

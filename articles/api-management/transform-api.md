@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
@@ -77,7 +76,7 @@ The original response should look like this:
 
    ![Policies](./media/transform-api/transform-api.png)
 
-7. Modify your **<outbound>** code to look like this:
+7. Modify your **\<outbound>** code to look like this:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />

@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 01/07/2020
 ms.author: juliako
 ---
 
@@ -24,7 +24,7 @@ For a list of sample scripts and tutorials, see [Media Services event source](..
 
 Media Services emits the **Job** related event types described below. There are two categories for the **Job** related events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
 
-You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled). 
+You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled).   
 
 ### Monitoring Job state changes
 
@@ -40,7 +40,13 @@ You can register for all of the events by subscribing to the JobStateChange even
 
 See [Schema examples](#event-schema-examples) that follow.
 
-### Monitoring Job output state changes
+### Monitoring job output state changes
+
+A job may contain multiple job outputs (if you configured the transform to have multiple job outputs.) If you want to track the details of the individual job output, listen for a job output change event.
+
+Each **Job** is going to be at a higher level than **JobOutput**, thus job output events get fired inside of a corresponding job. 
+
+The error messages in `JobFinished`, `JobCanceled`, `JobError` output the aggregated results for each job output – when all of them are finished. Whereas, the job output events fire as each task finishes. For example, if you have an encoding output, followed by a Video Analytics output, you would get two events firing as job output events before the final JobFinished event fires with the aggregated data.
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -54,7 +60,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 See [Schema examples](#event-schema-examples) that follow.
 
-### Monitoring Job output progress
+### Monitoring job output progress
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -80,7 +86,12 @@ See [Schema examples](#event-schema-examples) that follow.
 
 ### Track-level events
 
-Track-level events are raised per track. The track event types are:
+Track-level events are raised per track. 
+
+> [!NOTE]
+> All track-level events are raised after a live encoder is connected.
+
+The track-level event types are:
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -88,7 +99,7 @@ Track-level events are raised per track. The track event types are:
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media server receives first data chunk for each track in the stream or connection. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media server detects audio and video streams are out of sync. Use as a warning because user experience may not be impacted. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media server detects any of the two video streams coming from external encoder are out of sync. Use as a warning because user experience may not be impacted. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary.<br/><br/>After the encoder was initially connected, the heartbeat event continues to emit every 20 sec whether the encoder is still connected or not. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
 
 See [Schema examples](#event-schema-examples) that follow.
@@ -191,7 +202,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| Outputs | Array | Gets the Job outputs.|
+| outputs | Array | Gets the Job outputs.|
 
 ### JobOutputStateChange
 

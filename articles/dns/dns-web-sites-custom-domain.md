@@ -2,11 +2,11 @@
 title: Tutorial - Create custom Azure DNS records for a web app
 description: In this tutorial you create custom domain DNS records for web app using Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
+ms.author: allensu
 #Customer intent: As an experienced network administrator I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 ---
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ set-AzWebApp `
 Open a browser and browse to `http://www.<your domainname>` and `http://<you domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt predict a URL for you!
+> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
 
 You should see the same page for both URLs. For example:
 

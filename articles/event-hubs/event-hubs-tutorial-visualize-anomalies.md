@@ -1,7 +1,7 @@
 ---
-title: Visualize data anomalies in real-time events - Azure Event Hubs | Microsoft Docs
+title: Azure Event Hubs - Visualize data anomalies in real-time events
 # event-hubs-tutorial-visualize-anomalies.md
-description: Tutorial - Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs
+description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -9,13 +9,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 02/26/2019
+ms.date: 12/20/2019
 #Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
 
-With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
+With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries/regions within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
 
 In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
 
@@ -44,7 +44,7 @@ For this tutorial, you need an Event Hubs namespace and an event hub. You can cr
 
 The following sections describe how to perform these required steps. Follow the CLI *or* the PowerShell instructions to perform the following steps:
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an Event Hubs namespace. 
 
@@ -153,7 +153,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## Run app to produce test event data
 
-The Event Hubs [samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) include an [anomaly detector app](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so that they are tagged as anomalies. To run this app, follow these steps: 
+The Event Hubs [samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) include an [anomaly detector app](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so that they are tagged as anomalies. To run this app, follow these steps: 
 
 1. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally.
 

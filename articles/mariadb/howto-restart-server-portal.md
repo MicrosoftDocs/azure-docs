@@ -1,11 +1,11 @@
 ---
-title: Restart Azure Database for MariaDB server using Azure portal
+title: Restart server - Azure portal - Azure Database for MariaDB
 description: This article describes how you can restart an Azure Database for MariaDB server using the Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 12/02/2019
 ---
 
 # Restart Azure Database for MariaDB server using Azure portal
@@ -17,7 +17,7 @@ The time required to complete a restart depends on the MariaDB recovery process.
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for MariaDB server and database](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- An [Azure Database for MariaDB server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## Perform server restart
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Pause and resume compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Quickstart: Pause & resume compute - PowerShell '
 description: Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
-# Quickstart: Pause and resume compute in Azure SQL Data Warehouse with PowerShell
+# Quickstart: Pause and resume compute in Azure SQL Data Warehouse with Azure PowerShell
 
-Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
+Use Azure PowerShell to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -21,7 +22,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a SQL data warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL Data Warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
@@ -55,8 +56,7 @@ Follow these steps to find location information for your data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group. You
-5.  these in the pause and resume commands.
+4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group.
 6. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. Drop the suffix and use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Pause compute
@@ -99,6 +99,14 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 
+## Check status of your data warehouse operation
+
+To check the status of your data warehouse, use the [Get-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseActivity#description) cmdlet.
+
+```
+Get-AzSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
+```
+
 ## Clean up resources
 
 You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
@@ -126,4 +134,4 @@ Follow these steps to clean up resources as you desire.
 You have now paused and resumed compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
-> [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

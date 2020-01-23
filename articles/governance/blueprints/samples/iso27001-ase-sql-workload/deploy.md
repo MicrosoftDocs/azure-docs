@@ -1,15 +1,10 @@
 ---
-title: Sample - ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps
-description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
-ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
+title: Deploy ISO 27001 ASE/SQL workload blueprint sample
+description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample including blueprint artifact parameter details.
+ms.date: 01/13/2020
+ms.topic: sample
 ---
-# Deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint sample
+# Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint
 sample, the following steps must be taken:
@@ -39,8 +34,7 @@ this blueprint sample will be missing infrastructure dependencies and fail durin
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
@@ -69,8 +63,7 @@ Your copy of the blueprint sample has now been created in your environment. It's
 blueprint sample can be customized to your environment and needs, but that modification may move it
 away from the ISO 27001 standard.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -86,8 +79,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 subscription within the management group it was saved to. This step is where parameters are
 provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -139,7 +131,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
      they're defined during the assignment of the blueprint. For a full list or artifact parameters
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
+   assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
+   on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
@@ -195,9 +189,9 @@ control mapping:
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Overview](./index.md)
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

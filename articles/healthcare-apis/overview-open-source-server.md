@@ -1,15 +1,16 @@
 ---
-title: What is FHIR Server for Azure - FHIR Server for Azure
-description: This article describes FHIR Server for Azure.
+title: What is FHIR Server for Azure? - FHIR Server for Azure
+description: Learn about FHIR Server for Azure, an open-source implementation of the HL7 Fast Healthcare Interoperability Resources (FHIR) specification for the cloud. 
 services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: overview
 ms.date: 02/07/2019
 ms.author: matjazl
 ---
 
-# What is FHIR Server for Azure
+# What is FHIR Server for Azure?
 
 FHIR&reg; Server for Azure is an open-source implementation of the emerging [HL7 Fast Healthcare Interoperability Resources (FHIR) specification](https://www.hl7.org/fhir/) designed for the Microsoft cloud. The FHIR specification defines how clinical health data can be made interoperable across systems. FHIR Server for Azure helps facilitate that interoperability in the cloud. The goal of this Microsoft Healthcare project is to enable developers to rapidly deploy FHIR service.
  
@@ -29,3 +30,14 @@ FHIR Server for Azure empowers developers – saving time when they need to quic
 Privacy and security are top priorities and the FHIR Server for Azure has been developed in support of requirements for Protected Health Information (PHI). All the Azure services used in FHIR Server for Azure [meet the compliance requirements for Protected Health Information](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings).
 
 This open source project is fully backed by the Microsoft Healthcare team, but we know that this project will only get better with your feedback and contributions. We are leading the development of this code base, and test builds and deployments daily. 
+
+## Get started
+To start working with the open source implementation of the FHIR server, follow the 5-minute quickstart:
+* Deploy open source FHIR server using [Powershell](fhir-oss-powershell-quickstart.md)
+
+## Next steps
+Learn more about our Platform-as-a-Service offering of the FHIR server, Azure API for FHIR
+
+>[!div class="nextstepaction"]
+>[Overview of Azure API for FHIR](overview.md)
+

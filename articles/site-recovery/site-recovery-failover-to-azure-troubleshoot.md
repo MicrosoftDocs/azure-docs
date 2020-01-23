@@ -7,7 +7,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
@@ -100,6 +100,18 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 >[!Note]
 >Enabling any setting other than Boot Diagnostics would require Azure VM Agent to be installed in the virtual machine before the failover
 
+## Unable to open serial console after failover of a UEFI based machine into Azure
+
+If you are able to connect to the machine using RDP but cannot open serial console, follow the below steps:
+
+* If the machine OS is Red Hat or Oracle Linux 7.*/8.0, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 ## Unexpected shutdown message (Event ID 6008)
 
 When booting up a Windows VM post failover, if you receive an unexpected shutdown message on the recovered VM, it indicates that a VM shutdown state was not captured in the recovery point used for failover. This happens when you recover to a point when the VM had not been fully shut down.
@@ -126,8 +138,10 @@ The Azure Site Recovery Master Target registration with the configuration server
  
 This error is indicated by the following strings in the installation log: 
 
+```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
- 
+```
+
 To resolve the issue:
  
 1. On the configuration server VM, open a command prompt and verify the proxy settings using the following commands:

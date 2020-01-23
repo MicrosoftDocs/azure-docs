@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ This document describes how to move the Azure AD Connect database from the local
 ## About this scenario
 The following is some brief information about this scenario.  In this scenario, Azure AD Connect version (1.1.819.0) is installed on a single Windows Server 2016 domain controller.  It is using the built-in SQL Server 2012 Express Edition for its database.  The database will be moved to a SQL Server 2017 server.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![scenario architecture](media/how-to-connect-install-move-db/move1.png)
 
 ## Move the Azure AD Connect database
 Use the following steps to move the Azure AD Connect database to a remote SQL Server.
@@ -32,12 +32,12 @@ Use the following steps to move the Azure AD Connect database to a remote SQL Se
 5. On the remote SQL server, open SQL Server Management Studio.
 6. On Databases, right-click and select Attach.
 7. On the **Attach Databases** screen, click **Add** and navigate to the ADSync.mdf file.  Click **OK**.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![attach database](media/how-to-connect-install-move-db/move2.png)
 
 8. Once the database is attached, go back to the Azure AD Connect server and install Azure AD Connect.
 9. Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
    ![Welcome](./media/how-to-connect-install-move-db/db1.png)
-10.	Start a new command prompt or PowerShell session. Navigate to folder <drive>\program files\Microsoft Azure AD Connect. Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
+10.	Start a new command prompt or PowerShell session. Navigate to folder \<drive>\program files\Microsoft Azure AD Connect. Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11.	You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
     ![Welcome](./media/how-to-connect-install-move-db/db3.png)

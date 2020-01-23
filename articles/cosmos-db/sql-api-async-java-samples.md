@@ -5,14 +5,15 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: sample
-ms.date: 06/18/2018
+ms.date: 12/03/2018
 ms.author: sngun
 
 ---
 # Azure Cosmos DB: Async Java examples for the SQL API
 
 > [!div class="op_single_selector"]
-> * [.NET Examples](sql-api-dotnet-samples.md)
+> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
 > * [Java Examples](sql-api-java-samples.md)
 > * [Async Java Examples](sql-api-async-java-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
@@ -136,7 +137,7 @@ The [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/mas
 | [Perform a simple document query and find Total RU cost](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L249-L268) | [FeedResponse.getRequestCharge](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.feedresponse.getrequestcharge) |
 | [Perform a simple document query, read one page and unsubscribe from the returned observable](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L274-L312) | |
 | [Perform a simple document query and filter the results](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L318-L368) | |
-| [Perform a order-by cross-partition document query](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L410-L457) | [FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.feedoptions.setenablecrosspartitionquery) |
+| [Perform an order-by cross-partition document query](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L410-L457) | [FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.feedoptions.setenablecrosspartitionquery) |
 
 For more information about writing queries, see [SQL query within Azure Cosmos DB](how-to-sql-query.md).
 

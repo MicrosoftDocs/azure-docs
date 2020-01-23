@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services with Widevine license template overview | Microsoft Docs
+title: Azure Media Services v3 with Widevine license template overview
 description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
 author: juliako
 manager: femila
@@ -16,7 +16,7 @@ ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Widevine license template overview 
+# Media Services v3 with Widevine license template overview
 
 Azure Media Services enables you to encrypt your content with **Google Widevine**. Media Services also provides a service for delivering Widevine licenses. You can use Azure Media Services APIs to configure Widevine licenses. When a player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain the license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
@@ -50,7 +50,7 @@ A Widevine license request is formatted as a JSON message.
           "renewal_server_url":"<renewal server url>",
           "renewal_delay_seconds":<renewal delay>,
           "renewal_retry_interval_seconds":<renewal retry interval>,
-          "renew_with_usage”:<renew with usage>
+          "renew_with_usage":<renew with usage>
        }
     }
 
@@ -114,12 +114,12 @@ To configure the template, you can:
 
 This method may be error-prone. It is recommended to use other method, described in [Define needed classes and serialize to JSON](#classes).
 
-    ```csharp
-    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
-    {
-        WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
-    };
-    ```
+```csharp
+ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+{
+    WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
+};
+```
 
 ### <a id="classes"></a> Define needed classes and serialize to JSON
 
@@ -127,36 +127,36 @@ This method may be error-prone. It is recommended to use other method, described
 
 The following example shows an example of definitions of classes that map to Widevine JSON schema. You can instantiate the classes before serializing them to JSON string.  
 
-    ```csharp
-    public class PolicyOverrides
-    {
-        public bool CanPlay { get; set; }
-        public bool CanPersist { get; set; }
-        public bool CanRenew { get; set; }
-        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
-    }
+```csharp
+public class PolicyOverrides
+{
+    public bool CanPlay { get; set; }
+    public bool CanPersist { get; set; }
+    public bool CanRenew { get; set; }
+    public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+}
 
-    public class ContentKeySpec
-    {
-        public string TrackType { get; set; }
-        public int SecurityLevel { get; set; }
-        public OutputProtection RequiredOutputProtection { get; set; }
-    }
+public class ContentKeySpec
+{
+    public string TrackType { get; set; }
+    public int SecurityLevel { get; set; }
+    public OutputProtection RequiredOutputProtection { get; set; }
+}
 
-    public class OutputProtection
-    {
-        public string HDCP { get; set; }
-    }
+public class OutputProtection
+{
+    public string HDCP { get; set; }
+}
 
-    public class WidevineTemplate
-    {
-        public string AllowedTrackTypes { get; set; }
-        public ContentKeySpec[] ContentKeySpecs { get; set; }
-        public PolicyOverrides PolicyOverrides { get; set; }
-    }
-    ```
+public class WidevineTemplate
+{
+    public string AllowedTrackTypes { get; set; }
+    public ContentKeySpec[] ContentKeySpecs { get; set; }
+    public PolicyOverrides PolicyOverrides { get; set; }
+}
+```
 
 #### Configure the license
 
@@ -198,6 +198,10 @@ private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTem
     return objContentKeyPolicyWidevineConfiguration;
 }
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

@@ -1,19 +1,18 @@
 ---
-title: Transform data by using Databricks in Azure Data Factory | Microsoft Docs
+title: Transform data by using Databricks
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
-
+ms.reviewer: douglasl
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/10/2018
-ms.author: abnarain
-ms.reviewer: douglasl
 ---
+
 # Transform data by using Databricks in Azure Data Factory
 
 In this tutorial, you create an end-to-end pipeline containing **Lookup**, **Copy**, and **Databricks notebook** activities in Data Factory.
@@ -34,7 +33,7 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
 2.  Ensure you have an **Azure Databricks workspace** or create a new one.
 
-1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
+1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

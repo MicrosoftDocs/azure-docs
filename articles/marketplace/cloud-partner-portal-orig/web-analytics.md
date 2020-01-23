@@ -1,20 +1,21 @@
 ---
-title: Web Analytics | Microsoft Docs
+title: Web Analytics 
 description: .
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -92,7 +93,7 @@ Here is an example:
         <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
     2. Landing Page URL (**Ensure that this URL has utm\_campaign and
         utm\_source added to this URL**) =
-        [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+        [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 How to evaluate the success of a Campaign
 -----------------------------------------

@@ -2,13 +2,9 @@
 title: Start a runbook in Azure Automation
 description: Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Start a runbook in Azure Automation
 
@@ -33,7 +29,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 1. In the Azure portal, select **Automation** and then click the name of an automation account.
 2. On the Hub menu, select **Runbooks**.
 3. On the **Runbooks** page, select a runbook, and then click **Start**.
-4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For more information on parameters, see [Runbook Parameters](#Runbook-parameters).
+4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For more information on parameters, see [Runbook Parameters](#runbook-parameters).
 5. On the **Job** page, you can view the status of the runbook job.
 
 ## Start a runbook with PowerShell
@@ -63,7 +59,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx). The key of the hashtable must match the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
+If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx). The key of the hashtable must match the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#runbook-parameters) below.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -78,7 +74,7 @@ The Azure Automation web service provides special functionality for parameters u
 
 ### Named values
 
-If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. These values must be simple types. The runbook receives the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) with properties that correspond to each named value.
+If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. These values must be simple types. The runbook receives the parameter as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) with properties that correspond to each named value.
 
 Consider the following test runbook that accepts a parameter called user.
 
@@ -181,3 +177,4 @@ jsmith
 
 * The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premises with the Hybrid Runbook Worker. To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 * To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

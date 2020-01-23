@@ -13,7 +13,7 @@ ms.subservice: alerts
 [Alert rules based on Azure Monitor logs](alerts-unified-log.md) run at regular intervals, so you should ensure that they are written to minimize overhead and latency. This article provides recommendations on writing efficient queries for log alerts and a process for converting existing queries. 
 
 ## Types of log queries
-[Queries in Log Analytics](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
+[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
 
 For example the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. This is the only table that the query must process.
 

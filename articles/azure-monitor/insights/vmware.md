@@ -1,18 +1,13 @@
 ---
 title: VMware Monitoring solution in Azure Monitor | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2018
-ms.author: magoedte
+
 ---
 
 # VMware Monitoring (Deprecated) solution in Azure Monitor
@@ -184,13 +179,13 @@ There can be multiple reasons:
   1. To confirm, log on to the ESXi host using ssh and run the following command: `nc -z ipaddressofVM 1514`
 
       If this is not successful, vSphere settings in the Advanced Configuration are likely not correct. See [Configure syslog collection](#configure-syslog-collection) for information about how to set up the ESXi host for syslog forwarding.
-  1. If syslog port connectivity is successful, but you don't still see any data, then reload the syslog on the ESXi host by using ssh to run the following command: ` esxcli system syslog reload`
+  1. If syslog port connectivity is successful, but you don't still see any data, then reload the syslog on the ESXi host by using ssh to run the following command: `esxcli system syslog reload`
 * The VM with Log Analytics agent is not set correctly. To test this, perform the following steps:
 
   1. Log Analytics listens to the port 1514. To verify that it is open, run the following command: `netstat -a | grep 1514`
   1. You should see port `1514/tcp` open. If you do not, verify that the omsagent is installed correctly. If you do not see the port information, then the syslog port is not open on the VM.
 
-     a. Verify that the Log Analytics agent is running by using `ps -ef | grep oms`. If it is not running, start the process by running the command ` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Verify that the Log Analytics agent is running by using `ps -ef | grep oms`. If it is not running, start the process by running the command `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Open the `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` file.
 

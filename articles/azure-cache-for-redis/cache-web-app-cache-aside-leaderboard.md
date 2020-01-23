@@ -1,21 +1,12 @@
 ---
-title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
-description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
-services: cache
-documentationcenter: ''
+title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
+description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
 
@@ -39,7 +30,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you must have the following prerequisites:
 
 * This tutorial continues where you left off in [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md). If you haven't already, follow the quickstart first.
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
     * .NET desktop development with SQL Server Express LocalDB or [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -77,7 +68,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     using System.Data.Entity.SqlServer;
     ```
 
-1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
+1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -154,7 +145,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class, which is `TeamContext`.
 
-    This connection string assumes you have met the [Prerequisites](#prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2017.
+    This connection string assumes you have met the [Prerequisites](#prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2019.
 
     ```xml
     <connectionStrings>
@@ -669,7 +660,7 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | *East US* | Select the same region where you created the cache and App Service. |

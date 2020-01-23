@@ -1,15 +1,14 @@
 ---
 
-title: Configure ExpressRoute Direct - Azure CLI | Microsoft Docs
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
 description: This article helps you configure ExpressRoute Direct by using the Azure CLI
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 
@@ -270,7 +269,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    }
    ```
 
-   Use the same procedure to down the ports by using `AdminState = “Disabled”`.
+   Use the same procedure to down the ports by using `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Create a circuit
 
@@ -278,8 +277,9 @@ By default, you can create 10 circuits in the subscription that contains the Exp
 
 You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 Gbps and 100 Gbps.
 
-You can create either Standard or Premium circuits. Standard circuits are included in the cost of the service. The cost of Premium circuits is based on the bandwidth you select. You can create circuits only as metered. Unlimited circuits aren't supported on ExpressRoute Direct.
+**SkuTier** can be Local, Standard or Premium.
 
+**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
 Create a circuit on the ExpressRoute Direct resource:
 
   ```azurecli

@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry
 description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
-services: container-service
 author: squillace
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
@@ -134,7 +132,7 @@ Now you're ready to deploy an application.
 
 ## Build and deploy an application
 
-In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Java example](https://github.com/Azure/draft/tree/master/examples/java). Change into the examples/java directory, and type `draft create` to build the application. It should look like the following example.
+In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Java example](https://github.com/Azure/draft/tree/master/examples/example-java). Change into the examples/java directory, and type `draft create` to build the application. It should look like the following example.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.

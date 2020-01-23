@@ -4,7 +4,7 @@ description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -21,7 +21,7 @@ ms.author: genli
 In most cases, you won’t need to specify a static internal IP address for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. A static internal IP address stays with the VM even through a stop/deprovision state. 
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/management/deployment-models.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 > ## Install the Azure PowerShell Service Management module

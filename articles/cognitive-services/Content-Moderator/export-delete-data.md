@@ -1,7 +1,7 @@
 ---
-title: Export or delete your data - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Learn how to export or delete your data in Content Moderator.
+title: Export or delete user data - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: You have full control over your data. Learn how to view, export or delete your data in Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

@@ -1,9 +1,9 @@
 ---
-title: How to configure managed identities for Azure resources on an Azure VM using PowerShell
+title: Configure managed identities on an Azure VM using PowerShell - Azure AD
 description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
-ms.author: priyamo
+ms.date: 09/26/2019
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -30,7 +30,7 @@ In this article, using PowerShell, you learn how to perform the following manage
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
 
@@ -42,7 +42,7 @@ In this section, you will learn how to enable and disable the system-assigned ma
 
 To create an Azure VM with the system-assigned managed identity enabled,your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
-1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM").
+1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM").
     
     When you get to the "Create the VM" section, make a slight modification to the [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet syntax. Be sure to add a `-AssignIdentity:$SystemAssigned` parameter to provision the VM with the system-assigned identity enabled, for example:
       
@@ -53,14 +53,7 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
    - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Optional) Add the managed identities for Azure resources VM extension (planned for deprecation in January 2019) using the `-Type` parameter on the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. The managed identities for Azure resources VM extension is planned for deprecation in January 2019. 
 
 ### Enable system-assigned managed identity on an existing Azure VM
 
@@ -79,14 +72,7 @@ To enable system-assigned managed identity on a VM that was originally provision
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Optional) Add the managed identities for Azure resources VM extension (planned for deprecation in January 2019) using the `-Type` parameter on the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
 
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.
 
 ### Add VM system assigned identity to a group
 
@@ -142,11 +128,7 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-To remove the managed identities for Azure resources VM extension, user the -Name switch with the [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet, specifying the same name you used when you added the extension:
 
-   ```powershell
-   Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-   ```
 
 ## User-assigned managed identity
 
@@ -156,9 +138,9 @@ In this section, you learn how to add and remove a user-assigned managed identit
 
 To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
-1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
+1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
   
-    When you get to the "Create the VM" section, make a slight modification to the [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet syntax. Add the `-IdentityType UserAssigned` and `-IdentityID ` parameters to provision the VM with a user-assigned identity.  Replace `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.  For example:
+    When you get to the "Create the VM" section, make a slight modification to the [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet syntax. Add the `-IdentityType UserAssigned` and `-IdentityID` parameters to provision the VM with a user-assigned identity.  Replace `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.  For example:
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
@@ -167,14 +149,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
     - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Optional) Add the managed identity for Azure resources VM extension using the `-Type` parameter on the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
-      > [!NOTE]
-    > This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. The managed identities for Azure resources VM extension is planned for deprecation in January 2019.
 
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
 
 ### Assign a user-assigned managed identity to an existing Azure VM
 
@@ -189,7 +164,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 2. Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Note the `Id` in the output because you will need this in the next step.
 
    > [!IMPORTANT]
-   > Creating user-assigned managed identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information see [FAQs and known issues](known-issues.md)
+   > Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information see [FAQs and known issues](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -204,12 +179,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Add the managed identity for Azure resources VM extension (planned for deprecation in January 2019) using the `-Type` parameter on the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Specify the correct `-Location` parameter, matching the location of the existing VM.
 
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
 
 ### Remove a user-assigned managed identity from an Azure VM
 

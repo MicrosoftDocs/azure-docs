@@ -5,6 +5,7 @@ description: Learn about public and private IP addresses (Classic) in Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -36,7 +37,7 @@ A public IP address is associated with the following resource types:
 * Application gateways
 
 ### Allocation method
-When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. With cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
+When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. With cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#cloud-services)).
 
 > [!NOTE]
 > The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -149,7 +150,7 @@ The table below shows the limits imposed on IP addressing in Azure per subscript
 | Public VIP per deployment (cloud service) |5 |contact support |
 | Private VIP (ILB) per deployment (cloud service) |1 |1 |
 
-Make sure you read the full set of [limits for Networking](../azure-subscription-service-limits.md#networking-limits) in Azure.
+Make sure you read the full set of [limits for Networking](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) in Azure.
 
 ## Pricing
 In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).

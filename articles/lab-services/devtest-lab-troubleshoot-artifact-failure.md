@@ -1,5 +1,5 @@
 ---
-title: Diagnose artifact failures in an Azure DevTest Labs virtual machine | Microsoft Docs
+title: Diagnose artifact failures in an Azure DevTest Labs virtual machine
 description: Learn how to troubleshoot artifact failures in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---
@@ -48,7 +48,8 @@ After you have created an artifact, you can check to see whether it succeeded or
 
 3. Open the **status** file.
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+For instructions on finding the log files on a **Linux** VM, see the following article: [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+
 
 ## Related blog posts
 * [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)

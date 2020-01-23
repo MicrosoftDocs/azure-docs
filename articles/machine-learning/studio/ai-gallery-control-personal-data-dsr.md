@@ -1,6 +1,6 @@
 ---
-title: Manage data from Azure AI Gallery
-titleSuffix: Azure Machine Learning Studio
+title: Manage Azure AI Gallery data
+titleSuffix: ML Studio (classic) - Azure
 description: You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
@@ -78,7 +78,7 @@ Returns a response such as:
 
 The Catalog API stores information about published entities to the Azure AI Gallery that you can also view directly on the [AI Gallery website](https://gallery.azure.ai/). 
 
-To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-ID) above.
+To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-id) above.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 

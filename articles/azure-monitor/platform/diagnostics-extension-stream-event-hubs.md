@@ -1,15 +1,15 @@
 ---
 title: Stream Azure Diagnostics data to Event Hubs
 description: Configuring Azure Diagnostics with Event Hubs end to end, including guidance for common scenarios.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 07/13/2017
+
 ---
+
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can send Diagnostics to custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
@@ -17,8 +17,7 @@ Supported data types include:
 
 * Event Tracing for Windows (ETW) events
 * Performance counters
-* Windows event logs
-* Application logs
+* Windows event logs, including application logs in the Windows event log
 * Azure Diagnostics infrastructure logs
 
 This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:
@@ -281,10 +280,10 @@ namespace EventHubListener
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint= <your connection string>”;
+            string eventHubConnectionString = "Endpoint= <your connection string>";
             string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
-            string storageAccountKey = "<Storage account key>”;
+            string storageAccountKey = "<Storage account key>";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
             string eventProcessorHostName = Guid.NewGuid().ToString();

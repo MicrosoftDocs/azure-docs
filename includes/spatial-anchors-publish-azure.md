@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ---
-### Launch the publish wizard
+### Open the publish wizard
 
-In the **Solution Explorer**, right-click the **SharingService** project and select **Publish**.
+In **Solution Explorer**, right-click the **SharingService** project and select **Publish**.
 
-The publish wizard is automatically launched. Select **App Service** > **Publish** to open the **Create App Service** dialog.
+The Publish Wizard starts. Select **App Service** > **Publish** to open the **Create App Service** dialog box.
 
 ### Sign in to Azure
 
-In the **Create App Service** dialog, click **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account you want from the dropdown.
+In the **Create App Service** dialog box, select **Add an account** and sign in to your Azure subscription. If you're already signed in, select the account you want from the drop-down list.
 
 > [!NOTE]
 > If you're already signed in, don't select **Create** yet.
@@ -33,24 +33,24 @@ Name the resource group **myResourceGroup** and select **OK**.
 
 Next to **Hosting Plan**, select **New**.
 
-In the **Configure Hosting Plan** dialog, use the settings in the table.
+In the **Configure Hosting Plan** dialog box, use these settings:
 
-| Setting | Suggested Value | Description |
+| Setting | Suggested value | Description |
 |-|-|-|
 |App Service Plan| MySharingServicePlan | Name of the App Service plan. |
 | Location | West US | The datacenter where the web app is hosted. |
-| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
+| Size | Free | The [pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) that determines hosting features. |
 
 Select **OK**.
 
 ### Create and publish the web app
 
-In **App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `https://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
+In **App Name**, enter a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `https://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
 
 Select **Create** to start creating the Azure resources.
 
-Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
+After the wizard finishes, it publishes the ASP.NET Core web app to Azure and then opens the app in your default browser.
 
 ![Published ASP.NET web app in Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-The app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `https://<app_name>.azurewebsites.net`. Take note of this URL as it will be used later on.
+The app name you used in this section is used as the URL prefix in the format `https://<app_name>.azurewebsites.net`. Take note of this URL because you'll need it.

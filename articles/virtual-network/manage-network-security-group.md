@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a network security group.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Create, change, or delete a network security group
@@ -37,9 +37,9 @@ You can create, [view all](#view-all-network-security-groups), [view details of]
 
 ### Create a network security group
 
-There is a limit to how many network security groups you can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There is a limit to how many network security groups you can create per Azure location and subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. In the top-left corner of the portal, select **+ Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Networking**, then select **network security group**.
 3. Enter a **Name** for the network security group, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, and then select **Create**.
 
@@ -62,11 +62,11 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 1. In the search box at the top of the portal, enter *network security groups*. When **network security groups** appear in the search results, select it.
 2. Select the network security group in the list that you want to view details for. Under **SETTINGS** you can view the **Inbound security rules** and **Outbound security rules**, the **Network interfaces** and **Subnets** the network security group is associated to. You can also enable or disable **Diagnostic logs** and view **Effective security rules**. To learn more, see [Diagnostic logs](virtual-network-nsg-manage-log.md) and [View effective security rules](diagnose-network-traffic-filter-problem.md).
 3. To learn more about the common Azure settings listed, see the following articles:
-	*	[Activity log](../azure-monitor/platform/activity-logs-overview.md)
+	*	[Activity log](../azure-monitor/platform/platform-logs-overview.md)
 	*	[Access control (IAM)](../role-based-access-control/overview.md)
-	*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-	*	[Automation script](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+	*	[Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 **Commands**
 
@@ -106,7 +106,7 @@ A network security group contains zero or more security rules. You can create, [
 
 ### Create a security rule
 
-There is a limit to how many rules per network security group can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There is a limit to how many rules per network security group can create per Azure location and subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. In the search box at the top of the portal, enter *network security groups* in the search box. When **network security groups** appear in the search results, select it.
 2. Select the network security group from the list that you want to add a security rule to.
@@ -115,11 +115,11 @@ There is a limit to how many rules per network security group can create per Azu
     
     |Setting  |Value  |Details  |
     |---------|---------|---------|
-    |Source     | Select **Any**, **Application security group**, **IP Addresses**, or **Service Tag** for inbound security rules. If you're creating an outbound security rule, the options are the same as options listed for **Destination**.       | If you select **Application security group**, then select one or more existing application security groups that exist in the same region as the network interface. Learn how to [create an application security group](#create-an-application-security-group). If you select **Application security group** for both the **Source** and **Destination**, the network interfaces within both application security groups must be in the same virtual network. If you select **IP Addresses**, then specify **Source IP addresses/CIDR ranges**. You can specify a single value or comma-separated list of multiple values. An example of multiple values is 10.0.0.0/16, 192.188.1.1. There are limits to the number of values you can specify. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details. If you select **Service Tag**, then select one service tag. A service tag is a predefined identifier for a category of IP addresses. To learn more about available service tags, and what each tag represents, see [Service tags](security-overview.md#service-tags). If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP, not the public IP address assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
-    |Source port ranges     | Specify a single port, such as 80, a range of ports, such as 1024-65535, or a comma-separated list of single ports and/or port ranges, such as 80, 1024-65535. Enter an asterisk to allow traffic on any port. | The ports and ranges specify which ports traffic is allowed or denied by the rule. There are limits to the number of ports you can specify. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.  |
-    |Destination     | Select **Any**, **Application security group**, **IP addresses**, or **Virtual Network** for inbound security rules. If you're creating an outbound security rule, the options are the same as options listed for **Source**.        | If you select **Application security group** you must then select one or more existing application security groups that exist in the same region as the network interface. Learn how to [create an application security group](#create-an-application-security-group). If you select **Application security group**, then select one existing application security group that exists in the same region as the network interface. If you select **IP addresses**, then specify **Destination IP addresses/CIDR ranges**. Similar to **Source** and **Source IP addresses/CIDR ranges**, you can specify a single, or multiple addresses or ranges, and there are limits to the number you can specify. Selecting **Virtual network**, which is a service tag, means that traffic is allowed to all IP addresses within the address space of the virtual network. If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP, not the public IP address assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
+    |Source     | Select **Any**, **Application security group**, **IP Addresses**, or **Service Tag** for inbound security rules. If you're creating an outbound security rule, the options are the same as options listed for **Destination**.       | If you select **Application security group**, then select one or more existing application security groups that exist in the same region as the network interface. Learn how to [create an application security group](#create-an-application-security-group). If you select **Application security group** for both the **Source** and **Destination**, the network interfaces within both application security groups must be in the same virtual network. If you select **IP Addresses**, then specify **Source IP addresses/CIDR ranges**. You can specify a single value or comma-separated list of multiple values. An example of multiple values is 10.0.0.0/16, 192.188.1.1. There are limits to the number of values you can specify. See [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details. If you select **Service Tag**, then select one service tag. A service tag is a predefined identifier for a category of IP addresses. To learn more about available service tags, and what each tag represents, see [Service tags](security-overview.md#service-tags). If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP, not the public IP address assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
+    |Source port ranges     | Specify a single port, such as 80, a range of ports, such as 1024-65535, or a comma-separated list of single ports and/or port ranges, such as 80, 1024-65535. Enter an asterisk to allow traffic on any port. | The ports and ranges specify which ports traffic is allowed or denied by the rule. There are limits to the number of ports you can specify. See [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.  |
+    |Destination     | Select **Any**, **Application security group**, **IP addresses**, or **Virtual Network** for outbound security rules. If you're creating an inbound security rule, the options are the same as options listed for **Source**.        | If you select **Application security group** you must then select one or more existing application security groups that exist in the same region as the network interface. Learn how to [create an application security group](#create-an-application-security-group). If you select **Application security group**, then select one existing application security group that exists in the same region as the network interface. If you select **IP addresses**, then specify **Destination IP addresses/CIDR ranges**. Similar to **Source** and **Source IP addresses/CIDR ranges**, you can specify a single, or multiple addresses or ranges, and there are limits to the number you can specify. Selecting **Virtual network**, which is a service tag, means that traffic is allowed to all IP addresses within the address space of the virtual network. If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP, not the public IP address assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
     |Destination port ranges     | Specify a single value, or comma-separated list of values. | Similar to **Source port ranges**, you can specify a single, or multiple ports and ranges, and there are limits to the number you can specify. |
-    |Protocol     | Select **Any**, **TCP**, or **UDP**.        |         |
+    |Protocol     | Select **Any**, **TCP**, **UDP** or **ICMP**.        |         |
     |Action     | Select **Allow** or **Deny**.        |         |
     |Priority     | Enter a value between 100-4096 that is unique for all security rules within the network security group. |Rules are processed in priority order. The lower the number, the higher the priority. It's recommended that you leave a gap between priority numbers when creating rules, such as 100, 200, 300. Leaving gaps makes it easier to add rules in the future that you may need to make higher or lower than existing rules.         |
     |Name     | A unique name for the rule within the network security group.        |  The name can be up to 80 characters. It must begin with a letter or number, end with a letter, number, or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.       |

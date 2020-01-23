@@ -1,5 +1,5 @@
 ---
-title: Performance recommendations - Azure SQL Database | Microsoft Docs
+title: Performance recommendations
 description: Azure SQL Database provides recommendations for your SQL databases that can improve current query performance.
 services: sql-database
 ms.service: sql-database
@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg 
-ms.date: 12/19/2018
+ms.date: 11/12/2019
 ---
 # Performance recommendations for SQL Database
 
@@ -20,6 +19,17 @@ Azure SQL Database learns and adapts with your application. It provides customiz
 > [!TIP]
 > [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues. [Query Performance Insights](sql-database-query-performance.md) is the recommended method for basic Azure SQL Database performance monitoring needs. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting.
 >
+
+## Performance recommendations options
+
+Performance recommendation options available Azure SQL Database are:
+
+| Performance recommendation | Single database and pooled database support | Instance database support |
+| :----------------------------- | ----- | ----- |
+| **Create index recommendations** - Recommends creation of indexes that may improve performance of your workload. | Yes | No | 
+| **Drop index recommendations** - Recommends removal of redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that this option is not compatible with applications using partition switching and index hints. Dropping unused indexes is not supported for Premium and Business Critical service tiers. | Yes | No |
+| **Parameterize queries recommendations (preview)** - Recommends forced parametrization in cases when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. | Yes | No |
+| **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
 
 ## Create index recommendations
 SQL Database continuously monitors the queries that are running and identifies the indexes that could improve performance. After there's enough confidence that a certain index is missing, a new **Create index** recommendation is created.
@@ -45,8 +55,7 @@ Besides detecting missing indexes, SQL Database continuously analyzes the perfor
 
 Drop index recommendations also go through the verification after implementation. If the performance improves, the impact report is available. If performance degrades, the recommendation is reverted.
 
-
-## Parameterize queries recommendations
+## Parameterize queries recommendations (preview)
 *Parameterize queries* recommendations appear when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. This condition creates an opportunity to apply forced parameterization. Forced parameterization, in turn, allows query plans to be cached and reused in the future, which improves performance and reduces resource usage. 
 
 Every query that's issued against SQL Server initially needs to be compiled to generate an execution plan. Each generated plan is added to the plan cache. Subsequent executions of the same query can reuse this plan from the cache, which eliminates the need for additional compilation. 
@@ -79,6 +88,10 @@ The “Fix schema issue” recommendation appears when the Azure SQL Database se
 | 213 |Column name or number of supplied values does not match table definition. |
 | 2812 |Could not find stored procedure '*'. |
 | 8144 |Procedure or function * has too many arguments specified. |
+
+## Custom applications
+
+Developers might consider developing custom applications using performance recommendations for Azure SQL Database. All recommendations listed in the portal for a database can be accessed through [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
 
 ## Next steps
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database Advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 

@@ -1,23 +1,19 @@
 ---
 title: Azure Data Box Edge limits | Microsoft Docs
-description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Edge.
+description: Describes system limits and recommended sizes for the Azure Data Box Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.author: alkohli
 ---
 
-# Azure Data Box Edge limits (Preview)
+# Azure Data Box Edge limits
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Edge solution.
-
-> [!IMPORTANT]
-> Data Box Edge is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
-
 
 ## Data Box Edge service limits
 
@@ -53,4 +49,4 @@ The following table describes the limits for the Data Box Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
+- [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md)

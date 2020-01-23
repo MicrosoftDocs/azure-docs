@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: juliako
 
 ---
 # Access the Azure Media Services API with Azure AD authentication  
- 
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
 The Azure Media Services API is a RESTful API. You can use it to perform operations on media resources by using a REST API or by using available client SDKs. Azure Media Services offers a Media Services client SDK for Microsoft .NET. To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. 
 
 Media Services supports [Azure Active Directory (Azure AD)-based authentication](../../active-directory/fundamentals/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).  
 
-> [!IMPORTANT]
-> Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
-
 This document gives an overview of how to access the Media Services API by using REST or .NET APIs.
+
+> [!NOTE]
+> Access Control authorization was deprecated on June 1, 2018.
 
 ## Access control
 

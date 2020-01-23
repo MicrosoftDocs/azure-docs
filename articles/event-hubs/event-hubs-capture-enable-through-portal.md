@@ -1,5 +1,5 @@
 ---
-title: Capture streaming events using Azure portal - Azure Event Hubs | Microsoft Docs
+title: Event Hubs - Capture streaming events using Azure portal
 description: This article describes how to enable capturing of events streaming through Azure Event Hubs by using the Azure portal.
 services: event-hubs
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 12/20/2019
 ms.author: shvija
 
 ---
@@ -44,10 +44,8 @@ To capture data to Azure Data Lake Store, you create a Data Lake Store account, 
 
 ### Create an Azure Data Lake Store account and folders
 
-> [!NOTE]
-> Currently, the Event Hubs Capture feature supports only Gen 1 of Azure Data Lake Store, not Gen 2. 
 
-1. Create a Data Lake Store Gen 1 account, following the instructions in [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md).
+1. Create a Data Lake Store account, following the instructions in [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Follow the instructions in the [Assign permissions to Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) section to create a folder within the Data Lake Store account in which you want to capture the data from Event Hubs, and assign permissions to Event Hubs so that it can write data into your Data Lake Store account.  
 
 

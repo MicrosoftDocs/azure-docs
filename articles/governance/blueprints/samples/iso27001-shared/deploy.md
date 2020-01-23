@@ -1,15 +1,10 @@
 ---
-title: Sample - ISO 27001 Shared Services blueprint - Deploy steps
-description: Deploy steps of the ISO 27001 Shared Services blueprint sample.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
-ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
+title: Deploy ISO 27001 Shared Services blueprint sample
+description: Deploy steps for the ISO 27001 Shared Services blueprint sample including blueprint artifact parameter details.
+ms.date: 01/13/2020
+ms.topic: sample
 ---
-# Deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample
+# Deploy the ISO 27001 Shared Services blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample, the following steps must
 be taken:
@@ -27,8 +22,7 @@ before you begin.
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
@@ -57,8 +51,7 @@ Your copy of the blueprint sample has now been created in your environment. It's
 blueprint sample can be customized to your environment and needs, but that modification may move
 it away from the ISO 27001 standard.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -74,8 +67,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 subscription within the management group it was saved to. This step is where parameters are
 provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -130,11 +122,13 @@ provided to make each deployment of the copy of the blueprint sample unique.
      they're defined during the assignment of the blueprint. For a full list or artifact parameters
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
+   assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
+   on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/en-us/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 > to estimate the cost of running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
@@ -143,10 +137,10 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|[Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|(Optional) Default value is _["none"]_.|
-|[Preview]: Deploy Log Analytics Agent for Linux VMs|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|(Optional) Default value is _["none"]_.|
-|[Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|(Optional) Default value is _["none"]_.|
-|[Preview]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|(Optional) Default value is _["none"]_.|
+|\[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|(Optional) Default value is _["none"]_.|
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|(Optional) Default value is _["none"]_.|
+|\[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|(Optional) Default value is _["none"]_.|
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|(Optional) Default value is _["none"]_.|
 |Allowed resource types|Policy assignment|Allowed resource types|List of resource types allowed to be deployed. This list is composed of all the resource types deployed in Shared Services.|
 |Allowed storage account SKUs|Policy assignment|Allowed storage SKUs|List of diagnostic logs storage account SKUs allowed. Default value is _["Standard_LRS"]_.|
 |Allowed virtual machine SKUs|Policy assignment|List of virtual machine SKUs allowed to be deployed. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
@@ -201,9 +195,9 @@ the following articles to learn about the architecture and control mapping:
 > [ISO 27001 Shared Services blueprint - Overview](./index.md)
 > [ISO 27001 Shared Services blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

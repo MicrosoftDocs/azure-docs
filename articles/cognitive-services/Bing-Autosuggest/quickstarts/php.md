@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -28,7 +28,8 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+4. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php
@@ -151,4 +152,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

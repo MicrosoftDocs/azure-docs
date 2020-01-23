@@ -2,18 +2,10 @@
 documentType: LandingData
 title: App Service on Linux Documentation
 metadata:
-  document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: Azure Web App for Containers Documentation - Tutorials, API Reference
-  meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
-  services: app-service
-  author: syntaxc4
-  manager: carolz
-  ms.service: app-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Linux containers - Tutorials, Reference
+  meta.description: Learn how to build Linux websites and web applications in App Service. Run your code in a default Docker container or run a custom container.
   ms.topic: landing-page
   ms.date: 09/05/2017
-  ms.author: cfowler
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -94,7 +86,7 @@ sections:
     items:
     - html: Create an application using <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core with Azure SQL DB</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">Java Enterprise with PostgreSQL</a> or <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+    - html: <a href="/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with an SSL binding in Azure App Service</a>
     - html: <a href="/azure/cdn/cdn-add-to-web-app">Add a CDN to your application</a>
 - title: Samples
   items:

@@ -1,17 +1,17 @@
 ---
 title: Working with the change feed support in Azure Cosmos DB 
-description: Use Azure Cosmos DB change feed support to track changes in documents and perform event-based processing like triggers and keeping caches and analytics systems up-to-date. 
-author: rimman
-ms.author: rimman
+description: Use Azure Cosmos DB change feed support to track changes in documents, event-based processing like triggers, and keep caches and analytic systems up-to-date 
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
 ---
 # Change feed in Azure Cosmos DB - overview
 
-Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
+Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
 
 Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to trigger additional actions. Examples of additional actions include:
 
@@ -27,16 +27,16 @@ The change feed in Azure Cosmos DB enables you to build efficient and scalable s
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
+| **Client drivers** | **Azure CLI** | **SQL API** | **Azure Cosmos DB's API for Cassandra** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | Yes | No | No | Yes | No |
-|Java|NA|Yes|No|No|Yes|No|
-|Python|NA|Yes|No|No|Yes|No|
-|Node/JS|NA|Yes|No|No|Yes|No|
+| .NET | NA | Yes | Yes | Yes | Yes | No |
+|Java|NA|Yes|Yes|Yes|Yes|No|
+|Python|NA|Yes|Yes|Yes|Yes|No|
+|Node/JS|NA|Yes|Yes|Yes|Yes|No|
 
 ## Change feed and different operations
 
-Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items, for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
+Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
 
 ### Sort order of items in change feed
 
@@ -52,7 +52,7 @@ If a TTL (Time to Live) property is set on an item to -1, change feed will persi
 
 ### Change feed and _etag, _lsn or _ts
 
-The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch id that is added for change feed only; it represents the transaction id. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the 
+The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch ID that is added for change feed only; it represents the transaction ID. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the 
 version of the item, whereas ETag is used for sequencing the feed.
 
 ## Change feed use cases and scenarios
@@ -79,7 +79,7 @@ For example, with change feed you can perform the following tasks efficiently:
 
 The following are some of the scenarios you can easily implement with change feed:
 
-* Within your [serverless](https://azure.microsoft.com/en-us/solutions/serverless/) web or mobile apps, you can track events such as all the changes to your customer's profile, preferences, or their location and trigger certain actions, for example, sending push notifications to their devices using [Azure Functions](change-feed-functions.md).
+* Within your [serverless](https://azure.microsoft.com/solutions/serverless/) web or mobile apps, you can track events such as all the changes to your customer's profile, preferences, or their location and trigger certain actions, for example, sending push notifications to their devices using [Azure Functions](change-feed-functions.md).
 
 * If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
@@ -89,7 +89,7 @@ The following are some of the scenarios you can easily implement with change fee
 You can work with change feed using the following options:
 
 * [Using change feed with Azure Functions](change-feed-functions.md)
-* [Using change feed with change feed processor library](change-feed-processor.md) 
+* [Using change feed with change feed processor](change-feed-processor.md) 
 
 Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
 
@@ -103,7 +103,7 @@ Change feed is available for each logical partition key within the container, an
 
 * The change feed includes inserts and update operations made to items within the container. You can capture deletes by setting a "soft-delete" flag within your items (for example, documents) in place of deletes. Alternatively, you can set a finite expiration period for your items with the [TTL capability](time-to-live.md). For example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process the changes within a shorter time interval than the TTL expiration period. 
 
-* Each change to an item appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor library provides automatic checkpointing and "at least once" semantics. See [using change feed with change feed processor library](change-feed-processor.md).
+* Each change to an item appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. See [using change feed with change feed processor](change-feed-processor.md).
 
 * Only the most recent change for a given item is included in the change log. Intermediate changes may not be available.
 
@@ -115,10 +115,16 @@ Change feed is available for each logical partition key within the container, an
 
 * Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
 
+## Change feed in APIs for Cassandra and MongoDB
+
+Change feed functionality is surfaced as change stream in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md).
+
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
+
 ## Next steps
 
 You can now proceed to learn more about change feed in the following articles:
 
 * [Options to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
-* [Using change feed processor library](change-feed-processor.md)
+* [Using change feed processor](change-feed-processor.md)
