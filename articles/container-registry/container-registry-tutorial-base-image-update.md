@@ -11,7 +11,9 @@ ms.custom: "seodec18, mvc"
 
 # Tutorial: Automate container image builds when a base image is updated in an Azure container registry 
 
-ACR Tasks supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images. In this tutorial, you learn how to create a task in ACR Tasks that triggers a build in the cloud when a container's base image has been pushed to your registry.
+ACR Tasks supports automated container image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
+
+In this tutorial, you learn how to create an ACR task that triggers a build in the cloud when a container's base image has been pushed to your registry.
 
 In this tutorial:
 
@@ -53,38 +55,6 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 ```
 
-## Base images
-
-Dockerfiles defining most container images specify a parent image from which it is based, often referred to as its *base image*. Base images typically contain the operating system, for example [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], on which the rest of the container's layers are applied. They might also include application frameworks such as [Node.js][base-node] or [.NET Core][base-dotnet].
-
-### Base image updates
-
-A base image is often updated by the image maintainer to include new features or improvements to the OS or framework in the image. Security patches are another common cause for a base image update.
-
-When a base image is updated, you're presented with the need to rebuild any container images in your registry based on it to include the new features and fixes. ACR Tasks includes the ability to automatically build images for you when a container's base image is updated.
-
-### Tasks triggered by a base image update
-
-* For image builds from a Dockerfile, an ACR task detects dependencies on base images in the following locations:
-
-  * The same Azure container registry where the task runs
-  * Another Azure container registry in the same region 
-  * A public repo in Docker Hub 
-  * A public repo in Microsoft Container Registry
-
-   If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt any time its base is updated.
-
-* Currently, an ACR tasks only tracks base image updates for application (*runtime*) images. It doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
-
-* When you create an ACR task with the [az acr task create][az-acr-task-create] command, by default the task is *enabled* for trigger by a base image update. That is, the `base-image-trigger-enabled` property is set to True. If you want to disable this behavior in a task, update the property to False. For example, run the following [az acr task update][az-acr-task-update] command:
-
-  ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
-  ```
-
-* To enable an ACR task to determine and track a container image's dependencies -- which include its base image -- you must first trigger the task **at least once**. For example, trigger the task manually using the [az acr task run][az-acr-task-run] command.
-
-* To trigger a task on base image update, the base image must have a *stable* tag, such as `node:9-alpine`. This tagging is typical for a base image that is updated with OS and framework patches to a latest stable release. If the base image is updated with a new version tag, it does not trigger a task. For more information about image tagging, see the [best practices guidance](container-registry-image-tag-version.md). 
 
 ### Base image update scenario
 
