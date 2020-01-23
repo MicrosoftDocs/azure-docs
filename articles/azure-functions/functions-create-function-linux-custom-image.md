@@ -30,6 +30,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 ## Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later
 - The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later
 - The [Azure Functions 2.x runtime](functions-versions.md)
@@ -52,7 +53,6 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ::: zone-end
 - [Docker](https://docs.docker.com/install/)
 - A [Docker ID](https://hub.docker.com/signup)
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### Prerequisite check
 

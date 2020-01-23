@@ -14,10 +14,10 @@ There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-cod
 
 ## Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later.
 - The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. 
 - [Python 3.7.4 - 64 bit](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 is verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### Prerequisite check
 
