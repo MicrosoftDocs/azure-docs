@@ -146,6 +146,9 @@ Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
 
+### Storage
+Customer controlled failover (preview) only fails over the data plane. Control plane is not failed over, so the account continues to be managed by the instance of SRP located in the former primary region. This is why “location” does not change (it indicates the control plane location of the account, which ARM uses to route requests to the appropriate regional instance of SRP). Only “primaryLocation” and “secondaryLocation” are swapped, in order to indicate the physical location of the data. you can find this design when you deploy a HDInsight cluster using the failed-over storage.
+
 #### Azure virtual machines
 
 Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. 
