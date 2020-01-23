@@ -16,7 +16,6 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Web app that signs in users: Move to production
