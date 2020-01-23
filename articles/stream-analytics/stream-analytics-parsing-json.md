@@ -109,7 +109,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-The **GetRecordPropertyValue** selects the property in SensorReadings which name matches the property name coming from the reference data, then it extracts the value associated from SensorReadings.
+**GetRecordPropertyValue** selects the property in *SensorReadings*, which name matches the property name coming from the reference data. Then the associated value from *SensorReadings* is extracted.
 
 The result is:
 
