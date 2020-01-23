@@ -13,7 +13,6 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Register your verification method info to reset your own password

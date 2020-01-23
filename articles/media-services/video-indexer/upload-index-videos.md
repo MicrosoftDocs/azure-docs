@@ -42,7 +42,7 @@ The article shows how to upload and index your videos with these options:
 - The URL needs to be accessible (for example a public URL). 
 
     If it is a private URL, the access token need to be provided in the request.
-- The URL has to point to a valid media file and not to a webpage, such as a link to `www.youtube.com` page.
+- The URL has to point to a valid media file and not to a webpage, such as a link to the `www.youtube.com` page.
 - You can upload up to 60 movies per minute.
 
 > [!Tip]
