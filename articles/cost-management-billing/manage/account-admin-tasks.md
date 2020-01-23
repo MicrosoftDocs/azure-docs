@@ -23,12 +23,14 @@ You must be the Account Administrator to perform any of these tasks.
 
 ## Navigate to your subscription's payment methods
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator. 
+
 1. Search for **Cost Management + Billing**.
     
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
 
-1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to.
+1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to. 
+   Note: If you don't see some of your subscriptions here, it may be because you changed the directory of these subscriptions previously. You need to switch directory to the original directory (the directory in which you initially signed up). After that, repeat Step 2. 
     ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
 1. Select **Payment methods**.
@@ -113,7 +115,8 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
 
-1. In the **My subscriptions** list, select your Visual Studio Enterprise subscription.
+1. In the **My subscriptions** list, select your Visual Studio Enterprise subscription. 
+Note: If you don't see some of your Visual Studio subscription here, it may be because you changed its directory previously. You need to switch directory to the original directory (the directory in which you initially signed up) for it to be displayed. After that, repeat Step 2. 
     
     ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
@@ -138,7 +141,8 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
 
-1. In the **My subscriptions** list, select your Azure in Open subscription.
+1. In the **My subscriptions** list, select your Azure in Open subscription. 
+Note: If you don't see your subscription here, it may be because you changed its directory previously. You need to switch directory to the original directory (the directory in which you initially signed up) for it to be displayed. After that, repeat Step 2. 
    
     ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
