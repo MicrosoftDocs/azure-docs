@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can make use of signals from conditions like risk, device platform, or location to enhance their policy decisions. 
 
-![Signals factor into the decisions of a Conditional Access policy](./media/concept-conditional-access-conditions/conditional-access-overview-how-it-works.png)
+![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
 
 Multiple conditions can be combined to create fine-grained and specific Conditional Access policies.
 
