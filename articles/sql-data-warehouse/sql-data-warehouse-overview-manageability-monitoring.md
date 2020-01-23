@@ -19,7 +19,7 @@ Take a look through what's available to help you manage and monitor SQL Data War
 
 ## Overview
 
-* [Learn about compute management and elasticity](ql-data-warehouse-manage-compute-overview.md)
+* [Learn about compute management and elasticity](sql-data-warehouse-manage-compute-overview.md)
 * [Understand what metrics and logs are available  in the Azure portal](sql-data-warehouse-concept-resource-utilization-query-activity.md)
 * [Learn about  backup and restore capabilities](backup-and-restore.md)
 * [Learn about built-in intelligence and recommendations](sql-data-warehouse-concept-recommendations.md)
