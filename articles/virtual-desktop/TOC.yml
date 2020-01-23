@@ -43,7 +43,7 @@
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
   - name: Create a profile container
-    items: 
+    items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
@@ -146,6 +146,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning path
     href: https://docs.microsoft.com/learn/paths/m365-wvd/
+  - name: Linux SDK
+    href: linux-overview.md
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum
