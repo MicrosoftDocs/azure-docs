@@ -176,8 +176,8 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
-    - name: Debug query step by step using job diagram 
-      href: stream-analytics-debug-locally-using-job-diagram.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline

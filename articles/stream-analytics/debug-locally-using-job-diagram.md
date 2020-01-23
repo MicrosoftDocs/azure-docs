@@ -6,7 +6,7 @@ ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/9/2020
+ms.date: 01/21/2020
 ---
 
 # Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
