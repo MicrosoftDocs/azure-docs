@@ -12,7 +12,6 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Set up a security key as your verification method
