@@ -16,7 +16,7 @@ ms.custom: seodec18
 # Debug and troubleshoot machine learning pipelines in Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. It can be used to query all logs for pipeline runs in once place. Application Insights will allow you to track logs over time and compare pipeline logs across runs with different parameters and inputs.
+The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
 Having your logs in once place will provide a history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
 
@@ -88,14 +88,13 @@ except ValueError as ex:
     logger.error("Could not find application insights key. "\
         "Either set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable " \
         "or pass in a connection_string to AzureLogHandler.")
-
 ```
 
 ## Logging with Custom Dimensions
  
-Plaintext string logs are helpful for engineers or data scientists diagnosing a specific pipeline step when they have some context about the experiment area. By default, logs forwarded to Application Insights will not have context to trace back to the run or experiment.
+By default, logs forwarded to Application Insights won't have enough context to trace back to the run or experiment. To make the logs actionable for diagnosing issues, additional fields are needed. 
 
-To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps that share a parent run ID.
+To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps in the same pipeline run.
 
 Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries)
 
@@ -108,15 +107,15 @@ Custom Dimensions make up a dictionary of key-value (stored as string, string) p
 | step_name                      | Can query logs to see step performance over time. Also helps to find a step_id for recent runs without diving into the portal UI                                          |
 | experiment_name                | Can query across logs to see experiment performance over time. Also helps find a parent_run_id or step_id for recent runs without diving into the portal UI                   |
 | run_url                 | Can provide a link directly back to the run for investigation. |
-| run_type                       | Can differentiate between different model types, or training vs. scoring runs                                                                                                           |
 
 **Other helpful fields**
 
-May require additional code instrumentation, and are not provided by the run context.
+These fields may require additional code instrumentation, and aren't provided by the run context.
 
 | Field                   | Reasoning/Example                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | build_url/build_version | If using CI/CD to deploy, this field can correlate logs to the code version that provided the step and pipeline logic. This link can further help to diagnose issues, or identify models with specific traits (log/metric values) |
+| run_type                       | Can differentiate between different model types, or training vs. scoring runs |
 
 ### Creating a custom dimensions dictionary
 
@@ -133,8 +132,7 @@ custom_dimensions = {
 }
 
 # logger has AzureLogHandler registered previously
-logger.info("Info for application insights", custom_dimensions) 
-
+logger.info("Info for application insights", custom_dimensions)
 ```
 
 ## OpenCensus Python logging considerations
@@ -149,7 +147,7 @@ The logs routed to Application Insights will show up under 'traces' or 'exceptio
 
 ![Application Insights Query result](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
 
-The result in Application Insights will show the log message and level, file path, and code line number the log is from, as well as any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-a-custom-dimensions-dictionary).
+The result in Application Insights will show the log message and level, file path, and code line number. It will also show any custom dimensions included. In this image, the customDimensions dictionary shows the key/value pairs from the previous [code sample](#creating-a-custom-dimensions-dictionary).
 
 ## Additional helpful queries
 
@@ -158,6 +156,6 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Log results for specific custom dimension, for example 'parent_run_id' | <pre>traces \| <br>where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1</pre> |
-| Log results for training runs over the last 7 days                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
+| Log results for all training runs over the last 7 days                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
 | Log results with severityLevel Error from the last 7 days              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Count of log results with severityLevel Error over the last 7 days     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
