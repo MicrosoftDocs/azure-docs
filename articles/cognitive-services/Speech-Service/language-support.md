@@ -31,50 +31,46 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
  Locale | Language | Supported | Customizations
 ------|------------|-----------|-------------
-`ar-BH` | Arabic (Bahrain) | Yes | LM<sup>2</sup>
-`ar-EG` | Arabic (Egypt), modern standard | Yes | LM<sup>2</sup>
+`ar-BH` | Arabic (Bahrain) | Yes | Language model
+`ar-EG` | Arabic (Egypt), modern standard | Yes | Language model
 `ar-SA` | Arabic (Saudi Arabia) | Yes | No
 `ar-AE` | Arabic (UAE) | Yes | No
 `ar-KW` | Arabic (Kuwait) | Yes | No
 `ar-QA` | Arabic (Qatar) | Yes | No
-`ca-ES` | Catalan | Yes | LM<sup>2</sup>
-`da-DK` | Danish (Denmark) | Yes | LM<sup>2</sup>
-`de-DE` | German (Germany) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
-`en-AU` | English (Australia) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`en-CA` | English (Canada) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`en-GB` | English (United Kingdom) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
-`en-IN` | English (India) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`en-NZ` | English (New Zealand) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`en-US` | English (United States) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
-`es-ES` | Spanish (Spain) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`es-MX` | Spanish (Mexico) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`fi-FI` | Finnish (Finland) | Yes | LM<sup>2</sup>
-`fr-CA` | French (Canada) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`fr-FR` | French (France) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
-`gu-IN` | Gujarati (Indian) | Yes | LM<sup>2</sup>
-`hi-IN` | Hindi (India) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`it-IT` | Italian (Italy) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
-`ja-JP` | Japanese (Japan) | Yes | LM<sup>2</sup>
-`ko-KR` | Korean (Korea) | Yes | LM<sup>2</sup>
-`mr-IN` | Marathi (India) | Yes | LM<sup>2</sup>
-`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | LM<sup>2</sup>
-`nl-NL` | Dutch (Netherlands) | Yes | LM<sup>2</sup>
-`pl-PL` | Polish (Poland) | Yes | LM<sup>2</sup>
-`pt-BR` | Portuguese (Brazil) | Yes | AM<sup>1</sup>, LM<sup>2</sup>, and Pronunciation<sup>3</sup>
-`pt-PT` | Portuguese (Portugal) | Yes | LM<sup>2</sup>
-`ru-RU` | Russian (Russia) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`sv-SE` | Swedish (Sweden) | Yes | LM<sup>2</sup>
-`ta-IN` | Tamil (India) | Yes | LM<sup>2</sup>
+`ca-ES` | Catalan | Yes | Language model
+`da-DK` | Danish (Denmark) | Yes | Language model
+`de-DE` | German (Germany) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`en-AU` | English (Australia) | Yes | Acoustic model<br>Language model
+`en-CA` | English (Canada) | Yes | Acoustic model<br>Language model
+`en-GB` | English (United Kingdom) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`en-IN` | English (India) | Yes | Acoustic model<br>Language model
+`en-NZ` | English (New Zealand) | Yes | Acoustic model<br>Language model
+`en-US` | English (United States) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`es-ES` | Spanish (Spain) | Yes | Acoustic model<br>Language model
+`es-MX` | Spanish (Mexico) | Yes | Acoustic model<br>Language model
+`fi-FI` | Finnish (Finland) | Yes | Language model
+`fr-CA` | French (Canada) | Yes | Acoustic model<br>Language model
+`fr-FR` | French (France) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`gu-IN` | Gujarati (Indian) | Yes | Language model
+`hi-IN` | Hindi (India) | Yes | Acoustic model<br>Language model
+`it-IT` | Italian (Italy) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`ja-JP` | Japanese (Japan) | Yes | Language model
+`ko-KR` | Korean (Korea) | Yes | Language model
+`mr-IN` | Marathi (India) | Yes | Language model
+`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | Language model
+`nl-NL` | Dutch (Netherlands) | Yes | Language model
+`pl-PL` | Polish (Poland) | Yes | Language model
+`pt-BR` | Portuguese (Brazil) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`pt-PT` | Portuguese (Portugal) | Yes | Language model
+`ru-RU` | Russian (Russia) | Yes | Acoustic model<br>Language model
+`sv-SE` | Swedish (Sweden) | Yes | Language model
+`ta-IN` | Tamil (India) | Yes | Language model
 `te-IN` | Telugu (India) | Yes | No
-`zh-CN` | Chinese (Mandarin, simplified) | Yes | AM<sup>1</sup>, LM<sup>2</sup>
-`zh-HK` | Chinese (Cantonese, Traditional) | Yes | LM<sup>2</sup>
-`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | LM<sup>2</sup>
+`zh-CN` | Chinese (Mandarin, simplified) | Yes | Acoustic model<br>Language model
+`zh-HK` | Chinese (Cantonese, Traditional) | Yes | Language model
+`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Language model
 `th-TH` | Thai (Thailand) | Yes | No
 `tr-TR` | Turkey | Yes | No
-
-**1** *The acoustic model is customizable.*<br>
-**2** *The language model is customizable.*<br>
-**3** *The pronunciation is customizable.*
 
 ## Text-to-speech
 
