@@ -75,7 +75,7 @@ The following are requirements for configuring the customer-managed key:
 
 When you're using data encryption by using a customer-managed key, here are recommendations for configuring Key Vault:
 
-* Set a resource lock on the key vault to control who can delete this critical resource and prevent accidental or unauthorized deletion.
+* Set a resource lock on Key Vault to control who can delete this critical resource and prevent accidental or unauthorized deletion.
 * Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that's already integrated.
 
 * Ensure that Key Vault and Azure Database for MySQL reside in the same region, to ensure a faster access for DEK wrap and unwrap operations.

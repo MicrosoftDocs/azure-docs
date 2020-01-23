@@ -60,7 +60,7 @@ The following are requirements for configuring Key Vault:
 
 * Key Vault and Azure Database for PostgreSQL Single server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving resources afterwards requires you to reconfigure the data encryption.
 * You must enable the soft-delete feature on the Key Vault, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days, unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
-* Grant the Azure Database for MySQL access to the Key Vault with the get, wrapKey, and unwrapKey permissions by using its unique managed identity. In the Azure portal, the unique identity is automatically created when data encryption is enabled on the MySQL. See [Configure data encryption for MySQL](howto-data-encryption-portal.md) for detailed, step-by-step instructions when you're using the Azure portal.
+* Grant the Azure Database for PostgreSQL Single server access to the Key Vault with the get, wrapKey, and unwrapKey permissions by using its unique managed identity. In the Azure portal, the unique identity is automatically created when data encryption is enabled on the PostgreSQL Single server. See [Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md) for detailed, step-by-step instructions when you're using the Azure portal.
 
 * When you're using a firewall with Key Vault, you must enable the option **Allow trusted Microsoft services to bypass the firewall**.
 
@@ -75,7 +75,7 @@ The following are requirements for configuring the customer-managed key:
 
 When you're using data encryption by using a customer-managed key, here are recommendations for configuring Key Vault:
 
-* Set a resource lock on the key vault to control who can delete this critical resource and prevent accidental or unauthorized deletion.
+* Set a resource lock on Key Vault to control who can delete this critical resource and prevent accidental or unauthorized deletion.
 * Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that's already integrated.
 
 * Ensure that Key Vault and Azure Database for PostgreSQL Single server reside in the same region, to ensure a faster access for DEK wrap and unwrap operations.
