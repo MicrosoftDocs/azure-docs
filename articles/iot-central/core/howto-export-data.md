@@ -38,7 +38,7 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 
 1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
-2. Choose a subscription. You can export data to other subscriptions that are not in the same subscription as your pay-as-you-go IoT Central application. You connect using a connection string in this case.
+2. Choose a subscription. You can export data to other subscriptions that are not in the same subscription as your standard IoT Central application. You connect using a connection string in this case.
 
 3. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
 
@@ -47,7 +47,7 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 If you don't have an existing Service Bus namespace to export to, follow these steps:
 
 1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-2. Choose a subscription. You can export data to other subscriptions that are not in the same subscription as your pay-as-you-go IoT Central application. You connect using a connection string in this case.
+2. Choose a subscription. You can export data to other subscriptions that are not in the same subscription as your standard IoT Central application. You connect using a connection string in this case.
 
 3. Go to your Service Bus namespace, and select **+ Queue** or **+ Topic** at the top to create a queue or topic to export to.
 
@@ -60,7 +60,7 @@ If you don't have an existing Azure Storage account to export to, follow these s
 1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
     - If you choose to export data to an Azure Data Lake Storage v2 storage account, you must choose **BlobStorage** as the **Account Kind**.
-    - You can export data to storage accounts in subscriptions different than the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+    - You can export data to storage accounts in subscriptions different than the one for your standard IoT Central application. You will connect using a connection string in this case.
 
 2. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 

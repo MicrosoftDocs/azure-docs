@@ -36,7 +36,7 @@ You can create application using following steps
 
 3. **Create app** will open New application form and fill up the requested details as show below.
    **Application name**: you can use default suggested name or enter your friendly application name.
-   **URL**: you can use the suggested default URL or enter your friendly unique, memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. Else you can start with seven-day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
+   **URL**: you can use the suggested default URL or enter your friendly unique, memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. Else you can start with seven-day free trial and choose to convert to standard at any time before the free trail expiration.
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
