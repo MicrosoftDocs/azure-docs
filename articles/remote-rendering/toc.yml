@@ -5,6 +5,8 @@
   items:
   - name: About Remote Rendering
     href: overview.md
+  - name: System requirements
+    href: overview/system-requirements.md
 - name: Quickstarts
   expanded: true
   items:
