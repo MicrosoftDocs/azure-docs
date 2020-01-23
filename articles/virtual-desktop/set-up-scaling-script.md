@@ -46,9 +46,9 @@ The machine you use to deploy the tool must have:
 
 If you have everything ready, then let's get started.
 
-## Create an Azure Automation account to run the PowerShell runbook
+## Create an Azure Automation account
 
-First, you'll need an Azure Automation account. Here's how to set up your account:
+First, you'll need an Azure Automation account to run the PowerShell runbook. Here's how to set up your account:
 
 1. Sign in to Azure with the machine you plan to deploy the tool from.
 2. Open Windows PowerShell as an administrator.
@@ -81,9 +81,9 @@ After you've set up your Azure Automation account, check to make sure your Azure
 
 To check if your webhook is where it should be, go to the Resources list on the left side of your screen and select **Webhook**.
 
-## Create an Azure Automation Run As account to access your resources
+## Create an Azure Automation Run As account
 
-Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account.
+Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account to access your Azure resources.
 
 An [Azure Automation Run As account](../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limiting Run As account permissions](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
 
@@ -121,7 +121,7 @@ When you find the tenant you want to scale, follow the instructions in [Create a
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
 ```
 
-## Create the Azure Logic App and execution schedule for the scaling tool
+## Create the Azure Logic App and execution schedule
 
 Finally, you'll need to create the Azure Logic App and set up an execution schedule for your new scaling tool.
 
