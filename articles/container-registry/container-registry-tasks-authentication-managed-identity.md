@@ -40,7 +40,7 @@ Follow these high-level steps to use a managed identity with an ACR task.
 
 ### 1. (Optional) Create a user-assigned identity
 
-If you plan to use a user-assigned identity, use an existing identity., or create the identity using the Azure CLI or other Azure tools. For example, use the [az identity create][az-identity-create] command. 
+If you plan to use a user-assigned identity, use an existing identity, or create the identity using the Azure CLI or other Azure tools. For example, use the [az identity create][az-identity-create] command. 
 
 If you plan to use only a system-assigned identity, skip this step. You create a system-assigned identity when you create the ACR task.
 
@@ -99,9 +99,9 @@ az role assignment create \
 
 ### 4. (Optional) Add credentials to the task
 
-If your task pulls or pushes images to another custom registry, add credentials to the task for the identity to authenticate. For example, run the [az acr task credential add][az-acr-task-credential-add] command and pass the `--use-identity` parameter to add the identity's credentials to the task. 
+If your task needs credentials to pull or push images to another custom registry, or to access other resources, add credentials to the task. Run the [az acr task credential add][az-acr-task-credential-add] command to add credentials, and pass the `--use-identity` parameter to indicate that the identity can access the credentials. 
 
-To add credentials for a system-assigned identity to authenticate with the Azure container registry *targetregistry*, pass `use-identity [system]`:
+For example, to add credentials for a system-assigned identity to authenticate with the Azure container registry *targetregistry*, pass `use-identity [system]`:
 
 ```azurecli
 az acr task credential add \
@@ -123,7 +123,7 @@ az acr task credential add \
 
 You can get the client ID of the identity by running the [az identity show][az-identity-show] command. The client ID is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
-## 5. Run the task
+### 5. Run the task
 
 After configuring a task with a managed identity, run the task. For example, to test one of the tasks created in this article, manually trigger it using the [az acr task run][az-acr-task-run] command. If you configured additional, automated task triggers, the task runs when automatically triggered.
 

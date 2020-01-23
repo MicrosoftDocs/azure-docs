@@ -15,7 +15,7 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 
 * Azure resources in your subscription
 * On-premises computers monitored by System Center Operations Manager
-* Device collections from System Center Configuration Manager 
+* Device collections from Configuration Manager 
 * Diagnostics or log data from Azure storage
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
