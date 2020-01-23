@@ -98,7 +98,7 @@ To create a replica in a remote data center, do the following steps:
 
    ![Cluster properties](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
 
-   On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK**. 
+   On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK** on the **IP Address** dialog box, and then select **OK** again on the **Cluster Properties** dialog box to save the new IP address.. 
 
    ![Add cluster IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
 
