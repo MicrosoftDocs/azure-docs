@@ -30,6 +30,7 @@ For general-purpose v2 accounts, ZRS is generally available in the following reg
 - Europe West
 - France Central
 - Japan East
+- South Africa North
 - UK South
 - US Central
 - US East
@@ -84,7 +85,7 @@ During a live migration, you can use your storage account while your data is mig
 Keep in mind the following restrictions on live migration:
 
 - While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated to ZRS by a certain date, then Microsoft recommends that you perform a manual migration instead. Generally, the more data you have in your account, the longer it takes to migrate that data. 
-- Live migration is supported only for storage accounts that use LRS or GRS replication. If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding. This intermediary step removes the secondary read-only endpoint provided by RA-GRS before migration.
+- Live migration is supported only for storage accounts that use LRS replication. If your account uses GRS or RA-GRS, then you need to first change your account's replication type to LRS before proceeding. This intermediary step removes the secondary endpoint provided by GRS/RA-GRS.
 - Your account must contain data.
 - You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
 - Only standard storage account types support live migration. Premium storage accounts must be migrated manually.

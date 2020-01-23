@@ -84,7 +84,7 @@ Once the application registration is complete, enable the implicit grant flow:
 
 ## Create a client secret
 
-If your application exchanges a code for a token, you need to create an application secret.
+If your application exchanges an authorization code for an access token, you need to create an application secret.
 
 #### [Applications](#tab/applications/)
 
