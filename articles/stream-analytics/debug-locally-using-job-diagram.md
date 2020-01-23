@@ -6,7 +6,7 @@ ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 01/23/2020
 ---
 
 # Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
@@ -15,7 +15,7 @@ Jobs that output no result or unexpected results are common troubleshooting scen
 
 ## Debug a query using job diagram
 
-An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc) through multiple query steps and finally output to sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
+An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc) through multiple query steps and, finally, to output sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
 
 > [!NOTE]
 > This job diagram only shows the data and metrics for local testing in a single node. It should not be used for performance tuning and troubleshooting.
@@ -31,66 +31,74 @@ Choose the input and output source from the script editor and select **Run local
 
 ### View the intermediate result set  
 
-#### Navigate to script
-
 1. Select the query step to navigate to the script. You are automatically directed to the corresponding script in the editor on the left.
 
-![Job diagram navigate script](./media/vs-job-diagram/navigate-script.png)
+   ![Job diagram navigate script](./media/debug-locally-using-job-diagram/navigate-script.png)
 
-#### Preview result set
+2. Select the query step and select **Preview** in the popped up dialog. The result set is shown in a tab in the bottom result window.
 
-Select the query step and select **Preview** in the popped up dialog. The result set is shown in a tab in the bottom result window.
-
-![Job diagram preview result](./media/vs-job-diagram/preview-result.png)
+   ![Job diagram preview result](./media/debug-locally-using-job-diagram/preview-result.png)
 
 ### View step metrics
 
-* **Input sources (Live stream)**
+In this section, you explore the metrics available for each part of the diagram.
 
-   ![Job diagram live input sources](./media/vs-job-diagram/live-input.png)
+#### Input sources (Live stream)
 
-  * **TaxiRide**: The name of the input.
-  * **Event Hub**: Input source type.
-  * **Events**: The number of events read.
-  * **Backlogged Event Sources**: How many more messages need to be read for Event Hubs and IoT Hub inputs.
-  * **Events in Bytes**:The number of bytes read.
-  * **Degraded Events**:The count of events that had an issue other than with deserialization.
-  * **Early Events**: The number of events that have an application timestamp before the high watermark.
-  * **Late Events**: The number of events that have an application timestamp after the high watermark.
-  * **Event Sources**: The number of data units read. For example, the number of blobs.
+![Job diagram live input sources](./media/debug-locally-using-job-diagram/live-input.png)
 
-* **Input sources (Local input)**
+|Metric|Description|
+|-|-|
+|**TaxiRide**| The name of the input.|
+|**Event Hub** | Input source type.|
+|**Events**|The number of events read.|
+|**Backlogged Event Sources**|How many more messages need to be read for Event Hubs and IoT Hub inputs.|
+|**Events in Bytes**|The number of bytes read.|
+| **Degraded Events**|The count of events that had an issue other than with deserialization.|
+|**Early Events**| The number of events that have an application timestamp before the high watermark.|
+|**Late Events**| The number of events that have an application timestamp after the high watermark.|
+|**Event Sources**| The number of data units read. For example, the number of blobs.|
 
-  ![Job diagram local input sources](./media/vs-job-diagram/local-input.png)
+#### Input sources (Local input)
 
-  * **TaxiRide**: The name of the input.
-  * **Row Count**: The number of rows generated from the step.
-  * **Data Size**: The size of data generated from this step.
-  * **Local input**: Use local data as input.
+![Job diagram local input sources](./media/debug-locally-using-job-diagram/local-input.png)
 
-* **Query steps**
+|Metric|Description|
+|-|-|
+|**TaxiRide**| The name of the input.|
+|**Row Count**| The number of rows generated from the step.|
+|**Data Size**| The size of data generated from this step.|
+|**Local input**| Use local data as input.|
 
-  ![Job diagram query step](./media/vs-job-diagram/query-step.png)
+#### Query steps
 
-  * **TripData**: The name of the temporary result set.
-  * **Row Count**: The number of rows generated from the step.
-  * **Data Size**: The size of data generated from this step.
+![Job diagram query step](./media/debug-locally-using-job-diagram/query-step.png)
+
+|Metric|Description|
+|-|-|
+|**TripData**|The name of the temporary result set.|
+|**Row Count**| The number of rows generated from the step.|
+|**Data Size**| The size of data generated from this step.|
   
-* **Output sinks** (Live output)
+#### Output sinks (Live output)
 
-  ![Job diagram local output sinks](./media/vs-job-diagram/live-output.png)
+![Job diagram local output sinks](./media/debug-locally-using-job-diagram/live-output.png)
 
-   * **regionaggEH**: The name of the output.
-   * **Events**: The number of events output to sinks.
+|Metric|Description|
+|-|-|
+|**regionaggEH**|The name of the output.|
+|**Events**|The number of events output to sinks.|
 
-* **Output sinks** (Local output)
+#### Output sinks (Local output)
 
-  ![Job diagram local output sinks](./media/vs-job-diagram/local-output.png)
+![Job diagram local output sinks](./media/debug-locally-using-job-diagram/local-output.png)
 
-   * **regionaggEH**: The name of the output.
-   * **Local Output**: Result output to a local file.
-   * **Row Count**: The number of rows output to the local file.
-   * **Data Size**: The size of data output to the local file.
+|Metric|Description|
+|-|-|
+|**regionaggEH**|The name of the output.|
+|**Local Output**| Result output to a local file.|
+|**Row Count**| The number of rows output to the local file.|
+|**Data Size**| The size of data output to the local file.|
 
 ### Close job diagram
 
@@ -100,7 +108,7 @@ If you don't need the job diagram anymore, select **Close** on the top right cor
 
 Other job level metrics shows up in the pop up console. Press **Ctrl+C** in the console if you want to stop the job.
 
-![Job diagram stop job](./media/vs-job-diagram/stop-job.png)
+![Job diagram stop job](./media/debug-locally-using-job-diagram/stop-job.png)
 
 ## Limitations
 
