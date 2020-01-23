@@ -79,6 +79,7 @@ Before you complete the steps in this article, you should already have:
    - An IP address for each FCI.
 - DNS configured on the Azure network, pointing to the domain controllers.
 - A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files.
+- If you're on Windows Server 2012 R2 and older, you will need another file share to use as the file share witness, since cloud witnesses are supported for Windows 2016 and newer. It does not need to be premium. 
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 
@@ -175,7 +176,8 @@ After you create and configure the virtual machines, you can configure the premi
 1. Repeat these steps on each SQL Server VM that will participate in the cluster.
 
   > [!IMPORTANT]
-  > Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
+  > - Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
+  > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
 
 ## Step 3: Configure the failover cluster with the file share
 
@@ -184,7 +186,7 @@ The next step is to configure the failover cluster. In this step, you'll complet
 1. Add the Windows Server Failover Clustering feature.
 1. Validate the cluster.
 1. Create the failover cluster.
-1. Create the cloud witness.
+1. Create the cloud witness (for Windows Server 2016 and newer) or the file share witness (for Windows Server 2012 R2 and older).
 
 
 ### Add Windows Server Failover Clustering
@@ -258,9 +260,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### Create a cloud witness
+### Create a cloud witness (Win 2016 +)
 
-Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share.
+If you're on Windows Server 2016 and greater, you'll need to create a Cloud Witness. Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share, or using a separate file share.
 
 1. [Create a cloud witness for the failover cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -268,7 +270,11 @@ Cloud Witness is a new type of cluster quorum witness that's stored in an Azure 
 
 1. Save the access keys and the container URL.
 
-1. Configure the failover cluster quorum witness. See [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+### Configure quorum 
+
+For Windows Server 2016 and greater, configure the cluster to use the cloud witness you just created. Follow all of the steps [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+
+For Windows Server 2012 R2 and older, follow the same steps in [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) but on the **Select Quorum Witness** page, select the **Configure a file share witness** option, and then specify the file share you mounted previously for witness purposes. 
 
 
 ## Step 4: Test cluster failover
