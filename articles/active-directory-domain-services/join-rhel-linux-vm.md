@@ -72,15 +72,15 @@ When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
 ## Install required packages
 
-The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
+The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `yum`. There are some differences between RHEL 7.x and RHEL 6.x, so use the appropriate commands for your distro version in the remaining sections of this article.
 
-### RHEL 7
+**RHEL 7**
 
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
-### RHEL 6
+**RHEL 6**
 
 ```console
 sudo yum install adcli sssd authconfig krb5-workstation
@@ -88,7 +88,7 @@ sudo yum install adcli sssd authconfig krb5-workstation
 
 ## Join VM to the managed domain
 
-Now that the required packages are installed on the VM, join the VM to the Azure AD DS managed domain.
+Now that the required packages are installed on the VM, join the VM to the Azure AD DS managed domain. Again, use the appropriate steps for your RHEL distro version.
 
 ### RHEL 7
 
@@ -126,10 +126,10 @@ Successfully enrolled machine in realm
 
 ### RHEL 6
 
-1. Use the `adcli info` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+1. Use the `adcli info` command to discover the Azure AD DS managed domain. The following example discovers the realm *ADDDS.CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
-    sudo adcli info contoso.com
+    sudo adcli info aadds.contoso.com
     ```
 
    If the `adcli info` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
@@ -141,7 +141,7 @@ Successfully enrolled machine in realm
 1. First, join the domain using the `adcli join` command, this command will also creates the keytab to authenticate the machine. Use a user account that's a member of the *AAD DC Administrators* group.
 
     ```console
-    sudo adcli join contoso.com -U contosoadmin
+    sudo adcli join aadds.contoso.com -U contosoadmin
     ```
 
 1. Now configure the `/ect/krb5.conf` and create the `/etc/sssd/sssd.conf` files to use the `aadds.contoso.com` Active Directory domain.
@@ -245,7 +245,7 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
     When done, save and exit the *sshd_conf* file using the `:wq` command of the editor.
 
-1. To apply the changes and let users sign in using a password, restart the SSH service:
+1. To apply the changes and let users sign in using a password, restart the SSH service for your RHEL distro version:
 
    **RHEL 7**
 
