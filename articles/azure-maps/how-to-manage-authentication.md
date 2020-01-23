@@ -54,19 +54,19 @@ After you create an Azure Maps account, you need to establish a link between you
 
 ## Grant role-based access control (RBAC) to Azure Maps
 
-After you associate an Azure Maps account with your Azure AD tenant, you can grant access control by assigning a user, group, or application to one or more Azure Maps access control roles.
+After you associate an Azure Maps account with your Azure AD tenant, you can grant access control. You grant access control by assigning a user, group, or application to one or more Azure Maps access control roles.
 
-1. Go to **Roles and administrators**, select **Role assignments**, and then select **Add role assignment**.
+1. Go to your **Azure Maps Account**. Select **Access control (IAM)**, then select **Role assignment**.
 
     ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. In the **Add role assignment** window, under **Role**, select **Azure Maps Date Reader (Preview)**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Under **Select**, select the user or application. Select **Save**.
+2. In the **Role assignment** window, under **Role**, select **Azure Maps Date Reader (Preview)**. Under **Assign access to** select **Azure AD user, group, or service principle**. Select the user or application. Select **Save**.
 
     ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## View available Azure Maps RBAC roles
 
-To view role-based access control (RBAC) roles that are available for Azure Maps, go to **Access control (IAM)**, select **Roles**, and then search for roles beginning with **Azure Maps**. These are the roles that you can grant access to.
+To view role-based access control (RBAC) roles that are available for Azure Maps, go to **Access control (IAM)**, select **Roles**, and then search for roles beginning with **Azure Maps**. These roles are the roles, which you can grant access to.
 
 ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
