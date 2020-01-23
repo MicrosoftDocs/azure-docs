@@ -28,9 +28,9 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 * For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks. For files larger than 15 MB, you can enable [message chunking](../logic-apps/logic-apps-handle-large-messages.md) on SFTP-SSH actions, except for the **Copy File** action, which handles files only up to 15 MB. The **Get file content** action natively uses built-in message chunking, but you must manually [enable chunking](#enable-chunking) on other actions.
 
-  SFTP-SSH actions use adaptive chunking behavior to adjust for various factors such as network latency, server response time, and so on by starting with a smaller chunk size and gradually increasing to the maximum chunk size, for example, starting with 10 MB and gradually increasing to 50 MB. To override this behavior, you can [specify a constant chunk size](#enable-chunking) instead.
+  SFTP-SSH actions use adaptive chunking behavior to adjust for various factors such as network latency, server response time, and so on by starting with a smaller chunk size, such as 10 MB, and gradually increasing to the maximum 50 MB chunk size. To override this behavior, you can [specify a constant chunk size](#enable-chunking) instead.
 
-  For example, suppose you have a 45 MB file and a network that can support files with that size without latency. Adaptive chunking results in several calls. You can try specifying a 50 MB chunk size to reduce the number of calls. If you're experiencing timeouts with 15 MB chunks, you can try specifying a 5 MB chunk size.
+  For example, suppose you have a 45 MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50 MB chunk size. If you get timeouts with 15 MB chunks, you can try setting a 5 MB chunk size.
 
 * SFTP-SSH triggers don't support message chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
