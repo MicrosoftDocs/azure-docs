@@ -116,7 +116,7 @@ Follow these general guidelines when implementing a SCIM endpoint to ensure comp
     - `and`
 * Don't require a case-sensitive match on structural elements in SCIM, in particular PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emits the values of 'op' as `Add`, `Replace`, and `Remove`.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)
+* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md)
 
 ### User provisioning and deprovisioning
 
@@ -169,7 +169,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 [Response](#response-11))
   - [Update Group [Remove Members]](#update-group-remove-members) (
 [Request](#request-12) /
-[Response](#response-12)) (
+[Response](#response-12))
   - [Delete Group](#delete-group) ([Request](#request-13) /
 [Response](#response-13))
 

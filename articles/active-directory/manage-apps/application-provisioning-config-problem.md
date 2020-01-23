@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Problem configuring user provisioning to an Azure AD Gallery application
 
-Configuring [automatic user provisioning](active-directory-saas-app-provisioning.md) for an app (where supported), requires that specific instructions be followed to prepare the application for automatic provisioning. Then you can use the Azure portal to configure the provisioning service to synchronize user accounts to the application.
+Configuring [automatic user provisioning](user-provisioning.md) for an app (where supported), requires that specific instructions be followed to prepare the application for automatic provisioning. Then you can use the Azure portal to configure the provisioning service to synchronize user accounts to the application.
 
 You should always start by finding the setup tutorial specific to setting up provisioning for your application. Then follow those steps to configure both the app and Azure AD to create the provisioning connection. A list of app tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md).
 
