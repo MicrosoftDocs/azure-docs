@@ -218,5 +218,3 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
 * Learn how to configure a custom domain with your static website. See [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
 
-> [!div class="nextstepaction"]
-> [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
