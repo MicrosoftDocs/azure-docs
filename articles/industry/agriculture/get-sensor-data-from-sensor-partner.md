@@ -32,9 +32,7 @@ After you start the streaming of sensor data, you can begin the process of getti
  - Client secret
  - EventHub connection string
 
-The previous information is provided to you by your system integrator. For any issues you might encounter when you enable the device integrations, contact your system integrator.
-
-Alternatively, you can generate the credentials by running this script from Azure Cloud Shell. Follow these steps.
+You can generate the above information by following these steps: (Please note these steps are required to be done on Azure so you will need access to the Azure subscription where FarmBeats is deployed)
 
 1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
 2. Sign in to https://portal.azure.com/ and go to Azure Active Directory -> App Registrations
