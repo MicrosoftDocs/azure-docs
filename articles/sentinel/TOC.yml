@@ -36,7 +36,7 @@
       items:
       - name: AWS
         href: connect-aws.md
-      - name: Azure AD
+      - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Office 365
         href: connect-office-365.md
