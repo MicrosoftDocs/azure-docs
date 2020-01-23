@@ -131,7 +131,7 @@ After your logic app runs, you can view the status and count for those runs on t
 
    > [!NOTE]
    > If the Logic Apps Management tile doesn't immediately show results after a run, 
-   > try selecting **Refresh** or wait a short time before trying again.
+   > try selecting **Refresh** or wait for a short time before trying again.
 
    Here, your logic app runs are grouped by name or by execution status. This page also shows details about failures in actions or triggers for the logic app runs.
 
@@ -145,11 +145,12 @@ After your logic app runs, you can view the status and count for those runs on t
 
    For actions where you [set up tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
 
-      ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+   ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-      > [!NOTE]
-      > When a logic app is still running, tracked properties or completed events might 
-      > might experience delays before appearing in your log analytics workspace.
+   > [!NOTE]
+   > Tracked properties or completed events might might experience 10-15 minute 
+   > delays before appearing in your log analytics workspace.
+   > Also, the **Resubmit** capability on this page is currently unavailable.
 
 1. To filter your results, you can perform both client-side and server-side filtering.
 
