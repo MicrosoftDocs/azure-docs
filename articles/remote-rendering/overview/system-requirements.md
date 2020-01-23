@@ -50,7 +50,7 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 
 ## Network
 
-A stable, low-latency network connection is critical for a good user experience. Make sure that other devices in your network don't interfere too much while using ARR. We tested remote rendering in various scenarios and made the following observations:
+A stable, low-latency network connection is critical for a good user experience. Make sure that other devices in your network don't interfere too much while using Azure Remote Rendering. We tested remote rendering in various scenarios and made the following observations:
 
 1. Using consumer-grade wifi and VDSL/cable connections is sufficient to run ARR.
 1. Using the 5-GHz band for wifi often works better than 2.4 GHz.
