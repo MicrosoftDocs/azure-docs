@@ -6,7 +6,7 @@ ms.date: 01/23/2020
 ---
 
 # Tag support for Azure resources
-This article describes whether a resource type supports [tags](resource-group-using-tags.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report.
+This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -62,7 +62,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DataProtection](#microsoftdataprotection)
 > - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
@@ -73,7 +72,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
@@ -92,7 +90,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
-> - [Microsoft.IncrediBuild](#microsoftincredibuild)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -127,7 +124,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
@@ -144,7 +140,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SignUp](#microsoftsignup)
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
@@ -161,7 +156,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.VMwareOnAzure](#microsoftvmwareonazure)
 > - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
@@ -864,13 +858,6 @@ Jump to a resource provider namespace:
 > | services | No | No |
 > | services / projects | No | No |
 
-## Microsoft.DataProtection
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | BackupVaults | Yes | Yes |
-
 ## Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
@@ -1006,13 +993,6 @@ Jump to a resource provider namespace:
 > | labs / serviceRunners | Yes | Yes |
 > | labs / virtualMachines | Yes | Yes |
 > | schedules | Yes | Yes |
-
-## Microsoft.DigitalTwins
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | digitalTwinsInstance | Yes | Yes |
 
 ## Microsoft.DocumentDB
 
@@ -1186,13 +1166,6 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | jobs | Yes | Yes |
-
-## Microsoft.IncrediBuild
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | clusters | Yes | Yes |
 
 ## Microsoft.Intune
 
@@ -1618,13 +1591,6 @@ Jump to a resource provider namespace:
 > | backupProtectedItems | No | No |
 > | vaults | Yes | Yes |
 
-## Microsoft.RedHatOpenShift
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | OpenShiftClusters | Yes | Yes |
-
 ## Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
@@ -1846,17 +1812,6 @@ Jump to a resource provider namespace:
 > | SignalR | Yes | Yes |
 > | SignalR / eventGridFilters | No | No |
 
-## Microsoft.SignUp
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | createPortfolio | No | No |
-> | createTaskOrder | No | No |
-> | createTenant | No | No |
-> | purchaseAADPremium | No | No |
-> | purchaseAadPremiumStatus | No | No |
-
 ## Microsoft.SiteRecovery
 
 > [!div class="mx-tableFixed"]
@@ -2035,13 +1990,6 @@ Jump to a resource provider namespace:
 > | dedicatedCloudNodes | Yes | Yes |
 > | dedicatedCloudServices | Yes | Yes |
 > | virtualMachines | Yes | Yes |
-
-## Microsoft.VMwareOnAzure
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | privateClouds | Yes | Yes |
 
 ## Microsoft.VnfManager
 

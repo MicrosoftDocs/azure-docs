@@ -13,7 +13,7 @@ The resource types marked with **Yes** are deleted when the type isn't in the te
 
 The resource types marked with **No** aren't automatically deleted when not in the template; however, they're deleted if the parent resource is deleted. For a full description of the behavior, see [Azure Resource Manager deployment modes](deployment-modes.md).
 
-If you deploy to [more than one resource group in a template](resource-manager-cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
+If you deploy to [more than one resource group in a template](cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
 
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
@@ -67,7 +67,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DataProtection](#microsoftdataprotection)
 > - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
@@ -78,7 +77,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
@@ -97,7 +95,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
-> - [Microsoft.IncrediBuild](#microsoftincredibuild)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -132,7 +129,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
@@ -149,7 +145,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SignUp](#microsoftsignup)
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
@@ -166,7 +161,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.VMwareOnAzure](#microsoftvmwareonazure)
 > - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
@@ -869,13 +863,6 @@ Jump to a resource provider namespace:
 > | services | Yes |
 > | services / projects | Yes |
 
-## Microsoft.DataProtection
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | BackupVaults | Yes |
-
 ## Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
@@ -1011,13 +998,6 @@ Jump to a resource provider namespace:
 > | labs / serviceRunners | Yes |
 > | labs / virtualMachines | Yes |
 > | schedules | Yes |
-
-## Microsoft.DigitalTwins
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | digitalTwinsInstance | Yes |
 
 ## Microsoft.DocumentDB
 
@@ -1191,13 +1171,6 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | jobs | Yes |
-
-## Microsoft.IncrediBuild
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | clusters | Yes |
 
 ## Microsoft.Intune
 
@@ -1616,13 +1589,6 @@ Jump to a resource provider namespace:
 > | backupProtectedItems | No |
 > | vaults | Yes |
 
-## Microsoft.RedHatOpenShift
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | OpenShiftClusters | Yes |
-
 ## Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
@@ -1844,17 +1810,6 @@ Jump to a resource provider namespace:
 > | SignalR | Yes |
 > | SignalR / eventGridFilters | No |
 
-## Microsoft.SignUp
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | createPortfolio | No |
-> | createTaskOrder | No |
-> | createTenant | No |
-> | purchaseAADPremium | No |
-> | purchaseAadPremiumStatus | No |
-
 ## Microsoft.SiteRecovery
 
 > [!div class="mx-tableFixed"]
@@ -2024,13 +1979,6 @@ Jump to a resource provider namespace:
 > | dedicatedCloudNodes | Yes |
 > | dedicatedCloudServices | Yes |
 > | virtualMachines | Yes |
-
-## Microsoft.VMwareOnAzure
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | privateClouds | Yes |
 
 ## Microsoft.VnfManager
 
