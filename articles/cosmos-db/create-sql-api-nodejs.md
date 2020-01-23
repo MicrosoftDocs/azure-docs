@@ -20,7 +20,7 @@ ms.author: dech
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-In this quickstart, you create and manage a Azure Cosmos DB SQL API account, both from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you create and manage an Azure Cosmos DB SQL API account, from the Azure portal and by using a Node.js app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
