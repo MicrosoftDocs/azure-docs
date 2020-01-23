@@ -2,6 +2,7 @@
 title: Data extraction - LUIS
 description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
 author: diberry
+ms.topic: conceptual
 ms.date: 01/23/2020
 ---
 
