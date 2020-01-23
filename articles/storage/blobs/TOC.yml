@@ -385,11 +385,7 @@
       - name: Integrate with Azure CDN
         href: storage-blob-static-website-cdn.md
     - name: Use a custom domain
-      items:
-      - name: Use a custom domain
-        href: storage-custom-domain-name.md
-      - name: Use a custom domain with HTTPS
-        href: storage-https-custom-domain-cdn.md
+      href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
     - name: Process change feed logs
