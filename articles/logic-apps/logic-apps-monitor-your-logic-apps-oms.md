@@ -1,17 +1,16 @@
 ---
-title: Monitor logic apps by using Azure Monitor - Azure Logic Apps
-description: Get richer debugging to troubleshoot and diagnose logic apps by setting up diagnostics logging with Azure Monitor logs
+title: Monitor logic apps with Azure Monitor
+description: Get insights and debugging data to troubleshoot and diagnose logic app runs with Azure Monitor logs
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 01/24/2020
 ---
 
-# Set up diagnostic logging for Azure Logic Apps by using Azure Monitor logs
+# Get insights and debugging data for logic apps by using Azure Monitor logs
 
 To get richer debugging information about your logic apps during runtime, you can use [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events. [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information. You can also [use this diagnostic data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
 
