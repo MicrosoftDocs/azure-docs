@@ -28,6 +28,7 @@ GZRS and RA-GZRS are currently available for preview in the following regions:
 - Asia Southeast
 - Europe North
 - Europe West
+- Japan East
 - UK South
 - US East
 - US East 2
