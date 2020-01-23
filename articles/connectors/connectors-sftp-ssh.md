@@ -26,16 +26,17 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the **Copy File action**, which can handle only 15 MB files. The connector uses adaptive chunking to adjust for various factors such as network latency, server response time, and so on, starting with 10 MB and gradually increasing to 50 MB.
+* For files that are 1 GB or smaller, SFTP-SSH actions read or write content in *15 MB* chunks. For files larger than 15 MB, you can enable [message chunking](../logic-apps/logic-apps-handle-large-messages.md) on SFTP-SSH actions, except for the **Copy File** action, which handles files only up to 15 MB. The **Get file content** action natively uses built-in message chunking, but you must manually [enable chunking](#enable-chunking) on other actions.
 
-While the **Get file content** action implicitly uses message chunking, other actions need you to manually enable chunking. 
-  To better control the chunk sizes that the connector uses, you can [specify a constant chunk size](#enable-chunking).
+  SFTP-SSH actions use adaptive chunking behavior to adjust for various factors such as network latency, server response time, and so on by starting with a smaller chunk size and gradually increasing to the maximum chunk size, for example, starting with 10 MB and gradually increasing to 50 MB. To override this behavior, you can [specify a constant chunk size](#enable-chunking) instead.
 
-* SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
+  For example, suppose you have a 45 MB file and a network that can support files with that size without latency. Adaptive chunking results in several calls. You can try specifying a 50 MB chunk size to reduce the number of calls. If you're experiencing timeouts with 15 MB chunks, you can try specifying a 5 MB chunk size.
 
-  * Use an SFTP-SSH trigger that returns file properties, such as **When a file is added or modified (properties only)**.
+* SFTP-SSH triggers don't support message chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
-  * Follow the trigger with the SFTP-SSH **Get file content** action, which reads the complete file and implicitly uses message chunking.
+  1. Use an SFTP-SSH trigger that returns only file properties, such as **When a file is added or modified (properties only)**.
+
+  1. Follow the trigger with the SFTP-SSH **Get file content** action, which reads the complete file and implicitly uses message chunking.
 
 <a name="comparison"></a>
 
