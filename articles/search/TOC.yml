@@ -64,15 +64,15 @@
 - name: Samples
   items:
   - name: C# samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp
+    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp
   - name: Java samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java
+    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java
   - name: JavaScript samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript
+    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=javascript
   - name: Python samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python
+    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest
+    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
 - name: Training
   items:
   - name: Introduction (Microsoft Learn)
