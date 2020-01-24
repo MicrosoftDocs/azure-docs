@@ -91,7 +91,7 @@
       href: time-series-insights-send-events.md
     - name: Scale your environment
       href: time-series-insights-how-to-scale-your-environment.md
-    - name: Shape JSON for queries
+    - name: Shape JSON for ingress and queries
       href: how-to-shape-query-json.md
     - name: Mitigate throttling
       href: time-series-insights-environment-mitigate-latency.md
@@ -107,7 +107,7 @@
       href: time-series-insights-update-how-to-troubleshoot.md
     - name: Data modeling
       href: time-series-insights-update-how-to-tsm.md
-    - name: Shape JSON for queries
+    - name: Shape JSON for ingress and queries
       href: time-series-insights-update-how-to-shape-events.md
     - name: Connect to Power BI
       href: how-to-connect-power-bi.md

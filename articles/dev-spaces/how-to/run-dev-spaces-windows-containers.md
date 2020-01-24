@@ -56,7 +56,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-The sample application uses [Helm][helm-installed] to run the Windows service on your cluster. Navigate to the `charts` directory and use Helm run the Windows service:
+The sample application uses [Helm 3][helm-installed] to run the Windows service on your cluster. Navigate to the `charts` directory and use Helm run the Windows service:
 
 ```console
 cd charts/

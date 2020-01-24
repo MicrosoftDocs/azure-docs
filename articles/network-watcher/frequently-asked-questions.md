@@ -68,9 +68,9 @@ Only Packet Capture, Connection Troubleshoot and Connection Monitor need the Net
 ### What does NSG Flow Logs do?
 Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
 
-### How do I use NSG Flow Logs on a Storage account with a firewall?
+### How do I use NSG Flow Logs with a Storage account behind a firewall?
 
-To use a Storage account with a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
+To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
 * Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 * Under the **SETTINGS** section, select **Firewalls and virtual networks**
@@ -80,9 +80,9 @@ To use a Storage account with a firewall, you have to provide an exception for T
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
 
-### How do I use NSG Flow Logs with Service Endpoints for storage?
+### How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?
 
-Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
+NSG Flow Logs are compantible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
 
 
 ### What is the difference between flow logs versions 1 & 2?
