@@ -70,7 +70,7 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
 
 1. On the solution description pane, select **Create**.
 
-   ![Select "Create" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Select "Create" to add "Logic Apps Management" solution](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 1. Review and confirm the Log Analytics workspace where you want to install the solution, and select **Create** again.
 

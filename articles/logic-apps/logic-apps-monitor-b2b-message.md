@@ -28,11 +28,6 @@ This article shows how to enable Azure Monitor logging for your integration acco
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-> [!NOTE]
-> This page might still have references to Microsoft Operations Management Suite (OMS), 
-> which is [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
-> but replaces those steps with Azure Log Analytics where possible. 
-
 ## Prerequisites
 
 * A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
@@ -63,29 +58,23 @@ Before Azure Monitor logs can track the B2B messages for your logic app, add the
 
    ![On overview pane, add new solution](./media/logic-apps-monitor-b2b-message/add-logic-apps-management-solution.png)
 
-1. On the Overview page, choose **Add**, which opens the **Management Solutions** list. 
-From that list, select **Logic Apps B2B**. 
+1. After the **Marketplace** opens, in the search box, enter `logic apps b2b`, and select **Logic Apps B2B**.
 
-   ![Select Logic Apps B2B solution](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+   ![From Marketplace, select "Logic Apps Management"](./media/logic-apps-monitor-b2b-message/select-logic-apps-b2b-solution.png)
 
-   If you can't find the solution, at the bottom of the list, 
-   choose **Load more** until the solution appears.
+1. On the solution description pane, select **Create**.
 
-1. Choose **Create**, confirm the Log Analytics 
-workspace where you want to install the solution, 
-and then choose **Create** again.   
+   ![Select "Create" to add "Logic Apps B2B" solution](./media/logic-apps-monitor-b2b-message/create-logic-apps-b2b-solution.png)
 
-   ![Choose "Create" for Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+1. Review and confirm the Log Analytics workspace where you want to install the solution, and select **Create** again.
 
-   If you don't want to use an existing workspace, 
-   you can also create a new workspace at this time.
+   ![Select "Create" for "Logic Apps B2B"](./media/logic-apps-monitor-b2b-message/confirm-log-analytics-workspace.png)
 
-1. When you're done, go back to your workspace's **Overview** page. 
+   After Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace, the solution appears on your workspace's summary pane. When B2B messages are processed, the message count on this pane is updated.
 
-   The Logic Apps B2B solution now appears on the Overview page. 
-   When B2B messages are processed, the message count on this page is updated.
+   ![Workspace summary pane](./media/logic-apps-monitor-b2b-message/workspace-summary-pane-logic-apps-b2b.png)
 
-<a name-"set-up-resource-logs"></a>
+<a name="set-up-resource-logs"></a>
 
 ## Set up Azure monitor logs for your integration account
 
