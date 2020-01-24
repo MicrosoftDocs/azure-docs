@@ -79,8 +79,8 @@ Before you complete the steps in this article, you should already have:
    - The failover cluster IP address.
    - An IP address for each FCI.
 - DNS configured on the Azure network, pointing to the domain controllers.
-- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files.
-- If you're on Windows Server 2012 R2 and older, you will need another file share to use as the file share witness, since cloud witnesses are supported for Windows 2016 and newer. It does not need to be premium. 
+- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
+- If you're on Windows Server 2012 R2 and older, you will need another file share to use as the file share witness, since cloud witnesses are supported for Windows 2016 and newer. You can use another Azure file share, or you can use a file share on a separate virtual machine. If you're going to use another Azure file share, you can mount it with the same process as for the shared clustered drive.  
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 
