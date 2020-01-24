@@ -686,7 +686,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Create an Azure Speech service resource</h3>
-                                                    <p>Learn how to use Azure to create a Speech service resource.</p>
+                                                    <p>Learn how to get a Azure subscription key, create a Speech resource, and get started.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -706,6 +706,25 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                 <div class="cardText">
                                                     <h3>Deploy Speech service containers</h3>
                                                     <p>Learn how to use Speech containers either on-premise, with Kubernetes and Helm or Azure container instances.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/sovereign-clouds">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Sovereign Clouds</h3>
+                                                    <p>Speech service resource availability in an Azure sovereign clouds.</p>
                                                 </div>
                                             </div>
                                         </div>
