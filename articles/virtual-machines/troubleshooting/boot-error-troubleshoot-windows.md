@@ -1,5 +1,5 @@
 ---
-title: 'Azure Virtual Machines restart is stuck on Restarting, Shutting Down, or Stopping services | Microsoft Docs'
+title: 'Azure Virtual Machines shutdown is stuck on Restarting, Shutting Down, or Stopping services | Microsoft Docs'
 description: This article helps you troubleshoot service errors in Azure Windows Virtual Machines.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -16,9 +16,9 @@ ms.date: 12/19/2019
 ms.author: tibasham
 ---
 
-# Azure Windows VM restart is stuck on "Restarting", “Shutting Down”, or “Stopping services”
+# Azure Windows VM shutdown is stuck on "Restarting", “Shutting Down”, or “Stopping services”
 
-This article provides steps to resolve the issues of "Restarting", “Shutting Down”, or “Stopping services” messages that you may encounter when you reboot a Windows virtual machine (VM) in Microsoft Azure.
+This article provides steps to resolve the issues of "Restarting", “Shutting down”, or “Stopping services” messages that you may encounter when you reboot a Windows virtual machine (VM) in Microsoft Azure.
 
 ## Symptoms
 
