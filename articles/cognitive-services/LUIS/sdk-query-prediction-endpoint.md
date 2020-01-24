@@ -10,7 +10,7 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/17/2020
 ms.author: diberry
-zone_pivot_groups: programming-languages-set-six
+zone_pivot_groups: programming-languages-set-diberry-3core
 ---
 
 # Quickstart: Query V3 prediction endpoint with SDK
