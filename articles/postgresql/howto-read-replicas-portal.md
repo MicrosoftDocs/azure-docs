@@ -24,7 +24,7 @@ These steps must be used to prepare a master server in the General Purpose or Me
 2. On the server sidebar, under **SETTINGS**, select **Replication**.
 
 > [!NOTE] 
-> If you see a grayed out **Disable replication support**, the replication settings are already set on your server by default. You can skip the following steps and go to create a replica. 
+> If you see **Disable replication support** grayed out, the replication settings are already set on your server by default. You can skip the following steps and go to create a read replica. 
 
 3. Select **Enable Replication Support**. 
 
