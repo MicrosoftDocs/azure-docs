@@ -21,13 +21,13 @@ This project illustrates how a client application can connect to an Azure Remote
 1. Install [Windows SDK 10.0.18362.0](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 1. Make sure you have the newest Visual Studio 2017 version installed.
 1. To view the video stream from the server on a desktop PC, it is required to have the [HEVC Video Extensions](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7) installed.
-1. Download the nuget command line and a companion credential manager:
+1. Download the NuGet command line and a companion credential manager:
     * These tools are obtained from the [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient) site.
     * Click on Artifacts and change the dropdown from ArrClient to ArrPackages and click on ‘Connect to feed’. 
     * If necessary, switch the dropdown in the "Get packages using Visual Studio" to "All Packages" 
     * Download the NuGet command line tool and the Credential Provider package from the link displayed. 
     * Extract this to a directory of your choosing and add the location to your Path by editing the system environment variables.
-    * Add the "arrPackages" feed with the following nuget command:  
+    * Add the "arrPackages" feed with the following NuGet command:  
         `nuget.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`
 
 ## Initial set-up

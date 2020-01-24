@@ -1,6 +1,6 @@
 ---
 title: Convert your own model with Azure remote rendering
-description: Quick start that shows the conversion steps for a custom model. The converted model can be rendered
+description: Quickstart that shows the conversion steps for a custom model. The converted model can be rendered
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
