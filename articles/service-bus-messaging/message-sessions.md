@@ -79,7 +79,7 @@ The session state held in a queue or in a subscription counts towards that entit
 
 ## Impact of delivery count
 
-The definition of delivery count per message in the context of sessions varies slightly from the definition in the absense of sessions. Here is a table summarizing when the delivery count is incremented.
+The definition of delivery count per message in the context of sessions varies slightly from the definition in the absence of sessions. Here is a table summarizing when the delivery count is incremented.
 
 | Scenario | Is the message's delivery count incremented |
 |----------|---------------------------------------------|
