@@ -1,6 +1,6 @@
 ---
 title: Classroom labs in Azure Lab Services — FAQ | Microsoft Docs
-description: Find answers to common questions about classroom labs in Azure Lab Services.
+description: This article provides answers to frequently asked questions (FAQ) about classroom labs in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
