@@ -20,7 +20,7 @@ highlightedContent:
     # Card
     - title: Get started guide for Azure developers
       itemType: get-started
-      url: ../guides/developer/azure-developer-guide.md
+      url: guides/developer/azure-developer-guide.md
     # Card
     - title: Azure application architecture guide
       itemType: architecture
@@ -43,21 +43,21 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: ../cognitive-services/anomaly-detector/index.yml
+      url: cognitive-services/anomaly-detector/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - analytics
-      url: ../analysis-services/index.yml
+      url: analysis-services/index.yml
     # Card
     - title: Azure Blockchain Service
       summary: Build, govern, and expand consortium blockchain networks
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - blockchain
-      url: ../blockchain/service/index.yml
+      url: blockchain/service/index.yml
     # Card
     - title: API Apps
       summary: Easily build and consume Cloud APIs
@@ -65,28 +65,28 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: ../app-service/index.yml
+      url: app-service/index.yml
     # Card
     - title: Azure Functions
       summary: Process events with serverless code
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - containers
-      url: ../azure-functions/index.yml
+      url: azure-functions/index.yml
     # Card
     - title: Azure API for FHIR
       summary: Easily create and deploy a FHIR service for health data solutions and interoperability
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - databases
-      url: ../healthcare-apis/index.yml
+      url: healthcare-apis/index.yml
     # Card
     - title: App Configuration Preview
       summary: Fast, scalable parameter storage for app configuration
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - developerTools
-      url: ../azure-app-configuration/index.yml
+      url: azure-app-configuration/index.yml
     # Card
     - title: Application Insights
       summary: Full observability into your applications, infrastructure, and network
@@ -94,7 +94,7 @@ productDirectory:
       azureCategories:
         - devops
         - managementAndGovernance
-      url: ../azure-monitor/index.yml
+      url: azure-monitor/index.yml
     # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
@@ -102,14 +102,14 @@ productDirectory:
       azureCategories:
         - hybrid
         - identity
-      url: ../active-directory/index.yml
+      url: active-directory/index.yml
     # Card
     - title: Azure Active Directory B2C
       summary: Consumer identity and access management in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - identity
-      url: ../active-directory-b2c/index.yml
+      url: active-directory-b2c/index.yml
     # Card
     - title: API Management
       summary: Publish APIs to developers, partners, and employees securely and at scale
@@ -117,7 +117,7 @@ productDirectory:
       azureCategories:
         - integration
         - iot
-      url: ../api-management/index.yml
+      url: api-management/index.yml
     # Card
     - title: Azure Cosmos DB
       summary: Globally distributed, multi-model database for any scale
@@ -125,28 +125,28 @@ productDirectory:
       azureCategories:
         - databases
         - iot
-      url: ../cosmos-db/index.yml
+      url: cosmos-db/index.yml
     # Card
     - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: ../cognitive-services/anomaly-detector/index.yml
+      url: cognitive-services/anomaly-detector/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - analytics
-      url: ../analysis-services/index.yml
+      url: analysis-services/index.yml
     # Card
     - title: Azure Blockchain Service
       summary: Build, govern, and expand consortium blockchain networks
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - blockchain
-      url: ../blockchain/service/index.yml
+      url: blockchain/service/index.yml
     # Card
     - title: API Apps
       summary: Easily build and consume Cloud APIs
@@ -154,28 +154,28 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: ../app-service/index.yml
+      url: app-service/index.yml
     # Card
     - title: Azure Functions
       summary: Process events with serverless code
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - containers
-      url: ../azure-functions/index.yml
+      url: azure-functions/index.yml
     # Card
     - title: Azure API for FHIR
       summary: Easily create and deploy a FHIR service for health data solutions and interoperability
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - databases
-      url: ../healthcare-apis/index.yml
+      url: healthcare-apis/index.yml
     # Card
     - title: App Configuration Preview
       summary: Fast, scalable parameter storage for app configuration
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - developerTools
-      url: ../azure-app-configuration/index.yml
+      url: azure-app-configuration/index.yml
     # Card
     - title: Application Insights
       summary: Full observability into your applications, infrastructure, and network
@@ -183,7 +183,7 @@ productDirectory:
       azureCategories:
         - devops
         - managementAndGovernance
-      url: ../azure-monitor/index.yml
+      url: azure-monitor/index.yml
     # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
@@ -191,14 +191,14 @@ productDirectory:
       azureCategories:
         - hybrid
         - identity
-      url: ../active-directory/index.yml
+      url: active-directory/index.yml
     # Card
     - title: Azure Active Directory B2C
       summary: Consumer identity and access management in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - identity
-      url: ../active-directory-b2c/index.yml
+      url: active-directory-b2c/index.yml
     # Card
     - title: API Management
       summary: Publish APIs to developers, partners, and employees securely and at scale
@@ -206,7 +206,7 @@ productDirectory:
       azureCategories:
         - integration
         - iot
-      url: ../api-management/index.yml
+      url: api-management/index.yml
     # Card
     - title: Azure Cosmos DB
       summary: Globally distributed, multi-model database for any scale
@@ -214,7 +214,7 @@ productDirectory:
       azureCategories:
         - databases
         - iot
-      url: ../cosmos-db/index.yml
+      url: cosmos-db/index.yml
 
 tools:
   title: Tools
