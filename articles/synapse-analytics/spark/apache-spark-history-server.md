@@ -1,10 +1,10 @@
 ---
-title: Extended Spark history server to debug apps - Apache Spark in Azure Synapse 
-description: Use extended Spark history server to debug and diagnose Spark applications - Azure Synapse Analytics.
+title: Use the extended Spark history server to debug apps - Apache Spark in Azure Synapse 
+description: Use the extended Spark history server to debug and diagnose Spark applications in Azure Synapse Analytics.
 services: sql-data-warehouse 
 author: euangMS 
 ms.service: sql-data-warehouse 
-ms.topic: overview
+ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/25/2019 
 ms.author: euang 
@@ -13,23 +13,21 @@ ms.reviewer: euang
 
 # Use extended Apache Spark history server to debug and diagnose Apache Spark applications
 
-This article provides guidance on how to use extended Apache Spark history server to debug and diagnose completed and running Spark applications.
+This article provides guidance on how to use the extended Apache Spark history server to debug and diagnose completed and running Spark applications.
 
 The extension includes a data tab, graph tab, and diagnosis tab. Use the **Data** tab to check the input and output data of the Spark job. The **Graph** tab shows you the data flow and replay of the job graph. The **Diagnosis** tab shows you  **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
 
-## Get access to Apache Spark history server
+## Access the Apache Spark history server
 
-Apache Spark history server is the web UI for completed and running Spark applications.
+Apache Spark history server is the web user interface for completed and running Spark applications. You can open the Apache Spark history server web interface from Azure Synapse Studio.
 
-### Open the Apache Spark history server web interface from Azure Synapse Studio
+1. From your Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
-From the Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document select **Session details**.
+   ![Launch Spark history server](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
 
-![Launch Spark history server](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
+2. Select **Spark history server** from the slide out panel.
 
-Then, select **Spark history server** from the slide out panel.
-
-![Launch Spark history server](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
+   ![Launch Spark history server](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
 
 ## Explore the Data tab in Spark history server
 
@@ -79,57 +77,73 @@ Select the Job ID for the job you want to view. Then select **Data** on the tool
 
 Select the Job ID for the job you want to view. Then, select **Graph** on the tool menu to get the job graph view.
 
-* You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
+### Overview
 
-    ![Spark application and job graph job ID](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
+You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
 
-* By default, the **Progress** display is selected. You can check the data flow by selecting **Read** or **Written** in the **Display** dropdown list.
+![Spark application and job graph job ID](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-   ![Spark application and job graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
+### Display
 
-   The graph node display the colors shown in the heatmap legend.
+By default, the **Progress** display is selected. You can check the data flow by selecting **Read** or **Written** in the **Display** dropdown list.
 
-   ![Spark application and job graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
+![Spark application and job graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-* To playback the job, select **Playback**. You can select **Stop** at any time to stop. The task colors show different statuses when playing back:
+The graph node display the colors shown in the heatmap legend.
 
-  * Green for succeeded: The job has completed successfully.
+![Spark application and job graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
-  * Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
+### Playback
 
-  * Blue for running: The task is running.
+To playback the job, select **Playback**. You can select **Stop** at any time to stop. The task colors show different statuses when playing back:
 
-     ![Spark application and job graph color sample, running](./media/apache-spark-history-server/sparkui-graph-color-running.png)
+|Color|Meaning|
+|-|-|
+|Green|Succeeded: The job has completed successfully.|
+|Orange|Retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.|
+|Blue|Running: The task is running.|
+|White|Waiting or skipped: The task is waiting to run, or the stage has skipped.|
+|Red|Failed: The task has failed.|
 
-  * White for waiting or skipped: The task is waiting to run, or the stage has skipped.
+The following image shows Green, Orange, and Blue status colors.
 
-     ![Spark application and job graph color sample, skip](./media/apache-spark-history-server/sparkui-graph-color-skip.png)
+![Spark application and job graph color sample, running](./media/apache-spark-history-server/sparkui-graph-color-running.png)
 
-  * Red for failed: The task has failed.
+The following image shows Green and White status colors.
 
-    ![Spark application and job graph color sample, failed](./media/apache-spark-history-server/sparkui-graph-color-failed.png)
+![Spark application and job graph color sample, skip](./media/apache-spark-history-server/sparkui-graph-color-skip.png)
 
-    > [!NOTE]  
-    > Playback for each job is allowed. For incomplete jobs, playback is not supported.
+The following image shows Red and Green status colors.
 
-* Use your mouse scroll to zoom in and out on the job graph, or select **Zoom to fit** to make it fit to screen.
+![Spark application and job graph color sample, failed](./media/apache-spark-history-server/sparkui-graph-color-failed.png)
 
-    ![Spark application and job graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
+> [!NOTE]  
+> Playback for each job is allowed. For incomplete jobs, playback is not supported.
 
-* Hover on graph node to see the tooltip when there are failed tasks, and select a stage to open its stage page.
+### Zoom
 
-    ![Spark application and job graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
+Use your mouse scroll to zoom in and out on the job graph, or select **Zoom to fit** to make it fit to screen.
 
-* On the job graph tab, stages have a tooltip and a small icon displayed if they have tasks that meet the following conditions:
+![Spark application and job graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
-   |Condition|Description|
-   |-|-|
-   |Data skew|data read size > average data read size of all    tasks inside this stage * 2 and data read size > 10 MB|
-   |Time skew|execution time > average execution time of all    tasks inside this stage * 2 and execution time > 2 minutes|
+### Tooltips
+
+Hover on graph node to see the tooltip when there are failed tasks, and select a stage to open its stage page.
+
+![Spark application and job graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
+
+On the job graph tab, stages have a tooltip and a small icon displayed if they have tasks that meet the following conditions:
+
+|Condition|Description|
+|-|-|
+|Data skew|data read size > average data read size of all    tasks inside this stage * 2 and data read size > 10 MB|
+|Time skew|execution time > average execution time of all    tasks inside this stage * 2 and execution time > 2 minutes|
    
-   ![Spark application and job graph skew icon](./media/apache-spark-history-server/sparkui-graph-skew-icon.png)
+![Spark application and job graph skew icon](./media/apache-spark-history-server/sparkui-graph-skew-icon.png)
 
-* The job graph node displays the following information of each stage:
+### Graph node description
+
+The job graph node displays the following information of each stage:
 
   * ID.
   * Name or description.
@@ -145,29 +159,31 @@ Select the Job ID for the job you want to view. Then, select **Graph** on the to
     >  
     > The data size of read and write is 1MB = 1000 KB = 1000 * 1000 Bytes.
 
-* Send feedback with issues by selecting **Provide us feedback**.
+### Provide feedback
 
-    ![Spark application and job graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
+Send feedback with issues by selecting **Provide us feedback**.
 
-## Diagnosis tab in Apache Spark history server
+![Spark application and job graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
-* Select a job ID, and then select **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
+## Explore the Diagnosis tab in Apache Spark history server
 
-* Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
+To access the Diagnosis tab, select a job ID. Then select **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
 
-    ![SparkUI diagnosis data skew tab again](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
+Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
+
+![SparkUI diagnosis data skew tab again](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### Data Skew
 
 When you select the **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters.
 
-* **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage** and **Skew Char** sections are refreshed accordingly.
+* **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The default rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage** and **Skew Char** sections are refreshed accordingly.
 
 * **Skewed Stage** - The second section displays stages, which have skewed tasks meeting the criteria specified above. If there is more than one skewed task in a stage, the skewed stage table only displays the most skewed task (for example, the largest data for data skew).
 
     ![sparkui diagnosis data skew tab](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
-* **Skew Chart** – When a row in the skew stage table is selected, the skew chart displays more task distributions details based on data read and execution time. The skewed tasks are marked in red and the normal tasks are marked in blue. For performance consideration, the chart only displays up to 100 sample tasks. The task details are displayed in right bottom panel.
+* **Skew Chart** – When a row in the skew stage table is selected, the skew chart displays more task distribution details based on data read and execution time. The skewed tasks are marked in red and the normal tasks are marked in blue. The chart displays up to 100 sample tasks, and the task details are displayed in right bottom panel.
 
     ![sparkui skew chart for stage 10](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
@@ -183,13 +199,13 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 ### Executor Usage Analysis
 
-The Executor Usage Graph visualizes the Spark job actual executor allocation and running status.  
+The Executor Usage Graph visualizes the Spark job executor's allocation and running status.  
 
-* Select **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event increases or decreases the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
+1. Select **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, **Idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event increases or decreases the allocated executors. You can check "Event Timeline" in the "Jobs" tab for more comparison.
 
-    ![sparkui diagnosis executors tab](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
+   ![sparkui diagnosis executors tab](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 
-* Select the color icon to select or unselect the corresponding content in all drafts.
+2. Select the color icon to select or unselect the corresponding content in all drafts.
 
     ![sparkui diagnoses select chart](./media/apache-spark-history-server/sparkui-diagnosis-select-chart.png)
 

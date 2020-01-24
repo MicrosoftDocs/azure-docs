@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Spark version support 
-description: Supported versions of Spark, Scala, Python
+description: This article lists the supported runtime and service versions of Apache Spark in Azure Synapse Analytics.
 services: sql-data-warehouse 
 author: euangMS 
 ms.service: sql-data-warehouse 
