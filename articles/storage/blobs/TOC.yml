@@ -645,7 +645,7 @@
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Best practices
       href: data-lake-storage-best-practices.md
-    - name: Directory & file access control
+    - name: Access control (directories and files)
       href: data-lake-storage-access-control.md
   - name: How to
     items:
