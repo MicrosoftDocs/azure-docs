@@ -73,7 +73,7 @@ landingContent:
           - text: Query Performance Insight
             url: sql-database-query-performance.md
           - text: Azure SQL Analytics
-            url: /azure/azure-monitor/insights/azure-sql.md
+            url: ../azure-monitor/insights/azure-sql.md
           - text: Intelligent Insights
             url: sql-database-intelligent-insights.md
           - text: Detectable performance patterns
