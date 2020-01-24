@@ -46,7 +46,7 @@ from azureml.pipeline.steps import PythonScriptStep
 
 # Add pip dependency on OpenCensus
 dependencies = CondaDependencies()
-dependencies.add_pip_package("opencensus-ext-azure")
+dependencies.add_pip_package("opencensus-ext-azure>=1.0.1")
 run_config = RunConfiguration(conda_dependencies=dependencies)
 
 # Add environment variable with Application Insights Connection String
@@ -77,8 +77,11 @@ import logging
 Next, add the AzureLogHandler to the python logger.
 
 ```python
-# Assumes the environment variable APPLICATIONINSIGHTS_CONNECTION_STRING is already set
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+
+# Assumes the environment variable APPLICATIONINSIGHTS_CONNECTION_STRING is already set
 logger.addHandler(AzureLogHandler())
 logger.warning("I will be sent to Application Insights")
 ```
@@ -127,7 +130,7 @@ custom_dimensions = {
 }
 
 # Assumes AzureLogHandler was already registered above
-logger.info("Info with context attached", custom_dimensions)
+logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
 ```
 
 ## OpenCensus Python logging considerations
