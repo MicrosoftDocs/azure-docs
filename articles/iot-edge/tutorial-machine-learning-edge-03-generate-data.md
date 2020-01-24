@@ -140,7 +140,7 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 1. From the storage account navigator, select **Storage Explorer (preview)**.
 
-1. In the storage explorer, select **Blob Containers** then **devicedata**.
+1. In the storage explorer, select **Blob Containers** then `devicedata`.
 
 1. In the content pane, click on the folder for the name of the IoT hub, followed by year, month, day, and hour. You will see several folders representing the minutes when the data was written.
 
