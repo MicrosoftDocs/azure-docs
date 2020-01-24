@@ -181,7 +181,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | service | No |
+> | service |  |Yes
 
 ## Microsoft.AppConfiguration
 
@@ -1137,7 +1137,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | storageaccounts | Yes?? | 
+> | storageaccounts | Yes | 
 
 ## Microsoft.StorageCache
 
