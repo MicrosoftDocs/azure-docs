@@ -68,7 +68,7 @@ To configure the integration of SharePoint on-premises into Azure AD, you need t
 in our scenario this value is set to **No**.
 
 
-## Create the Enterprise Application in Azure Active Directory for SharePoint
+## Configure and test Azure AD with SharePoint on-premises
 
 In this section, you configure Azure AD single sign-on with SharePoint on-premises.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in SharePoint on-premises needs to be established.
@@ -221,23 +221,29 @@ In order to assign Azure Active Directory Security Groups to SharePoint on-premi
 	> Please note that AzureCP is not a Microsoft product or supported by Microsoft Technical Support. Download, install and configure AzureCP on the on-premises SharePoint farm per https://yvand.github.io/AzureCP/ 
 
 1. Configure the AzureCP on the SharePoint on-premises farm or an alternative custom claims provider solution. the AzureCP configuration's steps are available at https://yvand.github.io/AzureCP/Register-App-In-AAD.html
-	
-1. To Grant access to the Azure Active Directory Security Group in the on-premise SharePoint you need to share the site collection or add the Azure Active Directory Security Group to one of the site collection's group.
-
-1. Browse to the SharePoint Site Collection, under Site Settings for the Site Collection, click on "People and groups". Select the SharePoint group then click on New, "Add Users to this Group" and start to type the name of your group the People Picker will display the Azure Active Directory Security Group.
-    ![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/permissionAADgroup.png)
-
-
-
-### Grant access to a Guest account to SharePoint on-premises in the Azure portal
-
-it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified for something like **MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com**. To get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your Azure Portal.
 
 1. In the Azure portal, open the Azure AD directory. Click on **Enterprise applications**, click on the **previously created Enterprise Application name** and click on **Single sign-on**.
 
 1. In the page **Set up Single Sign-On with SAM**, edit the **User Attributes & Claims** section.
 
-1. in the **Required claim** zone click on **Unique User Identifier (Name ID)** 
+1. Click on **Add a group claim**.
+
+1. Select which groups associated with the user should be returned in the claim, in our case select **All groups** and in the Source attribute section select **Group ID** and click on **Save**.
+
+To grant access to the Azure Active Directory Security Group in the on-premise SharePoint you need to share the site collection or add the Azure Active Directory Security Group to one of the site collection's group.
+
+1. Browse to the SharePoint Site Collection, under Site Settings for the Site Collection, click on "People and groups". Select the SharePoint group then click on New, "Add Users to this Group" and start to type the name of your group the People Picker will display the Azure Active Directory Security Group.
+    ![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/permissionAADgroup.png)
+
+### Grant access to a Guest account to SharePoint on-premises in the Azure portal
+
+it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified for something like **MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com**. To get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your **User Attributes & Claims** section in the Azure Portal.
+
+1. In the Azure portal, open the Azure AD directory. Click on **Enterprise applications**, click on the **previously created Enterprise Application name** and click on **Single sign-on**.
+
+1. In the page **Set up Single Sign-On with SAM**, edit the **User Attributes & Claims** section.
+
+1. in the **Required claim** zone click on **Unique User Identifier (Name ID)**.
 
 1. Change the **Source Attribute** Property to the value **user.localuserprincipalname** and **save**.
 
@@ -262,7 +268,7 @@ it's now possible to grant access to your SharePoint Site  to a Guest Account in
 
 ### Configuring the trusted identity provider for multiple web applications
 
-The configuration works for a single web application, but needs additional configuration if you intend to use the same trusted identity provider for multiple web applications. For example, assume we had extended a web application to use the URL `https://portal.contoso.com` and now want to authenticate the users to `https://sales.contoso.com` as well. To do this, we need to update the identity provider to honor the WReply parameter and update the application registration in Azure AD to add a reply URL.
+The configuration works for a single web application, but needs additional configuration if you intend to use the same trusted identity provider for multiple web applications. For example, assume we had extended a web application to use the URL `https://sales.contoso.com` and now want to authenticate the users to `https://marketing.contoso.com` as well. To do this, we need to update the identity provider to honor the WReply parameter and update the application registration in Azure AD to add a reply URL.
 
 1. In the Azure portal, open the Azure AD directory. Click on **Enterprise applications**, click on the **previously created Enterprise Application name** and click on **Single sign-on**.
 
@@ -270,7 +276,7 @@ The configuration works for a single web application, but needs additional confi
 
     ![edit Basic SAML Configuration](./media/sharepoint-on-premises-tutorial/Add_replyURL.png)
 
-3. In **Reply URL (Assertion Consumer Service URL)** add  the URL for the additional web applications with `/_trust` appended to the URL and click **Save**.
+3. In **Reply URL (Assertion Consumer Service URL)** add  the URL for the additional web applications  and click **Save**.
 
     ![edit Basic SAML Configuration](./media/sharepoint-on-premises-tutorial/replyURL_forwebapplication.png)
 
