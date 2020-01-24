@@ -235,4 +235,4 @@ If you deploy your container group in an [Azure virtual network](container-insta
 * [Azure API Management](../api-management/api-management-key-concepts.md)
 * [Azure Application Gateway](../application-gateway/overview.md)
 
-For an application gateway example, see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+To use an application gateway, see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
