@@ -91,8 +91,6 @@
     href: cognitive-search-concept-intro.md
   - name: Skillsets
     href: cognitive-search-working-with-skillsets.md
-  - name: Built-in skills
-    href: cognitive-search-predefined-skills.md
   - name: Knowledge store 
     href: knowledge-store-concept-intro.md
   - name: Projections
@@ -197,7 +195,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Indexing with "indexers"
+  - name: Using an indexer
     items:
     - name: Configure indexers
       href: search-indexer-overview.md
@@ -352,7 +350,7 @@
     - name: Management 2015-08-15
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
-      href: /rest/api/searchservice/searchmanagement/index-2019-10-01-preview
+      href: /rest/api/searchmanagement/index-2019-10-01-preview
   - name: Python
     items:
     - name: Management API
@@ -387,6 +385,8 @@
     items:
     - name: Built-in skills
       items:
+      - name: Overview
+        href: cognitive-search-predefined-skills.md
       - name: Key Phrase Extraction 
         href: cognitive-search-skill-keyphrases.md
       - name: Language Detection
