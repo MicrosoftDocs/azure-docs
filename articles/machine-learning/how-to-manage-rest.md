@@ -31,14 +31,14 @@ In this article, you learn how to:
 - An **Azure subscription** for which you have administrative rights. If you do not have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree)
 - An [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 - Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication#set-up-service-principal-authentication) to create a service principal in your workspace
-- The **curl** utility. This is available in the [Windows Subsystem for Linux](https://aka.ms/wslinstall/) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. This article uses curl since it is very widely available, but the [source code](tk) uses [Postman](https://www.getpostman.com), a tool that allows developers to organize requests, swap in variables, and view request and response details in an easy-to-use manner
+- The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](https://aka.ms/wslinstall/) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. This article uses curl since it is widely available, but the [source code](tk) uses [Postman](https://www.getpostman.com), a tool that allows developers to organize requests, swap in variables, and view request and response details in an easy-to-use manner
 
 ## Retrieve a service principal authentication token
 
-Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your workspace's service principal. In order to retrieve this, you will need:
+Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your workspace's service principal. In order to retrieve this token, you will need:
 
-- Your tenant id (identifying the organization to which your subscription belongs)
-- Your client id (which will be associated with the created token)
+- Your tenant ID (identifying the organization to which your subscription belongs)
+- Your client ID (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
 You should have these values from the response to the creation of your service principal as discussed in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication#set-up-service-principal-authentication). If you are using your company subscription, it is possible that you do not have sufficient permissions to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
@@ -176,7 +176,7 @@ To work with resources within a workspace, you will need to switch from the gene
 }
 ```
 
-The value of the `api` response is the URL of the server that you will use for additional requests. To list experiments, for instance, send the following. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
+The value of the `api` response is the URL of the server that you will use for additional requests. To list experiments, for instance, send the following command. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
 
 ```bash
 curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -227,7 +227,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. Following the reference at [tk](tk), the following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [tk](tk), the following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
@@ -258,9 +258,9 @@ curl -X PUT \
 > [!Note]
 > In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
 
-A successful request will get a `201 Created` response, but note that this simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm the completion. 
+A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm it's successful completion. 
 
-To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python such as the following into a folder called **train.zip**. 
+To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python program such as the following into a folder called **train.zip**. 
 
 ```python
 # hello.py
@@ -268,7 +268,7 @@ To start a run within an experiment, you need a zip folder containing your train
 print("Hello, REST!")
 ```
 
-Save the following as **definition.json**. Confirm the "Script" value matches the name of the Python file you just zipped up. Confirm the "Target" value matches the name of an available compute resource. 
+Save this next snippet as **definition.json**. Confirm the "Script" value matches the name of the Python file you just zipped up. Confirm the "Target" value matches the name of an available compute resource. 
 
 ```json
 {
