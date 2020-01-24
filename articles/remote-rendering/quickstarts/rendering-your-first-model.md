@@ -14,6 +14,7 @@ ms.service: azure-remote-rendering
 
 This is a tutorial describing the steps to configure a workstation to work with Azure Remote Rendering (ARR) and render your first model using the ARR service.
 
+
 You will learn how to:
 - set up your local development environment
 - get and build the Unity example app
@@ -25,7 +26,7 @@ The following must be installed to complete this tutorial:
 - GIT [(download)](https://git-scm.com/downloads "GIT")
 - Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk "Windows SDK")
 - Unity 2019.3 [(download)](https://unity3d.com/get-unity/download "Unity")
-- The nuget command-line and a companion credential manager:
+- The NuGet command-line and a companion credential manager:
   - These should be downloaded from the [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient) site.
 	- Click on Artifacts and change the dropdown from ArrClient to ArrPackages and click on ‘Connect to feed’.
 
