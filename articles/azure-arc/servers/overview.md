@@ -74,8 +74,8 @@ The following URLs are required in addition to the Service Tag IP address range 
 
 Azure Arc for servers depends on the following Azure resource providers in your subscription in order to use this service:
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+- **Microsoft.HybridCompute**
+- **Microsoft.GuestConfiguration**
 
 If they are not registered, you can register them using the following commands:
 
@@ -96,7 +96,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-You can also register the Resource Providers from the Azure portal by following the steps under [Azure portal](../../azure-resource-manager//management/resource-providers-and-types.md#azure-portal). 
+You can also register the Resource Providers from the Azure portal by following the steps under [Azure portal](../../azure-resource-manager//management/resource-providers-and-types.md#azure-portal).
 
 ## Installing the agent
 
