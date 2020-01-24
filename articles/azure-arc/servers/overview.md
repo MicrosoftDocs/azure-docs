@@ -19,7 +19,7 @@ Azure Arc for servers (preview) allows you to manage your Windows and Linux mach
 To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
 
 >[!NOTE]
->The Public Preview release is designed for evaluation purposes and we recommend not managing critical production resources.
+>This preview release is intended for evaluation purposes and we recommend you don't manage critical production machines.
 >
 
 ## Supported scenarios
