@@ -195,7 +195,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
         "forceUpdateTag": "[parameters('utcValue')]",
         "azPowerShellVersion": "2.8",
         "timeout": "PT30M",
-        "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an arguement string, double quotes must be escaped
+        "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an argument string, double quotes must be escaped
         "scriptContent": "
           param(
             [string] [Parameter(Mandatory=$true)] $vaultName,
