@@ -1,0 +1,35 @@
+### YamlMime:Hub
+
+title: Azure documentation
+summary: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
+brand: azure
+
+metadata:
+  title: Azure documentation
+  description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
+  services: azure
+  ms.service: azure
+  ms.topic: hub-page
+  author: 
+  ms.author: 
+  ms.date: 01/23/2020
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Get started guide for Azure developers
+      itemType: get-started
+      url: 
+    # Card
+    - title: Azure application architecture guide
+      itemType: architecture
+      url: 
+    # Card
+    - title: Microsoft Cloud Adoption Framework for Azure
+      itemType: architecture
+      url: 
+    # Card
+    - title: Tour Azure with Microsoft Learn
+      itemType: learn
+      url: 
