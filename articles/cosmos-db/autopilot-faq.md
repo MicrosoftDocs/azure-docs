@@ -80,6 +80,6 @@ For example, if you select the 20,000 RU/s max throughput option and have 200 GB
 
 ## Next steps
 
-* Learn how to [enable autopilot on an Azure Cosmos container or database](provision-throughput-autopilot.md#enable-autopilot).
+* Learn how to [enable autopilot on an Azure Cosmos container or database](provision-throughput-autopilot.md#create-a-database-or-a-container-with-autopilot-mode).
 * Learn about the [benefits of autopilot](provision-throughput-autopilot.md#benefits-of-autopilot-mode).
 * Learn more about [logical and physical partitions](partition-data.md).

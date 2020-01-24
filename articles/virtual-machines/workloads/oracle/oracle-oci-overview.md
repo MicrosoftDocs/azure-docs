@@ -46,7 +46,7 @@ The following diagram is a high-level overview of the connected solution. For si
 
 ## Preview limitations
 
-* Cross-cloud connectivity in preview is limited to the Azure East US (eastus) & UK South (uksouth) regions and the OCI Ashburn (US East) & London (UK South) regions. For UK South, please use Availability Domain 1 (AD 1) in OCI when deploying the inter-connect for lower latencies.
+* Cross-cloud connectivity in preview is limited to the Azure East US (eastus), UK South (uksouth), and Canada Central (canadacentral) regions and the OCI Ashburn (US East), London (UK South), and Toronto (Canada Southeast) regions. For UK South, please use Availability Domain 1 (AD 1) in OCI when deploying the inter-connect for lower latencies.
 
 ## Networking
 

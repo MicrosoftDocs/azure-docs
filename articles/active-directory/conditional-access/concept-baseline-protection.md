@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -22,7 +22,7 @@ Baseline policies are a set of predefined policies that help protect organizatio
 Managing customized Conditional Access policies requires an Azure AD Premium license.
 
 > [!IMPORTANT]
-> Baseline policies are being depricated. See [What's new in Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) for more information.
+> Baseline policies are being deprecated. See [What's new in Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) for more information.
 
 ## Baseline policies
 
@@ -36,6 +36,10 @@ There are four baseline policies:
 * Require MFA for service management (preview)
 
 All four of these policies will impact legacy authentication flows like POP, IMAP, and older Office desktop clients.
+
+### Exclusions
+
+When baseline policies went into their initial public preview, there was an option to exclude users from the policies. This capability evolved through the preview and was removed in July of 2019. Organizations who had already created exclusions were able to continue to keep them new users were unable to add exclusions to the policies.
 
 ### Require MFA for admins (preview)
 
@@ -60,8 +64,8 @@ High privileged administrators aren’t the only ones targeted in attacks. Bad a
 
 **End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal. 
 
-[!NOTE]
-Any users previously flagged for risk are blocked until password reset and risk dismissal upon policy activation.
+> [!NOTE]
+> Any users previously flagged for risk are blocked until password reset and risk dismissal upon policy activation.
 
 ### Block legacy authentication (preview)
 

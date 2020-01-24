@@ -90,7 +90,7 @@ If your Resource Manager template uses MSDeploy, the deployment error messages c
 
 ## Choose a unique web app name
 
-The name for your web app must be globally unique. You can use a naming convention that's likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) to assist with generating a unique name.
+The name for your web app must be globally unique. You can use a naming convention that's likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/templates/template-functions-string.md#uniquestring) to assist with generating a unique name.
 
 ```json
 {

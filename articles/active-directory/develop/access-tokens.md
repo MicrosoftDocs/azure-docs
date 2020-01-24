@@ -13,7 +13,6 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform access tokens

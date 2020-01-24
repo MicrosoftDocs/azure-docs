@@ -91,7 +91,7 @@ Enable change feed by using PowerShell:
 5. Enable change feed for your storage account.
 
    ```powershell
-   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
 ### [Template](#tab/template)

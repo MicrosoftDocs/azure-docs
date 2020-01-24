@@ -13,7 +13,6 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Provide optional claims to your Azure AD app
@@ -123,9 +122,7 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 You can configure optional claims for your application through the UI or application manifest.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
-1. Select **Azure Active Directory** from the left-hand menu.
+1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
 1. From the **Manage** section, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
 
@@ -174,7 +171,7 @@ You can configure optional claims for your application through the UI or applica
                        }
                ]
            }
-	   ```
+	```
 
 2. When finished, click **Save**. Now the specified optional claims will be included in the tokens for your application.    
 

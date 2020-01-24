@@ -260,16 +260,23 @@ Enable network throttling as follows:
 
 ## Run an on-demand backup
 
-1. In the MARS agent, click **Back Up Now**. This kicks off the initial replication over the network.
+1. In the MARS agent, click **Back Up Now**.
 
     ![Windows Server backup now](./media/backup-configure-vault/backup-now.png)
 
-2. In **Confirmation**, review the settings, and click **Back Up**.
-3. Click **Close** to close the wizard. If you do this before the backup finishes, the wizard continues to run in the background.
+2. If the MARS agent version is 2.0.9169.0 or newer, a custom retention can be set. In the **Retain Backup Till** section, choose a date from the presented calendar:
 
-After the initial backup is completed, the **Job completed** status appears in the Backup console.
+   ![Retain Backup calendar](./media/backup-configure-vault/mars-ondemand.png)
+
+3. In **Confirmation**, review the settings, and click **Back Up**.
+4. Click **Close** to close the wizard. If you do this before the backup finishes, the wizard continues to run in the background.
+5. After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
 ## On-demand backup policy retention behavior
+
+>[!NOTE]
+>Applicable only to MARS agent versions older than 2.0.9169.0
+>
 
 * For more information, refer step 8 of [Create a backup policy](backup-configure-vault.md#create-a-backup-policy)
 

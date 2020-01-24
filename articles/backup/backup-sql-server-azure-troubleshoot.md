@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot SQL Server database backup 
+title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
@@ -15,6 +15,25 @@ For more information about the backup process and limitations, see [About SQL Se
 
 To configure protection for a SQL Server database on a virtual machine, you must install the **AzureBackupWindowsWorkload** extension on that virtual machine. If you get the error **UserErrorSQLNoSysadminMembership**, it means your SQL Server instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
+## Troubleshoot discover and configure issues
+After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+During the backup configuration, if the SQL VM and its instances are not visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) ensure that:
+
+### Step 1: Discovery DBs in VMs
+
+- If the VM is not listed in the discovered VM list and also not registered for SQL backup in another vault, then follow the [Discovery SQL Server backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) steps.
+
+### Step 2: Configure Backup
+
+- If the vault in which the SQL VM is registered in the same vault used to protect the databases, then follow the [Configure Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) steps.
+
+If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from the vault requires all the protected data sources to be stop protected and then you can delete the backed up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
+
+
+
 ## Error messages
 
 ### Backup type unsupported
@@ -28,7 +47,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model does not allow log backup.</li><li>Differential and log backups are not allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you have configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
+| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
 
 ### UserErrorSQLPODoesNotExist
 
@@ -120,18 +139,27 @@ Operation is blocked as you have reached the limit on number of operations permi
 |---|---|---|
 Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. This error usually comes when there are at-scale operations such as modify policy or auto-protection. Unlike in the case of CloudDosAbsoluteLimitReached, there is not much you can do to resolve this state, in fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours.
 
+### UserErrorVMInternetConnectivityIssue
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup to Azure Backup Service, Azure Storage or Azure Active Directory services. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there is no firewall/antivirus/proxy that is blocking calls to the above three target services.
+
+
 ## Re-registration failures
 
 Check for one or more of the following symptoms before you trigger the re-register operation:
 
 * All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* The **Backup Status** area for the backup item is showing **Not reachable**. Rule out all the other causes that might result in the same status:
+* If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
 
-  * Lack of permission to perform backup-related operations on the VM  
-  * Shutdown of the VM, so backups can’t take place
-  * Network issues  
+  * Lack of permission to perform backup-related operations on the VM.
+  * Shutdown of the VM, so backups cannot take place.
+  * Network issues.
 
-  !["Not reachable" status in re-registering a VM](./media/backup-azure-sql-database/re-register-vm.png)
+   ![re-registering VM](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
 

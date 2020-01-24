@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Create an Azure Database Migration Service hybrid mode instance using the Azure portal | Microsoft Docs"
-description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode
+title: "Quickstart: Create a hybrid mode instance with Azure portal"
+titleSuffix: Azure Database Migration Service
+description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,14 +9,14 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/21/2019
 ---
 
-# Quickstart: Create an instance of Azure Database Migration Service in hybrid mode using the Azure portal (Preview)
+# Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
 
-Azure Database Migration Service hybrid mode manages database migrations by using a migration worker that is hosted on-premises together with an instance of Azure Database Migration Service running in the cloud. Hybrid mode is especially useful for scenarios in which there's a lack of site-to-site connectivity between the on-premises network and Azure or if there's limited site-to-site connectivity bandwidth.
+Azure Database Migration Service hybrid mode manages database migrations by using a migration worker that's hosted on-premises together with an instance of Azure Database Migration Service running in the cloud. Hybrid mode is especially useful for scenarios in which there's a lack of site-to-site connectivity between the on-premises network and Azure or if there's limited site-to-site connectivity bandwidth.
 
 >[!NOTE]
 >Currently, Azure Database Migration Service running in hybrid mode supports SQL Server migrations to:
@@ -67,7 +68,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
     - Choose the **Location** that is closest to your source or target server.
     - For **Service mode**, select **Hybrid (Preview)**.
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Select **Review + create**.
 
@@ -166,7 +167,7 @@ Currently, uninstalling Azure Database Migration Service hybrid mode is supporte
 
 ## Set up the Azure Database Migration Service hybrid worker using PowerShell
 
-In addition to installing the Azure Database Migration Service hybrid worker via the Azure portal, we provide a PowerShell script that you can use to automate the worker installation steps after you create a new instance of Azure Database Migration Service in hybrid mode. The script:
+In addition to installing the Azure Database Migration Service hybrid worker via the Azure portal, we provide a [PowerShell script](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) that you can use to automate the worker installation steps after you create a new instance of Azure Database Migration Service in hybrid mode. The script:
 
 1. Creates a new AdApp.
 2. Downloads the installer.
@@ -180,7 +181,7 @@ This script is intended for quick prototyping when the user already has all the 
 > [!IMPORTANT]
 > This script assumes that there is an existing instance of Azure Database Migration Service in hybrid mode and that the Azure account used has permissions to create AdApps in the tenant and to modify RBAC on the subscription.
 
-Simply fill in the parameters at the top of the script, and then run the script from an Administrator PowerShell instance.
+Fill in the parameters at the top of the script, and then run the script from an Administrator PowerShell instance.
 
 ## Next steps
 

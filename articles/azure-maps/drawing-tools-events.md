@@ -1,13 +1,13 @@
 ---
-title: Add a drawing toolbar to Azure Maps| Microsoft Docs
-description: How to add a drawing toolbar to a map using Azure Maps Web SDK
+title: Add a drawing toolbar to a map | Microsoft Azure Maps
+description: In this article you will learn, how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-mapss
-manager: cpendleton
+services: azure-maps
+manager: cpendle
 ---
 
 # Drawing tool events
@@ -39,7 +39,7 @@ The following are examples of some common scenarios that use the drawing tools e
 
 ### Select points in polygon area
 
-The following code shows how to monitor the drawing of shapes that represent polygon areas (polygons, rectangles, and circles), and determine which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, all data points on the map are looped through and tested for intersection with the polygon area of the drawn shape. This example makes use of the open-source [Turf.js](http://turfjs.org/) library to perform a spatial intersection calculation.
+The following code shows how to monitor the drawing of shapes that represent polygon areas (polygons, rectangles, and circles), and determine which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, all data points on the map are looped through and tested for intersection with the polygon area of the drawn shape. This example makes use of the open-source [Turf.js](https://turfjs.org/) library to perform a spatial intersection calculation.
 
 <br/>
 

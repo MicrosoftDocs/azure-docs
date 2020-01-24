@@ -1,6 +1,6 @@
 ---
-title: How to request transit data in Azure Maps | Microsoft Docs
-description: Request public transit data using the Azure Maps Mobility service.
+title: Request transit data | Microsoft Azure Maps
+description: In this article, you will learn how to request public transit data using the Microsoft Azure Maps Mobility Service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/06/2019

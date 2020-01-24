@@ -1,10 +1,8 @@
 ---
-title: Tutorial - Create an Azure Red Hat OpenShift cluster | Microsoft Docs
+title: Tutorial - Create an Azure Red Hat OpenShift cluster
 description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
@@ -156,7 +154,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 If you **want** Azure Monitoring with your cluster use the following command which adds the `--workspace-id` flag:
 
 ```bash
-az openshift create --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
 ```
 
 > [!NOTE]

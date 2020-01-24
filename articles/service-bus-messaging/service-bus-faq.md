@@ -146,7 +146,7 @@ You can move a namespace from one Azure subscription to another, using either th
 
 #### Portal
 
-To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### PowerShell
 
