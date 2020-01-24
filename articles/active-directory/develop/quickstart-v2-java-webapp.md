@@ -66,7 +66,7 @@ To run this sample you will need:
 >
 > For the code sample for this quickstart to work, you need to:
 >
-> 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
+> 1. Add reply URLs as `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/me`.
 > 1. Create a Client Secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
