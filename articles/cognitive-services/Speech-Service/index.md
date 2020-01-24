@@ -724,7 +724,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-programming-languages.png" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1034,54 +1034,6 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                     <h3>Pricing</h3>
                                                     <p>Learn more about the costs associated with Custom Voice.
                                                     </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#scenarios">Scenarios</a>
-                <ul id="scenarios">
-                    <li>
-                        <a href="#use-cases">Use cases</a>
-                        <ul id="use-cases" class="cardsC">
-                            <li>
-                                <a href="call-center-transcription.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Call center transcription</h3>
-                                                    <p>A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from sources like an Interactive Voice Response (IVR) system. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="scenario-availability.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario & feature availability</h3>
-                                                    <p>Learn scenario and feature availability by platform and programming language.</p>
                                                 </div>
                                             </div>
                                         </div>
