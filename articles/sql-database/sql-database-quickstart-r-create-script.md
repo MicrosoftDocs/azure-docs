@@ -27,7 +27,7 @@ In this quickstart, you create and run a set of R scripts using Machine Learning
 
 - An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
 
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled - [sign up for the preview](sql-database-machine-learning-services-overview.md#signup)
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
