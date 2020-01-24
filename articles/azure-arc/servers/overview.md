@@ -48,18 +48,16 @@ Before configuring your machines with Azure Arc for servers (preview), you shoul
 
 ### Networking Configuration
 
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration requirements. 
+The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration requirements.
 
-If outbound connectivity is restricted by your firewall or proxy, make sure the following URLs are not blocked. If you only allow the IP ranges or domain names required for the agent to communicate with the service, you must also allow access to the following Service Tags and URLs.
+If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. If you only allow the IP ranges or domain names required for the agent to communicate with the service, you must also allow access to the following Service Tags and URLs.
 
 Service Tags:
 
 - AzureActiveDirectory
 - AzureTrafficManager
 
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. See [Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags), for more details.
-
-The following URLs are required in addition to the Service Tag IP address range information because the majority of services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+URLs:
 
 | Agent resource | Description |
 |---------|---------|
@@ -69,6 +67,10 @@ The following URLs are required in addition to the Service Tag IP address range 
 |agentserviceapi.azure-automation.net|Guest Configuration|
 |*-agentservice-prod-1.azure-automation.net|Guest Configuration|
 |*.his.hybridcompute.azure-automation.net|Hybrid Identity Service|
+
+For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. See [Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags), for more details.
+
+The URLs in the previous table are required in addition to the Service Tag IP address range information because the majority of services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
 ### Register the required resource providers
 
