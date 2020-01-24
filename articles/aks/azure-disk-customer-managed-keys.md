@@ -94,7 +94,7 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk. Customer-managed keys are only supported in kubernetes versions greater than 1.17. 
+Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk. Customer-managed keys are only supported in Kubernetes versions greater than 1.17. 
 
 > [!IMPORTANT]
 > Ensure you create a new resoruce group for your AKS cluster

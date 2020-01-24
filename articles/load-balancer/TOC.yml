@@ -64,7 +64,7 @@
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md
   - name: IPv6 support
-    href: load-balancer-ipv6-overview.md
+    href: https://docs.microsoft.com/azure/virtual-network/ipv6-overview
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
@@ -108,11 +108,11 @@
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
-      href: load-balancer-ipv6-internet-cli.md
+      href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli
     - name: Azure PowerShell
-      href: load-balancer-ipv6-internet-ps.md
+      href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
     - name: Template
-      href: load-balancer-ipv6-internet-template.md
+      href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
   - name: Configure internal Load Balancer
     items:
     - name: Azure CLI
