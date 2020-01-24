@@ -1758,7 +1758,62 @@
     },
     {
       "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
-      "redirect_url": "/azure/cognitive-services/custom-decision-service",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-api-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-app.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-register.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-overview.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-workflow.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/index.yml",
+      "redirect_url": "/azure/cognitive-services/personalizer",
       "redirect_document_id": false
     },
     {
