@@ -16,16 +16,16 @@
 | VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Contact support. |
 | Azure Spot VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Contact support. |
 | VM per series, such as Dv2 and F, cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Contact support. |
-| [Coadministrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited. |Unlimited. |
-| [Storage accounts](../articles/storage/common/storage-quickstart-create-account.md) per region per subscription |250 |250 |
-| [Resource groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |980 |980 |
+| [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited. |Unlimited. |
+| [Storage accounts](../articles/storage/common/storage-account-create.md) per region per subscription |250 |250 |
+| [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |980 |
 | [Availability sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per region. |2,000 per region. |
 | Azure Resource Manager API request size |4,194,304 bytes. |4,194,304 bytes. |
 | Tags per subscription<sup>2</sup> |Unlimited. |Unlimited. |
 | Unique tag calculations per subscription<sup>2</sup> | 10,000 | 10,000 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |N/A<sup>3</sup> |N/A<sup>3</sup> |
-| [Subscription-level deployments](../articles/azure-resource-manager/deploy-to-subscription.md) per location | 800<sup>4</sup> | 800 |
+| [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per location | 800<sup>4</sup> | 800 |
 
 <sup>1</sup>Default limits vary by offer category type, such as Free Trial and Pay-As-You-Go, and by series, such as Dv2, F, and G. For example, the default for Enterprise Agreement subscriptions is 350.
 

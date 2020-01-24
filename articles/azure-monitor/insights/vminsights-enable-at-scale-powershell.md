@@ -2,7 +2,7 @@
 title: Enable Azure Monitor for VMs (classic) with PowerShell or templates
 description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.service:  azure-monitor
-ms.subservice: 
+ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -16,7 +16,7 @@ ms.date: 10/14/2019
 
 This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates. At the end of this process, you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues.
 
-## Set up a Log Analytics workspace 
+## Set up a Log Analytics workspace
 
 If you don't have a Log Analytics workspace, you need to create one. Review the methods that are suggested in the [Prerequisites](vminsights-enable-overview.md#log-analytics) section before you continue with the steps to configure it. Then you can finish the deployment of Azure Monitor for VMs by using the Azure Resource Manager template method.
 
@@ -31,8 +31,8 @@ If the Log Analytics workspace that's referenced by the solution isn't already c
 This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
 If you don't know how to deploy resources by using a template, see:
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -87,7 +87,7 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
 1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
 
 1. You're ready to deploy this template.
- 
+
     * Use the following PowerShell commands in the folder that contains the template:
 
         ```powershell
@@ -101,7 +101,7 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
         ```
 
     * To run the following command by using the Azure CLI:
-    
+
         ```azurecli
         az login
         az account set --subscription "Subscription Name"
@@ -122,14 +122,14 @@ We have created example Azure Resource Manager templates for onboarding your vir
 >The template needs to be deployed in the same resource group as the resource to be brought on board.
 
 If you don't know how to deploy resources by using a template, see:
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### Download templates
 
-The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. Don't modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file, you can deploy it by using the following methods described later in this article. 
+The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. Don't modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file, you can deploy it by using the following methods described later in this article.
 
 The download file contains the following templates for different scenarios:
 
@@ -176,7 +176,7 @@ provisioningState       : Succeeded
 To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0). It's available from the Azure PowerShell Gallery. This script iterates through:
 
 - Every virtual machine and virtual machine scale set in your subscription.
-- The scoped resource group that's specified by *ResourceGroup*. 
+- The scoped resource group that's specified by *ResourceGroup*.
 - A single VM or virtual machine scale set that's specified by *Name*.
 
 For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is installed, the script tries to reinstall it. If the VM extension isn't installed, the script installs the Log Analytics and Dependency agent VM extensions.
@@ -337,7 +337,7 @@ Failed: (0)
 ## Next steps
 
 Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
- 
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
 
-- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md). 
+- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+
+- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md).

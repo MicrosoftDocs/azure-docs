@@ -37,11 +37,11 @@ This can happen if the appliance machine is behind a proxy.
 - Make sure you provide the authorization credentials if the proxy needs them.
 - If you're using a URL-based firewall proxy to control outbound connectivity, add these URLs to an allow list:
 
-    - [URLs for VMware assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-    - [URLs for Hyper-V assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-    - [URLs for VMware agentless migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-    - [URLS for VMware agent-based migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-    - [URLs for Hyper-V migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
+    - [URLs for VMware assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URLs for Hyper-V assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
+    - [URLs for VMware agentless migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URLS for VMware agent-based migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URLs for Hyper-V migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
 
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
@@ -71,7 +71,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
+    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
     - In the Azure portal and check whether the project exists in the resource group.
     - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
@@ -82,7 +82,7 @@ If you receive the error 60030 or 60031, "An Azure Key Vault management operatio
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
+- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about the required Azure roles and permissions.
 
 ## Error 60028: Discovery couldn't be initiated
 
@@ -97,7 +97,7 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 - Ensure that the user account initiating the discovery is same as the one used to register the appliance.
 - Provide Azure Active Directory application access permissions to the user account for which the discovery operation is failing.
 - Delete the resource group previously created for the Azure Migrate project. Create another resource group to start again.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
+- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about Azure Active Directory application permissions.
 
 
 ## Error 50004: Can't connect to host or cluster

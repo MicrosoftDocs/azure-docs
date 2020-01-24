@@ -55,14 +55,8 @@
       - name: Python
         href: Quickstarts/get-answer-from-knowledge-base-python.md
 
-  - name: Using SDKs
-    items:
-    - name: C#
-      href: ./Quickstarts/create-publish-kb-csharp-sdk.md
-    - name: Node.js
-      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
-    - name: Python
-      href: ./Quickstarts/python-sdk.md
+  - name: Using SDK
+    href: ./Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
   - name: Create and answer from KB
@@ -148,6 +142,8 @@
     href: troubleshooting.md
   - name: File formats
     items:
+    - name: Markdown reference
+      href: reference-markdown-format.md
     - name: Batch testing TSV
       href: reference-tsv-format-batch-testing.md
   - name: REST API Reference
@@ -187,7 +183,7 @@
       - name: Reference Documentation
         href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
       - name: NPM
-        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs
     - name: Python
