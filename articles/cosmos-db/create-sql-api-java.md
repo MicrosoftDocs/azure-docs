@@ -21,7 +21,7 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-In this quickstart, you create and manage an Azure Cosmos DB SQL API account, from the Azure portal and by using a Java app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal and by using a Java app cloned from GitHub. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account, fr
   
   Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. 
   
-  You can also use the [Azure Cosmos DB Emulator](local-emulator.md) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+  You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
 - A [Maven binary archive](https://maven.apache.org/download.cgi). On Linux, you can run `apt-get install maven` to install Maven.
 - [Git](https://www.git-scm.com/). On Linux, you can run `apt-get install git` to install Git.
