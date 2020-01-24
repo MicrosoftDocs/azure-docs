@@ -38,6 +38,10 @@ The following versions of the Windows and Linux operating system are officially 
 - Windows Server 2012 R2 and higher
 - Ubuntu 16.04 and 18.04
 
+>[!NOTE]
+>This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
+>
+
 ## Azure subscription and service limits
 
 Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
