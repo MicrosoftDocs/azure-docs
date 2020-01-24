@@ -24,16 +24,6 @@ In this quickstart, you use Python to connect to an Azure SQL database and use T
   
 - [Python](https://python.org/downloads) 3 and related software
 
-> [!IMPORTANT]
-> The scripts in this article are written to use the **Adventure Works** database.
-
-> [!NOTE]
-> You can optionally choose to use an Azure SQL managed instance.
->
-> To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
->
-> To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
-
   # [macOS](#tab/macos)
 
   To install Homebrew and Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, use steps **1.2**, **1.3**, and **2.1** in [create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
