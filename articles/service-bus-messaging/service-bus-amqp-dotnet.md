@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus with .NET and AMQP 1.0 | Microsoft Docs
-description: Using Azure Service Bus from .NET with AMQP
+description: This article describes how to use Azure Service Bus from a .NET application using AMQP (Advanced Messaging Queuing Protocol).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
