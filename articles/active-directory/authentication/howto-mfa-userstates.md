@@ -60,7 +60,7 @@ Use the following steps to access the page where you can view and manage user st
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Search for and select *Azure Active Directory*. Select **Users** > **All users**.
-3. Select **Multi-Factor Authentication**.
+3. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option.
    ![Select Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. A new page that displays the user states opens.
    ![multi-factor authentication user status - screenshot](./media/howto-mfa-userstates/userstate1.png)
