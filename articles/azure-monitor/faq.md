@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/30/2019
+ms.date: 01/23/2020
 
 ---
 
@@ -93,6 +93,18 @@ All log data collected by Azure Monitor is stored in a Log Analytics workspace. 
 ### Can you move an existing Log Analytics workspace to another Azure subscription?
 You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](platform/move-workspace.md).
 
+### Why can't I see Query Explorer and Save buttons in Log Analytics?
+
+**Query Explorer**, **Save** and **New alert rule** buttons are not available when the [query scope](log-query/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](log-query/scope.md)
+
+### Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" when opening Log Analytics from a VM? 
+Many resource providers are automatically registered, but you may need to manually register some resource providers. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
+
+### Why am I am getting no access error message when opening Log Analytics from a VM? 
+To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
+
+
+
 
 ## Alerts
 
@@ -177,6 +189,12 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 ### What are the firewall requirements for Azure Monitor agents?
 See [Network firewall requirements](platform/log-analytics-agent.md#network-firewall-requirements)for details on firewall requirements.
 
+
+## Visualizations
+
+### Why can't I can’t see View Designer?
+
+View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
 
 
 ## Application Insights
