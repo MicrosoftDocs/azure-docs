@@ -18,14 +18,16 @@ messages with protocols such as AS2, X12, and EDIFACT.
 To check that these messages are processed correctly, 
 you can track these messages with 
 [Azure Monitor logs](../log-analytics/log-analytics-overview.md). 
-For example, you can use these web-based tracking 
-capabilities for tracking messages:
 
-* Message count and status
-* Acknowledgments status
-* Correlate messages with acknowledgments
-* Detailed error descriptions for failures
-* Search capabilities
+
+
+## Supported tracking schemas
+
+Azure supports these tracking schema types, which all have fixed schemas except the Custom type.
+
+* [AS2 tracking schema](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 tracking schema](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 
 > [!NOTE]
 > This page previously described steps for how to perform these tasks 
