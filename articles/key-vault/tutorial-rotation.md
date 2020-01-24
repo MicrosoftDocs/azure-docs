@@ -27,17 +27,17 @@ This tutorial demonstrates how to automate periodic rotation (30 days before exp
 
 Note: There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. In case of failure in any of the steps Event Grid retries for 2 hours.
 
-### Infrastructure setup
+## Infrastructure setup
 Before required steps for rotation are demonstrated we need initial infrastructure setup to imitate common environment. 
 Create resource group with Key Vault, SQL Server and store admin password in Key Vault as secret. 
 This tutorial would use pre-created Azure Resource Manager template to create components. You can find entire code here(Basic Secret Rotation Template Sample).
 Components List:
 - Key Vault
 - SQL Server
-Azure Resource Manager template to create components:
-Deploy
-a.	Create new resource group like below
-b.	Click Purchase
+
+Azure Resource Manager template to create components: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json)
+- Create new resource group like below
+- Click Purchase
 
 ![Purchase screen](./media/rotate2.png)
 
@@ -49,31 +49,29 @@ Components List:
 - Function App
 - Storage Account
 - Web App
-Azure Resource Manager template to create components:
-Deploy
-### Create Function App
+Azure Resource Manager template to create components: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fall%2Fazuredeploy.json)
+
+## Create Function App
 
 Function app requires below components and configuration:
 - App Service Plan
 - Storage Account
 - Function App with System Managed Identity
 - Access policy to access secrets in Key Vault using Function App Managed Identity
-Azure Resource Manager template to create components:
-Deploy
+
+Azure Resource Manager template to create components:[Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json)
 - Select resource group like below
 - Click Purchase
 
 ![Purchase screen](./media/rotate3.png)
 
 
- 
-For information how to create Function App and using Managed Identity to access Key Vault: 
-https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal
-https://docs.microsoft.com/en-us/azure/key-vault/managed-identity
+For information how to create Function App and using Managed Identity to access Key Vault, see [Create a function app from the Azure portal](../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](managed-identity.md)
 
 ### Rotation function and deployment
 
 Rotation function is using event grid as a trigger, retrieves secret information and executes rotation:
+
 ```
 public static class SimpleRotationEventHandler
 {
@@ -92,9 +90,8 @@ public static class SimpleRotationEventHandler
         }
 }
 ```
-Rotation method reads database information from secret, create new version of secret and updates database with new secret.
 
-Rotate Secret code snippet:
+Rotation method reads database information from secret, create new version of secret and updates database with new secret.
 
 ```
 public class SeretRotator
@@ -142,10 +139,9 @@ public static void RotateSecret(ILogger log, string secretName, string secretVer
 You can find entire code here:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function
 
-Deployment:
-
 Download function app zip file:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
+
 Upload file simplerotationsample-fn.zip to Cloud Shell 
  
 Use below CLI command to deploy zip file to function app:
@@ -154,7 +150,7 @@ Use below CLI command to deploy zip file to function app:
 az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
 ```
 
-After deployment you should notice two functions under simplerotation-fn 
+After deployment you should notice two functions under simplerotation-fn:
 
 ![Purchase screen](./media/rotate4.png)
 
@@ -180,31 +176,35 @@ az keyvault set-policy --upn "{email e.g. jalichwa@microsoft.com}" --name simple
 ```
 
 Create new secret with tags containing sql database datasource and user id with expiration date for tomorrow. 
+
+```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqluser --vault-name simplerotation-kv --value "Simple123" --tags "UserID=azureuser" "DataSource=simplerotation-sql.database.windows.net" --expires $tomorrowDate
+```
+
 Creating secret with short expiration date would immediately publish SecretNearExpiry event which would trigger function to rotate the secret.
 
 ### Test and verify
-After few minutes sqluser secret should automatically rotate.
--Secret rotation verification
-Go to Key Vault>Secrets
+After few minutes sqluser secret should automatically rotate. 
 
-![Test and verify](./media/rotate7.png)
+To verify secret rotation verification, go to Key Vault>Secrets
+
+  ![Test and verify](./media/rotate7.png)
 
 Open sqluser secret to see initial and rotated version
 
-![Test and verify](./media/rotate8.png)
+   ![Test and verify](./media/rotate8.png)
 
--SQL credentials verification
-For SQL credentials verification web application would be used. Web application get secret from key vault, extract sql database information and credentials from secret and test connection to sql.
+To verify SQL credentials, use a web application. The web application will get secret from key vault, extract sql database information and credentials from secret and test connection to sql.
 
 ## Create Web App
 
 Web app requires below components and configuration:
 - Web App with System Managed Identity
 - Access policy to access secrets in Key Vault using Web App Managed Identity
+
 Azure Resource Manager template to create components:
-Deploy
+[Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json)
 - Select ‘simplerotation’ resource group
 - Click Purchase
 
@@ -212,15 +212,18 @@ Deploy
 
 Source code:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp
-Download function app zip file:
-https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
-Upload file simplerotationsample-app.zip to Cloud Shell
-Use below CLI command to deploy zip file to function app:
-```azurecli
-az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
-```
 
-Open Web Application
+1. Download function app zip file:
+https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
+1. Upload file simplerotationsample-app.zip to Cloud Shell
+1. Use below CLI command to deploy zip file to function app:
+
+   ```azurecli
+   az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
+   ```
+
+#### Open web Application
+
 Go to deployed application and click URL
  
 ![Test and verify](./media/rotate10.png)
