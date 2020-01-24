@@ -18,7 +18,6 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Protected web API: Code configuration
