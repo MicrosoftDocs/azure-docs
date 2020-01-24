@@ -1,8 +1,8 @@
 ---
 title: Resource not found errors
-description: Describes how to resolve errors when a resource cannot be found when deploying with an Azure Resource Manager template.
+description: Describes how to resolve errors when a resource can't be found when deploying with an Azure Resource Manager template.
 ms.topic: troubleshooting
-ms.date: 06/06/2018
+ms.date: 01/21/2020
 ---
 # Resolve not found errors for Azure resources
 
@@ -81,4 +81,16 @@ Look for an expression that includes the [reference](template-functions-resource
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## Solution 4 - get managed identity from resource
+
+If you're deploying a resource that implicitly creates a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. If you pass the managed identity name to the [reference](template-functions-resource.md#reference) function, Resource Manager attempts to resolve the reference before the resource and identity are deployed. Instead, pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager resolves the reference function.
+
+In the reference function, use `Full` to get all of the properties including the managed identity.
+
+For example, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

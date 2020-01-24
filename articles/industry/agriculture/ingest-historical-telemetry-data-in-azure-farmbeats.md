@@ -15,7 +15,7 @@ Ingesting historical data from Internet of Things (IoT) resources such as device
 
 ## Before you begin
 
-Before you proceed with this article, make sure that you've installed FarmBeats and collected historical data from the IoT.
+Before you proceed with this article, make sure that you've installed FarmBeats and collected historical data from your IoT devices.
 You also need to enable partner access as mentioned in the following steps.
 
 ## Enable partner access
@@ -33,36 +33,41 @@ Follow these steps.
 >[!NOTE]
 > You must be an administrator to do the following steps.
 
-1. Download this [script](https://aka.ms/farmbeatspartnerscript), and extract it on your local drive. Two files are inside the zip file.
-2. Sign in to the [Azure portal](https://portal.azure.com/), and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal.
+1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
+2. Sign in to https://portal.azure.com/ and go to Azure Active Directory -> App Registrations
 
-    ![Azure portal toolbar](./media/for-tutorials/navigation-bar-1.png)
+3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats Datahub.
 
-3. Make sure the environment is set to **PowerShell**.
+4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
 
-    ![PowerShell setting](./media/for-tutorials/power-shell-new-1.png)
+5. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
-4. Upload the two files that you downloaded from step 1 in your Cloud Shell instance.
+    ![Azure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-    ![Upload button on the toolbar](./media/for-tutorials/power-shell-two-1.png)
+6. Make sure the environment is set to **PowerShell**. By default, it's set to Bash.
 
-5. Go to the directory where the files were uploaded.
+    ![PowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-   >[!NOTE]
-   > By default, files get uploaded to the home directory/home/username.
-6. Run the script by using this command:
+7. Upload the file from step 1 in your Cloud Shell instance.
 
-    ```azurepowershell-interactive
-    ./generateCredentials.ps1
+    ![Upload toolbar button](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+
+8. Go to the directory where the file was uploaded. By default, files get uploaded to the home directory under the username.
+
+9. Run the following script. The script asks for the Tenant ID which can be obtained from Azure Active Directory -> Overview page.
+
+    ```azurepowershell-interactive 
+
+    ./generatePartnerCredentials.ps1   
+
     ```
 
-7. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**. The EventHub connection string is available as part of the API response in Swagger.
-
+10. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 ## Create device or sensor metadata
 
  Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by calling FarmBeats APIs. Please note you will need to call the APIs as the client app that you created in the above section
 
- FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata.
+ FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata. Please note that as a partner you have access to only read, create and update the metadata; **Delete is not allowed by a partner.**
 
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
 - /**Device**: Device corresponds to a physical device present on the farm.
@@ -371,6 +376,41 @@ Here's an example of a telemetry message:
       ]
     }
   ]
+}
+```
+
+## Troubleshooting
+
+### Can't view telemetry data after ingesting historical/streaming data from your sensors
+
+**Symptom**: Devices or sensors are deployed, and you've created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
+
+**Corrective action**:
+
+1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, please follow the [steps here](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+2. Ensure that you have created the metadata (DeviceModel, Device, SensorModel, Sensor) using the partner client credentials.
+3. Ensure that you have used the correct Telemetry message format (as specified below):
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 

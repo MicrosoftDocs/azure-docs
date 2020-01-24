@@ -14,8 +14,8 @@ This article describes how to automate installation and updates for the Mobility
 When you deploy Site Recovery for disaster recovery of on-premises VMware VMs and physical servers to Azure, you install the Mobility service agent on each machine you want to replicate. The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server for replication. You can deploy the Mobility Service in a couple of ways:
 
 - **Push installation**: Let Site Recovery install  the Mobility service agent when you enable replication for a machine in the Azure portal.
-- **Manual installation**: Install the Mobility service manually on each machine. [Learn more](vmware-physical-mobility-service-overview.md) about push and manual installation.
-- **Automated deployment**: Automate installation with software deployment tools such as System Center Configuration Manager, or third-party tools such as Intigua JetPatch.
+- **Manual installation**: Install the Mobility service manually on each machine. [Learn more](/vmware-physical-mobility-service-overview.md) about push and manual installation.
+- **Automated deployment**: Automate installation with software deployment tools such as Microsoft Endpoint Configuration Manager, or third-party tools such as Intigua JetPatch.
 
 Automated installation and updating provides a solution if:
 

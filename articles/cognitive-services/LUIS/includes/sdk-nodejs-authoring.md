@@ -19,7 +19,7 @@ Use the Language Understanding (LUIS) authoring client library for Node.js to:
 * Train and publish an app.
 * Delete app
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Authoring Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Authoring Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [Runtime Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 ## Authenticate the client
 
-Create an [CognitiveServicesCredentials]() object with your key, and use it with your endpoint to create an [LUISAuthoringClient]() object.
+Create an [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) object with your key, and use it with your endpoint to create an [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) object.
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 
@@ -222,7 +222,3 @@ Current model status: ["Success"]
 Application published. Endpoint URL: https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/e137a439-b3e0-4e16-a7a8-a9746e0715f7
 Application with ID e137a439-b3e0-4e16-a7a8-a9746e0715f7 deleted. Operation result: Operation Successful
 ```
-
-## Clean up resources
-
-When you are done with your predictions, clean up the work from this quickstart by deleting the file and its subdirectories.

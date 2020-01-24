@@ -19,7 +19,6 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.custom: fasttrack-edit
-ms.collection: M365-identity-device-management
 ---
 
 # Permissions and consent in the Microsoft identity platform endpoint
