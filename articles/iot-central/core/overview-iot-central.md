@@ -53,7 +53,9 @@ As a solution builder, you use IoT Central to create a custom, cloud-hosted IoT 
 - A cloud-based application that receives telemetry from your devices and enables you to manage those devices.
 - Multiple devices running custom code connected to your cloud-based application.
 
-You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. As a solution builder, you use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. You can start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail-pnp.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+
+As a solution builder, you use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
 - Telemetry it sends.
 - Business properties that an operator can modify.
