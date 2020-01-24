@@ -22,26 +22,23 @@ In this quickstart, you use R with Machine Learning Services to connect to an Az
 
 ## Prerequisites
 
-- an Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-- an [Azure SQL database](sql-database-single-database-get-started.md)
-
-  > [!IMPORTANT]
-  > The scripts in this article are written to use the **Adventure Works** database.
-
-  > [!NOTE]
-  > During the preview of Azure SQL Database Machine Learning Services with R, the managed instance deployment option is not supported.
+- An [Azure SQL database](sql-database-single-database-get-started.md)
   
 - [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled - [sign up for the preview](sql-database-machine-learning-services-overview.md#signup)
 
-  > [!NOTE]
-  > During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database.
-
-  Machine Learning Services with R is a feature of Azure SQL database used for executing in-database R scripts.
-  
-  For more information, see the [R Project](https://www.r-project.org/).
-
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
+
+> [!IMPORTANT]
+> The scripts in this article are written to use the **Adventure Works** database.
+
+> [!NOTE]
+> During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database, however the managed instance deployment option is currently not supported.
+
+Machine Learning Services with R is a feature of Azure SQL database used for executing in-database R scripts.
+
+For more information, see the [R Project](https://www.r-project.org/).
 
 ## Get SQL server connection information
 
