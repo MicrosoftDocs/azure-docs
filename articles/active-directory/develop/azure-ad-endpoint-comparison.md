@@ -109,7 +109,7 @@ These scopes allow you to code your app in a minimal-disclosure fashion so you c
 The Microsoft identity platform endpoint issues a smaller set of claims in its tokens by default to keep payloads small. If you have apps and services that have a dependency on a particular claim in a v1.0 token that is no longer provided by default in a Microsoft identity platform token, consider using the [optional claims](active-directory-optional-claims.md) feature to include that claim.
 
 > [!IMPORTANT]
-> v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoint to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will recieve a token in the v1.0 format.  
+> v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoint to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will receive a token in the v1.0 format.  
 
 ## Limitations
 

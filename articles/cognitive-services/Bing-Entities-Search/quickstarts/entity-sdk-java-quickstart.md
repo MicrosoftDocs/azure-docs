@@ -130,9 +130,9 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
     ```java
     if (entityData.entities().value().size() > 0){
         // Find the entity that represents the dominant entity
-        List<Thing> entrys = entityData.entities().value();
+        List<Thing> entries = entityData.entities().value();
         Thing dominateEntry = null;
-        for(Thing thing : entrys) {
+        for(Thing thing : entries) {
             if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
                 System.out.println("\r\nSearched for \"Satya Nadella\" and found a dominant entity with this description:");
                 System.out.println(thing.description());
