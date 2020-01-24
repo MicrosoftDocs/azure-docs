@@ -50,7 +50,7 @@ appConfigHostname=$(az appconfig create \
 appConfigConnectionString=$(az appconfig credential list \
 --resource-group $myResourceGroupName \
 --name $myAppConfigStoreName \
---query "[?name=='Secondary Read Only'] .connectionString" -o tsv) \
+--query "[?name=='Secondary Read Only'] .connectionString" -o tsv)
 
 # Echo the connection string for use in your application
 echo "$appConfigConnectionString"
@@ -68,7 +68,7 @@ This script uses the following commands to create a new resource group and an Ap
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Creates an App Configuration store resource. |
-| [az appconfig credential list](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest#commands) | List access keys for an App Configuration store. |
+| [az appconfig credential list](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | List access keys for an App Configuration store. |
 
 ## Next steps
 
