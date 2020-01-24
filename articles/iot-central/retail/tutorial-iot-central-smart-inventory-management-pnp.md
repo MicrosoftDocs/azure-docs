@@ -81,7 +81,7 @@ Select the rules tab to see two different rules that exist in this application t
 
 **Gateway offline**: This rule will trigger if the gateway does not report to the cloud for a prolonged period. Gateway could be unresponsive due to low battery mode, loss of connectivity, device health.
 
-**Unknown tags**: It is critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, this is an indication of synchronization challenges with tag sourcing applications.
+**Unknown tags**: It is critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, it is an indication of synchronization challenges with tag sourcing applications.
 
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)

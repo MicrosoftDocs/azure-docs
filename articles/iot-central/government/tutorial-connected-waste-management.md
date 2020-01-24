@@ -29,12 +29,12 @@ The tutorial will learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you need:
+To complete this tutorial, you need:
 -  An Azure subscription is recommended. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Create Connected Waste Management app in IoT Central
 
-In this section, we will use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
+In this section, you can use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
 
 To create a new Azure IoT Central connected waste management application:  
 
@@ -126,7 +126,7 @@ To view the device template:
 
     ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-2. In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
+2. In the Device templates list, you will see **Connected Waste Bin**. Open by clicking on the name.
 
 3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
 
