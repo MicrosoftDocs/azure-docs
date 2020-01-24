@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/23/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
