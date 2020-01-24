@@ -42,7 +42,7 @@ from azureml.core.runconfig import RunConfiguration
 from azureml.pipeline.core import Pipeline
 from azureml.pipeline.steps import PythonScriptStep
 
-# TO-DO: Get workspace and compute_target
+# Connecting to the workspace and compute target not shown
 
 # Add pip dependency on OpenCensus
 dependencies = CondaDependencies()
