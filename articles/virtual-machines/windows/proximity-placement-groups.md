@@ -1,17 +1,15 @@
 ---
-title: Use proximity placement groups for Windows VMs 
-description: Learn about creating and using proximity placement groups for Windows virtual machines in Azure. 
-services: virtual-machines-windows
-author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+title: "PowerShell: Use proximity placement groups"
+description: Learn about creating and using proximity placement groups using Azure PowerShell. 
+services: virtual-machines
+ms.service: virtual-machines
 
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 01/24/2020
 ms.author: cynthn
-
+#pmcontact: zivr
 ---
 
 # Deploy VMs to proximity placement groups using PowerShell
@@ -66,6 +64,18 @@ You can see the VM in the placement group using [Get-AzProximityPlacementGroup](
 ```azurepowershell-interactive
 Get-AzProximityPlacementGroup -ResourceId $ppg.Id |
     Format-Table -Property VirtualMachines -Wrap
+```
+
+## Existing VM
+
+You can also add an existing VM to a proximity placement group. You need to stop\deallocate the VM first, then update the VM and restart.
+
+```azurepowershell-interactive
+Stop-AzVM -Name myVM -ResourceGroupName myResourceGroup
+$ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPGResourceGroup -Name myPPG
+$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzVM -VM $vm -ResourceGroupName $vm.ResourceGroupName -ProximityPlacementGroupId $ppg.Id
+Restart-AzVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 ## Availability Sets
