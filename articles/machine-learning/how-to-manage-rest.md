@@ -10,8 +10,6 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ---
 
-TODO:s/119ec674-a66c-4b3b-8514-57cb582c4c8c/your-subscription-id/
-TODO: s/laobri-rest/example-rest/
 TODO: Reference is https://docs.microsoft.com/rest/api/azureml/
 TODO: According to ^ its OAuth2 implicit
 
@@ -65,8 +63,8 @@ You should have these values from the response to the creation of your service p
 To retrieve a token, open a terminal window and, substituting your own values as appropriate, run:
 
 ```bash
-curl -d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=your-client-id&client_secret=your-client-secret" \
--X POST https://login.microsoftonline.com/your-tenant-id/oauth2/token
+curl -d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id={your-client-id}&client_secret={your-client-secret}" \
+-X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
 ```
 
 The response should provide an access token good for one hour:
@@ -86,7 +84,7 @@ The response should provide an access token good for one hour:
 Make note of the token, as you will use it to authenticate all subsequent administrative requests. You will do so by setting an Authorization header in all requests:
 
 ```bash
-curl -h "Authentication: Bearer your-access-token" ...more args...
+curl -h "Authentication: Bearer {your-access-token}" ...more args...
 ```
 
 Note that the value starts with the string "Bearer " including a single space before you add the token.
@@ -99,7 +97,7 @@ Note that the value starts with the string "Bearer " including a single space be
 To retrieve the list of resource groups associate with your subscription, run:
 
 ```bash
-curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups?api-version=2019-11-01 -H "Authorization: Bearer your-access-token"
+curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
 ```
 
 Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but must do so without breaking existing programs. The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2019-11-01`. For storage accounts, it's 2019-06-01. For key vaults, it's 2019-09-01. All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
@@ -133,11 +131,11 @@ The above call will result in a compacted JSON response of the form:
 
 ## Drill down into workspaces and their resources
 
-To retrieve the set of workspaces in a resource group, run the following, substituting `your-subscription-id`, `your-resource-group`, and `your-access-token`: 
+To retrieve the set of workspaces in a resource group, run the following, substituting `{your-subscription-id}`, `{your-resource-group}`, and `{your-access-token}`: 
 
 ```
-curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 Again you'll receive a JSON list, this time containing a list, each item of which details a workspace:
@@ -196,17 +194,17 @@ To work with resources within a workspace, you will need to switch from the gene
 The value of the `api` response is the URL of the server that you will use for additional requests. To list experiments, for instance, send the following. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
 
 ```bash
-curl https://regional-api-server/history/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
-providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/experiments?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 Similarly, to retrieve registered models in your workspace, send:
 
 ```bash
-curl https://regional-api-server/modelmanagement/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
-providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/models?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. The API Reference docs at the links below list the operations, parameters, and response codes for the various operations.
@@ -225,8 +223,8 @@ You can explore the REST API using the general pattern of:
 | https://| |
 | regional-api-server/ | centralus.experiments.azureml.net/ |
 | operations-path/ | history/v1.0/ |
-| subscriptions/your-subscription-id/ | subscriptions/d2128fd5-c6c5-402a-8ffb-052d91a0a6aa/ |
-| resourceGroups/your-resource-group/ | resourceGroups/MLProjectRG/ |
+| subscriptions/{your-subscription-id}/ | subscriptions/d2128fd5-c6c5-402a-8ffb-052d91a0a6aa/ |
+| resourceGroups/{your-resource-group}/ | resourceGroups/MLProjectRG/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
 | provider-resource-path | workspaces/MLWorkspace/experiments/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
@@ -241,20 +239,20 @@ Training and running ML models require compute resources. You can list the compu
 
 
 ```bash
-curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
-providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/computes?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/computes?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. The following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/computes/your-compute-name?api-version=2019-11-01' \
-  -H 'Authorization: Bearer your-access-token' \
+  'https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/computes/{your-compute-name}?api-version=2019-11-01' \
+  -H 'Authorization:Bearer {your-access-token}' \
   -H 'Content-Type: application/json' \
   -d '{
-    "location": "your-azure-location",
+    "location": "{your-azure-location}",
     "properties": {
         "computeType": "AmlCompute",
         "properties": {
@@ -268,8 +266,8 @@ curl -X PUT \
         }
     },
     "userAccountCredentials": {
-        "adminUserName": "admin",
-        "adminUserPassword": "stairway_seam_retiring_caveman"
+        "adminUserName": "{adminUserName}",
+        "adminUserPassword": "{adminUserPassword}"
     }
 }'
 ```
@@ -332,10 +330,10 @@ Save the following as **definition.json**. Confirm the "Script" value matches th
 Post these files to the server using `multipart/form-data` content:
 
 ```bash
-curl https://regional-api-server/execution/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace/experiments/your-experiment-name/startrun?api-version=2019-11-01 \
+curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-name}/startrun?api-version=2019-11-01 \
   -X POST \
   -H "Content-Type: multipart/form-data" \
-  -H "Authorization: Bearer your-access-token" \
+  -H "Authorization:Bearer {your-access-token}" \
   -F projectZipFile=@train.zip \
   -F runDefinitionFile=@runDefinition.json
 ```
@@ -351,8 +349,8 @@ A successful POST request will generate a `200 OK` status, with a response body 
 You can monitor a run using the REST-ful pattern that should now be familiar:
 
 ```bash
-curl 'https://regional-api-server/history/v1.0/subscriptions/your-subscription/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace/experiments/your-experiment/runs/your-run-id?api-version=2019-11-01' \
-  -H 'Authorization: Bearer your-access-token' 
+curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
+  -H 'Authorization:Bearer {your-access-token}' 
 ```
 
 After training, but before deployment, you will want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
@@ -368,8 +366,8 @@ Some, but not all, resources support the DELETE verb. Check the [API Reference](
 ```bash
 curl
   -X DELETE \
-'https://regional-api-server/modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models/{id}' \
-  -H 'Authorization: Bearer your-access-token' 
+'https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models/{your-model-id}' \
+  -H 'Authorization:Bearer {your-access-token}' 
 ```
 
 ## Using REST on a deployed model
