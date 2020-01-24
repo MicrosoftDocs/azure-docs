@@ -12,14 +12,14 @@
 
 |Blob storage feature | Support level |
 |---|---|
-| [Account failover](../common/storage-disaster-recovery-guidance.md) |Not yet supported|
-| [Archive access tier](storage-blob-storage-tiers.md)| Preview|
+| [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)| Preview|
+| [Diagnostic logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)| Preview ([View details](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues#diagnostic-logs-notes))|
+| [Lifecycle management policies](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)| Preview ([View details](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues#life-cycle-notes)) |
+| [Object-level tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)|Preview ([View details](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues#object-level-tiers-notes)) |
+| [Account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) |Not yet supported|
 | Blob container ACLs |Not yet supported |
-| [Custom domains](storage-custom-domain-name.md) |Not yet supported |
-| [Diagnostic logs](../common/storage-analytics-logging.md)| Preview ([View details](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues#diagnostic-logs-notes))|
-| [Immutable storage](storage-blob-immutable-storage.md)|Not yet supported |
-| [Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview ([View details](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues#life-cycle-notes)) |
-| [Object-level tiers](tabs=azure-portal.md)|Preview ([View details](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues#object-level-tiers-notes)) |
-| [Snapshots](storage-blob-snapshots.md)|Not yet supported |
-| [Soft delete](storage-blob-soft-delete.md)|Not yet supported |
-| [Static websites](storage-blob-static-website.md)|Not yet supported |
+| [Custom domains](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name) |Not yet supported |
+| [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)|Not yet supported |
+| [Snapshots](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots)|Not yet supported |
+| [Soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)|Not yet supported |
+| [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)|Not yet supported |

@@ -17,27 +17,9 @@ This article lists the features and tools that are not yet supported or only par
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
-## Tools
-
-|Tool / application | Support level |
-|---|---|
-| [AzCopy](../common/storage-use-azcopy-v10.md) | Version-specific support. ([View details](#az-copy)) |
-| [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) | Version-specific support. ([View details](#storage-explorer))|
-|[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
-| Browsing directories and files in the Azure portal | Limited support. ([View details](#explorer-in-portal)) |
-| Third party applications | Limited support. ([View details](#third-party-apps))|
-
-## SDK, command, and script support for directory and file operations
-
-[!INCLUDE [storage-data-lake-sdk-support](../../../includes/storage-data-lake-sdk-support.md)]
-
-## Azure Ecosystem
-
-[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
-
 <a id="life-cycle-notes" />
 
-## Lifecycle management policies
+### Lifecycle management policies
 
 * All access tiers are supported. 
 
@@ -49,13 +31,13 @@ This article lists the features and tools that are not yet supported or only par
 
 <a id="diagnostic-logs-notes" />
 
-## Diagnostic logs
+### Diagnostic logs
 
 Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
 
 <a id="object-level-tiers-notes" />
 
-## Object-level tiers
+### Object-level tiers
 
 * Cool and archive tiers are supported.
 
@@ -65,21 +47,31 @@ Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view
 
 * There are currently some bugs affecting the archive access tier. 
 
+## Tools and applications
+
+|Tool / application | Support level |
+|---|---|
+|[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support. ([View details](#az-copy)) |
+|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support. ([View details](#storage-explorer))|
+|Browsing directories and files in the Azure portal |Limited support. ([View details](#explorer-in-portal)) |
+|Third party applications |Limited support. ([View details](#third-party-apps))|
+|[blobfuse](storage-how-to-mount-container-linux.md)| Not yet supported|
+
 <a id="az-copy" />
 
-## AzCopy
+### AzCopy
 
 Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
 <a id="storage-explorer" />
 
-## Azure Storage Explorer
+### Azure Storage Explorer
 
 Use only versions `1.6.0` or higher.There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.
 
 <a id="explorer-in-portal" />
 
-## Storage Explorer in the Azure portal
+### Storage Explorer in the Azure portal
 
 ACLs are not yet supported.
 
@@ -90,9 +82,14 @@ ACLs are not yet supported.
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
 
+## SDK / PowerShell / CLI
+
+[!INCLUDE [storage-data-lake-sdk-support](../../../includes/storage-data-lake-sdk-support.md)]
+
+
 <a id="blob-apis-disabled" />
 
-## Blob APIs
+### Blob APIs
 
 Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
@@ -119,14 +116,20 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 <a id="api-scope-data-lake-client-library" />
 
-## File system support in SDKs
+### File system support in SDKs
 
 - [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
 - Get and set ACL operations are not currently recursive.
 
-## File system support in PowerShell and Azure CLI
+### File system support in PowerShell and Azure CLI
 
 - [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
 - Get and set ACL operations are not currently recursive.
+
+## Azure Ecosystem
+
+[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
+
+
 
 

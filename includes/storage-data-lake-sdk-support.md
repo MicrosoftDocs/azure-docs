@@ -11,6 +11,7 @@
 ---
 
 | SDK / script environment | Support   |
+|-----|-----|
 |[.NET](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) | Preview|
 |[Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java) | Preview|
 |[Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) | Preview|
