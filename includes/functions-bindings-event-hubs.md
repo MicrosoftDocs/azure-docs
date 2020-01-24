@@ -696,6 +696,6 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|`maxBatchSize`|64|The maximum event count received per receive loop.|
-|`prefetchCount`|n/a|The default pre-fetch count used by the underlying `EventProcessorHost`.|
+|`maxBatchSize`|10|The maximum event count received per receive loop.|
+|`prefetchCount`|300|The default pre-fetch count used by the underlying `EventProcessorHost`.|
 |`batchCheckpointFrequency`|1|The number of event batches to process before creating an EventHub cursor checkpoint.|
