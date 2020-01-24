@@ -50,9 +50,9 @@ For more information, see [App settings reference for Azure Functions](https://d
 
 ### Guidance
 
-* Don't select **slot setting** for any of these settings. When you swap deployment slots, the function will break.
+* Don't select **slot setting** for any of these settings. If you swap deployment slots, the function will break.
 * Don't modify these settings as part of automated deployments.
-* These settings must be provided and valid at creation time. An automated deployment that doesn't contain these settings will result in a non-functional app, even if the settings are added after the fact.
+* These settings must be provided and valid at creation time. An automated deployment that doesn't contain these settings results in a non-functional app, even if the settings are added after the fact.
 
 ## Storage account credentials invalid
 
