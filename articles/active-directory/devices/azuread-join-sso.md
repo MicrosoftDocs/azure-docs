@@ -38,10 +38,6 @@ An environment that has both, an Azure AD and an on-premises AD, is also known h
 
 During an access attempt to a resource requesting Kerberos in the user's on-premises environment, the device:
 
-1. Uses the domain information to locate a domain controller (DC).
-
-   (Here the customer experiences the delay of 15sec as the DCLocator pings the returned IP from DNS query for `_kerberos._tcp.dc._msdcs.contoso.com`, until it times out.)
-
 1. Sends the on-premises domain information and user credentials to the located DC to get the user authenticated.
 1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) that is used to access AD-joined resources. If the attempt to get the TGT for the AAD connect domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication popup requesting credentials for the target resource.
 
