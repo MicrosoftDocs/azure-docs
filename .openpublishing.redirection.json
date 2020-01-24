@@ -45101,6 +45101,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-explorer",
       "redirect_document_id": false
