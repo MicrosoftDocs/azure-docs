@@ -135,7 +135,7 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 |AutoReviewing | Review has entered a system reviewing stage. The system is recording decisions for users who were not reviewed based on recommendations or pre-configured decisions. |
 |AutoReviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled |
 |Applying | Decisions are being applied. Any denied users are being removed. |
-|Applied | Denied users, if any, have removed from the resource or directory. |
+|Applied | Denied users, if any, have been removed from the resource or directory. |
 
 ## Create reviews via APIs
 
