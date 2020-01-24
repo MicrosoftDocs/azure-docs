@@ -67,7 +67,8 @@ export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-***
+
+---
 
 ### Create a new C# application
 
