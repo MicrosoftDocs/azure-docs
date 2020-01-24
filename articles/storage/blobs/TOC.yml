@@ -670,11 +670,7 @@
       - name: CLI
         href: data-lake-storage-directory-file-acl-cli.md
       - name: Storage Explorer
-        href: data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Secure data
-      items:
-      - name: Set file and directory-level permissions
-        href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+        href: data-lake-storage-explorer.md
     - name: Optimize performance
       items:
       - name: Overview
