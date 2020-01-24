@@ -1,0 +1,16 @@
+- name: Azure Arc for Kubernetes
+  href: index.yml
+- name: Overview
+  href: overview.md
+  items:
+  - name: Solution architecture
+- name: Quickstarts
+  expanded: true
+  items:
+- name: Concepts
+  items:
+- name: How-to guides
+- name: Resources
+  items:
+  - name: Frequently asked questions
+    href: arc-for-aks-faq.md
