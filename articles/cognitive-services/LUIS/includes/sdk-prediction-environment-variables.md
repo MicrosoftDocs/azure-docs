@@ -21,34 +21,39 @@ If you intend to use this quickstart to access your own app, you need to take ad
 
 Use the instructions for your operating system.
 
-
 #### [Windows](#tab/windows)
 
 ```console
-setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
-setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
+setx LUIS_RUNTIME_KEY <replace-with-your-resource-key>
+setx LUIS_RUNTIME_ENDPOINT <replace-with-your-resource-endpoint>
+setx LUIS_APP_ID <replace-with-your-app-id>
+setx LUIS_APP_SLOT_NAME <replace-with-production-or-staging>
 ```
 
-After you add the environment variable, restart the console window.
+After you add the environment variables, restart the console window.
 
 #### [Linux](#tab/linux)
 
 ```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
+export LUIS_RUNTIME_ENDPOINT= <replace-with-your-resource-endpoint>
+export LUIS_APP_ID= <replace-with-your-app-id>
+export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 ```
 
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.
 
-#### [macOS](#tab/macos)
+#### [macOS](#tab/unix)
 
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
+export LUIS_RUNTIME_ENDPOINT= <replace-with-your-resource-endpoint>
+export LUIS_APP_ID= <replace-with-your-app-id>
+export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 ```
 
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+After you add the environment variables, run `source .bash_profile` from your console window to make the changes effective.
 
----
+***
