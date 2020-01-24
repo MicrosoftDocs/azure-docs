@@ -132,7 +132,10 @@ conceptualContent:
       links:
         - url: https://feedback.azure.com/forums/906772-cost-management
           itemType: how-to-guide
-          text: Request a Cost Management service feature
+          text: Cost Management feedback
+        - url: https://twitter.com/azurecostmgmt
+          itemType: how-to-guide
+          text: Cost Management on Twitter
         - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
           itemType: how-to-guide
           text: Azure Cost Management Tech Community
