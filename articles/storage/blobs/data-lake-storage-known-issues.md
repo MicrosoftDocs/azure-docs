@@ -17,6 +17,8 @@ This article lists the features and tools that are not yet supported or only par
 
 ## Blob Storage features
 
+Support for these features are in preview or aren't yet supported.
+
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
 <a id="life-cycle-notes" />
@@ -53,12 +55,14 @@ Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view
 
 ## Tools and applications
 
+Support for these tools are in limited or aren't yet supported.
+
 |||
 |---|---|
-|[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support.|
-|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support. |
-|Browsing directories and files in the Azure portal |Limited support. |
-|Third party applications |Limited support. |
+|[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support|
+|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support |
+|Browsing directories and files in the Azure portal |Limited support |
+|Third party applications |Limited support |
 |[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
 
 <a id="az-copy" />
@@ -90,8 +94,21 @@ Applications that call Blob APIs will likely work.
 
 ## SDK / PowerShell / CLI
 
+These SDKs and command environments support file system operations such as setting access control lists (ACL).
+
 [!INCLUDE [storage-data-lake-sdk-support](../../../includes/storage-data-lake-sdk-support.md)]
 
+<a id="api-scope-data-lake-client-library" />
+
+### File system support in SDKs
+
+- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
+- Get and set ACL operations are not currently recursive.
+
+### File system support in PowerShell and Azure CLI
+
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
+- Get and set ACL operations are not currently recursive.
 
 <a id="blob-apis-disabled" />
 
@@ -120,21 +137,11 @@ These Blob REST APIs aren't supported:
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-<a id="api-scope-data-lake-client-library" />
-
-### File system support in SDKs
-
-- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
-- Get and set ACL operations are not currently recursive.
-
-### File system support in PowerShell and Azure CLI
-
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
-- Get and set ACL operations are not currently recursive.
-
 <a id="azure-ecosystem" />
 
 ## Azure Ecosystem
+
+Support for these services are in preview or aren't yet supported.
 
 [!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
 
