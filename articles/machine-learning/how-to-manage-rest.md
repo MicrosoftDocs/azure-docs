@@ -10,9 +10,6 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ---
 
-TODO: Reference is https://docs.microsoft.com/rest/api/azureml/
-TODO: According to ^ its OAuth2 implicit
-
 # Create, run, and delete Azure ML resources using REST
 
 tk applies to boilerplate. tk
@@ -52,9 +49,9 @@ them. Better to put that info directly into the article text.--->
 
 ## Retrieve a service principal authentication token
 
-Administrative REST requests are authenticated by a token provided by your workspace's service principal. In order to retrieve this, you will need:
+Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your workspace's service principal. In order to retrieve this, you will need:
 
-- Your tenantid (identifying the organization to which your subscription belongs)
+- Your tenant id (identifying the organization to which your subscription belongs)
 - Your client id (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
@@ -479,6 +476,10 @@ Clean up resources (H2) should come just before Next steps (H2)
 ## Next steps
 
 Advance to the next article to learn how to create...
+
+Reference is https://docs.microsoft.com/rest/api/azureml/
+
+
 > [!div class="nextstepaction"]
 > [Next steps button](contribute-get-started-mvc.md)
 
