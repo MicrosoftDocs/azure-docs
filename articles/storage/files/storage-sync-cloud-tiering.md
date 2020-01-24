@@ -123,5 +123,12 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
 
+<a id="afs-image-thumbnail"></a>
+### Why are my tiered files not showing thumbnails or preview on Windows Explorer?
+For tiered files, thumbnails and previews won’t be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
+
+This behavior is not specific to Azure File Sync as Windows Explorer displays a “grey X” for any files which have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)”
+
+
 ## Next Steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
