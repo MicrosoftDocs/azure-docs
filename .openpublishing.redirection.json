@@ -5457,6 +5457,56 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-guide-troubleshooting-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/troubleshoot-custom-policies",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-threat-management.md",
+        "redirect_url": "/azure/active-directory-b2c/threat-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-tokens.md",
+        "redirect_url": "/azure/active-directory-b2c/tokens-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-troubleshoot-custom.md",
+        "redirect_url": "/azure/active-directory-b2c/troubleshoot-with-application-insights",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi.md",
+        "redirect_url": "/azure/active-directory-b2c/tutorial-desktop-app-webapi",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-desktop-app.md",
+        "redirect_url": "/azure/active-directory-b2c/tutorial-desktop-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi.md",
+        "redirect_url": "/azure/active-directory-b2c/tutorial-single-page-app-webapi",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-spa.md",
+        "redirect_url": "/azure/active-directory-b2c/tutorial-single-page-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-web-api.md",
+        "redirect_url": "/azure/active-directory-b2c/tutorial-web-api-dotnet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-web-app.md",
+        "redirect_url": "/azure/active-directory-b2c/tutorial-web-app-dotnet",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md",
       "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-basic-auth",
       "redirect_document_id": true

@@ -138,7 +138,7 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up page presented by the sign-in/sign-up user flow](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
+    ![Sign-up page presented by the sign-in/sign-up user flow](./media/tutorial-single-page-app/azure-ad-b2c-sign-up-workflow.png)
 
 1. Select **Create** to create a local account in the Azure AD B2C directory.
 
@@ -172,4 +172,4 @@ In this article, you learned how to:
 Now move on to the next tutorial in the series to grant access to a protected web API from the SPA:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant access to an ASP.NET Core web API from an SPA using Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: Grant access to an ASP.NET Core web API from an SPA using Azure AD B2C >](tutorial-single-page-app-webapi.md)

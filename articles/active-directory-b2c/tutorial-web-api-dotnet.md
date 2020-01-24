@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the steps and prerequisites in [Tutorial: Enable authenticate in a web application using Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
+Complete the steps and prerequisites in [Tutorial: Enable authenticate in a web application using Azure Active Directory B2C](tutorial-web-app-dotnet.md).
 
 ## Add a web API application
 

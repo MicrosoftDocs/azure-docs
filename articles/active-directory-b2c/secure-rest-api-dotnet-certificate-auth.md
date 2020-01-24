@@ -294,7 +294,7 @@ After you add the snippet, your `Identity` controller should look like the follo
 
 4. Change the value back to **valid**, and make sure that the policy can call your REST API.
 
-If you need to troubleshoot this step, see [Collecting logs by using Application Insights](active-directory-b2c-troubleshoot-custom.md).
+If you need to troubleshoot this step, see [Collecting logs by using Application Insights](troubleshoot-with-application-insights.md).
 
 ## (Optional) Download the complete policy files and code
 * After you complete the [Get started with custom policies](custom-policy-get-started.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert).

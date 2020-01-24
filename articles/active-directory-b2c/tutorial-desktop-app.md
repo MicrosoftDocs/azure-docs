@@ -77,13 +77,13 @@ Press **F5** to build and run the sample.
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up page shown as part of sign-in/sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/azure-ad-b2c-sign-up-workflow.png)
+    ![Sign-up page shown as part of sign-in/sign-up workflow](./media/tutorial-desktop-app/azure-ad-b2c-sign-up-workflow.png)
 
 4. Select **Create** to create a local account in the Azure AD B2C tenant.
 
 The user can now use their email address to sign in and use the desktop application. After a successful sign-up or sign-in, the token details are displayed in the lower pane of the WPF app.
 
-![Token details shown in bottom pane of WPF desktop application](media/active-directory-b2c-tutorials-desktop-app/desktop-app-01-post-signin.png)
+![Token details shown in bottom pane of WPF desktop application](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
 
 If you select the **Call API** button, an **error message** is displayed. You encounter the error because, in its current state, the application is attempting to access an API protected by the demo tenant, `fabrikamb2c.onmicrosoft.com`. Since your access token is valid only for your Azure AD B2C tenant, the API call is therefore unauthorized.
 
@@ -101,4 +101,4 @@ In this tutorial, you learned how to:
 Next, to enable the **Call API** button functionality, grant the WPF desktop application access to a web API registered in your own Azure AD B2C tenant:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant access to a Node.js web API from a desktop app >](active-directory-b2c-tutorials-desktop-app-webapi.md)
+> [Tutorial: Grant access to a Node.js web API from a desktop app >](tutorial-desktop-app-webapi.md)

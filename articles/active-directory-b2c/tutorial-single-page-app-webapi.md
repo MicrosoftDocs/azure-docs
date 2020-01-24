@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Complete the steps and prerequisites in [Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
+* Complete the steps and prerequisites in [Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C](tutorial-single-page-app.md).
 * Visual Studio 2019 or later, or Visual Studio Code
 * .NET Core 2.2 or later
 * Node.js
@@ -122,7 +122,7 @@ To allow your single-page application to call the ASP.NET Core web API, you need
 
 ### Configure the single-page application
 
-The single-page application (SPA) from the [previous tutorial](active-directory-b2c-tutorials-spa.md) in the series uses Azure AD B2C for user sign-up and sign-in, and calls the ASP.NET Core web API protected by the *frabrikamb2c* demo tenant.
+The single-page application (SPA) from the [previous tutorial](tutorial-single-page-app.md) in the series uses Azure AD B2C for user sign-up and sign-in, and calls the ASP.NET Core web API protected by the *frabrikamb2c* demo tenant.
 
 In this section, you update the single-page application to call the ASP.NET Core web API protected by *your* Azure AD B2C tenant and which you run on your local machine.
 
@@ -191,7 +191,7 @@ If you prefer to use the `dotnet` CLI instead of Visual Studio:
     ```
 
 1. Navigate to `http://localhost:6420` in your browser to view the application.
-1. Sign in using the email address and password you used in the [previous tutorial](active-directory-b2c-tutorials-spa.md). Upon successful login, you should see the `User 'Your Username' logged-in` message.
+1. Sign in using the email address and password you used in the [previous tutorial](tutorial-single-page-app.md). Upon successful login, you should see the `User 'Your Username' logged-in` message.
 1. Select the **Call Web API** button. The SPA obtains an authorization grant from Azure AD B2C, then accesses the protected web API to display the contents of its index page:
 
     ```Output

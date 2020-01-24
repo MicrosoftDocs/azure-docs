@@ -39,13 +39,13 @@ To manage password protection settings, including the lockout threshold:
 1. Under **Security**, select **Authentication methods (Preview)**, then select **Password protection**.
 1. Enter your desired password protection settings, then select **Save**.
 
-    ![Azure portal Password protection page in Azure AD settings](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
+    ![Azure portal Password protection page in Azure AD settings](./media/threat-management/portal-02-password-protection.png)
     <br />*Setting the lockout threshold to 5 in **Password protection** settings*.
 
 ## View locked-out accounts
 
 To obtain information about locked-out accounts, you can check the Active Directory [sign-in activity report](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md). Under **Status**, select **Failure**. Failed sign-in attempts with a **Sign-in error code** of `50053` indicate a locked account:
 
-![Section of Azure AD sign-in report showing locked-out account](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
+![Section of Azure AD sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
 
 To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md).

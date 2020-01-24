@@ -27,7 +27,7 @@ A user flow enables you to control behaviors in your applications by configuring
 - Customization of the user interface
 - Information that the application receives as claims in a token
 
-You can create many user flows of different types in your tenant and use them in your applications as needed. User flows can be reused across applications. This flexibility enables you to define and modify identity experiences with minimal or no changes to your code. Your application triggers a user flow by using a standard HTTP authentication request that includes a user flow parameter. A customized [token](active-directory-b2c-reference-tokens.md) is received as a response.
+You can create many user flows of different types in your tenant and use them in your applications as needed. User flows can be reused across applications. This flexibility enables you to define and modify identity experiences with minimal or no changes to your code. Your application triggers a user flow by using a standard HTTP authentication request that includes a user flow parameter. A customized [token](tokens-overview.md) is received as a response.
 
 The following examples show the "p" query string parameter that specifies the user flow to be used:
 

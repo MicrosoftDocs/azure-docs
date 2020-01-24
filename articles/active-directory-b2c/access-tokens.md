@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 An *access token* contains claims that you can use in Azure Active Directory B2C (Azure AD B2C) to identify the granted permissions to your APIs. When calling a resource server, an access token must be present in the HTTP request. An access token is denoted as **access_token** in the responses from Azure AD B2C.
 
-This article shows you how to request an access token for a web application and web API. For more information about tokens in Azure AD B2C, see the [overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+This article shows you how to request an access token for a web application and web API. For more information about tokens in Azure AD B2C, see the [overview of tokens in Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
 > **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.** - Many architectures include a web API that needs to call another downstream web API, both secured by Azure AD B2C. This scenario is common in clients that have a web API back end, which in turn calls a another service. This chained web API scenario can be supported by using the OAuth 2.0 JWT Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C.
