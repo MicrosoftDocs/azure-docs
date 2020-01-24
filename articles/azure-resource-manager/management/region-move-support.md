@@ -181,7 +181,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | service |  |Yes
+> | service |  Yes | 
 
 ## Microsoft.AppConfiguration
 
