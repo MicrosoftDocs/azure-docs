@@ -36,7 +36,7 @@ On the non-Azure servers that you want to manage, do the following:
    * **On Linux**, run Bash.
 1. In the shell, paste the script that you copied from the portal, and run it on the server to connect to Azure.
 
-   The default authentication for onboarding an individual server is *interactive* using Azure "device login." When you run the script, you'll see a message similar to:
+   The default authentication for onboarding an individual server is *interactive* and uses Azure *device login*. When you run the script, you'll see a message similar to:
 
    "To sign in, use a web browser to open the page `https://microsoft.com/devicelogin` and enter the code B3V3NLWRF to authenticate."
   
