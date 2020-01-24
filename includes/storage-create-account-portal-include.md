@@ -31,7 +31,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
    |Replication     |Read-access geo-redundant storage (RA-GRS)         |
    |Access tier     |Hot         |
 
-8. If you plan to use this account for [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), choose the **Advanced** tab, and then set **Hierarchical namespace** to **Enabled**.
+8. If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), choose the **Advanced** tab, and then set **Hierarchical namespace** to **Enabled**.
 9. Select **Review + Create** to review your storage account settings and create the account.
 10. Select **Create**.
 

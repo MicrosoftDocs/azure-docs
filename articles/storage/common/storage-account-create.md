@@ -130,7 +130,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> If you plan to use this account for [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `-EnableHierarchicalNamespace $True` in this list of parameters. 
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `-EnableHierarchicalNamespace $True` in this list of parameters. 
 
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **SkuName** parameter.
 
@@ -173,7 +173,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> If you plan to use this account for [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters. 
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters. 
 
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **sku** parameter.
 
