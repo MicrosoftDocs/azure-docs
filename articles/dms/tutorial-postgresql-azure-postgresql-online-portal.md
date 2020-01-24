@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL - Hyperscale (Citus) online via the Azure portal"
+title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL - Hyperscale (Citus) online"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
