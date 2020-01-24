@@ -7,7 +7,7 @@ author: jpconnock
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 01/04/2020
+ms.date: 01/21/2020
 ms.author: jeconnoc
 
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
@@ -99,13 +99,15 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
     ```dotnetcli
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
     ```
+
 1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
+
 1. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
     This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store.
@@ -130,7 +132,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
-    
+
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
@@ -148,7 +150,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -160,6 +162,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
         })
         .UseStartup<Startup>());
     ```
+
     ---
 
 1. Navigate to *<app root>/Views/Home* and open *Index.cshtml*. Replace its content with the following code:

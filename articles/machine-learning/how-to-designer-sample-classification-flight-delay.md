@@ -13,7 +13,7 @@ ms.date: 12/25/2019
 ---
 # Build a classifier & use R to predict flight delays with Azure Machine Learning designer
 
-**Designer sample 6**
+**Designer (preview) sample 6**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
