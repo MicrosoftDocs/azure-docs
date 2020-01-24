@@ -51,3 +51,17 @@ productDirectory:
       azureCategories:
         - analytics
       url: ../analysis-services/index.yml
+    # Card
+    - title: Azure Blockchain Service
+      summary: Build, govern, and expand consortium blockchain networks
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - blockchain
+      url: ../blockchain/service/index.yml
+    # Card
+    - title: API Apps
+      summary: Easily build and consume Cloud APIs
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: ../app-service/index.md
