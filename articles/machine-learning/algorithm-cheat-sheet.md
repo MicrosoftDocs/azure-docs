@@ -17,6 +17,8 @@ The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right 
 
 Azure Machine Learning has a large library of algorithms from the ***classification***, ***recommender systems***, ***clustering***, ***anomaly detection***, ***regression*** and ***text analytics*** families. Each is designed to address a different type of machine learning problem.
 
+For additional guidance, see [How to select algorithms](how-to-select-algorithms.md)
+
 ## Download: Machine Learning Algorithm Cheat Sheet
 
 **Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
@@ -51,9 +53,9 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 ## Next steps
 
-* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-ml.md).
+* See additional guidance on [How to select algorithms](how-to-select-algorithms.md)
 
-* See a list of algorithms and modules in the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
+* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-ml.md).
 
 * [Tutorial: Build a prediction model in Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 
