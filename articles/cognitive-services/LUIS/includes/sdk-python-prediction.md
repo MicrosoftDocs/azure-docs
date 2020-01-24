@@ -81,6 +81,7 @@ export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 ```
 
 After you add the environment variables, run `source .bash_profile` from your console window to make the changes effective.
+***
 
 ### Create a new python file
 
