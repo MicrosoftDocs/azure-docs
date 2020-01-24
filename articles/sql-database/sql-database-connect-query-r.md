@@ -22,7 +22,7 @@ In this quickstart, you use R with Machine Learning Services to connect to an Az
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 - An [Azure SQL database](sql-database-single-database-get-started.md)
   
@@ -36,9 +36,7 @@ In this quickstart, you use R with Machine Learning Services to connect to an Az
 > [!NOTE]
 > During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database, however the managed instance deployment option is currently not supported.
 
-Machine Learning Services with R is a feature of Azure SQL database used for executing in-database R scripts.
-
-For more information, see the [R Project](https://www.r-project.org/).
+Machine Learning Services with R is a feature of Azure SQL database used for executing in-database R scripts. For more information, see the [R Project](https://www.r-project.org/).
 
 ## Get SQL server connection information
 
