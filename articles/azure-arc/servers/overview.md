@@ -42,11 +42,11 @@ The following versions of the Windows and Linux operating system are officially 
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
 >
 
-## Azure subscription and service limits
+### Azure subscription and service limits
 
 Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
-## Networking Configuration
+### Networking Configuration
 
 The agent for Linux and Windows communicates outbound to Azure Arc over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can direct traffic through an HTTPS proxy.
 
@@ -69,6 +69,34 @@ The following URLs are required in addition to the Service Tag IP address range 
 |agentserviceapi.azure-automation.net|Guest Configuration|
 |*-agentservice-prod-1.azure-automation.net|Guest Configuration|
 |*.his.hybridcompute.azure-automation.net|Hybrid Identity Service|
+
+### Register the required resource providers
+
+Azure Arc for servers depends on the following Azure resource providers in your subscription in order to use this service:
+
+- **Microsoft.HybridCompute**
+- **Microsoft.GuestConfiguration**
+
+If they are not registered, you can register them using the following commands:
+
+Azure PowerShell:
+
+```azurepowershell-interactive
+Login-AzAccount
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+```
+
+Azure CLI:
+
+```azurecli-interactive
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
+```
+
+You can also register the Resource Providers from the Azure portal by following the steps under [Azure portal](../../azure-resource-manager//management/resource-providers-and-types.md#azure-portal). 
 
 ## Installing the agent
 
