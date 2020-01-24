@@ -1405,7 +1405,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/managed-applications">
+                                            <a href="/azure/azure-resource-manager/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
                                                 <p>Azure Managed Applications</p>
                                             </a>
@@ -4914,7 +4914,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/managed-applications">
+                                <a href="/azure/azure-resource-manager/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

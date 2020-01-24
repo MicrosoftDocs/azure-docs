@@ -79,7 +79,7 @@ def sentiment_analysis_example(endpoint, key):
 
     document = "I had the best day of my life. I wish you were there with me."
 
-    response = single_analyze_sentiment(endpoint=endpoint, key=key, input_text=document)
+    response = single_analyze_sentiment(endpoint=endpoint, credential=key, input_text=document)
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
         response.document_scores.positive,
@@ -133,7 +133,7 @@ from azure.ai.textanalytics import single_detect_language
 def language_detection_example(endpoint, key):
     try:
         document = "Ce document est rédigé en Français."
-        response = single_detect_language(endpoint=endpoint, key=key, input_text= document)
+        response = single_detect_language(endpoint=endpoint, credential=key, input_text= document)
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
@@ -162,7 +162,7 @@ def entity_recognition_example(endpoint, key):
 
     try:
         document = "I had a wonderful trip to Seattle last week."
-        result = single_recognize_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_entities(endpoint=endpoint, credential=key, input_text= document)
         
         print("Named Entities:\n")
         for entity in result.entities:
@@ -202,7 +202,7 @@ def entity_pii_example(endpoint, key):
         document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
 
 
-        result = single_recognize_pii_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_pii_entities(endpoint=endpoint, credential=key, input_text= document)
         
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
@@ -235,7 +235,7 @@ def entity_linking_example(endpoint, key):
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
         while also being the largest individual shareholder until May 2014."""
-        result = single_recognize_linked_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_linked_entities(endpoint=endpoint, credential=key, input_text= document)
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -312,7 +312,7 @@ def key_phrase_extraction_example(endpoint, key):
     try:
         document = "My cat might need to see a veterinarian."
 
-        response = single_extract_key_phrases(endpoint=endpoint, key=key, input_text= document)
+        response = single_extract_key_phrases(endpoint=endpoint, credential=key, input_text= document)
 
         if not response.is_error:
             print("\tKey Phrases:")
