@@ -10,7 +10,6 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.manager: dougeby
   ms.date: 01/24/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -21,7 +20,7 @@ landingContent:
   # Card (optional)
   - title: Learn about Cost Management
     linkLists:
-    - linkListType: learn
+    - linkListType: overview
       links:
       - text: What is Cost Management and Billing?
         url: ../cost-management-billing-overview.md
@@ -37,7 +36,6 @@ landingContent:
       links:
       - text: Azure Cost Management videos
         url: https://www.youtube.com/c/AzureCostManagement
-
 
   # Card (optional)
   - title: Analyze and manage Azure costs
@@ -68,26 +66,6 @@ landingContent:
         url: /power-bi/desktop-connect-azure-cost-management
 
   # Card (optional)
-  - title: Analyze and manage AWS costs
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-      - text: Set up and configure AWS integration
-        url: aws-integration-set-up-configure.md
-      - text: Manage AWS costs and usage
-        url: aws-integration-manage.md
-
-  # Card (optional)
-  - title: Latest features
-    linkLists:
-    - linkListType: whats-new
-      links:
-      - text: Monthly updates
-        url: https://azure.microsoft.com/blog/tag/cost-management/
-      - text: Feature updates
-        url: https://azure.microsoft.com/updates/?product=cost-management
-
-  # Card (optional)
   - title: Cost Management APIs
     linkLists:
     - linkListType: concept
@@ -104,3 +82,23 @@ landingContent:
         url: /azure/templates/microsoft.consumption/budgets
       - text: Cost Management REST API Samples
         url: https://github.com/Azure-Samples/Cost-Management-Samples
+
+  # Card (optional)
+  - title: Latest features
+    linkLists:
+    - linkListType: whats-new
+      links:
+      - text: Monthly updates
+        url: https://azure.microsoft.com/blog/tag/cost-management/
+      - text: Feature updates
+        url: https://azure.microsoft.com/updates/?product=cost-management
+
+  # Card (optional)
+  - title: Analyze and manage AWS costs
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Set up and configure AWS integration
+        url: aws-integration-set-up-configure.md
+      - text: Manage AWS costs and usage
+        url: aws-integration-manage.md
