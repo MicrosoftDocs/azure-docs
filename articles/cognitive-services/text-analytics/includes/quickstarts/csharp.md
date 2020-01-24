@@ -87,7 +87,7 @@ Open the *program.cs* file and add the following `using` directives:
 
 In the application's `Program` class, create variables for your resource's key and endpoint. 
 
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info-v2.md)]
+[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
 private static readonly string key = "<replace-with-your-text-analytics-key-here>";
