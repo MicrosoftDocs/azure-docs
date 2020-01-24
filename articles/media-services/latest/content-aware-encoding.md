@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: An experimental preset for content-aware encoding - Azure | Microsoft Docs
+title: A preset for content-aware encoding - Azure Media Services | 
 description: This article discusses content-aware encoding in Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.custom:
 
 ---
 
-# Experimental preset for content-aware encoding
+# A preset for content-aware encoding
 
 In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). In order to ensure graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates; see the Media Services [built-in encoding presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
