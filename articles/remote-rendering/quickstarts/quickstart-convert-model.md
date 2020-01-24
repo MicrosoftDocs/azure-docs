@@ -5,14 +5,22 @@ author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
 ms.author: flborn
-ms.date: 01/23/2019
-ms.topic: quick-start
+ms.date: 01/23/2020
+ms.topic: quickstart
 ms.service: azure-remote-rendering
 ---
 
 # Quickstart: Convert a model for rendering
 
-In the previous quickstart, you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. You will now learn how you can convert your own model. Once converted, you can modify the code from the first quickstart to actually render it.
+In the previous quickstart, you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. In this quickstart you will learn how to convert your own model, for example an .FBX file. Once converted, you can modify the code from the first quickstart to actually render it.
+
+You'll learn how to:
+
+> [!div class="checklist"]
+> * Set up Azure blob storage for input and outpu
+> * Configure the conversion script with your credentials and storage information
+> * Run the conversion and get back the URL of the converted model
+
 
 ## Overview
 The renderer on the server consumes a model in a proprietary binary format, not a source model format (.FBX, .GLTF, ...) directly. To convert a model from source format to target format, we need to run the conversion service via API commands, which will be shown in this article.
@@ -131,7 +139,7 @@ Open a powershell window. Make sure you have the [Azure Powershell](https://docs
 ```powershell
 PS> $ Install-Module -Name Az -AllowClobber
 ```
-This is a one-time step, ni case you haven't installed it already.
+Installation of the Azure Powershell is a one-time step.
 
 ## Make sure you are logged into your subscription
 If you want to use the asset conversion service and upload files to Azure Blob Storage, you will need to log into your subscription.
