@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 01/23/2020
+ms.date: 01/24/2020
 ms.custom: mvc
 ms.topic: overview
 ---
@@ -28,7 +28,6 @@ Azure Arc for servers (preview) supports the following scenarios with connected 
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
 - Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
-
 
 ## Supported regions
 
@@ -119,3 +118,5 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 | At scale | Install and configure the agent for multiple machines following the [PowerShell Quickstart](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
 
 ## Next steps
+
+See [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) to review requirements and supported methods to deploy the agent to machines hosted on your corporate network or other cloud environment.
