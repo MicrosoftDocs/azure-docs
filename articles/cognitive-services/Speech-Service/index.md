@@ -704,8 +704,8 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Deploy Speech service to containers</h3>
-                                                    <p>Use Docker to deploy the Speech service to a container instance.</p>
+                                                    <h3>Deploy Speech service containers</h3>
+                                                    <p>Learn how to use Speech containers either on-premise, with Kubernetes and Helm or Azure container instances.</p>
                                                 </div>
                                             </div>
                                         </div>
