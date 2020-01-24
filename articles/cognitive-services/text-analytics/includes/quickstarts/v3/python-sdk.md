@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/13/2019
+ms.date: 01/23/2019
 ms.author: aahi
 ---
 
