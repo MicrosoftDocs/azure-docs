@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL - Single server online via the CLI"
+title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL - Single server online via the CLI"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL - single server by using Azure Database Migration Service via the CLI.
 services: dms

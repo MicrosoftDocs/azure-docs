@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL - Hyperscale (Citus) online"
+title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL - Hyperscale (Citus) online"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
@@ -265,13 +265,11 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
 1. When you're ready to complete the database migration, select **Start Cutover**.
 
+2. Wait until the **Pending changes** counter shows **0** to ensure that all incoming transactions to the source database are stopped, select the **Confirm** checkbox, and then select **Apply**.
+
     ![Complete cutover screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-2. Make sure to stop all the incoming transactions to the source database; wait until the **Pending changes** counter shows **0**.
-
-3. Select **Confirm**, and the select **Apply**.
-
-4. When the database migration status shows **Completed**, connect your applications to the new target instance of Hyperscale (Citus).
+3. When the database migration status shows **Completed**, connect your applications to the new target instance of Hyperscale (Citus).
 
 ## Next steps
 
