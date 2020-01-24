@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 01/24/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -55,7 +55,7 @@ Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view
 
 ## Tools and applications
 
-Support for these tools are in limited or aren't yet supported.
+Support for these tools are either limited or aren't yet supported.
 
 |||
 |---|---|
