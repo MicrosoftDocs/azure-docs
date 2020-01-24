@@ -75,25 +75,29 @@ If you have a daily execution quota configured, your function app is temporarily
 
 ## App is behind a firewall
 
-Your function runtime is unreachable if your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and it's configured to block inbound internet traffic, or if it has [inbound IP restrictions](functions-networking-options.md#inbound-ip-restrictions) that are configured to block internet access. The Azure portal makes calls directly to the running app to fetch the list of functions, and it makes HTTP calls to the Kudu endpoint. Platform level settings under the **Platform Features** tab are still available.
+Your function runtime might be unreachable for either of the following reasons:
+* Your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and it's configured to block inbound internet traffic.
+* Your function app has [inbound IP restrictions](functions-networking-options.md#inbound-ip-restrictions) that are configured to block internet access. 
+
+The Azure portal makes calls directly to the running app to fetch the list of functions, and it makes HTTP calls to the Kudu endpoint. Platform level settings under the **Platform Features** tab are still available.
 
 * To verify your App Service Environment (ASE) configuration:
    1. Go to the network security group (NSG) of the subnet where ASE resides.
-   1. Validate the inbound rules to allow traffic coming from the public IP of the computer where you are accessing the application. 
+   1. Validate the inbound rules to allow traffic that's coming from the public IP of the computer where you're accessing the application. 
    
-      You can also use the portal from a computer connected to the virtual network that's running your app or a virtual machine that's running in your virtual network. For more information about inbound rule configuration, see [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+      You can also use the portal from a computer that is connected to the virtual network that's running your app or to a virtual machine that's running in your virtual network. For more information about inbound rule configuration, see [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
 
 ## Next steps
 
 Now that your function app is back and operational, take a look at our quickstarts and developer references:
 
 * [Create your first Azure function](functions-create-first-azure-function.md)  
-  Jump right in and create your first function by using the Azure function's quickstart. 
+  Jump right in and create your first function by using the instructions in the Azure function's quickstart article. 
 * [Azure Functions developer reference](functions-reference.md)  
-  Provides more technical information about the Azure Functions Runtime and a reference for coding functions and defining triggers and bindings.
+  Get more technical information about the Azure Functions Runtime and a reference for coding functions and defining triggers and bindings.
 * [Testing Azure functions](functions-test-a-function.md)  
-  Describes various tools and techniques for testing your functions.
+  Learn about various tools and techniques for testing your functions.
 * [How to scale Azure functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
+  Understand the service plans that are available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
 * [Learn more about Azure App Service](../app-service/overview.md)  
-  Azure Functions leverages Azure App Service for core functionality, such as deployments, environment variables, and diagnostics. 
+  Learn how Azure Functions takes advantage of Azure App Service for core functionality, such as deployments, environment variables, and diagnostics. 
