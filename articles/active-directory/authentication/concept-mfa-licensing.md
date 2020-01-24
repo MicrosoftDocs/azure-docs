@@ -23,14 +23,14 @@ To protect user accounts in your organization, multi-factor authentication shoul
 
 ## Available versions of Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. You may already be entitled to use Azure Multi-Factor Authentication depending on the Azure AD or Office license you currently have. The following table details the different ways to get Azure Multi-Factor Authentication and some of the features and use cases for each.
+Azure Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. You may already be entitled to use Azure Multi-Factor Authentication depending on the Azure AD, Office 365, EMS, or Microsoft 365 license you currently have. The following table details the different ways to get Azure Multi-Factor Authentication and some of the features and use cases for each.
 
 | If you're a user of | Capabilities and use cases |
 | --- | --- |
+| EMS or Microsoft 365 E3 and E5 | EMS E3 or Microsoft 365 E3 (that includes EMS and Office 365), includes Azure AD Premium P1. EMS E5 or Microsoft 365 E5 includes Azure AD Premium P2. You can use the same Conditional Access features noted in the following sections to provide multi-factor authentication to users. |
 | Azure AD Premium P1 | You can use [Azure AD Conditional Access](../conditional-access/overview.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements. |
 | Azure AD Premium P2 | Provides the strongest security position and improved user experience. Adds [risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md) to the Azure AD Premium P1 features that adapts to user's patterns and minimizes multi-factor authentication prompts. |
 | Office Premium, E3, or E5 | Azure Multi-Factor Authentication is either enabled or disabled for all users, for all sign-in events. There is no ability to only enable multi-factor authentication for a subset of users, or only under certain scenarios. Management is through the Office 365 portal. For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see [secure Office 365 resources with multi-factor authentication](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
-| EMS E3 or E5, and Microsoft 365 E3 or E5 | EMS E3 or Microsoft 365 E3 (that includes EMS and Office 365), includes Azure AD Premium P1. EMS E5 or Microsoft 365 E5 includes Azure AD Premium P2. You can use the same Conditional Access features to provide multi-factor authentication to users. |
 | Azure AD free | You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication for all users, every time an authentication request is made. You don't have granular control of enabled users or scenarios, but it does provide that additional security step.<br /> Even when security defaults aren't used to enable multi-factor authentication for everyone, users assigned the *Azure AD Global Administrator* role can be configured to use multi-factor authentication. This feature of the free tier makes sure the critical administrator accounts are protected by multi-factor authentication. |
 
 ## Feature comparison of versions
@@ -57,11 +57,11 @@ The following table provides a list of the features that are available in the va
 
 ## Purchase and enable Azure Multi-Factor Authentication
 
-To use Azure Multi-Factor Authentication, register for or purchase an eligible Azure AD tier. Azure AD comes in four editions — Free, Office 365 apps edition, Premium P1, and Premium P2.
+To use Azure Multi-Factor Authentication, register for or purchase an eligible Azure AD tier. Azure AD comes in four editions — Free, Office 365 apps edition (for Office 365 Premium E3, or E5 customers), Premium P1, and Premium P2.
 
 The Free edition is included with an Azure subscription. See the [section below](#azure-ad-free-tier) for information on how to use security defaults or protect accounts with the *Azure AD Global Administrator* role.
 
-The Premium editions are available through your Microsoft representative, the [Open Volume License Program](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx), and the [Cloud Solution Providers program](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Azure and Office 365 subscribers can also buy Azure Active Directory Premium P1 and P2 online. [Sign in](https://portal.office.com/Commerce/Catalog.aspx) to purchase.
+The Azure AD Premium editions are available through your Microsoft representative, the [Open Volume License Program](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx), and the [Cloud Solution Providers program](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Azure and Office 365 subscribers can also buy Azure Active Directory Premium P1 and P2 online. [Sign in](https://portal.office.com/Commerce/Catalog.aspx) to purchase.
 
 > [!IMPORTANT]
 > Consumption-based licensing is no longer available to new customers effective September 1, 2018. Existing customers using the consumption-based model can continue to use either per enabled user or per authentication billing.
