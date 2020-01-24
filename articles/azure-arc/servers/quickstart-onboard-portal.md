@@ -21,7 +21,7 @@ Review the supported clients and required network configuration in the [Azure Ar
 
 ## Generate an agent installation script by using the Azure portal
 
-1. Open the [Azure portal](https://aka.ms/hybridmachineportal).
+1. Sign in to the [Azure portal](https://aka.ms/hybridmachineportal).
 1. Select **Add**.
 1. Follow the wizard to completion.
 1. The final page of the wizard displays an installation script, which you can copy or download.
@@ -32,8 +32,8 @@ On the non-Azure servers that you want to manage, do the following:
 
 1. Log in to the server by using Secure Shell (SSH), the Remote Desktop Protocol (RDP), or PowerShell remoting.
 1. Start a shell by running either of the following:
-   * On Linux, use Bash.
-   * On Windows, use PowerShell as administrator.
+   * **On Windows**, run PowerShell as administrator.
+   * **On Linux**, run Bash.
 1. In the shell, paste the script that you copied from the portal, and run it on the server to connect to Azure.
 
    The default authentication for onboarding an individual server is *interactive* using Azure "device login." When you run the script, you'll see a message similar to:
@@ -45,7 +45,7 @@ On the non-Azure servers that you want to manage, do the following:
 1. If you want to authenticate non-interactively, follow the instructions in [Create a Service Principal](quickstart-onboard-powershell.md#create-a-service-principal-for-onboarding-at-scale), and modify the script that's generated from the portal.
 
 > [!NOTE]
-> If you're using Internet Explorer to log in to the server for the first time, an error will occur. If it does, reopen the browser and log in again.
+> If you're using Internet Explorer to log in to the server for the first time, you should receive an error. If you do, reopen the browser and log in again.
 
 ## Run the script on target nodes
 
