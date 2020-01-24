@@ -1,23 +1,24 @@
 ---
-title: Quickstart - Connect machines to Azure using Azure Arc for servers - Portal
-description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers from the portal
+title: Connect hybrid machines to Azure from the Azure portal
+description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid, onboard
-ms.date: 08/25/2019
+ms.date: 01/24/2020
 ms.custom: mvc
 ms.topic: quickstart
 ---
-# Quickstart: Connect machines to Azure using Azure Arc for servers - Portal
+
+# Connect hybrid machines to Azure using Azure Arc for servers from the Azure portal
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-Review the supported clients and required network configuration in the [Azure Arc for servers Overview](overview.md).
+To understand the supported configurations and deployment requirements, review [Azure Arc for servers Overview](overview.md).
 
 ## Generate the agent install script using the Azure portal
 

@@ -117,6 +117,11 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 | Interactively | Manually install the agent on a single or small number of machines following the [Portal Quickstart](quickstart-onboard-portal.md).<br> From the Azure portal you can generate a script and execute it on the machine to automate the install and configuration steps.|
 | At scale | Install and configure the agent for multiple machines following the [PowerShell Quickstart](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
 
+You can download the Azure Connected Machine Agent package for Windows and Linux from the locations listed below.
+
+- [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
+- Linux agent package by running `packagewget https://aka.ms/azcmagent -O ~/install_linux_azcmagent.sh`
+
 ## Next steps
 
 See [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) to review requirements and supported methods to deploy the agent to machines hosted on your corporate network or other cloud environment.
