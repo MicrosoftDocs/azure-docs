@@ -113,7 +113,7 @@ Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvi
 
 The **InputClaims** element defines the claims that are sent to the REST service. In this example, the value of the claim `givenName` is sent to the REST service as the claim `email`. The **OutputClaims** element defines the claims that are expected from the REST service.
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) and [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
 
 ## Add the claim definition
 
@@ -259,5 +259,5 @@ You can also design the interaction as a validation profile. For more informatio
 
 To learn out how to secure your APIs, see the following articles:
 
-* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
+* [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)

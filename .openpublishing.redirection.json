@@ -5447,6 +5447,56 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-basic-auth",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
+        "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
+        "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
+        "redirect_url": "/azure/active-directory-b2c/signin-appauth-android",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-ios.md",
+        "redirect_url": "/azure/active-directory-b2c/signin-appauth-ios",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app.md",
+        "redirect_url": "/azure/active-directory-b2c/quickstart-native-app-desktop",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-spa.md",
+        "redirect_url": "/azure/active-directory-b2c/quickstart-single-page-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-web-app.md",
+        "redirect_url": "/azure/active-directory-b2c/quickstart-web-app-dotnet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-protocols.md",
+        "redirect_url": "/azure/active-directory-b2c/protocols-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-support.md",
+        "redirect_url": "/azure/active-directory-b2c/support-options",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-twitter-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter-custom",
       "redirect_document_id": true

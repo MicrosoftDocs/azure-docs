@@ -40,14 +40,14 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 1. Click **Sign in** to start the **Sign Up or Sign In** workflow.
 
-    ![Screenshot of the sample WPF application](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
+    ![Screenshot of the sample WPF application](./media/quickstart-native-app-desktop/wpf-sample-application.png)
 
     The sample supports several sign-up options. These options include using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
 
 
 2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
-    ![Sign In or Sign Up page showing identity providers](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+    ![Sign In or Sign Up page showing identity providers](./media/quickstart-native-app-desktop/sign-in-or-sign-up-wpf.png)
 
     You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city.
 
@@ -61,7 +61,7 @@ Azure AD B2C provides functionality to allow users to update their profiles. The
 
 1. In the application menu bar, click **Edit profile** to edit the profile you created.
 
-    ![Edit profile button highlighted in WPF sample app](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+    ![Edit profile button highlighted in WPF sample app](./media/quickstart-native-app-desktop/edit-profile-wpf.png)
 
 2. Choose the identity provider associated with the account you created. For example, if you used Facebook as the identity provider when you created your account, choose Facebook to modify the associated profile details.
 
@@ -73,7 +73,7 @@ Azure AD B2C provides functionality to allow users to update their profiles. The
 
 Click **Call API** to make a request to the protected resource.
 
-![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+![Call API](./media/quickstart-native-app-desktop/call-api-wpf.png)
 
 The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
 

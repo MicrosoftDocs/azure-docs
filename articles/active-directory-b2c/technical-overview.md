@@ -130,7 +130,7 @@ Learn more about custom policies in [Custom policies in Azure Active Directory B
 
 ## Protocols and tokens
 
-Azure AD B2C supports the [OpenID Connect and OAuth 2.0 protocols](active-directory-b2c-reference-protocols.md) for user journeys. In the Azure AD B2C implementation of OpenID Connect, your application starts the user journey by issuing authentication requests to Azure AD B2C.
+Azure AD B2C supports the [OpenID Connect and OAuth 2.0 protocols](protocols-overview.md) for user journeys. In the Azure AD B2C implementation of OpenID Connect, your application starts the user journey by issuing authentication requests to Azure AD B2C.
 
 The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](active-directory-b2c-reference-tokens.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints like the `/token` or `/authorize` endpoint. With these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
 
@@ -191,7 +191,7 @@ You can add a REST API call at any step in the user journey defined by a custom 
 * After Azure AD B2C creates a new account in the directory
 * Before Azure AD B2C issues an access token
 
-To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C user journey](active-directory-b2c-custom-rest-api-netfw.md).
+To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C user journey](rest-api-claims-exchange-dotnet.md).
 
 ## Protect customer identities
 

@@ -55,13 +55,13 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 1. Click **Login** to start the workflow.
 
-    ![Single-page application sample app shown in browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Single-page application sample app shown in browser](./media/quickstart-single-page-app/sample-app-spa.png)
 
     The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
 
 2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
-    ![Sign In or Sign Up page showing identity provider buttons](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Sign In or Sign Up page showing identity provider buttons](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 
     You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city.
 
@@ -71,7 +71,7 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 Click **Call Web API** to have your display name returned from the Web API call as a JSON object.
 
-![Sample application in browser showing the web API response](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Sample application in browser showing the web API response](./media/quickstart-single-page-app/call-api-spa.png)
 
 The sample single-page application includes an access token in the request to the protected web API resource.
 

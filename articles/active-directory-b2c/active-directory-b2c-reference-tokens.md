@@ -21,7 +21,7 @@ Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens
 
 ## Token types
 
-Azure AD B2C supports the [OAuth 2.0 and OpenID Connect protocols](active-directory-b2c-reference-protocols.md), which makes use of tokens for authentication and secure access to resources. All tokens used in Azure AD B2C are [JSON web tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) that contain assertions of information about the bearer and the subject of the token.
+Azure AD B2C supports the [OAuth 2.0 and OpenID Connect protocols](protocols-overview.md), which makes use of tokens for authentication and secure access to resources. All tokens used in Azure AD B2C are [JSON web tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) that contain assertions of information about the bearer and the subject of the token.
 
 The following tokens are used in communication with Azure AD B2C:
 
