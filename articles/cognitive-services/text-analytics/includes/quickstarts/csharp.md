@@ -17,7 +17,7 @@ ms.reviewer: assafi
 
 [v3 Reference documentation](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [v3 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 [v2 Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [v2 Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
@@ -77,7 +77,7 @@ static void Main(string[] args)
 }
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens, select **Browse** and search for `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
@@ -102,9 +102,9 @@ Replace the application's `Main` method. You will define the methods called here
 
 ## Object model
 
-The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key or AAD token, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
-If you're using version `3.0-preview`, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country hint).
+If you're using version `3.0-preview`, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country hint). You can also authenticate using an Azure Active Directory token. 
 
 ## Code examples
 
@@ -124,7 +124,7 @@ Make sure your main method from earlier creates a new client object with your en
 var client = new TextAnalyticsClient(endpoint, key);
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Create a new `ApiKeyServiceClientCredentials` class to store the credentials and add them to the client's requests. Within it, create an override for `ProcessHttpRequestAsync()` that adds your key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -176,7 +176,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain the sentiment `Score` if successful, and an `errorMessage` if not. 
 
@@ -217,7 +217,7 @@ Language:
         French, ISO-6391: fr
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Create a new function called `languageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The returned [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) object will contain the list of detected languages in `DetectedLanguages` if successful, and an `errorMessage` if not.  Print the first returned language.
 
@@ -367,10 +367,10 @@ Linked Entities:
                 Offset: 89,     Length: 5,      Score: 0.281
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 > [!NOTE]
-> In version 2, entity linking is included in the NER response.
+> In version 2.1, entity linking is included in the NER response.
 
 Create a new function called `RecognizeEntitiesExample()` that takes the client that you created earlier, and call its [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. Iterate through the results. The returned [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) object will contain the list of detected entities in `Entities` if successful, and an `errorMessage` if not. For each detected entity, print its Type, Sub-Type, Wikipedia name (if they exist) as well as the locations in the original text.
 
@@ -408,7 +408,7 @@ Key phrases:
     veterinarian
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The result will contain the list of detected key phrases in `KeyPhrases` if successful, and an `errorMessage` if not. Print any detected key phrases.
 
