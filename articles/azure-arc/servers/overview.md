@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-You can also register the Resource Providers from the Azure portal by following the steps under [Azure portal](../../azure-resource-manager//management/resource-providers-and-types.md#azure-portal).
+You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## Installing the agent
 
