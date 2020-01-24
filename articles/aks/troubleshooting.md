@@ -489,6 +489,13 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 This error is due to an upstream cluster autoscaler race condition where the cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, simply disable and re-enable the [cluster autoscaler][cluster-autoscaler].
 
+### Disks are slow to attach and you receive the following error
+
+```console
+Error WaitForAttach Cannot find Lun for disk
+```
+On Kubernetes versions older than 1.15.0 you may receive an error 
+
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
