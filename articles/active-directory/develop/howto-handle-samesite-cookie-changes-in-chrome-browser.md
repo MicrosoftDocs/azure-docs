@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Learn how to handle SameSite cookie changes in Chrome browser.
 services: active-directory
 documentationcenter: ''
-author: nacanuma
+author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: kkrishna
-ms.reviewer: kkrishna, jmprieur
+ms.reviewer: kkrishna
 ms.custom: aaddev
 ---
 # Handle SameSite cookie changes in Chrome browser
@@ -44,7 +44,7 @@ The table below presents the pull requests that worked around the SameSite chang
 |  [ASP.NET MVC Web App sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Same site cookie fix #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
 |  [active-directory-dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2)  |  [Same site cookie fix #28](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2/pull/28)  |
 
-See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/samesite) for details on how to handle SameSite cookies in ASP.NET Core.
+See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) for details on how to handle SameSite cookies in ASP.NET Core.
 
 # [Python](#tab/python)
 
