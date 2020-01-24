@@ -672,8 +672,27 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                         </ul>
                     </li>
                     <li>
-                        <a href="#deploy-architecture">On-prem Solutions</a>
+                        <a href="#deploy-architecture">Hosting</a>
                         <ul id="deploy-architecture" class="cardsC">
+                            <li>
+                                <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Create an Azure Speech service resource</h3>
+                                                    <p>Learn how to use Azure to create a Speech service resource.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="speech-container-howto.md?tabs=stt">
                                     <div class="cardSize">
@@ -717,44 +736,6 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                     <li>
                         <a href="#support">Support</a>
                         <ul id="support" class="cardsC">
-                            <li>
-                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/scenario-availability">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario & feature availability</h3>
-                                                    <p>Learn about the many Speech SDK feature scenarios across a wide variety of programming languages and environments.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/regions">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-regions.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Supported regions</h3>
-                                                    <p>Learn about the available regions and endpoints for the Speech service.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                             <li>
                                 <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues">
                                     <div class="cardSize">
@@ -806,6 +787,44 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                 <div class="cardText">
                                                     <h3>UserVoice forum</h3>
                                                     <p>Share your ideas, suggest enhancements, or request new features for the Speech service.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/scenario-availability">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Scenario & feature availability</h3>
+                                                    <p>Learn about the many Speech SDK feature scenarios across a wide variety of programming languages and environments.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/regions">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Supported regions</h3>
+                                                    <p>Learn about the available regions and endpoints for the Speech service.</p>
                                                 </div>
                                             </div>
                                         </div>
