@@ -1,6 +1,6 @@
 ---
-title: Monitor logic apps with Azure Monitor
-description: Get insights and debugging data to troubleshoot and diagnose logic app runs with Azure Monitor logs
+title: Monitor logic apps by using Azure Monitor logs
+description: Troubleshoot logic apps by setting up and collecting Azure Monitor logs for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ---
 
-# Get insights and debugging data for logic apps by using Azure Monitor logs
+# Set up and collect Azure Monitor logs to help troubleshoot Azure Logic Apps
 
-To get richer debugging information about your logic apps during runtime, you can use [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events. [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information. You can also [use this diagnostic data with other Azure services](#extend-diagnostic-data), such as Azure Storage and Azure Event Hubs.
+To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events. [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/logic-apps-azure-storage-event-hubs.md), such as Azure Storage and Azure Event Hubs.
 
-To set up diagnostics logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in the Azure portal for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. To enable logging and creating queries for those logs, set up Azure Monitor Logs.
+To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in the Azure portal for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, set up [Azure Monitor logs](#set-up-resource-logs).
 
 This article shows how to enable Log Analytics when you create logic apps, how to install and set up the Logic Apps Management solution, and how to set up and create queries for Azure Monitor logs.
 
@@ -79,6 +79,8 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
    After Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace, the solution appears on your workspace's summary pane.
 
    ![Workspace summary pane](./media/logic-apps-monitor-your-logic-apps-oms/workspace-summary-pane-logic-apps-management.png)
+
+<a name-"set-up-resource-logs"></a>
 
 ## Set up Azure Monitor logs
 
@@ -175,7 +177,7 @@ After your logic app runs, you can view the status and count for those runs on t
 
 <a name="view-query-logs"></a>
 
-## View and query diagnostic logs
+## View and query resource logs
 
 To view the events and data collected from your logic app's runs, such as trigger events, run events, and action events, you can create queries with Log Analytics. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
@@ -203,6 +205,7 @@ From within the Logic Apps Management solution, you can view the query behind a 
 
 To create your own queries for your Log Analytics workspace, follow these steps. For more information about creating queries, see these topics:
 
+* [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 * [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
