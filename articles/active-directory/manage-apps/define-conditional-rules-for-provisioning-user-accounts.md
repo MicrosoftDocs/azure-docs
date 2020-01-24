@@ -47,7 +47,7 @@ Each user or group processed by the Azure AD provisioning service is always eval
 
 As an example, consider the following scoping filter:
 
-![Scoping filter](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Scoping filter](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 According to this scoping filter, users must satisfy the following criteria to be provisioned:
 
