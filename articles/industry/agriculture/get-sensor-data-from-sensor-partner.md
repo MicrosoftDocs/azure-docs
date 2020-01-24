@@ -67,18 +67,16 @@ You can generate the above information by following these steps: (Please note th
 
 ### Integrate device data by using the generated credentials
 
-Go to the device partner portal to link FarmBeats. Currently the following device partners are supported:
-
-1. [Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
-2. [Teralytic](https://app.teralytic.com/login)
-3. [Pessl Instruments](https://ng.fieldclimate.com/user-api-services)
-
-You will need to provide the following information which you have generated in the previous section:
+Now you have the following information generated from the previous section.
  - API endpoint
  - EventHub connection string
  - Client ID
  - Client secret
  - Tenant ID
+ 
+You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, please go to the below page:
+
+[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
 
  The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
 
