@@ -275,7 +275,7 @@ If you're on Windows Server 2016 and greater, you'll need to create a Cloud Witn
 
 For Windows Server 2016 and greater, configure the cluster to use the cloud witness you just created. Follow all of the steps [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
-For Windows Server 2012 R2 and older, follow the same steps in [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) but on the **Select Quorum Witness** page, select the **Configure a file share witness** option, and then specify the file share you mounted previously for witness purposes. 
+For Windows Server 2012 R2 and older, follow the same steps in [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) but on the **Select Quorum Witness** page, select the **Configure a file share witness** option. Specify the file share you allocated to be the file share witness, whether it's one you configured on a separate virtual machine, or mounted from Azure. 
 
 
 ## Step 4: Test cluster failover
