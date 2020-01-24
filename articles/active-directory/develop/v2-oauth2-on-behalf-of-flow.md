@@ -18,7 +18,6 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
