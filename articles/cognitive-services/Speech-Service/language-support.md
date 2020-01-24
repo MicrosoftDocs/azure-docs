@@ -31,46 +31,46 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
  Locale | Language | Supported | Customizations
 ------|------------|-----------|-------------
+`ar-AE` | Arabic (UAE) | Yes | No
 `ar-BH` | Arabic (Bahrain) | Yes | Language model
 `ar-EG` | Arabic (Egypt), modern standard | Yes | Language model
-`ar-SA` | Arabic (Saudi Arabia) | Yes | No
-`ar-AE` | Arabic (UAE) | Yes | No
 `ar-KW` | Arabic (Kuwait) | Yes | No
 `ar-QA` | Arabic (Qatar) | Yes | No
+`ar-SA` | Arabic (Saudi Arabia) | Yes | No
 `ca-ES` | Catalan | Yes | Language model
 `da-DK` | Danish (Denmark) | Yes | Language model
-`de-DE` | German (Germany) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`de-DE` | German (Germany) | Yes | Acoustic model<br>Language model<br>Pronunciation
 `en-AU` | English (Australia) | Yes | Acoustic model<br>Language model
 `en-CA` | English (Canada) | Yes | Acoustic model<br>Language model
-`en-GB` | English (United Kingdom) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`en-GB` | English (United Kingdom) | Yes | Acoustic model<br>Language model<br>Pronunciation
 `en-IN` | English (India) | Yes | Acoustic model<br>Language model
 `en-NZ` | English (New Zealand) | Yes | Acoustic model<br>Language model
-`en-US` | English (United States) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`en-US` | English (United States) | Yes | Acoustic model<br>Language model<br>Pronunciation
 `es-ES` | Spanish (Spain) | Yes | Acoustic model<br>Language model
 `es-MX` | Spanish (Mexico) | Yes | Acoustic model<br>Language model
 `fi-FI` | Finnish (Finland) | Yes | Language model
 `fr-CA` | French (Canada) | Yes | Acoustic model<br>Language model
-`fr-FR` | French (France) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`fr-FR` | French (France) | Yes | Acoustic model<br>Language model<br>Pronunciation
 `gu-IN` | Gujarati (Indian) | Yes | Language model
 `hi-IN` | Hindi (India) | Yes | Acoustic model<br>Language model
-`it-IT` | Italian (Italy) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`it-IT` | Italian (Italy) | Yes | Acoustic model<br>Language model<br>Pronunciation
 `ja-JP` | Japanese (Japan) | Yes | Language model
 `ko-KR` | Korean (Korea) | Yes | Language model
 `mr-IN` | Marathi (India) | Yes | Language model
 `nb-NO` | Norwegian (Bokmål) (Norway) | Yes | Language model
 `nl-NL` | Dutch (Netherlands) | Yes | Language model
 `pl-PL` | Polish (Poland) | Yes | Language model
-`pt-BR` | Portuguese (Brazil) | Yes | Acoustic model<br>Language model<br>Pronunciation model
+`pt-BR` | Portuguese (Brazil) | Yes | Acoustic model<br>Language model<br>Pronunciation
 `pt-PT` | Portuguese (Portugal) | Yes | Language model
 `ru-RU` | Russian (Russia) | Yes | Acoustic model<br>Language model
 `sv-SE` | Swedish (Sweden) | Yes | Language model
 `ta-IN` | Tamil (India) | Yes | Language model
 `te-IN` | Telugu (India) | Yes | No
+`th-TH` | Thai (Thailand) | Yes | No
+`tr-TR` | Turkey | Yes | No
 `zh-CN` | Chinese (Mandarin, simplified) | Yes | Acoustic model<br>Language model
 `zh-HK` | Chinese (Cantonese, Traditional) | Yes | Language model
 `zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Language model
-`th-TH` | Thai (Thailand) | Yes | No
-`tr-TR` | Turkey | Yes | No
 
 ## Text-to-speech
 

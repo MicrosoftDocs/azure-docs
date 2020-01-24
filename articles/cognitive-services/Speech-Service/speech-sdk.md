@@ -29,7 +29,7 @@ A general overview about the capabilities and supported platforms can be found o
 ### Windows
 
 > [!WARNING]
-> The Speech SDK **does not** support Windows 7. If you're using Windows 7 (or an earlier version of the Windows OS), you'll need to update the OS before using the Speech SDK.
+> The Speech SDK supports Windows 10 or later versions. Earlier Windows versions are **not supported**.
 
 For Windows, we support the following languages:
 
