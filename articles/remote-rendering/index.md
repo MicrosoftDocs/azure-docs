@@ -14,10 +14,10 @@ ms.service: azure-remote-rendering
 Welcome to Azure Remote Rendering.
 
 ## Prerequisites
-* [System requirements](concepts/system-requirements.md)
+* [System requirements](overview/system-requirements.md)
 
 ## Quickstart 
-* [Overview](overview.md)
+* [Overview](overview/about.md)
 * [Getting started](quickstarts/getting-started.md)
 * [Rendering your first model](quickstarts/rendering-your-first-model.md)
 
