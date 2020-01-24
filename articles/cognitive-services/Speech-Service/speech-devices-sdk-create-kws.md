@@ -44,7 +44,7 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
     ![Review your keyword](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
-1. It may take up to ten minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
+1. It may take up to thirty minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
 
     ![Review your keyword](media/custom-keyword/custom-kws-portal-download-model.png)
 

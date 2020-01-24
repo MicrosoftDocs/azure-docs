@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Set up an office phone as your two-factor verification method
