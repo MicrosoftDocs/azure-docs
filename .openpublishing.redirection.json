@@ -1747,6 +1747,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-tls.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/tls-1.2-everywhere.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
       "redirect_url": "/azure/cognitive-services/custom-decision-service",
       "redirect_document_id": false
@@ -31018,7 +31028,7 @@
     },
     {
       "source_path": "articles/operations-management-suite/operations-management-suite-service-map-configure.md",
-      "redirect_url": "/azure/monitoring/monitoring-service-map-configure",
+      "redirect_url": "/azure/azure-monitor/insights/service-map#enable-service-map",
       "redirect_document_id": false
     },
     {
@@ -38183,6 +38193,11 @@
     {
       "source_path": "articles/monitoring/monitoring-service-map-scom.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map-scom",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/monitoring/monitoring-service-map-configure.md",
+      "redirect_url": "/azure/azure-monitor/insights/service-map#enable-service-map",
       "redirect_document_id": false
     },
     {
@@ -46628,6 +46643,21 @@
     {
       "source_path": "articles/healthcare-apis/tutorial-3-connect-to-endpoint.md",
       "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-1-decision-flow.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-app-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/overview-open-source-server.md",
+      "redirect_url": "/azure/healthcare-apis/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/concepts-aad-authentication.md",
+      "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
       "redirect_document_id": false
     }
   ]
