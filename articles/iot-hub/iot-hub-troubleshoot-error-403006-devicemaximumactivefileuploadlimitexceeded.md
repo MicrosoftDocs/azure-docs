@@ -21,11 +21,13 @@ When trying to initiate a file upload request, the request fails with the error 
 
 ## Cause
 
-Each device client is limited to [10 concurrent file uploads](./iot-hub-devguide-quotas-throttling.md#other-limits). Most likely, you're exceeding the limit because IoT Hub wasn't notified that previous file uploads are completed.
+Each device client is limited to [10 concurrent file uploads](./iot-hub-devguide-quotas-throttling.md#other-limits). 
+
+Most likely, you're exceeding the limit because IoT Hub wasn't notified that previous file uploads are completed, commonly as a result of flaky network where the device frequently loses connection and fails to complete the upload.
 
 ## Solution
 
-To prevent the number of concurrent file uploads from piling up and exceeding the limit of 10, implement device side logic to promptly [notify IoT Hub file upload completion](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload).
+Ensure the device can promptly [notify IoT Hub file upload completion](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload). Then, try [reducing the SAS token TTL for file upload configuration](iot-hub-configure-file-upload.md).
 
 ## Next steps
 

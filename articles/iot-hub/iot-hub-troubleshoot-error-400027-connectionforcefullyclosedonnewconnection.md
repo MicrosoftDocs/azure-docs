@@ -25,4 +25,4 @@ The device created a new connection to IoT Hub, so the previous connection was c
 
 ## Solution
 
-Ensure that each client connects to IoT Hub using its own authentication credentials, such as a connection string.
+Ensure that each client connects to IoT Hub using its own identity.

@@ -23,7 +23,7 @@ When trying to invoke a direct method from IoT Hub to a device, the request fail
 
 ### Cause 1
 
-IoT Hub gateway timed out waiting for the device to respond to the direct method.
+IoT Hub encountered an error and couldn't confirm if the direct method completed before timing out.
 
 ### Cause 2
 
@@ -33,7 +33,7 @@ When using an earlier version of the Azure IoT C# SDK (<1.19.0), AMQP link betwe
 
 ### Solution 1
 
-Ensure the device is online and capable of receiving direct methods, then issue a retry
+Issue a retry
 
 ### Solution 2
 

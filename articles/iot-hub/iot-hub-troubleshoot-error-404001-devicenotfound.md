@@ -21,9 +21,7 @@ During a cloud-to-device (C2D) communication, such as C2D message, twin update, 
 
 ## Cause
 
-<!--- Need to understand why this is such a common error? Doesn't seem to make sense that customers are always failing to register their devices?--->
-
-The operation failed because the device cannot be found by IoT Hub because it's not registered.
+The operation failed because the device cannot be found by IoT Hub because it's not registered or disabled.
 
 ## Solution
 

@@ -21,8 +21,14 @@ When trying to send a cloud-to-device message, the request fails with the error 
 
 ## Cause
 
-The number of messages enqueued for the device exceeds the [queue limit (50)](./iot-hub-devguide-quotas-throttling.md#other-limits).
+The underlying cause is that the number of messages enqueued for the device exceeds the [queue limit (50)](./iot-hub-devguide-quotas-throttling.md#other-limits).
+
+The most likely reason that you're running into this limit is because you're using HTTPS to receive the message, which leads to continuous polling using `ReceiveAsync`, resulting in IoT Hub throttling the request.
 
 ## Solution
 
-Enhance device side logic to process (complete, reject, or abandon) queued messages promptly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
+The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). To reduce the likelihood to running into the queue limit, see if you can switch to AMQP or MQTT for cloud-to-device messages.
+
+Otherwise, enhance device side logic to process (complete, reject, or abandon) queued messages promptly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
+
+Lastly, consider using the [Purge Queue API](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) to periodically to clean up pending messages before the limit is reached.

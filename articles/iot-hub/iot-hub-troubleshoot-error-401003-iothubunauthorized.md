@@ -17,7 +17,13 @@ This article describes the causes and solutions for **401003 IoTHubUnauthorized*
 
 ## Symptoms
 
-Several possible symptoms fall under this error code. In general, the error indicates that the request authorization failed. Additional detail is provided in the error message which could include:
+### Symptom 1
+
+In diagnostic logs, you see a pattern of devices disconnecting with **401003 IoTHubUnauthorized** followed by **404104 DeviceConnectionClosedRemotely** and then successful connect shortly after.
+
+### Symptom 2
+
+Requests to IoT Hub fail with the error message:
 
 * Authorization header missing
 * IotHub '\*' does not contain the specified device '\*'
@@ -27,9 +33,29 @@ Several possible symptoms fall under this error code. In general, the error indi
 
 ## Cause
 
+### Cause 1
+
+For MQTT, some SDK rely on IoT Hub to issue the disconnect when the SAS token expires to know when to refresh it. So, 
+
+1. The SAS token expires
+1. IoT Hub notices the expiration, and disconnects the device with **401003 IoTHubUnauthorized**
+1. The device completes the disconnection with **404104 DeviceConnectionClosedRemotely**
+1. The IoT SDK generates a new SAS token
+1. The device reconnects with IoT Hub successfully
+
+### Cause 2
+
 The authorization header, rule, or key was not considered sufficient by IoT Hub for authentication.
 
 ## Solution
+
+### Solution 1
+
+No action needed if using IoT SDK for connection using the device connection string. IoT SDK regenerates the new token to reconnect on SAS token expiration. 
+
+If the volume of errors is a concern, change to use the C SDK, which renews the SAS token before expiration. Additionally, for AMQP the SAS token can refresh without disconnection.
+
+### Solution 2
 
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
