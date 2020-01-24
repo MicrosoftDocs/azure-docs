@@ -617,7 +617,7 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template ID and version from the id and verison properties.
+        // Fetch the template ID and version from the id and version properties.
         const templateId = record.id;
         const templateVersion = record.version;
 
