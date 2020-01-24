@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Samples for Azure Lab Services | Microsoft Docs
-description: Azure CLI  Samples - Scripts to help you manage labs in Azure Lab Services
+description: This article provides a list of Azure CLI  scripting samples that help you manage labs in Azure Lab Services.
 services: lab-services
 author: spelluru
 manager: 
