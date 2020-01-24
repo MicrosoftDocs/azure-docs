@@ -18,12 +18,14 @@ ms.date: 09/24/2018
 > * [Python](create-cassandra-python.md)
 >  
 
-In this quickstart, you use a Cassandra Python app cloned from GitHub to connect to an Azure Cosmos DB account, and create a database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use a Cassandra Python app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or, [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Python](https://www.python.org/downloads/) version v2.7.14 or above.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+  
+  Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- [Python](https://www.python.org/downloads/) version 2.7.14 or above.
 - [Git](https://git-scm.com/).
 - [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver).
 
@@ -57,7 +59,7 @@ Now let's clone a Cassandra API app from GitHub, set the connection string, and 
 
 ## Review the code
 
-This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the pyquickstart.py file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the *pyquickstart.py* file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
 * The username and password values were set using the connection string page in the Azure portal. The `path\to\cert` provides a path to an X509 certificate. 
 
@@ -132,7 +134,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-python/keys.png)
 
-2. Open the `config.py` file. 
+2. Open the *config.py* file. 
 
 3. Paste the CONTACT POINT value from the portal over `<FILLME>` on line 10.
 
@@ -152,17 +154,17 @@ Now go back to the Azure portal to get your connection string information and co
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
-6. Save the config.py file.
+6. Save the *config.py* file.
     
 ## Use the X509 certificate
 
-1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.
+1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension *.cer*.
 
    The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
-2. Open `pyquickstart.py` and change the `path\to\cert` to point to your new certificate.
+2. Open *pyquickstart.py* and change the `path\to\cert` to point to your new certificate.
 
-3. Save `pyquickstart.py`.
+3. Save *pyquickstart.py*.
 
 ## Run the Python app
 
@@ -177,7 +179,7 @@ Now go back to the Azure portal to get your connection string information and co
     python -m pip install pyopenssl
     ```
 
-2. Run the following command to start your node application:
+2. Run the following command to start your Python application:
 
     ```
     python pyquickstart.py

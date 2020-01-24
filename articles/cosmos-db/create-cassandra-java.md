@@ -20,13 +20,15 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Python](create-cassandra-python.md)
 >  
 
-In this quickstart, you use a Cassandra Java app cloned from GitHub to connect to an Azure Cosmos DB account, and create a database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
+In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use a Cassandra Java app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB multi-model database service lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or, [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+  
+  Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 - [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
-- A [Maven](https://maven.apache.org/download.cgi) binary archive. On Linux, you can run `apt-get install maven` to install Maven.
+- A [Maven binary archive](https://maven.apache.org/download.cgi). On Linux, you can run `apt-get install maven` to install Maven.
 - [Git](https://www.git-scm.com/). On Linux, you can run `apt-get install git` to install Git.
 
 ## Create a database account
@@ -143,23 +145,23 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Use the ![Copy button](./media/create-cassandra-java/copy-button-azure-portal.png) button on the right side of the screen to copy the CONTACT POINT value.
 
-3. Open the `config.properties` file from `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources` folder. 
+3. Open the *config.properties* file from the *C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources* folder. 
 
 3. Paste the CONTACT POINT value from the portal over `<Cassandra endpoint host>` on line 2.
 
-    Line 2 of config.properties should now look similar to 
+    Line 2 of *config.properties* should now look similar to 
 
     `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.com`
 
-3. Go back to portal and copy the USERNAME value. Past the USERNAME value from the portal over `<cassandra endpoint username>` on line 4.
+3. Go back to the portal and copy the USERNAME value. Past the USERNAME value from the portal over `<cassandra endpoint username>` on line 4.
 
-    Line 4 of config.properties should now look similar to 
+    Line 4 of *config.properties* should now look similar to 
 
     `cassandra_username=cosmos-db-quickstart`
 
-4. Go back to portal and copy the PASSWORD value. Paste the PASSWORD value from the portal over `<cassandra endpoint password>` on line 5.
+4. Go back to the portal and copy the PASSWORD value. Paste the PASSWORD value from the portal over `<cassandra endpoint password>` on line 5.
 
-    Line 5 of config.properties should now look similar to 
+    Line 5 of *config.properties* should now look similar to 
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
@@ -167,7 +169,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. If you changed line 6 to use a specific SSL certificate, update line 7 to use the password for that certificate. 
 
-7. Save the `config.properties` file.
+7. Save the *config.properties* file.
 
 ## Run the Java app
 
