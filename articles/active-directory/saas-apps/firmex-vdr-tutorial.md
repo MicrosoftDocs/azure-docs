@@ -164,7 +164,7 @@ For example:
 
 Email [Firmex Support Team](mailto:support@firmex.com) or call 1888 688 4042 x.11 to speak to Firmex Support. Pass along your domain information. Firmex Support will add the domains to your VDR as **claimed domains**. Your admin must now configure SSO.
 
-Warning: Until your site admin configures the claimed domains, your company’s users will not be able to log in to the VDR. Non-company users (i.e. guest users) can still log in using their email/password. Configuration should take a few minutes.
+Warning: Until your site admin configures the claimed domains, your company’s users will not be able to log in to the VDR. Non-company users (that is, guest users) can still log in using their email/password. Configuration should take a few minutes.
 
 ### Step 3 - Configure the claimed domains
 
@@ -178,9 +178,9 @@ Warning: Until your site admin configures the claimed domains, your company’s 
 
     ![SSO Configuration](./media/firmex-vdr-tutorial/SSO-config.png)
 
-    a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-    b. In the **Identity Provider URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. In the **Identity Provider URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
     c. **Public Key Certificate**  - For authentication purposes, a SAML message may be digitally signed by the issuer. To verify the signature on the message, the message receiver uses a public key known to belong to the issuer. Similarly, to encrypt a message, a public encryption key belonging to the ultimate receiver must be known to the issuer. In both situations—signing and encryption—trusted public keys must be shared in advance.  This is the **X509Certificate** from **Federation Metadata XML**
 
