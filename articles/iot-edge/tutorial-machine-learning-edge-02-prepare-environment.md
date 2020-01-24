@@ -4,7 +4,7 @@ description: 'Tutorial: Prepare your environment for development and deployment 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/14/2020
+ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -76,19 +76,17 @@ It takes about 30 minutes to create and configure the virtual machine.
 
    The script runs for several minutes as it executes the following steps:
 
-   * Installs the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
-   * Prompts you to sign in to Azure.
-   * Confirms the information for the creation of your VM. Press **y** or **Enter** to continue.
-   * Creates the resource group if it does not exist.
-   * Deploys the virtual machine.
-   * Enables Hyper-V on the VM.
-   * Installs software need for development and clone the sample repository.
-   * Restarts the VM.
-   * Creates an RDP file on your desktop for connecting to the VM.
+    1. Installs the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Prompts you to sign in to Azure.
+    1. Confirms the information for the creation of your VM. Press **y** or **Enter** to continue.
+    1. Creates the resource group if it does not exist.
+    1. Deploys the virtual machine.
+    1. Enables Hyper-V on the VM.
+    1. Installs software need for development and clone the sample repository.
+    1. Restarts the VM.
+    1. Creates an RDP file on your desktop for connecting to the VM.
 
    If you are prompted for the name of the VM to restart it, you can copy its name from the script output. The output also shows the path to the RDP file for connecting to the VM.
-
-   ![Script output shows VM name and path to RDP file](media/tutorial-machine-learning-edge-02-prepare-environment/script-output.png)
 
 ### Set auto-shutdown schedule
 
