@@ -60,5 +60,5 @@ When the connection to the database succeeds, you will see a notification in the
 
 ## Next steps
 For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).
-For more development tips, see [ Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
+For more development tips, see [ Design decisions and coding techniques for data warehouses](../synapse-analytics/sql-analytics/development-overview.md).
 
