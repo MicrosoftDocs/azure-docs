@@ -3,8 +3,8 @@ title: Azure Cosmos Emulator download and release notes
 description: Get the Azure Cosmos emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
 ---
 
@@ -20,6 +20,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.9.0
+
+- This release adds the option to set the consistency to consistent prefix and increase the maximum limits for users and permissions.
 
 ### 2.7.2
 
