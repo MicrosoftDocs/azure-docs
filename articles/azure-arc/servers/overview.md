@@ -29,6 +29,15 @@ Azure Arc for servers (preview) supports the following scenarios with connected 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
 - Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
+
+## Supported regions
+
+With Azure Arc for servers (preview), only certain regions are supported:
+
+- WestUS2
+- WestEurope
+- WestAsia
+
 ## Prerequisites
 
 ### Supported operating systems
