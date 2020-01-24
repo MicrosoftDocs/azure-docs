@@ -23,30 +23,30 @@ The following metrics related to timing of the request and response are availabl
 >
 > If there are more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
+- **Backend connect time**
+
+  Time spent establishing a connection with a backend application. This includes the network latency as well as the time taken by the backend server’s TCP stack to establish new connections. In case of SSL, it also includes the time spent on handshake. 
+
+- **Backend first byte response time**
+
+  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. This approximates the sum of *Backend connect time* and response time of backend application (the time the server took to generate content, potentially fetch database queries, and begin transferring the response back to Application Gateway)
+
+- **Backend last byte response time**
+
+  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. This approximates the sum of *Backend first byte response time* and data transfer time (This number may vary greatly depending on the size of objects requested and the latency of the server network)
+
+- **Application gateway total time**
+
+  Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes This approximates the sum of the processing time of Application Gateway and the *Backend last byte response time*
+
 - **Client RTT**
 
   Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments. 
 
-- **Application gateway total time**
+These metrics can be used to determine whether the observed slowdown is due to the Application Gateway, the network and backend server TCP stack saturation, backend application performance, or large file size.
+For example, If there’s a spike in Backend first byte response time but the Backend connect time is constant, then it can be inferred that the Application gateway to backend latency as well as time taken to establish the connection is stable and the spike is caused due to an increase in the response time of backend application. Similarly, if the spike in Backend first byte response time is associated with a corresponding spike in Backend connect time, then it can be deduced that either the network or the server TCP stack has saturated. If you notice a spike in Backend last byte response time but the Backend first byte response time is constant, then most probably the spike is because of a larger file being requested. Similarly, if the Application gateway total time is much more than the Backend last byte response time, then it can be a sign of performance bottleneck at the Application Gateway.
 
-  Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond.
-  
-After filtering by listener, if the *Client RTT* is much more than the *Application gateway total time*, then it can be deduced that the latency observed by the client is due to the network connectivity between the client and Application Gateway. If both the latencies are comparable, then the high latency could be due to any of the following: Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
 
-- **Backend first byte response time**
-
-  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header, approximating processing time of backend server
-
-- **Backend last byte response time**
-
-  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body
-  
-If the *Application gateway total time* is much more than the *Backend last byte response time* for a specific listener, then it can be deduced that the high latency could be due the Application Gateway. On the other hand, if the two metrics are comparable, then the issue could either be because of the network between the Application Gateway and the backend application, or the performance of the backend application.
-
-- **Backend connect time**
-
-  Time spent establishing a connection with a backend application. In case of SSL, it includes the time spent on handshake. Note that this metric is different from the other latency metrics since this only measures the connection time and therefore, should not be directly compared in magnitude with the other latencies. However, comparing the pattern of *Backend connect time* with the pattern of the other latencies can indicate whether an increase in other latencies could be deduced due to a variation in the network betweent the Application Gatway and the backend application. 
-  
 
 ### Application Gateway metrics
 

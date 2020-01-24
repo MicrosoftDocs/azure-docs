@@ -88,6 +88,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Complete mode deletion
+    href: complete-mode-deletion.md
   - name: Deployment Manager
     items:
     - name: Overview
@@ -237,12 +239,6 @@
       href: template-functions-resource.md
     - name: String functions
       href: template-functions-string.md
-  - name: Resource capabilities
-    items:
-    - name: Complete mode deletion
-      href: complete-mode-deletion.md
-    - name: Extension resource types
-      href: extension-resource-types.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell

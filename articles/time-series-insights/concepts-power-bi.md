@@ -18,7 +18,7 @@ Azure Time Series Insights now seamlessly integrates with [Power BI](https://pow
 
 ## Video
 
-Learn more about integrating Azure Time Series Insights with Power BI.
+### Learn more about integrating Azure Time Series Insights with Power BI.</br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
 

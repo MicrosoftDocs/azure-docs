@@ -10,12 +10,11 @@ ms.author: msangapu
 
 # Serve content from Azure Storage in App Service on Linux
 
-This guide shows how to attach Azure Storage to App Service on Linux. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
-
-
-> [!IMPORTANT]
-> Azure Storage in App Service on Linux is a **preview** feature. This feature is **not supported for production scenarios**.
+> [!NOTE]
+> This article applies to Linux containers. To deploy to custom Windows containers, see [Configure Azure Files in a Windows Container on App Service](../configure-connect-to-azure-storage.md). Azure Storage in App Service on Linux is a **preview** feature. This feature is **not supported for production scenarios**.
 >
+
+This guide shows how to attach Azure Storage to App Service on Linux. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
 
 ## Prerequisites
 

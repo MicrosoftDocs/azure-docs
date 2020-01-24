@@ -22,7 +22,7 @@ In this quickstart, you use an Azure Resource Manager template to create an Azur
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com). 
+Sign in to the [Azure portal](https://portal.azure.com).
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
@@ -82,7 +82,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* [Create an Azure Blob storage account](../storage/common/storage-quickstart-create-account.md).
+* [Create an Azure Blob storage account](../storage/common/storage-account-create.md).
 * Download a sample JSON file [from GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 

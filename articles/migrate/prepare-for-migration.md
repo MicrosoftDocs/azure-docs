@@ -1,12 +1,8 @@
 ---
 title: Prepare machines for migration with Azure Migrate 
 description: Learn how to prepare on-premises machines for migration with Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 12/10/2019
-ms.author: raynew
 ms.custom: MVC
 ---
 
@@ -39,9 +35,9 @@ In this article, you:
 
 ## Check what's supported
 
-- For VMware VMs, Azure Migrate Server Migration supports [agentless or agent-based migration](server-migrate-overview.md). Verify VMware VM requirements/support for [agentless](migrate-support-matrix-vmware.md#migration---limitations) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migrations.
-- Verify [migration requirements and support](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) for Hyper-V VMs.
-- Verify [migration requirements and support](migrate-support-matrix-physical.md) for on-premises physical machines, or other virtualized servers. 
+- For VMware VMs, Azure Migrate Server Migration supports [agentless or agent-based migration](server-migrate-overview.md). Verify VMware VM [migration requirements and support](migrate-support-matrix-vmware-migration.md).
+- Verify [migration requirements and support](migrate-support-matrix-hyper-v-migration.md) for Hyper-V.
+- Verify [migration requirements and support](migrate-support-matrix-physical-migration.md) for on-premises physical machines, or other virtualized servers. 
 
 
 
@@ -50,10 +46,11 @@ In this article, you:
 
 Machines might need internet access during migration.
 
-- Review URLs that VMware VMs need to access during [agentless](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) or [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements) migrations.
-- Review URLs that Hyper-V hosts need to access during migration. Hyper-V VMs don't need internet access.
-- [Review URLs](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements) that physical machines or other virtualized servers need to access during migration.
-- In agent-based migration of VMware VMs/physical servers, the Mobility service running on the machines needs access to Azure Migrate components. For replication management, the service running on the machine communicates with the on-premises Azure Migrate replication appliance on port HTTPS 443 inbound. The machines send replication data to the Azure Migrate process server on port HTTPS 9443 inbound. This port can be modified.
+- [Review URLs](migrate-appliance.md#url-access) that the Azure Migrate appliance needs to access during agentless migration. [Review port access](migrate-support-matrix-vmware-migration.md#agentless-ports) requirements.
+- Review [URLs](migrate-replication-appliance.md#url-access) and [ports] (migrate-replication-appliance.md#port-access) that the replication appliance uses during VMware VM agent-based migration. 
+- [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) URLs and ports that Hyper-V hosts need to access during migration. 
+- Review [URLs](migrate-replication-appliance.md#url-access) and [ports] (migrate-replication-appliance.md#port-access) that the replication appliance uses during physical server migration.
+
 
 
 ## Verify required changes before migration
@@ -100,7 +97,7 @@ For example, if your on-premises installation uses a data disk that is assigned 
 
 ## Check Azure VM requirements
 
-On-premises machines that you replicate to Azure must comply with Azure VM requirements for operating system and architecture, disks, network settings, and VM naming. Verify the requirements for [VMware VMs/physical servers](migrate-support-matrix-vmware.md#azure-vm-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) before migration.
+On-premises machines that you replicate to Azure must comply with Azure VM requirements for operating system and architecture, disks, network settings, and VM naming. Verify the requirements for [VMware VMs/physical servers](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) before migration.
 
 
 ## Prepare to connect after migration

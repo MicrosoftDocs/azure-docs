@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Prepare a Spring application for deployment in Azure Spring Cloud
 description: In this tutorial, you prepare a Java Spring application for deployment.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Prepare a Java Spring application for deployment in Azure Spring Cloud

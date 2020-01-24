@@ -12,7 +12,7 @@ ms.author: mlearned
 
 # Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)
 
-As you manage clusters in Azure Kubernetes Service (AKS), you often need to isolate teams and workloads. The Kubernetes scheduler provides advanced features that let you control which pods can be scheduled on certain nodes, or how multi-pod applications can appropriately distributed across the cluster. 
+As you manage clusters in Azure Kubernetes Service (AKS), you often need to isolate teams and workloads. The Kubernetes scheduler provides advanced features that let you control which pods can be scheduled on certain nodes, or how multi-pod applications can be appropriately distributed across the cluster. 
 
 This best practices article focuses on advanced Kubernetes scheduling features for cluster operators. In this article, you learn how to:
 

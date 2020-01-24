@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Multiple routes with Azure Maps'
-description: 'Tutorial: Find routes for different modes of travel using Azure Maps'
+title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
+description: In this tutorial, you will learn how to find routes for different modes of travel using Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -112,7 +112,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
 2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles, you should see the streets with the current traffic data.
 
-   ![View traffic map](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![View traffic on a map](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

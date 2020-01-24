@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Azure VM replication in Azure Site Recovery 
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgangal
+ms.author: rochakm
 
 ---
 # Troubleshoot Azure-to-Azure VM replication errors
@@ -61,7 +61,7 @@ For more information, see [Configure trusted roots and disallowed certificates](
 
 Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate-revocation list on the VM.
 
-Because SuSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
+Because SUSE Linux uses symbolic links (or *symlinks*) to maintain a certificate list, follow these steps:
 
 1. Sign in as a root user.
 

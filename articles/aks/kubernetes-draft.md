@@ -13,7 +13,7 @@ ms.author: zarhoads
 
 Draft is an open-source tool that helps package and run application containers in a Kubernetes cluster. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur without having to commit your changes to version control. For more information on Draft, see the [Draft documentation on GitHub][draft-documentation].
 
-This article shows you how to use Draft package and run an application on AKS.
+This article shows you how to use Draft to package and run an application on AKS.
 
 
 ## Prerequisites
@@ -167,7 +167,7 @@ You've configured Draft to use your ACR, and Draft can push container images to 
 
 ## Download the sample application
 
-This quickstart uses [an example java application from the Draft GitHub repository][example-java]. Clone the application from GitHub and navigate to the `draft/examples/example-java/` directory.
+This quickstart uses [an example Java application from the Draft GitHub repository][example-java]. Clone the application from GitHub and navigate to the `draft/examples/example-java/` directory.
 
 ```console
 git clone https://github.com/Azure/draft
@@ -230,7 +230,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Navigate to the application in a browser using the `localhost` url to see the sample application. In the above example, the url is `http://localhost:49804`. Stop the connection using `Ctrl+c`.
+Navigate to the application in a browser using the `localhost` URL to see the sample application. In the above example, the URL is `http://localhost:49804`. Stop the connection using `Ctrl+c`.
 
 ## Access the application on the internet
 

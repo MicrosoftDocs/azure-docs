@@ -13,7 +13,6 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Signing key rollover in Azure Active Directory
