@@ -115,7 +115,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-When you find the tenant you want to scale, follow the instructions in [Create an Azure Automation account to run the PowerShell runbook](#create-an-azure-automation-account-to-run-the-powershell-runbook) and use the tenant name you got from the previous cmldet in the following cmdlet to create the role assignment:
+When you find the tenant you want to scale, follow the instructions in [Create an Azure Automation account](#create-an-azure-automation-account) and use the tenant name you got from the previous cmldet in the following cmdlet to create the role assignment:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
