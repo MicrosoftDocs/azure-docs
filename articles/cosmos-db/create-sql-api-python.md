@@ -25,7 +25,9 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account, fr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+  
   Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. 
+  
   You can also use the [Azure Cosmos DB Emulator](local-emulator.md) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Python](https://www.python.org/downloads/) version 3.6 or higher, with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
