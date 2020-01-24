@@ -33897,6 +33897,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Web-Language-Model/Home.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-factory/v1/index.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-introduction",
       "redirect_document_id": false
