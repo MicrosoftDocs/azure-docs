@@ -13,6 +13,8 @@ ms.reviewer: jamesbak
 
 This article lists the features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
 
+<a id="blob-storage-features" />
+
 ## Blob Storage features
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
@@ -47,15 +49,17 @@ Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view
 
 * There are currently some bugs affecting the archive access tier. 
 
+<a id="tools-and-applications" />
+
 ## Tools and applications
 
 |Tool / application | Support level |
 |---|---|
-|[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support. ([View details](#az-copy)) |
-|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support. ([View details](#storage-explorer))|
-|Browsing directories and files in the Azure portal |Limited support. ([View details](#explorer-in-portal)) |
-|Third party applications |Limited support. ([View details](#third-party-apps))|
-|[blobfuse](storage-how-to-mount-container-linux.md)| Not yet supported|
+|[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support.|
+|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support. |
+|Browsing directories and files in the Azure portal |Limited support. |
+|Third party applications |Limited support. |
+|[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
 
 <a id="az-copy" />
 
@@ -81,6 +85,8 @@ ACLs are not yet supported.
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
+
+<a id="sdk-powershell-cli" />
 
 ## SDK / PowerShell / CLI
 
@@ -125,6 +131,8 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 - [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
 - Get and set ACL operations are not currently recursive.
+
+<a id="azure-ecosystem" />
 
 ## Azure Ecosystem
 

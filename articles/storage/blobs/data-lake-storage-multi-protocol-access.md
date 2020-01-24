@@ -33,56 +33,25 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ## Blob storage feature support
 
-Multi-protocol access on Data Lake Storage enables you to use more Blob storage features with your Data Lake Storage. This table lists the  features that are enabled by multi-protocol access on Data Lake Storage. 
+Multi-protocol access on Data Lake Storage enables you to use more Blob storage features with your Data Lake Storage. Even though multi-protocol access on Data Lake Storage is generally available, support for some features remain in preview. This table lists those features as well as features not yet supported.
 
 The items that appear in this table will change over time as support for Blob storage features continues to expand. 
 
-> [!NOTE]
-> Even though multi-protocol access on Data Lake Storage is generally available, support for some of these features remain in preview. 
+[!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
-|Blob storage feature | Support level |
-|---|---|
-|[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
-|Blob REST APIs|Generally available|
-|Blob SDKs |Generally available|
-|[PowerShell (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
-|[CLI (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
-|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Generally available|
-|Blob SDKs with file system semantics ([.NET](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Preview|
-|[PowerShell with file system semantics](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Preview|
-|[CLI with file system semantics](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Preview|
-|[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
-|[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
-|[Archive access tier](storage-blob-storage-tiers.md)| Preview|
-|[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
-|[Immutable storage](storage-blob-immutable-storage.md)|Not yet supported|
-|[Snapshots](storage-blob-snapshots.md)|Not yet supported|
-|[Soft delete](storage-blob-soft-delete.md)|Not yet supported|
-|[Static websites](storage-blob-static-website.md)|Not yet supported|
-
-To learn more about general known issues and limitations with Azure Data Lake Storage Gen2, see [Known issues](data-lake-storage-known-issues.md).
+To review specific issues, see [Blob Storage features](data-lake-storage-known-issues.md#blob-storage-features)
 
 ## Azure ecosystem support
 
-Multi-protocol access on Data Lake Storage also enables you to connect more Azure services with your Data Lake Storage. This table lists the services that are enabled by multi-protocol access on Data Lake Storage. 
+Multi-protocol access on Data Lake Storage also enables you to connect more Azure services with your Data Lake Storage. For a complete list of supported services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md). 
+
+Even though multi-protocol access on Data Lake Storage is generally available, support for some services remain in preview. This table lists those features as well as features not yet supported. 
 
 Just like the list of supported Blob storage features, the items that appear in this table will change over time as support for Azure services continues to expand. 
 
-> [!NOTE]
-> Even though multi-protocol access on Data Lake Storage is generally available, support for some of these services remain in preview. 
+[!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
 
-|Azure service | Support level |
-|---|---|
-|[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Generally available|
-|[Azure Event Hubs capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Generally available|
-|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Generally available|
-|[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Generally available|
-|[Logic apps](https://azure.microsoft.com/services/logic-apps/)|Generally available|
-|[Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Preview|
-
-For the complete list of Azure ecosystem support for Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
-
-To learn more about general known issues and limitations with Azure Data Lake Storage Gen2, see [Known issues](data-lake-storage-known-issues.md).
+To review specific issues, see [Blob Storage features](data-lake-storage-known-issues.md#azure-ecosystem)
 
 ## Next steps
 
