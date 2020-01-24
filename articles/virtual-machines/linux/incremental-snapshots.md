@@ -12,7 +12,7 @@ ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
 ms.date: 09/15/2018
-ms.author: rogaranaungoo
+ms.author: rogarana
 ms.subservice: disks
 
 ---
