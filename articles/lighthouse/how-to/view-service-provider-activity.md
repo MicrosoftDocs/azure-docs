@@ -1,7 +1,7 @@
 ---
 title: View service provider activity
 description: Customers can view logged activity to see actions performed by service providers through Azure delegated resource management.
-ms.date: 12/6/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ---
 
@@ -19,6 +19,9 @@ You can [view the activity log](../../azure-monitor/platform/activity-log-view.m
 In the activity log, you'll see the name of the operation and its status, along with the date and time it was performed. The **Event initiated by** column shows which user performed the operation, whether it was a user in a service provider's tenant acting through Azure delegated resource management, or a user in the customer's own tenant. Note that the name of the user is shown, rather than the tenant or the role that the user has been assigned for that subscription.
 
 Logged activity is available in the Azure portal for the past 90 days. To learn how to store this data for longer than 90 days, see [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/activity-log-collect.md)
+
+> [!NOTE]
+> Users from the service provider appear in the activity log, but these users and their role assignments are not shown in **Access Control (IAM)** or when retrieving role assignment info via APIs.
 
 ## Set alerts for critical operations
 

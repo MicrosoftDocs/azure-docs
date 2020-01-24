@@ -4,7 +4,7 @@ description: Troubleshoot common issues with Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -36,8 +36,28 @@ If you try to install the sync agent on an Active Directory domain controller wh
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
-<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**
+<a id="parameter-is-incorrect"></a>**Accessing a volume on Windows Server 2012 R2 fails with error: The parameter is incorrect**  
+After creating a server endpoint on Windows Server 2012 R2, the following error occurs when accessing the volume:
 
+driveletter:\ is not accessible.  
+The parameter is incorrect.
+
+To resolve, install the latest updates for Windows Server 2012 R2 and restart the server.
+
+<a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
+When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.
+
+This issue occurs because ServerRegistration.exe does not currently support multi-tenant environments. This issue will be fixed in a future Azure File Sync agent update.
+
+To workaround this issue, use the following PowerShell commands to register the server:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
+
+<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**  
 This message appears if Az or AzureRM PowerShell module is not installed on PowerShell 5.1. 
 
 > [!Note]  
@@ -178,8 +198,6 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**Server endpoint has a health status of “No Activity” and the server state on the registered servers blade is “Online”**  
 
 A server endpoint health status of "No Activity" means the server endpoint has not logged sync activity in the past two hours.
@@ -277,6 +295,15 @@ If your PerItemErrorCount on the server or Files Not Syncing count in the portal
 
 To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (located in the agent installation directory of the Azure File Sync agent) to identify files that failed to sync because of open handles, unsupported characters, or other issues. The ItemPath field tells you the location of the file in relation to the root sync directory. See the list of common sync errors below for remediation steps.
 
+> [!Note]  
+> If the FileSyncErrorsReport.ps1 script returns "There were no file errors found" or does not list per-item errors for the sync group, the cause is either:
+>
+>- Cause 1: The last completed sync session did not have per-item errors. The portal should be updated soon to show 0 Files Not Syncing. 
+>	- Check the [Event ID 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
+>
+>- Cause 2: The ItemResults event log on the server wrapped due to too many per-item errors and the event log no longer contains errors for this sync group.
+>	- To prevent this issue, increase the ItemResults event log size. The ItemResults event log can be found under "Applications and Services Logs\Microsoft\FileSync\Agent" in Event Viewer. 
+
 #### Troubleshooting per file/directory sync errors
 **ItemResults log - per-item sync errors**  
 
@@ -302,6 +329,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | The file cannot be synced due to an unexpected error. | If the error persists for several days, please open a support case. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | The file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file was changed during sync, so it needs to be synced again. | No action required. |
+| 0x80070017 | -2147024873 | ERROR_CRC | The file cannot be synced due to CRC error. This error can occur if a tiered file was not recalled prior to deleting a server endpoint or if the file is corrupt. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove tiered files that are orphaned. If the error continues to occur after removing oprhaned tiered files, run [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) on the volume. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
 
 #### Handling unsupported characters
@@ -318,7 +346,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### Common sync errors
-<a id="-2147023673"></a>**The sync session was canceled.**  
+<a id="-2147023673"></a>**The sync session was cancelled.**  
 
 | | |
 |-|-|
@@ -389,6 +417,22 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 3. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 4. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134351804"></a>**Sync failed because the request is not authorized to perform this operation.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (decimal)** | -2134351804 |
+| **Error string** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Remediation required** | Yes |
+
+This error occurs because the Azure File Sync agent is not authorized to access the Azure file share. You can troubleshoot this error by working through the following steps:
+
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
+
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
 
 | | |
@@ -417,6 +461,17 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
 2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364014"></a>**Sync failed due to storage account locked.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83092 |
+| **HRESULT (decimal)** | -2134364014 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **Remediation required** | Yes |
+
+This error occurs because the storage account has a read-only [resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources). To resolve this issue, remove the read-only resource lock on the storage account. 
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -491,7 +546,7 @@ If the Azure file share was deleted, you need to create a new file share and the
 | **Error string** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../billing/billing-subscription-become-disable.md) for more information.
+This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../cost-management-billing/manage/subscription-disabled.md) for more information.
 
 <a id="-2134364052"></a>**The storage account has a firewall or virtual networks configured.**  
 

@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/23/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -47,6 +47,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Salesforce supports **Just In Time** user provisioning
 
 * Salesforce Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* Once you configure the Salesforce you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Salesforce from the gallery
 
@@ -239,3 +240,7 @@ When you click the Salesforce tile in the Access Panel, you should be automatica
 - [Configure User Provisioning](salesforce-provisioning-tutorial.md)
 
 - [Try Salesforce with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+
+- [How to protect Salesforce with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -33,7 +33,7 @@ This guide explains how to use Az module to create a policy assignment.
   ```
 
   For more information about registering and viewing resource providers, see
-  [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md).
+  [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

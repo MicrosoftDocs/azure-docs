@@ -45,4 +45,4 @@ Modules are organized by functionality:
 
 ## Error messages
 
-Learn about the [error messages and exception codes](machine-learning-module-error-codes.md) you might encounter using modules in Azure Machine Learning designer.
+Learn about the [error messages and exception codes](designer-error-codes.md) you might encounter using modules in Azure Machine Learning designer.

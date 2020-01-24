@@ -78,7 +78,7 @@ A virtual network is needed for communication between the resources that you cre
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
-   - *10.0.1.0/24* - for the subnet address space.
+   - *10.0.0.0/24* - for the subnet address space.
 
      ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 
