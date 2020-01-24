@@ -348,11 +348,11 @@
     - name: Search 2019-05-06
       href: /rest/api/searchservice
     - name: Search 2019-05-06-Preview
-      href: /rest/api/searchservice/2019-05-06-preview-index
+      href: /rest/api/searchservice/index-2019-05-06-preview
     - name: Management 2015-08-15
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
-      href: /rest/api/searchmanagement/2019-10-01-preview-index
+      href: /rest/api/searchservice/searchmanagement/index-2019-10-01-preview
   - name: Python
     items:
     - name: Management API
