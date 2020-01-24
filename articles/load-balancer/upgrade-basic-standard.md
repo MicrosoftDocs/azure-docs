@@ -17,9 +17,9 @@ There are two stages in a upgrade:
 1. Migrate the configuration
 2. Add VMs to backend pools of Standard Load Balancer
 
-This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#migrate-client-traffic).
+This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
-## Migration overview
+## Upgrade overview
 
 An Azure PowerShell script is available that does the following:
 
@@ -89,7 +89,7 @@ To run the script:
    ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-## Add VMs to backend pools of Standard Load Balancer
+### Add VMs to backend pools of Standard Load Balancer
 
 First, double check that the script successfully created a new Standard Public Load Balancer with the exact configuration migrated over from your Basic Public Load Balancer. You can verify this from the Azure portal.
 
@@ -111,7 +111,7 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
     >For VMs which have Public IPs, you will need to create Standard IP addresses first where same IP address is not guaranteed. Disassociate VMs from Basic IPs and associate them with the newly created Standard IP addresses. Then, you will be able to follow instructions to add VMs into backend pool of Standard Load Balancer. 
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
-    1. More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/en-us/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    1. More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
 
 ## Common questions
 
