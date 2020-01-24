@@ -15,7 +15,7 @@ manager: philmea
 This how-to article shows you how to toggle the live chat in your IoT Central application. You can use live chat to access technical support.
 
 > [!NOTE]
-> The chat option is available only for trial subscriptions.
+> The chat option is available only for applications created using the free pricing plan.
 
 ## Chat with us
 

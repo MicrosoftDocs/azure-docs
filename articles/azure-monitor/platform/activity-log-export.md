@@ -5,15 +5,16 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ---
 
 # Export Azure Activity log to storage or Azure Event Hubs
 
-> [!WARNING]
-> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-legacy.md).
+> [!IMPORTANT]
+> The method for sending the Azure Activity log to Azure Storage and Azure Event Hubs has changed to [diagnostic settings](diagnostic-settings.md). This article describes the legacy method which is in the process of being deprecated. See Update to [Azure Activity log collection and export](diagnostic-settings-legacy.md) for a comparison.
+
 
 The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
@@ -67,9 +68,14 @@ If retention policies are set, but storing logs in a storage account is disabled
 
 Create or edit a log profile with the **Export to Event Hub** option in the Azure portal.
 
-1. From the **Monitor** menu in the Azure portal, select  **Export to Event Hub**.
+1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
+3. Click **Diagnostic settings**.
 
-    ![Export button in portal](media/activity-log-export/portal-export.png)
+   ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Click the purple banner for the legacy experience.
+
+    ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. In the blade that appears, specify the following:
    * Regions with the events to export. You should select all regions to ensure that you don't miss key events since the Activity Log is a global (non-regional) log and so most events do not have a region associated with them.

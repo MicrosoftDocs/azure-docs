@@ -21,7 +21,7 @@
   items:
     - name: Get connected
       items:
-      - name: Connect a device
+      - name: Connect a Plug and Play device
         href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
@@ -125,6 +125,16 @@
               href: howto-show-hide-chat.md
 - name: Related
   items:
+    - name: Industry application templates
+      items:
+        - name: Retail
+          href: ../retail/overview-iot-central-retail-pnp.md
+        - name: Energy
+          href: ../energy/overview-iot-central-energy.md
+        - name: Government
+          href: ../government/overview-iot-central-government.md
+        - name: Healthcare
+          href: ../healthcare/overview-iot-central-healthcare.md
     - name: Platform services
       items:
         - name: IoT Hub

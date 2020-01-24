@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/23/2020
 ---
 
 # Tag support for Azure resources
@@ -122,6 +122,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
@@ -155,6 +156,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
@@ -272,6 +274,7 @@ Jump to a resource provider namespace:
 > | policySetDefinitions | No | No |
 > | providerOperations | No | No |
 > | roleAssignments | No | No |
+> | roleAssignmentsUsageMetrics | No | No |
 > | roleDefinitions | No | No |
 
 ## Microsoft.Automation
@@ -356,6 +359,7 @@ Jump to a resource provider namespace:
 > | billingAccounts / billingProfiles / billingSubscriptions | No | No |
 > | billingAccounts / billingProfiles / createBillingRoleAssignment | No | No |
 > | billingAccounts / billingProfiles / customers | No | No |
+> | billingAccounts / billingProfiles / instructions | No | No |
 > | billingAccounts / billingProfiles / invoices | No | No |
 > | billingAccounts / billingProfiles / invoices / pricesheet | No | No |
 > | billingAccounts / billingProfiles / invoiceSections | No | No |
@@ -483,6 +487,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | appliedReservations | No | No |
+> | autoQuotaIncrease | No | No |
 > | calculateExchange | No | No |
 > | calculatePrice | No | No |
 > | calculatePurchasePrice | No | No |
@@ -499,6 +504,7 @@ Jump to a resource provider namespace:
 > | reservationOrders / split | No | No |
 > | reservationOrders / swap | No | No |
 > | reservations | No | No |
+> | resourceProviders | No | No |
 > | resources | No | No |
 > | validateReservationOrder | No | No |
 
@@ -796,6 +802,8 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Yes | No |
+> | workspaces / dbWorkspaces | No | No |
+> | workspaces / storageEncryption | No | No |
 > | workspaces / virtualNetworkPeerings | No | No |
 
 ## Microsoft.DataCatalog
@@ -873,6 +881,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | servers | Yes | Yes |
 > | servers / advisors | No | No |
+> | servers / keys | No | No |
 > | servers / privateEndpointConnectionProxies | No | No |
 > | servers / privateEndpointConnections | No | No |
 > | servers / privateLinkResources | No | No |
@@ -889,6 +898,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | servers | Yes | Yes |
 > | servers / advisors | No | No |
+> | servers / keys | No | No |
 > | servers / privateEndpointConnectionProxies | No | No |
 > | servers / privateEndpointConnections | No | No |
 > | servers / privateLinkResources | No | No |
@@ -951,8 +961,10 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | ElasticPools | Yes | Yes |
 > | ElasticPools / IotHubTenants | Yes | Yes |
+> | ElasticPools / IotHubTenants / securitySettings | No | No |
 > | IotHubs | Yes | Yes |
 > | IotHubs / eventGridFilters | No | No |
+> | IotHubs / securitySettings | No | No |
 > | ProvisioningServices | Yes | Yes |
 > | usages | No | No |
 
@@ -1026,6 +1038,12 @@ Jump to a resource provider namespace:
 > | domains / topics | No | No |
 > | eventSubscriptions | No | No |
 > | extensionTopics | No | No |
+> | partnerNamespaces | Yes | Yes |
+> | partnerNamespaces / eventChannels | No | No |
+> | partnerRegistrations | Yes | Yes |
+> | partnerTopics | Yes | Yes |
+> | systemTopics | Yes | Yes |
+> | systemTopics / eventSubscriptions | No | No |
 > | topics | Yes | Yes |
 > | topicTypes | No | No |
 
@@ -1081,6 +1099,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | autoManagedAccounts | Yes | Yes |
+> | autoManagedVmConfigurationProfiles | Yes | Yes |
 > | configurationProfileAssignments | No | No |
 > | guestConfigurationAssignments | No | No |
 > | software | No | No |
@@ -1192,6 +1212,8 @@ Jump to a resource provider namespace:
 > | clusters / databases | No | No |
 > | clusters / databases / dataconnections | No | No |
 > | clusters / databases / eventhubconnections | No | No |
+> | clusters / databases / principalassignments | No | No |
+> | clusters / principalassignments | No | No |
 > | clusters / sharedidentities | No | No |
 
 ## Microsoft.LabServices
@@ -1282,6 +1304,7 @@ Jump to a resource provider namespace:
 > | offerTypes / publishers / offers / plans / configs | No | No |
 > | offerTypes / publishers / offers / plans / configs / importImage | No | No |
 > | privategalleryitems | No | No |
+> | privateStoreClient | No | No |
 > | products | No | No |
 > | publishers | No | No |
 > | publishers / offers | No | No |
@@ -1340,6 +1363,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | assessmentProjects | Yes | Yes |
 > | migrateprojects | Yes | Yes |
+> | moveCollections | Yes | Yes |
 > | projects | Yes | Yes |
 
 ## Microsoft.MixedReality
@@ -1489,8 +1513,12 @@ Jump to a resource provider namespace:
 > | linkTargets | No | No |
 > | storageInsightConfigs | No | No |
 > | workspaces | Yes | Yes |
+> | workspaces / dataExports | No | No |
 > | workspaces / dataSources | No | No |
 > | workspaces / linkedServices | No | No |
+> | workspaces / privateEndpointConnectionProxies | No | No |
+> | workspaces / privateEndpointConnections | No | No |
+> | workspaces / privateLinkResources | No | No |
 > | workspaces / query | No | No |
 
 ## Microsoft.OperationsManagement
@@ -1548,6 +1576,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | capacities | Yes | Yes |
 
+## Microsoft.ProjectBabylon
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | accounts | Yes | Yes |
+
 ## Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
@@ -1599,6 +1634,7 @@ Jump to a resource provider namespace:
 > | availabilityStatuses | No | No |
 > | childAvailabilityStatuses | No | No |
 > | childResources | No | No |
+> | emergingissues | No | No |
 > | events | No | No |
 > | impactedResources | No | No |
 > | metadata | No | No |
@@ -1806,7 +1842,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Yes | Yes |
-> | managedInstances / databases | No | No |
+> | managedInstances / databases | Yes (see [note below](#sqlnote)) | Yes |
 > | managedInstances / databases / backupShortTermRetentionPolicies | No | No |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
@@ -1955,6 +1991,16 @@ Jump to a resource provider namespace:
 > | dedicatedCloudServices | Yes | Yes |
 > | virtualMachines | Yes | Yes |
 
+## Microsoft.VnfManager
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | devices | Yes | Yes |
+> | vendors | No | No |
+> | vendors / skus | No | No |
+> | vnfs | Yes | Yes |
+
 ## Microsoft.Web
 
 > [!div class="mx-tableFixed"]
@@ -1976,8 +2022,8 @@ Jump to a resource provider namespace:
 > | connections | Yes | Yes |
 > | customApis | Yes | Yes |
 > | deletedSites | No | No |
-> | functions | No | No |
 > | hostingEnvironments | Yes | Yes |
+> | hostingEnvironments / eventGridFilters | No | No |
 > | hostingEnvironments / multiRolePools | No | No |
 > | hostingEnvironments / workerPools | No | No |
 > | publishingUsers | No | No |
@@ -1997,6 +2043,7 @@ Jump to a resource provider namespace:
 > | sites / slots / hostNameBindings | No | No |
 > | sites / slots / networkConfig | No | No |
 > | sourceControls | No | No |
+> | staticSites | Yes | Yes |
 > | validate | No | No |
 > | verifyHostingEnvironmentVnet | No | No |
 
