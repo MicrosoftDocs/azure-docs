@@ -176,7 +176,7 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Install apache-tinkerpop-gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
+* [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
 * In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
