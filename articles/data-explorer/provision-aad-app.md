@@ -24,7 +24,7 @@ A service principal is automatically created when the application registration i
 
 1. Select the **App registrations** blade and select **New registration**
 
-    ![Start a new app registration](media/provisionaadapp-createappreg-new-registration.png)
+    ![Start a new app registration](media/provision-aad-app/provisionaadapp-createappreg-new-registration.png)
 
 1. Fill in the following: 
     * **Name** 
@@ -34,32 +34,32 @@ A service principal is automatically created when the application registration i
 	    > The application type should be **Web**. The URI is optional and is left blank in this case.
     * Select **Register**
 
-	![Register new app registration](media/provisionaadapp-createappreg-register-app.png)
+	![Register new app registration](media/provision-aad-app/provisionaadapp-createappreg-register-app.png)
 
 1. Select the **Overview** blade and copy the **Application ID**.
 
 	> [!NOTE]
 	> You'll need the application ID to authorize the service principal to access the database.
 
-	![Copy app registration id](media/provisionaadapp-createappreg-copy-applicationid.png)
+	![Copy app registration id](media/provision-aad-app/provisionaadapp-createappreg-copy-applicationid.png)
 
 1. In the **Certificates & secrets** blade, select **New client secret**
 
-	![Initiate creation of client secret](media/provisionaadapp-createappreg-new-client-secret.png)
+	![Initiate creation of client secret](media/provision-aad-app/provisionaadapp-createappreg-new-client-secret.png)
 
     > [!TIP]
-    > This article descibes using a client secret for the application's credentials.  You can also use an X509 certificate to authenticate your application. Select **Upload certificate** and follow the instructions to upload the public portion of the certificate.
+    > This article describes using a client secret for the application's credentials.  You can also use an X509 certificate to authenticate your application. Select **Upload certificate** and follow the instructions to upload the public portion of the certificate.
 
 1. Enter a description, expiration, and select **Add**
 
-	![Enter client secret parameters](media/provisionaadapp-createappreg-enter-client-secret-details.png)
+	![Enter client secret parameters](media/provision-aad-app/provisionaadapp-createappreg-enter-client-secret-details.png)
 
 1. Copy the key value
 
 	> [!NOTE]
 	> When you leave this page, the key value won't be accessible.  You will need the key to configure client credentials to the database.
 
-	![Copy client secret key value](media/provisionaadapp-createappreg-copy-client-secret.png)
+	![Copy client secret key value](media/provision-aad-app/provisionaadapp-createappreg-copy-client-secret.png)
 
 Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example \\below\\, skip the next section. If you need support for delegated permissions, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
 
@@ -69,15 +69,15 @@ If your application needs to access Azure Data Explorer using the credentials of
 
 1. In the **API permissions** blade, select **Add a permission**.
 
-	![Initiate adding app registration API permission](media/provisionaadapp-configuredelegated-add-permission.png)
+	![Initiate adding app registration API permission](media/provision-aad-app/provisionaadapp-configuredelegated-add-permission.png)
 
 1. Select **APIs my organization uses**. Search for and select **KustoService**
 
-	![Add KustoService API permission](media/provisionaadapp-configuredelegated-search-for-kustoservice.png)
+	![Add KustoService API permission](media/provision-aad-app/provisionaadapp-configuredelegated-search-for-kustoservice.png)
 
 1. In **Delegated permissions**, select the **user_impersonation** box and **Add permissions**
 
-	![Select delegated permissions with user impersonation](media/provisionaadapp-configuredelegated-click-add-permissions.png)	 
+	![Select delegated permissions with user impersonation](media/provision-aad-app/provisionaadapp-configuredelegated-click-add-permissions.png)	 
 
 ## Verify Application Registration
 
@@ -132,6 +132,7 @@ var queryResult = client.ExecuteQuery($"{query}");
 > For more information, see [authenticate with AAD for Azure Data Explorer access](./how-to-authenticate-with-aad.md).
 
 ## AAD errors
+\\should we remove
 
 ### Invalid resource error
 
