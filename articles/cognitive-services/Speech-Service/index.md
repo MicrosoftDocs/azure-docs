@@ -675,7 +675,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                         <a href="#deploy-architecture">Hosting</a>
                         <ul id="deploy-architecture" class="cardsC">
                             <li>
-                                <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure">
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
