@@ -102,17 +102,9 @@ Replace the application's `Main` method. You will define the methods called here
 
 ## Object model
 
-#### [Version 3.0-preview](#tab/version-3)
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key or AAD token, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
-The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. An optional, `TextAnalyticsClientOptions` instance can be used to initialize the client with various default settings (for example default language or country hint).
-
-Additional examples, including AAD authentication and the use of client default settings can be found [here](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples).
-
-#### [Version 2](#tab/version-2)
-
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
-
----
+If you're using version `3.0-preview`, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country hint).
 
 ## Code examples
 
@@ -126,7 +118,7 @@ The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/
 
 #### [Version 3.0-preview](#tab/version-3)
 
-In your main method, make sure you're creating a new `TextAnalyticsClient` with your endpoint and key. 
+Make sure your main method from earlier creates a new client object with your endpoint and key. 
 
 ```csharp
 var client = new TextAnalyticsClient(endpoint, key);
@@ -144,12 +136,9 @@ Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.
 
 ---
 
-## Sentiment analysis (public preview)
+## Sentiment analysis
 
 #### [Version 3.0-preview](#tab/version-3)
-
-> [!NOTE]
-> The below code is for Sentiment Analysis v3, which is in public preview.
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<AnalyzeSentimentResult>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
 
@@ -245,12 +234,18 @@ Language: English
 
 ---
 
-## Named Entity recognition
+## Named Entity recognition (NER)
 
 #### [Version 3.0-preview](#tab/version-3)
 
+
 > [!NOTE]
-> The below code is for Named Entity Recognition v3, which is in public preview.
+> In version `3.0-preview`:
+> * NER includes separate methods for detecting personal information. 
+> * Entity linking is a separate request than NER.
+
+The below code is for detecting personal information using NER v3, which is in public preview.
+
 
 Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
 
@@ -278,10 +273,7 @@ Named Entities:
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
-## Named Entity Recognition - personal information (public preview)
-
-> [!NOTE]
-> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
+## Using NER to detect personal information
 
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 
@@ -308,9 +300,6 @@ Personally Identifiable Information Entities:
 
 
 ## Entity Linking
-
-> [!NOTE]
-> In version 3 of the client library, Entity linking is a separate request than Named Entity Recognition.
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<RecognizeLinkedEntitiesResult>` object will contain the list of detected entities in `Value.LinkedEntities` if successful, and a `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -379,6 +368,9 @@ Linked Entities:
 ```
 
 #### [Version 2](#tab/version-2)
+
+> [!NOTE]
+> In version 2, entity linking is included in the NER response.
 
 Create a new function called `RecognizeEntitiesExample()` that takes the client that you created earlier, and call its [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. Iterate through the results. The returned [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) object will contain the list of detected entities in `Entities` if successful, and an `errorMessage` if not. For each detected entity, print its Type, Sub-Type, Wikipedia name (if they exist) as well as the locations in the original text.
 
