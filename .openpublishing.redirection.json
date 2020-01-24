@@ -1758,7 +1758,62 @@
     },
     {
       "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
-      "redirect_url": "/azure/cognitive-services/custom-decision-service",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-api-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-app.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-register.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-overview.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-workflow.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/index.yml",
+      "redirect_url": "/azure/cognitive-services/personalizer",
       "redirect_document_id": false
     },
     {
@@ -12060,7 +12115,7 @@
       "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
       "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
       "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
@@ -15070,8 +15125,8 @@
     {
       "source_path": "articles/machine-learning/studio/algorithm-choice.md",
       "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
-      "redirect_document_id": false
-    },
+      "redirect_document_id": true
+    },    
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize",
@@ -27120,12 +27175,12 @@
       "source_path": "articles/active-directory/user-help/my-applications-portal-overview.md",
       "redirect_url": "/azure/active-directory/user-help/my-applications-portal-access",
       "redirect_document_id": false
-    },
+    },  
     {
       "source_path": "articles/active-directory/user-help/user-help-password-reset-overview.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
