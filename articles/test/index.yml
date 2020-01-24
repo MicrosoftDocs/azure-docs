@@ -134,3 +134,7 @@ tools:
     - title: .NET
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       url: /dotnet/azure/index
+    # Card
+    - title: Python
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      url: /azure/python/index
