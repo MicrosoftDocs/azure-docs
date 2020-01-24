@@ -59,7 +59,7 @@ Press the + Add button and you will be presented with the following screen to se
   *	Replication set to ‘Read-access geo-redundant storage (RA-GRS)’
   *	Access tier set to ‘Hot’
 
-Now add quick access blob containers – you will need one for input and one for output, so creating these 2 containers is the next step.
+Now add quick access blob containers – you will need one for input and one for output, so creating these two containers is the next step.
 
 ## Blob storage creation
 Make sure you are within the arrtutorialstorage account that you created in the last step and note there is an option for Blob Services on the dashboard page.
@@ -96,7 +96,7 @@ It is located in `Scripts` folder and is called `Ingestion.ps1`.
 `Ingestion.ps1` uses `Scripts\arrconfig.json` to configure itself. First open `Scripts\arrconfig.json` in a text editor of your choice.
 In addition to the values for spinning up the rendering session you also need to provide values for the following properties:
 
-The `azureStorageSettings` section contains values used by the Ingestion.ps1 script. You need to fill it out if you want to upload a model to Azure Blob Storage and convert it by using our model conversion service.
+The `azureStorageSettings` section contains values used by the Ingestion.ps1 script. Fill it out if you want to upload a model to Azure Blob Storage and convert it by using our model conversion service.
 
 * `azureStorageSettings.azureSubscriptionId` :  Open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the list of subscriptions until you find the account used for this tutorial (in this case, the free trial account). **The SubscriptionID is located under the account name**
 ![Subscription ID](./media/subscription-id.png "Subscription ID")
@@ -133,9 +133,9 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
 ```
 
 ## Running the asset conversion script
-You are now ready to have the script upload your model, call the conversion REST API and retrieve a link to the conversion model in your output container.
+You are now ready to have the script upload your model, call the conversion REST API, and retrieve a link to the conversion model in your output container.
 
-Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following in powershell with admin rights:
+Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
 ```powershell
 PS> $ Install-Module -Name Az -AllowClobber
 ```

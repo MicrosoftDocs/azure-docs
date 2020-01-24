@@ -12,19 +12,19 @@ ms.service: azure-remote-rendering
 
 # Quickstart: Render a model with Unity
 
-# Rendering your first model with Azure remote rendering
+This quickstart covers how to run a Unity sample that renders a built-in model remotely using the Azure Remote Rendering (ARR) service.
 
-This is quickstart covers how to run a Unity sample that renders a built-in model remotely using the Azure Remote Rendering (ARR) service.
+The focuses is on rendering the first model based on an existing Unity sample app. This quickstart does not go into detail regarding the API itself or how to set up a Unity project from scratch. To learn how to set a up a Unity project and adding relevant API calls to the scripts, refer to [Tutorial-1: Getting started](./../tutorials/tutorial-1-getting-started)
 
-You will learn how to:
+
+In this quickstart you will learn how to:
 > [!div class="checklist"]
 >- set up your local development environment
 >- get and build the Unity example app
->- start a remote rendering session using the ARR rendering session REST API and render a model in the Unity example app
->- convert your own models into the format used by ARR by using the Ingestion REST API
+>- render a model in the Unity example app
 
 ## Prerequisites
-The following must be installed to complete this tutorial:
+The following must be installed to complete this quickstart:
 - GIT [(download)](https://git-scm.com/downloads "GIT")
 - Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk "Windows SDK")
 - Unity 2019.3 [(download)](https://unity3d.com/get-unity/download "Unity")
@@ -44,7 +44,6 @@ The following must be installed to complete this tutorial:
 ## Clone the sample app
 
 Open a command window (Windows Key then type CMD) and change to a directory somewhere of your choice.
-For this guide, you can simply use a data drive.
 Run the following commands:
   *	`mkdir ARR`
   *	`cd ARR`
@@ -62,7 +61,7 @@ You need to use NuGet commands to pull the packages from the ARR depot – from 
   *	`nuget install com.microsoft.azure.remote_rendering -ExcludeVersion`
   *	`nuget install ScriptableRenderPipeline -ExcludeVersion`
 
-If the NuGet command results in authentication prompts make sure you are using the NuGet + credential provider installation from the prerequisites steps above.
+If the NuGet command results in authentication prompts, make sure you are using the NuGet + credential provider installation from the prerequisites steps above.
 
 The two commands above will download NuGet packages carrying Unity packages.
 You will now have an ‘ARR/ArrClient/Unity’ directory contains three folders:
@@ -72,7 +71,7 @@ You will now have an ‘ARR/ArrClient/Unity’ directory contains three folders:
 
 ## Rendering a first model with the Unity example project
 
-The first model we render will be a builtin model provided by ARR - we will show how to convert a model using the ARR Ingestion service in the next section.
+The default model we render will be a built-in model provided by ARR. We will show how to convert a custom model using the ARR conversion service in the next quickstart.
 
 Open the Unity Hub and add the sample project, which is the ARR\arrClient\Unity\AzureRemoteRenderingSample folder.
 Open the project, if necessary allowing Unity to upgrade the project to your installed version.
@@ -83,8 +82,9 @@ Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter 
 
 ![ARR Account Info](./media/arr-sample-account-info.png "ARR Account Info")
 
-These credentials will be saved to Unity's editor preferences. If the sample should be run against a new account
-then the information must be reentered.
+You only need to set the 'AccountDomain' and the 'Account Id/Key' value. You can ignore the two fields under 'Account Token'.
+
+The credentials will be saved to Unity's editor preferences. If the sample should be run against a new account, then the information must be reentered.
 
 ### Create a session and view the default model
 
@@ -92,15 +92,20 @@ When the project opens, open the SampleScene scene, and select the **RRRoot** no
 
 ![Unity Scene Tree](./media/unity-scene.png "Unity Scene Tree")
 
-The default settings create a session for you using the account the information provided in the Account window. An existing session (such as those created with the RESTful API) can also be opened by selecting the 'UseExistingSessionId' toggle.
+Selecting the **RRRoot** node shows the following properties in the Inspector panel:
 
 ![Unity Configure Sample Not Playing](./media/arr-sample-configure-session.png "Unity Configure Sample Not Playing")
 
-If the account has been correctly set up, then pushing play should update the ARR Service Unity script with the current state of the session.
+Now press **play** to start the session. 
+If the account has been set up correctly, then the Inspector panel updates with additional status information at the bottom:
 
 ![Unity Configure Sample Playing](./media/arr-sample-configure-session-running.png "Unity Configure Sample Playing")
 
-The session will undergo a series of state transitions. The session will first start as Starting. After a few minutes, the session should transition to the 'Ready' state. Once Ready, the session can connect to the runtime. The session will enter the Connecting state and, once successfully connected, a remotely rendered Engine will appear in the viewport as shown below. Congratulations! you are viewing a remotely rendered model!
+The session will undergo a series of automatic state transitions with no user input required. The session will first start as 'Starting'. After a few minutes, the session should transition to the 'Ready' state. Once Ready, the session connects to the runtime. The session will enter the 'Connecting' state and, once successfully connected, a remotely rendered Engine will appear in the viewport as shown below.
+
+Congratulations! you are viewing a remotely rendered model!
+
+Note that the rendered image will only appear in the 'Game' panel, not in the camera preview.
 
 You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector. This has to be repeated for each game object to explore the hierarchy.
 <br />![Unity Hierarchy](./media/unity-hierarchy.png)
