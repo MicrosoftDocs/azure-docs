@@ -80,3 +80,17 @@ productDirectory:
       azureCategories:
         - databases
       url: ../healthcare-apis/index.yml
+    # Card
+    - title: App Configuration Preview
+      summary: Fast, scalable parameter storage for app configuration
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - developerTools
+      url: ../azure-app-configuration/index.yml
+    # Card
+    - title: Application Insights
+      summary: Full observability into your applications, infrastructure, and network
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - devops
+      url: ../azure-monitor/index.yml
