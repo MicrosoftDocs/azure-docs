@@ -21,7 +21,7 @@
   items:
     - name: Get connected
       items:
-      - name: Connect a device
+      - name: Connect a Plug and Play device
         href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
