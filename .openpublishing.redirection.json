@@ -33858,7 +33858,17 @@
     },
     {
       "source_path": "articles/cognitive-services/entitylinking/index.md",
-      "redirect_url": "/azure/cognitive-services/entitylinking/home",
+      "redirect_url": "/azure/cognitive-services/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/entitylinking/GettingStarted.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/entitylinking/Home.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
     },
     {
@@ -45168,6 +45178,16 @@
     {
       "source_path": "articles/security/fundamentals/storage-overview.md",
       "redirect_url": "/azure/storage/common/storage-security-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-explorer",
       "redirect_document_id": false
     },
     {
