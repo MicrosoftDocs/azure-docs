@@ -645,10 +645,8 @@
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Best practices
       href: data-lake-storage-best-practices.md
-    - name: Security
-      items:
-      - name: Directory & file access control
-        href: data-lake-storage-access-control.md
+    - name: Directory & file access control
+      href: data-lake-storage-access-control.md
   - name: How to
     items:
     - name: Create a storage account for your Data Lake
