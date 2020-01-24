@@ -20,16 +20,16 @@ highlightedContent:
     # Card
     - title: Get started guide for Azure developers
       itemType: get-started
-      url: 
+      url: ../guides/developer/azure-developer-guide.md
     # Card
     - title: Azure application architecture guide
       itemType: architecture
-      url: 
+      url: ../architecture/guide/index.md
     # Card
     - title: Microsoft Cloud Adoption Framework for Azure
       itemType: architecture
-      url: 
+      url: ../cloud-adoption-framework/index.md
     # Card
-    - title: Tour Azure with Microsoft Learn
+    - title: Azure fundamentals with Microsoft Learn
       itemType: learn
-      url: 
+      url: https://docs.microsoft.com/learn/paths/azure-fundamentals/
