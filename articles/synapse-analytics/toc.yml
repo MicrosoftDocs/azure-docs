@@ -153,13 +153,11 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: AAD pass-through
-        href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Multi-Factor Auth
-        href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: SQL authorization
-        href: ../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Access control
       items:
       - name: Overview
