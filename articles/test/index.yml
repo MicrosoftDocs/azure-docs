@@ -126,3 +126,11 @@ productDirectory:
         - databases
         - iot
       url: ../cosmos-db/index.yml
+
+tools:
+  title: Tools
+  items:
+    # Card
+    - title: .NET
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      url: /dotnet/azure/index
