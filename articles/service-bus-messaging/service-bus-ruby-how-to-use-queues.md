@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/24/20209
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
