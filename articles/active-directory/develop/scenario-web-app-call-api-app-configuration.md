@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 As shown in the [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenario, the web app uses the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) to sign the user in. This flow has two steps:
 
-1. Request an authorization code. This part delegates a private dialog with the user to the Microsoft identity platform. During that dialog, the user signs in and consents to the use of web APIs. When the private dialog ends successfully, the web app receives an authorization code on its redirect URI.
+1. Request an authorization code. This part delegates a private dialogue with the user to the Microsoft identity platform. During that dialogue, the user signs in and consents to the use of web APIs. When the private dialogue ends successfully, the web app receives an authorization code on its redirect URI.
 1. Request an access token for the API by redeeming the authorization code.
 
 The [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenarios covered only the first step. Here you learn how to modify your web app so that it not only signs users in but also now calls web APIS.
@@ -258,7 +258,7 @@ In ASP.NET Core, building the confidential client application uses information t
 The `BuildConfidentialClientApplication` method also uses the ASP.NET Core configuration. The configuration has an "AzureAD" section, and also is bound to  both of the following elements:
 
 - The `_applicationOptions` data structure of type [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet).
-- the `azureAdOptions` instance of type [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs), defined in ASP.NET Core `Authentication.AzureAD.UI`.
+- The `azureAdOptions` instance of type [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs), defined in ASP.NET Core `Authentication.AzureAD.UI`.
 
 Finally, the application needs to maintain token caches. You'll learn more about that in the next section.
 
