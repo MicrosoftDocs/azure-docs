@@ -159,7 +159,7 @@ ORDER BY
 
 The following example shows how *filepath()* can be used in the WHERE clause to filter the files to be read. 
 
-You used wildcards in the OPENROWSET part of the query and filtered the files in the WHERE clause. Your results will be the same as the prior example.
+You can use the wildcards in the OPENROWSET part of the query and filter the files in the WHERE clause. Your results will be the same as the prior example.
 
 ```sql
 SELECT 
