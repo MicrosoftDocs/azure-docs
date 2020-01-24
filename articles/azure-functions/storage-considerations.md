@@ -47,9 +47,11 @@ Azure Storage encrypts all data in a storage account at rest. For more informati
 
 By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of blob and file data. These keys must be present in Azure Key Vault for Functions to be able to access the storage account. To learn more, see [Configure customer-managed keys with Azure Key Vault by using the Azure portal](../storage/common/storage-encryption-keys-portal.md).  
 
-## Mounting file shares
-
 ## Next steps
 
+Learn more about Azure Functions hosting options.
+
+> [!div class="nextstepaction"]
+> [Azure Functions scale and hosting](functions-scale.md)
 
 
