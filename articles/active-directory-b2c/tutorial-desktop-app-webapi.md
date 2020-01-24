@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the steps and prerequisites in [Tutorial: Authenticate users in a native desktop client](active-directory-b2c-tutorials-desktop-app.md).
+Complete the steps and prerequisites in [Tutorial: Authenticate users in a native desktop client](tutorial-desktop-app.md).
 
 ## Add a web API application
 
@@ -138,12 +138,12 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 
 1. Open the **active-directory-b2c-wpf** solution in Visual Studio.
 2. Press **F5** to run the desktop app.
-3. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
+3. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](tutorial-desktop-app.md).
 4. Select the **Call API** button.
 
 The desktop application makes a request to the locally running web API, and upon verification of a valid access token, shows the signed-in user's display name.
 
-![Display name shown in the top pane of the WPF desktop application](media/active-directory-b2c-tutorials-desktop-app-webapi/desktop-app-01-post-api-call.png)
+![Display name shown in the top pane of the WPF desktop application](./media/tutorial-desktop-app-webapi/desktop-app-01-post-api-call.png)
 
 Your desktop application, protected by Azure AD B2C, is calling the locally running web API that is also protected by Azure AD B2C.
 

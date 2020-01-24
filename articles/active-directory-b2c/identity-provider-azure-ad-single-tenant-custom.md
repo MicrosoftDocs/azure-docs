@@ -200,4 +200,4 @@ If the sign in process is successful, your browser is redirected to `https://jwt
 
 When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development.
 
-To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](active-directory-b2c-troubleshoot-custom.md).
+To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](troubleshoot-with-application-insights.md).

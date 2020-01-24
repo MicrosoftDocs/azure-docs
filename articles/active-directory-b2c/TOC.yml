@@ -31,19 +31,19 @@
   - name: Authenticate users
     items:
     - name: ASP.NET
-      href: active-directory-b2c-tutorials-web-app.md
+      href: tutorial-web-app-dotnet.md
     - name: Desktop
-      href: active-directory-b2c-tutorials-desktop-app.md
+      href: tutorial-desktop-app.md
     - name: Single page
-      href: active-directory-b2c-tutorials-spa.md
+      href: tutorial-single-page-app.md
   - name: Grant API access
     items:
     - name: ASP.NET
-      href: active-directory-b2c-tutorials-web-api.md
+      href: tutorial-web-api-dotnet.md
     - name: Desktop
-      href: active-directory-b2c-tutorials-desktop-app-webapi.md
+      href: tutorial-desktop-app-webapi.md
     - name: Single page
-      href: active-directory-b2c-tutorials-spa-webapi.md
+      href: tutorial-single-page-app-webapi.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -61,7 +61,7 @@
       - name: Implicit flow
         href: implicit-flow-single-page-application.md
       - name: Tokens
-        href: active-directory-b2c-reference-tokens.md
+        href: tokens-overview.md
       - name: Request access token
         href: access-tokens.md
   - name: User flow and policy
@@ -243,9 +243,11 @@
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
-        href: active-directory-b2c-troubleshoot-custom.md
+        href: troubleshoot-with-application-insights.md
+        displayName: troubleshooting
       - name: Policy validation
-        href: active-directory-b2c-guide-troubleshooting-custom.md
+        href: troubleshoot-custom-policies.md
+        displayName: troubleshooting
     - name: Usage analytics
       href: analytics-with-application-insights.md
     - name: Reference
@@ -387,7 +389,8 @@
   - name: Enable billing
     href: billing.md
   - name: Threat management
-    href: active-directory-b2c-reference-threat-management.md
+    href: threat-management.md
+    displayName: security
   - name: Extensions app
     href: extensions-app.md
   - name: User flow versions

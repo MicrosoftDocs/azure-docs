@@ -136,7 +136,7 @@ The **JourneyInsights** element contains the following attributes:
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
 | TelemetryVersion | Yes | The value must be `1.0.0`. |
 
-For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md)
+For more information, see [Collecting Logs](troubleshoot-with-application-insights.md)
 
 ## ContentDefinitionParameters
 

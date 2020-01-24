@@ -132,7 +132,7 @@ Learn more about custom policies in [Custom policies in Azure Active Directory B
 
 Azure AD B2C supports the [OpenID Connect and OAuth 2.0 protocols](protocols-overview.md) for user journeys. In the Azure AD B2C implementation of OpenID Connect, your application starts the user journey by issuing authentication requests to Azure AD B2C.
 
-The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](active-directory-b2c-reference-tokens.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints like the `/token` or `/authorize` endpoint. With these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
+The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](tokens-overview.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints like the `/token` or `/authorize` endpoint. With these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
 
 For external identities, Azure AD B2C supports federation with any OAuth 1.0, OAuth 2.0, OpenID Connect, SAML, and WS-Fed identity provider.
 
@@ -227,7 +227,7 @@ To prevent brute-force password guessing attempts, Azure AD B2C uses a sophistic
 
 ![Account smart lockout](media/technical-overview/smart-lockout1.png)
 
-For more information about managing password protection settings, see [Manage threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+For more information about managing password protection settings, see [Manage threats to resources and data in Azure Active Directory B2C](threat-management.md).
 
 ### Password complexity
 

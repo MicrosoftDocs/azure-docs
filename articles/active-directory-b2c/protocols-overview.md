@@ -64,7 +64,7 @@ If a bearer token is transmitted outside a secure channel, a malicious party can
 
 For additional bearer token security considerations, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
-More information about the different types of tokens that are used in Azure AD B2C are available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
+More information about the different types of tokens that are used in Azure AD B2C are available in [the Azure AD token reference](tokens-overview.md).
 
 ## Protocols
 When you're ready to review some example requests, you can start with one of the following tutorials. Each corresponds to a particular authentication scenario. If you need help determining which flow is right for you, check out [the types of apps you can build by using Azure AD B2C](application-types.md).

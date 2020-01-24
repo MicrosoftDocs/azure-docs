@@ -86,7 +86,7 @@ You can use the Azure AD Graph API to write your migration tool. See the [User m
 
 ### What password user flow is used for local accounts in Azure AD B2C?
 
-The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](/previous-versions/azure/jj943764(v=azure.100)) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](/previous-versions/azure/jj943764(v=azure.100)) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 

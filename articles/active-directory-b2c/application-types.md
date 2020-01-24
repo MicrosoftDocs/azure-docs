@@ -53,7 +53,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Learn more about the types of tokens and claims available to an application in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
+Learn more about the types of tokens and claims available to an application in the [Azure AD B2C token reference](tokens-overview.md).
 
 In a web application, each execution of a [policy](active-directory-b2c-reference-policies.md) takes these high-level steps:
 
@@ -83,7 +83,7 @@ Accept: application/json
 ...
 ```
 
-The web API can then use the token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the token. Learn more about the types of tokens and claims available to an app in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
+The web API can then use the token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the token. Learn more about the types of tokens and claims available to an app in the [Azure AD B2C token reference](tokens-overview.md).
 
 A web API can receive tokens from many types of clients, including web applications, desktop and mobile applications, single page applications, server-side daemons, and other web APIs. Here's an example of the complete flow for a web application that calls a web API:
 

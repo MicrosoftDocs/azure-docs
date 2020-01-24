@@ -83,7 +83,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type | The token type value. The only type that Azure AD supports is Bearer. |
 | expires_in | The length of time that the access token is valid (in seconds). |
 | scope | The scopes that the token is valid for. You also can use scopes to cache tokens for later use. |
-| id_token | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). |
+| id_token | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [Azure AD B2C token reference](tokens-overview.md). |
 | state | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ### Error response
@@ -120,9 +120,9 @@ One of the properties of this configuration document is the `jwks_uri`. The valu
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-To determine which user flow was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the user flow name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which user flow was used. Either method is valid.
+To determine which user flow was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the user flow name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](tokens-overview.md). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which user flow was used. Either method is valid.
 
-After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA-256 public keys (located at this endpoint) to validate the signature of the ID token. There might be multiple keys listed at this endpoint at any given time, each identified by a `kid`. The header of `id_token` also contains a `kid` claim. It indicates which of these keys was used to sign the ID token. For more information, including learning about [validating tokens](active-directory-b2c-reference-tokens.md), see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
+After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA-256 public keys (located at this endpoint) to validate the signature of the ID token. There might be multiple keys listed at this endpoint at any given time, each identified by a `kid`. The header of `id_token` also contains a `kid` claim. It indicates which of these keys was used to sign the ID token. For more information, including learning about [validating tokens](tokens-overview.md), see the [Azure AD B2C token reference](tokens-overview.md).
 <!--TODO: Improve the information on this-->
 
 After you validate the signature of the ID token, several claims require verification. For example:
@@ -137,7 +137,7 @@ Several more validations that you should perform are described in detail in the 
 * Ensuring that the user has proper authorization and privileges.
 * Ensuring that a certain strength of authentication has occurred, such as by using Azure Multi-Factor Authentication.
 
-For more information about the claims in an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
+For more information about the claims in an ID token, see the [Azure AD B2C token reference](tokens-overview.md).
 
 After you have validated the ID token, you can begin a session with the user. In your app, use the claims in the ID token to obtain information about the user. This information can be used for display, records, authorization, and so on.
 

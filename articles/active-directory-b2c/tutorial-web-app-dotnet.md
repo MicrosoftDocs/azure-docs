@@ -106,13 +106,13 @@ Update the settings in the Web.config file to work with your user flow:
 1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, select **Sign up now**. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 1. Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up page shown as part of sign-in/sign-up workflow](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
+    ![Sign-up page shown as part of sign-in/sign-up workflow](./media/tutorial-web-app-dotnet/sign-up-workflow.PNG)
 
 1. Select **Create** to create a local account in the Azure AD B2C tenant.
 
 The application user can now use their email address to sign in and use the web application.
 
-However, the **To-Do List** feature won't function until you complete the next tutorial in the series, [Tutorial: Use Azure AD B2C to protect an ASP.NET web API](active-directory-b2c-tutorials-web-api.md).
+However, the **To-Do List** feature won't function until you complete the next tutorial in the series, [Tutorial: Use Azure AD B2C to protect an ASP.NET web API](tutorial-web-api-dotnet.md).
 
 ## Next steps
 
@@ -126,4 +126,4 @@ In this tutorial, you learned how to:
 Now move on to the next tutorial to enable the **To-Do List** feature of the web application. In it, you register a web API application in your own Azure AD B2C tenant, and then modify the code sample to use your tenant for API authentication.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API >](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API >](tutorial-web-api-dotnet.md)
