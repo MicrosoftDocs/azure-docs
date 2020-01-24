@@ -98,9 +98,7 @@ You can move a workspace between resource groups or subscriptions but not to a d
 **Query Explorer**, **Save** and **New alert rule** buttons are not available when the [query scope](log-query/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](log-query/scope.md)
 
 ### Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" when opening Log Analytics from a VM? 
-Many resource providers are automatically registered, but you may need to manually register some resource providers. The scope for registration is always the subscription. See 
-
-[Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
+Many resource providers are automatically registered, but you may need to manually register some resource providers. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
 
 ### Why am I am getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
