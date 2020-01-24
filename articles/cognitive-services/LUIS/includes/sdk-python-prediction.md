@@ -83,7 +83,7 @@ From the project directory, open the `prediction_quickstart.py` file in your pre
 
 1. Create a credentials object with your key, and use it with your endpoint to create an [LUISRuntimeClientConfiguration]https://docs.microsoft.com//python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() object.
 
-        [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
 
 ## Get prediction from runtime
 
@@ -99,13 +99,14 @@ The **[get_slot_prediction](https://docs.microsoft.com//python/api/azure-cogniti
 
 Use the following main method to tie the variables and methods together to get the prediction.
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=main)]
-
+```python
+predict(luisAppID, luisSlotName)
+```
 ## Run the application
 
 Run the application with the `python prediction_quickstart.py` command from your application directory.
 
-```python
+```console
 python prediction_quickstart.py
 ```
 
