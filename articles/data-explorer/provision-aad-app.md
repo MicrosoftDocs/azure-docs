@@ -6,24 +6,25 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 01/24/2020
 ---
 
-# Provision an Azure Active Directory application
+# Create an Azure Active Directory application registration
 
 Azure Active Directory (Azure AD) application authentication is used for applications, such as an unattended service or a scheduled flow, that need to access Azure Data Explorer without a user present. If you're connecting to an Azure Data Explorer database using an application, such as a web app, you should authenticate using service principal authentication. This article details how to create and register an Azure AD service principal and then authorize it to access an Azure Data Explorer database.
 
-## Register the new application
+## Create Azure AD Application Registration
 
 Azure AD application authentication requires creating and registering an application with Azure AD. 
+A service principal is automatically created when the application registration is created in an Azure AD tenant. 
 
 1. Log in to [Azure portal](https://portal.azure.com) and open the `Azure Active Directory` blade
 
-![Select Azure Active Directory in the portal](media/provision-aad-app/1.png)
+	![Select Azure Active Directory from portal menu](media/provision-aad-app/provisionaadapp-createappreg-select-azure-active-directory.png)
 
 1. Select the **App registrations** blade and select **New registration**
 
-    ![alt text](./images/Aad-create-app-step-1.png "Aad-create-app-step-1")
+    ![Start a new app registration](media/provisionaadapp-createappreg-new-registration.png)
 
 1. Fill in the following: 
     * **Name** 
@@ -33,81 +34,115 @@ Azure AD application authentication requires creating and registering an applica
 	    > The application type should be **Web**. The URI is optional and is left blank in this case.
     * Select **Register**
 
-	 
+	![Register new app registration](media/provisionaadapp-createappreg-register-app.png)
 
+1. Select the **Overview** blade and copy the **Application ID**.
 
+	> [!NOTE]
+	> You'll need the application ID to authorize the service principal to access the database.
 
+	![Copy app registration id](media/provisionaadapp-createappreg-copy-applicationid.png)
 
+1. In the **Certificates & secrets** blade, select **New client secret**
 
+	![Initiate creation of client secret](media/provisionaadapp-createappreg-new-client-secret.png)
 
+    > [!TIP]
+    > This article descibes using a client secret for the application's credentials.  You can also use an X509 certificate to authenticate your application. Select **Upload certificate** and follow the instructions to upload the public portion of the certificate.
 
+1. Enter a description, expiration, and select **Add**
 
-    ![alt text](./images/Aad-create-app-step-2.png "Aad-create-app-step-2")
+	![Enter client secret parameters](media/provisionaadapp-createappreg-enter-client-secret-details.png)
 
-* Once your application is ready, open its `Settings` blade
+1. Copy the key value
 
-    ![alt text](./images/Aad-create-app-step-3.png "Aad-create-app-step-3")
+	> [!NOTE]
+	> When you leave this page, the key value won't be accessible.  You will need the key to configure client credentials to the database.
 
-* Here, on the `Keys` blade, you can set up the authentication for your new application:
-    * If you want to use a shared key, select key duration from the drop-down menu and copy the key when it gets generated.
-        You will not be able to restore this key.
-    * Another option is to use an X509 certificate to authenticate your application.
-        For that, click `Upload Public Key` and follow instructions to upload the public portion of the certificate.
-    * Do not forget to click `Save` when you are done.
+	![Copy client secret key value](media/provisionaadapp-createappreg-copy-client-secret.png)
 
-    ![alt text](./images/Aad-create-app-step-4.png "Aad-create-app-step-4")
+Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example \\below\\, skip the next section. If you need support for delegated permissions, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
 
-* Your application is set up. If all you need is access to Kusto with the newly created application, you are done.
-<P>
+## Configure delegated permissions for the application registration
 
-#### Set up delegated permissions for Kusto service application
+If your application needs to access Azure Data Explorer using the credentials of the calling user, configure delegated permissions for your application registration. For example, if you're building a web API to access Azure Data Explorer and you want to authenticate using the credentials of the user who is *calling* your API.  
 
-If you need the application to be able to perform user or app authentication for Kusto access, you need to set up trust between your application and Kusto:
+1. In the **API permissions** blade, select **Add a permission**.
 
-* On the `Required permissions` blade, click `Add`
+	![Initiate adding app registration API permission](media/provisionaadapp-configuredelegated-add-permission.png)
 
-    ![alt text](./images/Aad-create-app-step-5.png "Aad-create-app-step-5")
+1. Select **APIs my organization uses**. Search for and select **KustoService**
 
-* Pick `Select an API`, enter `KustoService` in the filter box and select `KustoService (Kusto)`
-* If your Kusto clusters require MFA, enter `KustoMFA` in the filter box and select `KustoServiceMFA (KustoMFA)`
+	![Add KustoService API permission](media/provisionaadapp-configuredelegated-search-for-kustoservice.png)
 
-    ![alt text](./images/Aad-create-app-step-6.png "Aad-create-app-step-6")
+1. In **Delegated permissions**, select the **user_impersonation** box and **Add permissions**
 
-* After confirming your selection, choose delegated permissions for `Access Kusto`
+	![Select delegated permissions with user impersonation](media/provisionaadapp-configuredelegated-click-add-permissions.png)	 
 
-    ![alt text](./images/Aad-create-app-step-7.png "Aad-create-app-step-7")
+## Verify Application Registration
 
-* Click `Done` to complete the process
+\\Is there another way to verify. Geneva is internal only?
 
-### 2. Set permissions to the application on Kusto cluster
+## Grant the service principal access to an Azure Data Explorer database
 
-> Before using your newly provisioned application, verify it resolves from Graph API.<#ifdef MICROSOFT> You can use [Geneva AAD Lookup tool](https://www.analytics.msftcloudes.com/support/directory).<#endif><br>
-    Be advised that it usually takes some time (up to several hours) for the AAD changes to propagate.
+Now that your service principal application registration is created, you need to grant the corresponding service principal access to your Azure Data Explorer database. 
 
-* Access your database admin to grant permissions to the new app.
-Look at [Managing database principals](../security-roles.md) section for the details about setting the permissions.<br>
-For setting up ingestion permissions, consult [Ingestion Permissions](../../api/netfx/kusto-ingest-client-permissions.md) article.
-* Add a connection to this service in your Kusto Explorer, if you don't have it yet.
+1. In the Web UI(\\link\\), connect to your database and open a query tab.
 
-### 3. Application can now access Kusto
+1. Execute the following command:
 
-When using your newly provisioned application to access Kusto clusters using Kusto client libraries, specify the following connection string (if you chose to authenticate with a shared key):
-<br>
-`https://`*ClusterDnsName*`/;Federated Security=True;Application Client Id=`*ApplicationClientId*`;Application Key=`*ApplicationKey*
-<br>
+	```kusto
+	.add database <DatabaseName> viewers ('<ApplicationId>') '<Notes>'
+	```
 
-### Appendix A: AAD Errors
+	For example:
+	
+	```kusto
+	.add database Logs viewers ('aadapp=f778b387-ba15-437f-a69e-ed9c9225278b') 'Kusto App Registration'
+	```
 
-#### AAD Error AADSTS650057
+	\\The last parameter is a string that shows up as notes when you query the roles associated with a database.\\
+	
+	> [!NOTE]
+	> After creating the application registration, there may be a several minute delay until Azure Data Explorer can reference it. If you receive an error, that the application is not found, when executing this command, wait and try again.
 
-If your application is used to authenticate users or applications for Kusto access, you must set up delegated permissions for Kusto service applicaiton, i.e. declare that your application can authenticate users or applications for Kusto access.
+For additional information see [security roles management](../security-roles.md) and [ingestion permissions](../../api/netfx/kusto-ingest-client-permissions.md).  
+
+## Using Application Credentials to Access a Database
+
+Use the application credentials to programmatically access your database by using the [Kusto client library](../../api/netfx/about-kusto-data.md).
+
+```C#
+. . .
+string applicationClientId = "f778b387-ba15-437f-a69e-ed9c9225278b";
+string applicationKey = "tBvAns1f7M75/?QI@?.4=uouC94UWBnC";
+. . .
+var kcsb = new KustoConnectionStringBuilder($"https://{clusterName}.kusto.windows.net/{databaseName}")
+    .WithAadApplicationKeyAuthentication(
+        applicationClientId,
+        applicationKey,
+        authority);
+var client = KustoClientFactory.CreateCslQueryProvider(kcsb);
+var queryResult = client.ExecuteQuery($"{query}");
+```
+
+   > [!NOTE]
+   > Specify the application id and key of the application registration (service principal) created earlier.
+
+> For more information, see [authenticate with AAD for Azure Data Explorer access](./how-to-authenticate-with-aad.md).
+
+## AAD errors
+
+### Invalid resource error
+
+If your application is used to authenticate users or applications for Kusto access, you must set up delegated permissions for Kusto service application, i.e. declare that your application can authenticate users or applications for Kusto access.
 Not doing so will result in an error similar to the following, when an authentication attempt is made:
 
 `AADSTS650057: Invalid resource. The client has requested access to a resource which is not listed in the requested permissions in the client's application registration...`
 
 You will need to follow the instructions on [setting up delegated permissions for Kusto service application](#set-up-delegated-permissions-for-kusto-service-application).
 
-#### Enable user consent if needed
+### Enable user consent error
 
 Your AAD tenant administrator may enact a policy that prevents tenant users from giving consent to applications. This situation will result in an error similar to the following, when a user tries to login to your application:
 
@@ -115,13 +150,6 @@ Your AAD tenant administrator may enact a policy that prevents tenant users from
 
 You will need to contact your AAD administrator to grant consent for all users in the tenant, or enable user consent for your specific application.
 
-<#ifdef MICROSOFT>Microsoft core services (MSIT) disabled user consent by default on all new AAD application registrations created in Microsoft AAD tenant.
+## Next steps
 
-If your applicaiton needs to authenticate on behalf of users, you will have to open a ticket to MSIT. In the ticket you should specify the app id, what the application does, and business justification for enabling users to grant consent https://aka.ms/filloutaform<#endif>
-
-### Appendix B: Advanced topics and troubleshooting
-
-* See [Kusto connection strings](../../api/connection-strings/kusto.md) documentation for full reference of supported connection strings
-<#ifdef MICROSOFT>
-* See [Access Control FAQ](../../faq/accesscontrol.md) for known AAD Application authentication issues
-<#endif>
+* See [Kusto connection strings](../../api/connection-strings/kusto.md) for list of supported connection strings.
