@@ -58,5 +58,5 @@ Or look at some of these other Azure Synapse resources.
 * Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 * Submit a [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-* Search [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse)
+* Search [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 * Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

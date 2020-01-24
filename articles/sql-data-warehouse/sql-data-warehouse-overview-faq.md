@@ -38,7 +38,7 @@ A. Azure Synapse offers several solutions for protecting data such as TDE and au
 
 Q. Where can I find out what legal or business standards Azure Synapse is compliant with?
 
-A. Visit the [Microsoft Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. 
+A. Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. 
 First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
 
 Q. Can I connect Power BI?
