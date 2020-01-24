@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication.
+In a [related Azure AD B2C article](rest-api-claims-exchange-dotnet.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication.
 
 In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy.
 
@@ -25,7 +25,7 @@ For more information, see [Basic authentication in ASP.NET web API](https://docs
 
 ## Prerequisites
 
-Complete the steps in the [Integrate REST API claims exchanges in your Azure AD B2C user journey](active-directory-b2c-custom-rest-api-netfw.md) article.
+Complete the steps in the [Integrate REST API claims exchanges in your Azure AD B2C user journey](rest-api-claims-exchange-dotnet.md) article.
 
 ## Step 1: Add authentication support
 
@@ -68,11 +68,11 @@ Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
 
 1. Right-click the *App_Start* folder, select **Add**, and then select **Class**.
 
-   ![Add ClientAuthMiddleware.cs class in the App_Start folder](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth1.png)
+   ![Add ClientAuthMiddleware.cs class in the App_Start folder](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-secure-basic-OWIN-startup-auth1.png)
 
 2. In the **Name** box, type **ClientAuthMiddleware.cs**.
 
-   ![Creating a new C# class in the Add New Item dialog in Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
+   ![Creating a new C# class in the Add New Item dialog in Visual Studio](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
 3. Open the *App_Start\ClientAuthMiddleware.cs* file, and replace the file content with following code:
 
@@ -191,7 +191,7 @@ Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
 Add an OWIN startup class named `Startup.cs` to the API. To do so:
 1. Right-click the project, select **Add** > **New Item**, and then search for **OWIN**.
 
-   ![Creating OWIN startup class in Add New Item dialog in Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
+   ![Creating OWIN startup class in Add New Item dialog in Visual Studio](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-secure-basic-OWIN-startup.png)
 
 2. Open the *Startup.cs* file, and replace the file content with following code:
 
@@ -216,7 +216,7 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
 
 Open Controllers\IdentityController.cs, and add the `[Authorize]` tag to the controller class. This tag restricts access to the controller to users who meet the authorization requirement.
 
-![Add the Authorize tag to the controller](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
+![Add the Authorize tag to the controller](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-secure-basic-authorize.png)
 
 ## Step 2: Publish to Azure
 
@@ -294,7 +294,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
     After you add the snippet, your technical profile should look like the following XML code:
 
-    ![Add basic authentication XML elements to TechnicalProfile](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
+    ![Add basic authentication XML elements to TechnicalProfile](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-secure-basic-add-1.png)
 
 ## Step 5: Upload the policy to your tenant
 
@@ -324,7 +324,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 3. Test the process by typing **Test** in the **Given Name** box.
     Azure AD B2C displays an error message at the top of the window.
 
-    ![Testing the Given Name input validation in your identity API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Testing the Given Name input validation in your identity API](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-test.png)
 
 4. In the **Given Name** box, type a name (other than "Test").
     Azure AD B2C signs up the user and then sends a loyalty number to your application. Note the number in this example:
@@ -357,4 +357,4 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 ## Next steps
 
-* [Use client certificates to secure your RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Use client certificates to secure your RESTful API](secure-rest-api-dotnet-certificate-auth.md)

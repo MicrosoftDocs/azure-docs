@@ -110,7 +110,7 @@ A technical profile is the full configuration of the exchange desired with the R
 
 The `InputClaims` element defines the claims that will be sent from the IEF to the REST service. In this example, the contents of the claim `givenName` will be sent to the REST service as `playerTag`. In this example, the IEF does not expect claims back. Instead, it waits for a response from the REST service and acts based on the status codes that it receives.
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) and [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
 
 ## Step 3: Include the RESTful service claims exchange in self-asserted technical profile where you want to validate the user input
 
@@ -138,5 +138,5 @@ To add the claims exchange to the self-asserted technical profile:
 
 To learn how to secure your APIs, see the following articles:
 
-* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
+* [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)

@@ -23,7 +23,7 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 >
 >
 
-If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
+If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](protocols-overview.md).
 
 ## Get an Azure AD B2C directory
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue.

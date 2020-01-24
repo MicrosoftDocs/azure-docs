@@ -11,11 +11,11 @@
   expanded: true
   items:
   - name: Set up sign-in - ASP.NET
-    href: active-directory-b2c-quickstarts-web-app.md
+    href: quickstart-web-app-dotnet.md
   - name: Set up sign-in - Desktop
-    href: active-directory-b2c-quickstarts-desktop-app.md
+    href: quickstart-native-app-desktop.md
   - name: Set up sign-in - Single page
-    href: active-directory-b2c-quickstarts-spa.md
+    href: quickstart-single-page-app.md
 - name: Tutorials
   items:
   - name: 1 - Create B2C tenant
@@ -53,7 +53,7 @@
   - name: Authentication protocols
     items:
       - name: OAuth2 protocol
-        href: active-directory-b2c-reference-protocols.md
+        href: protocols-overview.md
       - name: OpenID Connect protocol
         href: openid-connect.md
       - name: Authorization Code grant flow
@@ -86,9 +86,9 @@
     - name: Add a native client application
       href: add-native-application.md
     - name: iOS ObjC using App Auth
-      href: active-directory-b2c-devquickstarts-ios.md
+      href: signin-appauth-ios.md
     - name: Android using App Auth
-      href: active-directory-b2c-devquickstarts-android.md
+      href: signin-appauth-android.md
   - name: User flow
     items:
     - name: Create a flow
@@ -233,11 +233,11 @@
         href: custom-policy-rest-api-claims-exchange.md
         displayName: rest claims exchange
       - name: Add your own RESTful API
-        href: active-directory-b2c-custom-rest-api-netfw.md
+        href: rest-api-claims-exchange-dotnet.md
       - name: Secure RESTful APIs with basic auth
-        href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
+        href: secure-rest-api-dotnet-basic-auth.md
       - name: Secure RESTful APIs with certificate auth
-        href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
+        href: secure-rest-api-dotnet-certificate-auth.md
     - name: Define custom attributes
       href: custom-policy-custom-attributes.md
     - name: Troubleshooting
@@ -411,6 +411,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
-    href: active-directory-b2c-support.md
+    href: support-options.md
+    displayName: technical
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c

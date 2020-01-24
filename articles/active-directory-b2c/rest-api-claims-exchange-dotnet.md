@@ -63,11 +63,11 @@ Complete the steps in the [Getting started with custom policies](custom-policy-g
 1. In the **New Project** window, select **Visual C#** > **Web** > **ASP.NET Web Application (.NET Framework)**.
 1. In the **Name** box, type a name for the application (for example, *Contoso.AADB2C.API*), and then select **OK**.
 
-    ![Creating a new Visual Studio project in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Creating a new Visual Studio project in Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-create-project.png)
 
 1. In the **New ASP.NET Web Application** window, select a **Web API** or **Azure API app** template.
 
-    ![Selecting a web API template in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Selecting a web API template in Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 1. Make sure that authentication is set to **No Authentication**.
 1. Select **OK** to create the project.
@@ -83,7 +83,7 @@ Create a model that represents input claims by doing the following:
 1. If Solution Explorer is not already open, select **View** > **Solution Explorer**.
 1. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**.
 
-    ![Add Class menu item selected in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
+    ![Add Class menu item selected in Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-add-model.png)
 
 1. Name the class `InputClaimsModel`, and then add the following properties to the `InputClaimsModel` class:
 
@@ -138,15 +138,15 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 1. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**.
 
-    ![Adding a new controller in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Adding a new controller in Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 1. In the **Add Scaffold** window, select **Web API Controller - Empty**, and then select **Add**.
 
-    ![Selecting Web API 2 Controller - Empty in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Selecting Web API 2 Controller - Empty in Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 1. In the **Add Controller** window, name the controller **IdentityController**, and then select **Add**.
 
-    ![Entering the controller name in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Entering the controller name in Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     The scaffolding creates a file named *IdentityController.cs* in the *Controllers* folder.
 
@@ -207,11 +207,11 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 1. In Solution Explorer, right-click the **Contoso.AADB2C.API** project, and then select **Publish**.
 
-    ![Publish to Microsoft Azure App Service with Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Publish to Microsoft Azure App Service with Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 1. In the **Publish** window, select **Microsoft Azure App Service**, and then select **Publish**.
 
-    ![Create new Microsoft Azure App Service with Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Create new Microsoft Azure App Service with Visual Studio](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     The **Create App Service** window opens. In it, you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
@@ -220,7 +220,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 1. In the **Web App Name** box, type a unique app name (valid characters are a-z, 0-9, and hyphens (-). The URL of the web app is http://<app_name>.azurewebsites.NET, where *app_name* is the name of your web app. You can accept the automatically generated name, which is unique.
 
-    ![Configuring the App Service properties](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![Configuring the App Service properties](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
 1. To start creating Azure resources, select **Create**.
     After the ASP.NET web app has been created, the wizard publishes it to Azure and then starts the app in the default browser.
@@ -302,7 +302,7 @@ Locate the `<ClaimsProviders>` node, and then add the following XML snippet unde
 </ClaimsProvider>
 ```
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) and [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
 
 ## Step 6: Add the `loyaltyNumber` claim to your relying party policy file so the claim is sent to your application
 
@@ -358,12 +358,12 @@ After you add the new claim, the relying party code looks like this:
 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
 
-    ![The B2C_1A_signup_signin custom policy page in the Azure portal](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![The B2C_1A_signup_signin custom policy page in the Azure portal](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-run.png)
 
 3. Test the process by typing **Test** in the **Given Name** box.
     Azure AD B2C displays an error message at the top of the window.
 
-    ![Testing the Given Name input validation on sign-up sign-in page](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![Testing the Given Name input validation on sign-up sign-in page](./media/rest-api-claims-exchange-dotnet/aadb2c-ief-rest-api-netfw-test.png)
 
 4. In the **Given Name** box, type a name (other than "Test").
     Azure AD B2C signs up the user and then sends a loyaltyNumber to your application. Note the number in this JWT.
@@ -399,7 +399,7 @@ After you add the new claim, the relying party code looks like this:
 
 Your next task is to secure your RESTful API using basic or client certificate authentication. To learn how to secure your APIs, see the following articles:
 
-* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
+* [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)
 
 For information about all the elements available in a RESTful technical profile, see [Reference: RESTful technical profile](restful-technical-profile.md).

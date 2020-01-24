@@ -18,12 +18,12 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In a related article, you [create a RESTful service](active-directory-b2c-custom-rest-api-netfw.md) that interacts with Azure Active Directory B2C (Azure AD B2C).
+In a related article, you [create a RESTful service](rest-api-claims-exchange-dotnet.md) that interacts with Azure Active Directory B2C (Azure AD B2C).
 
 In this article, you learn how to restrict access to your Azure web app (RESTful API) by using a client certificate. This mechanism is called TLS mutual authentication, or *client certificate authentication*. Only services that have proper certificates, such as Azure AD B2C, can access your service.
 
 >[!NOTE]
->You can also secure your RESTful service by using [HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md). However, HTTP basic authentication is considered less secure over a client certificate. Our recommendation is to secure the RESTful service by using client certificate authentication as described in this article.
+>You can also secure your RESTful service by using [HTTP basic authentication](secure-rest-api-dotnet-basic-auth.md). However, HTTP basic authentication is considered less secure over a client certificate. Our recommendation is to secure the RESTful service by using client certificate authentication as described in this article.
 
 This article details how to:
 * Set up your web app to use client certificate authentication.
@@ -31,7 +31,7 @@ This article details how to:
 * Configure your custom policy to use the client certificate.
 
 ## Prerequisites
-* Complete the steps in the [Integrate REST API claims exchanges](active-directory-b2c-custom-rest-api-netfw.md) article.
+* Complete the steps in the [Integrate REST API claims exchanges](rest-api-claims-exchange-dotnet.md) article.
 * Get a valid certificate (a .pfx file with a private key).
 
 ## Step 1: Configure a web app for client certificate authentication
@@ -61,7 +61,7 @@ After you set `clientCertEnabled` to *true*, the communication with your RESTful
 
 7. In the **Password** box, type the certificate's password.
 
-    ![Upload policy key in the Create a key page in Azure portal](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Upload policy key in the Create a key page in Azure portal](./media/secure-rest-api-dotnet-certificate-auth/rest-api-netfw-secure-client-cert-upload.png)
 
 7. Select **Create**.
 
@@ -92,7 +92,7 @@ To support client certificate authentication in your custom policy, change the t
 
     After you add the snippet, your technical profile should look like the following XML code:
 
-    ![Set ClientCertificate authentication XML elements](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-tech-profile.png)
+    ![Set ClientCertificate authentication XML elements](./media/secure-rest-api-dotnet-certificate-auth/rest-api-netfw-secure-client-cert-tech-profile.png)
 
 ## Step 4: Upload the policy to your tenant
 
@@ -121,7 +121,7 @@ To support client certificate authentication in your custom policy, change the t
 3. Test the process by typing **Test** in the **Given Name** box.
     Azure AD B2C displays an error message at the top of the window.
 
-    ![Given Name text box highlighted and input validation error shown](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Given Name text box highlighted and input validation error shown](./media/secure-rest-api-dotnet-certificate-auth/rest-api-netfw-test.png)
 
 4. In the **Given Name** box, type a name (other than "Test").
     Azure AD B2C signs up the user and then sends a loyalty number to your application. Note the number in this JWT example:
@@ -283,7 +283,7 @@ if (IsValidClientCertificate() == false)
 
 After you add the snippet, your `Identity` controller should look like the following code:
 
-![Add certificate validation code](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-code.png)
+![Add certificate validation code](./media/secure-rest-api-dotnet-certificate-auth/rest-api-netfw-secure-client-code.png)
 
 ## Step 7: Publish your project to Azure and test it
 1. In **Solution Explorer**, right-click the **Contoso.AADB2C.API** project, and then select **Publish**.

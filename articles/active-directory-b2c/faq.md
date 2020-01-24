@@ -179,4 +179,4 @@ No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise 
 
 ### How do I report issues with Azure AD B2C?
 
-See [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
+See [File support requests for Azure Active Directory B2C](support-options.md).
