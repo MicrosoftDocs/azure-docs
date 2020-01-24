@@ -258,7 +258,6 @@ Verify the VM Agent version on Windows VMs:
 
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage or delays in a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
 
-* **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either allowed list of IPs or through a proxy server.
 * **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
    ```text
@@ -272,29 +271,9 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 
 ## Networking
 
-Like all extensions, Backup extensions need access to the public internet to work. Not having access to the public internet can manifest itself in various ways:
+DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
+Get more information on how to set up a static IP through PowerShell:
 
-* Extension installation can fail.
-* Backup operations like disk snapshot can fail.
-* Displaying the status of the backup operation can fail.
+* [How to add a static internal IP to an existing VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-The need to resolve public internet addresses is discussed in [this Azure Support blog](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Check the DNS configurations for the VNET and make sure the Azure URIs can be resolved.
-
-After name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
-
-* Allow list of Azure datacenter IP ranges:
-   1. Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be in allow list.
-   1. Unblock the IPs by using the [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window. Run as an Administrator.
-   1. Add rules to the NSG, if you have one in place, to allow access to the IPs.
-* Create a path for HTTP traffic to flow:
-   1. If you have some network restriction in place, deploy an HTTP proxy server to route the traffic. An example is a network security group. See the steps to deploy an HTTP proxy server in [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Add rules to the NSG, if you have one in place, to allow access to the internet from the HTTP proxy.
-
-> [!NOTE]
-> DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
-> Get more information on how to set up a static IP through PowerShell:
->
-> * [How to add a static internal IP to an existing VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->
