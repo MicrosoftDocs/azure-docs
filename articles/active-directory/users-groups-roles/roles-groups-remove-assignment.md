@@ -52,8 +52,8 @@ This article describes how an IT admin can remove Azure AD roles assigned to gro
 
 ## Using Microsoft Graph API
 
-    //Create a group that can be assigned Azure AD role. 
-    
+### Create a group that can be assigned an Azure AD role
+
     POST https://graph.microsoft.com/beta/groups
     
     {
