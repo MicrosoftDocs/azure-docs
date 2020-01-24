@@ -18,7 +18,7 @@ ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ---
-# How to: Configure Azure AD SAML token encryption (Preview)
+# How to: Configure Azure AD SAML token encryption
 
 > [!NOTE]
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -117,8 +117,6 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
     ```
 
 ### To configure token encryption using PowerShell
-
-This functionality is coming soon. 
 
 <!--
 1. Use the latest Azure AD PowerShell module to connect to your tenant.
