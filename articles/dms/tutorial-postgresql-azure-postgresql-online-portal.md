@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 01/24/2020
 ---
 
-# Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL - Hyperscale (Citus) online using DMS via the Azure portal
+# Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL - Hyperscale (Citus) online using DMS
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/) with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL - Hyperscale (Citus) by using the online migration activity in Azure Database Migration Service.
 
