@@ -110,7 +110,7 @@ If you're using version `3.0-preview`, you can use an optional `TextAnalyticsCli
 
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-public-preview)
+* [Named Entity Recognition](#named-entity-recognition-public-preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -299,7 +299,7 @@ Personally Identifiable Information Entities:
 ```
 
 
-## Entity Linking
+## Entity linking
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<RecognizeLinkedEntitiesResult>` object will contain the list of detected entities in `Value.LinkedEntities` if successful, and a `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
