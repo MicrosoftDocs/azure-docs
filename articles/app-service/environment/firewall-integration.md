@@ -37,9 +37,11 @@ The traffic to and from an ASE must abide by the following conventions
 
 ## Locking down inbound management traffic
 
-If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. This is all that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
+If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG, set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. The rule to allow access from the AppServiceManagement tag is the only thing that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
 
 ASEs that are made through the portal with a new subnet are made with an NSG that contains the allow rule for the AppServiceManagement tag.  
+
+Your ASE must also allow inbound requests from the Load Balancer tag on port 16001. The requests from the Load Balancer on port 16001 are keep alive checks between the Load Balancer and the ASE front ends. If port 16001 is blocked, your ASE will go unhealthy.
 
 ## Configuring Azure Firewall with your ASE 
 
