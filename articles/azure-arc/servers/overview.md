@@ -81,7 +81,7 @@ For a list of IP addresses for each service tag/region, see the JSON file - [Azu
 
 The URLs in the previous table are required in addition to the Service Tag IP address range information because the majority of services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
-### Register the required resource providers
+### Register Azure resource providers
 
 Azure Arc for servers depends on the following Azure resource providers in your subscription in order to use this service:
 
