@@ -3,14 +3,14 @@ title: "Tutorial: Build an Entity Linking app - C#"
 titlesuffix: Azure Cognitive Services
 description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API.
 services: cognitive-services
-author: DavidLiCIG
+author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
-ms.author: davl
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 
