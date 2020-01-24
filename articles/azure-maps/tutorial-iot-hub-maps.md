@@ -109,7 +109,7 @@ In order to implement business logic based on Azure Maps spatial analytics, we n
 
 In order to log event data, we will create a general-purpose **v2storage** account in the "ContosoRental" resource group to store data as blobs. To create a storage account, follow instruction in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Next we will need to create a container to store blobs. Follow the steps below to do so:
 
-1. In your storage account, navigate to Blobs.
+1. In your storage account, navigate to Containers.
 
     ![blobs](./media/tutorial-iot-hub-maps/blobs.png)
 
@@ -117,7 +117,7 @@ In order to log event data, we will create a general-purpose **v2storage** accou
 
     ![blob-container](./media/tutorial-iot-hub-maps/blob-container.png)
 
-3. Navigate to the **Access keys** blade in your storage account and copy the account name and access key, we will use them later.
+3. Navigate to the **Access keys** blade in your storage account and copy the "storage account name" and "access key", we will use them later.
 
     ![access-keys](./media/tutorial-iot-hub-maps/access-keys.png)
 
