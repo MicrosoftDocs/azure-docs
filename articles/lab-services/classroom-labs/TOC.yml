@@ -87,7 +87,13 @@
     - name: Enable automatic shutdown on disconnect
       href: how-to-enable-shutdown-disconnect.md       
     - name: Enable nested virtualization on a template VM
-      href: how-to-enable-nested-virtualization-template-vm.md
+      items:
+      - name: Enable nested virtualization on a template VM overview
+        href: how-to-enable-nested-virtualization-template-vm.md
+      - name: Enable nested virtualization on a template VM using the UI
+        href: how-to-enable-nested-virtualization-template-vm-ui.md 
+      - name: Enable nested virtualization on a template VM using a script
+        href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
   - name: Connect to VMs in classroom labs (student)
