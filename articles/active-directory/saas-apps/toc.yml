@@ -309,6 +309,8 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Coda
+        href: coda-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -506,6 +508,8 @@
         href: filecloud-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
+      - name: Firmex VDR
+        href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
       - name: Firstbird
