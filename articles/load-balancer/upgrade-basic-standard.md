@@ -10,7 +10,7 @@ ms.author: irenehua
 ---
 
 # Upgrade Azure Public Load Balancer from Basic SKU to Standard SKU
-[Azure Standard Load Balancer](load-balancer-overview.md) is now available, offering additional features such as bigger scale and highly available services. However, existing Basic Load Balancers aren't automatically upgraded to Standard Load Balancers. If you want to migrate from Basic Public Load Balancer to Standard Public Load Balancer, follow the steps in this article.
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 There are two stages in a upgrade:
 
@@ -28,8 +28,8 @@ An Azure PowerShell script is available that does the following:
 
 ### Caveats\Limitations
 
-* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, please create a Standard Internal Load Balancer if outbound connectivity is not desired, and please create a Standard Internal Load Balancer and Standard Public Load Balancer if outbound connectivity is required.
-* The new Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
+* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, create a Standard Internal Load Balancer if outbound connectivity is not desired, and create a Standard Internal Load Balancer and Standard Public Load Balancer if outbound connectivity is required.
+* The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
 
@@ -93,7 +93,7 @@ To run the script:
 
 First, double check that the script successfully created a new Standard Public Load Balancer with the exact configuration migrated over from your Basic Public Load Balancer. You can verify this from the Azure portal.
 
-Also, send a small amount of traffic through the Standard Load Balancer as a manual test.
+Be sure to send a small amount of traffic through the Standard Load Balancer as a manual test.
   
 Here are a few scenarios of how you add VMs to backend pools of the newly created Standard Public Load Balancer may be configured, and our recommendations for each one:
 
