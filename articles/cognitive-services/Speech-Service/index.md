@@ -538,7 +538,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-conversation-transcription.jpg" alt="" />
+                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
