@@ -1,11 +1,11 @@
 ---
 title: Quickstart for adding feature flags to Spring Boot with Azure App Configuration
 description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration
-author: jpconnock
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/21/2020
-ms.author: jeconnoc
+ms.author: lcozzens
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -58,12 +58,12 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -101,7 +101,29 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     public class DemoApplication {
 
         public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
+        }
+    }
+    ```
+1. Create a new Java file named *MessageProperties.java* in the package directory of your app.
+
+    ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    @ConfigurationProperties(prefix = "config")
+    public class MessageProperties {
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
         }
     }
     ```
