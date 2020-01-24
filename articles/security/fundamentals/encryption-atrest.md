@@ -258,22 +258,23 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed Key**      |
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search                     | Yes                | Preview            | -                  |
-| Azure Machine Learning   | Yes                | -                  | -                  |
+| Azure Cognitive Search           | Yes                | Preview            | -                  |
+| Azure Machine Learning           | Yes                | Yes                | -                  |
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
 | Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | -                  | -                  |
-| Event Hubs                       | Yes                | Preview, all RSA Lengths. | -                  |
+| Event Hubs                       | Yes                | Yes, all RSA Lengths. | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Apache Kafka on Azure HDInsight  | Yes                | All RSA Lengths.   | -                  |
-| Azure Data Explorer              | Yes                | -                  | -                  |
+| Azure Data Explorer              | Yes                | Yes                | -                  |
 | Azure Data Factory               | Yes                | Yes                | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Yes                | -                  | -                  |
-| Container Registry               | Yes                | -                  | -                  |
+| Azure Kubernetes Service         | Yes                | Yes                | -                  |
+| Container Instances              | Yes                | Yes                | -                  |
+| Container Registry               | Yes                | Yes                | -                  |
 | **Compute**                      |                    |                    |                    |
 | Virtual Machines                 | Yes                | Yes, RSA 2048-bit  | -                  |
 | Virtual Machine Scale Set        | Yes                | Yes, RSA 2048-bit  | -                  |
@@ -281,13 +282,13 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL Database               | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
-| Azure SQL Database for MySQL     | Yes                | -                  | -                  |
-| Azure SQL Database for PostgreSQL | Yes                | -                  | -                  |
+| Azure SQL Database for MariaDB   | Yes                | Yes                | -                  |
+| Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
+| Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
 | Azure SQL Data Warehouse         | Yes                | Yes, RSA 2048-bit  | Yes                |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Table Storage                    | Yes                | -                  | Yes                |
-| Azure Cosmos DB                  | Yes                | -                  | -                  |
+| Table Storage                    | Yes                | Yes                | Yes                |
+| Azure Cosmos DB                  | Yes                | Yes                | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Yes                | -                  | Yes                |
 | Azure Repos                      | Yes                | -                  | Yes                |
@@ -295,27 +296,28 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Active Directory           | Yes                | -                  | -                  |
 | Azure Active Directory Domain Services | Yes          | Yes, RSA 2048-bit  | -                  |
 | **Integration**                  |                    |                    |                    |
-| Service Bus                      | Yes                | -                  | Yes                |
-| Event Grid                       | Yes                | -                  | -                  |
+| Service Bus                      | Yes                | Yes                | Yes                |
+| Event Grid                       | Yes                | Yes                | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
-| IoT Hub                          | Yes                | -                  | Yes                |
+| IoT Hub                          | Yes                | Yes                | Yes                |
 | **Management and Governance**    |                    |                    |                    |
 | Azure Site Recovery              | Yes                | -                  | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | -                  | Yes                |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Disk Storage                     | Yes                | -                  | -                  |
-| Managed Disk Storage             | Yes                | -                  | -                  |
+| Disk Storage                     | Yes                | Yes                | -                  |
+| Managed Disk Storage             | Yes                | Yes                | -                  |
 | File Storage                     | Yes                | Yes, RSA 2048-bit  | -                  |
-| Queue Storage                    | Yes                | -                  | Yes                |
+| Queue Storage                    | Yes                | Yes                | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
 | Azure NetApp Files               | Yes                | -                  | -                  |
 | Archive Storage                  | Yes                | Yes, RSA 2048-bit  | -                  |
 | StorSimple                       | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Azure Backup                     | Yes                | -                  | Yes                |
+| Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
+| Data Box Edge                    | Yes                | Yes                | -                  |
 
 ## Conclusion
 
