@@ -53,7 +53,7 @@ Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view
 
 ## Tools and applications
 
-|Tool / application | Support level |
+|||
 |---|---|
 |[AzCopy](../common/storage-use-azcopy-v10.md) |Version-specific support.|
 |[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |Version-specific support. |

@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-|Blob storage feature | Support level |
+|||
 |---|---|
 |[Archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers.)|Preview|
 |[Diagnostic logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)|Preview |

@@ -12,5 +12,6 @@
 
 |Azure service | Support level |
 |---|---|
-| [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/) | Not yet supported|
-| [Azure Cognitive Search](https://azure.microsoft.com/services/search/) |Supported (Preview)|
+|[Azure Cognitive Search](https://azure.microsoft.com/services/search/) |Preview|
+|[Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/) |Not yet supported|
+

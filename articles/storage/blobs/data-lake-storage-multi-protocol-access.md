@@ -33,25 +33,23 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ## Blob storage feature support
 
-Multi-protocol access on Data Lake Storage enables you to use more Blob storage features with your Data Lake Storage. Even though multi-protocol access on Data Lake Storage is generally available, support for some features remain in preview. This table lists those features as well as features not yet supported.
+Multi-protocol access on Data Lake Storage enables you to use more Blob storage features with your Data Lake Storage. 
 
-The items that appear in this table will change over time as support for Blob storage features continues to expand. 
+Even though multi-protocol access on Data Lake Storage is generally available, support for some features remain in preview or are not yet supported. This table lists them. The items that appear in this table will change over time as support for Blob storage features continues to expand. 
 
 [!INCLUDE [storage-data-lake-blob-feature-support](../../../includes/storage-data-lake-blob-feature-support.md)]
 
-To review specific issues, see [Blob Storage features](data-lake-storage-known-issues.md#blob-storage-features)
+To review specific issues, see [Blob Storage feature support](data-lake-storage-known-issues.md#blob-storage-features).
 
 ## Azure ecosystem support
 
 Multi-protocol access on Data Lake Storage also enables you to connect more Azure services with your Data Lake Storage. For a complete list of supported services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md). 
 
-Even though multi-protocol access on Data Lake Storage is generally available, support for some services remain in preview. This table lists those features as well as features not yet supported. 
-
-Just like the list of supported Blob storage features, the items that appear in this table will change over time as support for Azure services continues to expand. 
+Even though multi-protocol access on Data Lake Storage is generally available, support for some services remain in preview or are not yet supported. This table lists those features as well as features not yet supported. This table lists them. Just like the list of supported Blob storage features, the items that appear in this table will change over time as support for Azure services continues to expand. 
 
 [!INCLUDE [storage-data-lake-service-ecosystem-support](../../../includes/storage-data-lake-service-ecosystem-support.md)]
 
-To review specific issues, see [Blob Storage features](data-lake-storage-known-issues.md#azure-ecosystem)
+To review specific issues, see [Azure Ecosystem support](data-lake-storage-known-issues.md#azure-ecosystem).
 
 ## Next steps
 
