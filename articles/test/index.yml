@@ -36,7 +36,6 @@ highlightedContent:
 
 productDirectory:
   title: Browse Azure products
-  summary: 
   items:
     # Card
     - title: Anomaly Detector
