@@ -60,13 +60,13 @@ If you're unable to find a suitable region or SKU, create a **Subscription manag
 
 1. Select a **Subscription** and enter a brief description in **Summary**.
 
-![Basics tab of New support request](./media/SKU-series-unavailable/support-request-basics.png)
+   ![Basics tab of New support request](./media/SKU-series-unavailable/support-request-basics.png)
 
 1. For **Problem type**, choose **Select problem type**.
 
 1. For **Select problem type**, choose an option, for instance, **Unable to access my subscription or resource** > **My issue is not listed above**. Select **Save**.
 
-![Specify a problem for the request](./media/SKU-series-unavailable/support-request-select-problem-type.png)
+   ![Specify a problem for the request](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
 1. Select **Next: Solutions** to explore possible solutions. If necessary, select **Next: Details** to continue.
 
