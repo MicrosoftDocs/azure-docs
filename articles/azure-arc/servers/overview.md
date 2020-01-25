@@ -108,19 +108,22 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-## Installing the agent
+## Install and configure agent
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
 
 | Method | Description |
 |--------|-------------|
-| Interactively | Manually install the agent on a single or small number of machines following the [Portal Quickstart](quickstart-onboard-portal.md).<br> From the Azure portal you can generate a script and execute it on the machine to automate the install and configuration steps.|
-| At scale | Install and configure the agent for multiple machines following the [PowerShell Quickstart](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
+| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](quickstart-onboard-portal.md).<br> From the Azure portal you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
+| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
 
 You can download the Azure Connected Machine Agent package for Windows and Linux from the locations listed below.
 
 - [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
-- Linux agent package by running `packagewget https://aka.ms/azcmagent -O ~/install_linux_azcmagent.sh`
+- Linux agent package is distributed from Microsoft's [package repository](https://packages.microsoft.com/) using the preferred package format for the distribution (.RPM or .DEB).
+
+>[!NOTE]
+>During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
 ## Next steps
 
