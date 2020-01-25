@@ -27,7 +27,7 @@ It is important to note that not all Azure services automatically replicate data
 
 ## Can I select my regional pairs?
 
-No. For Azure services that rely upon regional pairs, such as Azure's [redundant storage](./storage/common/storage-redundancy) services, the pairs are fixed.  However, you can create your own disaster recovery solution by building  services in any number of regions and leveraging Azure services to pair them.  
+No. For Azure services that rely upon regional pairs, such as Azure's [redundant storage](./storage/common/storage-redundancy.md) services, the pairs are fixed.  However, you can create your own disaster recovery solution by building  services in any number of regions and leveraging Azure services to pair them.  
 
 For example, customers may leverage Azure services such as [AzCopy](./storage/common/storage-use-azcopy-v10.md) to schedule data backups to a Storage account in a different region.  Using [Azure DNS and Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md), customers can design a resilient architecture for their applications that will survive the loss of the primary region.
 
@@ -37,7 +37,7 @@ No. While your redundant storage solution may rely upon a regional pair, you may
 
 ## Must I use Azure regional pairs?
 
-No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s [isolation](./security/fundamentals/isolation-choices) and [availability](./availability-zones/az-overview) policies. For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. 
+No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s [isolation](./security/fundamentals/isolation-choices.md) and [availability](./availability-zones/az-overview.md) policies. For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. 
 
 ## Azure Regional Pairs
 
