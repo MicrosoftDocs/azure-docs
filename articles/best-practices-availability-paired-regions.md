@@ -26,23 +26,27 @@ Each Azure region is paired with another region within the same geography, toget
 
 Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  For example, [Azure Geo-redundant Storage](./storage/common/storage-redundancy-grs.md) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region is not recoverable. 
 
-It is important to note that most Azure services do not automatically replicate data, nor does an Azure service automatically fall-back from a failed region to its pair.  Recovery and replication must be configured by the customer.
+It is important to note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
 
 ## Can I select my regional pairs?
 
-No. Azure's regional pairings are presented in the table below and are not configurable.  
+No. For Azure services that rely upon regional pairs, such as Azure's [redundant storage](./storage/common/storage-redundancy) services, the pairs are fixed.  However, you can create your own disaster recovery solution by building  services in any number of regions and leveraging Azure services to pair them.  
 
-However, customers may leverage Azure services such as [AzCopy](./storage/common/storage-use-azcopy-v10.md) to schedule data backups to a Storage account in a different region.  Using [Azure DNS and Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md) , customers can design a resilient architecture for their applications that will survive the loss of the primary region.
+For example, customers may leverage Azure services such as [AzCopy](./storage/common/storage-use-azcopy-v10.md) to schedule data backups to a Storage account in a different region.  Using [Azure DNS and Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md), customers can design a resilient architecture for their applications that will survive the loss of the primary region.
+
+## Am I limited to using services within my regional pairs?
+
+No. While your redundant storage solution may rely upon a regional pair, you may host your other services in any region that satisfies your business needs.  An Azure GRS storage solution may pair data in Canada Central with a peer in Canada East while using Compute resources located in East US.  
 
 ## Must I use Azure regional pairs?
 
-No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s isolation and availability policies. For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. 
+No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s [isolation](./security/fundamentals/isolation-choices) and [availability](./availability-zones/az-overview) policies. For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. 
 
 ## Azure Regional Pairs
 
 | Geography | Paired regions |  |
 |:--- |:--- |:--- |
-| Asia |East Asia |Southeast Asia |
+| Asia |East Asia (Hong Kong) | Southeast Asia (Singapore) |
 | Australia |Australia East |Australia Southeast |
 | Australia |Australia Central |Australia Central 2 |
 | Brazil |Brazil South |South Central US |
@@ -71,9 +75,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 > [!Important]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
 > - Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US. South Central US’s secondary region is not Brazil South.
-> - US Gov Iowa's secondary region is US Gov Virginia.
-> - US Gov Virginia's secondary region is US Gov Texas.
-> - US Gov Texas' secondary region is US Gov Arizona.
+
 
 ## An example of paired regions
 The image below illustrates a hypothetical application which uses the regional pair for disaster recovery. The green numbers highlight the cross-region activities of three Azure services (Azure compute, storage, and database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
