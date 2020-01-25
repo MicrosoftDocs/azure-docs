@@ -511,6 +511,8 @@
         href: ./hdinsight-troubleshoot-hdfs.md
       - name: Apache Hadoop YARN troubleshooting
         href: ./hdinsight-troubleshoot-yarn.md
+      - name: Invalid BCFile error from Yarn log
+        href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
       - name: Troubleshoot Data Lake Store files
         href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
       - name: Port conflict when starting services
