@@ -11,14 +11,14 @@ ms.date: 07/13/2017
 ---
 
 # Send data from Azure Monitor Diagnostics extension to Event Hubs
-The Diagnostics extension in Azure Monitor allows you to collect logs and metrics from Azure compute resources into Azure Storage and send them to other destinations. This article describes how to send data from the Windows Azure Diagnostic extension (WAD) to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) so you can send the data to locations outside of Azure.
+The Diagnostics extension in Azure Monitor allows you to collect logs and metrics from Azure compute resources into Azure Storage and also send them to other destinations. This article describes how to send data from the Windows Azure Diagnostic extension (WAD) to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) so you can send the data to locations outside of Azure.
 
 
 Supported data types include:
 
 * Event Tracing for Windows (ETW) events
 * Performance counters
-* Windows event logs, including application logs in the Windows event log
+* Windows event logs
 * Azure Diagnostics infrastructure logs
 
 This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:
@@ -29,27 +29,16 @@ This article shows you how to configure Azure Diagnostics with Event Hubs from e
 * How to troubleshoot the connection  
 
 ## Prerequisites
-Event Hubs receiving data from Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
+Diagnostics extension is supported on Azure compute resources including VMs, Virtual Machine Scale Sets, Cloud Services, and Service Fabric.
 
-* Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
-* [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
-  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
-  * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)
+* Windows diagnostics extension 1.6 or higher.
 * Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 
 
-## Configure in Azure portal
+## Connect Diagnostics extension to Event Hubs sink
+Azure Diagnostics always sends logs and metrics to an Azure Storage account. You can configure one or more *data sinks* that send data to an additional location. Each sink is defined in the *SinksConfig* section of the configuration.
 
-1. Select **Diagnostic settings** in the **Monitoring** section of the virtual machine's menu in the Azure portal.
-2. If the diagnostic extension isn't already installed, select **Enable Monitoring**.
-3. Select **Sinks** to view the configuration for the data sinks.
-4. 
-
-
-## Connect Azure Diagnostics to Event Hubs sink
-By default, Azure Diagnostics always sends logs and metrics to an Azure Storage account. An application may also send data to Event Hubs by adding a new **Sinks** section under the **PublicConfig** / **WadCfg** element of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** file.
 
 ```xml
 <SinksConfig>
