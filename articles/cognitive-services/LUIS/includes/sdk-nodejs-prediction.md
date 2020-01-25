@@ -54,7 +54,7 @@ Once the client is created, use this client to access functionality including:
 
 ## Code examples
 
-These code snippets show you how to do the following with the Language Understanding (LUIS) prediction runtime client library for Python:
+These code snippets show you how to do the following with the Language Understanding (LUIS) prediction runtime client library:
 
 * [Prediction by slot](#get-prediction-from-runtime)
 
