@@ -19,9 +19,6 @@ An Azure geography defines an area of the world containing at least one Azure Re
 
 Each Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one paired region updates at a time. In the event of an outage affecting multiple regions, at least one region in each pair will be prioritized for recovery.
 
-> [!Note]
-> Brazil South is an exception in that it is paired with a region outside its geography.
-
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
 Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  For example, [Azure Geo-redundant Storage](./storage/common/storage-redundancy-grs.md) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region is not recoverable. 
