@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2020
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -407,6 +407,14 @@ For reporting on specific date ranges or accounts, the advanced report download 
 1. Select **Request Usage Data**.
 1. Select **Refresh** button until report status updates to **Download**.
 1. Download report.
+
+### Download usage reports and billing information for a prior enrollment
+
+You can download usage reports and billing information for a prior enrollment after an enrollment transfer has taken place. Historical reporting is available in both the Azure EA portal and cost management. 
+
+The Azure EA portal filters inactive enrollments out of view, therefore you’ll need to uncheck the 'Active' box to view inactive transferred enrollments.  
+
+![Unchecking the active box allows user to see inactive enrollments](./media/ea-portal-get-started/unchecked-active-box.png)
 
 ## EA term glossary
 
