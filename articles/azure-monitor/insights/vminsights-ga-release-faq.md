@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/23/2020
+ms.date: 01/24/2020
 
 ---
 
@@ -31,6 +31,13 @@ We have released a new solution, named VMInsights, that includes additional capa
 
 In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
 
+
+## How do I upgrade?
+Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. You can upgrade a single VM or select multiple to upgrade together. Use the following command to upgrade using PowerShell:
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <virtual-machine-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?
 
