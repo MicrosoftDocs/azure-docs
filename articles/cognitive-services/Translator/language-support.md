@@ -108,6 +108,9 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Welsh|	`cy`	|	Neural|
 |Yucatec Maya|	`yua`	|	Statistical|
 
+> [!NOTE]
+> Language code `pt` will default to `pt-br`, Portuguese (Brazil).
+
 ## Transliteration
 
 The Transliterate method supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
@@ -176,7 +179,7 @@ The dictionary supports the following languages to or from English using the Loo
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese (Brazil)     | `pt-br`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Serbian (Latin)      | `sr-Latn`          |
@@ -242,7 +245,6 @@ The following languages are available for customization to or from English using
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
 | Portuguese (Brazil) | `pt-br` |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
