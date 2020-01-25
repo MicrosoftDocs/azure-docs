@@ -54,7 +54,7 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ---
 
-### Azure AD (version 1.0) resources
+### Azure AD (v1.0) resources
 
 The scope used for client credentials should always be the resource ID followed by `/.default`.
 
