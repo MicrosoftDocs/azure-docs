@@ -304,7 +304,7 @@ You can use resource and property iteration together. Reference the property ite
 To create multiple instances of a variable, use the `copy` property in the variables section. You create an array of elements constructed from the value in the `input` property. You can use the `copy` property within a variable, or at the top level of the variables section. When using `copyIndex` inside a variable iteration, you must provide the name of the iteration.
 
 > [!NOTE]
-> Property iteration also supports an `offset` argument.  The offset must come after the name of the iteration, such as `copyIndex('dataDisks', 1)`.
+> Variable iteration also supports an `offset` argument.  The offset must come after the name of the iteration, such as `copyIndex('diskNames', 1)`.
 >
 
 For a simple example of creating an array of string values, see [copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
