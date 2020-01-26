@@ -1,5 +1,5 @@
 ---
-title: Configure SSL in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: SSL - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Instructions and information to configure Azure Database for PostgreSQL - Hyperscale (Citus) and associated applications to properly use SSL connections.
 author: jonels-msft
 ms.author: jonels

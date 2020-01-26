@@ -1,14 +1,8 @@
 ---
-title: Use Azure Container Instances as a Jenkins build agent
-description: Learn how to use Azure Container Instances as a Jenkins build agent.
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Jenkins build on container instance
+description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: danlep
 ---
 
 # Use Azure Container Instances as a Jenkins build agent
@@ -66,7 +60,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 4. After the session is connected, run the following command to retrieve the initial admin password:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 

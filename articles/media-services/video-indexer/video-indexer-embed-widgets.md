@@ -1,7 +1,7 @@
 ---
 title: Embed Video Indexer widgets in your applications
 titleSuffix: Azure Media Services
-description: Learn how to embed Video Indexer widgets in your application.
+description: This article demonstrates how to embed Azure Media Services Video Indexer widgets in your application.
 services: media-services
 author: Juliako
 manager: femila
@@ -155,7 +155,8 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 		    this.videobreakdown({
 			videoId: "c4c1ad4c9a",
 			syncTranscript: true,
-			syncLanguage: true
+			syncLanguage: true,
+			location: "trial" /* location option for paid accounts (default is trial) */
 		    });
 
 		    // Set the source dynamically.

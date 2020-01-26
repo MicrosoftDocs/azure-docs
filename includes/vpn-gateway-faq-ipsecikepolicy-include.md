@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 11/06/2019
+ ms.date: 12/05/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
-Custom IPsec/IKE policy is supported on Azure **VpnGw1, VpnGw2, VpnGw3, Standard**, and **HighPerformance** VPN gateways. The **Basic** SKU is **not** supported.
+Custom IPsec/IKE policy is supported on all Azure SKUs except the Basic SKU.
 
 ### How many policies can I specify on a connection?
 You can only specify ***one*** policy combination for a given connection.
@@ -21,22 +21,22 @@ No, you must specify all algorithms and parameters for both IKE (Main Mode) and 
 ### What are the algorithms and key strengths supported in the custom policy?
 The following table lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
 
-| **IPsec/IKEv1, IKEv2**  | **Options**                                                                   |
-| ---                     | ---                                                                           |
-| IKEv1, IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                             |
-| IKEv1, IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH Group                | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
-| IPsec Encryption        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
-| IPsec Integrity         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| PFS Group               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
-| QM SA Lifetime          | Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes) |
-| Traffic Selector        | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                         |                                                                               |
+| **IPsec/IKEv2**  | **Options**                                                                   |
+| ---              | ---                                                                           |
+| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
+| QM SA Lifetime   | Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)           |
+| Traffic Selector | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                  |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. See [Diffie-Hellman Groups](#DH) for the complete mappings.
 > 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
-> 3. IKEv1 and IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
+> 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 > 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
 > 5. UsePolicyBasedTrafficSelector is an option parameter on the connection. See the next FAQ item for "UsePolicyBasedTrafficSelectors"
 
@@ -104,7 +104,7 @@ IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Bas
 Yes. Transit between IKEv1 and IKEv2 connections is supported.
 
 ### Can I have IKEv1 site-to-site connections on Basic SKUs of RouteBased VPN type?
-No. All RouteBased VPN SKUs except Basic SKUs of Route-based VPN type support IKEv1 connections for site-to-site.
+No. The Basic SKU does not support this.
 
 ### Can I change the connection protocol type after the connection is created (IKEv1 to IKEv2 and vice versa)?
 No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.

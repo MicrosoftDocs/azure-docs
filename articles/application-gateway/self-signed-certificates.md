@@ -1,5 +1,6 @@
 ---
-title: Generate an Azure Application Gateway self-signed certificate with a custom root CA
+title: Generate self-signed certificate with a custom root CA
+titleSuffix: Azure Application Gateway
 description: Learn how to generate an Azure Application Gateway self-signed certificate with a custom root CA
 services: application-gateway
 author: vhorne
@@ -100,7 +101,7 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
 1. Use the following command to create the certificate:
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### Verify the newly created certificate
 

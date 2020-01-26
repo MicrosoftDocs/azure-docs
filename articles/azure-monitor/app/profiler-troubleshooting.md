@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Profiler | Microsoft Docs
+title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Profiler.
 ms.service:  azure-monitor
 ms.subservice: application-insights
@@ -43,6 +43,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 * If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Make sure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
+* Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.
 
 ### <a id="double-counting"></a>Double counting in parallel threads
 
@@ -159,6 +160,11 @@ To check the settings that were used to configure Azure Diagnostics:
     If Profiler is running while your application is receiving requests, the following message is displayed: *Activity detected from iKey*. 
 
     When the trace is being uploaded, the following message is displayed: *Start to upload trace*. 
+
+
+## Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Application Insights Profiler service. The IPs used by Application Insights Profiler are included in the Azure Monitor service tag.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

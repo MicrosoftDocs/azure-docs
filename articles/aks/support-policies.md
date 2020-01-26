@@ -93,7 +93,7 @@ Microsoft and customers share responsibility for Kubernetes worker nodes where:
   * Docker or Moby daemon
 
 > [!NOTE]
-> On a worker node, if a control plane component is not operational, the AKS team might need to reboot individual components or the entire worker node. These reboot operations are automated and provide auto-remediation for common issues. These reboots occur only on the _node_ level and not the cluster unless these is an emergency maintenance or outage.
+> On a worker node, if a control plane component is not operational, the AKS team might need to reboot individual components or the entire worker node. These reboot operations are automated and provide auto-remediation for common issues. These reboots occur only on the _node_ level and not the cluster unless there is an emergency maintenance or outage.
 
 ### Customer responsibilities for AKS worker nodes
 

@@ -1,14 +1,9 @@
 ---
-title: Guidance for developing Azure Functions | Microsoft Docs
+title: Guidance for developing Azure Functions 
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
-author: ggailey777
-manager: gwallace
-keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.author: glenga
 
 ---
 # Azure Functions developers guide
@@ -73,7 +68,7 @@ When multiple triggering events occur faster than a single-threaded function run
 
 ## Functions runtime versioning
 
-You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~2" indicates that your Function App will use 2.x as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~3" indicates that your Function App will use 3.x as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## Repositories
 The code for Azure Functions is open source and stored in GitHub repositories:
@@ -102,4 +97,4 @@ For more information, see the following resources:
 * [Code and test Azure Functions locally](./functions-develop-local.md)
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions C# developer reference](functions-dotnet-class-library.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
+* [Azure Functions Node.js developer reference](functions-reference-node.md)

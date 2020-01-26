@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 09/06/2019
+ms.date: 11/26/2019
 ---
 # Service tiers in the DTU-based purchase model
 
@@ -37,12 +37,18 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |In-memory OLTP|N/A|N/A|Supported|
 |||||
 
+> [!IMPORTANT]
+> The Basic, Standard S0, S1 and S2 service tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+>
+>Regarding data storage, the Basic, Standard S0, and S1 service tiers are placed on Standard Page Blobs. Standard Page Blobs use hard disk drive (HDD)-based storage media and are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
+>
+
 > [!NOTE]
 > You can get a free Azure SQL database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
 ## Single database DTU and storage limits
 
-Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-purchase-models.md#dtu-based-purchasing-model)?
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |

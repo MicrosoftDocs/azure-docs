@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Launch an Azure Spring Cloud application using the Azure portal"
-description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
-author: jpconnock
+title: "Quickstart - Launch an Azure Spring Cloud application using the Azure portal"
+description: In this quickstart, deploy a sample application to the Azure Spring Cloud using the Azure portal.
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Quickstart: Launch an Azure Spring Cloud application using the Azure portal
@@ -26,7 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -51,27 +51,40 @@ az extension add --name spring-cloud
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-1. Select **Azure Spring Cloud** to go to the overview page. Select the **Create** button to get started.
-
-1. Fill out the form, considering the following guidelines:
+1. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
     - Service Name: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - Subscription: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
     - Resource group: Creating new resource groups for new resources is a best practice.
     - Location: Select the location for your service instance. Currently supported locations include East US, West US 2, West Europe, and Southeast Asia.
-    
+
+1. Click **Review and create**.
+
+1. Verify your specifications, and click **Create**.
+
 It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
+
 
 ## Set up your configuration server
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
+1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics".
 
-    ![Screenshot of ASC portal](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+1. Set **LABEL** to "config".
+
+1. Select **Apply** to save your changes.
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 ## Build and deploy microservice applications
 
-1. Open an [Azure Cloudshell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
+1. Open an [Azure Cloud Shell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
 
     ```azurecli
     mkdir source-code
@@ -85,20 +98,6 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-
-1. Login to Azure CLI and set your active subscription.
-
-    ```azurecli
-    # Login to Azure CLI
-    az login
-
-    # List all subscriptions
-    az account list -o table
-
-    # Set active subscription
-    az account set --subscription <target subscription ID>
-    ```
-
 1. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
 
     ```azurecli
@@ -124,13 +123,16 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Apps** blade in the Azure portal. You should see a line each of the three applications.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
+
 ## Assign a public endpoint to gateway
 
 1. Open the **Apps** tab in the menu on the left.
 
 1. Select the `gateway` application to show the **Overview** page.
 
-1. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes.
+1. Select **Assign Domain** to assign a public endpoint to gateway. This can take a few minutes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
@@ -138,6 +140,8 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
 ## Next steps
 
@@ -152,3 +156,5 @@ In this quickstart, you learned how to:
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

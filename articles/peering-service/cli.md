@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: ypitsch
 ---
 
 # Register a Peering Service Preview connection by using the Azure CLI
@@ -28,6 +28,7 @@ If you choose to install and use the CLI locally, this article requires the Azur
 > For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites 
+
 You must have the following:
 
 ### Azure account
@@ -44,7 +45,7 @@ Make sure that the connectivity providers are partnered with Microsoft.
 
 To begin your configuration, sign in to your Azure account. If you use the Cloud Shell **Try It** option, you're signed in automatically. Use the following examples to help you connect.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -70,7 +71,7 @@ az group create -n MyResourceGroup -l "West US"
 
 Before you proceed to the steps of registering the Peering Service connection by using the Azure CLI, register your subscription with the resource provider and feature flag by using the Azure CLI. The Azure CLI commands are specified here:
 
-```azurecli
+```azurecli-interactive
 
 az feature register --namespace Microsoft.Peering --name AllowPeeringService
 

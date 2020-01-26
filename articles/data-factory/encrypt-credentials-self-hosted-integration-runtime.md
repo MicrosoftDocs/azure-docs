@@ -4,12 +4,12 @@ description: Learn how to encrypt and store credentials for your on-premises dat
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/15/2018
@@ -34,10 +34,7 @@ Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with va
 	"properties": {
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": {
-				"type": "SecureString",
-				"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-			}
+			"connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
 		},
 		"connectVia": {
 			"type": "integrationRuntimeReference",

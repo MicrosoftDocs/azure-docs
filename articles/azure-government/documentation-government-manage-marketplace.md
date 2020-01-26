@@ -1,6 +1,6 @@
 ---
 title: Azure Government Marketplace | Microsoft Docs
-description: Provides guidance on how to use the Azure Government Marketplace.
+description: This article provides guidance on how to use the Azure Government Marketplace.
 services: azure-government
 cloud: gov
 documentationcenter: ''

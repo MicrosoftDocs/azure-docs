@@ -29,7 +29,7 @@ In this article, you learn how to efficiently manage stale devices in your envir
 A stale device is a device that has been registered with Azure AD but has not been used to access any cloud apps for a specific timeframe. Stale devices have an impact on your ability to manage and support your devices and users in the tenant because: 
 
 - Duplicate devices can make it difficult for your helpdesk staff to identify which device is currently active.
-- An increased number of devices creates unnecessary device writebacks increasing the time for AAD connect syncs.
+- An increased number of devices creates unnecessary device writebacks increasing the time for Azure AD connect syncs.
 - As a general hygiene and to meet compliance, you may want to have a clean state of devices. 
 
 Stale devices in Azure AD can interfere with the general lifecycle policies for devices in your organization.
@@ -88,7 +88,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
@@ -124,7 +124,7 @@ Disable or delete Azure AD registered devices in the Azure AD.
 
 ## Clean up stale devices in the Azure portal  
 
-While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as auto-pilot. At this point, using PowerShell V2 is not recommended.
+While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as Autopilot. At this point, using PowerShell V2 is not recommended.
 
 A typical routine consists of the following steps:
 

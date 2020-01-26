@@ -1,6 +1,6 @@
 ---
 title: Create a Relay namespace using the Azure portal | Microsoft Docs
-description: How to create a Relay namespace using the Azure portal.
+description: This article provides a walkthrough that shows you how to create a Relay namespace using the Azure portal.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/21/2020
 ms.author: spelluru
 ---
 
@@ -22,7 +22,7 @@ ms.author: spelluru
 A namespace is a scoping container for all your Azure Relay components. Multiple relays can reside in a single namespace, and namespaces often serve as application containers. There are currently two different ways to create a relay namespace:
 
 1. Azure portal (this article).
-2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates.
+2. [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates.
 
 ## Create a namespace in the Azure portal
 

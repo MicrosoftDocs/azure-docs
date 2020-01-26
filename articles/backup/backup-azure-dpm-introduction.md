@@ -1,13 +1,8 @@
 ---
-title: Prepare the DPM server to back up workloads to Azure
+title: Prepare the DPM server to back up workloads 
 description: In this article, learn how to prepare for System Center Data Protection Manager (DPM) backups to Azure, using the Azure Backup service.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
 ---
 # Prepare to back up workloads to Azure with System Center DPM
 
@@ -164,7 +159,7 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
 
 7. Click **Register** to register the DPM server to the vault.
 
-After the server is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.
+After the server is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure. You'll need to configure the protection group in the DPM console to backup workloads to Azure. [Learn how](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) to deploy protection groups.
 
 ## Troubleshoot vault credentials
 

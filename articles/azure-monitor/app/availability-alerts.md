@@ -60,7 +60,7 @@ Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-d
 
 ## Automate alerts
 
-To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) documentation.
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
 
 ## Troubleshooting
 

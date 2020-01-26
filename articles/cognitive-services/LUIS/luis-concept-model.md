@@ -32,7 +32,7 @@ Model decomposition has the following parts:
 * [machine-learned entities](#machine-learned-entities)
     * [subcomponents](#entity-subcomponents-help-extract-data) (also machine-learned entities)
         * [descriptors](#descriptors-are-features) provided by features 
-        * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as (regular expressions and lists)
+        * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as regular expressions and lists
 
 ## V2 Authoring models
 
@@ -129,7 +129,7 @@ An intent is the desired outcome of the _whole_ utterance while entities are pie
 
 This utterance _must_ have an intent and _may_ have entities:
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 This utterance has a single intention:
 

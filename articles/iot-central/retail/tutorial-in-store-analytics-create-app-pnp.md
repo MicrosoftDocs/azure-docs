@@ -1,5 +1,5 @@
 ---
-title: Create an in-store analytics application in Azure IoT Central | Microsoft Docs
+title: 'Tutorial - Create an in-store analytics application in Azure IoT Central'
 description: This tutorial shows how to create an in-store analytics retail application in IoT Central. You'll create it, customize it, and add sensor devices.
 services: iot-central
 ms.service: iot-central
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: timlt
 author: timlt
-ms.date: 10/03/2019
+ms.date: 11/12/2019
 ---
 
 # Tutorial: Create an in-store analytics application in Azure IoT Central

@@ -1,12 +1,9 @@
 ---
-title: Call logic apps with Azure Functions - Azure Logic Apps
+title: Call logic apps with Azure Functions
 description: Create Azure functions that call or trigger logic apps by listening to Azure Service Bus
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jehollan, klam, LADocs
+ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ---
@@ -123,7 +120,7 @@ Next, create the function that acts as the trigger and listens to the queue.
 
    This example uses the [`Task.Run` method](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in [asynchronous](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;

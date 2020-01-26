@@ -4,11 +4,9 @@ description: Learn how to migrate your Azure Active Directory Authentication Lib
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
@@ -17,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 #Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
-ms.collection: M365-identity-device-management
 ---
 
 # ADAL to MSAL migration guide for Android

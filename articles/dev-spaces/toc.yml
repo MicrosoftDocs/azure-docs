@@ -57,10 +57,12 @@
         href: team-development-nodejs.md
   - name: Concepts
     items:
-    - name: How Dev Spaces Works
+    - name: How Dev Spaces works
       href: how-dev-spaces-works.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
+    - name: Networking configuration in different network topologies
+      href: configure-networking.md
   - name: How to
     items:
     - name: Install Azure Dev Spaces
@@ -91,6 +93,8 @@
       href: how-to/run-dev-spaces-windows-containers.md
     - name: Use traefik for custom ingress and HTTPS
       href: how-to/ingress-https-traefik.md
+    - name: Use NGINX for custom ingress and HTTPS
+      href: how-to/ingress-https-nginx.md
     - name: Connect your development machine to an AKS cluster (preview)
       href: how-to/connect.md
   - name: Troubleshooting

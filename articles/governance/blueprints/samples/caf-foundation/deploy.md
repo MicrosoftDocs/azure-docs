@@ -1,6 +1,6 @@
 ---
-title: CAF Foundation blueprint sample - Deploy steps
-description: Deploy steps of the CAF Foundation blueprint sample.
+title: Deploy CAF Foundation blueprint sample
+description: Deploy steps for the CAF Foundation blueprint sample including blueprint artifact parameter details.
 ms.date: 08/20/2019
 ms.topic: sample
 ---

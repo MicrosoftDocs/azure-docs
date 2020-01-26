@@ -1,5 +1,5 @@
 ---
-title: Convert Azure managed disks storage from Standard to Premium or Premium to Standard 
+title: Convert managed disks storage between standard and premium SSD
 description: How to convert Azure managed disks from Standard to Premium or Premium to Standard by using Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -58,9 +58,8 @@ foreach ($disk in $vmDisks)
 {
 	if ($disk.ManagedBy -eq $vm.Id)
 	{
-		$diskUpdateConfig = New-AzDiskUpdateConfig –AccountType $storageType
-		Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-		-DiskName $disk.Name
+		$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+		$disk | Update-AzDisk
 	}
 }
 
@@ -97,9 +96,8 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
@@ -117,7 +115,7 @@ Follow these steps:
 6. Change the **Account type** from **Standard HDD** to **Premium SSD**.
 7. Click **Save**, and close the disk pane.
 
-The disk type conversion is instantaneous. You can restart your VM after the conversion.
+The disk type conversion is instantaneous. You can start your VM after the conversion.
 
 ## Switch managed disks between Standard HDD and Standard SSD 
 
@@ -142,9 +140,8 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```

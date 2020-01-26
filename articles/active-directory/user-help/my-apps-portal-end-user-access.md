@@ -1,6 +1,6 @@
 ---
-title: Access and use apps on the My Apps portal - Azure Active Directory| Microsoft Docs
-description: Learn how to access the My Apps portal.
+title: Locate & use apps on the My Apps portal - Azure AD
+description: Learn how to find the My Apps portal and then how to access your organization's cloud-based apps.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,10 +12,9 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
-# Access and use apps on the My Apps portal
+# Locate and use your organization's cloud-based apps on the My Apps portal
 
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 

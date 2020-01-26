@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Azure IoT Documentation
+title: Azure IoT documentation
 summary: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.
 brand: azure
 
 metadata:
-  title: Azure IoT Documentation
+  title: Azure IoT documentation
   description: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.
   ms.service: iot-fundamentals
   ms.topic: hub-page
@@ -46,7 +46,7 @@ conceptualContent:
   summary: Azure IoT offers you cloud and edge IoT platforms as well as fully-managed IoT solutions
   items:
     # Card
-    - title: Use Azure IoT Hub to build your own IoT solution
+    - title: Build your own IoT cloud solution
       links:
         - url: ../iot-hub/about-iot-hub.md
           itemType: overview
@@ -61,7 +61,7 @@ conceptualContent:
         url: ../iot-hub/index.yml
         text: See more
     # Card
-    - title: Use Azure IoT Central to deploy a fully managed IoT solution
+    - title: Deploy a fully managed IoT solution
       links:
         - url: ../iot-central/core/overview-iot-central.md
           itemType: overview
@@ -77,7 +77,7 @@ conceptualContent:
         url: ../iot-central/core/index.yml
         text: See more
     # Card
-    - title: Use Azure IoT solution accelerators to customize a pre-built IoT solution
+    - title: Customize a pre-built IoT solution
       links:
         - url: ../iot-accelerators/about-iot-accelerators.md
           itemType: overview
@@ -90,10 +90,10 @@ conceptualContent:
           text: Try a connected factory solution
       # footerLink
       footerLink:
-        url: ../iot-accelerators/index.md
+        url: ../iot-accelerators/index.yml
         text: See more
     # Card
-    - title: Use Azure IoT Edge to run cloud intelligence on devices
+    - title: Run cloud intelligence on edge devices
       links:
         - url: ../iot-edge/about-iot-edge.md
           itemType: overview
@@ -109,7 +109,7 @@ conceptualContent:
         url: ../iot-edge/index.yml
         text: See more
     # Card
-    - title: Use Azure Digital Twins to create connected and smart infrastructures
+    - title: Create connected and smart infrastructure
       links:
         - url: ../digital-twins/about-digital-twins.md
           itemType: overview
@@ -125,7 +125,7 @@ conceptualContent:
         url: ../digital-twins/index.yml
         text: See more
     # Card
-    - title: Use Azure IoT Hub Device Provisioning Service to securely provision devices at scale
+    - title: Securely provision devices at scale
       links:
         - url: ../iot-dps/about-iot-dps.md
           itemType: overview
@@ -141,7 +141,7 @@ conceptualContent:
         url: ../iot-dps/index.yml
         text: See more
     # Card
-    - title: Use Azure Time Series Insights to explore and analyze device data
+    - title: Explore and analyze device data
       links:
         - url: ../time-series-insights/time-series-insights-update-overview.md
           itemType: overview
@@ -157,7 +157,7 @@ conceptualContent:
         url: ../time-series-insights/index.yml
         text: See more
     # Card
-    - title: Use Azure Maps to actuate mobility in your enterprise
+    - title: Actuate mobility in your enterprise
       links:
         - url: ../azure-maps/about-azure-maps.md
           itemType: overview

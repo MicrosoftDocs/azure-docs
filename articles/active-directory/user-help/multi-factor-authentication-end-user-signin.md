@@ -1,5 +1,5 @@
 ---
-title: Sign in using two-factor verification - Azure AD
+title: Sign-in using authentication with a work or school account - Azure AD
 description: Learn how to sign in to your work or school account using the various two-factor verification methods.
 services: active-directory
 author: eross-msft
@@ -14,10 +14,9 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: "end-user, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
-# Sign in to your work or school account using two-factor verification
+# Sign in to your work or school account using your two-factor verification method
 
 > [!NOTE]
 > The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).

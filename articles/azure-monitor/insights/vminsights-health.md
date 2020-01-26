@@ -4,9 +4,9 @@ description: This article describes how to understand the health of virtual mach
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
+author: bwren
+ms.author: bwren
+ms.date: 11/14/2019
 
 ---
 
@@ -21,6 +21,10 @@ Viewing the overall health state of an Azure VM and the underlying OS can be obs
 This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VMs health feature.
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
+
+>[!NOTE]
+>We recently [announced changes](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) we are making to the Health feature based on the feedback we have received from our public preview customers. Given the number of changes we will be making, we are going to stop offering the Health feature for new customers. Existing customers can continue to use the health feature. For more details, please refer to our [General Availability FAQ](vminsights-ga-release-faq.md). 
 
 ## Monitoring configuration details
 

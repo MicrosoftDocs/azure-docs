@@ -1,9 +1,9 @@
 ---
-title: Create a store locator using Azure Maps | Microsoft Docs
-description: Create a store locator by using Azure Maps.
+title: 'Tutorial: Create a store locator application using Azure Maps | Microsoft Azure Maps'
+description: In this tutorial, you will learn how to create a store locator web application by using Microsoft Azure Maps web SDK.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Create a store locator by using Azure Maps
+# Tutorial: Create a store locator by using Azure Maps
 
 This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Offering a store locator to customers is a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
     
@@ -30,23 +30,21 @@ Jump ahead to the [live store locator example](https://azuremapscodesamples.azur
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you first need to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
+To complete the steps in this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Design
 
 Before you jump into the code, it's a good idea to begin with a design. Your store locator can be as simple or complex as you want it to be. In this tutorial, we create a simple store locator. We include some tips along the way to help you extend some functionalities if you choose to. We create a store locator for a fictional company called Contoso Coffee. The following figure shows a wireframe of the general layout of the store locator we build in this tutorial:
 
-<br/>
 <center>
 
-![Wireframe of a store locator for Contoso Coffee coffee shop locations](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe of a store locator application for Contoso Coffee shop locations](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a wireframe of a small-screen layout:  
 
-<br/>
 <center>
 
-![Wireframe of the Contoso Coffee store locator on a mobile device](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe of the Contoso Coffee store locator application on a mobile device](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 The wireframes show a fairly straightforward application. The application has a search box, a list of nearby stores, a map that has some markers (symbols), and a pop-up window that displays additional information when the user selects a marker. In more detail, here are the features we build into this store locator in this tutorial:
 
@@ -68,7 +66,6 @@ The wireframes show a fairly straightforward application. The application has a 
 
 Before we develop a store locator application, we need to create a dataset of the stores we want to display on the map. In this tutorial, we use a dataset for a fictitious coffee shop called Contoso Coffee. The dataset for this simple store locator is managed in an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries/regions: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
 
-<br/>
 <center>
 
 ![Screenshot of the store locator data in an Excel workbook](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -90,14 +87,12 @@ Another approach is to convert this dataset into a flat text file that the brows
 
 To convert the workbook to a flat text file, save the workbook as a tab-delimited file. Each column is delimited by a tab character, which makes the columns easy to parse in our code. You could use comma-separated value (CSV) format, but that option requires more parsing logic. Any field that has a comma around it would be wrapped with quotation marks. To export this data as a tab-delimited file in Excel, select **Save As**. In the **Save as type** drop-down list, select **Text (Tab delimited)(*.txt)**. Name the file *ContosoCoffee.txt*. 
 
-<br/>
 <center>
 
 ![Screenshot of the Save as type dialog box](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 If you open the text file in Notepad, it looks similar to the following figure:
 
-<br/>
 <center>
 
 ![Screenshot of a Notepad file that shows a tab-delimited dataset](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -107,7 +102,6 @@ If you open the text file in Notepad, it looks similar to the following figure:
 
 To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or the code editor of your choice. In your project folder, create three files: *index.html*, *index.css*, and *index.js*. These files define the layout, style, and logic for the application. Create a folder named *data* and add *ContosoCoffee.txt* to the folder. Create another folder named *images*. We use ten images in this application for icons, buttons, and markers on the map. You can [download these images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Your project folder should now look like the following figure:
 
-<br/>
 <center>
 
 ![Screenshot of the Simple Store Locator project folder](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
@@ -925,21 +919,18 @@ Now, you have a fully functional store locator. In a web browser, open the *inde
 
 The first time a user selects the My Location button, the browser displays a security warning that asks for permission to access the user’s location. If the user agrees to share their location, the map zooms in on the user's location, and nearby coffee shops are shown. 
 
-<br/>
 <center>
 
 ![Screenshot of the browser's request to access the user's location](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 When you zoom in close enough in an area that has coffee shop locations, the clusters separate into individual locations. Select one of the icons on the map or select an item in the side panel to see a pop-up window that shows information for that location.
 
-<br/>
 <center>
 
 ![Screenshot of the finished store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 If you resize the browser window to less than 700 pixels wide or open the application on a mobile device, the layout changes to be better suited for smaller screens. 
 
-<br/>
 <center>
 
 ![Screenshot of the small-screen version of the store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
