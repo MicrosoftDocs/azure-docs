@@ -12,12 +12,7 @@ Visual Studio Code integrates with Core Tools to let you run this project on you
 
 1. To call your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-1. If you haven't already installed Azure Functions Core Tools, select **Install** at the prompt. After the Core Tools are installed, your app is started in the **Terminal** panel.
-
-::: zone pivot="programming-language-powershell"
-> [!NOTE] 
-> To learn how to debug your PowerShell function in Visual Studio Code, see [Debug PowerShell Azure Functions locally](../articles/azure-functions/functions-debug-powershell-local.md).
-::: zone-end
+1. If you haven't already installed Azure Functions Core Tools, select **Install** at the prompt. After the Core Tools are installed, your app starts in the **Terminal** panel.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. 
 
