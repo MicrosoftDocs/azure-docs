@@ -135,12 +135,12 @@ az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
-rgName=ssecmktesting
-vmssName=ssecmktestvmss5
+rgName=yourResourceGroupName
+vmssName=yourVMSSName
 location=WestCentralUS
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
-diskEncryptionSetName=diskencryptionset786
+diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId

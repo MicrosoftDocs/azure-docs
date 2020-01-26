@@ -84,9 +84,9 @@
 - name: Concepts
   items:
     - name: TLS support
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: TLS 1.0 and 1.1 deprecation
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Message enrichments overview
       href: iot-hub-message-enrichments-overview.md
     - name: Overview of device management
