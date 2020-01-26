@@ -457,7 +457,7 @@ When using CLE:
 - Protect symmetric keys with asymmetric keys/certificates (not passwords) to avoid using 3DES. 
 
 - Be careful when migrating a database using Cell-Level Encryption via export/import (bacpac files). 
-  - See the article, [Recommendations for using Cell Level Encryption in Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) on how to prevent loosing keys when migrating data, and for other best practice guidance.
+  - See the article, [Recommendations for using Cell Level Encryption in Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) on how to prevent losing keys when migrating data, and for other best practice guidance.
 
 When using Always Encrypted, keep in mind that Always Encrypted is primarily designed to protect sensitive data in use from high-privilege users of Azure SQL Database (cloud operators, DBAs) - see [Protect sensitive data in use from high-privileged, unauthorized users](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Be aware of the following challenges when using Always Encrypted to protect data from application users:
 

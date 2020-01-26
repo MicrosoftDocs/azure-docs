@@ -137,7 +137,7 @@ The following table shows connectivity locations and the service providers for e
 
 ### National cloud environments
 
-Azure national clouds are isolated from each other and from global commerical Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
+Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
 
 ### US Government cloud
 | **Location** | **Address** | **Local Azure regions**| **ER Direct** | **Service providers** |
