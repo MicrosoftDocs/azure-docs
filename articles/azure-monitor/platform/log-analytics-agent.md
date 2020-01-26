@@ -84,9 +84,7 @@ If you are using System Center Operations Manager 2012 R2 or later:
 
 The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md), and [Azure Security Center](../../security-center/security-center-intro.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
-## Supported operating systems
-
-## Windows 
+## Supported Windows operating systems
 
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
@@ -97,7 +95,7 @@ The following versions of the Windows operating system are officially supported 
 >[!NOTE]
 >While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
 
-## Linux 
+## Supported Linux operating systems
 
 This section provides details about the supported Linux distributions.
 
