@@ -17,7 +17,7 @@ The Azure Log Analytics agent collects monitoring data from the guest operating 
 > You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
 
 ## Virtual machines supported
-THe Log Analytics agent can be used with any Windows or Linux virtual machine in Azure, in another cloud, or on-premises. See [Supported operating system](#supported-operating-systems) for specific versions supported.
+THe Log Analytics agent can be used with any Windows or Linux virtual machine in Azure, in another cloud, or on-premises. See [Supported Windows operating systems](#supported-windows-operating-systems) and [Supported Linux operating systems](#supported-linux-operating-systems) for specific versions supported.
 
 
 ## Data collected

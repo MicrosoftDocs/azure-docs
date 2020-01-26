@@ -1,17 +1,16 @@
 ---
-title: Store and View Diagnostic Data in Azure Storage
+title: Install and configure Windows Azure diagnostics extension (WAD)
 description: Learn how to collect Azure diagnostics data in an Azure Storage account so you can view it with one of several available tools.
 services: azure-monitor
 author: bwren
 ms.service: azure-monitor
+ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.author: bwren
-ms.subservice: diagnostic-extension
 ---
-# Store and view diagnostic data in Azure Storage
+# Install and configure Windows Azure diagnostics extension (WAD)
 Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
-
 
 ## Install 
 
@@ -23,7 +22,6 @@ See the following for details on installing and maintaining virtual machine exte
 - [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
 
 ## Install with Azure portal
-
 
 1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
 2. Click **Enable guest-level monitoring**.
