@@ -157,11 +157,10 @@ After your logic app runs, you can view the status and data about those messages
 
 -->
 
+<!-->
 1. To view all actions that have the same run ID, on the **Log Search** page, select a message from the message list.
 
    You can sort these actions by column, or search for specific results.
-
-   ![Actions with the same run ID](media/logic-apps-monitor-b2b-messages/logsearch.png)
 
    * To search results with prebuilt queries, select **Favorites**.
 

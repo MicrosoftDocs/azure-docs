@@ -10,47 +10,29 @@ ms.topic: article
 ms.date: 10/19/2018
 ---
 
-# Create tracking queries for B2B messages in Azure Monitor logs for Azure Logic Apps
+# Create queries for B2B messages in Azure Monitor logs for Azure Logic Apps
 
-To find AS2, X12, or EDIFACT messages that you're tracking with 
-[Azure Monitor logs](../log-analytics/log-analytics-overview.md), 
-you can create queries that filter actions based on specific criteria. 
-For example, you can find messages based on a specific interchange control number.
-
-> [!NOTE]
-> This page previously described steps for how to perform these tasks 
-> with the Microsoft Operations Management Suite (OMS), which is 
-> [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
-> replaces those steps with Azure Log Analytics instead. 
+To find AS2, X12, or EDIFACT messages that you're tracking with [Azure Monitor logs](../log-analytics/log-analytics-overview.md), you can create queries that filter actions based on specific criteria. For example, you can find messages based on a specific interchange control number.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
-* A logic app that's set up with diagnostics logging. Learn 
-[how to create a logic app](quickstart-create-first-logic-app-workflow.md) 
-and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
-* An integration account that's set up with monitoring and logging. Learn 
-[how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
+* A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-* If you haven't already, [publish diagnostic data to Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 
-and [set up message tracking in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* An integration account that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn how to [set up Azure Monitor logging for your integration account](../logic-apps/logic-apps-monitor-b2b-messages.md).
 
 ## Create queries with filters
 
-To find messages based on specific properties or values, 
-you can create queries that use filters. 
+To find messages based on specific properties or values, you can create queries that use filters. 
 
-1. In the [Azure portal](https://portal.azure.com), 
-select **All services**. In the search box, 
-find "log analytics", and select **Log Analytics**.
+1. In the [Azure portal](https://portal.azure.com), select **All services**. In the search box, find "log analytics", and select **Log Analytics**.
 
    ![Select Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. Under **Log Analytics**, find and 
-select your Log Analytics workspace. 
+1. Under **Log Analytics**, find and select your Log Analytics workspace. 
 
    ![Select Log Analytics workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
