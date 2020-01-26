@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 01/24/2020
 ms.author: juliako
 ms.custom: 
 
@@ -49,7 +49,7 @@ Below are the results for another category of source content, where the encoder 
 
 **Figure 4: RD curve using VMAF for low quality input (at 1080p)**
 
-## Use the experimental preset
+## Use the content-aware encoding preset 
 
 You can create transforms that use this preset as follows. If using a tutorial [such as this](stream-files-tutorial-with-api.md), you can update the code as follows:
 
