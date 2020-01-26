@@ -59,7 +59,7 @@ To provision CMK, follow these steps: 
     then generate or import a key to be used for data encryption.
 
    > [!NOTE]
-    >  Azure Key Vault must be configured as recoverable to protect your key and the access.
+   >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
 1.  [Turn on recovery options:](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
 
