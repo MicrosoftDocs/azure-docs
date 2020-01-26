@@ -43,7 +43,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 1. **What role do they need?**
 
-    Permissions are grouped together into roles. You can select from a list of several [built-in roles](built-in-roles.md) or you use your own custom roles.
+    Permissions are grouped together into roles. You can select from a list of several [built-in roles](built-in-roles.md) or you can use your own custom roles.
 
 1. **Where do they need access?**
 
@@ -51,15 +51,15 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 ## Add a role assignment
 
-Follow these steps to assign a role at different scopes.
+In Azure RBAC, to grant access to an Azure resource, you add a role assignment. Follow these steps to assign a role.
 
-1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, click **All services** and then select the scope that you want to grant access to. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
 1. Click the specific resource for that scope.
 
 1. Click **Access control (IAM)**.
 
-1. Click the **Role assignments** tab to view all the role assignments at this scope.
+1. Click the **Role assignments** tab to view the role assignments at this scope.
 
     ![Access control (IAM) and Role assignments tab](./media/role-assignments-portal/role-assignments.png)
 
@@ -89,11 +89,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. In the Azure portal, click **All services** and then **Subscriptions**.
 
-1. Click the subscription where you want to add a role assignment.
+1. Click the subscription where you want to grant access.
 
 1. Click **Access control (IAM)**.
 
-1. Click the **Role assignments** tab to view all the role assignments for this subscription.
+1. Click the **Role assignments** tab to view the role assignments for this subscription.
 
     ![Access control (IAM) and Role assignments tab](./media/role-assignments-portal/role-assignments.png)
 
@@ -117,7 +117,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 ## Remove a role assignment
 
-In RBAC, to remove access, you remove a role assignment. Follow these steps to remove a role assignment.
+In Azure RBAC, to remove access from an Azure resource, you remove a role assignment. Follow these steps to remove a role assignment.
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
 
