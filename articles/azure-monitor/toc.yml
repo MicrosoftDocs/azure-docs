@@ -537,16 +537,14 @@
         href: platform/agents-overview.md
       - name: Azure Diagnostics extension
         items:
-        - name: Overview
-          href: platform/diagnostics-extension-overview.md
-        - name: Collect logs
-          href: platform/azure-storage-iis-table.md
         - name: Windows 
           items:   
+          - name: Overview
+            href: platform/diagnostics-extension-overview.md
+          - name: Collect logs
+            href: platform/azure-storage-iis-table.md
           - name: Version history
             href: platform/diagnostics-extension-schema.md
-          - name: Schema
-            href: platform/diagnostics-extension-schema-1dot3.md
           - name: Send to Azure Storage
             href: platform/diagnostics-extension-to-storage.md
           - name: Send to Application Insights
@@ -1127,6 +1125,10 @@
   items:
   - name: Service limits
     href: service-limits.md
+  - name: Diagnostics extension
+    items: 
+    - name: Windows configuration schema
+      href: platform/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
