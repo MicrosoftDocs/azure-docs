@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 12/09/2019
+ ms.date: 01/16/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -15,7 +15,9 @@
 >
 
 * West US
+* West US 2
 * East US
+* East US 2
 * West Europe
 * South Central US
 * Australia East

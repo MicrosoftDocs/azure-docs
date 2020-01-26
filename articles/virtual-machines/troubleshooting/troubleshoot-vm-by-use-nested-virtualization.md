@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a problem Azure VM by using nested virtualization in Azure | Microsoft Docs
+title: Troubleshoot a faulty Azure VM by using nested virtualization in Azure | Microsoft Docs
 description: How to troubleshoot a problem Azure VM by using nested virtualization in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ---
-# Troubleshoot a problem Azure VM by using nested virtualization in Azure
+# Troubleshoot a faulty Azure VM by using nested virtualization in Azure
 
-This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the problem VM on the Hyper-V host (Rescue VM) for troubleshooting purposes.
+This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the faulty VM on the Hyper-V host (Rescue VM) for troubleshooting purposes.
 
 ## Prerequisites
 
-To mount the problem VM, the Rescue VM must use the same type of Storage Account (Standard or Premium) as the problem VM.
+In order to mount the faulty VM, the Rescue VM must use the same type of Storage Account (Standard or Premium) as the faulty VM.
 
 ## Step 1: Create a Rescue VM and install Hyper-V role
 
@@ -32,9 +32,9 @@ To mount the problem VM, the Rescue VM must use the same type of Storage Account
 
     -  Size: Any V3 series with at least two cores that support nested virtualization. For more information, see [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-    -  Same location, Storage Account, and Resource Group as the problem VM.
+    -  Same location, Storage Account, and Resource Group as the faulty VM.
 
-    -  Select the same storage type as the problem VM (Standard or Premium).
+    -  Select the same storage type as the faulty VM (Standard or Premium).
 
 2.  After the Rescue VM is created, remote desktop to the Rescue VM.
 
@@ -60,13 +60,13 @@ To mount the problem VM, the Rescue VM must use the same type of Storage Account
 
 13. Allow the server to install the Hyper-V role. This takes a few minutes and the server will reboot automatically.
 
-## Step 2: Create the problem VM on the Rescue VM’s Hyper-V server
+## Step 2: Create the faulty VM on the Rescue VM’s Hyper-V server
 
 1.  [Create a snapshot disk](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) for the OS disk of the VM that has problem, and then attach the snapshot disk to the recuse VM.
 
 2.  Remote desktop to the Rescue VM.
 
-3.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the problem VM is set to **Offline**.
+3.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the faulty VM is set to **Offline**.
 
 4.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server, and then select the **Hyper-V Manager**.
 
@@ -92,7 +92,7 @@ To mount the problem VM, the Rescue VM must use the same type of Storage Account
 
     ![the image about adds new hard drive](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
+14. In **Physical Hard Disk**, select the disk of the faulty VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
 
     ![the image about mounts the disk](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -103,7 +103,7 @@ To mount the problem VM, the Rescue VM must use the same type of Storage Account
 
 17. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
 
-## Step 3: Replace the OS disk used by the problem VM
+## Step 3: Replace the OS disk used by the faulty VM
 
 1.  After you get the VM back online, shut down the VM in the Hyper-V manager.
 

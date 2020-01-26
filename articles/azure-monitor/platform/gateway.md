@@ -56,7 +56,7 @@ The following diagram shows data flow from an Operations Manager management grou
 Computers designated to run the Log Analytics gateway must have the following configuration:
 
 * Windows 10, Windows 8.1, or Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008
+* Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008
 * Microsoft .NET Framework 4.5
 * At least a 4-core processor and 8 GB of memory 
 * A [Log Analytics agent for Windows](agent-windows.md) that is configured to report to the same workspace as the agents that communicate through the gateway

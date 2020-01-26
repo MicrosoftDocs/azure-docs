@@ -1,6 +1,6 @@
 ---
 title: User-defined functions in templates
-description: Describes how to define and use user-defined functions in an Azure Resource Manager template. 
+description: Describes how to define and use user-defined functions in an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 09/05/2019
 ---
@@ -44,14 +44,14 @@ The following example shows how to call your function.
 "resources": [
   {
     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "South Central US",
+    "tags": {},
     "sku": {
       "name": "Standard_LRS"
     },
     "kind": "Storage",
-    "location": "South Central US",
-    "tags": {},
     "properties": {}
   }
 ]

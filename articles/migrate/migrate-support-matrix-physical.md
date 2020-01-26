@@ -53,6 +53,19 @@ The following table summarizes port requirements for assessment.
 **Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Outbound connections on ports 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
 **Physical servers** | **Windows:** Inbound connections on port 443, WinRM ports 5985 (HTTP) and 5986 (HTTPS) to pull configuration and performance metadata from Windows servers. <br/> **Linux:**  Inbound connections on port 22 (UDP) to pull configuration and performance metadata from Linux servers. |
 
+## Agent-based dependency visualization
+
+[Dependency visualization](concepts-dependency-visualization.md) helps you to visualize dependencies across machines that you want to assess and migrate. For agent-based visualization, requirements and limitations are summarized in the following table.
+
+
+**Requirement** | **Details**
+--- | ---
+**Deployment** | Before you deploy dependency visualization you should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project. You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines.<br/><br/> Dependency visualization isn't available in Azure Government.
+**Service Map** | Agent-based dependency visualization uses the [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) solution in [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> To deploy, you associate a new or existing Log Analytics workspace with an Azure Migrate project.
+**Log Analytics workspace** | The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> Azure Migrate supports workspaces residing in the East US, Southeast Asia and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> The workspace for an Azure Migrate project can't be modified after it's added.
+**Charges** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associated the Log Analytics workspace with the Azure Migrate project).<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur standard Log Analytics charges.<br/><br/> If you delete the Azure Migrate project, the workspace isn't deleted with it. After deleting the project, Service Map isn't free, and each node will be charged as per the paid tier of Log Analytics workspace.
+**Agents** | Agent-based dependency visualization requires two agents to be installed on each machine you want to analyze.<br/><br/> - [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [Dependency agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+**Internet connectivity** | If machines aren't connected to the internet, you need to install the Log Analytics gateway on them.
 
 ## Next steps
 
