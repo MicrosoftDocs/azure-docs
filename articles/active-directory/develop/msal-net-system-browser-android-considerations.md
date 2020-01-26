@@ -35,16 +35,7 @@ We recommend that you use browsers that support custom tabs. Here are some examp
 |Kiwi | com.kiwibrowser.browser|
 |Brave | com.brave.browser|
 
-In addition to identifying browsers that offer custom tabs support, our testing indicates that a few browsers that don't support custom tabs also work for authentication. These browsers include Opera, Opera Mini, InBrowser, and Maxthon. For more information, see the [table for test results](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
-
-## Known issues
-
-If the user has no browser enabled on the device, MSAL.NET will throw an `AndroidActivityNotFound` exception.  
-  - **Mitigation**: Ask the user to enable a browser on their device. Recommend a browser that supports custom tabs.
-
-If authentication fails (for example, if authentication launches with DuckDuckGo), MSAL.NET will return `AuthenticationCanceled MsalClientException`. 
-  - **Root problem**: A browser that supports custom tabs wasn't enabled on the device. Authentication launched with a browser that couldn't complete authentication. 
-  - **Mitigation**: Ask the user to enable a browser on their device. Recommend a browser that supports custom tabs.
+In addition to identifying browsers that offer custom tabs support, our testing indicates that a few browsers that don't support custom tabs also work for authentication. These browsers include Opera, Opera Mini, InBrowser, and Maxthon. 
 
 ## Tested devices and browsers
 The following table lists the devices and browsers that have been tested for authentication compatibility.
@@ -68,6 +59,15 @@ The following table lists the devices and browsers that have been tested for aut
 | Huawei/One+ | None installed | AndroidActivityNotFound exception|
 
 \* Supports custom tabs
+
+## Known issues
+
+If the user has no browser enabled on the device, MSAL.NET will throw an `AndroidActivityNotFound` exception.  
+  - **Mitigation**: Ask the user to enable a browser on their device. Recommend a browser that supports custom tabs.
+
+If authentication fails (for example, if authentication launches with DuckDuckGo), MSAL.NET will return `AuthenticationCanceled MsalClientException`. 
+  - **Root problem**: A browser that supports custom tabs wasn't enabled on the device. Authentication launched with a browser that couldn't complete authentication. 
+  - **Mitigation**: Ask the user to enable a browser on their device. Recommend a browser that supports custom tabs.
 
 ## Next steps
 For more information and code examples, see [Choosing between an embedded web browser and a system browser on Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid).  
