@@ -33,7 +33,7 @@ The Azure Diagnostics Extension requires that the target virtual machine is conn
 
 ## Extension schema
 
-[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
 
 ## Template deployment
 

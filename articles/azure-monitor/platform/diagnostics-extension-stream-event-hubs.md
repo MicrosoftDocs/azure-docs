@@ -6,7 +6,7 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/13/2017
+ms.date: 01/26/2020
 
 ---
 
@@ -35,7 +35,7 @@ Diagnostics extension is supported on Azure compute resources including VMs, Vir
 * Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## Configuration schema
-See [Azure Diagnostics configuration schema](diagnostics-extension-schema-1dot3.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. See the reference for further explanation of the schema.
+See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. See the reference for further explanation of the schema.
 
 
 ## Define the event hub sink

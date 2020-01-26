@@ -48,7 +48,7 @@ The Azure Diagnostics extension is used with other Microsoft diagnostics product
  Starting with SDK 2.5 (diagnostics version 1.2), Azure diagnostics went to an extension model. The tools to utilize new features were only available in newer Azure SDKs, but any service using Azure diagnostics would pick up the latest shipping version directly from Azure. For example, anyone still using SDK 2.5 would be loading the latest version shown in the previous table, regardless if they are using the newer features.  
 
 ## Schemas index  
-Different versions of Azure diagnostics use different configuration schemas. Schema 1.0 and 1.2 have been deprecated. For more information on version 1.3 and later, see [Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-1dot3.md)  
+Different versions of Azure diagnostics use different configuration schemas. Schema 1.0 and 1.2 have been deprecated. For more information on version 1.3 and later, see [Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-windows.md)  
 
 ## Version history
 
@@ -80,7 +80,7 @@ Define Azure Monitor as a new sink in your diagnostics extension configuration
 > [!NOTE]
 > Configuring the Azure Monitor sink for Classic VMs and Classic CLoud Service requires more parameters to be defined in the Diagnostics extension's private config.
 >
-> For more details please reference the [detailed diagnostics extension schema documentation.](diagnostics-extension-schema-1dot3.md)
+> For more details please reference the [detailed diagnostics extension schema documentation.](diagnostics-extension-schema-windows.md)
 
 Next, you can configure your performance counters to be routed to the Azure Monitor Sink.
 ```json

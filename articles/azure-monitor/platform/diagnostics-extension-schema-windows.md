@@ -6,7 +6,7 @@ ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 01/20/219
+ms.date: 01/20/2020
 
 ---
 

@@ -71,7 +71,7 @@ WAD writes data to either tables or blobs in an Azure Storage account depending 
 | Event hubs | HotPath | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 | Application Insights | ApplicationInsights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs.  See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table). While you can collect WAD data into the Azure Monitor Logs, the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs.  See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table.md). While you can collect WAD data into the Azure Monitor Logs, the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.
 
 
 ### Linux diagnostics extension (LAD)
