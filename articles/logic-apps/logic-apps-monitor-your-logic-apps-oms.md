@@ -12,9 +12,9 @@ ms.date: 01/24/2020
 
 # Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
 
-To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/logic-apps-azure-storage-event-hubs.md), such as Azure Storage and Azure Event Hubs.
+To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](#extend-data), such as Azure Storage and Azure Event Hubs.
 
-To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in your Log Analytics workspace for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, set up [Azure Monitor logs](#set-up-resource-logs).
+To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in your Log Analytics workspace for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, [set up Azure Monitor logs](#set-up-resource-logs).
 
 This article shows how to enable Log Analytics when you create logic apps, how to install and set up the Logic Apps Management solution, and how to set up and create queries for Azure Monitor logs.
 
@@ -80,7 +80,7 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
 
    ![Workspace summary pane](./media/logic-apps-monitor-your-logic-apps-oms/workspace-summary-pane-logic-apps-management.png)
 
-<a name-"set-up-resource-logs"></a>
+<a name="set-up-resource-logs"></a>
 
 ## Set up Azure Monitor logs
 
@@ -138,7 +138,7 @@ After your logic app runs, you can view the data about those runs in your Log An
 
    ![View logic app runs and status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   For actions where you [set up tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
+   For actions where you [set up tracked properties](#extend-data), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
 
    ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
@@ -193,6 +193,8 @@ For more information about creating queries, see these topics:
 
 * [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 * [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+
+<a name="extend-data"></a>
 
 ## Extend diagnostic data Azure Storage and Azure Event Hubs
 
