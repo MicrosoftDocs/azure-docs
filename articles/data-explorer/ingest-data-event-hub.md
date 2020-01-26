@@ -115,7 +115,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     | Event hub | *test-hub* | The event hub you created. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
     | Event system properties | Select relevant properties | The [Event Hub system properties](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). If there are multiple records per event message, the system properties will be added to the first one. When adding system properties, [create](/azure/kusto/management/tables#create-table) or [update](/azure/kusto/management/tables#alter-table-and-alter-merge-table) table schema and [mapping](/azure/kusto/management/mappings) to include the selected properties. |
-    | Compression | *None* | The compression type of the eventhub messags payload. Supported compression types: None and GZip|
+    | Compression | *None* | The compression type of the Event Hub messages payload. Supported compression types: *None, GZip*.|
     | | |
 
     **Target table:**
