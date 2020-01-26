@@ -60,6 +60,8 @@
       href: backup-support-matrix-mars-agent.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
+    - name: Azure File shares backup support matrix
+      href: afs-support-matrix.md
     - name: Supported VM SKUs for Azure Policy  
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
