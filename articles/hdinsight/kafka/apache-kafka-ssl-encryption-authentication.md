@@ -16,7 +16,7 @@ This article shows you how to set up SSL encryption between Apache Kafka clients
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use SSL for both producing and consuming. The console producer client `console-producer.sh` does not work with SSL.
 
-## Apache Kafka Broker setup
+## Apache Kafka broker setup
 
 The Kafka SSL broker setup will use four HDInsight cluster VMs in the following way:
 
@@ -145,7 +145,7 @@ To complete the configuration modification, do the following steps:
 
 1. Go to Ambari configuration UI and verify that the new properties show up under **Advanced kafka-env** and the **kafka-env template** property.
 
-![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+    ![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
 
 1. Restart all Kafka brokers.
 1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093.
@@ -205,7 +205,7 @@ These steps are detailed in the following code snippets.
 ## Client setup (with authentication)
 
 > [!Note]
-> The following steps are required only if you are setting up both SSL encryption **and** authentication. If you are only setting up encryption, please proceed to [Client setup without authentication](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
+> The following steps are required only if you are setting up both SSL encryption **and** authentication. If you are only setting up encryption, then see [Client setup without authentication](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication).
 
 The following four steps summarize the tasks needed to complete the client setup:
 
@@ -292,7 +292,7 @@ The details of each step are given below.
 
 ### Kafka 2.1 or above
 
-1. Create a topic if it doesn’t exist already.
+1. Create a topic if it doesn't exist already.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
@@ -312,7 +312,7 @@ The details of each step are given below.
 
 ### Kafka 1.1
 
-1. Create a topic if it doesn’t exist already.
+1. Create a topic if it doesn't exist already.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
@@ -324,7 +324,7 @@ The details of each step are given below.
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-3.	open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
+3.	Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
