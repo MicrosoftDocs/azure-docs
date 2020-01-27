@@ -83,6 +83,24 @@ See below for explanations of how to use each of these features.
 
     This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
 
+1. Follow the steps in the remediation section of this pane.
+
+1. When you have taken the steps required to remediate the security issue, replace the image in your registry:
+
+    1. Push the updated image. This will trigger a scan. 
+    
+    1. Check the recommendations page for the recommendation "Vulnerabilities in Azure Container Registry images should be remediated". 
+    
+        Check the remediation steps again if: 
+        
+        * the image you've handled was the only vulnerable image, and the recommendation still appears
+        
+            --or--
+
+        * there were other vulnerable issues, and the image you've handled still appears in the list of vulnerable images
+    
+    1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
+
 
 ## Hardening your containers' hosts
 
