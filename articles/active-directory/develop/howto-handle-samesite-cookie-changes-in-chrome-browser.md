@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/27/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna
 ms.custom: aaddev
@@ -31,15 +31,17 @@ By default, the `SameSite` value is NOT set in browsers and that's why there are
 
 Recent [updates to the standards on SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) propose protecting apps by making the default behavior of `SameSite` when no value is set to Lax. This mitigation means cookies will be restricted on HTTP requests except GET made from other sites. Additionally, a value of **None** is introduced to remove restrictions on cookies being sent. These updates will soon be released in an upcoming version of the Chrome browser.
 
-When web apps authenticate with the Microsoft Identity platform using the response mode "form_post", the login server responds to the application using an HTTP POST to send the tokens or auth code. Because this request is a cross-domain request (from login.microsoftonline.com to your domain - for instance https://contoso.com/auth), cookies that were set by your app now fall under the new rules in Chrome. If you don't update your web apps, this behavior will result in authentication failures.
+When web apps authenticate with the Microsoft Identity platform using the response mode "form_post", the login server responds to the application using an HTTP POST to send the tokens or auth code. Because this request is a cross-domain request (from `login.microsoftonline.com` to your domain - for instance https://contoso.com/auth), cookies that were set by your app now fall under the new rules in Chrome. The cookies that need to be used in cross-site scenarios are cookies that hold the *state* and *nonce* values, that are also sent in the login request. There are other cookies dropped by Azure AD to hold the session.
+
+If you don't update your web apps, this new behavior will result in authentication failures.
 
 ## Mitigation and samples
 
 To overcome the authentication failures, web apps authenticating with the Microsoft identity platform can set the `SameSite` property to `None` for cookies that are used in cross-domain scenarios when running on the Chrome browser.
 Other browsers (see [here](https://www.chromium.org/updates/same-site/incompatible-clients) for a complete list) follow the previous behavior of `SameSite` and won't include the cookies if `SameSite=None` is set.
-That's why, to support authentication on multiple browsers web apps will have to set the `SameSite` value to `None` only on Chrome and leave the value empty on other browsers. 
+That's why, to support authentication on multiple browsers web apps will have to set the `SameSite` value to `None` only on Chrome and leave the value empty on other browsers.
 
-This approach is demonstrated in our code samples below:
+This approach is demonstrated in our code samples below.
 
 # [.NET](#tab/dotnet)
 
@@ -61,9 +63,10 @@ See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com
 
 # [Java](#tab/java)
 
-| Sample |
-| ------ |
-|  [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  |
+| Sample | Pull request |
+| ------ | ------------ |
+|  [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [Same site cookie fix #24](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
+|  [ms-identity-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi)  | [Same site cookie fix #4](https://github.com/Azure-Samples/ms-identity-java-webapi/pull/4)
 
 ---
 
