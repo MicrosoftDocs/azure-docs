@@ -59,4 +59,4 @@ Learn about the [error messages and exception codes](designer-error-codes.md) yo
 
 ## Next steps
 
-* [](../tutorial-designer-automobile-price-train-score.md)
+* [Tutorial: Build a model in designer to predict auto prices](../tutorial-designer-automobile-price-train-score.md)
