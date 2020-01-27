@@ -24,7 +24,7 @@ There are several ways to customize the UI of the user experiences your applicat
 
 ### User flows
 
-If you use [user flows](active-directory-b2c-reference-policies.md), you can change the look of your user flow pages by using built-in *page layout templates*, or by using your own HTML and CSS. Both methods are discussed later in this article.
+If you use [user flows](user-flow-overview.md), you can change the look of your user flow pages by using built-in *page layout templates*, or by using your own HTML and CSS. Both methods are discussed later in this article.
 
 You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customization for user flows.
 
@@ -146,7 +146,7 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](user-flow-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 

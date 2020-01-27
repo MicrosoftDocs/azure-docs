@@ -27,7 +27,7 @@ Each request that is sent to Azure AD B2C specifies a **user flow** (a built-in 
 
 The interaction of every application follows a similar high-level pattern:
 
-1. The application directs the user to the v2.0 endpoint to execute a [policy](active-directory-b2c-reference-policies.md).
+1. The application directs the user to the v2.0 endpoint to execute a [policy](user-flow-overview.md).
 2. The user completes the policy according to the policy definition.
 3. The application receives a security token from the v2.0 endpoint.
 4. The application uses the security token to access protected information or a protected resource.
@@ -55,7 +55,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 Learn more about the types of tokens and claims available to an application in the [Azure AD B2C token reference](tokens-overview.md).
 
-In a web application, each execution of a [policy](active-directory-b2c-reference-policies.md) takes these high-level steps:
+In a web application, each execution of a [policy](user-flow-overview.md) takes these high-level steps:
 
 1. The user browses to the web application.
 2. The web application redirects the user to Azure AD B2C indicating the policy to execute.
@@ -105,7 +105,7 @@ To learn how to secure a web API by using Azure AD B2C, check out the web API tu
 
 Applications that are installed on devices, such as mobile and desktop applications, often need to access back-end services or web APIs on behalf of users. You can add customized identity management experiences to your native applications and securely call back-end services by using Azure AD B2C and the [OAuth 2.0 authorization code flow](authorization-code-flow.md).
 
-In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
+In this flow, the application executes [policies](user-flow-overview.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
 
 ## Current limitations
 
@@ -138,4 +138,4 @@ To delete the application, go to the [Application Registration Portal](https://p
 
 ## Next steps
 
-Find out more about the built-in policies provided by [User flows in Azure Active Directory B2C](active-directory-b2c-reference-policies.md).
+Find out more about the built-in policies provided by [User flows in Azure Active Directory B2C](user-flow-overview.md).

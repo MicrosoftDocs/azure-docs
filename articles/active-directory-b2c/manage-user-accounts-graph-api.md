@@ -243,7 +243,7 @@ You can see how the POST request is constructed in `B2CGraphClient.SendGraphPost
 * It includes the JSON user object in the body of the request.
 
 > [!NOTE]
-> If the accounts that you want to migrate from an existing user store have a lower password strength than the [strong password strength enforced by Azure AD B2C](active-directory-b2c-reference-password-complexity.md), you can disable the strong password requirement by using the `DisableStrongPassword` value in the `passwordPolicies` property. For example, you can modify the previous create user request as follows: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> If the accounts that you want to migrate from an existing user store have a lower password strength than the [strong password strength enforced by Azure AD B2C](user-flow-password-complexity.md), you can disable the strong password requirement by using the `DisableStrongPassword` value in the `passwordPolicies` property. For example, you can modify the previous create user request as follows: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 
 ### Update consumer user accounts
 
@@ -318,7 +318,7 @@ You can perform many other actions with the Azure AD Graph API in addition to us
 
 Most consumer applications need to store some type of custom user profile information. One way you can do so is to define a custom attribute in your B2C tenant. You can then treat that attribute in the same way you treat any other property on a user object. You can update the attribute, delete the attribute, query by the attribute, send the attribute as a claim in sign-in tokens, and more.
 
-To define a custom attribute in your B2C tenant, see the [B2C custom attribute reference](active-directory-b2c-reference-custom-attr.md).
+To define a custom attribute in your B2C tenant, see the [B2C custom attribute reference](user-flow-custom-attributes.md).
 
 You can view the custom attributes defined in your B2C tenant by using the following `B2CGraphClient` commands:
 

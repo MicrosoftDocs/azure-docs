@@ -41,7 +41,7 @@ Also record your custom redirect URI for use in a later step. For example, `com.
 
 ## Create your user flows
 
-In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md), which is a set of policies that control the behavior of Azure AD. This application requires a sign-in and sign-up user flow. When you create the user flow, be sure to:
+In Azure AD B2C, every user experience is defined by a [user flow](user-flow-overview.md), which is a set of policies that control the behavior of Azure AD. This application requires a sign-in and sign-up user flow. When you create the user flow, be sure to:
 
 * Choose the **Display name** as a sign-up attribute in your user flow.
 * Choose the **Display name** and **Object ID** application claims in every user flow. You can choose other claims as well.

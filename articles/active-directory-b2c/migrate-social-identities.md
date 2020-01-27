@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 When you plan to migrate your identity provider to Azure AD B2C, you may also need to migrate users with social identities. This article explains how to migrate existing social identities accounts, such as: Facebook, LinkedIn, Microsoft, and Google accounts to Azure AD B2C. This article also applies to federated identities, however these migrations are less common. For the remainder of this article, consider anything that applies to social accounts to also apply to other types of federated accounts.
 
 ## Prerequisites
-This article is a continuation of the user migration article, and focuses on social identity migration. Before you start, read [user migration](active-directory-b2c-user-migration.md).
+This article is a continuation of the user migration article, and focuses on social identity migration. Before you start, read [user migration](user-migration.md).
 
 ## Social identities migration introduction
 
@@ -235,4 +235,4 @@ Submit following form-data:
 > [!NOTE]
 > If you don't update the UsersData.json file in the sample with your data, you can sign-in with the sample local account credentials but not with the social account examples. To migrate your social accounts, provide real data.
 
-For more information, how to use the sample app, see [Azure Active Directory B2C: User migration](active-directory-b2c-user-migration.md)
+For more information, how to use the sample app, see [Azure Active Directory B2C: User migration](user-migration.md)

@@ -105,7 +105,7 @@ You can configure user flow settings like these to control identity experience b
 
 Most common identity scenarios for the majority of mobile, web, and single-page applications can be defined and implemented effectively with user flows. We recommend that you use the built-in user flows unless you have complex user journey scenarios that require the full flexibility of custom policies.
 
-Learn more about user flows in [User flows in Azure Active Directory B2C](active-directory-b2c-reference-policies.md).
+Learn more about user flows in [User flows in Azure Active Directory B2C](user-flow-overview.md).
 
 ### Custom policy
 
@@ -168,7 +168,7 @@ Language customization in Azure AD B2C allows you to accommodate different langu
 
 ![Three sign-up sign-in pages showing UI text in different languages](media/technical-overview/localization.png)
 
-See how localization works in [Language customization in Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md).
+See how localization works in [Language customization in Azure Active Directory B2C](user-flow-language-customization.md).
 
 ## Add your own business logic
 
@@ -233,7 +233,7 @@ For more information about managing password protection settings, see [Manage th
 
 During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
 
-You can configure password complexity requirements in both [user flows](active-directory-b2c-reference-password-complexity.md) and [custom policies](custom-policy-password-complexity.md).
+You can configure password complexity requirements in both [user flows](user-flow-password-complexity.md) and [custom policies](custom-policy-password-complexity.md).
 
 ## Auditing and logs
 
@@ -250,7 +250,7 @@ In an audit log, which is available for your Azure AD B2C tenant or for a partic
 
 ![Individual user audit log shown in the Azure portal](media/technical-overview/audit-log.png)
 
-For additional details on audit logs, see [Accessing Azure AD B2C audit logs](active-directory-b2c-reference-audit-logs.md).
+For additional details on audit logs, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
 
 ### Usage insights
 

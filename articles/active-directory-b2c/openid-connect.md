@@ -22,7 +22,7 @@ OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that ca
 
 Because it extends OAuth 2.0, it also enables applications to securely acquire *access tokens*. You can use access tokens to access resources that are secured by an [authorization server](protocols-overview.md). OpenID Connect is recommended if you're building a web application that's hosted on a server and accessed through a browser. For more information about tokens, see the [Overview of tokens in Azure Active Directory B2C](tokens-overview.md)
 
-Azure AD B2C extends the standard OpenID Connect protocol to do more than simple authentication and authorization. It introduces the [user flow parameter](active-directory-b2c-reference-policies.md), which enables you to use OpenID Connect to add user experiences to your application, such as sign-up, sign-in, and profile management.
+Azure AD B2C extends the standard OpenID Connect protocol to do more than simple authentication and authorization. It introduces the [user flow parameter](user-flow-overview.md), which enables you to use OpenID Connect to add user experiences to your application, such as sign-up, sign-in, and profile management.
 
 ## Send authentication requests
 
