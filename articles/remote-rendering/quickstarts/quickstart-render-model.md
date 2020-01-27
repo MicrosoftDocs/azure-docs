@@ -81,7 +81,7 @@ Open the project, if necessary allowing Unity to upgrade the project to your ins
 
 ### Enter your account info as a one time step
 
-Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter your account credentials. The [Create an account](../how-tos/create-an-account.md) chapter explains where to find the account credentials.
+Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter your account credentials. The [Create an account](../azure/create-an-account.md) chapter explains where to find the account credentials.
 
 ![ARR Account Info](./media/arr-sample-account-info.png "ARR Account Info")
 

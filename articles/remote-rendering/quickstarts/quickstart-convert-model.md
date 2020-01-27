@@ -36,7 +36,7 @@ ARR supports the conversion of the following source formats: FBX, GLTF, and GLB 
 
 ## Prerequisites
 The following must be installed to complete this quickstart:
-- You need a remote rendering service account: [Create an account](../how-tos/create-an-account.md)
+- You need a remote rendering service account: [Create an account](../azure/create-an-account.md)
 - Install the Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
 - Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
 ```powershell
@@ -118,7 +118,7 @@ Similar to the process of starting a rendering session, we provide a script to l
 It is located in `Scripts` folder and is called `Ingestion.ps1`.
 `Ingestion.ps1` uses `Scripts\arrconfig.json` to configure itself. First open `Scripts\arrconfig.json` in a text editor of your choice.
 
-The values in the **`accountSettings`** category should still be filled out from running the [render a model quickstart](../quickstarts/quickstart-render-model.md). If not, put in your `arrAccountId` and `arrAccountKey` (primary or secondary key) as described in the [Create an account](../how-tos/create-an-account.md) section.
+The values in the **`accountSettings`** category should still be filled out from running the [render a model quickstart](../quickstarts/quickstart-render-model.md). If not, put in your `arrAccountId` and `arrAccountKey` (primary or secondary key) as described in the [Create an account](../azure/create-an-account.md) section.
 
 In addition to the values for spinning up the rendering session you also need to provide values for the following properties:
 
