@@ -25,7 +25,7 @@ ms.author: damendo
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
-> - [Azure Resource Manager Template](network-watcher-nsg-flow-logging-arm.md)
+> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) is Azure’s native and powerful way to manage your [infrastructure as code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
