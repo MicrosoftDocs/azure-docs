@@ -131,7 +131,7 @@
     items:
     - name: API versions
       href: search-api-versions.md
-    - name: Preview features
+    - name: Preview APIs
       href: search-api-preview.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
@@ -195,17 +195,17 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Using an indexer
+  - name: Use an indexer
     items:
     - name: Configure indexers
       href: search-indexer-overview.md
-    - name: Schedule indexers
-      href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
     - name: Monitor indexers
       href: search-howto-monitor-indexers.md
-    - name: Supported data sources
+    - name: Schedule indexers
+      href: search-howto-schedule-indexers.md
+    - name: Data sources
       items:
       - name: Azure Blobs
         items:      
