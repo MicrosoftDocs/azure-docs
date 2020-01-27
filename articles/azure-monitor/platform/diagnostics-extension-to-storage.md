@@ -22,15 +22,45 @@ See the following for details on installing and maintaining virtual machine exte
 - [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
 
 ## Install with Azure portal
+You can install the diagnostics extension on a VM in the Azure portal if it hasn't already been enabled. If it has been enabled, then you can use this same option to configure it.
+
+> [!NOTE]
+> You cannot configure the diagnostics extension to send data to Azure Event Hubs using the Azure portal. To configure this, you must use one of the other configuration methods.
 
 1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
 2. Click **Enable guest-level monitoring**.
+3. A new Azure Storage account will be created for the VM. You can attach the VM to another storage account by selecting the **Agent** tab.
+
+### Overview 
+Displays the current configuration with links to the other tabs.
+
+### Performance counters
+Select the performance counters to collect. 
+
+#### Basic setting
+Enable or disable all counters for standard performance objects. You can set a sample rate that will be applied to each of the counters for the object.
+
+#### Custom setting
+
+
 
 - Enables Name:Microsoft.Insights.VMDiagnosticsSettings extension 	
 Type: Microsoft.Azure.Diagnostics.IaaSDiagnostics
 - Creates a new storage account
 - Enables most common performance counters
 - Enables most common event logs
+
+
+## Installing and configuring WAD with CLI
+Assuming your protected settings are in the file PrivateConfig.json and your public configuration information is in PublicConfig.json, run the following command. 
+
+```Azure CLI
+az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+```
+
+Microsoft.Insights.VMDiagnosticsSettings
+Microsoft.Azure.Diagnostics.IaaSDiagnostics
+
 
 ## Specify a storage account
 You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string created for a new Cloud Service project in  Visual Studio:
@@ -43,28 +73,10 @@ You specify the storage account that you want to use in the ServiceConfiguration
 
 You can change this connection string to provide account information for an Azure storage account.
 
-Depending on the type of diagnostic data that is being collected, Azure Diagnostics uses either the Blob service or the Table service. The following table shows the data sources that are persisted and their format.
-
-| Data source | Storage format |
-| --- | --- |
-| Azure logs |Table |
-| IIS 7.0 logs |Blob |
-| Azure Diagnostics infrastructure logs |Table |
-| Failed Request Trace logs |Blob |
-| Windows Event logs |Table |
-| Performance counters |Table |
-| Crash dumps |Blob |
-| Custom error logs |Blob |
-
-## Transfer diagnostic data
-For SDK 2.5 and later, the request to transfer diagnostic data can occur through the configuration file. You can transfer diagnostic data at scheduled intervals as specified in the configuration.
-
-For SDK 2.4 and previous you can request to transfer the diagnostic data through the configuration file as well as programmatically. The programmatic approach also allows you to do on-demand transfers.
 
 > [!IMPORTANT]
 > When you transfer diagnostic data to an Azure storage account, you incur costs for the storage resources that your diagnostic data uses.
-> 
-> 
+ 
 
 ## Data storage
 The following table lists the different types of data collected from the diagnostics extension and whether they're stored as a table or a blob.
