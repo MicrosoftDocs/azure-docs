@@ -6,26 +6,39 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: helohr
 ---
 # Scale session hosts using Azure Automation
 
 You can reduce your total Windows Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
-This article will show you how to use Azure Automation to create a scaling tool that will automatically scale session host virtual machines in your Windows Virtual Desktop environment. To skip ahead to the how-to, go to [Prerequisites](#prerequisites).
+In this article, you'll learn about the scaling tool built with Azure Automation and Azure Logic Apps that will automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
 ## How the scaling tool works
 
-Azure Automation implements the scaling tool using runbooks, webhooks, and Azure Logic Apps. Azure Logic Apps calls a webhook to start the Azure Automation runbook that implements the scaling function. The runbook then creates a single execution instance called a "job." The job gathers IT settings from inputs provided to the **createazurelogicapp.ps1** file, including information about the beginning and end of peak usage during the day.
+The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
+
+You can use the scaling tool to:
+ 
+- Schedule VMs to start and stop based on Peak and Off-Peak business hours.
+- Scale out VMs based on number of sessions per CPU core.
+- Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
+
+The scaling tool uses a combination of Azure Automation PowerShell runbooks, webhooks, and Azure Logic Apps to function. When the tool runs, Azure Logic Apps calls a webhook to start the Azure Automation runbook. The runbook then creates a job.
 
 During peak usage time, the job checks the current number of sessions and the VM capacity of the current running session host for each host pool. It uses this information to calculate if the running session host VMs can support existing sessions based on the *SessionThresholdPerCPU* parameter defined for the **createazurelogicapp.ps1** file. If the session host VMs can't support existing sessions, the job starts additional session host VMs in the host pool.
 
 During the off-peak usage time, the job determines which session host VMs should shut down based on the *MinimumNumberOfRDSH* parameter. The job will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the *LimitSecondsToForceLogOffUser* parameter to a non-zero positive value, the script will notify any currently signed in users to save their work, wait the configured amount of time, and then force the users to sign out. Once all user sessions on the session host VM have been signed out, the script will shut down the server.
 
-If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job will allow the session configuration setting in the host pool properties to handle signing off user sessions. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there are no active sessions, the job will shut down the session host VM.
+If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job will allow the session configuration setting in specified group policies to handle signing off user sessions. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there are no active sessions, the job will shut down the session host VM.
 
 The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Windows Virtual Desktop environment, but remember that starting and shutting down virtual machines can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
+
+However, the tool also has the following limitations:
+
+- This solution applies only to pooled session host VMs.
+- This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic Apps.
 
 >[!NOTE]
 >The scaling tool controls the load balancing mode of the host pool it is scaling. It sets it to breadth-first load balancing for both peak and off-peak hours.
@@ -36,7 +49,6 @@ Before you start setting up the scaling tool, make sure you have the following t
 
 - A [Windows Virtual Desktop tenant and host pool](create-host-pools-arm-template.md)
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service
-- A Logic app created in the same subscription as the host pools and VMs you plan to use
 - A user with [Contributor access](../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
 The machine you use to deploy the tool must have: 
@@ -50,9 +62,8 @@ If you have everything ready, then let's get started.
 
 First, you'll need an Azure Automation account to run the PowerShell runbook. Here's how to set up your account:
 
-1. Sign in to Azure with the machine you plan to deploy the tool from.
-2. Open Windows PowerShell as an administrator.
-3. Run the following cmdlet to sign in to your Azure Account.
+1. Open Windows PowerShell as an administrator.
+2. Run the following cmdlet to sign in to your Azure Account.
 
      ```powershell
      Login-AzAccount
@@ -61,21 +72,21 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
      >[!NOTE]
      >Your account must have contributor rights on the Azure subscription that you want to deploy the scaling tool on.
 
-4. Run the following cmdlet to download the script for creating the Azure Automation account:
+3. Run the following cmdlet to download the script for creating the Azure Automation account:
 
      ```powershell
      Invoke-WebRequest -Uri “https://raw.githubusercontent.com/Azure/RDS-Templates/ptg-wvdautoscaling-automation/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazureautomationaccount.ps1" -OutFile “your local machine path\ createazureautomationaccount.ps1”
      ```
 
-5. Run the following cmdlet to execute the script and create the Azure Automation account:
+4. Run the following cmdlet to execute the script and create the Azure Automation account:
 
      ```powershell
      .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
      ```
 
-6. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic apps.
+5. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic apps.
 
-After you've set up your Azure Automation account, check to make sure your Azure Automation account and the relevant runbook have appeared in your Azure account, as shown in the following image:
+After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
 ![An image of the Azure overview page showing the newly created automation account and runbook.](media/automation-account.png)
 
@@ -105,7 +116,7 @@ To create a Run As account in your Azure account:
 
 ### Create a role assignment in Windows Virtual Desktop
 
-Next, you need to create a role assignment so that AzureRunAsConnection can interact with Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create role assignments.
+Next, you need to create a role assignment so that AzureRunAsConnection can interact with Windows Virtual Desktop. Make sure to use PowerShell to sign in with an account that has permissions to create role assignments.
 
 First, download and import the [Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your tenants.
 
@@ -115,7 +126,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-When you find the tenant you want to scale, follow the instructions in [Create an Azure Automation account](#create-an-azure-automation-account) and use the tenant name you got from the previous cmldet in the following cmdlet to create the role assignment:
+When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation account](#create-an-azure-automation-account) and use the tenant name you got from the previous cmldet in the following cmdlet to create the role assignment:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
@@ -233,7 +244,7 @@ To make changes to the execution schedule, such as changing the recurrence inter
 
 ## Manage your scaling tool
 
-Now that you've created your scaling tool, you can access its output and change its features. This section describes a few features you might find helpful.
+Now that you've created your scaling tool, you can access its output. This section describes a few features you might find helpful.
 
 ### View job status
 
