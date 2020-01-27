@@ -1,15 +1,17 @@
 ---
-title: Partnering with Azure DDoS Protection Standard
-description: "Understand partnering opportunities enabled by the Azure DDoS Protection Standard. This article helps product managers and business development roles understand the investment paths and provides insight into partnering value propositions."
+title: Partnering with Azure DDoS Protection Standard 
+description: "Understand partnering opportunities enabled by Azure DDoS Protection Standard."
 services:
+documentationcenter: na
 author: anupamvi
+mms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: anupamvi
 
 ---
 # Partnering with Azure DDoS Protection Standard
-This article describes partnering opportunities enabled by the Azure DDoS Protection Standard. In addition, it helps product managers and business development roles understand the investment paths and provides an insight into the partnering value propositions.
+This article describes partnering opportunities enabled by the Azure DDoS Protection Standard. This article is designed to help product managers and business development roles understand the investment paths and provide insight into partnering value propositions.
 
 ## Background
 Distributed denial of service (DDoS) attacks are one of the top availability and security concerns voiced by customers moving their applications to the cloud. With extortion and hacktivism being the common motivations behind DDoS attacks, they have been consistently increasing in type, scale, and frequency of occurrence as they are relatively easy and cheap to launch.
@@ -36,7 +38,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 - Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
 - You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](../../virtual-network/manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors and other details.
 
-    ![DDoS metrics](./media/ddos-protection-partner-onboarding-overview/ddos-metrics.png)
+![DDoS metrics](./media/ddos-protection-partner-onboarding-overview/ddos-metrics.png)
 
 ### DDoS rapid response (DRR)
 DDoS Protection Standard customers now have access to [Rapid Response team](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) during an active attack. DRR can help with attack investigation, custom mitigations during an attack, and post-attack analysis.
@@ -55,7 +57,16 @@ The following are three key benefits you can derive by integrating with the Azur
 ## Technical integration overview
 Azure DDoS Protection Standard partnering opportunities are made available via Azure portal, APIs, CLI/PS.
 
-## Get started
+## How to integrate with DDoS Protection Standard
+Following steps are required for partners to configure integration with Azure DDoS Protection Standard:
+1. Create a DDoS Protection Plan in your desired (partner) subscription. For step-by-step instructions, see [Create a DDoS Standard Protection plan](manage-ddos-protection.md#create-a-ddos-protection-plan).
+   > [!NOTE]
+   > Only 1 DDoS Protection Plan needs to be created for a given tenant. 
+2. Deploy a service with public endpoint in your required (partner) subscriptions such as - load balancer, firewalls, web application firewall. 
+3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
+   > [!IMPORTANT] 
+   > Once Azure DDoS Protection Standard is enabled on a virtual network, all public IPs within that virtual network are automatically protected. The origin of these public IPs can either be within Azure (client subscription), or, outside of Azure. 
+4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application specific customer facing. For more information about using telemetry, see [Use DDoS Protection telemetry](manage-ddos-protection.md#use-ddos-protection-telemetry). For more information about configuring attack analytics, see [Configure DDoS attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics)
 
 ### Onboarding guides and technical documentation
 
