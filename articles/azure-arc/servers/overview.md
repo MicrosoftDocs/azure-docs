@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 01/24/2020
+ms.date: 01/27/2020
 ms.custom: mvc
 ms.topic: overview
 ---
@@ -108,6 +108,16 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
+## Connected Machine agent
+
+You can download the Azure Connected Machine Agent package for Windows and Linux from the locations listed below.
+
+- [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
+- Linux agent package is distributed from Microsoft's [package repository](https://packages.microsoft.com/) using the preferred package format for the distribution (.RPM or .DEB).
+
+>[!NOTE]
+>During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
+
 ## Install and configure agent
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
@@ -117,13 +127,6 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 | Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](quickstart-onboard-portal.md).<br> From the Azure portal you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
 | At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
 
-You can download the Azure Connected Machine Agent package for Windows and Linux from the locations listed below.
-
-- [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
-- Linux agent package is distributed from Microsoft's [package repository](https://packages.microsoft.com/) using the preferred package format for the distribution (.RPM or .DEB).
-
->[!NOTE]
->During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
 ## Next steps
 
