@@ -74,7 +74,6 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 Set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
-1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
 1. Verify that your **Authorization URL** is correct. It should take the format:
 
     ```plaintext
@@ -85,7 +84,13 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
 
-1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
+    The tenant is your **Tenant ID** in Azure Active Directory. There is both a numeric directory Id and a human-readable name. You must use human-readable name. The **Tenant ID** is located under the **Overview** tab of your Azure Active Directory.
+
+1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
+
+1. Open the Postman app and click new | Create new, and select Request. Enter a Request name. 
+
+1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**. select a collection or folder to save it to, and click Save. You want to make a GET request. Select the **Authorization** tab, select OAuth 2.0, and then select **Get New Access Token**.
 
     | Field  | Value |
     |---------|---------|
