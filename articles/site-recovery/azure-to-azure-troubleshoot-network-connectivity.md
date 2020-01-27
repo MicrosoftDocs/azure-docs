@@ -87,7 +87,7 @@ These rules are required so that replication can be enabled from the target regi
   - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
-  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+  - Azure Site Recovery required access to Site Recovery IP ranges depending on the region. If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to Site Recovery IP ranges. You can do this by creating a Site Recovery service tag based NSG rule for allowing access to all IP addresses corresponding to Site Recovery.
 
 
 ## Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
