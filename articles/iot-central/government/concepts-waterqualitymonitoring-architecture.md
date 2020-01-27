@@ -29,7 +29,7 @@ Concepts:
 Let's take a look at key components that generally play a part in a water quality monitoring solution.
 
 ## Devices and connectivity 
-In this section, we will refer to devices used in water quality monitoring or water consumption monitoring, generally as smart water devices. Smart water devices can be flow meters, water quality monitors, smart valves, leak detectors etc.
+In this section, we will refer to devices used in water quality monitoring or water consumption monitoring, generally as smart water devices. Smart water devices can be flow meters, water quality monitors, smart valves, leak detectors, and so on.
 
 Devices used in smart water solutions will generally be connected through low-power wide area networks (LPWAN), via a third-party network operator. For these types of devices, you can leverage the [Azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
 

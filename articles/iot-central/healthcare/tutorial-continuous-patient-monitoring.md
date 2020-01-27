@@ -52,7 +52,7 @@ After deploying the app template, you will first land on the **Lamna in-patient 
 
 * View the **floor plan** and location of the Smart Vitals Patch device.
 
-* **Re-provision** the Smart Vitals Patch for a new patient.
+* **Reprovision** the Smart Vitals Patch for a new patient.
 
 * See an example of a **provider dashboard** that a hospital care team might see to track their patients.
 
@@ -66,7 +66,7 @@ You can also click on **Go to remote patient dashboard** to see the second opera
 >[!div class="mx-imgBorder"] 
 >![Lamna remote](media/lamna-remote.png)
 
-On both dashboards you can always link back to this documentation.
+On both dashboards, you can always link back to this documentation.
 
 ### Device templates
 
@@ -79,7 +79,7 @@ If you click on the **Device templates** tab, you will see that there are two di
 >[!div class="mx-imgBorder"] 
 >![Smart Vitals Patch Device Template](media/smart-vitals-device-template.png)
 
-If you click on the **Device groups** tab you will also see that these device templates automatically have device groups created for them.
+If you click on the **Device groups** tab, you will also see that these device templates automatically have device groups created for them.
 
 ### Rules
 

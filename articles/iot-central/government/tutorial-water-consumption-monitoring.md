@@ -142,7 +142,7 @@ Try to customize the following:
 ### Add a cloud property 
 1. Navigate to **Cloud property** from the device template menu
 2. Add a new cloud property by clicking **+ Add Cloud Property**. 
-    In IoT Central, you can add a property that is relevant to the device. As an example, a cloud property could be an alerting threshold specific to installation area, asset information, or maintenance information etc. 
+    In IoT Central, you can add a property that is relevant to the device. As an example, a cloud property could be an alerting threshold specific to installation area, asset information, or other maintenance information. 
 3. **Save** any changes 
  
 ### Views 
