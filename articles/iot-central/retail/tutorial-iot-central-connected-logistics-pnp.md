@@ -45,7 +45,7 @@ You can create application using following steps
 
 ## Dashboard
 
-After successfully deploying the app template, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing fleet of cargo in the ocean and on the land. In this dashboard, you will see two different gateways providing telemetry about shipments along with associated commands, jobs, and actions that you can perform. 
+After successfully deploying the app template, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing fleet of cargo in the ocean and on the land. In this dashboard, you will see two different gateways providing telemetry about shipments along with associated commands, jobs, and actions that you can do. 
 This dashboard is pre-configured to showcase the critical logistics device operations activity.
 The dashboard is logically divided between two different gateway device management operations, 
    * Logistics route for truck shipment and location details of the ocean shipment is an essential element for all the multi-modal transportation
@@ -55,7 +55,7 @@ The dashboard is logically divided between two different gateway device manageme
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png)
 
    * You can easily track the total number of gateways, active, and unknown tags.
-   * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals, & update device service contracts.
+   * You can do device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals, & update device service contracts.
    * View device battery consumption
 
 > [!div class="mx-imgBorder"]
@@ -91,10 +91,10 @@ Select the jobs tab to see five different jobs that exist as part of this applic
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
 
-You can use jobs feature to perform solution-wide operations. Here jobs are using the device commands & twin capability to perform tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
+You can use jobs feature to do solution-wide operations. Here jobs are using the device commands & twin capability to do tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
    * It is a standard operation to disable shock sensors during ocean shipment to conserve battery or decrease temperature threshold during cold chain transportation. 
  
-   * Jobs enable you to perform system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.
+   * Jobs enable you to do system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.
 
 ## Clean up resources
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
