@@ -38,8 +38,12 @@ The connection requires the following parameters:
 * **Database:** Database name
 
 > [!NOTE]
-> If you would like to use **SQL on-demand** URL should look like: `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
-> If you would like to use **SQL pool** URL should look like: `<Azure Synapse workspace name>`.sql.azuresynapse.net
+> If you would like to use **SQL on-demand** URL should look like: 
+> - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
+
+> [!NOTE]
+> If you would like to use **SQL pool** URL should look like: 
+> - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
 Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**. 
 
@@ -69,7 +73,7 @@ Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL
 
 ![New Query](media/sql-analytics-query-ads/5-new-query.png)
 
-For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md): 
+For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md) using SQL on-demand: 
 
 ```sql
 SELECT COUNT(*) 
