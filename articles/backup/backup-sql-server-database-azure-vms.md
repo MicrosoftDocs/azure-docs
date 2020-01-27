@@ -19,6 +19,10 @@ In this article, you'll learn how to:
 > * Discover databases and set up backups.
 > * Set up auto-protection for databases.
 
+>[!NOTE]
+>**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+
 ## Prerequisites
 
 Before you back up a SQL Server database, check the following criteria:
