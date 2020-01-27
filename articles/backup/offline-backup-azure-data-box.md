@@ -132,7 +132,8 @@ The Offline backup process using MARS and Azure Data Box requires that the requi
 
 * Run *MARSAgentInstaller.exe* and perform ***only** the steps to [Install and Register the Agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) to the Recovery Services Vault to which you want your backups to be stored.
 
-  >[!NOTE] The Recovery Services Vault must be in the same subscription as the Azure Data Box job.
+  >[!NOTE]
+  > The Recovery Services Vault must be in the same subscription as the Azure Data Box job.
 
 * Once the agent is registered to the Recovery Services Vault, follow the steps in the sections below.
 
@@ -144,7 +145,8 @@ Depending on the Azure Data Box SKU you have ordered, perform the steps covered 
 
 If you ordered one or more Azure Data Box Disks (up to 8 TB each), follow the steps mentioned here to [Unpack, connect, and unlock your Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
 
->[!NOTE] It is possible that the server with the MARS Agent does not have a USB port. In that situation you can connect your Azure Data Box Disk to another server/client and expose the root of the device as a network share.
+>[!NOTE] 
+>It is possible that the server with the MARS Agent does not have a USB port. In that situation you can connect your Azure Data Box Disk to another server/client and expose the root of the device as a network share.
 
 ### Setup Azure Data Box
 
@@ -250,7 +252,8 @@ This section explains the steps to take once the backup of the data to the Azure
 
 * [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. Once the Azure Data Box job is “Complete”, the MARS Agent will automatically move the data from the Storage Account to the Recovery Services Vault at the time of the next scheduled backup. It will then mark the backup job as “Job Completed” if a recovery point is successfully created.
 
-    >[!NOTE] The MARS Agent will trigger backups at the times scheduled during policy creation. However these jobs will flag “Waiting for Azure Data Box job to be completed” until the time the job is complete.
+    >[!NOTE]
+    >The MARS Agent will trigger backups at the times scheduled during policy creation. However these jobs will flag “Waiting for Azure Data Box job to be completed” until the time the job is complete.
 
 * After the MARS Agent successfully creates a recovery point corresponding to the initial backup, you may delete the Storage Account (or specific contents) associated with the Azure Data Box job.
 
