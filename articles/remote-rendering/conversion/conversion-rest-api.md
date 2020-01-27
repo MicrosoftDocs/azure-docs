@@ -1,5 +1,5 @@
 ---
-title: Using the model ingestion REST API
+title: The model conversion REST API
 description: Tutorial how to ingest a model via REST API
 author: FlorianBorn71
 manager: jlyons
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Using the model ingestion REST API
+# The model conversion REST API
 
 In order to render a model, it needs to be converted into the native remote rendering service format (ezArchive).
 We call this process *ingestion*.
@@ -19,11 +19,13 @@ Ingestion is done by having your model stored under an Azure blob storage and ca
 All of the model data (input and output) is stored in the Azure blob storage provided by the user. Azure remote rendering gives you full control over your asset management.
 
 The supported input model formats for ingestion are:
+
 - FBX  (version 2011 and above)
 - GLTF (version 1.0 and 2.0)
 - GLB  (version 1.0 and 2.0)
 
 ## Overview of the model ingestion process
+
 - [Prepare Azure blob storage containers](#prepare)
 - [Upload your model to the input container](#upload)
 - [Call the ingestion REST API](#rest) with the following parameters: input container stored access signature (SAS), output container SAS and path within the input container to the model file as parameters.
@@ -35,13 +37,15 @@ They can be found in the Scripts directory of the arrclient repo.
 The script and its configuration are described here: [Powershell example scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
 
 ## Accounts
+
 If you don't have a Remote Rendering account, [create one](../how-tos/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs.
 
 ## <span id="rest">Asset conversion REST API
  
 We provide two REST API endpoints to:
-- start model conversion 
-- poll conversion progress 
+
+- start model conversion
+- poll conversion progress
 
 ## Environments
 
@@ -51,9 +55,11 @@ We provide two REST API endpoints to:
 | Production West Europe | https://remoterendering.westeurope.mixedreality.azure.com |
 
 ## Common request headers
+
 - The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [how to get a token](../quickstarts/getting-tokens.md)
 
 ## Common response headers
+
 - The *MS-CV* header can be used by the product team to trace the call within the service
 
 ### Start conversion
@@ -65,16 +71,19 @@ We provide two REST API endpoints to:
 Returns the ID of the created model wrapped in a JSON document. The field is "modelId"
 
 #### Request body
+
 - modelName (string): path to the model in the input container
 - modelUrl (string): input container SAS url
 - assetContainerUrl (string): output container SAS url
-   
+
 ### Model conversion status
+
 | Endpoint | Method |
 |-----------|:-----------|
 | /v1/accounts/*account ID*/models/*assetId*/status | GET |
 
 Returns a JSON document with a "status" field that can have the following values:
+
 - "Running"
 - "Success"
 - "Failure"

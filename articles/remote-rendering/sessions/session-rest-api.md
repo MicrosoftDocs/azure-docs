@@ -1,6 +1,6 @@
 ---
-title: Launching virtual machines
-description: Tutorial how to ingest a model via REST API
+title: The session management REST API
+description: Describes how to convert a model through the REST API
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Launch virtual machines
+# The session management REST API
 
 Once an asset has been converted, a session should be created to render it. The creation will allocate a virtual machine (VM) with a public IP a client can connect to. Once the VM is not needed anymore, the session must be stopped to free up resources.
 

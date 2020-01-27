@@ -1,5 +1,5 @@
 ---
-title: Azure Remote Rendering overview
+title: About Azure Remote Rendering
 description: Introduction into Azure Remote Rendering
 author: FlorianBorn71
 manager: jlyons
@@ -10,7 +10,7 @@ ms.topic: overview
 ms.service: azure-remote-rendering
 ---
 
-# Azure remote rendering overview
+# About Azure Remote Rendering
 
 *Azure Remote Rendering* (ARR) is a service that enables you to render high-quality, interactive 3D content in the cloud and stream it in real time to devices, such as the HoloLens 2.
 

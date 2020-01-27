@@ -1,6 +1,6 @@
 ---
-title: Overriding materials for ingestion
-description: Explains the material overriding workflow at ingestion time
+title: Overriding materials during model conversion
+description: Explains the material overriding workflow at conversion time
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -10,8 +10,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-
-# Override materials for ingestion
+# Overriding materials during model conversion
 
 When a model is ingested for use in Azure Remote Rendering, in addition to the converted asset, a *materials file* is also produced.
 This file describes how the settings in the source model are used to define the **physically-based rendering** (**PBR**) materials used by the renderer.

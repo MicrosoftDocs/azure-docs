@@ -1,6 +1,6 @@
 ---
-title: Configuring model ingestion
-description: Description of all model ingestion parameters
+title: Configuring the model conversion
+description: Description of all model conversion parameters
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Configure model ingestion
+# Configuring the model conversion
 
 This chapter documents the user-facing options in the configuration file for the ingestion.
 

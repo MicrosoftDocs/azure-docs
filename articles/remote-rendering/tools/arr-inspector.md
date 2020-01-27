@@ -9,6 +9,7 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # The ArrInspector inspection tool
 
 The ArrInspector is a web-based tool used to inspect a running Azure Remote Rendering session. It is meant to be used for debugging purposes, to inspect the structure of the scene being rendered, show the log messages and monitor the live performance on the server side.
@@ -16,9 +17,11 @@ The ArrInspector is a web-based tool used to inspect a running Azure Remote Rend
 ![ArrInspector](./media/arr-inspector.png)
 
 ## Connecting to the ArrInspector
+
 Once you obtain the hostname (ending in "mixedreality.azure.com") of your ARR server, connect using the [ConnectToArrInspectorAsync](../sdk/azure-frontend-authentication.md) API. The tool is compatible with Edge, Firefox and Chrome.
 
 If you want to browse ArrInspector on the PC you can:
+
 1. Call ConnectToArrInspectorAsync on the PC
 2. Call ConnectToArrInspectorAsync on the device. This will create a 'StartArrInspector.html' file, which you can download to the PC and open:
    * Point the Windows Device Portal to your HoloLens
@@ -47,18 +50,17 @@ The vertical range is by default computed based on the values currently displaye
 
 ![vertical range](./media/vertical-range.png)
 
-
 ## The Log Panel
 
 ![Log Panel](./media/log-panel.png)
 
-The log panel shows a list of log messages generated on the server side. On connection it will show up to 200 previous log messages, 
-and will print new ones as they happen.
+The log panel shows a list of log messages generated on the server side. On connection it will show up to 200 previous log messages, and will print new ones as they happen.
 
 You can filter the list based on the log type \[Error/Warning/Info/Debug\] by clicking on the toggle buttons on the top. 
 ![Log Filter Buttons](./media/log-filter.png)
 
 ## The Timing Data Capture Panel
+
 ![Timing Data Capture](./media/timing-data-capture.png)
 This panel is used to capture timing information from the server and download it. The format of the downloaded file is the [Chrome Tracing JSON format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). To inspect the data, you can open Chrome on the URL Chrome://tracing and drag-and-drop the downloaded file on the page.
 The timing data is a dump of the fixed-size buffers continuously collecting timing information in the engine, so it refers to a capture in the immediate past.
