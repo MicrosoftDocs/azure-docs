@@ -43,7 +43,7 @@ If you can't find an answer to your problem via search, submit a new question to
  - [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
 
-## Start a conversation on the MSDN Forums
+## Start a conversation on the MSDN forums
 
 To discuss azure technologies and services for creating IoT solutions. MSDN is the preferred channel for **solution-related questions**. It's where members of the community and Microsoft team members are directly involved in helping you chose the right solution for your project.
 
