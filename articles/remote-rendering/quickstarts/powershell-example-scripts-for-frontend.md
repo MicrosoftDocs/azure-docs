@@ -25,7 +25,7 @@ More information about Azure Powershell can be found at: https://docs.microsoft.
 
 In powershell with admin rights:
 ```powershell
-PS> $ Install-Module -Name Az -AllowClobber
+PS> Install-Module -Name Az -AllowClobber
 ```
 ## Allow Powershell scripts to be executed
 If you get an error about running scripts, ensure your execution policy is set appropriately
@@ -33,7 +33,7 @@ Open Powershell as an admin and run  the command below to allow unrestricted exe
 
 In a powershell window:
 ```powershell
-PS> $ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+PS> Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ```
 ## Prepare an Azure Storage account 
 In order to use the asset ingestion service you need to have an Azure subscription and an Azure Storage V2 account. 
@@ -44,7 +44,7 @@ You can create a storage account and the containers in the Azure portal at: http
 If you want to use the asset ingestion service and upload files to azure blob storage, you will need to log into your subscription.
 In a powershell window (does not need admin rights):
 ```powershell
-PS> $ Connect-AzAccount -Subscription "<your azure subscription id>"
+PS> Connect-AzAccount -Subscription "<your azure subscription id>"
 ```
 This will open a browser window for you to log in to your subscription.
 
@@ -82,7 +82,7 @@ All commands can be executed in a powershell window:
 ## Starting a Rendering Session
 Normal usage with a fully filled out arrconfig.json: 
 ```powershell
-PS> $ .\RenderingSession.ps1
+PS> .\RenderingSession.ps1
 ```
 Will call the REST API to spin up a rendering VM with azure region, size, and lease time specified in arrconfig.json. 
 On success, this will retrieve the sessionId. 
@@ -91,22 +91,22 @@ Then the script will poll the session properties using the sessionId REST API un
 
 Using an alternative config file:
 ```powershell
-PS> $ .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
+PS> .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
 You can override individual settings from the config file like:
 ```powershell
-PS> $ .\RenderingSession.ps1 -Region <westeurope or westus2> -VmSize <small or big> -MaxLeaseTime <hh:mm:ss>
+PS> .\RenderingSession.ps1 -Region <westeurope or westus2> -VmSize <small or big> -MaxLeaseTime <hh:mm:ss>
 ```
 For example: this will override the renderingSessionSettings.vmSize setting in arrconfig.json
 ```powershell
-PS> $ .\RenderingSession.ps1 -VmSize small
+PS> .\RenderingSession.ps1 -VmSize small
 ```
 or any combinations of these parameters. 
 
 In order to only start a session without polling, you can use:
 ```powershell
-PS> $ .\RenderingSession.ps1 -CreateSession
+PS> .\RenderingSession.ps1 -CreateSession
 ```
 This will retrieve a sessionID. 
 
@@ -115,42 +115,42 @@ This will retrieve a sessionID.
 Once you have a sessionId (from requesting a VM as described above) use:
 
 ```powershell
-PS> $ .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID>
+PS> .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID>
 ```
 
 You can enable polling by using: 
 ```powershell
-PS> $ .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> -Poll
+PS> .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> -Poll
 ```
 
 ## Get current sessions
 To list the current sessions, use:
 
 ```powershell
-PS> $ .\RenderingSession.ps1 -GetSessions
+PS> .\RenderingSession.ps1 -GetSessions
 ```
 
 ## Stop a session
 ```powershell
-PS> $ .\RenderingSession.ps1 -StopSession -Id <sessionID> 
+PS> .\RenderingSession.ps1 -StopSession -Id <sessionID> 
 ```
 
 ## Change session properties
 At the moment, we only support changing the maxLeaseTime of a VM. The lease time will still be counted from the time when the VM was spun up initially. 
 ```powershell
-PS> $ .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
+PS> .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
 ## Converting an asset using Ingestion.ps1
 Make sure you have filled out the accountSettings and azureStorageSettings sections in arrconfig.json next to the Ingestion.ps1 script.
 Open a powershell in the Scripts folder and make sure you are logged into the Azure subscription under which your storage account exists
 ```powershell
-PS> $ Connect-AzAccount -Subscription "<your azure subscription id>"
+PS> Connect-AzAccount -Subscription "<your azure subscription id>"
 ```
 
 Then you can use the script as follows using the values given in arrconfig.json
 ```powershell
-PS> $ .\Ingestion.ps1
+PS> .\Ingestion.ps1
 ```
 This will: 
 - Take the local file from the modelSettings.modelLocation and upload it to the input blob container configured under azureStorageSettings of the config file. 
@@ -162,29 +162,29 @@ This will:
 
 You can point model ingestion to an alternate config file by using:
 ```powershell
-PS> $ .\Ingestion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
+PS> .\Ingestion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
 If you only want to start ingesting a model without polling:
 ```powershell
-PS> $ .\Ingestion.ps1 -IngestAsset 
+PS> .\Ingestion.ps1 -IngestAsset 
 ```
 This will return an ingestion ID. 
 
 You can use this ID to get the ingestion status with: 
 ```powershell
-PS> $ .\Ingestion.ps1 -GetAssetStatus -Id <id> [-Poll]
+PS> .\Ingestion.ps1 -GetAssetStatus -Id <id> [-Poll]
 ```
 Use -Poll to wait until ingestion is done or an error occurred
 
 You can override individual parameters of the script:
 ```powershell
-PS> $ .\Ingestion.ps1 -ModelLocation D:\tmp\arr\pyramid.fbx
+PS> .\Ingestion.ps1 -ModelLocation D:\tmp\arr\pyramid.fbx
 ```
 
 If you want to ingest a model, which is already present in your input container: 
 ```powershell
-PS> $ .\Ingestion.ps1 -IngestAsset -ModelName <filename in input container, for example: box.fbx>
+PS> .\Ingestion.ps1 -IngestAsset -ModelName <filename in input container, for example: box.fbx>
 ```
 
 

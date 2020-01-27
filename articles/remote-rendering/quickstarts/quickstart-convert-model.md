@@ -137,7 +137,7 @@ You are now ready to have the script upload your model, call the conversion REST
 
 Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
 ```powershell
-PS> $ Install-Module -Name Az -AllowClobber
+PS> Install-Module -Name Az -AllowClobber
 ```
 Installation of the Azure Powershell is a one-time step.
 
@@ -145,7 +145,7 @@ Installation of the Azure Powershell is a one-time step.
 If you want to use the asset conversion service and upload files to Azure Blob Storage, you will need to log into your subscription.
 In a powershell window (does not need admin rights):
 ```powershell
-PS> $ Connect-AzAccount -Subscription "<your Azure subscription id>"
+PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
 ## Run Ingestion.ps1
