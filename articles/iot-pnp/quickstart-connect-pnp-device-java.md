@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microso
 description: Using Java, build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: baanders
 ms.author: baanders
-ms.date: 11/14/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -74,11 +74,7 @@ Run a sample application to simulate an IoT Plug and Play device that sends tele
 java -jar environmental-sensor-sample\target\environmental-sensor-sample-with-deps.jar
 ```
 
-You see the following output, indicating the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub.
-
-   ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-java.png)
-
- Keep the sample running as you complete the next steps.
+You see messages saying that the device is connected, performing various setup steps, and waiting for service updates, followed by telemetry logs. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ## Use the Azure IoT explorer to validate the code
 

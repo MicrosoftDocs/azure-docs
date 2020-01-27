@@ -1,16 +1,9 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, C# - Speech service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+ms.date: 01/13/2020
+ms.author: dapine
 ---
 
 ## Prerequisites
@@ -18,10 +11,10 @@ zone_pivot_groups: programming-languages-set-two
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Upload a source file to an azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## Download and install the API client library
 
@@ -38,7 +31,7 @@ Follow these steps for the installation:
 1. Install the extracted python-client module in your Python environment using pip: `pip install path/to/package/python-client`.
 1. The installed package has the name `swagger_client`. You can check that the installation worked using the command `python -c "import swagger_client"`.
 
-> **Note:**
+> [!NOTE]
 > Due to a [known bug in the Swagger autogeneration](https://github.com/swagger-api/swagger-codegen/issues/7541), you might encounter errors on importing the `swagger_client` package.
 > These can be fixed by deleting the line with the content
 > ```py
@@ -63,7 +56,8 @@ pip install requests
 Let's add some code that works as a skeleton for our project.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
-(You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## Create and configure an Http Client
 The first thing we'll need is an Http Client that has a correct base URL and authentication set.

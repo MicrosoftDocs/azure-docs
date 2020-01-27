@@ -1,6 +1,6 @@
 ---
 title: Availability of Service Fabric services 
-description: Describes fault detection, failover, and recovery of services
+description: Describes fault detection, failover, and recovery of a service in an Azure Service Fabric application.
 author: masnider
 
 ms.topic: conceptual

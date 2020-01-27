@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure Service Fabric application with a system-assigned managed identity
+title: Deploy a Service Fabric app with system-assigned MI
 description: This article shows you how to assign a system-assigned managed identity to an Azure Service Fabric application
 
 ms.topic: article

@@ -27,14 +27,19 @@ This article highlights the major changes that come with new versions of the For
 
 ### New features
 
-* **Supervised learning** You can now train a custom model with manually labeled data. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
-* **Text layout extraction** You can now use the Layout API to extract text data and table data from your forms.
-* **Extraction accuracy improvements** The built-in table extraction model and receipt extraction model have been improved.
-* **Receipt item extraction** The prebuilt receipt model can now extract individual line items and tip amount.
-* **Receipt extraction confidence** The prebuilt receipt model now reports confidence levels for each of its extractions.
-* **Large data support** Your training data set for custom models can now be up to 50 MB in size.
-* **TIFF file support** You can now train with and extract data from TIFF documents.
+* **Custom model**
+  * **Train with labels** You can now train a custom model with manually labeled data. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
+  * **Asynchronous API** You can use async API calls to train with and analyze large data sets and files.
+  * **TIFF file support** You can now train with and extract data from TIFF documents.
+  * **Extraction accuracy improvements**
 
+* **Prebuilt receipt model**
+  * **Tip amounts** You can now extract tip amounts and other handwritten values.
+  * **Line item extraction** You can extract line item values from receipts.
+  * **Confidence values** You can view the model's confidence for each extracted value.
+  * **Extraction accuracy improvements**
+
+* **Layout extraction** You can now use the Layout API to extract text data and table data from your forms.
 
 ### Custom model API changes
 

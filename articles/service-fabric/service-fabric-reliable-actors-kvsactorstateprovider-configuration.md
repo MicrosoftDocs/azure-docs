@@ -1,5 +1,5 @@
 ---
-title: Change KVSActorStateProvider settings in Azure Service Fabric actors 
+title: Change KVSActorStateProvider settings
 description: Learn about configuring Azure Service Fabric stateful actors of type KVSActorStateProvider.
 author: sumukhs
 

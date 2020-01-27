@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Docs
-description: Service Bus Premium and Standard Messaging tiers
+title: Azure Service Bus premium and standard tiers
+description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---

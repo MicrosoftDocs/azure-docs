@@ -78,28 +78,20 @@ Configuration parameters are provided as JSON:
 }
 ```
 
-> [!NOTE]
-> The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
-
 ### Configuration properties
 
 Use these optional properties to configure transcription:
 
 | Parameter | Description |
 |-----------|-------------|
-| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None`, which disables profanity filtering; `Masked`, which replaces profanity with asterisks; `Removed`, which removes all profanity from the result; `Tags`, which adds "profanity" tags. The default setting is `Masked`. |
-| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None`, which disables punctuation; `Dictated`, which implies explicit punctuation; `Automatic`, which lets the decoder deal with punctuation; `DictatedAndAutomatic`, which implies dictated punctuation marks or automatic (the default value). |
-| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `True`, which enables word level timestamps; `False`, to disable it (the default value). |
-| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `True`, which enables sentiment per utterance; `False`, to disable it (the default value).|
-| `AddDiarization` | Specifies that diarization analysis should be carried out on the input that is expected to be mono channel containing two voices. Accepted values are `True`, which enables diarization; `False`, to disable it (the default value). It also requires `AddWordLevelTimestamps` to be set to true.|
-| `TranscriptionResultsContainerUrl` | An optional SAS token to a writeable container in Azure. The result will be stored in this container. |
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `Masked` which replaces profanity with asterisks, `Removed` which removes all profanity from the result, or `Tags` which adds "profanity" tags. The default setting is `Masked`. |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `Dictated` which implies explicit punctuation, `Automatic` which lets the decoder deal with punctuation, or `DictatedAndAutomatic` which implies dictated punctuation marks or automatic. |
+| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
+| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
+| `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
+|`TranscriptionResultsContainerUrl`|Optional SAS token to a writeable container in Azure. The result will be stored in this container.
 
 ### Storage
-
-Lexical` | The lexical form of the recognized text: the actual words recognized. |
-| `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
-| `MaskedITN` | The ITN form with profanity masking applied, if requested. |
-| `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
@@ -117,39 +109,35 @@ For mono input audio, one transcription result file is being created. For stereo
       "CombinedResults": [
         {
           "ChannelNumber": null                             'always null'
-          "Lexical": string                                 'the actual words recognized'
-          "ITN": string                                     'inverse-text-normalized form
-                                                             of the recognized text, with phone numbers,
-                                                             abbreviations ("doctor smith" to "dr smith"),
-                                                             and other transformations applied'
-          "MaskedITN": string                               'The ITN form with profanity masking applied'
-          "Display": string                                 'The display form of the recognized text
-                                                             with punctuation and capitalization added'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
         }
       ]
-      SegmentResults:[                                     'for each individual segment'
+      SegmentResults:[                                      'for each individual segment'
         {
-          "RecognitionStatus": Success | Failure
+          "RecognitionStatus": "Success | Failure"
           "ChannelNumber": null
-          "SpeakerId": null | "1 | 2"                     'null if no diarization
-                                                            or stereo input file, the
-                                                            speakerId as a string if
-                                                            diarization requested for
-                                                            mono audio file'
-          "Offset": number                                'time in milliseconds'
-          "Duration": number                              'time in milliseconds'
-          "OffsetInSeconds" : number                      'Real number. Two decimal places'
-          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "SpeakerId": null | "1 | 2"                       'null if no diarization
+                                                             or stereo input file, the
+                                                             speakerId as a string if
+                                                             diarization requested for
+                                                             mono audio file'
+          "Offset": number                                  'time in milliseconds'
+          "Duration": number                                'time in milliseconds'
+          "OffsetInSeconds" : number                        'Real number. Two decimal places'
+          "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
             {
-              "Confidence": number                        'between 0 and 1'
+              "Confidence": number                          'between 0 and 1'
               "Lexical": string
               "ITN": string
               "MaskedITN": string
               "Display": string
               "Sentiment":
-                {                                          'this is ommitted if sentiment is
-                                                            not requested'
+                {                                           'this is omitted if sentiment is
+                                                             not requested'
                   "Negative": number                        'between 0 and 1'
                   "Neutral": number                         'between 0 and 1'
                   "Positive": number                        'between 0 and 1'
@@ -157,10 +145,11 @@ For mono input audio, one transcription result file is being created. For stereo
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                         'time in milliseconds'
-                  "Duration": number                       'time in milliseconds'
-                  "OffsetInSeconds": number                'Real number. Two decimal places'
-                  "DurationInSeconds": number              'Real number. Two decimal places'
+                  "Offset": number                          'time in milliseconds'
+                  "Duration": number                        'time in milliseconds'
+                  "OffsetInSeconds": number                 'Real number. Two decimal places'
+                  "DurationInSeconds": number               'Real number. Two decimal places'
+                  "Confidence": number                      'between 0 and 1'
                 }
               ]
             }
@@ -171,6 +160,15 @@ For mono input audio, one transcription result file is being created. For stereo
   ]
 }
 ```
+
+The result contains these forms:
+
+|Form|Content|
+|-|-|
+|`Lexical`|The actual words recognized.
+|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
+|`MaskedITN`|The ITN form with profanity masking applied.
+|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
 
 ## Speaker separation (Diarization)
 

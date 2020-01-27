@@ -18,7 +18,7 @@ There are some limits on the number of metrics and events per application, that 
 | Throttling | 32,000 events/second | The limit is measured over a minute.
 | Data retention | 90 days | This resource is for [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md), and [Metrics Explorer](../articles/azure-monitor/app/metrics-explorer.md).
 | [Availability multi-step test](../articles/azure-monitor/app/availability-multistep.md) detailed results retention | 90 days | This resource provides detailed results of each step.
-| Maximum event size | 64,000 |
+| Maximum event size | 64,000,000 bytes |
 | Property and metric name length | 150 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
 | Property value string length | 8,192 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
 | Trace and exception message length | 32,768  | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).

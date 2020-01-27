@@ -22,5 +22,5 @@ articles/directories.txt
 AzureMigration.ps1
 
 !/.vscode/extensions.json
-articles/data-lake-analytics/.vscode/settings.json
 .gitignore
+**/.vscode/settings.json

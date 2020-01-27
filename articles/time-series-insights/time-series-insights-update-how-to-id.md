@@ -69,7 +69,7 @@ Example raw event:
 
 In the Azure portal, you can then enter the composite key as follows: 
 
-```
+```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
 ```
 

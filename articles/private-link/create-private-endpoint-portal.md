@@ -123,8 +123,8 @@ In this section, you will create a SQL database server in Azure.
     
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
-9. When you see the Validation passed message, select **Create**. 
-10. When you see the Validation passed message, select Create. 
+9. When you see the Validation passed message, select **Create**. 
+10. When you see the Validation passed message, select Create. 
 
 ## Create a private endpoint
 
@@ -161,7 +161,7 @@ In this section, you will create a SQL server and add a private endpoint to it.
     | ------- | ----- |
     |**NETWORKING**| |
     | Virtual network| Select *MyVirtualNetwork*. |
-    | Subnet | Select *mySubnet*. |
+    | Subnet | Select *mySubnet*. |
     |**PRIVATE DNS INTEGRATION**||
     |Integrate with private DNS zone |Select **Yes**. |
     |Private DNS Zone |Select *(New)privatelink.database.windows.net* |
@@ -198,9 +198,9 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 ## Access the SQL database server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup myserver.database.windows.net`. 
+2. Enter `nslookup myserver.database.windows.net`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
@@ -226,13 +226,13 @@ After you've created **myVm**, connect to it from the internet as follows:
 1. Select **Connect**.
 2. Browse databases from left menu.
 3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+4. Close the remote desktop connection to *myVm*. 
 
 ## Clean up resources 
 When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
 2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 

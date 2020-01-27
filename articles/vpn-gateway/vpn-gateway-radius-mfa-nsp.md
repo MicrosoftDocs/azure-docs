@@ -1,5 +1,5 @@
 ---
-title: Secure Azure VPN gateway RADIUS authentication with NPS server for Multi-Factor Authentication | Microsoft Docs'
+title: 'Integrate NPS with VPN Gateway RADIUS authentication for MFA'
 description: Describes integrate Azure gateway RADIUS authentication with NPS server for Multi-Factor Authentication.
 services: vpn-gateway
 documentationcenter: na
