@@ -53,7 +53,7 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in your chosen language. Later in this article, you'll publish your function code to Azure. 
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose choose **Create new project...**.
+1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
 
     ![Choose Create a new project](media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -80,8 +80,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone pivot="programming-language-javascript"
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
+    | Prompt | Value | 
+    | ------ | ----- | 
     | Select a language for your function app project | JavaScript | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
@@ -93,8 +93,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone pivot="programming-language-typescript"
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
+    | Prompt | Value | 
+    | ------ | ----- | 
     | Select a language for your function app project | TypeScript | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
@@ -106,8 +106,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone pivot="programming-language-powershell"
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
+    | Prompt | Value | 
+    | ------ | ----- | 
     | Select a language for your function app project | PowerShell | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
@@ -119,8 +119,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone pivot="programming-language-python"
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
+    | Prompt | Value | 
+    | ------ | ----- | 
     | Select a language for your function app project | Python | 
     | Select a version | Azure Functions v2 | 
     | Select a Python alias to create a virtual environment | Python alias | 
@@ -131,9 +131,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     ::: zone-end
 
-1. Visual Studio Code performs the following actions:
-
-    + Installs the Azure Functions Core Tools (if not already installed). 
+1. Visual Studio Code does the following:
 
     + Creates a function app project in a new workspace, which contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files. 
 
@@ -147,7 +145,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     
     + Creates a package.json file in the root folder.
 
-    + Creates An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+    + Creates an HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
     
     ::: zone-end
     
@@ -197,7 +195,7 @@ After you've verified that the function runs correctly on your local computer, i
 
     The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/httpexample?name=<yourname> 
 
 1. Paste this new URL for the HTTP request into your browser's address bar. The following example shows the response in the browser to the remote GET request returned by the function: 
 

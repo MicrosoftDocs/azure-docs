@@ -8,7 +8,7 @@ ms.author: glenga
 
 ## Publish the project to Azure
 
-In this section, you create a function app and related resources in your Azure subscription that you need to publish your deploy your code. 
+In this section, you create a function app and related resources in your Azure subscription and then deploy your code. 
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
 

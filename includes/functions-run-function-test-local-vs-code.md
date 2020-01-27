@@ -8,11 +8,11 @@ ms.author: glenga
 
 ## Run the function locally
 
-Visual Studio Code integrates with Core Tools to let you run this project on your local development computer before you publish to Azure.
+Visual Studio Code integrates with [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
 
 1. To call your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-1. If you haven't already installed Azure Functions Core Tools, select **Install** at the prompt. After the Core Tools are installed, your app starts in the **Terminal** panel.
+1. If you haven't already installed Azure Functions Core Tools, select **Install** at the prompt. When the Core Tools are installed, your app starts in the **Terminal** panel.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. 
 
