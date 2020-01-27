@@ -28,7 +28,17 @@ As the knowledge store is an Azure Storage account, table projections are Azure 
 
 Object and file projections are written to blob storage, object projections are saved as JSON files and can contain content from the document and any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
 
-To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process specifically, [skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md) for details. For all the scenarios, we will work with a sample skillset that you can use the [`import data wizard`](cognitive-search-quickstart-blob.md) to generate. In the `import data wizard` start with a blob datasource, on the add cognitive skills tab, add the entity recognition, key phrases, and language detection skills. Be sure to select the `Enable OCR and merge all text into merged_content field` option. Leave the knowledge store options empty, we'll be working with the knowledge store object in the skillset in the rest of this tutorial. Once you complete the import data workflow, you should have a valid enrichment pipeline of a datasource, skillset, indexer, and index. In the following sections of this tutorial, we will use the [REST APIs to work with the enrichment pipeline](search-get-started-postman.md).
+To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process specifically, [skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md) for details. For all the scenarios, we will work with a sample skillset that you can use the [`import data wizard`](cognitive-search-quickstart-blob.md) to generate. In the `import data wizard` start with a blob datasource, on the add cognitive skills tab,
+
+1. Attach a cognitive services resource
+2. Under add enrichments. select the `Enable OCR and merge all text into merged_content field` option.
+3. Select the ```Extract people names``` skill
+4. Select the ```Extract organization names``` skill
+5. Select the ```Extract location names``` skill
+6. Select the ```Extract key phrases``` skill
+7. Leave the knowledge store options with the default value, we'll be working with the knowledge store object in the skillset in the rest of this tutorial. 
+
+Once you complete the import data workflow, you should have a valid enrichment pipeline of a datasource, skillset, indexer, and index. In the following sections of this tutorial, we will use the [REST APIs to work with the enrichment pipeline](search-get-started-postman.md).
 
 > [!IMPORTANT] 
 > When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any Cognitive Services charges.
@@ -269,7 +279,7 @@ Create a custom shape that you would like to project, here we create a custom ob
             ]
         }
 ```
-Now that we have all the data needed to project to tables we can update the knowledgeStore object with the table definitions.
+Add the shaper skill to skills list in the skillset, we will also edit the knowledgeStore proerty before we PUT the skillset. Now that we have all the data needed to project to tables we can update the knowledgeStore object with the table definitions.
 
 Start by setting the knowledgeStore property on the skillset. 
 
@@ -302,7 +312,7 @@ Start by setting the knowledgeStore property on the skillset.
 }
 ```
 
-Set the ```storageConnectionString``` property to a valid V2 general purpose storage account connection string. In this scenario we define three tables in the projection object, note that each table requires a ```tableName```, ```source``` and ```generatedKeyName``` property, there is an additional ```referenceKeyName``` property that is optional. 
+Set the ```storageConnectionString``` property to a valid V2 general purpose storage account connection string. In this scenario we define three tables in the projection object by setting the ```tableName```, ```source``` and ```generatedKeyName``` properties. You can now update the skillset by issuing the PUT request.
 
 ### Slicing 
 
@@ -316,7 +326,7 @@ You now have a working projection with three tables. Importing these tables into
 ## Projecting to Objects
 
 Object projections do not have the same limitations as table projections, are better suited for projecting large documents. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container.
-To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping.
+To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. The projections property is an array, for this example we are adding a new projection instance to the array.
 
 ```json
 {
@@ -392,58 +402,93 @@ File projections are images that are either extracted from the source document o
 
 ## Projecting to multiple types
 
-Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now create a projection object in the knowledge store to project the document, key phrases and entities as tables, OCR text and layout text as object projections and the images as files.
+Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now create a projection object in the knowledge store to project the document, key phrases and entities as tables, OCR text and layout text as object projections and the images as files. Start by adding a new shaper skill to the skill array that creates a shaped object. 
+
+```json
+{
+            "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+            "name": "ShaperForCross",
+            "description": null,
+            "context": "/document",
+            "inputs": [
+            	{
+                    "name": "metadata_storage_name",
+                    "source": "/document/metadata_storage_name",
+                    "sourceContext": null,
+                    "inputs": []
+                },
+                 
+                {
+                    "name": "images",
+                    "source": null,
+                    "sourceContext": "/document/normalized_images/*",
+                    "inputs": [
+                    	{
+                    		"name": "image",
+                    		"source": "/document/normalized_images/*"
+                    	},
+                    	{
+                    		"name": "layoutText",
+                    		"source": "/document/normalized_images/*/layoutText"
+                    	},
+                    	{
+                    		"name": "ocrText",
+                    		"source": "/document/normalized_images/*/text"
+                    	}
+                    	]
+                }
+                
+            ],
+            "outputs": [
+                {
+                    "name": "output",
+                    "targetName": "crossProjection"
+                }
+            ]
+        }
+```
 
 ```json
 {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
              {
-                "tables": [
+        		"tables": [
                     {
-                        "tableName": "sampleDocument",
-                        "generatedKeyName": "Documentid",
-                        "source": "/document/pbiShape"
+                        "tableName": "crossDocument",
+                        "generatedKeyName": "Id",
+                        "source": "/document/crossProjection"
                     },
                     {
-                        "tableName": "sampleKeyPhrases",
-                        "generatedKeyName": "KeyPhraseid",
-                        "source": "/document/pbiShape/keyPhrases/*"
+                        "tableName": "crossReference",
+                        "generatedKeyName": "CrossId",
+                        "source": "/document/crossProjection/images/*"
                     }
+                     
                 ],
                 "objects": [
-                    {
-                        "storageContainer": "sampleocrtext",
-                        "generatedKeyName": "ocrText",
+                	{
+                        "storageContainer": "crossobject",
+                        "generatedKeyName": "crosslayout",
                         "source": null,
-                        "sourceContext": "/document/normalized_images/*/text",
+                        "sourceContext": "/document/crossProjection/images/*/layoutText",
                         "inputs": [
-                        	{
-                        		"name": "ocrText",
-                        		"source": "/document/normalized_images/*/text"
-                        	}
-                        ]
-                    },
-                    {
-                        "storageContainer": "sampleocrlayout",
-                        "generatedKeyName": "ocrLayoutText",
-                        "source": null,
-                        "sourceContext": "/document/normalized_images/*/layoutText",
-                        "inputs": [
-                        	{
-                        		"name": "ocrLayoutText",
-                        		"source": "/document/normalized_images/*/layoutText"
-                        	}
+                            {
+                                "name": "OcrLayoutText",
+                                "source": "/document/crossProjection/images/*/layoutText"
+                            }
                         ]
                     }
                 ],
                 "files": [
-                    {
-                        "storageContainer": "fullfile",
-                        "source": "/document/normalized_images/*"
+                	 {
+                        "storageContainer": "crossimages",
+                        "generatedKeyName": "crossimages",
+                        "source": "/document/crossProjection/images/*/image"
                     }
-                ]
-            }
+                	]
+                
+        	}
         ]
     }
 ```
@@ -508,95 +553,7 @@ When building projections of different types, file and object projections are ge
         ]
     }
 ```
-### Projections with inline shaping and multiple types
 
-Continuing with the earlier scenario, if we now want to add the images as well to the projections and ensure that all the data is related, the knowledgeStore object will be edited to be:
-
-```json
-{
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-            {
-                "tables": [
-                    {
-                        "tableName": "inlineDocument",
-                        "generatedKeyName": "Id",
-                        "referenceKeyName": "documentId",
-                        "source": null,
-                        "sourceContext": "/document",
-                        "inputs": [
-                            {
-                                "name": "inlinePath",
-                                "source": "/document/metadata_storage_path"
-                            },
-                            {
-                                "name": "inlineContent",
-                                "source": "/document/content"
-                            }
-                        ]
-                    },
-                    {
-                        "tableName": "inlineKeyPhrases",
-                        "generatedKeyName": "Id",
-                        "source": null,
-                        "sourceContext": "/document/merged_content/keyphrases/*",
-                        "inputs": [
-                            {
-                                "name": "KeyPhrases",
-                                "source": "/document/merged_content/keyphrases/*" 
-                            }
-                        ]
-                    },
-                    {
-                        "tableName": "inlineEntities",
-                        "generatedKeyName": "Id",
-                        "source": null,
-                        "sourceContext": "/document/merged_content/entities/*",
-                        "inputs": [
-                            {
-                                "name": "Entities",
-                                "source": "/document/merged_content/entities/*/name" 
-                            }
-                        ]
-                    }
-                ],
-                "objects": [
-                    {
-                        "storageContainer": "inlineocrtext",
-                        "generatedKeyName": "inlineocrtext",
-                        "source": null,
-                        "sourceContext": "/document/normalized_images/*/text",
-                        "inputs": [
-                            {
-                                "name": "inlineOcrText",
-                                "source": "/document/normalized_images/*/text"
-                            }
-                        ]
-                    },
-                    {
-                        "storageContainer": "inlineocrlayout",
-                        "generatedKeyName": "inlineocrlayout",
-                        "source": null,
-                        "sourceContext": "/document/normalized_images/*/layoutText",
-                        "inputs": [
-                            {
-                                "name": "inlineOcrLayoutText",
-                                "source": "/document/normalized_images/*/layoutText"
-                            }
-                        ]
-                    }
-                ],
-                "files": [
-                    {
-                        "storageContainer": "inlineimages",
-                        "generatedKeyName": "inlineocrimages",
-                        "source": "/document/normalized_images/*"
-                    }
-                ]
-            }
-        ]
-    }
-```
 These examples demonstrated the common patterns on how to use projections, you should now also have a good understanding of the concepts on building a projection for your specific scenario.
 
 ## Common Issues
