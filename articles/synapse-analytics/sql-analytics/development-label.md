@@ -21,7 +21,7 @@ Tips for using labels to instrument queries in SQL Analytics for developing solu
 
 
 ## What are labels?
-SQL Analytics pool supports a concept called query labels. Before going into any depth, let's look at an example:
+SQL pool supports a concept called query labels. Before going into any depth, let's look at an example:
 
 ```sql
 SELECT *
