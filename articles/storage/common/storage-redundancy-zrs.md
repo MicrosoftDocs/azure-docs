@@ -127,9 +127,9 @@ Once the migration is complete the replication type of the account(s) will chang
 
 ZRS only supports general-purpose v2 accounts so before submitting a request for a live migration to ZRS make sure to upgrade your account(s) to general-purpose v2. See [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) for more details.
 
-**Can I request a live migration of my read-access geo-redundant storage (RA-GRS) account(s) to ZRS?**
+**Can I request a live migration of my geo-redundant or read-access geo-redundant storage (GRS/RA-GRS) account(s) to ZRS?**
 
-Before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to geo-redundant storage (GRS). See [Changing replication strategy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
+Live migration is supported only for storage accounts that use LRS replication. If your account uses GRS or RA-GRS, then you need to first change your account's replication type to LRS before proceeding. This intermediary step removes the secondary endpoint provided by GRS/RA-GRS. Also, before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to locally-redundant storage (LRS). See [Changing replication strategy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
 
 **Can I request a live migration of my storage account(s) to ZRS  to another region?**
 
