@@ -278,7 +278,9 @@
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
     - name: Public IPv6 address prefix
-      href: ipv6-reserve-public-ip-address-prefix.md    
+      href: ipv6-reserve-public-ip-address-prefix.md
+  - name: Onboard partners to DDoS Protection Standard
+    href: ddos-protection-partner-onboarding.md  
   - name: Move across regions
     items:
     - name: Network security groups - Portal

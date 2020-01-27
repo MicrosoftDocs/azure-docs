@@ -29,7 +29,7 @@ For every protected application, Azure DDoS Protection Standard automatically tu
 - Automatic learning of per-customer (per-IP) traffic patterns for Layer 3 and 4.
 - Minimizing false positives, considering that the scale of Azure allows it to absorb a significant amount of traffic.
 
-![Adaptive real time tuning](./media/ddos-protection-partner-onboarding-overview/real-time-tuning.png)
+![Adaptive real time tuning](./media/ddos-protection-partner-onboarding/real-time-tuning.png)
 
 ### Attack analytics, telemetry, monitoring and alerting
 Azure DDoS Protection identifies and mitigates DDoS attacks without any user intervention.
@@ -38,7 +38,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 - Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
 - You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details.
 
-![DDoS metrics](./media/ddos-protection-partner-onboarding-overview/ddos-metrics.png)
+![DDoS metrics](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
 ### DDoS rapid response (DRR)
 DDoS Protection Standard customers now have access to [Rapid Response team](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) during an active attack. DRR can help with attack investigation, custom mitigations during an attack, and post-attack analysis.
