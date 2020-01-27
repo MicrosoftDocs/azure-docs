@@ -125,4 +125,4 @@ Try moving objects or the [cut plane](../sdk/features-cut-planes.md) around in t
 Advance to the next article to learn how to...
 
 > [!div class="nextstepaction"]
-> [Convert your own model](quickstart-convert-model)
+> [Convert a model for rendering](quickstart-convert-model.md)
