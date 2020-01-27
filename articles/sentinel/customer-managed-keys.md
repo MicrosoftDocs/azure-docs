@@ -1,6 +1,6 @@
 ---
-title: Set up customer managed keys in Azure Sentinel| Microsoft Docs
-description: Learn how to set up customer managed keys (CMK) in Azure Sentinel.
+title: Set up customer-managed keys in Azure Sentinel| Microsoft Docs
+description: Learn how to set up customer-managed keys (CMK) in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -19,7 +19,7 @@ ms.author: rkarlin
 ---
 # Set up Azure Sentinel customer-managed key
 
-This article provides background information and steps to configure a customer managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to
+This article provides background information and steps to configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to
 Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you.
 
 > [!NOTE]
@@ -41,15 +41,15 @@ resources other than Log Analytics will also be encrypted.
 
 To provision CMK, follow these steps: 
 
-1.  Create an Azure Key Vault and storing key
+1.  Create an Azure Key Vault and storing key.
 
-2.  Enable CMK on your Log Analytics workspace
+2.  Enable CMK on your Log Analytics workspace.
 
-3.  Register for Cosmos DB
+3.  Register for Cosmos DB.
 
-4.  Add an access policy to your Azure Key Vault instance
+4.  Add an access policy to your Azure Key Vault instance.
 
-5.  Enable CMK in Azure Sentinel
+5.  Enable CMK in Azure Sentinel.
 
 6.  Enable Azure Sentinel
 
@@ -60,11 +60,11 @@ To provision CMK, follow these steps: 
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
-1.  [Turn on recovery options:](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [Turn on recovery options:](../key-vault-key-vault-best-practices.md#turn-on-recovery-options)
 
     -   Make sure [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md) is turned on.
 
-    -   Turn on [Purge protection](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) to guard against forced deletion of the secret / vault even after soft delete.
+    -   Turn on [Purge protection](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
 
 ### STEP 2: Enable CMK on your Log Analytics workspace
 
@@ -86,9 +86,9 @@ The Azure Sentinel CMK capability is provided to new customers only after receiv
 
 After you get approval, you will be asked to provide the following information to enable the CMK feature.
 
-1.  Workspace ID on which you want to enable CMK
+-  Workspace ID on which you want to enable CMK
 
-2.  Key Vault URL: Copy the key’s “Key Identifier” up to the last forward slash:  
+-  Key Vault URL: Copy the key’s “Key Identifier” up to the last forward slash:  
     
 
     ![key identifier](./media/customer-managed-keys/key-identifier.png)
@@ -96,8 +96,7 @@ After you get approval, you will be asked to provide the following information t
     The Azure Sentinel team will enable the Azure Sentinel CMK feature for your
     provided workspace.
 
-3.  Make sure you receive verification that you were approved before proceeding
-    to the next step.
+-  Verification from the Azure Sentinel product team that you were approved to use this feature. You must have this before proceeding.
 
 ### STEP 6: Enable Azure Sentinel
 
@@ -134,7 +133,7 @@ If you use the same key in Azure Sentinel and in Log Analytics, it is necessary 
 Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation).
 
 ## Next steps
-In this document, you learned how to set up a customer managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
