@@ -40,7 +40,7 @@ After your web app signs in users, it can call web APIs on behalf of the signed-
 > [!div class="nextstepaction"]
 > [Web app that calls web APIs](scenario-web-app-call-api-overview.md)
 
-### Deep dive: ASP.NET Core web app tutorial
+## Deep dive: ASP.NET Core web app tutorial
 
 Learn about other ways to sign in users with this ASP.NET Core tutorial: 
 
@@ -55,7 +55,7 @@ This progressive tutorial has production-ready code for a web app, including how
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - National clouds
 
-### Sample code: Java web app
+## Sample code: Java web app
 
 Learn more about the Java web app from this sample on GitHub: 
 
