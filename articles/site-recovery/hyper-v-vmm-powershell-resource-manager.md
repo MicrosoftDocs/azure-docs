@@ -208,7 +208,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 1. Use this command to retrieve servers for the current vault. The command stores the Site Recovery servers in the `$Servers` array variable.
 
    ```azurepowershell
-   $Servers = Get-AzVM -ResourceGroupName #ResourceGroupName
+   $Servers = Get-AzureRmRecoveryServicesAsrFabric
    ```
 
 1. Run this command to retrieve the networks for the source Virtual Machine Manager server and the target Virtual Machine Manager server.
