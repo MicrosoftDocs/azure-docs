@@ -25,33 +25,23 @@ Use the Text Analytics client library v2 to perform:
 * Key phrase extraction
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [C# quickstart](../includes/quickstarts/v2/csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/v2/python-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v2/nodejs-sdk.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Go quickstart](../includes/quickstarts/v2/go-sdk.md)]
+::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v2/nodejs-sdk.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python quickstart](../includes/quickstarts/v2/python-sdk.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-ruby"
-
 [!INCLUDE [Ruby quickstart](../includes/quickstarts/v2/ruby-sdk.md)]
-
 ::: zone-end
 
 ## Clean up resources

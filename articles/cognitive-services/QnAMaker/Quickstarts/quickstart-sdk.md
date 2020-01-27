@@ -14,12 +14,12 @@ Get started with the QnA Maker client library. Follow these steps to install the
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js and REST](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get intent with Node.js and REST](../includes/quickstart-sdk-nodejs.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
 ::: zone-end
 
 ## Next steps
