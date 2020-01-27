@@ -10,7 +10,7 @@ ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ---
 
-# What are mapping data flows?
+# What are mapping data flows? 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
