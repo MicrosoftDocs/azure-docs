@@ -35,7 +35,7 @@ The following must be installed to complete this quickstart:
 
 	![Connect to Feed](./media/connect-to-feed.png "Connect to Feed")
 
-	- Download the NuGet command line tool and the Credential Provider package from the link displayed.
+	- Download the NuGet command-line tool and the Credential Provider package from the link displayed.
 	- Extract this to a directory of your choosing and add the location to your Path by editing the system environment variables.
     - Add the "arrPackages" feed with the following NuGet command:
         `NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`

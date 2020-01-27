@@ -23,8 +23,9 @@ You'll learn how to:
 
 
 ## Overview
-The renderer on the server consumes a model in a proprietary binary format, not a source model format (.FBX, .GLTF, ...) directly. To convert a model from source format to target format, we need to run the conversion service via API commands, which will be shown in this article.
-The conversion API can consume models from Azure blob storage and will write the converted model back to a provided Azure blob storage container.
+The renderer on the server consumes a model in a proprietary binary format, not a source model format (.FBX, .GLTF, ...) directly. To convert a model from source format to target format, we need to call the conversion REST API, which will be shown in this article.
+
+The conversion REST API can consume models from Azure blob storage and will write the converted model back to a provided Azure blob storage container.
 You will need to have:
 - An Azure Subscription
 - A Storage v2 account in your subscription
@@ -53,11 +54,11 @@ Once completed, you will be forwarded to the portal page in the second link.
 
 First, a Storage Account must be created so that will be the first task to complete. To accomplish that, click on the "Create a resource" button:
 
-![Azure add resource](./media/azure-add-a-resource.png "Click the 'Create a resource' button")
+![Azure - add resource](./media/azure-add-a-resource.png "Click the 'Create a resource' button")
 
 From the new screen, choose **Storage** on the left side and then **Storage account - blob, file, table, queue** from the next column:
 
-![Azure add storage](./media/azure-add-storage.png)
+![Azure - add storage](./media/azure-add-storage.png)
 
 This will bring up the following new screen with storage properties to fill out:
 
@@ -66,7 +67,7 @@ This will bring up the following new screen with storage properties to fill out:
 Fill out the form in the following manner:
 
   *	Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-  *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already given. In the scope of this quickstart we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
+  *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
   *	Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
   *	**Performance** set to ‘Standard’
   *	**Account kind** set to ‘StorageV2 (general purpose v2)’
@@ -85,7 +86,7 @@ Now you need to create blob containers – you will need one for input and one f
 
 From the **"Go to resource"** button above you get into a screen with a panel on the left. Close to the bottom, in the **"Blob service"** category, click on the **"Containers"** button:
 
-![Azure add Containers](./media/azure-add-containers.png)
+![Azure - add Containers](./media/azure-add-containers.png)
 
 Press the **"+ Container"** button to create your first blob storage container.
 Use the following settings when creating it:
@@ -160,6 +161,14 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
     }
 }
 ```
+
+> [!NOTE]
+> The `modelLocation` allows you to add a single file only. 
+> That means, the input file should be self-contained and not contain external references
+> to textures or geometry. However, if the files are already located in the input
+> storage, they are properly considered for conversion. To place files manually, you can use the
+> Storage Explorer.
+
 
 ## Running the asset conversion script
 You are now ready to have the script upload your model, call the conversion REST API, and retrieve a link to the conversion model in your output container.
