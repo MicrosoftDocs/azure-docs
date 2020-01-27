@@ -55,7 +55,7 @@ Web APIs don't need to register a redirect URI because no user is interactively 
 
 Other settings specific to web APIs are the exposed API and the exposed scopes.
 
-### Resource URI and scopes
+### Application ID URI and scopes
 
 Scopes usually have the form `resourceURI/scopeName`. For Microsoft Graph, the scopes have shortcuts. For example, `User.Read` is a shortcut for `https://graph.microsoft.com/user.read`.
 
