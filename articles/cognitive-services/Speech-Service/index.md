@@ -713,7 +713,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/sovereign-clouds">
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/sovereign-clouds">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
