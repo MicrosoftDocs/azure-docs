@@ -27,7 +27,7 @@ In this quickstart, you add a device template for an *MXChip IoT DevKit* (DevKit
 
 ## Prerequisites
 
-Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Preview application** template.
+Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
 
 ## Create a template
 
