@@ -106,10 +106,10 @@ Example 1:  The simplest version of the above with minimum parameters passed. Th
 }
 ```
 
-Note:
-* The name of resource has the format "Parent Resource>/Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_<RegionName>. Example: NetworkWatcher_centraluseuap)
-* targetResourceId is the resource ID of the target NSG
-* storageId is the resource ID of the destination storage account
+> [!NOTE]
+> * The name of resource has the format "Parent Resource>/Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_<RegionName>. Example: NetworkWatcher_centraluseuap)
+> * targetResourceId is the resource ID of the target NSG
+> * storageId is the resource ID of the destination storage account
 
 Example 2: The following templates enabling NSG Flow Logs (version 2) with a retention for 5 days. Enabling Traffic Analytics with a processing interval of 10 minutes.
 
