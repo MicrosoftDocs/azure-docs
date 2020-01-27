@@ -26,6 +26,13 @@ Now that you know how to get a token to call web APIs, learn how to move it to p
 
 ## Next steps
 
+### Same site
+
+Make sure you understand possible issues with new versions of the Chrome browser
+
+> [!div class="nextstepaction"]
+> [How to handle SameSite cookie changes in Chrome browser](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### Scenario for calling web APIs
 
 After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:

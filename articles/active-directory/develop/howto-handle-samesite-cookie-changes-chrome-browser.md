@@ -77,4 +77,4 @@ See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Move to production](scenario-web-app-sign-user-overview.md)
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
