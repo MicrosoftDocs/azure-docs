@@ -529,7 +529,7 @@ For example:
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
 
-To simplify the creation of any resource id, use the resourceId() functions described in this document instead of the concat() function.
+To simplify the creation of any resource ID, use the `resourceId()` functions described in this document instead of the `concat()` function.
 
 ### Get managed identity
 
