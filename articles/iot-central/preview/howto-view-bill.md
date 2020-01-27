@@ -1,6 +1,6 @@
 ---
-title: Manage your bill and convert trial to pay as you go in Azure IoT Central application | Microsoft Docs
-description: As an administrator, learn how to manage your bill and covert from trial to pay as you go in your Azure IoT Central application
+title: Manage your bill and convert from the free pricing plan in Azure IoT Central application | Microsoft Docs
+description: As an administrator, learn how to manage your bill and move from the free pricing plan to a standard pricing plan in your Azure IoT Central application
 author: v-krghan
 ms.author: v-krghan
 ms.date: 12/09/2019
@@ -14,7 +14,7 @@ manager: philmea
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
+This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section and also how you can move your application from the free pricing plan to a standard pricing plan.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
@@ -22,14 +22,14 @@ To access and use the **Administration** section, you must be in the **Administr
 
 To view your bill, go to the **Billing** page in the **Administration** section. The Azure billing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
 
-## Convert your trial to pay-as-you-go
+## Move from free to standard pricing plan
 
-- **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
-- **Pay-As-You-Go** applications are charged per device, with the first five devices free, per subscription.
+- Applications that use the free pricing plan are free for seven days before they expire. You can move them to a standard pricing plan at any time before they expire.
+- Applications that use a standard pricing plan are charged per device, with the first two devices free, per subscription.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
-In the billing section, you can convert your trial applications into pay-as-you-go.
+In the billing section, you can move your application from the free to a standard pricing plan.
 
 To complete this self-service process, follow these steps:
 

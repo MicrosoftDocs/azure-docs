@@ -1,6 +1,6 @@
 ---
 title: Create an Azure IoT Central application | Microsoft Docs
-description: Create a new Azure IoT Central application. Create a Trial or Standard application using an application template.
+description: Create a new Azure IoT Central application. Create the application using either the free pricing plan or one of the standard pricing plans.
 author: viv-liu
 ms.author: viviali
 ms.date: 08/02/2019
@@ -37,16 +37,16 @@ To create a new Azure IoT Central application:
     | -------------------- | ----------- |
     | Legacy application   | Creates an empty application for you to populate with your own device templates and devices. |
 
-1. Choose a payment plan:
+1. Choose to create this application using the 7-day free trial pricing plan, or one of the standard pricing plans:
 
-- Applications you create using the **free** plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
-- Applications you create using the **Standard** plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/). If you create a standard application, you'll need to select your *Directory*, *Azure Subscription*, and *Location*:
+- Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
+- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/). If you create a standard application, you'll need to select your *Directory*, *Azure Subscription*, and *Location*:
         - *Directory* is the Azure Active Directory (AD) to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
         - An *Azure Subscription* enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create an application** page. Your new subscription appears in the **Azure Subscription** drop-down.
         - *Location* is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **United States**, **Australia**, **Asia Pacific**, or in **Europe**.  Once you choose a location, you can't move your application to a different location later.
 
 
-1. Fill additional information required for the payment plan you selected earlier, in Step 1.
+1. Fill additional information required for the pricing plan you selected earlier, in Step 1.
 
 1. Select **Create** at the bottom of the page.
 

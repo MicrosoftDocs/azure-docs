@@ -80,7 +80,7 @@ To use an application template to create a new IoT Central application, you need
 
 ![Create an application from a template](media/howto-use-app-templates/create-app.png)
 
-Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
+Select your pricing plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
 
 > [!NOTE]
 > When an application is created using **Shareable Link** the available locations are **Europe** and **US**.
