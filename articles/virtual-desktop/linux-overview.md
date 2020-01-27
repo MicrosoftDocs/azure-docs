@@ -48,7 +48,7 @@ We'll update this document as we add support for new features and redirections. 
 Before you can develop a Linux client for Windows Virtual Desktop, you need to do the following things:
 
 1. Build and deploy a Windows Virtual Desktop environment for testing or production use.
-2. Test the available first-party clients to familiarize yourself with the Windows Virtual Desktop end user experience.
+2. Test the available first-party clients to familiarize yourself with the Windows Virtual Desktop user experience.
 
 ### Next steps
 
