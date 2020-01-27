@@ -1,7 +1,7 @@
 ---
 title: Partnering with Azure DDoS Protection Standard 
 description: "Understand partnering opportunities enabled by Azure DDoS Protection Standard."
-services:
+ms.service: virtual-network
 documentationcenter: na
 author: anupamvi
 mms.devlang: na
@@ -35,8 +35,8 @@ For every protected application, Azure DDoS Protection Standard automatically tu
 Azure DDoS Protection identifies and mitigates DDoS attacks without any user intervention.
 
 - If the protected resource is in the subscription covered under Azure Security Center, DDoS Protection Standard automatically sends an alert to Security Center whenever a DDoS attack is detected and mitigated against the protected application.
-- Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
-- You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](../../virtual-network/manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors and other details.
+- Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
+- You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors and other details.
 
 ![DDoS metrics](./media/ddos-protection-partner-onboarding-overview/ddos-metrics.png)
 
@@ -71,7 +71,7 @@ Following steps are required for partners to configure integration with Azure DD
 ### Onboarding guides and technical documentation
 
 - [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
-- [Azure DDoS Protection documentation](../../virtual-network/ddos-protection-overview.md)
+- [Azure DDoS Protection documentation](virtual-network/ddos-protection-overview.md)
 - [Azure DDoS Protection API reference](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
 - [Azure virtual network API reference](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
 
