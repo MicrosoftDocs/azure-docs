@@ -56,7 +56,7 @@ The following are three key benefits you can derive by integrating with the Azur
 ## Technical integration overview
 Azure DDoS Protection Standard partnering opportunities are made available via Azure portal, APIs, CLI/PS.
 
-## How to integrate with DDoS Protection Standard
+### How to integrate with DDoS Protection Standard
 Following steps are required for partners to configure integration with Azure DDoS Protection Standard:
 1. Create a DDoS Protection Plan in your desired (partner) subscription. For step-by-step instructions, see [Create a DDoS Standard Protection plan](manage-ddos-protection.md#create-a-ddos-protection-plan).
    > [!NOTE]
