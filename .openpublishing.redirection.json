@@ -35538,22 +35538,42 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-no-users-provisioned.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned.md",
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-storage-limit.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-wrong-users-provisioned.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md",
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
       "redirect_document_id": true
     },
     {

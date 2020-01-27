@@ -67,7 +67,7 @@ Logged activity event types include:
 
 The provisioning summary report and provisioning logs play a key role helping admins troubleshoot various user account provisioning issues.
 
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
+For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](../app-provisioning/application-provisioning-config-problem.md).
 
 ## Additional Resources
 
