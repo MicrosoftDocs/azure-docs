@@ -1,5 +1,5 @@
 ---
-title: Assign a role to a group in Azure Active Directory | Microsoft Docs
+title: Assign a role to a cloud group in Azure Active Directory | Microsoft Docs
 description: Assign an Azure AD role to a role-eligible group in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Assign a role to a group in Azure Active Directory
+# Assign a role to a cloud group in Azure Active Directory
 
 This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to a group.
 
