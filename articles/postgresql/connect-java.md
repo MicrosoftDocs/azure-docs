@@ -29,8 +29,6 @@ Get the connection information needed to connect to the Azure Database for Postg
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select the server you have created (such as **mydemoserver**).
 
-1. Select the server name.
-
 1. From the server's **Overview** panel, make a note of the **Server name** and **Admin username**. If you forget your password, you can also reset the password from this panel.
 
     ![Azure Database for PostgreSQL connection string](./media/connect-java/server-details-azure-database-postgresql.png)
