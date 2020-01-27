@@ -259,7 +259,7 @@ At this point, the resources are all set up and the message routing is configure
    > [!NOTE]
    > If your device doesn't have a twin, the value you put in here will be stamped as a string for the value in the message enrichments. To see the device twin information, go to your hub in the portal and select **IoT devices**. Select your device, and then select **Device twin** at the top of the page.
    >
-   > You can edit the twin information to add tags, such as location, and set it to a specific value. For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+   > You can edit the twin information to add tags, such as location, and set it to a specific value. For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
 3. When you're finished, your pane should look similar to this image:
 
