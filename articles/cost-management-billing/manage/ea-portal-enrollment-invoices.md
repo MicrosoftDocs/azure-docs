@@ -21,7 +21,7 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 ### To update the Azure services purchase order number:
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
-1. Select **Edit PO Numbers** in the upper right corner.
+1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Azure Services** radio button.
 1. Select an **Invoice Period** from the date ranges drop-down menu.
 
@@ -29,10 +29,10 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
 
-### To update Azure Marketplace purchase order number:
+### To update the Azure Marketplace purchase order number:
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
-1. Select **Edit PO Numbers** in the upper right corner.
+1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Marketplace** radio button.
 1. Select an **Invoice Period** from the date ranges drop-down menu.
 
@@ -99,7 +99,7 @@ Overage invoicing is automated. The timing of notifications and invoices depends
 
 Effective from the April 2019 billing cycle, customers started to receive a single Azure invoice that combines all Azure and Azure Marketplace charges into a single invoice instead of two separate invoices. This change doesn't affect customers in Australia, Japan, or Singapore.
 
-During the transition to a combined invoice, you'll receive a partial Marketplace invoice. This final separate invoice will show Marketplace charges incurred before the date of your billing update. Marketplace charges incurred after that date will appear on your Azure invoice. After the transition period, you'll see all Azure and Marketplace charges on the combined invoice.  
+During the transition to a combined invoice, you'll receive a partial Azure Marketplace invoice. This final separate invoice will show Azure Marketplace charges incurred before the date of your billing update. Azure Marketplace charges incurred after that date will appear on your Azure invoice. After the transition period, you'll see all Azure and Azure Marketplace charges on the combined invoice.  
 
 ## Adjust billing frequency
 
@@ -107,7 +107,7 @@ A customer's billing frequency is annual, quarterly, or monthly. The billing cyc
 
 - **Approval** from an enterprise administrator is required to change a billing cycle from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
 - **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an enterprise administrator or from your "Bill to Contact".
-- **Submit** your approval to [Azure Enterprise portal support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the Issue Category: **Billing and Invoicing**.
+- **Submit** your approval to [Azure Enterprise portal support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the issue category: **Billing and Invoicing**.
 
 The change becomes effective at the end of the current billing quarter.
 
@@ -137,7 +137,7 @@ To apply your monetary commitment to overages, you must meet the following crite
 - Your available monetary commitment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
 - The billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
 - The billing period that you want to offset must be fully closed.
-- Your Azure Commitment Discount (ACD) is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume monetary commitment, so doesn't apply to Azure Marketplace charges. Marketplace charges are billed separately.
+- Your Azure Commitment Discount (ACD) is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume monetary commitment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
 
 To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
 
@@ -186,7 +186,7 @@ Enterprise administrators can view a summary of their usage data, monetary commi
 - Service usage report
 - Balance and charge report
 - Usage detail report
-- Marketplace charges report
+- Azure Marketplace charges report
 - Price sheet
 - Advanced report download
 - CSV report formatting
@@ -198,7 +198,7 @@ Enterprise administrators can view a summary of their usage data, monetary commi
 1. Select the **Usage Summary** tab.
 1. Select the commitment term from the date ranges menu on the top left.
 1. Select the period or month on the graph to view additional detail.
-1. One this tab, you can:
+1. On this tab, you can:
    - View a graph of month-over-month usage with a breakdown of usage, service overcharge, charges billed separately, and Azure Marketplace charges.
    - Filter by departments, accounts, and subscriptions below the graph.
    - Toggle between **Charge-by-Services** breakdown and **Charge-by-Hierarchy** breakdown.
@@ -228,7 +228,7 @@ The monthly report download page allows enterprise administrators to download se
 
 - Balance and charge report
 - Usage detail report
-- Marketplace charges report
+- Azure Marketplace charges report
 - Price sheet
 
 ### To download reports:
@@ -260,18 +260,18 @@ If a European currency uses a period (.) for the thousandth place separator and 
 ### To import the CSV file without formatting issues:
 
 1. In Microsoft Excel, go to **File** > **Open**.
-1. The Text Import Wizard will appear.
-1. Under Original Data Type, choose **delimited**.  Default is **Fixed Width**.
+   The Text Import Wizard will appear.
+1. Under **Original Data Type**, choose **delimited**.  Default is **Fixed Width**.
 1. Select **Next**.
-1. Under Delimiters, select the checkbox for **Comma**. Deselect **Tab** if it's checked.
+1. Under Delimiters, select the check box for **Comma**. Clear **Tab** if it's selected.
 1. Select **Next**.
-1. Scroll over to the 'ResourceRate' and 'ExtendedCost' columns.
-1. Select the 'ResourceRate' column. It appears  highlighted in black.
-1. Under the Column Data Format section, select 'Text' instead of 'General.' The column header will change from 'General' to 'Text.'
-1. Repeat steps 8 and 9 for the 'Extended Cost' column, and then select **Finish**.
+1. Scroll over to the **ResourceRate** and **ExtendedCost** columns.
+1. Select the **ResourceRate** column. It appears  highlighted in black.
+1. Under the **Column Data Format** section, select **Text** instead of **General**. The column header will change from **General** to **Text.**
+1. Repeat steps 8 and 9 for the **Extended Cost** column, and then select **Finish**.
 
 > [!TIP]
-> If you have set CSV files to automatically open in Excel, you must use the 'Open' function in Excel instead. In Excel, go to **File** > **Open**.
+> If you have set CSV files to automatically open in Excel, you must use the **Open** function in Excel instead. In Excel, go to **File** > **Open**.
 
 ## Balance and charge report
 
@@ -297,19 +297,19 @@ The usage detail report offers a monthly summary of an enrollments consumption o
 1. Select the **Download Usage** tab.
 1. Select the appropriate month under the **Usage Detail** column and select to download the report.
 
-## Marketplace charges in Azure Enterprise portal reports
+## Azure Marketplace charges in Azure Enterprise portal reports
 
 There are two types of Azure Marketplace charges:
 
 - **Usage-based:** Products measured in transactional units.  For example, virtual machines are charged hourly, Bing API searches are charged by number of searches.
 - **Monthly fee:** Billed monthly based on usage or access.
 
-For more information on Marketplace charges, see the [Marketplace FAQs](https://azure.microsoft.com/marketplace/faq/).
+For more information on Azure Marketplace charges, see the [Azure Marketplace FAQs](https://azure.microsoft.com/marketplace/faq/).
 
 To view the different charges in the Azure Enterprise portal:
 
 - **Usage summary report**: Shows **both** usage based and monthly fee Azure Marketplace charges.
-- **Marketplace charges report**: Shows **only** the usage-based Azure Marketplace charges.  One time fees aren't shown.
+- **Marketplace charges report**: Shows **only** the usage-based Azure Marketplace charges.  One-time fees aren't shown.
 
 > [!NOTE]
 > Azure Marketplace is not available for MPSA enrollments.
@@ -322,8 +322,8 @@ For reporting on specific date ranges or accounts, you can use the advanced repo
 1. Select **Appropriate Date Range**.
 1. Select **Appropriate Accounts**.
 1. Select **Request Usage Data**.
-1. Select **Refresh** button until the report status updates to 'Download'.
-1. Download report.
+1. Select **Refresh** button until the report status updates to **Download**.
+1. Download the report.
 
 ## Reporting for non-enterprise administrators
 
@@ -380,7 +380,7 @@ We're continually enhancing Azure and periodically add new services that are pri
 
 Some services start out with promotional pricing in effect when first introduced which may be increased at a future date.
 
-As services move from Preview to General Availability (GA), prices might increase as full performance and reliability SLAs are applied. Such an increase isn't limited by normal baseline price protection. Usage of those services is charged at the increased rate. To avoid  charges related to these new services, you'll have to opt out of using them.
+As services move from preview to general availability (GA), prices might increase as full performance and reliability SLAs are applied. Such an increase isn't limited by normal baseline price protection. Usage of those services is charged at the increased rate. To avoid  charges related to these new services, you'll have to opt out of using them.
 
 ### Introduction of regional pricing
 
@@ -438,7 +438,7 @@ Some services are priced on a monthly basis, but usage is reported on daily basi
 
 ### Compute hours conversion
 
-Before January 28, 2016, usage for A0, A2, A3, and A4 Standard and Basic Virtual Machines and Cloud Services was emitted as A1 Virtual Machine meter minutes. A0 VMs counted as fractions of A1 VM minutes while A2s, A3s,and A4s were converted to multiples. Because this policy caused some confusion for our customers, we implemented a change to assign per-minute usage to dedicated A0, A2, A3, and A4 meters.
+Before January 28, 2016, usage for A0, A2, A3, and A4 Standard and Basic Virtual Machines and Cloud Services was emitted as A1 Virtual Machine meter minutes. A0 VMs counted as fractions of A1 VM minutes while A2s, A3s, and A4s were converted to multiples. Because this policy caused some confusion for our customers, we implemented a change to assign per-minute usage to dedicated A0, A2, A3, and A4 meters.
 
 The new metering took effect between January 27 and January 28, 2016. On the CSV download that shows usage during this transition period, you can see both:
 
@@ -466,15 +466,15 @@ There are no charges for data egress between services housed within the same dat
 
 ### Monetary commitment and unbilled usage
 
-Azure monetary commitment is an amount paid up front for Azure services. The monetary commitment is consumed as services are used. First-party Azure services are billed against the monetary commitment. However, some charges are billed separately, and Marketplace services don't consume monetary commitment.
+Azure monetary commitment is an amount paid up front for Azure services. The monetary commitment is consumed as services are used. First-party Azure services are billed against the monetary commitment. However, some charges are billed separately, and Azure Marketplace services don't consume monetary commitment.
 
 ### Charges billed separately
 
 Some products and services provided from third-party sources don't consume Azure monetary commitment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
 
-We've combined all Azure and Marketplace charges into a single invoice that aligns with the enrollment's billing cycle. The combined invoice doesn't apply to customers in Australia, Japan, or Singapore.
+We've combined all Azure and Azure Marketplace charges into a single invoice that aligns with the enrollment's billing cycle. The combined invoice doesn't apply to customers in Australia, Japan, or Singapore.
 
-The combined invoice shows Azure usage first, followed by any Marketplace charges. Customers in Australia, Japan, or Singapore see their Marketplace charges on a separate invoice.
+The combined invoice shows Azure usage first, followed by any Azure Marketplace charges. Customers in Australia, Japan, or Singapore see their Azure Marketplace charges on a separate invoice.
 
 If there's no overage usage at the end of the standard billing cycle, charges billed separately are invoiced separately. This process applies to customers in Australia, Japan, and Singapore.
 
@@ -493,11 +493,11 @@ The following services are billed separately:
 
 ## Azure Marketplace for EA customers
 
-For direct customers, Marketplace charges are visible on the Azure Enterprise portal. Marketplace purchases and consumption are billed outside of monetary commitment on a quarterly or monthly cadence and in arrears.
+For direct customers, Azure Marketplace charges are visible on the Azure Enterprise portal. Azure Marketplace purchases and consumption are billed outside of monetary commitment on a quarterly or monthly cadence and in arrears.
 
-Indirect customers can find their Azure Marketplace subscriptions on the **Manage Subscriptions** page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their Licensing Solutions Provider (LSP) for information on Marketplace charges.
+Indirect customers can find their Azure Marketplace subscriptions on the **Manage Subscriptions** page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their Licensing Solutions Provider (LSP) for information on Azure Marketplace charges.
 
-New monthly or annually recurring Marketplace purchases are billed in full during the period when Azure Marketplace items are purchased. These items will autorenew in the following period on the same day of the original purchase.
+New monthly or annually recurring Azure Marketplace purchases are billed in full during the period when Azure Marketplace items are purchased. These items will autorenew in the following period on the same day of the original purchase.
 
 Existing, monthly recurring charges will continue to renew on the first of each calendar month. Annual charges will renew on the anniversary of the purchase date.
 
@@ -527,7 +527,7 @@ Although customers can convert their direct Azure subscriptions to Azure EA by a
 To enable Azure Marketplace purchases:
 
 1. Sign in to the Azure Enterprise portal as an enterprise administrator.
-1. Navigate to **Manage**.
+1. Go to **Manage**.
 1. Under **Enrollment Detail**, select the pencil icon next to the **Azure Marketplace** line item.
 1. Toggle **Enabled/Disabled** or Free **BYOL SKUs Only** as appropriate.
 1. Select **Save**.
@@ -535,7 +535,7 @@ To enable Azure Marketplace purchases:
 > [!NOTE]
 > BYOL (bring your own license) and the Free Only option limits the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
 
-Get more information about [Marketplace charges in Azure Enterprise portal reports](#marketplace-charges-in-azure-enterprise-portal-reports).
+Get more information about [Azure Marketplace charges in Azure Enterprise portal reports](#marketplace-charges-in-azure-enterprise-portal-reports).
 
 ### Services billed hourly for Azure EA
 
@@ -552,7 +552,7 @@ If you have an Enterprise Agreement, you pay for Azure RemoteApp based on your E
 
 This section explains how your Azure monetary commitment might apply to some third-party reseller services in Azure Marketplace.
 
-### What changed with Marketplace services and EA monetary commitment?
+### What changed with Azure Marketplace services and EA monetary commitment?
 
 As of March 1, 2018, some third-party reseller services  consume EA monetary commitment (MC). Except for Azure reserved VM instances (RIs), services were previously billed outside EA monetary commitment and were invoiced separately.
 
@@ -641,10 +641,10 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
     - Number of Months: from 1 to 36
     - Enrollment Number: your enrollment number
 1. Select **Next**.
-1. In **Authentication Key Box**, enter the API Key.
+1. In **Authentication Key Box**, enter the API key.
 
-    You can get the API key in the Azure Enterprise portal under the **Download Usage** tab above. Select **API Access Key**, and then paste the key into the **Account Key** box.
-1. Data takes approximately 5 - 30 minutes to load in Power BI depending on the size of the data sets.
+    You can get the API key in the Azure Enterprise portal under the **Download Usage** tab. Select **API Access Key**, and then paste the key into the **Account Key** box.
+1. Data takes approximately 5-30 minutes to load in Power BI, depending on the size of the data sets.
 
 ## Reports FAQ
 
@@ -665,13 +665,13 @@ For **direct enrollment** customers, enterprise administrators can provide accou
 
 For **indirect enrollment** customers, contact your partner to check that they've enabled the pricing feature for you. This can only be done by the partner. After you're enabled, you can view the cost and pricing on your enrollment as an enterprise administrator.
 
-Partners, if you wish to enable the view charges feature for an account owner or a department administrator, follow the steps under **direct enrollment**.
+Partners, if you want to enable the view charges feature for an account owner or a department administrator, follow the steps under **direct enrollment**.
 
 ### Why is there no SKU information on my usage detail report?
 
 The usage detail report doesn't contain SKU information. The report does, however, contain usage information so you can download the price sheet report to obtain the SKU information.
 
-### Why doesn't the total amount on Marketplace match the reports for usage summary and detail?
+### Why doesn't the total amount on Azure Marketplace match the reports for usage summary and detail?
 
 The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. See the usage summary page for the most up-to-date usage-based charges and one-time fees.
 
