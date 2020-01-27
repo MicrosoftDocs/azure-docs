@@ -1,5 +1,5 @@
 ---
-title: Azure Remote Rendering tutorial - getting started
+title: ARR Tutorial 1 - Getting started
 description: Prerequisites to get the sample up and running
 author: FlorianBorn71
 manager: jlyons
@@ -9,11 +9,12 @@ ms.date: 12/11/2019
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
-# Azure remote rendering tutorial #1 - getting started
+
+# Tutorial 1 - Getting started
 
 ## Setup up an Azure remote rendering account
 
-To begin the tutorial, you will need to have your Azure Remote Rendering account [setup](../how-tos/create-an-account.md) and have an account name and a key.
+To begin the tutorial, you will need to have your Azure Remote Rendering account [setup](../azure/create-an-account.md) and have an account name and a key.
 
 ## Nuget package
 
@@ -132,7 +133,7 @@ The following image shows where to find the respective information in the web in
     public string AccountKey = "<your account key here>";
 ```
 
-The AccountDomain will be \<region>\.mixedreality.azure.com. For example, westus2.mixedreality.azure.com (the default), westeurope.mixedreality.azure.com, etc. 
+The AccountDomain will be \<region>\.mixedreality.azure.com. For example, westus2.mixedreality.azure.com (the default), westeurope.mixedreality.azure.com, etc
 
 Initialize the `AzureFrontendAccountInfo` information for the service. This will be used by the `ARRService` component. Also, subscribe to the specific events exposed by these components:
 

@@ -54,7 +54,8 @@ Next to the `.ps1` files in the Scripts directory there is a arrconfig.json that
 All of the values are strings, so use the "key":"value" notation. 
 
 accountSettings contains values needed for Ingestion.ps1 and RenderingSession.ps1
-- accountSettings.arrAccountId: fill in the ID for the account you will use. If you don't have an account, [create one](../how-tos/create-an-account.md)
+
+- accountSettings.arrAccountId: fill in the ID for the account you will use. If you don't have an account, [create one](create-an-account.md).
 - accountSettings.arrAccountKey: fill in the key for the account you will use.
 - accountSettings.region:  The region of ARR service you will use. At the moment, we provide "westus2" and "westeurope". Pick one.
 

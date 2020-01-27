@@ -12,24 +12,31 @@ ms.service: azure-remote-rendering
 
 # Get a token
 
-Tokens are used to gain access to the Remote rendering service REST APIs. The tokens are issued by the STS (Secure Token Service) in exchange for an account key. The STS URL is https://sts.mixedreality.azure.com.
+Tokens are used to gain access to the Remote rendering service REST APIs. The tokens are issued by the STS (Secure Token Service) in exchange for an account key. The STS URL is [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
 
 ## Accounts
-If you don't have a Remote rendering account, [create one](../how-tos/create-an-account.md). Each resource is identified by an *account ID* and an *account Key*.
+
+[Creating an account for Azure Remote Rendering](create-an-account.md) if you do not have one yet.
+
+Each resource is identified by an *account ID* and an *account Key*.
 
 ### Examples
+
 ```powershell
 PS> $accountId = "********-****-****-****-************"
 PS> $accountKey = "*******************************************="
 ```
 
 ## Common request headers
+
 - The *Authorization* header must have the value of "Bearer [accountId]:[accountKey]", where [accountId] is the account ID and [accountKey] is the account key you will find in the portal
 
 ## Common response headers
+
 - The *MS-CV* header can be used by the product team to trace the call within the service
 
 ## Getting a token
+
 Creates a token to be used to access other services.
 
 | URI | Method |
@@ -37,11 +44,13 @@ Creates a token to be used to access other services.
 | /accounts/*account ID*/token | GET |
 
 ### Responses
+
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
 | 200 | - AccessToken: string | Success |
 
 ### Examples
+
 ```powershell
 PS> [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 PS> $webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }

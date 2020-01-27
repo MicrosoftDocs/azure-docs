@@ -1,5 +1,5 @@
 ---
-title: Cut planes
+title: Entities
 description: Definition of Entities in the scope of Azure Remote Rendering API
 author: FlorianBorn71
 manager: jlyons

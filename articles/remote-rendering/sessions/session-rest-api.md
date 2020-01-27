@@ -1,6 +1,6 @@
 ---
-title: Launching virtual machines
-description: Tutorial how to ingest a model via REST API
+title: The session management REST API
+description: Describes how to convert a model through the REST API
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -10,37 +10,43 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Launch virtual machines
+# The session management REST API
 
 Once an asset has been converted, a session should be created to render it. The creation will allocate a virtual machine (VM) with a public IP a client can connect to. Once the VM is not needed anymore, the session must be stopped to free up resources.
 
 We provide a powershell script which demonstrates the use of our service.
 The RenderingSession.ps1 can be found in the Scripts directory of the arrclient repo.
 
-The script and its configuration are described here: [Powershell Example Scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
+The script and its configuration are described here: [Example Powershell scripts](../azure/powershell-example-scripts-for-frontend.md)
 
 ## Environments
+
 | Environment | Base URL | 
 |-----------|:-----------|
 | Production West US 2 | https://remoterendering.westus2.mixedreality.azure.com |
 | Production West Europe | https://remoterendering.westeurope.mixedreality.azure.com |
 
 Example:
+
 ```powershell
 PS> $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 ```
 
 ## Accounts
-If you don't have a Remote Rendering account, [create one](../how-tos/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs. 
+
+If you don't have a Remote Rendering account, [create one](../azure/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs.
 
 ### Examples
+
 ```powershell
 PS> $accountId = "********-****-****-****-************"
 PS> $accountKey = "*******************************************="
 ```
 
 ## Common request headers
-- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [how to get a token](../quickstarts/getting-tokens.md)
+
+- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [getting a token](../azure/getting-tokens.md).
+
 ```powershell
 PS> [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 PS> $webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
@@ -49,9 +55,11 @@ PS> $token = $response.AccessToken;
 ```
 
 ## Common response headers
+
 - The *MS-CV* header can be used by the product team to trace the call within the service
 
 ## Creating a session
+
 Creates a session by allocating a VM. Returns the ID of the session created.
 
 | URI | Method |
@@ -59,16 +67,19 @@ Creates a session by allocating a VM. Returns the ID of the session created.
 | /v1/accounts/*account ID*/sessions/create | POST |
 
 ### Request body
+
 - maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
 - models (array): asset containers URLs to preload
 - size (string): the VM size (for example "small", "big")
 
 ### Responses
+
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
 | 202 | - session ID: GUID | Success |
 
 ### Examples
+
 ```powershell
 PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'small' }" -Headers @{ Authorization = "Bearer $token" }
 
@@ -91,11 +102,15 @@ Links             : {}
 ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 52
 ```
+
 Use the *session ID* to get properties of a session and stop a session.
+
 ```powershell
 PS> $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
+
 ## Updating a session
+
 Updates the session parameters. Currently you can only extend a lease. The session is identified by its ID (returned by the service when the session is created).
 
 | URI | Method |
@@ -103,14 +118,17 @@ Updates the session parameters. Currently you can only extend a lease. The sessi
 | /v1/accounts/*account ID*/sessions/*session ID* | PATCH |
 
 ### Request body
+
 - maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
 
 ### Responses
+
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
 | 200 | | Success |
 
 ### Examples
+
 ```powershell
 PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
 
@@ -127,7 +145,9 @@ RawContent        : HTTP/1.1 200 OK
 Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Date, Thu, 09 May 2019 16:27:31 GMT]}
 RawContentLength  : 0
 ```
+
 ## Get current sessions
+
 Provides a list of current sessions
 
 | URI | Method |
@@ -135,11 +155,13 @@ Provides a list of current sessions
 | /v1/accounts/*account ID*/sessions | GET |
 
 ### Responses
+
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
 | 200 | - sessions: array of session properties | see "Get session properties" section for a description of session properties |
 
 ### Examples
+
 ```powershell
 PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
 
@@ -163,7 +185,9 @@ Links             : {}
 ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
+
 ## Get sessions properties
+
 Provides information about the session (VM hostname, etc.). The session is identified by its ID (returned by the service when the session is created).
 
 | URI | Method |
@@ -171,11 +195,13 @@ Provides information about the session (VM hostname, etc.). The session is ident
 | /v1/accounts/*account ID*/sessions/*session ID*/properties | GET |
 
 ### Responses
+
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
 | 200 | - message: string<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: string<br/>- sessionMaxLeaseTime: timespan<br/>- sessionSize: enum<br/>- sessionStatus: enum | enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>If the status is 'error' or 'expired', the message will contain more information |
 
 ### Examples
+
 ```powershell
 PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
 
@@ -199,7 +225,9 @@ Links             : {}
 ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 60
 ```
+
 ## Stop a session
+
 Stops a session and reclaims resources. The session is identified by its ID (returned by the service when the session is created).
 
 | URI | Method |
@@ -207,11 +235,13 @@ Stops a session and reclaims resources. The session is identified by its ID (ret
 | /1/accounts/*account ID*/sessions/*session ID* | DELETE |
 
 ### Responses
+
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
 | 204 | | Success |
 
 ### Examples
+
 ```powershell
 PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Delete -Headers @{ Authorization = "Bearer $token" }
 
