@@ -13,7 +13,7 @@
   - name: High performance computing
     href: https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview
   - name: SAP
-    href: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started.md
+    href: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started
   - name: Oracle
     href: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview
   - name: Mainframe rehosting
