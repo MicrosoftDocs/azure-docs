@@ -64,5 +64,5 @@ rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not atta
 ## Next steps
 * Learn more about the [Red Hat images in Azure](./redhat-images.md).
 * Learn more about the [Red Hat Update Infrastructure](./redhat-rhui.md).
-* Learn more about the [RHEL BYOS offer](./redhat-byos.md).
+* Learn more about the [RHEL BYOS offer](./byos.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

@@ -163,4 +163,4 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Next steps
 
-* [Create a storage account](storage-quickstart-create-account.md)
+* [Create a storage account](storage-account-create.md)

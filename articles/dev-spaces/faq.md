@@ -29,7 +29,7 @@ Yes, you can configure your own ingress with HTTPS using [traefik][ingress-https
 
 ## Can I use Azure Dev Spaces on a cluster that uses CNI rather than kubenet? 
 
-Yes, you can use Azure Dev Spaces on an AKS cluster that uses CNI for networking. For example, you can use Azure Dev Spaces on an AKS cluster with [existing Windows containers][windows-containers], which uses CNI for networking. More information on using CNI for networking with Azure Dev Spaces is available [here](configure-networking.md#using-azure-container-networking-with-azure-dev-spaces).
+Yes, you can use Azure Dev Spaces on an AKS cluster that uses CNI for networking. For example, you can use Azure Dev Spaces on an AKS cluster with [existing Windows containers][windows-containers], which uses CNI for networking. More information on using CNI for networking with Azure Dev Spaces is available [here](configure-networking.md#using-azure-cni).
 
 ## Can I use Azure Dev Spaces with Windows Containers?
 
@@ -37,7 +37,7 @@ Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only, but
 
 ## Can I use Azure Dev Spaces on AKS clusters with API server authorized IP address ranges enabled?
 
-Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP address ranges][aks-auth-range] enabled. More information on using an AKS clusters with API server authorized IP address ranges enabled with Azure Dev Spaces is available [here](configure-networking.md#using-api-server-authorized-ip-ranges-with-azure-dev-spaces).
+Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP address ranges][aks-auth-range] enabled. More information on using an AKS clusters with API server authorized IP address ranges enabled with Azure Dev Spaces is available [here](configure-networking.md#using-api-server-authorized-ip-ranges).
 
 ### Can I use Azure Dev Spaces on AKS clusters with restricted egress traffic for cluster nodes?
 

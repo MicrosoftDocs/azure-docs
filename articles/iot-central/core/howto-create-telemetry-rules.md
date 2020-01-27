@@ -22,7 +22,7 @@ Devices can use telemetry measurement to send numerical data from the device. A 
 
 ## Create a telemetry rule
 
-To create a telemetry rule, the device template must have at least one telemetry measurement defined. This example uses a refrigerated vending machine device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 80 degrees.
+To create a telemetry rule, the device template must have at least one telemetry measurement defined. This example uses a refrigerated vending machine device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70&deg; F.
 
 1. Using the **Device Templates** page, navigate to the device template for which you are adding the rule for.
 
@@ -38,7 +38,7 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. Enter a name that helps you to identify the rule in this device template.
 
-1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices for this template**.
+1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices of this template**.
 
    ![Rule Detail](media/howto-create-telemetry-rules/rule_detail1.png)
 
@@ -53,8 +53,8 @@ Condition defines the criteria that is monitored by the rule.
 1. Select the telemetry you want to monitor from the **Measurement** dropdown.
 
 1. Next, choose **Aggregation**, **Operator**, and provide a **Threshold** value.
-   - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule triggers almost instantly when the device reports temperature > 80.
-   - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
+   - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 70&deg; F then the rule triggers almost instantly when the device reports temperature > 70.
+   - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 70, the rule triggers when the average temperature is above 70&deg; F for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
 
      ![Condition](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
@@ -85,7 +85,7 @@ You can add other actions to the rule such as Microsoft Flow and webhooks. You c
 
 ## Parameterize the rule
 
-Rules can derive certain vales from **Device Properties** as parameters. Using parameters is helpful in scenarios where telemetry thresholds vary for different devices. When you create the rule, choose a device property that specifies the threshold, such as **Maximum Ideal Threshold**, instead of providing an absolute value, such as 80 degrees. When the rule executes, it matches the device telemetry with the value set in the device property.
+Rules can derive certain vales from **Device Properties** as parameters. Using parameters is helpful in scenarios where telemetry thresholds vary for different devices. When you create the rule, choose a device property that specifies the threshold, such as **Maximum Ideal Threshold**, instead of providing an absolute value, such as 70&deg; F. When the rule executes, it matches the device telemetry with the value set in the device property.
 
 Using parameters is an effective way to reduce the number of rules to manage per device template.
 

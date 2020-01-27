@@ -86,7 +86,7 @@ compliance results. The exception is **resource groups**. Policies that enforce 
 a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
-[Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
+[Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
 
@@ -646,7 +646,7 @@ For complete details on each effect, order of evaluation, properties, and exampl
 ### Policy functions
 
 All [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+functions](../../../azure-resource-manager/templates/template-functions.md) are available to
 use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
