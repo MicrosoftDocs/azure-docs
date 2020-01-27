@@ -978,9 +978,9 @@
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference/
-    - name: SQL pool language elements
+    - name: SQL Analytics language elements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: SQL pool statements
+    - name: SQL Analytics statements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Resources
   items: 
