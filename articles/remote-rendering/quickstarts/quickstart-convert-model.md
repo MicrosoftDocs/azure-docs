@@ -41,36 +41,48 @@ Go to  [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/ge
 If you do not have an Azure account, then click on the free account option on the home page and follow those instructions.
 Once completed, you will be forwarded to the portal page in the second link.
 
-First, a Storage Account must be created so that will be the first task to complete.
-From the Portal Home Page, there is a Storage accounts link on the left-hand side of the page.
-Click this link.
-This next screen will look slightly different. If you are already an active Azure client, however for this guide we will stick with the free account.
-You will see a list of all Storage accounts under your subscription or none in this case.
+First, a Storage Account must be created so that will be the first task to complete. To accomplish that, click on the "Create a resource" button:
 
-Press the + Add button and you will be presented with the following screen to set up a new storage account.
+![Azure add resource](./media/azure-add-a-resource.png "Click the 'Create a resource' button")
+
+From the new screen, choose **Storage** on the left side and then **Storage account - blob, file, table, queue** from the next column:
+
+![Azure add storage](./media/azure-add-storage.png)
+
+This will bring up the following new screen with storage properties to fill out:
 
 ![Azure Setup](./media/azure-setup1.png "Azure set-up")
 
-  *	Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-  *	For the Storage account name, enter **arrtutorialstorage**
-  *	Select a location close to you
-  *	Performance can be set to ‘Standard’
-  *	Account kind can be set to ‘StorageV2 (general purpose v2)’
-  *	Replication set to ‘Read-access geo-redundant storage (RA-GRS)’
-  *	Access tier set to ‘Hot’
+Fill out the form in the following manner:
 
-Now add quick access blob containers – you will need one for input and one for output, so creating these two containers is the next step.
+  *	Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
+  *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is given. In the scope of this quickstart we name it **arrtutorialstorage**
+  *	Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
+  *	**Performance** set to ‘Standard’
+  *	**Account kind** set to ‘StorageV2 (general purpose v2)’
+  *	**Replication** set to ‘Read-access geo-redundant storage (RA-GRS)’
+  *	**Access tier** set to ‘Hot’
+
+None of the properties in other tabs have to be changed. When finished, click on the "Review + create" button at the bottom and follow the steps to complete the setup.
+
+The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Click on the **"Go to resource"** button for the next steps:
+
+![Azure Storage creation complete](./media/storage-creation-complete.png)
+
+Now you need to create blob containers – you will need one for input and one for output, so creating these two containers is the next step.
 
 ## Blob storage creation
-Make sure you are within the arrtutorialstorage account that you created in the last step and note there is an option for Blob Services on the dashboard page.
-Click this button, and you will be taken to the page that will allow us to set up our blob storage accounts.
 
-Press the + Container button to create your first blob storage container.
+From the **"Go to resource"** button above you get into a screen with a panel on the left. Close to the bottom, in the **"Blob service"** category, click on the **"Containers"** button:
+
+![Azure add Containers](./media/azure-add-containers.png)
+
+Press the **"+ Container"** button to create your first blob storage container.
 Use the following settings when creating it:
   * Name = arrinput
   * Public access level = Private
 
-Once the container has been created, repeat the process by clicking the + Container button, but this time use the following settings:
+Once the container has been created, repeat the process by clicking the **"+ Container**" button, but this time use the following settings:
   * Name = arroutput
   * Public access level = Private
 
