@@ -30,8 +30,11 @@ You must be the Account Administrator to perform any of these tasks.
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
 
 1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to. 
-   Note: If you don't see some of your subscriptions here, it may be because you changed the directory of these subscriptions previously. You need to switch directory to the original directory (the directory in which you initially signed up). After that, repeat Step 2. 
-    ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   > [!NOTE]
+   > If you don't see some of your subscriptions here, it might be because you changed the subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2. 
 
 1. Select **Payment methods**.
 
@@ -116,10 +119,12 @@ The spending limit isn’t available for subscriptions with commitment plans or 
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
 
 1. In the **My subscriptions** list, select your Visual Studio Enterprise subscription. 
-Note: If you don't see some of your Visual Studio subscription here, it may be because you changed its directory previously. You need to switch directory to the original directory (the directory in which you initially signed up) for it to be displayed. After that, repeat Step 2. 
-    
-    ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
+   ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
+    
 1. In the Subscription overview, click the orange banner to remove the spending limit.
     
     ![Screenshot that shows remove spending limit banner](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
@@ -142,10 +147,12 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
 
 1. In the **My subscriptions** list, select your Azure in Open subscription. 
-Note: If you don't see your subscription here, it may be because you changed its directory previously. You need to switch directory to the original directory (the directory in which you initially signed up) for it to be displayed. After that, repeat Step 2. 
-   
+
     ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
+   > [!NOTE]
+   > If you don't see your subscription here, it might be because you changed its directory at some point. You need to switch the subscription's directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
+    
 1. Select **Credit history**.
     
     ![Screenshot that shows credit history](./media/account-admin-tasks/aio-credit-history-blade.png)
