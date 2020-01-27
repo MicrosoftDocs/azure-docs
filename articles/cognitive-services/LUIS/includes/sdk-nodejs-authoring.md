@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/22/2020
+ms.date: 01/23/2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) authoring client library for Node.js to:
