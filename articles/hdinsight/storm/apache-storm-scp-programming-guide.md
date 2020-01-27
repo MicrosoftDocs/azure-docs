@@ -157,7 +157,7 @@ SCP.NET creates a new **ISCPBatchBolt** object to process each **StormTxAttempt*
 
 After a transaction attempt finishes, the corresponding **ISCPBatchBolt** object is destroyed and garbage collected.
 
-## Object Model
+## Object model
 
 SCP.NET also provides a simple set of key objects for developers to program with. The objects are **Context**, **StateStore**, and **SCPRuntime**. They're discussed in this section.
 
@@ -215,10 +215,10 @@ public class Constants
 }
 ```
 
-**TopologyContext** is provided to get the topology context. It's most useful for components with multiple parallelism. Here is an example:
+The **TopologyContext** type is provided to get the topology context. It's most useful for multiple parallel components. Here's an example:
 
 ```
-//demo how to get TopologyContext info
+//demo of how to get TopologyContext info
 if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
 {
     Context.Logger.Info("TopologyContext info:");
@@ -502,7 +502,7 @@ public void DeclareComponentSchema(ComponentStreamSchema schema)
 
 Developers must ensure that the emitted tuples obey the schema defined for a stream. Otherwise, the system will throw a runtime exception.
 
-### Multi-stream support
+### Multistream support
 
 SCP lets your code emit to or receive from multiple distinct streams at the same time. This support is reflected in the **Context** object as an optional stream ID parameter in the **Emit** method.
 
@@ -573,183 +573,217 @@ An SCP component includes a Java side and a C# side. To interact with native Jav
 
 #### Serialization in the Java side and deserialization in the C# side
 
-First we provide default implementation for serialization in Java side and deserialization in C# side. The serialization method in Java side can be specified in a specification file:
+First you provide a default implementation for serialization in the Java side and deserialization in the C# side. The serialization method in the Java side can be specified in a specification file.
 
-    (scp-bolt
-        {
-            "plugin.name" "HybridTopology.exe"
-            "plugin.args" ["displayer"]
-            "output.schema" {}
-            "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
-        })
+```
+(scp-bolt
+    {
+        "plugin.name" "HybridTopology.exe"
+        "plugin.args" ["displayer"]
+        "output.schema" {}
+        "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
+    })
+```
 
-The deserialization method in C# side should be specified in C# user code:
+The deserialization method in the C# side should be specified in C# user code.
 
-    Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-    inputSchema.Add("default", new List<Type>() { typeof(Person) });
-    this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
-    this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
+```
+Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
+inputSchema.Add("default", new List<Type>() { typeof(Person) });
+this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
+this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());
+```  
 
-This default implementation should handle most cases provided the data type isn't too complex. For certain cases, either because the user data type is too complex, or because the performance of our default implementation doesn't meet the user's requirement, users can plug in their own implementation.
+If the data type isn't too complex, this default implementation should handle most cases. Here are cases where you can plug in your own implementation:
 
-The serialize interface in java side is defined as:
+* Your data type is too complex.
+* The performance of your default implementation doesn't meet  your requirements.
 
-    public interface ICustomizedInteropJavaSerializer {
-        public void prepare(String[] args);
-        public List<ByteBuffer> serialize(List<Object> objectList);
-    }
+The serialization interface in the Java side is defined as:
 
-The deserialize interface in C# side is defined as:
+```
+public interface ICustomizedInteropJavaSerializer {
+    public void prepare(String[] args);
+    public List<ByteBuffer> serialize(List<Object> objectList);
+}
+```
 
-   public interface ICustomizedInteropCSharpDeserializer
+The deserialization interface in the C# side is defined as:
 
-       public interface ICustomizedInteropCSharpDeserializer
-       {
-           List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
-       }
+```
+public interface ICustomizedInteropCSharpDeserializer
+{
+    List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
+}
+```
 
 #### Serialization in the C# side and deserialization in the Java side
 
-   The serialization method in C# side should be specified in C# user code:
+The serialization method in the C# side should be specified in your C# code.
 
-       this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
+```
+this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
+```
 
-   The Deserialization method in Java side should be specified in a specification file:
+The Deserialization method in Java side should be specified in a specification file.
 
-    ```
-    (scp-spout
-       {
-         "plugin.name" "HybridTopology.exe"
-         "plugin.args" ["generator"]
-         "output.schema" {"default" ["person"]}
-         "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
-       }
-    )
-    ```
+```
+(scp-spout
+   {
+     "plugin.name" "HybridTopology.exe"
+     "plugin.args" ["generator"]
+     "output.schema" {"default" ["person"]}
+     "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
+   }
+)
+```
 
-   Here "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" is the name of Deserializer, and "microsoft.scp.example.HybridTopology.Person" is the target class the data is deserialized to.
+Here, `"microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer"` is the name of the deserializer, and `"microsoft.scp.example.HybridTopology.Person"` is the target class the data is deserialized to.
 
-   User can also plug in their own implementation of C# serializer and Java Deserializer. This code is the interface for C# serializer:
+You can also plug in you own implementation of a C# serializer and a Java deserializer. This code is the interface for the C# serializer:
 
-       public interface ICustomizedInteropCSharpSerializer
-       {
-           List<byte[]> Serialize(List<object> dataList);
-       }
+```
+public interface ICustomizedInteropCSharpSerializer
+{
+    List<byte[]> Serialize(List<object> dataList);
+}
+```
 
-   This code is the interface for Java Deserializer:
+This code is the interface for the Java deserializer:
 
-       public interface ICustomizedInteropJavaDeserializer {
-           public void prepare(String[] targetClassNames);
-           public List<Object> Deserialize(List<ByteBuffer> dataList);
-       }
+```
+public interface ICustomizedInteropJavaDeserializer {
+    public void prepare(String[] targetClassNames);
+    public List<Object> Deserialize(List<ByteBuffer> dataList);
+}
+```
 
-## SCP Host Mode
+## SCP host mode
 
-In this mode, user can compile their codes to DLL, and use SCPHost.exe provided by SCP to submit topology. A specification file looks like this code:
+In SCP host mode, you can compile your code as a DLL and use SCPHost.exe as provided by SCP to submit a topology. A specification file looks like this code:
 
-    (scp-spout
-      {
-        "plugin.name" "SCPHost.exe"
-        "plugin.args" ["HelloWorld.dll" "Scp.App.HelloWorld.Generator" "Get"]
-        "output.schema" {"default" ["sentence"]}
-      })
+```
+(scp-spout
+  {
+    "plugin.name" "SCPHost.exe"
+    "plugin.args" ["HelloWorld.dll" "Scp.App.HelloWorld.Generator" "Get"]
+    "output.schema" {"default" ["sentence"]}
+  })
+```
 
-Here, `plugin.name` is specified as `SCPHost.exe` provided by SCP SDK. SCPHost.exe accepts three parameters:
+Here, `plugin.name` is specified as `SCPHost.exe`, which is provided by the SCP SDK. SCPHost.exe accepts three parameters in this order:
 
-1. The first one is the DLL name, which is `"HelloWorld.dll"` in this example.
-2. The second one is the Class name, which is `"Scp.App.HelloWorld.Generator"` in this example.
-3. The third one is the name of a public static method, which can be invoked to get an instance of ISCPPlugin.
+1. The DLL name, which is `"HelloWorld.dll"` in this example.
+1. The class name, which is `"Scp.App.HelloWorld.Generator"` in this example.
+1. The name of a public static method, which can be invoked to get an instance of **ISCPPlugin**.
 
-In host mode, user code is compiled as DLL, and is invoked by SCP platform. So SCP platform can get full control of the whole processing logic. So we recommend our customers to submit topology in SCP host mode since it can simplify the development experience and bring us more flexibility and better backward compatibility for later release as well.
+In host mode, your code is compiled as DLL and is invoked by the SCP platform. Because the SCP platform can get full control of the whole processing logic, we recommend that you submit topology in SCP host mode. Doing so simplifies the development experience and also brings you more flexibility and better backward compatibility for later releases.
 
-## SCP Programming Examples
+## SCP programming examples
 
 ### HelloWorld
 
-**HelloWorld** is a simple example to show a taste of SCP.NET. It uses a nontransactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** randomly generates sentences, and emit these sentences to **splitter**. The bolt **splitter** splits the sentences to words and emits these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
+The following simple HelloWorld example shows a taste of SCP.NET. It uses a nontransactional topology with a spout called **generator** and two bolts called **splitter** and **counter**. The **generator** spout randomly generates sentences and emit these sentences to **splitter**. The  **splitter** bolt splits the sentences into words and emits these words to the **counter** bolt. The **counter** bolt uses a dictionary to record the occurrence of each word.
 
-There are two specification files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec** for this example. In the C# code, it can find out whether acknowledgment is enabled by getting the pluginConf from Java side.
+This example has two specification files: HelloWorld.spec and HelloWorld\_EnableAck.spec. The C# code can find out whether acknowledgment is enabled by getting the **pluginConf** object from the Java side.
 
-    /* demo how to get pluginConf info */
-    if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK))
+```
+/* demo how to get pluginConf info */
+if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK))
+{
+    enableAck = (bool)(Context.Config.pluginConf[Constants.NONTRANSACTIONAL_ENABLE_ACK]);
+}
+Context.Logger.Info("enableAck: {0}", enableAck);
+```
+
+If acknowledgment is enabled in the spout, a dictionary caches the tuples that haven't been acknowledged. If `Fail` is called, the failed tuple is replayed.
+
+```
+public void Fail(long seqId, Dictionary<string, Object> parms)
+{
+    Context.Logger.Info("Fail, seqId: {0}", seqId);
+    if (cachedTuples.ContainsKey(seqId))
     {
-        enableAck = (bool)(Context.Config.pluginConf[Constants.NONTRANSACTIONAL_ENABLE_ACK]);
+        /* get the cached tuple */
+        string sentence = cachedTuples[seqId];
+
+        /* replay the failed tuple */
+        Context.Logger.Info("Re-Emit: {0}, seqId: {1}", sentence, seqId);
+        this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), seqId);
     }
-    Context.Logger.Info("enableAck: {0}", enableAck);
-
-In the spout, if acknowledgment is enabled, a dictionary is used to cache the tuples that haven't been acknowledged. If Fail() is called, the failed tuple is replayed:
-
-    public void Fail(long seqId, Dictionary<string, Object> parms)
+    else
     {
-        Context.Logger.Info("Fail, seqId: {0}", seqId);
-        if (cachedTuples.ContainsKey(seqId))
-        {
-            /* get the cached tuple */
-            string sentence = cachedTuples[seqId];
-
-            /* replay the failed tuple */
-            Context.Logger.Info("Re-Emit: {0}, seqId: {1}", sentence, seqId);
-            this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), seqId);
-        }
-        else
-        {
-            Context.Logger.Warn("Fail(), can't find cached tuple for seqId {0}!", seqId);
-        }
+        Context.Logger.Warn("Fail(), can't find cached tuple for seqId {0}!", seqId);
     }
+}
+```
 
 ### HelloWorldTx
 
-The **HelloWorldTx** example demonstrates how to implement transactional topology. It has one spout called **generator**, a batch bolt called **partial-count**, and a commit bolt called **count-sum**. There are also three pre-created txt files: **DataSource0.txt**, **DataSource1.txt**, and **DataSource2.txt**.
+The following HelloWorldTx example demonstrates how to implement transactional topology. It has one spout called **generator**, a batch bolt called **partial-count**, and a commit bolt called **count-sum**. It  also has three existing text files: DataSource0.txt, DataSource1.txt, and DataSource2.txt.
 
-In each transaction, the spout **generator** randomly selects two files from the pre-created three files, and emit the two file names to the **partial-count** bolt. The bolt **partial-count** gets the file name from the received tuple, then open the file and count the number of words in this file, and finally emit the word number to the **count-sum** bolt. The **count-sum** bolt summarizes the total count.
+In each transaction, the **generator** spout randomly selects two files from the existing three files and emits the corresponding two file names to the **partial-count** bolt. The  **partial-count** bolt:
 
-To achieve **exactly once** semantics, the commit bolt **count-sum** need to judge whether it's a replayed transaction. In this example, it has a static member variable:
+1. Gets a file name from the received tuple.
+1. Opens the corresponding file.
+1. Counts the number of words in the file.
+1. Emits the word count to the **count-sum** bolt.
 
-    public static long lastCommittedTxId = -1; 
+The **count-sum** bolt summarizes the total count.
 
-When an ISCPBatchBolt instance is created, it gets the `txAttempt` from input parameters:
+To achieve exactly once semantics, the **count-sum** commit bolt needs to judge whether it's a replayed transaction. In this example, it has the static member variable:
 
-    public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
+```
+public static long lastCommittedTxId = -1; 
+```
+
+When an **ISCPBatchBolt** instance is created, it gets the value of `txAttempt` from input parameters.
+
+```
+public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
+{
+    /* for transactional topology, we can get txAttempt from the input parms */
+    if (parms.ContainsKey(Constants.STORM_TX_ATTEMPT))
     {
-        /* for transactional topology, we can get txAttempt from the input parms */
-        if (parms.ContainsKey(Constants.STORM_TX_ATTEMPT))
-        {
-            StormTxAttempt txAttempt = (StormTxAttempt)parms[Constants.STORM_TX_ATTEMPT];
-            return new CountSum(ctx, txAttempt);
-        }
-        else
-        {
-            throw new Exception("null txAttempt");
-        }
+        StormTxAttempt txAttempt = (StormTxAttempt)parms[Constants.STORM_TX_ATTEMPT];
+        return new CountSum(ctx, txAttempt);
     }
-
-When `FinishBatch()` is called, the `lastCommittedTxId` will be updated if it isn't a replayed transaction.
-
-    public void FinishBatch(Dictionary<string, Object> parms)
+    else
     {
-        /* judge whether it is a replayed transaction */
-        bool replay = (this.txAttempt.TxId <= lastCommittedTxId);
-
-        if (!replay)
-        {
-            /* If it is not replayed, update the totalCount and lastCommittedTxId value */
-            totalCount = totalCount + this.count;
-            lastCommittedTxId = this.txAttempt.TxId;
-        }
-        … …
+        throw new Exception("null txAttempt");
     }
+}
+```
+
+When `FinishBatch` is called, `lastCommittedTxId` is updated if it isn't a replayed transaction.
+
+```
+public void FinishBatch(Dictionary<string, Object> parms)
+{
+    /* judge whether it is a replayed transaction */
+    bool replay = (this.txAttempt.TxId <= lastCommittedTxId);
+
+    if (!replay)
+    {
+        /* If it is not replayed, update the totalCount and lastCommittedTxId value */
+        totalCount = totalCount + this.count;
+        lastCommittedTxId = this.txAttempt.TxId;
+    }
+    … …
+}
+```
 
 ### HybridTopology
 
-This topology contains a Java Spout and a C# Bolt. It uses the default serialization and deserialization implementation provided by SCP platform. See **HybridTopology.spec** in the examples\\HybridTopology folder for the specification file detail, and SubmitTopology.bat for how to specify the Java classpath.
+This topology contains a Java spout and a C# bolt. It uses the default serialization and deserialization implementation provided by the SCP platform. See the file HybridTopology.spec in the examples\\HybridTopology folder for the specification file details. Also see SubmitTopology.bat for how to specify the Java classpath.
 
 ### SCPHostDemo
 
-This example is the same as HelloWorld in essence. The only difference is that the user code is compiled as DLL and the topology is submitted by using SCPHost.exe. See the section "SCP Host Mode" for more detailed explanation.
+This example is the same as HelloWorld in essence. The only difference is that your code is compiled as a DLL and the topology is submitted by using SCPHost.exe. See the SCP host mode section for a more detailed explanation.
 
-## Next Steps
+## Next steps
 
-For examples of Apache Storm topologies created using SCP, see the following documents:
+For examples of Apache Storm topologies created using SCP, see the following articles:
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [Process events from Azure Event Hubs with Apache Storm on HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
