@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid event sources
-description: Describes supported event sources for Azure Event Grid 
+description: This article describes supported event sources for Azure Event Grid. An event source is where the event happens. 
 services: event-grid
 author: spelluru
 

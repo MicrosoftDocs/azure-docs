@@ -105,7 +105,7 @@ Enabling Windows 10 sign in using FIDO2 security keys requires enabling the cred
    - Intune deployment is the recommended option.
 - [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - If Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
-      - Group Policy or System Center Configuration Manager (SCCM)
+      - Group Policy or Configuration Manager
       - Local installation on a Windows 10 machine
 
 ### Register security keys

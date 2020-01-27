@@ -18,7 +18,6 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Protected web API: App registration
@@ -51,13 +50,13 @@ Web APIs don't need to register a redirect URI because no user is signed in inte
 
 Another setting specific to web APIs is the exposed API and the exposed scopes.
 
-### Resource URI and scopes
+### Application ID URI and scopes
 
-Scopes are usually in the form `resourceURI/scopeName`. For Microsoft Graph, the scopes have shortcuts like `User.Read`. This string is a shortcut for `https://graph.microsoft.com/user.read`.
+Scopes are usually in the form `ApplicationIdURI/scopeName`. For Microsoft Graph, the scopes have shortcuts like `User.Read`. This string is a shortcut for `https://graph.microsoft.com/user.read`.
 
 During app registration, you'll need to define these parameters:
 
-- The resource URI. By default, the application registration portal recommends that you to use `api://{clientId}`. This resource URI is unique, but it's not human readable. You can change it, but make sure the new value is unique.
+- The Application ID URI. By default, the application registration portal recommends that you to use `api://{clientId}`. This Application ID URI is unique, but it's not human readable. You can change it, but make sure the new value is unique.
 - One or more *scopes*. (To client applications, they'll show up as *delegated permissions* for your web API.)
 - One or more *app roles*. (To client applications, they'll show up as *application permissions* for your web API.)
 

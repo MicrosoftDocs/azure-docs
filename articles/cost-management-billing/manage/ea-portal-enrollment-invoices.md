@@ -4,7 +4,7 @@ description: This article explains how to manage and act on your Azure Enterpris
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -627,7 +627,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 > [!TIP]
 > 
 > - To learn how to generate the API key for your enrollment, see the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
-> - For more information about connecting Power BI to  to your Azure consumption, see [Microsoft Azure Consumption Insights](https://docs.microsoft.com/power-bi/desktop-connect-azure-consumption-insights).
+> - For more information about connecting Power BI to your Azure consumption, see [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### To access the legacy Power BI EA content pack:
 

@@ -1,3 +1,3 @@
 ## Provide frames to the session
 
-The spatial anchor session works by mapping the space around the user. Doing so helps to determine where anchors are located. Mobile platforms (iOS & Android) require a native call to the camera feed to obtain frames from your platform's AR library. In contrast, HoloLens is constantly scanning the environment, so there's no need for a specific call like with Mobile.
+The spatial anchor session works by mapping the space around the user. Doing so helps to determine where anchors are located. Mobile platforms (iOS & Android) require a native call to the camera feed to obtain frames from your platform's AR library. In contrast, HoloLens is constantly scanning the environment, so there's no need for a specific call like on Mobile.

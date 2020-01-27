@@ -83,10 +83,10 @@ Choose the machines on which you want to enable dependency discovery.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** icon.
-3. Click **Start dependency discovery**.
-3. In the **Start dependency discovery** page, choose the appliance that's discovering the relevant machines.
+3. Click **Add servers**.
+3. In the **Add servers** page, choose the appliance that's discovering the relevant machines.
 4. From the machine list, select the machines.
-5. Click **Start dependency discovery**.
+5. Click **Add servers**.
 
     ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -119,10 +119,10 @@ Choose the machines on which you want to stop dependency discovery.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** icon.
-3. Click **Stop dependency discovery**.
-3. In the **Stop dependency discovery** page, choose the **appliance** that is discovering the VMs on which you look to stop dependency discovery.
+3. Click **Remove servers**.
+3. In the **Remove servers** page, choose the **appliance** that is discovering the VMs on which you look to stop dependency discovery.
 4. From the machine list, select the machines.
-5. Click **Stop dependency discovery**
+5. Click **Remove servers**.
 
 
 ## Next steps

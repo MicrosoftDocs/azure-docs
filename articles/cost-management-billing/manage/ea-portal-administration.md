@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -119,17 +119,12 @@ Keep the following points in mind when you transfer an enterprise account to a n
 - Only the accounts specified in the request are transferred. If all accounts are chosen, then they are all transferred.
 - The source enrollment retains its status as active or extended. You can continue using the enrollment until it expires.
 
-### Effective transfer date
-
-You can backdate an account transfer as far back as the start date of the target enrollment, or the account start date, whichever has a later start date. After the account transfer, all usage information in the account before the effective transfer date stays in the enrollment you're transferring from. The usage information after the transfer date will be moved to the target enrollment.
-
 ### Prerequisites
 
 When you request an account transfer, provide the following information:
 
 - The number of the target enrollment, account name, and account owner email of account to transfer
 - For the source enrollment, the enrollment number and account to transfer
-- For the account transfer effective date, it can be backdated as far back as the start date of the target enrollment, or the account start date, whichever has a later start date
 
 Other points to keep in mind before an account transfer:
 
@@ -157,15 +152,12 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 - Any remaining monetary commitment balance in the agreement is lost, including future terms.
 -	If the enrollment you’re transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for utilization in the new enrollment.
 -	The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment will not be transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
--	After a backdated enrollment transfer, any one-time fees from purchases will remain in the source enrollment.
 
 ### Effective transfer date
 
 The effective transfer day can be on or after the start date of the target enrollment.
 
 The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
-
-A backdated transfer is supported as far back as the start date of the target enrollment. Providing the chosen transfer date does not affect the usage for an overage invoice that has already been issued.
 
 ### Prerequisites
 

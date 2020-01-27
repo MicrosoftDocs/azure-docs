@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a Windows virtual machine scale set" 
+title: "Tutorial: Create a Linux virtual machine scale set" 
 description: Learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''

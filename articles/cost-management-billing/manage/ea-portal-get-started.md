@@ -4,7 +4,7 @@ description: This article explains how Azure Enterprise Agreement (Azure EA) cus
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2020
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -437,6 +437,14 @@ You can use the advance report download to get reports that cover specific date 
 1. Select **Request Usage Data**.
 1. Select the **Refresh** button until report status updates to **Download**.
 1. Download report.
+
+### Download usage reports and billing information for a prior enrollment
+
+You can download usage reports and billing information for a prior enrollment after an enrollment transfer has taken place. Historical reporting is available in both the Azure Enterprise portal and cost management.
+
+The Azure Enterprise portal filters inactive enrollments out of view. You'll need to uncheck the **Active** box to view inactive transferred enrollments.  
+
+![Unchecking the active box allows user to see inactive enrollments](./media/ea-portal-get-started/unchecked-active-box.png)
 
 ## Azure EA term glossary
 
