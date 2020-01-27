@@ -35324,7 +35324,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/configure-automatic-user-provisioning-portal.md",
       "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
@@ -35399,7 +35399,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/customize-application-attributes.md",
       "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-group-policy.md",
@@ -35419,7 +35419,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/check-status-user-account-provisioning.md",
       "redirect_url": "/azure/active-directory/app-provisioning/check-status-user-account-provisioning",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-scoping-filters.md",
@@ -35579,7 +35579,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
@@ -35589,7 +35589,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
