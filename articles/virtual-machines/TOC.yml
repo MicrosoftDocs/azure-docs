@@ -9,15 +9,15 @@
 - name: Workloads
   items: 
   - name: Red Hat
-    href: /workloads/redhat/redhat-overview.md
+    href: /workloads/redhat/redhat-overview
   - name: High performance computing
-    href: /workloads/hpc/overview.md
+    href: /workloads/hpc/overview
   - name: SAP
-    href: /workloads/sap/get-started.md
+    href: /workloads/sap/get-started
   - name: Oracle
-    href: /workloads/oracle/oracle-considerations.md
+    href: /workloads/oracle/oracle-considerations
   - name: Mainframe rehosting
-    href: /workloads/mainframe-rehosting/overview.md
+    href: /workloads/mainframe-rehosting/overview
 - name: Classic deployments
   items:
   - name: Linux VMs using classic deployment
