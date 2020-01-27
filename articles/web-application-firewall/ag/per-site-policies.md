@@ -14,9 +14,9 @@ ms.topic: conceptual
 
 Web Application Firewall (WAF) settings are contained in WAF policies, and to change your WAF configuration you modify the WAF policy.
 
-When associated with your Application Gateway, the policies and all the settings are reflected globally. So, if you have five sites behind your WAF, all five sites are protected by the same WAF Policy. This is great if you need the same security settings for every site. But you can apply WAF policies to individual listeners to allow for site-specific WAF configuration.
+When associated with your Application Gateway, the policies and all the settings are reflected globally. So, if you have five sites behind your WAF, all five sites are protected by the same WAF Policy. This is great if you need the same security settings for every site. But you can also apply WAF policies to individual listeners to allow for site-specific WAF configuration.
 
-By applying WAF policies to a listener, you can configure WAF settings for individual sites without the changes affecting every site. The most specific policy takes precedent. If there's a global policy, and a per-site policy (a WAF policy associated with a listener) then the per-site policy overrides the global WAF policy for that listener. Other listeners will only be affected by the global WAF policy.
+By applying WAF policies to a listener, you can configure WAF settings for individual sites without the changes affecting every site. The most specific policy takes precedent. If there's a global policy, and a per-site policy (a WAF policy associated with a listener), then the per-site policy overrides the global WAF policy for that listener. Other listeners without their own policies will only be affected by the global WAF policy.
 
 In this article, you learn how to:
 
