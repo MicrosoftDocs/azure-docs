@@ -127,7 +127,7 @@ See examples:
 
 ### Azure Monitor support for Media Services diagnostic logs and metrics
 
-You can now use Azure Monitor to view telemetry data emmited by Media Services.
+You can now use Azure Monitor to view telemetry data emitted by Media Services.
 
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
 * Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   

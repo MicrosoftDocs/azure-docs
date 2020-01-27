@@ -15,7 +15,6 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire token and call Microsoft Graph using console app's identity (v1.0)
