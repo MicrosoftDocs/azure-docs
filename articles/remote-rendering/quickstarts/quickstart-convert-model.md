@@ -33,6 +33,16 @@ You will need to have:
 
 ARR supports the conversion of the following source formats: FBX, GLTF, and GLB files.
 
+## Prerequisites
+The following must be installed to complete this quickstart:
+- You need a remote rendering service account: [Create an account](../how-tos/create-an-account.md)
+- Install the Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
+- Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
+```powershell
+PS> Install-Module -Name Az -AllowClobber
+```
+
+
 ## Azure setup
 For this guide, we will describe how to use Azure Remote Rendering with a free Azure account.
 The same setup will apply if you are an existing user.
@@ -56,7 +66,7 @@ This will bring up the following new screen with storage properties to fill out:
 Fill out the form in the following manner:
 
   *	Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-  *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is given. In the scope of this quickstart we name it **arrtutorialstorage**
+  *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already given. In the scope of this quickstart we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
   *	Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
   *	**Performance** set to ‘Standard’
   *	**Account kind** set to ‘StorageV2 (general purpose v2)’
@@ -97,6 +107,7 @@ Once you sign in using your Microsoft Azure account created in the previous step
 ![Azure Storage Explorer](./media/azure-explorer.png "Azure Storage Explorer")
 
 As you can see from the image above, the tool displays all the information needed in setting up and linking our Azure Storage accounts to the Azure Remote Rendering tools, via the properties menu.
+
 It also will allow you to generate sharable links, which will be needed later in the process.
 For now, the next step is to configure a .json file so that the script can upload and convert your model.
 
@@ -104,16 +115,22 @@ For now, the next step is to configure a .json file so that the script can uploa
 
 Similar to the process of starting a rendering session, we provide a script to launch a conversion.
 It is located in `Scripts` folder and is called `Ingestion.ps1`.
-
 `Ingestion.ps1` uses `Scripts\arrconfig.json` to configure itself. First open `Scripts\arrconfig.json` in a text editor of your choice.
+
+The values in the **`accountSettings`** category should still be filled out from running the [render a model quickstart](../quickstarts/quickstart-render-model.md). If not, put in your `arrAccountId` and `arrAccountKey` (primary or secondary key) as described in the [Create an account](../how-tos/create-an-account.md) section.
+
 In addition to the values for spinning up the rendering session you also need to provide values for the following properties:
 
 The `azureStorageSettings` section contains values used by the Ingestion.ps1 script. Fill it out if you want to upload a model to Azure Blob Storage and convert it by using our model conversion service.
 
-* `azureStorageSettings.azureSubscriptionId` :  Open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the list of subscriptions until you find the account used for this tutorial (in this case, the free trial account). **The SubscriptionID is located under the account name**
+* `azureStorageSettings.azureSubscriptionId` :  Open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the tree list panel of subscriptions until you find the account used for this tutorial (in this case, the free trial account). **The SubscriptionID is located under the account name**
 ![Subscription ID](./media/subscription-id.png "Subscription ID")
+
+Unfortunately the ID cannot be copied as text from here, but the can also be gathered from the web portal.
+
+
 * `azureStorageSettings.resourceGroup` :  **ARR_Tutorial** (The resource group created at the start).
-* `azureStorageSettings.storageAccountName` : **arrtutorialstorage** (The Storage account created above).
+* `azureStorageSettings.storageAccountName` : **arrtutorialstorage** (Your picked unique name of the Storage account created above).
 * `azureStorageSettings.blobInputContainerName` : **arrinput** (The blob input container created above).
 * `azureStorageSettings.blobOutputContainerName`: **arroutput** (The blob output container created above).
 * `modelSettings.modelLocation` : the local file path of the model you want to convert with the conversion service. In this example, there is a robot.fbx file at the path `D:\\tmp\\robot.fbx`.
@@ -149,19 +166,23 @@ You are now ready to have the script upload your model, call the conversion REST
 
 Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
 ```powershell
-PS> $ Install-Module -Name Az -AllowClobber
+PS> Install-Module -Name Az -AllowClobber
 ```
-Installation of the Azure Powershell is a one-time step.
+Installation of the Azure Powershell is a one-time step (see prerequisites).
 
 ## Make sure you are logged into your subscription
 If you want to use the asset conversion service and upload files to Azure Blob Storage, you will need to log into your subscription.
 In a powershell window (does not need admin rights):
 ```powershell
-PS> $ Connect-AzAccount -Subscription "<your Azure subscription id>"
+PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
 ## Run Ingestion.ps1
-Make sure you are within the `\ARR\arrClient\Scripts` directory, and run the script with `.\Ingestion.ps1`.
+Make sure you are within the `\ARR\arrClient\Scripts` directory, and run the script with:
+
+```powershell
+PS> .\Ingestion.ps1
+```
 
 You should see something like this:
 ![Ingestion.ps1](./media/successful-ingestion.png "Ingestion.ps1")
@@ -171,9 +192,15 @@ Copy the SAS URI now. Note that this URI will be only valid for 24 h - after tha
 
 Open Azure Storage Explorer and navigate to the arroutput blob storage container.
 You will find the converted model ezArchive file in there.
-Right click on this entry and select Get Shared Access Signature:
+Right click on this entry and select **Get Shared Access Signature**:
 
 ![Signature Access](./media/model-share.png "Signature Access")
 
 Set the expiry date to a date you would like and press Create.
-Copy the URL link that is generated. This URL is what you pass as a model name in the previous quickstart.
+Copy the URL link that is generated.
+
+This URL is what you set as a model name in the [render a model quickstart](../quickstarts/quickstart-render-model.md):
+
+![Replace model in Unity](./media/replace-model-in-unity.png)
+
+Re-running the sample with the changed model name should now load and render your model.

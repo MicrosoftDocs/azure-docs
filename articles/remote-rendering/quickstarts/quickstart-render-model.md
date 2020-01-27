@@ -25,6 +25,7 @@ In this quickstart you will learn how to:
 
 ## Prerequisites
 The following must be installed to complete this quickstart:
+- You need a remote rendering service account: [Create an account](..\how-tos\create-an-account.md)
 - GIT [(download)](https://git-scm.com/downloads "GIT")
 - Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk "Windows SDK")
 - Unity 2019.3 [(download)](https://unity3d.com/get-unity/download "Unity")
@@ -78,7 +79,7 @@ Open the project, if necessary allowing Unity to upgrade the project to your ins
 
 ### Enter your account info as a one time step
 
-Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter your account credentials.
+Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter your account credentials. The [Create an account](..\how-tos\create-an-account.md) chapter explains where to find the account credentials.
 
 ![ARR Account Info](./media/arr-sample-account-info.png "ARR Account Info")
 
