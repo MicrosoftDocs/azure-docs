@@ -13,17 +13,15 @@ ms.topic: quickstart
 
 # Connect hybrid machines to Azure from the Azure portal
 
-You can enable Azure Arc for servers (preview) for one or a small number of Windows or Linux machines in your environment manually or automated using a script that we provide. This script automates the download and installation of both agents, and then prompts you to verify the machine connection with Azure Arc. 
+You can enable Azure Arc for servers (preview) for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually, or using an automated method by running a template script that we provide. This script automates the download and installation of both agents.
 
 This installation method requires that you have administrative rights on the machine to install and configure the agent. On Linux, using the root account and on Windows, you are member of the Local Administrators group.
 
+Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements. 
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Prerequisites
-
-To understand the supported configurations and deployment requirements, review [Azure Arc for servers Overview](overview.md).
-
-## Generate the agent install script using the Azure portal
+## Generate the agent install script from the Azure portal
 
 The script to automate the download, installation, and establishing the connection with Azure Arc is available from the Azure portal. The following steps describe how to complete this process.
 
@@ -48,7 +46,7 @@ The script to automate the download, installation, and establishing the connecti
 
 7. On the **Review + generate** tab, review the summary information and then select **Download**. Otherwise if you need to make changes, you can select **Previous**.
 
-## Install and validate the agent
+## Install and validate the agent on Windows
 
 You can install the Connected Machine agent by one of two methods. The first method is to manually download, install, and configure the agent, the second is using the script downloaded earlier that automates these steps on your Windows and Linux machines.
 
