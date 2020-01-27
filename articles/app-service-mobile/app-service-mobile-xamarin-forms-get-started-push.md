@@ -196,7 +196,8 @@ With the back end configured with FCM, you can add components and codes to the c
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
-            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+            //Random number the second Parameter
+            var pendingIntent = PendingIntent.GetActivity(this, UNIQUE_INT_PER_CALL, intent, PendingIntentFlags.OneShot);
 
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
