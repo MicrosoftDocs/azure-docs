@@ -68,7 +68,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your function app project | C# |
+    | Select a language for your Azure Functions project | C# |
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -82,7 +82,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your function app project | JavaScript | 
+    | Select a language for your Azure Functions project | JavaScript | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -95,7 +95,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your function app project | TypeScript | 
+    | Select a language for your Azure Functions project | TypeScript | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -108,7 +108,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your function app project | PowerShell | 
+    | Select a language for your Azure Functions project | PowerShell | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -121,7 +121,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your function app project | Python | 
+    | Select a language for your Azure Functions project | Python | 
     | Select a version | Azure Functions v2 | 
     | Select a Python alias to create a virtual environment | Python alias | 
     | Select a template for your project's first function | HTTP trigger | 
@@ -133,7 +133,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Visual Studio Code does the following:
 
-    + Creates a function app project in a new workspace, which contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files. 
+    + Creates an Azure Functions project in a new workspace, which contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files. 
 
     ::: zone pivot="programming-language-csharp"
 
@@ -165,7 +165,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     
     ::: zone pivot="programming-language-python"
     
-    + Creates a project-level requirements.txt file that lists packages required by the function app.
+    + Creates a project-level requirements.txt file that lists packages required by Functions.
     
     + Creates an HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
     
