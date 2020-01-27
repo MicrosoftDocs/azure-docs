@@ -33,7 +33,7 @@ With results:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Then save the results to GitHub **secrets** as described in [Set up your GitHub repository and authenticate with Azure](./spring-cloud-howto-github-actions.md#set-up-your-github-repository-and-authenticate-with-azure).
+Then save the results to GitHub **secrets** as described in [Set up your GitHub repository and authenticate with Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
 
 ## Add Access Policies for the Credential
 The credential you created above can only get general information about the Key Vault, not the contents it stores.  To get secrets stored in the Key Vault, you need set access policies for the credential.
