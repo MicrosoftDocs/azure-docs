@@ -194,7 +194,7 @@ For each application, document the following information:
 
 Before implementing automatic user provisioning, you must determine the users and groups to be provisioned to your application.
 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) to define attribute-based rules that determine which users are provisioned to an application.
+* Use [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) to define attribute-based rules that determine which users are provisioned to an application.
 
 * Next, use [user and group assignments](assign-user-or-group-access-portal.md) as needed for additional filtering.
 
@@ -202,7 +202,7 @@ Before implementing automatic user provisioning, you must determine the users an
 
 To implement automatic user provisioning, you need to define the user and group attributes that are needed for the application. There's a pre-configured set of attributes and [attribute-mappings](configure-automatic-user-provisioning-portal.md) between Azure AD user objects, and each SaaS application’s user objects. Not all SaaS apps enable group attributes.
 
-Azure AD supports by direct attribute-to-attribute mapping, providing constant values, or [writing expressions for attribute mappings](functions-for-customizing-application-data.md). This flexibility gives you fine control of what will be populated in the targeted system's attribute. You can use [Microsoft Graph API](export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
+Azure AD supports by direct attribute-to-attribute mapping, providing constant values, or [writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md). This flexibility gives you fine control of what will be populated in the targeted system's attribute. You can use [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
 
 For more information, see [Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory](customize-application-attributes.md).
 
@@ -307,7 +307,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 ### Helpful documentation
 
-* [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
+* [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 
@@ -326,6 +326,6 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 ## Next steps
 * [Configure Automatic User Provisioning](configure-automatic-user-provisioning-portal.md)
 
-* [Export or import your provisioning configuration by using Microsoft Graph API](export-import-provisioning-configuration.md)
+* [Export or import your provisioning configuration by using Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md)
 
-* [Writing expressions for attribute mappings in Azure Active directory](functions-for-customizing-application-data.md)
+* [Writing expressions for attribute mappings in Azure Active directory](../app-provisioning/functions-for-customizing-application-data.md)

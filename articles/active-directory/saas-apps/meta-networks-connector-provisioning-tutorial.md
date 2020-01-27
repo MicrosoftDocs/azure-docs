@@ -161,7 +161,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Meta Networks Connector Group Attributes](media/meta-networks-connector-provisioning-tutorial/groupattributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Meta Networks Connector, change the **Provisioning Status** to **On** in the **Settings** section.
 

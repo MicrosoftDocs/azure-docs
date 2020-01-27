@@ -136,7 +136,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![4me Group Mappings](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
-14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for 4me, change the **Provisioning Status** to **On** in the **Settings** section.
 

@@ -154,7 +154,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![Federated Directory tutorial](media/federated-directory-provisioning-tutorial/user-attributes.png)
 	
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Federated Directory, change the **Provisioning Status** to **On** in the **Settings** section.
 

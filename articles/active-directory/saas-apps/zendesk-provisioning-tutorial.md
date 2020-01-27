@@ -134,7 +134,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zendesk matching group attributes](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for Zendesk, in the **Settings** section, change **Provisioning Status** to **On**.
 

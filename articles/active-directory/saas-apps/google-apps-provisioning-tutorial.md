@@ -177,7 +177,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
     ![G Suite Group Attributes](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for G Suite, change the **Provisioning Status** to **On** in the **Settings** section.
 
