@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
+ms.date: 01/18/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -42,8 +42,8 @@ Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | To change the default limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | 366 days | To change the default limit, see [change storage retention](#change-retention). |
+| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified *at start time* by the workflow setting, [**Run history retention in days**](#change-duration). <p><p>To change the default limit, which is 90 days, see [change run duration](#change-duration). |
+| Run retention in storage | 90 days | 366 days | Run retention is calculated by using a run's start time and the limit that's specified *at the current time* by the workflow setting, [**Run history retention in days**](#change-retention). Whether a run completes or times out, the retention calculation always uses the run's start time. When a run's duration exceeds the *current* retention limit, the run is removed from the runs history. <p><p>If you change this setting, the current limit is always used for calculating retention, no matter the previous limit. For example, if you reduce the retention limit from 90 days to 30 days, a run that's 60 days old is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's 20 days old stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run retention in storage](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -51,9 +51,13 @@ Here are the limits for a single logic app run:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### Change run duration and storage retention
+### Change run duration and run retention in storage
 
-To change the default limit for run duration and storage retention, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+To change the default limit for run duration and run retention in storage, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+
+> [!NOTE]
+> For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+> For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
 
 1. Go to the [Azure portal](https://portal.azure.com). In the portal search box, find and select **Logic apps**.
 
@@ -63,11 +67,9 @@ To change the default limit for run duration and storage retention, follow these
 
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
-1. Enter or drag the slider for the number of days that you want.
+1. Drag the slider to change the number of days that you want.
 
-   > [!NOTE]
-   > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
-   > For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
+1. When you're done, on the **Workflow settings** toolbar, select **Save**.
 
 <a name="looping-debatching-limits"></a>
 
@@ -77,11 +79,11 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Trigger concurrency | * Unlimited when the concurrency control is turned off <p><p>* 25 is the default limit when the concurrency control is turned on, which can't be undone after you turn on the control. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maximum waiting runs | When the concurrency control is turned on, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Trigger concurrency | - Unlimited when the concurrency control is turned off <p><p>- 25 is the default limit when the concurrency control is turned on, which can't be undone after you turn on the control. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maximum waiting runs | - Without concurrency, the minimum number of waiting runs is 1, while the maximum number is 50. <p><p>- With concurrency, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn items | * 100,000 without trigger concurrency <p><p>* 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
+| SplitOn items | - 100,000 without trigger concurrency <p><p>- 100 with trigger concurrency | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. <p><p>**Note**: When concurrency is turned on, the SplitOn limit is reduced to 100 items. |
 | Until iterations | 5,000 | |
 ||||
 

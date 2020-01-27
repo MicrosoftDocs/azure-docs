@@ -1747,8 +1747,73 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-tls.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/tls-1.2-everywhere.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
-      "redirect_url": "/azure/cognitive-services/custom-decision-service",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-api-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-app.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-get-started-register.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-overview.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-workflow.md",
+      "redirect_url": "/azure/cognitive-services/personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/custom-decision-service/index.yml",
+      "redirect_url": "/azure/cognitive-services/personalizer",
       "redirect_document_id": false
     },
     {
@@ -4248,7 +4313,7 @@
     },
     {
       "source_path": "articles/billing-how-to-create-billing-support-ticket.md",
-      "redirect_url": "/azure/azure-supportability/how-to-create-azure-support-request",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
       "redirect_document_id": false
     },
     {
@@ -4258,7 +4323,7 @@
     },
     {
       "source_path": "articles/billing-how-to-use-file-uploader.md",
-      "redirect_url": "/azure/azure-supportability/how-to-use-file-uploader",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-use-file-uploader",
       "redirect_document_id": false
     },
     {
@@ -14710,7 +14775,7 @@
     {
       "source_path": "articles/machine-learning/studio/algorithm-choice.md",
       "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },    
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
@@ -17349,7 +17414,7 @@
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_url": "/azure/virtual-machine-scale-sets/use-spot",
       "redirect_document_id": true
     },
     {
@@ -28432,6 +28497,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/domain-joined/domain-joined-zeppelin-signin.md",
+      "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
       "redirect_document_id": true
@@ -31018,7 +31088,7 @@
     },
     {
       "source_path": "articles/operations-management-suite/operations-management-suite-service-map-configure.md",
-      "redirect_url": "/azure/monitoring/monitoring-service-map-configure",
+      "redirect_url": "/azure/azure-monitor/insights/service-map#enable-service-map",
       "redirect_document_id": false
     },
     {
@@ -33793,7 +33863,17 @@
     },
     {
       "source_path": "articles/cognitive-services/entitylinking/index.md",
-      "redirect_url": "/azure/cognitive-services/entitylinking/home",
+      "redirect_url": "/azure/cognitive-services/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/entitylinking/GettingStarted.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/entitylinking/Home.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
     },
     {
@@ -33804,6 +33884,41 @@
     {
       "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
       "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Analyzer-Names.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/AnalyzersMethod.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Constituency-Parsing.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Home.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/POS-tagging.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Sentences-and-Tokens.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
       "redirect_document_id": false
     },
     {
@@ -33819,6 +33934,11 @@
     {
       "source_path": "articles/cognitive-services/Web-Language-Model/index.md",
       "redirect_url": "/azure/cognitive-services/Web-Language-Model/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Web-Language-Model/Home.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
       "redirect_document_id": false
     },
     {
@@ -38183,6 +38303,11 @@
     {
       "source_path": "articles/monitoring/monitoring-service-map-scom.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map-scom",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/monitoring/monitoring-service-map-configure.md",
+      "redirect_url": "/azure/azure-monitor/insights/service-map#enable-service-map",
       "redirect_document_id": false
     },
     {
@@ -45101,6 +45226,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-explorer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/fundamentals/global-admin.md",
       "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
       "redirect_document_id": false
@@ -46619,6 +46754,31 @@
       "source_path": "articles/load-balancer/load-balancer-arm.md",
       "redirect_url": "/azure/load-balancer/load-balancer-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-2-setup-environment.md",
+      "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-3-connect-to-endpoint.md",
+      "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/tutorial-1-decision-flow.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-app-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/overview-open-source-server.md",
+      "redirect_url": "/azure/healthcare-apis/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/concepts-aad-authentication.md",
+      "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
+      "redirect_document_id": false
     }
   ]
 }

@@ -26,9 +26,9 @@ The objective of this tutorial is to demonstrate the steps to be performed in G 
 
 > [!NOTE]
 > The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
-- Added support for additional G Suite user and group attributes. 
-- Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
-- Updated default attribute mappings.
+> - Added support for additional G Suite user and group attributes. 
+> - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
+> - Updated default attribute mappings.
 
 ## Prerequisites
 

@@ -16,7 +16,6 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40 
-ms.collection: M365-identity-device-management
 ---
 
 # Call the Microsoft Graph API from a Windows Desktop app
