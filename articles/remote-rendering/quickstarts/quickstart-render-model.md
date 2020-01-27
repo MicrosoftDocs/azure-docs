@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Render a model with Unity
+title: Render a model with Unity
 description: Tutorial that guides the user through the steps to render a model with Azure Remote Rendering
 author: FlorianBorn71
 manager: jlyons
