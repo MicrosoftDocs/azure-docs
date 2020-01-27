@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ---
 
-# Create an Azure Data Explorer cluster and database by using Python
+# Quickstart: Create an Azure Data Explorer cluster and database by using Python
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -19,11 +19,13 @@ ms.date: 06/03/2019
 > * [Python](create-cluster-database-python.md)
 > * [ARM template](create-cluster-database-resource-manager.md)
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using Python.
+In this quickstart, you create an Azure Data Explorer cluster and database by using Python. Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. In this article, you create a cluster and a database by using Python.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python](https://www.python.org/downloads/).
 
 ## Install Python package
 

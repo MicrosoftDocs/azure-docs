@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ---
 
-# Create an IoT Hub data connection for Azure Data Explorer by using Python (Preview)
+# Quickstart: Create an IoT Hub data connection for Azure Data Explorer by using Python (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-iot-hub.md)
@@ -17,15 +17,15 @@ ms.date: 10/07/2019
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager template](data-connection-iot-hub-resource-manager.md)
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, IoT Hubs, and blobs written to blob containers. In this article, you create an IoT Hub data connection for Azure Data Explorer by using Python.
+In this quickstart, you create an IoT Hub data connection for Azure Data Explorer by using Python. Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion, or data loading, from Event Hubs, IoT Hubs, and blobs written to blob containers.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Create [a cluster and database](create-cluster-database-csharp.md)
-* Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-* Set [database and table policies](database-table-policies-csharp.md) (optional)
-* Create an [IoT Hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* [A cluster and database](create-cluster-database-csharp.md).
+* [Table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+* [Database and table policies](database-table-policies-csharp.md) (optional).
+* [An IoT Hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

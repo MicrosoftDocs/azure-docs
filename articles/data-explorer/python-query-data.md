@@ -11,17 +11,17 @@ ms.date: 08/05/2019
 # Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
 
-# Query data using the Azure Data Explorer Python library
+# Quickstart: Query data using the Azure Data Explorer Python library
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this article, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
+In this quickstart, you query data using the Azure Data Explorer. Connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
 
-This article is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a data client library for Python. This library enables you to query data from your code.
 
 ## Prerequisites
 
 * An organizational email account that is a member of Azure Active Directory (AAD)
 
-* [Python](https://www.python.org/downloads/) installed on your development computer
+* [Python](https://www.python.org/downloads/)
 
 ## Install the data library
 
