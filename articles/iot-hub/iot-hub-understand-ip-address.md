@@ -25,9 +25,11 @@ The IP address prefixes of IoT Hub public endpoints are published periodically u
 
 * When adding ALLOW rules in your devices' firewall configuration, it is best to provide specific [ports used by applicable protocols](./iot-hub-devguide-protocols.md#port-numbers).
 
-* The IP address prefixes of IoT hub are subject to change. These changes are published periodically via service tags before taking effect. It is therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises).
+* The IP address prefixes of IoT hub are subject to change. These changes are published periodically via service tags before taking effect. It is therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises). Note that Service tags discovery API is still in preview and in some cases may not produce the full list of tags and IP addresses. 
 
 * Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
+
+* Setting up firewall rules in IoT Hub will also restrict invocation of certain commands through CLI.
 
 
 ## Limitations and workarounds
