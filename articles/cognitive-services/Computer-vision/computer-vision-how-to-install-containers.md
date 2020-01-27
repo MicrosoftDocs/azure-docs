@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: dapinep
+ms.author: pafarley
 ms.custom: seodec18
 ---
 
