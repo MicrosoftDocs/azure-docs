@@ -147,10 +147,13 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## Limitations and Design Considerations
 
-**Pricing:**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/): 
+**Pricing:**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
+
 **Limitations**:  Private Endpoint for Azure Key Vault is in public preview. This feature is available in all Azure public regions.
-**Maximum Number of Private Endpoints per Key Vault**: 64
-**Maximum Number of Key Vaults with Private Endpoints per Subscription**: 64
+
+**Maximum Number of Private Endpoints per Key Vault**: 64.
+
+**Maximum Number of Key Vaults with Private Endpoints per Subscription**: 64.
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
