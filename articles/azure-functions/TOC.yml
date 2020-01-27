@@ -159,7 +159,7 @@
         - name: Azure portal
           href: functions-create-first-azure-function.md
         - name: Command line
-          href: functions-create-first-azure-function-azure-cli.md
+          href: create-cli.md
         - name: Visual Studio
           href: create-visual-studio.md  
         - name: Visual Studio Code
