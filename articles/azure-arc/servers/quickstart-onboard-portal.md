@@ -48,7 +48,9 @@ The script to automate the download, installation, and establishing the connecti
 
 ## Install and validate the agent on Windows
 
-You can install the Connected Machine agent manually by running the Windows Installer installation package `AzureConnectedMachineAgent.msi` after downloading it and copying it to a folder on the target server or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
+## Install manually
+
+You can install the Connected Machine agent manually by running the Windows Installer installation package `AzureConnectedMachineAgent.msi` after downloading it and copying it to a folder on the target server, or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
 >[!NOTE]
 >*Administrator* privileges are required to install or uninstall the agent.
@@ -64,7 +66,22 @@ For example, to run the installation program with the `/?` parameter, enter **ms
 
 Files for the Connected Machine agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
+After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
 
+`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+
+### Install using scripted method
+
+1. Log onto the server.
+
+2. Open an elevated PowerShell command prompt. 
+
+3. Change to the folder or share you copied the script to and execute it on the server by running the command :
+
+    `./OnboardingScript.ps1`
+
+
+## Install and validate the agent on Linux
 
 
 
