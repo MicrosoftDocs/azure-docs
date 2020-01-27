@@ -48,11 +48,29 @@ The script to automate the download, installation, and establishing the connecti
 
 ## Install and validate the agent on Windows
 
-You can install the Connected Machine agent by one of two methods. The first method is to manually download, install, and configure the agent, the second is using the script downloaded earlier that automates these steps on your Windows and Linux machines.
+You can install the Connected Machine agent manually by running the Windows Installer installation package `AzureConnectedMachineAgent.msi` after downloading it and copying it to a folder on the target server or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
+
+>[!NOTE]
+>*Administrator* privileges are required to install or uninstall the agent.
+
+The following table highlights the parameters that are supported by setup for the agent from the command line.
+
+| Parameter | Description |
+|:--|:--|
+| /? | Returns a list of the command-line options. |
+| /S | Performs a silent installation with no user interaction. |
+
+For example, to run the installation program with the `/?` parameter, enter **msiexec.exe /i AzureConnectedMachineAgent /?**.
+
+Files for the Connected Machine agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 
 
-You can manually execute the Windows Installer installation package `AzureConnectedMachineAgent.msi` or the Linux shell script `Install_linux_azcmagent.sh` that included with the agent package.
+
+
+
+
+or the Linux shell script `Install_linux_azcmagent.sh` that included with the agent package.
 
 
 
