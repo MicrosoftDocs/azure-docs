@@ -119,7 +119,11 @@
     - name: Application Gateway
       href: https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest
   - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
+    items:
+    - name:Front Door
+      href: https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0
+    - name: Application Gateway
+      href: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway
   - name: .NET
     href: /dotnet/api
   - name: Java
