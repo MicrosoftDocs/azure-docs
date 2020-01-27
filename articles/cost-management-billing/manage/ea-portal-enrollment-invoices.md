@@ -535,7 +535,7 @@ To enable Azure Marketplace purchases:
 > [!NOTE]
 > BYOL (bring your own license) and the Free Only option limits the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
 
-Get more information about [Azure Marketplace charges in Azure Enterprise portal reports](#marketplace-charges-in-azure-enterprise-portal-reports).
+Get more information about [Azure Marketplace charges in Azure Enterprise portal reports](#azure-marketplace-charges-in-azure-enterprise-portal-reports).
 
 ### Services billed hourly for Azure EA
 
