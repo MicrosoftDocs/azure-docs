@@ -142,7 +142,7 @@ The result is:
 |12345|CustomSensor02|99|
 |12345|SensorMetadata|[object Object]|
 
-Using [WITH](https://docs.microsoft.com/en-us/stream-analytics-query/with-azure-stream-analytics), it's then possible to route those events to different destinations:
+Using [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics), it's then possible to route those events to different destinations:
 
 ```SQL
 WITH Stage0 AS
@@ -257,7 +257,7 @@ The result is:
 |12345|Manufacturer|ABC|
 |12345|Version|1.2.45|
 
-Using [WITH](https://docs.microsoft.com/en-us/stream-analytics-query/with-azure-stream-analytics), if necessary it's then possible to [join](https://docs.microsoft.com/en-us/stream-analytics-query/join-azure-stream-analytics) those fields in the main query (since this is not a join on reference data, it needs a [time boundary](https://docs.microsoft.com/en-us/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) that prevents duplication).
+Using [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics), if necessary it's then possible to [join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) those fields in the main query (since this is not a join on reference data, it needs a [time boundary](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) that prevents duplication).
 
 ```SQL
 WITH DynamicCTE AS (
