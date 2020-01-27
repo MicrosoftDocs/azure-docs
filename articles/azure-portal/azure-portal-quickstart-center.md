@@ -1,6 +1,6 @@
 ---
 title: Get started with the Azure Quickstart Center 
-description: Use the Azure Quickstart Center guided experience to get started with Azure. Learn to setup, migrate, and innovate.
+description: Use the Azure Quickstart Center guided experience to get started with Azure. Learn to set up, migrate, and innovate.
 services: azure-portal
 keywords: 
 author: mgblythe

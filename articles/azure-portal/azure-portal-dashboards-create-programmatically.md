@@ -54,7 +54,7 @@ After you configure the dashboard, the next steps are to publish the dashboard u
 
 Selecting **Share** command prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove role assignments using Azure RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-![make chagnes to sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
+![make changes to sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
 ## Fetch the JSON representation of the dashboard
 
