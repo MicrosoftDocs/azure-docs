@@ -17,7 +17,7 @@ ms.author: spelluru
 ---
 
 # Capture Event Hubs data in Azure Storage and read it using Python 
-You can use configure an event hub so that the data sent to an event hub is captured in an Azure Storage or Azure Data Lake Storage. This article shows you how to use write Python code to send events to an event hub and read the captured data from an Azure blob storage. For more information about this feature, see the [Event Hubs Capture feature overview](event-hubs-capture-overview.md).
+You can configure an event hub so that the data sent to an event hub is captured in an Azure Storage or Azure Data Lake Storage. This article shows you how to use write Python code to send events to an event hub and read the captured data from an Azure blob storage. For more information about this feature, see the [Event Hubs Capture feature overview](event-hubs-capture-overview.md).
 
 This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub is configured to use the Capture feature to write this data to Blob storage in batches. The capturereader.py app reads these blobs and creates an append file per device. The app then writes the data into .csv files.
 
