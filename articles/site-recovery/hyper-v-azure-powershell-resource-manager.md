@@ -137,7 +137,7 @@ If you're running a Hyper-V core server, download the setup file and follow thes
    .\setupdr.exe /i
    ```
 
-Results are logged to _%ProgramData%\ASRLogs\DRASetupWizard.log_.
+   Results are logged to _%ProgramData%\ASRLogs\DRASetupWizard.log_.
 
 1. Register the server by running this command:
 
