@@ -34,5 +34,7 @@
 
     ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
 
-4. The account creation takes a few minutes. Wait for the portal to display the page saying **Congratulations! Your Azure Cosmos DB account was created**.
+4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
+   
+   ![Azure Cosmos DB account created page](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)
 

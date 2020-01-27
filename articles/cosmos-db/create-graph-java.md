@@ -161,7 +161,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
-1. Select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
+1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -230,7 +230,7 @@ That completes the resource creation part of this tutorial. You can continue to 
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run a Java app that adds data to the graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run a Java app that adds data to the graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)
