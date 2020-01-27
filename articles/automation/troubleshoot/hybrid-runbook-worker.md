@@ -28,7 +28,7 @@ Runbook execution fails and you receive the following error:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Your runbook is suspended shortly after it attempts to execute it three times. There are conditions, which may interrupt the runbook from completing. When this happens, the related error message may not include any additional information that tells you why.
+Your runbook is suspended shortly after it attempts to execute it three times. There are conditions that may interrupt the runbook from completing. When this happens, the related error message may not include any additional information that tells you why.
 
 #### Cause
 
@@ -46,7 +46,7 @@ The following are potential possible causes:
 
 Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before it is configured to host this feature. Runbooks and the background processes they use may cause the system to be over utilized and cause runbook job delays or timeouts.
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before it is configured to host this feature. Runbooks and the background process they use may cause the system to be over utilized and cause runbook job delays or timeouts.
 
 Confirm the computer that will run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there's memory or CPU pressure, this may indicate the need to upgrade resources. You can also select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
@@ -79,7 +79,7 @@ If your Hybrid Runbook Worker is an Azure VM, you can use [Managed Identities fo
 
 The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
 
-### <a name="oms-agent-not-running"></a>Scenario: The Log Analyics agent for Linux isn't running
+### <a name="oms-agent-not-running"></a>Scenario: The Log Analytics agent for Linux isn't running
 
 #### Issue
 
@@ -106,13 +106,40 @@ The following list shows the processes that are started for a Linux Hybrid Runbo
 
 * **worker.conf** - This process is the Auto Registered Hybrid worker process, it's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
 
-* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that is uses a different configuration. This process isn't present if the Azure Automation solution is disabled, and the DIY Linux Hybrid Worker isn't registered.
+* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled, and the DIY Linux Hybrid Worker isn't registered.
 
 If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
+### <a name="error-403-on-registration"></a>Scenario: Error 403 during registration of Hybrid Runbook Worker
+
+#### Issue
+
+The worker's initial registration phase fails and you receive the following error (403).
+
+```error
+"Forbidden: You don't have permission to access / on this server."
+```
+
+#### Cause
+
+The following are possible causes:
+* There's a mistyped workspace ID or workspace key (primary) in the agent’s settings. 
+* The Hybrid Runbook Worker can't download the configuration, causing an account linking error. When Azure enables solutions, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date and/or time is set on the computer. If the time is +/-15 minutes from the current time, onboarding fails.
+
+#### Resolution
+
+##### Mistyped workspace ID/key
+To verify if the agent’s workspace ID or workspace key has been mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/platform/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/platform/agent-manage.md#linux-agent) for the Linux agent.  Make sure to select the full string from the Azure portal and copy and paste it carefully.
+
+##### Configuration not downloaded
+
+Your Log Analytics workspace and Automation Account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
+
+You might also need to update the date and or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
+
 ### <a name="class-does-not-exist"></a>Scenario: The specified class does not exist
 
-If you see the error: **The specified class does not exist..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
+If you see the error **The specified class does not exist...** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -130,13 +157,13 @@ The `healthservice` service isn't running on the Hybrid Runbook Worker machine.
 
 #### Cause
 
-If the Microsoft Monitoring Agent Windows service isn't running, this state prevents the Hybrid Runbook Worker from communicating with Azure Automation.
+If the Microsoft Monitoring Agent Microsoft service isn't running, this state prevents the Hybrid Runbook Worker from communicating with Azure Automation.
 
 #### Resolution
 
 Verify the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
 
-### <a name="event-4502"></a> Event 4502 in Operations Manager log
+### <a name="event-4502"></a>Scenario: Event 4502 in Operations Manager log
 
 #### Issue
 
@@ -148,11 +175,11 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue that affects onboarding of the role to Azure Automation or issue while under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that indicate a connectivity or other issue that affects onboarding of the role to Azure Automation or issue while under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 [Runbook output and messages](../automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs that run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
 
-### <a name="corrupt-cache"></a> Hybrid Runbook Worker not reporting
+### <a name="corrupt-cache"></a>Scenario: Hybrid Runbook Worker not reporting
 
 #### Issue
 
@@ -194,7 +221,7 @@ Machine is already registered
 
 #### Cause
 
-This can be caused if the machine is already registered with a different Automation Account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
+This issue can be caused if the machine is already registered with a different Automation Account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
 
 #### Resolution
 
