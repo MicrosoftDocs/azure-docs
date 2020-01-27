@@ -589,28 +589,28 @@
           href: platform/agent-manage.md
         - name: Agent Health
           href: insights/solution-agenthealth.md
-      - name: Data sources
-        items:
-        - name: Overview
-          href: platform/agent-data-sources.md
-        - name: Windows events
-          href: platform/data-sources-windows-events.md
-        - name: Custom JSON data
-          href: platform/data-sources-json.md
-        - name: CollectD performance data
-          href: platform/data-sources-collectd.md
-        - name: Syslog
-          href: platform/data-sources-syslog.md
-        - name: Performance counters
-          href: platform/data-sources-performance-counters.md
-        - name: Linux application performance
-          href: platform/data-sources-linux-applications.md
-        - name: IIS logs
-          href: platform/data-sources-iis-logs.md
-        - name: Custom logs
-          href: platform/data-sources-custom-logs.md
-        - name: Custom fields
-          href: platform/custom-fields.md
+        - name: Data sources
+          items:
+          - name: Overview
+            href: platform/agent-data-sources.md
+          - name: Windows events
+            href: platform/data-sources-windows-events.md
+          - name: Custom JSON data
+            href: platform/data-sources-json.md
+          - name: CollectD performance data
+            href: platform/data-sources-collectd.md
+          - name: Syslog
+            href: platform/data-sources-syslog.md
+          - name: Performance counters
+            href: platform/data-sources-performance-counters.md
+          - name: Linux application performance
+            href: platform/data-sources-linux-applications.md
+          - name: IIS logs
+            href: platform/data-sources-iis-logs.md
+          - name: Custom logs
+            href: platform/data-sources-custom-logs.md
+          - name: Custom fields
+            href: platform/custom-fields.md
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
@@ -660,14 +660,16 @@
         href: insights/vminsights-dependency-agent-maintenance.md
       - name: Disable monitoring
         href: insights/vminsights-optout.md
-    - name: Capacity and performance solution
-      href: insights/capacity-performance.md
-    - name: VMware Analytics solution
-      href: insights/vmware.md
-    - name: Wire Data solution
-      href: insights/wire-data.md
-    - name: Service Map solution
-      href: insights/service-map.md
+    - name: Solutions
+      items:
+      - name: Capacity and performance solution
+        href: insights/capacity-performance.md
+      - name: VMware Analytics solution
+        href: insights/vmware.md
+      - name: Wire Data solution
+        href: insights/wire-data.md
+      - name: Service Map solution
+        href: insights/service-map.md
     - name: Computer groups
       href: platform/computer-groups.md
   - name: Monitor containers
