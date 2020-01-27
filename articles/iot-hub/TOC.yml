@@ -378,6 +378,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/iot
+    - name: Azure PowerShell
+      href: /powershell/module/az.iothub#iot
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Devices)
