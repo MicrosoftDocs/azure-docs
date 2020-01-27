@@ -67,7 +67,7 @@
   - name: User flow and policy
     items:
     - name: User flows
-      href: active-directory-b2c-reference-policies.md
+      href: user-flow-overview.md
     - name: Custom policies
       href: custom-policy-overview.md
   - name: User accounts
@@ -98,7 +98,7 @@
       - name: Resource owner password credentials
         href: configure-ropc.md
       - name: Set up self-serve password reset
-        href: active-directory-b2c-reference-sspr.md
+        href: user-flow-self-service-password-reset.md
     - name: UX customization
       items:
       - name: User interface customization
@@ -106,11 +106,11 @@
       - name: JavaScript and page layouts
         href: user-flow-javascript-overview.md
       - name: Customize language
-        href: active-directory-b2c-reference-language-customization.md
+        href: user-flow-language-customization.md
       - name: Password complexity
-        href: active-directory-b2c-reference-password-complexity.md
+        href: user-flow-password-complexity.md
       - name: Disable email verification
-        href: active-directory-b2c-reference-disable-ev.md
+        href: user-flow-disable-email-verification.md
       - name: Enable MFA
         href: custom-policy-multi-factor-authentication.md
         displayName: multi-factor auth
@@ -149,7 +149,7 @@
     - name: Configure age gating
       href: basic-age-gating.md
     - name: Define custom attributes
-      href: active-directory-b2c-reference-custom-attr.md
+      href: user-flow-custom-attributes.md
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
   - name: Custom policy
@@ -349,11 +349,11 @@
   - name: Automation
     items:
     - name: Export usage report
-      href: active-directory-b2c-reference-usage-reporting-api.md
+      href: view-usage-reports.md
     - name: Account management
       href: manage-user-accounts-graph-api.md
   - name: Audit logs
-    href: active-directory-b2c-reference-audit-logs.md
+    href: view-audit-logs.md
   - name: Manage users - Azure portal
     href: manage-users-portal.md
     displayName: create users, add users, delete users
@@ -371,7 +371,7 @@
   - name: Migration
     items:
     - name: Migrate users
-      href: active-directory-b2c-user-migration.md
+      href: user-migration.md
     - name: Migrate users with external identities
       href: migrate-social-identities.md
 - name: Reference
