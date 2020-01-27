@@ -180,7 +180,7 @@ namespace helloworld
 
 Now you're ready to build your app and test our speech synthesis using the Speech service.
 
-1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
+1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
 3. **Start synthesis** - Your text is converted to speech, and saved in the audio data specified.
 
