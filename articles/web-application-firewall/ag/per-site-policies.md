@@ -43,7 +43,7 @@ If you choose to install and use the PowerShell locally, this article requires t
 A resource group is a logical container into which Azure resources are deployed and managed. Create an Azure resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroupAG -Location eastus
+$rgname = New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
 ## Create network resources 
