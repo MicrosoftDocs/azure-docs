@@ -17,7 +17,7 @@ This reference content provides the technical background on each of the machine 
 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
-For help choosing algorithms, see 
+For help with choosing algorithms, see 
 * [How to select algorithms](../how-to-select-algorithms.md)
 * [Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)
 
