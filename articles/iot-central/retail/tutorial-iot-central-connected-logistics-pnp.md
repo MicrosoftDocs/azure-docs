@@ -36,7 +36,7 @@ You can create application using following steps
    * **Application name**: you can use default suggested name or enter your friendly application name.
    * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. You can start with 7-day free trial pricing plan and choose to convert to a standard pricing plan at any time before the free trail expires.
    * **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
-   * **Create** : Select create at the bottom of the page to deploy your application.
+   * **Create**: Select create at the bottom of the page to deploy your application.
 
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
@@ -65,7 +65,7 @@ The dashboard is logically divided between two different gateway device manageme
 
 Click on the Device templates tab, and you will see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry & Property** and **Gateway Commands**
 
-**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location and device info as well as device twin property capability such as sensor thresholds & update intervals.
+**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, and device info as well as device twin property capability such as sensor thresholds & update intervals.
 
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png)
@@ -78,9 +78,9 @@ Click on the Device templates tab, and you will see the gateway capability model
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
  
-**Gateway theft alert**: This rule is triggered when there is unexpected light detection by the sensors during the journey. Operators need to be notified ASAP to investigate potential theft.
+**Gateway theft alert**: This rule is triggered when there's unexpected light detection by the sensors during the journey. Operators need to be notified ASAP to investigate potential theft.
  
-**Unresponsive Gateway**: This rule will trigger if the gateway does not report to the cloud for a prolonged period. Gateway could be unresponsive due to low battery mode, loss of connectivity, device health.
+**Unresponsive Gateway**: This rule will trigger if the gateway doesn't report to the cloud for a prolonged period. Gateway could be unresponsive because of low battery mode, loss of connectivity, device health.
 
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png)
@@ -91,10 +91,10 @@ Select the jobs tab to see five different jobs that exist as part of this applic
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
 
-You can leverage jobs feature to perform solution-wide operations. Here jobs are using the device commands & twin capability to perform tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
+You can use jobs feature to perform solution-wide operations. Here jobs are using the device commands & twin capability to perform tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
    * It is a standard operation to disable shock sensors during ocean shipment to conserve battery or decrease temperature threshold during cold chain transportation. 
  
-   * Jobs enables you to perform system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.
+   * Jobs enable you to perform system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.
 
 ## Clean up resources
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
