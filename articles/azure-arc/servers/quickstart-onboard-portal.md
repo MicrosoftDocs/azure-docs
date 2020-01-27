@@ -66,10 +66,6 @@ For example, to run the installation program with the `/?` parameter, enter **ms
 
 Files for the Connected Machine agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
-After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
-
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
-
 ### Install using scripted method
 
 1. Log onto the server.
@@ -80,6 +76,11 @@ After installing the agent, you need to configure the agent to communicate with 
 
     `./OnboardingScript.ps1`
 
+### Configure agent communication
+
+After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
+
+`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Install and validate the agent on Linux
 
