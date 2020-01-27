@@ -9,15 +9,15 @@
 - name: Workloads
   items: 
   - name: Red Hat
-    href: /redhat/redhat-overview.md
+    href: https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview
   - name: High performance computing
-    href: /hpc/overview.md
+    href: https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview
   - name: SAP
-    href: /sap/get-started.md
+    href: https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started.md
   - name: Oracle
-    href: /oracle/oracle-considerations.md
+    href: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview
   - name: Mainframe rehosting
-    href: /mainframe-rehosting/overview.md
+    href: https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/overview
 - name: Classic deployments
   items:
   - name: Linux VMs using classic deployment
