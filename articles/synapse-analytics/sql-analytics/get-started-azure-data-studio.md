@@ -50,7 +50,7 @@ To use **SQL Login** as the authentication type, add the username/password param
 
 To use Azure Active Directory, you need to choose the needed authentication type.
 
-![AAD Authentication][media/sql-analytics-query-ads/3-aad-auth.png]
+![AAD Authentication](media/sql-analytics-query-ads/3-aad-auth.png)
 
 This screenshot shows the **Connection Details** for **Windows Authentication**:
 
