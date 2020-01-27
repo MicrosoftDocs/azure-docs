@@ -12,12 +12,12 @@ ms.service: azure-remote-rendering
 
 # Quickstart: Convert a model for rendering
 
-In the previous quickstart, you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. In this quickstart you will learn how to convert your own model, for example an .FBX file. Once converted, you can modify the code from the first quickstart to actually render it.
+In the previous quickstart, you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. In this quickstart you will learn how to convert your own model, for example an .FBX file. Once converted, you can modify the sample from the first quickstart to actually render it.
 
 You'll learn how to:
 
 > [!div class="checklist"]
-> * Set up Azure blob storage for input and outpu
+> * Set up Azure blob storage for input and output
 > * Configure the conversion script with your credentials and storage information
 > * Run the conversion and get back the URL of the converted model
 
