@@ -36,7 +36,7 @@ In the past, we enabled the ServiceMap solution on your workspace and setup perf
 Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. You can upgrade a single VM or select multiple to upgrade together. Use the following command to upgrade using PowerShell:
 
 ```PowerShell
-Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <virtual-machine-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
 ```
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?
