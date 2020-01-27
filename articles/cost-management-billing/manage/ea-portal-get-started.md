@@ -14,10 +14,10 @@ manager: boalcsva
 
 This article helps direct and indirect Azure Enterprise Agreement (Azure EA) customers start to use the [Azure Enterprise portal](https://ea.azure.com). Get basic information about:
 
-- Structure of the Azure Enterprise portal
-- Roles used in the Azure Enterprise portal
-- Subscription creation
-- Cost analysis in the Azure Enterprise portal and the Azure portal
+- The structure of the Azure Enterprise portal.
+- Roles used in the Azure Enterprise portal.
+- Subscription creation.
+- Cost analysis in the Azure Enterprise portal and the Azure portal.
 
 View this video to watch a full Azure Enterprise portal onboarding session:
 
@@ -63,12 +63,12 @@ When setting up users, you can assign multiple accounts to the enterprise admini
 
 Users with this role have the highest level of access. They can:
 
-- Manage accounts and account owners
-- Manage other enterprise administrators
-- Manage department administrators
-- Manage notification contacts
-- View usage across all accounts
-- View unbilled charges across all accounts
+- Manage accounts and account owners.
+- Manage other enterprise administrators.
+- Manage department administrators.
+- Manage notification contacts.
+- View usage across all accounts.
+- View unbilled charges across all accounts.
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
 
@@ -76,10 +76,10 @@ You can have multiple enterprise administrators in an enterprise enrollment. You
 
 Users with this role can:
 
-- Create and manage departments
-- Create new account owners
-- View usage details for the departments that they manage
-- View costs, if they have the necessary permissions
+- Create and manage departments.
+- Create new account owners.
+- View usage details for the departments that they manage.
+- View costs, if they have the necessary permissions.
 
 You can have multiple department administrators for each enterprise enrollment.
 
@@ -89,9 +89,9 @@ You can grant department administrators read-only access when you edit or create
 
 Users with this role can:
 
-- Create and manage subscriptions
-- Manage service administrators
-- View usage for subscriptions
+- Create and manage subscriptions.
+- Manage service administrators.
+- View usage for subscriptions.
 
 Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
@@ -123,7 +123,7 @@ To add another enterprise administrator:
 
 1. Sign in to the [Azure Enterprise portal](https://ea.azure.com).
 1. Go to **Manage** > **Enrollment Detail**.
-1. Select **+ Add Administrator** at the top-right.
+1. Select **+ Add Administrator** at the top right.
 
 Make sure that you have the user's email address and preferred authentication method, such as a work, school, or Microsoft account.
 
@@ -142,10 +142,10 @@ For more information about enterprise administrative roles, see [Understand Azur
 
 Enterprise administrators and department administrators use departments to organize and report on enterprise Azure services and usage by department and cost center. The enterprise administrator can:
 
-- Add or remove departments
-- Associate an account to a department
-- Create department administrators
-- Allow department administrators to view price and costs
+- Add or remove departments.
+- Associate an account to a department.
+- Create department administrators.
+- Allow department administrators to view price and costs.
 
 A department administrator can add new accounts to their departments. They can remove accounts from their departments, but not from the enrollment.
 
@@ -155,7 +155,7 @@ To add a department:
 1. In the left pane, select **Manage**.
 1. Select the **Department** tab, then select **+ Add Department**.
 1. Enter the information.
-The department name is the only required field. It must be at least three characters.
+   The department name is the only required field. It must be at least three characters.
 1. When complete, select **Add**.
 
 ## Add a department administrator
@@ -181,7 +181,7 @@ As an enterprise administrator:
 1. Select **+ Add Administrator** and add the required information.
 1. For read-only access, set the **Read-Only** option to **Yes** and then select **Add**.
 
-![Example showing the Add Department Administrator dialog](./media/ea-portal-get-started/ea-create-add-department-admin.png)
+![Example showing the Add Department Administrator dialog box](./media/ea-portal-get-started/ea-create-add-department-admin.png)
 
 ### To set read-only access
 
@@ -218,7 +218,7 @@ To confirm account ownership:
 1. View the status.
 
    The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
-1. When the 'Warning' message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
+1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
 ## Change account owner
 
@@ -314,7 +314,7 @@ New subscriptions can take up to 24 hours to appear in the subscriptions list. A
 
 ## Transfer an Enterprise subscription to a Pay-As-You-Go subscription
 
-To transfer an Enterprise subscription to an individual subscription with Pay-As-You-Go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, select **+ New support request** in the Help and Support area.
+To transfer an Enterprise subscription to an individual subscription with Pay-As-You-Go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, select **+ New support request** in the **Help and Support** area.
 
 ## Associate an existing account with your Pay-As-You-Go subscription
 
@@ -325,7 +325,7 @@ If you already have an existing Microsoft Azure account on the Azure portal, ent
 1. In the Azure Enterprise portal, select **Manage**.
 1. Select the **Account** tab.
 1. Select **+Add an account**.
-1. Enter the work, school, or Microsoft account  associated with the existing Azure account.
+1. Enter the work, school, or Microsoft account associated with the existing Azure account.
 1. Confirm the account associated with the existing Azure account.
 1. Provide a name you would like to use to identify this account in reporting.
 1. Select **Add**.
@@ -347,12 +347,12 @@ Although most subscriptions can convert from the Pay-as-You-Go environment to Az
 1. Sign in to the Azure Enterprise portal.
 1. Select **Manage** on the left navigation.
 1. Select the **EnrollmentTab**.
-1. View the Enrollment Detail section.
+1. View the **Enrollment Detail** section.
 1. To the right of the Azure Marketplace field, select the pencil icon to enable it. Select **Save**.
 
 The account owner can now purchase any Azure Marketplace services that were previously owned in the Pay-As-You-Go subscription.
 
-After the new Azure Marketplace subscriptions are activated under your Azure EA enrollment, cancel the Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
+After the new Azure Marketplace subscriptions are activated under your Azure EA enrollment, cancel the Azure Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Azure Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
 
 ### MSDN
 
@@ -393,7 +393,7 @@ To view the usage summary reports and graphs:
    ![Create and view usage summary and download reports in custom view](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. To view additional details, you can select a period or month on the graph.
 
-   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
+   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and Azure Marketplace charges.
    - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
    - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
    - View details from **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** by expanding the relevant sections.
@@ -408,7 +408,7 @@ Enterprise administrators use the Monthly Report Download page to download the f
 
 - Balance and charge
 - Usage detail
-- Marketplace charges
+- Azure Marketplace charges
 - Price sheet
 
 To download reports:
@@ -435,8 +435,8 @@ You can use the advance report download to get reports that cover specific date 
 1. In the Azure Enterprise portal, select **Advanced Report Download**.
 1. Select an appropriate date range and the appropriate accounts.
 1. Select **Request Usage Data**.
-1. Select the **Refresh** button until report status updates to **Download**.
-1. Download report.
+1. Select the **Refresh** button until the report status updates to **Download**.
+1. Download the report.
 
 ### Download usage reports and billing information for a prior enrollment
 
@@ -473,7 +473,7 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 
    Before the Azure EA enrollment reaches the Enterprise Agreement end date, the enrollment administrator should decide which of the following options to take:
 
-  - Renew the enrollment by adding additional monetary commitment
+  - Renew the enrollment by adding additional monetary commitment.
   - Transfer to a new enrollment.
   - Migrate to the Microsoft Online Subscription Program (MOSP).
   - Confirm disablement of all services associated with the enrollment.
@@ -501,13 +501,13 @@ If you've signed in as an Azure EA account owner with the same credentials as yo
 
 The Azure Enterprise portal offers two types of subscriptions for enterprise customers:
 
-- Microsoft Azure Enterprise – ideal for:
+- Microsoft Azure Enterprise, which is ideal for:
   - All production usage
   - Best prices based on infrastructure spend
   
   For more information, [contact Azure sales](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-- Enterprise Dev/Test - ideal for:
+- Enterprise Dev/Test, which is ideal for:
   - All team dev/test workloads
   - Medium-to-heavy individual dev/test workloads
   - Access to special MSDN images and preferential service rates
@@ -563,14 +563,14 @@ You can set a spending quota at department level and the system will automatical
 
 To define your spending quota, select a department and then select the edit icon. After you edit the spending limit details, select **Save**.
 
-### I used Resource Groups (RGs) to implement RBAC and track usage. How can I view the associated usage details?
+### I used resource groups to implement RBAC and track usage. How can I view the associated usage details?
 
-If you use _Resource Groups_ and _Tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
+If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 
 You can also access usage via API. For detailed information and sample code, see the [Reporting API](https://ea.azure.com/helpdocs/reportingAPI) in the Azure Enterprise portal documentation.
 
 > [!NOTE]
-> You can only apply tags to resources that support Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
+> You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
 
 ### Can I perform analyses using Power BI?
 
