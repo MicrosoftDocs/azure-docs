@@ -7,7 +7,7 @@ ms.date: 1/27/2020
 
 # Restore Azure Files with PowerShell
 
-This article describes how to use Azure PowerShell to back up and recover an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
+This article explains how to restore an entire file share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure Powershell.
 
 You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
 

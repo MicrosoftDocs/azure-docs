@@ -52,9 +52,7 @@ $job.ErrorDetails
 1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
 ```
 
-## Manage Azure File Shares backup
-
-### Stop Protection on a file share
+## Stop protection on a file share
 
 There are two ways to stop protecting Azure file shares:
 
@@ -63,7 +61,7 @@ There are two ways to stop protecting Azure file shares:
 
 There may be a cost associated with leaving the recovery points in storage, as the underlying snapshots created by Azure Backup will be retained. However, the benefit of leaving the recovery points is you can restore the file share later, if desired. For information about the cost of leaving the recovery points, see the [pricing details](https://azure.microsoft.com/pricing/details/storage/files/). If you choose to delete all recovery points, you can't restore the file share.
 
-#### Stop Protection and retain recovery points
+## Stop protection and retain recovery points
 
 To stop protection while retaining data, use the [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) cmdlet.
 
@@ -83,7 +81,7 @@ afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26
 
 The Job ID attribute in the output corresponds to the Job ID of the job that is created by the backup service for your “stop protection” operation. To track the status of the job, use the [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0) cmdlet.
 
-#### Stop Protection without retaining recovery points
+## Stop protection without retaining recovery points
 
 To stop protection without retaining recovery points, use the [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) cmdlet and add the **-RemoveRecoveryPoints** parameter.
 
@@ -92,7 +90,7 @@ The following example stops protection for the *afsfileshare* file share without
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "afstesting" -Name "afstest" | select -ExpandProperty ID
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureStorage -WorkloadType AzureFiles -Name "afsfileshare" -VaultId $vaultID
-Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $vaultID -RemoveRecoveryPoints 
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $vaultID -RemoveRecoveryPoints
 ```
 
 ```output
