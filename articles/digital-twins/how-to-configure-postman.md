@@ -82,9 +82,7 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
     | Name  | Replace with | Example |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
-
-    The YOUR_AZURE_TENANT placeholder is for your **Tenant ID** in the Azure Active Directory. There is a numeric directory Id and a human-readable tenant Id. You must use the human-readable Id. The **Tenant ID** is located under the **Overview** tab of your Azure Active Directory.
+    | YOUR_AZURE_TENANT | The name of your tenant or organization. Use the human-friendly name instead of the alphanumeric **Tenant ID** of your Azure Active Directory app registration. | `microsoft` |
 
 1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
 
