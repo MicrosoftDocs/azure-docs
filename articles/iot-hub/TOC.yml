@@ -441,7 +441,7 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: iot-support-help.md
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Azure IoT Samples for C# (.NET)
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
     - name: Azure IoT Samples for Node.js
