@@ -36,10 +36,11 @@ See below for explanations of how to use each of these features.
     1. Ensure you're on Azure Security Center's standard pricing tier.
     1. From the **Pricing & settings** page, enable the optional Container Registries bundle for your subscription:
     ![Enabling the Container Registries bundle](media/monitor-container-security/enabling-container-registries-bundle.png)
-    Security Center is now ready to scan images that get pushed to the registry. 
 
-        > [!NOTE]
-        > This feature is charged per image.
+        Security Center is now ready to scan images that get pushed to the registry. 
+
+        >[!NOTE]
+        >This feature is charged per image.
 
 
 1. To trigger the scan of an image, push it to your registry. 
