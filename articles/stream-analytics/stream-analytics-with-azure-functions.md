@@ -2,12 +2,11 @@
 title: Tutorial - Run Azure Functions in Azure Stream Analytics jobs
 description: "In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs."
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
+ms.date: 01/27/2020
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
 ---
@@ -184,9 +183,10 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    This command should print the value for the specified key:
 
    ![Screenshot of Azure Cache for Redis output](./media/stream-analytics-with-azure-functions/image5.png)
-   
+
 ## Error handling and retries
-All http exceptions are retried until success with the exception of http error 413(entity too large). An entity too large error is treated as a data error that is subjected to the [retry or drop policy](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-output-error-policy).
+
+In the event of a failure while sending events to Azure Functions, Stream Analytics retries most operations. All http exceptions are retried until success with the exception of http error 413 (entity too large). An entity too large error is treated as a data error that is subjected to the [retry or drop policy](stream-analytics-output-error-policy.md).
 
 ## Known issues
 
