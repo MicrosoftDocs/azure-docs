@@ -445,7 +445,7 @@ The Job ID attribute in the output corresponds to the Job ID of the job that is 
 
 #### Stop Protection without retaining recovery points
 
-To stop protection without retaining recovery points, use the [Disable-AzRecoveryServicesBackupProtection]((https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) cmdlet and add the **-RemoveRecoveryPoints** parameter.
+To stop protection without retaining recovery points, use the [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) cmdlet and add the **-RemoveRecoveryPoints** parameter.
 
 The following example stops protection for the *afsfileshare* file share without retaining recovery points:
 
