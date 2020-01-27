@@ -225,14 +225,14 @@ You are now ready to have the script upload your model, call the ingestion REST 
 
 Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following in powershell with admin rights:
 ```powershell
-PS> $ Install-Module -Name Az -AllowClobber
+PS> Install-Module -Name Az -AllowClobber
 ```
 
 ## Make sure you are logged into your subscription
 If you want to use the asset ingestion service and upload files to Azure Blob Storage you will need to log into your subscription.
 In a powershell window (does not need admin rights):
 ```powershell
-PS> $ Connect-AzAccount -Subscription "<your Azure subscription id>"
+PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
 ## Run Ingestion.ps1
