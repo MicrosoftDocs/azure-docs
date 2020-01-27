@@ -48,7 +48,9 @@ The script to automate the download, installation, and establishing the connecti
 
 7. On the **Review + generate** tab, review the summary information and then select **Download**. Otherwise if you need to make changes, you can select **Previous**.
 
-The script must be run on the target machine you want to connect. It downloads the agent, installs it, and connects the machine as a single operation.
+## Install and validate the agent
+
+With the script you just created, you need to log onto the target machine you want to connect to Azure Arc and run it. The script  downloads the agent, installs it, and connects the machine in a single operation. After the script is complete, you need to verify the machine by submitting a code that is displayed at the end of script execution.  
 
 On the Non-Azure servers you want to manage:
 
