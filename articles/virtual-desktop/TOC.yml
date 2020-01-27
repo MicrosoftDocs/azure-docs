@@ -128,6 +128,8 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Linux support
+    href: linux-overview.md
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
   - name: REST API
@@ -146,8 +148,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning path
     href: https://docs.microsoft.com/learn/paths/m365-wvd/
-  - name: Linux SDK
-    href: linux-overview.md
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum
