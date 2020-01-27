@@ -43,14 +43,12 @@ We'll update this document as we add support for new features and redirections. 
 
 ## Get started with the Linux SDK
 
-### Prerequisites
-
 Before you can develop a Linux client for Windows Virtual Desktop, you need to do the following things:
 
 1. Build and deploy a Windows Virtual Desktop environment for testing or production use.
 2. Test the available first-party clients to familiarize yourself with the Windows Virtual Desktop user experience.
 
-### Next steps
+## Next steps
 
 You can request access to the Linux SDK on our [Tech Community forum](https://go.microsoft.com/fwlink/?linkid=2116541).
 
