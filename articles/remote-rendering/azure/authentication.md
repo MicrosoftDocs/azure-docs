@@ -57,11 +57,11 @@ All AzureSession and AzureFrontend async calls are completed in a background thr
 
 This section will cover Azure Frontend APIs, which SDK wrappers around the the ingestion service and rendering service REST APIs.
 
-### Ingestion APIs
+### Conversion APIs
 
-For detailed documentation about ingestion service, see the [article](../how-tos/ingest-models.md).
+See [the model conversion REST API](../conversion/conversion-rest-api.md) for more details about the conversion service.
 
-#### Start asset ingestion
+#### Start asset conversion
 
 ``` cs
 private StartIngestionAsync _pendingAsync = null;
@@ -113,7 +113,7 @@ void GetIngestionStatus(AzureFrontend frontend, string assetId)
 
 ### Rendering APIs
 
-For detailed documentation about rendering service, see the [article](../quickstarts/launching-virtual-machines.md).
+See [the session management REST API](../sessions/session-rest-api.md) for details about session management.
 
 A rendering session can either be created dynamically on the service or an already existing session ID can be 'opened' into an AzureSession object.
 

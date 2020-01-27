@@ -18,8 +18,8 @@ Afterwards, follow [Quickstart: Render a model with Unity](quickstart-render-mod
 
 ## Next steps
 
-- To get your own data into the service, read about the [model conversion REST API](../rest-apis/model-conversion.md). However, if you want to skip this step for now, we also provide a built-in model that can be used for testing.
-- To control your sessions, read about the [session management REST API](../rest-apis/session-management.md).
+- To get your own data into the service, read about [the model conversion REST API](../conversion/conversion-rest-api.md). However, if you want to skip this step for now, we also provide a built-in model that can be used for testing.
+- To control your sessions, read about [the session management REST API](../sessions/session-rest-api.md).
 - To learn how to display remotely rendered content in a client application, see the [Unity sample project documentation](../how-tos/run-unity-sample-project.md).
 
 We provide the following Azure DevOps repository and NuGet feed.

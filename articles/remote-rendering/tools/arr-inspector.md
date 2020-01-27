@@ -18,7 +18,7 @@ The ArrInspector is a web-based tool used to inspect a running Azure Remote Rend
 
 ## Connecting to the ArrInspector
 
-Once you obtain the hostname (ending in "mixedreality.azure.com") of your ARR server, connect using the [ConnectToArrInspectorAsync](../sdk/azure-frontend-authentication.md) API. The tool is compatible with Edge, Firefox and Chrome.
+Once you obtain the hostname (ending in "mixedreality.azure.com") of your ARR server, connect using the [ConnectToArrInspectorAsync](../azure/authentication.md) API. The tool is compatible with Edge, Firefox and Chrome.
 
 If you want to browse ArrInspector on the PC you can:
 

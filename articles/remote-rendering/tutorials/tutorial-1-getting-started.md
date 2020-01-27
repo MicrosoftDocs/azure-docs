@@ -14,7 +14,7 @@ ms.service: azure-remote-rendering
 
 ## Setup up an Azure remote rendering account
 
-To begin the tutorial, you will need to have your Azure Remote Rendering account [setup](../how-tos/create-an-account.md) and have an account name and a key.
+To begin the tutorial, you will need to have your Azure Remote Rendering account [setup](../azure/create-an-account.md) and have an account name and a key.
 
 ## Nuget package
 
@@ -133,7 +133,7 @@ The following image shows where to find the respective information in the web in
     public string AccountKey = "<your account key here>";
 ```
 
-The AccountDomain will be \<region>\.mixedreality.azure.com. For example, westus2.mixedreality.azure.com (the default), westeurope.mixedreality.azure.com, etc. 
+The AccountDomain will be \<region>\.mixedreality.azure.com. For example, westus2.mixedreality.azure.com (the default), westeurope.mixedreality.azure.com, etc
 
 Initialize the `AzureFrontendAccountInfo` information for the service. This will be used by the `ARRService` component. Also, subscribe to the specific events exposed by these components:
 

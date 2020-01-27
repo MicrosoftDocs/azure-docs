@@ -23,7 +23,7 @@ Learn key concepts to get started with Azure Remote Rendering:
 * [SDK concepts](concepts/sdk-concepts.md)
 * [Entities](sdk/concepts-entities.md)
 * [Components](sdk/concepts-components.md)
-* [Authentication](sdk/azure-frontend-authentication.md)
+* [Authentication](azure/authentication.md)
 
 ## Quickstart Guides
 

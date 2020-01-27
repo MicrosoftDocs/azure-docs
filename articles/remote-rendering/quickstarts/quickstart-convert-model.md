@@ -167,4 +167,4 @@ Right-click on the entry and select **Get Shared Access Signature**:
 Now that you know the basics, have a look at our tutorials to gain more in-depth knowledge.
 
 > [!div class="nextstepaction"]
-> [Tutorial 1](../tutorials/tutorial-1-getting-started)
+> [Tutorial 1](../tutorials/tutorial-1-getting-started.md)

@@ -34,11 +34,11 @@ The supported input model formats for ingestion are:
 We provide powershell scripts, which demonstrate the use of our service.
 They can be found in the Scripts directory of the arrclient repo.
 
-The script and its configuration are described here: [Powershell example scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
+The script and its configuration are described here: [Example Powershell scripts](../azure/powershell-example-scripts-for-frontend.md)
 
 ## Accounts
 
-If you don't have a Remote Rendering account, [create one](../how-tos/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs.
+If you don't have a Remote Rendering account, [create one](../azure/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs.
 
 ## <span id="rest">Asset conversion REST API
  
@@ -56,7 +56,7 @@ We provide two REST API endpoints to:
 
 ## Common request headers
 
-- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [how to get a token](../quickstarts/getting-tokens.md)
+- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [get a token](../azure/getting-tokens.md)
 
 ## Common response headers
 
@@ -91,49 +91,53 @@ Returns a JSON document with a "status" field that can have the following values
 ## <span id="prepare">Prepare Azure blob storage accounts
 
 - create a storage account (StorageV2)
-- create an input blob container in the storage account (for example named 
+- create an input blob container in the storage account (for example named
 "arrinput")
 - create an output blob container in the storage account (for example named "arroutput")
-- retrieve a stored access signature with read & list access for your input storage container 
+- retrieve a stored access signature with read & list access for your input storage container
 - retrieve a stored access signature with write access for your output storage container
 - upload your model to the input container
 
 The creation of the storage account and the blob containers can be done with one of the following:
-- [Azure portal](https://portal.azure.com) 
+
+- [Azure portal](https://portal.azure.com)
 - [az commandline](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
-
 ## Retrieve stored access signatures for the storage containers
+
 Stored access signatures (SAS) are used to grant read access for input and write access for output. It is recommended to generate the URIs on the fly each time a model is ingested instead of persisting them since they will eventually expire leading to unexpected breakages.
 
 Details about SAS can be found at the [SAS documentation](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1>)
 
 A SAS URI can be generated using one of:
+
 - az powershell module
-    - see the  [Powershell example scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
+  - see the [example Powershell scripts](../azure/powershell-example-scripts-for-frontend.md)
 - [az commandline](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - SDKS (C#, Python ... )
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-    - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
+  - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 
 ## <span id="upload">Upload an input model
-In order to start ingesting a model, you need to upload it using one of the following options:
-- [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
-    
-- [Azure command line](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
 
+In order to start ingesting a model, you need to upload it using one of the following options:
+
+- [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
+- [Azure command line](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
 - [Azure powershell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
-    - see the  [Powershell example scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
+  - see the [Example Powershell scripts](../azure/powershell-example-scripts-for-frontend.md)
 - [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
 - [Using the azure Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
 ## <span id="ingested">Get a SAS URI for your ingested model</span>
+
 This step is similar to the [Retrieve stored access signatures for the storage containers](#prepare) step above. But this time we need to retrieve a SAS URI for the model file that was written to the output container. 
 All of the methods work for the model file as well. 
 
 For example, to retrieve as SAS URI via the [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) right-click on the model file and select "Get Shared Access Signature"). Copy the URL. 
 
 ## <span id="configuringIngestion">Configuring ingestion</span>
-There is a dedicated chapter about [configuring ingestion](../how-tos/configure-model-ingestion.md) which describes the ingestion settings and makes some recommendations.
+
+There is a dedicated chapter about [configuring the model conversion](configure-model-conversion.md) which describes the conversion settings and makes some recommendations.

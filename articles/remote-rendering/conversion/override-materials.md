@@ -73,6 +73,7 @@ We assume that this has been done below.
 
 Let's say that the box model should have a different albedo color and texture for use in ARR.
 In this case, the file `box_materials_override.json` can be edited as follows.
+
 ```json
 [
     {
@@ -119,7 +120,7 @@ In this case, the file `box_materials_override.json` can be edited as follows.
 
 \<generated\> parameters will be ignored when consuming the override file. They are provided in the output file to highlight the customization points that contribute to the appearance of the model.
 
-The `box_materials_override.json` file is placed the input container, and add a `ModelIngestionSettings.json` is added beside `box.fbx`, which tells ingestion where to find the override file ([See this section on configuring ingestion](../how-tos/ingest-models.md#configuringIngestion)):
+The `box_materials_override.json` file is placed the input container, and add a `ModelIngestionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
 
 ```json
 {
@@ -129,10 +130,11 @@ The `box_materials_override.json` file is placed the input container, and add a 
 
 When the model is reingested, the new settings will apply.
 
-**Unlit materials**
+### Unlit materials
 
 The Unlit material model describes a constantly shaded surface that is independent of lighting,
 useful for assets made by Photogrammetry algorithms, default is `false`:
+
 ```json
 [
     {
@@ -145,7 +147,6 @@ useful for assets made by Photogrammetry algorithms, default is `false`:
     }
 ]
 ```
-
 
 ## JSON schema
 
