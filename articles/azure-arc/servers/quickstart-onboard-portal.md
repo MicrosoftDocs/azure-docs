@@ -1,18 +1,21 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
-description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers from the Azure portal.
+description: In this article you learn how to install the agent and connect machines to Azure using Azure Arc for servers from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid, onboard
 ms.date: 01/24/2020
 ms.custom: mvc
 ms.topic: quickstart
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
+
+You can enable Azure Arc for servers (preview) for one or a small number of Windows or Linux machines in your environment using a script that we provide. This script automates the download and installation of both agents, and then prompts you to verify the machine connection with Azure Arc. 
+
+This installation method requires that you have administrative rights on the machine to install and configure the agent. On Linux, using the root account and on Windows, you are member of the Local Administrators group.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -22,10 +25,28 @@ To understand the supported configurations and deployment requirements, review [
 
 ## Generate the agent install script using the Azure portal
 
-1. Launch [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
-1. Click on **+Add**
-1. Follow the wizard to completion
-1. The last page has a script generated which you can copy (or download).
+The script to automate the download, installation, and establishing the connection with Azure Arc is available from the Azure portal. The following steps describe how to complete this process.
+
+1. From your browser, launch [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
+
+2. On the **Machines - Azure Arc** page, either select **+Add** in the upper lef-hand corner, or select the **Create machine - Azure Arc** option from the bottom of the middle pane. 
+
+3. On the **Select a method** page, select from the **Add machines using interactive script** tile **Generate script**.
+
+4. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where machine metadata will be stored.
+
+    >[!NOTE]
+    >Azure Arc for servers (preview), only supports the following regions:
+    >- WestUS2
+    >- WestEurope
+    >- WestAsia
+    >
+
+5. On the **Generate script** page, under the **Operating system** drop-down list, select the appropriate operating system the script will be running on.
+
+6. If the machine is communicating through a proxy server in order to connect to the Internet, select the option **Next: Proxy Server>**. On the **Proxy server** tab, specify the proxy server IP address and port number that the machine will use to communicate with the proxy server. Once completed, select **Review + generate**.  Otherwise, select **Review + generate** to complete the steps.
+
+7. On the **Review + generate** tab, review the summary information and then select **Download**. Otherwise if you need to make changes, you can select **Previous**.
 
 The script must be run on the target machine you want to connect. It downloads the agent, installs it, and connects the machine as a single operation.
 
