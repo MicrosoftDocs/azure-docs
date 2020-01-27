@@ -233,6 +233,27 @@ productDirectory:
         - iot
       url: machine-learning/studio/index.yml
     # Card
+    - title: Microsoft Genomics
+      summary: Power genome sequencing & research insights
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: genomics/index.yml
+    # Card
+    - title: Personalizer
+      summary: An AI service that delivers a personalized user experience
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: cognitive-services/personalizer/index.yml
+    # Card
+    - title: QnA Maker
+      summary: Distill information into conversational, easy-to-navigate answers
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: cognitive-services/qnamaker/index.yml
+    # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
