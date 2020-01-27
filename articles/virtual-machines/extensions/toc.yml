@@ -64,7 +64,7 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Monitor
+  - name: Azure Monitor
     items:
     - name: Diagnostics extension
       items:
