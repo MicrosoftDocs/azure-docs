@@ -48,40 +48,40 @@ Open a command prompt (type `cmd` in the Windows start menu) and change to a dir
 
 Run the following commands:
 
-1. `mkdir ARR`
-1. `cd ARR`
-1. `git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient`
+  *	`mkdir ARR`
+  *	`cd ARR`
+  * `git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient`
 
-The last command creates a directory called *arrClient* in your ARR directory. It contains the sample app and a copy of the documentation.
+The last command creates a directory called arrClient in your ARR directory containing the sample app and a copy of the documentation.
 
-The sample Unity app is found in the subdirectory *Unity/AzureRemoteRenderingSample* but **do not open it yet!** The project requires Unity packages to be present, which you need to obtain first.
+The sample Unity app is found in the subdirectory Unity/AzureRemoteRenderingSample but **do not open it yet**:
+It expects Unity packages to be present in directory beside it, which you need to first obtain using NuGet.
 
-## Obtaining the Unity NuGet packages
+## Getting the Unity NuGet packages
 
-We will pull the Unity packages from the ARR depot using NuGet. Type the following commands into your command prompt:
+You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following:
+  * `cd arrClient\Unity`
+  *	`nuget install com.microsoft.azure.remote_rendering -ExcludeVersion`
+  *	`nuget install ScriptableRenderPipeline -ExcludeVersion`
 
-1. `cd arrClient\Unity`
-1. `nuget install com.microsoft.azure.remote_rendering -ExcludeVersion`
-1. `nuget install ScriptableRenderPipeline -ExcludeVersion`
+If the NuGet command results in authentication prompts, make sure you are using the NuGet + credential provider installation from the prerequisites steps above.
 
-If the NuGet command results in authentication prompts, make sure you are using the NuGet companion credential manager from the prerequisites steps.
+The two commands above will download NuGet packages carrying Unity packages.
+You will now have an ‘ARR/ArrClient/Unity’ directory contains three folders:
+  * AzureRemoteRenderingSample - The sample project
+  * com.microsoft.azure.remote_rendering - The Unity package, which provides the client functionality of Azure Remote Rendering
+  * ScriptableRenderPipeline - A customized version of the Unity's ScriptableRenderPipeline.
 
-Afterwards there is a new directory *ARR/ArrClient/Unity*, containing three subfolders:
+## Rendering a first model with the Unity example project
 
-- *AzureRemoteRenderingSample* - The sample project
-- *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
-- *ScriptableRenderPipeline* - A customized version of Unity's scriptable render pipeline
+The default model we render will be a built-in model provided by ARR. We will show how to convert a custom model using the ARR conversion service in the next quickstart.
 
-## Rendering a built-in model
+Open the Unity Hub and add the sample project, which is the ARR\arrClient\Unity\AzureRemoteRenderingSample folder.
+Open the project, if necessary allowing Unity to upgrade the project to your installed version.
 
-The first model we render will be a built-in model provided by ARR. We will show how to convert a custom model in the next quickstart.
+### Enter your account info as a one time step
 
-Launch the Unity Hub and add the folder *ARR\arrClient\Unity\AzureRemoteRenderingSample* as a Unity project.
-Open the project. Allow Unity to upgrade the project to your installed version, if necessary.
-
-### Enter your account info
-
-Select the *RemoteRendering* dropdown menu and open the *AccountInfo* window. Enter your account credentials.
+Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter your account credentials. The [Create an account](../azure/create-an-account.md) chapter explains where to find the account credentials.
 
 ![ARR Account Info](./media/arr-sample-account-info.png "ARR Account Info")
 

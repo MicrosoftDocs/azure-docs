@@ -232,7 +232,7 @@ Stops a session and reclaims resources. The session is identified by its ID (ret
 
 | URI | Method |
 |-----------|:-----------|
-| /1/accounts/*account ID*/sessions/*session ID* | DELETE |
+| /v1/accounts/*account ID*/sessions/*session ID* | DELETE |
 
 ### Responses
 
