@@ -13,7 +13,7 @@ ms.topic: quickstart
 
 # Connect hybrid machines to Azure from the Azure portal
 
-You can enable Azure Arc for servers (preview) for one or a small number of Windows or Linux machines in your environment using a script that we provide. This script automates the download and installation of both agents, and then prompts you to verify the machine connection with Azure Arc. 
+You can enable Azure Arc for servers (preview) for one or a small number of Windows or Linux machines in your environment manually or automated using a script that we provide. This script automates the download and installation of both agents, and then prompts you to verify the machine connection with Azure Arc. 
 
 This installation method requires that you have administrative rights on the machine to install and configure the agent. On Linux, using the root account and on Windows, you are member of the Local Administrators group.
 
@@ -50,9 +50,30 @@ The script to automate the download, installation, and establishing the connecti
 
 ## Install and validate the agent
 
-With the script you just created, you need to log onto the target machine you want to connect to Azure Arc and run it. The script  downloads the agent, installs it, and connects the machine in a single operation. After the script is complete, you need to verify the machine by submitting a code that is displayed at the end of script execution.  
+You can install the Connected Machine agent by one of two methods. The first method is to manually download, install, and configure the agent, the second is using the script downloaded earlier that automates these steps on your Windows and Linux machines.
 
-On the Non-Azure servers you want to manage:
+
+
+You can manually execute the Windows Installer installation package `AzureConnectedMachineAgent.msi` or the Linux shell script `Install_linux_azcmagent.sh` that included with the agent package.
+
+
+
+With the script you just created, you need to copy it to the target machine you want to connect to Azure Arc, and log on to run it. The script downloads the agent, installs it, and connects the machine in a single operation. After the script is complete, you need to verify the machine by submitting a code that is displayed at the end of script execution from your browser.
+
+>[!NOTE]
+>Verifying the machine using a web browser does not need to be performed from the server you are connecting to Azure Arc. We recommend as a standard security practice to avoid browsing the Internet from your production machines.
+>
+
+You can complete these steps using SSH for Linux, and for Windows by logging on locally, using Remote Desktop Protocol (RDP), or PowerShell remoting.
+
+1. Log onto the server.
+
+2. Open a shell with administrative privileges. 
+
+3. Open the folder you copied the script to and execute it on the server by running the command:
+
+    ```
+
 
 1. Logon to the server (using SSH, RDP or PowerShell Remoting)
 1. Start a shell: bash on Linux, PowerShell as Administrator on Windows
