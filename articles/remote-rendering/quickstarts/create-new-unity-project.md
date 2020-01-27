@@ -27,6 +27,7 @@ You'll have to adjust these entries in your **Project/Packages/manifest.json** t
     "com.unity.render-pipelines.core": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.core",
     "com.unity.render-pipelines.lightweight": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.lightweight",
     "com.unity.shadergraph": "file:../../ScriptableRenderPipeline/com.unity.shadergraph",
+    "com.unity.render-pipelines.universal": "file:../../ScriptableRenderPipeline/com.unity.render-pipelines.universal",
 ~~~~
 
 ## Player settings
