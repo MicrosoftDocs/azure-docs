@@ -78,7 +78,7 @@ You'll need the following permissions in the Azure tenant you're looking to inst
 - Subscription - Owner
 - Resource Group in which FarmBeats is being installed - Owner
 
-The first 2 permissions are needed for [creating the AAD application](#Create-an-AAD-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application. The person installing FarmBeats needs to be an owner of the Resource Group in which FarmBeats is being installed.
+The first two permissions are needed for [creating the AAD application](#Create-an-AAD-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application. The person installing FarmBeats needs to be an owner of the Resource Group in which FarmBeats is being installed.
 
 You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
@@ -95,7 +95,7 @@ Azure FarmBeats requires Azure Active Directory application creation and registr
 - Tenant - AAD app creator
 - Subscription - Owner
 
-Run the following in a Cloud Shell instance in your subscription. First time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
+Run the following steps in a Cloud Shell instance in your subscription. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
 1. Download the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
 
@@ -113,7 +113,7 @@ Run the following in a Cloud Shell instance in your subscription. First time use
             ./create_aad_script.ps1
         ```
 
-4. The AAD script takes around 2 minutes to run and outputs values to screen as well as to a json file in the same directory. If you had someone else run the script, please ask them to share this output with you.
+4. The AAD script takes around 2 minutes to run and outputs values to screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
 
 ### Create Sentinel account
 
@@ -155,7 +155,7 @@ Once the installation is complete, you can verify the installation and start usi
 
 ## Upgrade
 
-To upgrade FarmBeats to the latest version, run the following in a Cloud Shell instance in your subscription. First time users will be prompted to select a subscription and create a storage account. Complete the setup as idate-ted.
+To upgrade FarmBeats to the latest version, run the following steps in a Cloud Shell instance in your subscription. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
 1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
 
@@ -181,7 +181,7 @@ To uninstall Azure FarmBeats Datahub or Accelerator, complete the following step
 
 1. Log in to the Azure portal and **delete the resource groups** in which these components are installed.
 
-2. Go to Azure Active Directory & **delete the Azure AD application** linked to the Azure FarmBeats installation. This will remove the Azure FarmBeats installation from your Azure subscription.
+2. Go to Azure Active Directory & **delete the Azure AD application** linked to the Azure FarmBeats installation.
 
 ## Next steps
 
