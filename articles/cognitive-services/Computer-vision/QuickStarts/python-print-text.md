@@ -95,6 +95,7 @@ for word in word_infos:
                       fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
+plt.show()
 plt.axis("off")
 ```
 
