@@ -37,30 +37,63 @@ The following JSON is an example inference configuration for use with the CLI:
 }
 ```
 
-The following JSON is an example inference configuration that uses an existing Azure Machine Learning [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) with a specific version for use with the CLI:
+You can include full specifications of an Azure Machine Learning [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) in the inference configuration file. If this environment doesn't exist in your workspace, Azure Machine Learning will create it. Otherwise, Azure Machine Learning will update the environment if necessary. The following JSON is an example:
 
 ```json
 {
     "entryScript": "score.py",
-    "environment":{
-        "name": "myenv",
+    "environment": {
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
+        },
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [
+                    "conda-forge"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    {
+                        "pip": [
+                            "azureml-defaults",
+                            "azureml-telemetry",
+                            "scikit-learn",
+                            "inference-schema[numpy-support]"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
         "version": "1"
-    },
-    "condaFile": "myenv.yml",
+    }
+}
+```
+
+You can also use an existing Azure Machine Learning [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) in separated CLI parameters and remove the "environment" key from the inference configuration file. Use -e for the environment name, and --ev for the environment version. If you don't specify --ev, the latest version will be used. Here is an example of an inference configuration file:
+
+```json
+{
+    "entryScript": "score.py",
     "sourceDirectory": null
 }
 ```
 
-The following JSON is an example inference configuration that uses an existing Azure Machine Learning [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) with latest version for use with the CLI:
+And here is a CLI example to deploy a model with the above inference configuration file, named myInferenceConfig.json, and with the latest version of an existing Azure Machine Learning [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) called AzureML-Minimal
 
-```json
-{
-    "entryScript": "score.py",
-    "environment":{
-        "name": "myenv",
-        "version": null
-    },
-    "condaFile": "myenv.yml",
-    "sourceDirectory": null
-}
+```azurecli-interactive
+az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json
 ```
