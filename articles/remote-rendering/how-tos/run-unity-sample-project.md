@@ -48,7 +48,7 @@ In brief, the steps are:
 
 ## Configuring the sample
 
-See [Rendering Your First Model](../quickstarts/rendering-your-first-model.md) for sample setup.
+See [Quickstart: Render a model with Unity](../quickstarts/quickstart-render-model.md) for a sample setup.
 
 1. Dock the 'Game' view tab besides the 'Scene' tab.
 1. Press the play button in Unity.
@@ -113,8 +113,4 @@ There are also models placed within the scene:
 
 ## Using your own model
 
-In AzureRemoteRenderingSample\Assets\Scripts, replace 
-"builtin://UnitySampleModel" with the URL of your model. Retrieve a SAS URI for your ingested model stored in azure blob storage as described in [Using the model ingestion REST API](../how-tos/ingest-models.md)
-
-
-
+In AzureRemoteRenderingSample\Assets\Scripts, replace *builtin://UnitySampleModel* with the URL of your model. Retrieve a SAS URI for your converted model stored in Azure blob storage as described in [the model conversion REST API](../conversion/conversion-rest-api.md).

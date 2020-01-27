@@ -1,6 +1,6 @@
 ---
-title: Convert your own model with Azure remote rendering
-description: Quickstart that shows the conversion steps for a custom model. The converted model can be rendered
+title: Convert a model
+description: Quickstart that shows the conversion steps for a custom model.
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -12,37 +12,38 @@ ms.service: azure-remote-rendering
 
 # Quickstart: Convert a model for rendering
 
-In the previous quickstart, you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. In this quickstart you will learn how to convert your own model, for example an .FBX file. Once converted, you can modify the sample from the first quickstart to actually render it.
+In the [previous quickstart](quickstart-render-model.md), you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. In this quickstart you will learn how to convert your own model, for example an .FBX file. Once converted, you can modify the sample from the first quickstart to actually render it.
 
 You'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Set up Azure blob storage for input and output
-> * Configure the conversion script with your credentials and storage information
-> * Run the conversion and get back the URL of the converted model
+> * Configure the conversion script with your credentials and storage information.
+> * Run the conversion and retrieve the URL of the converted model.
 
+## Prerequisites
+
+Additionally to the [previous quickstart](quickstart-render-model.md) the following software must be installed:
+
+* Azure Storage Explorer [(download)](https://azure.microsoft.com/features/storage-explorer/ "Microsoft Azure Explorer")
+* Azure Powershell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+  * Open a Powershell with admin rights
+  * Run `Install-Module -Name Az -AllowClobber`
 
 ## Overview
-The renderer on the server consumes a model in a proprietary binary format, not a source model format (.FBX, .GLTF, ...) directly. To convert a model from source format to target format, we need to call the conversion REST API, which will be shown in this article.
+
+The renderer on the server can't work directly with source model formats such as FBX or GLTF. Instead, it requires the model to be in a proprietary binary format.
 
 The conversion REST API can consume models from Azure blob storage and will write the converted model back to a provided Azure blob storage container.
 You will need to have:
-- An Azure Subscription
-- A Storage v2 account in your subscription
-- A blob storage container for your input model
-- A blob storage container for your output data
+
+* An Azure subscription
+* A Storage v2 account in your subscription
+* A blob storage container for your input model
+* A blob storage container for your output data
 
 ARR supports the conversion of the following source formats: FBX, GLTF, and GLB files.
-
-## Prerequisites
-The following must be installed to complete this quickstart:
-- You need a remote rendering service account: [Create an account](../how-tos/create-an-account.md)
-- Install the Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
-- Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
-```powershell
-PS> Install-Module -Name Az -AllowClobber
-```
-
 
 ## Azure setup
 For this guide, we will describe how to use Azure Remote Rendering with a free Azure account.
@@ -66,7 +67,7 @@ This will bring up the following new screen with storage properties to fill out:
 
 Fill out the form in the following manner:
 
-  *	Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
+* Create a new *Resource Group* from the link below the drop-down box and name it **ARR_Tutorial**.
   *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
   *	Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
   *	**Performance** set to ‘Standard’
@@ -80,30 +81,30 @@ The website now informs you about the progress of your deployment and reports "Y
 
 ![Azure Storage creation complete](./media/storage-creation-complete.png)
 
-Now you need to create blob containers – you will need one for input and one for output, so creating these two containers is the next step.
+Now add quick access blob containers – you will need one for input and one for output, so creating these two containers is the next step.
+### Blob storage creation
 
-## Blob storage creation
-
-From the **"Go to resource"** button above you get into a screen with a panel on the left. Close to the bottom, in the **"Blob service"** category, click on the **"Containers"** button:
-
+Make sure you are within the arrtutorialstorage account that you created in the last step and note there is an option for Blob Services on the dashboard page.
+Click this button, and you will be taken to the page that will allow us to set up our blob storage accounts.
 ![Azure - add Containers](./media/azure-add-containers.png)
 
-Press the **"+ Container"** button to create your first blob storage container.
+Press the + Container button to create your first blob storage container.
 Use the following settings when creating it:
-  * Name = arrinput
-  * Public access level = Private
+
+* Name = *arrinput*
+* Public access level = *Private*
 
 Once the container has been created, repeat the process by clicking the **"+ Container**" button, but this time use the following settings:
-  * Name = arroutput
-  * Public access level = Private
+
+* Name = *arroutput*
+* Public access level = *Private*
 
 You should now have two blob storage containers:
 
 ![Blob Storage Setup](./media/blob-setup.png "Blob Storage Setup")
 
-At this point, switch to using the Microsoft Azure Storage Explorer tool – this provides information in one central location and makes it easier to configure Azure Remote Rendering.
-Once you sign in using your Microsoft Azure account created in the previous steps, you will be presented with the following.
-(You may need to expand a few items in the tree to see everything.)
+At this point, switch to the Azure Storage Explorer (which you installed earlier) – it provides information in one central location and makes it easier to configure Azure Remote Rendering.
+After signing in, you will be presented with a tree structure. Navigate to your blob containers like in the image below:
 
 ![Azure Storage Explorer](./media/azure-explorer.png "Azure Storage Explorer")
 
@@ -151,7 +152,7 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
     },
     "azureStorageSettings": {
         "azureSubscriptionId": "7*******-****-****-****-*********39b",
-        "resourceGroup": "ARR_TUTORIAL",
+        "resourceGroup": "ARR_Tutorial",
         "storageAccountName": "arrtutorialstorage",
         "blobInputContainerName": "arrinput",
         "blobOutputContainerName": "arroutput"
@@ -169,6 +170,7 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
 You are now ready to have the script upload your model, call the conversion REST API, and retrieve a link to the conversion model in your output container.
 
 Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
+
 ```powershell
 PS> Install-Module -Name Az -AllowClobber
 ```

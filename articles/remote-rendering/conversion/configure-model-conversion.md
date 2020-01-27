@@ -1,6 +1,6 @@
 ---
-title: Configuring model ingestion
-description: Description of all model ingestion parameters
+title: Configuring the model conversion
+description: Description of all model conversion parameters
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Configure model ingestion
+# Configuring the model conversion
 
 This chapter documents the user-facing options in the configuration file for the ingestion.
 
@@ -19,6 +19,7 @@ This chapter documents the user-facing options in the configuration file for the
 If a file called `ModelIngestionSettings.json` is found in the input container beside the input model, then it is used to provide additional configuration for the model conversion process.
 
 The contents of the file should satisfy the following json schema:
+
 ```json
 {
     "$schema" : "http://json-schema.org/schema#",
@@ -61,10 +62,11 @@ The contents of the file should satisfy the following json schema:
 ```
 
 An example `ModelIngestionSettings.json` file might be:
+
 ```json
 {
-    "ez" : 
-    { 
+    "ez" :
+    {
         "scaling" : 0.01,
         "recenterToOrigin" : true,
         "material-override" : "box_materials_override.json"
@@ -72,7 +74,7 @@ An example `ModelIngestionSettings.json` file might be:
 }
 ```
 
-**Geometry parameters**
+### Geometry parameters
 
 * `scaling` - This parameter scales a model.
 It can be used to grow or shrink a model, for example to display a building model on a table top.
@@ -85,22 +87,22 @@ Centering is important if the source model is displaced far from the origin, sin
 * `opaqueMaterialDefaultSidedness` - The rendering engine assumes that opaque materials are double-sided.
 If that is not the intended behavior, this parameter should be set to "SingleSided".
 
-**Material overrides**
+### Material overrides
 
-* `material-override` - This parameter allows the processing of materials to be customized during ingestion.
-This complex feature has its own [documentation page](../how-tos/override-materials-at-ingestion.md).
+* `material-override` - This parameter allows the processing of materials to be [customized during conversion](override-materials.md).
 
-**Color space parameters**:
+### Color space parameters
 
-The rendering engine expects color values to be in linear space. 
+The rendering engine expects color values to be in linear space.
 If a model is defined using gamma space, then these options should be set to true.
+
 * `gammaToLinearMaterial` - Convert material colors from gamma space to linear space
 * `gammaToLinearVertex` - Convert vertex colors from gamma space to linear space
 
 > [!NOTE]
 > If the input file is an fbx, these settings are true by default. Otherwise they are false by default.
 
-**Scene parameters**
+### Scene parameters
 
 * `sceneGraphMode` - Defines the mode that the scene graph is converted to and whether the scene graph can be accessed via the API. There are three distinct modes:
   * `dynamic` (default) : All objects in the graph are exposed in the API and can be transformed independently
@@ -113,21 +115,21 @@ The `static` mode exports the full scene graph, but parts inside this graph have
 
 The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects is not possible in this mode. Use cases for this mode could be photogrammetry models that do not have a meaningful scene graph in the first place.
 
-**Physics parameters**
+### Physics parameters
 
 * `generateCollisionMesh` - To provide support fast ray casts, ingestion creates a collision mesh.
 If enabled, time is added to the ingestion process and implies a performance penalty at runtime.
 This parameter can be set to false when ray-cast support is not required.
 
-**Unlit materials**
+### Unlit materials
 
 * `unlitMaterials` - To override all materials in the scene to work as a constantly shaded surface that is independent of lighting.
 
-**Coordinate system overriding**
+### Coordinate system overriding
 
 * `axis` - To override coordinate system unit-vectors, default values are `["+x", "+y", "+z"]` where sign means direction of a vector. In theory, the FBX format has a header where those vectors are defined and we use that information to transform the scene, and the glTF format defines a fixed coordinate system with Y-axis up. In practice, some assets have wrong header or saved with wrong Up-axis and it could be overridden by this option. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting  the Y-axis to the opposite direction.
 
-**Parameters affecting rendering performance**
+### Parameters affecting rendering performance
 
 * `meshType` - This option should have no bearing on the appearance of the model, but can be used to switch between two internal mesh formats.
 The default mesh type is called `compact`. `compact` is a highly optimized format, which is relatively new and has, as yet, had less use.
@@ -151,12 +153,14 @@ There are certain classes of use cases that qualify for specific optimizations. 
 Models that originate from photogrammetry data typically do not come with a dedicated scene graph. Accordingly, the `sceneGraphMode` can be set to `none`. The impact is insignificant though, since the scene graph is not complex in the first place.
 
 Due to the nature of photogrammetry data, materials do not need to go through a dynamic lighting pipeline in the renderer since the lighting is already baked into the textures. This fact can be utilized to gain slightly better performance and also a better memory footprint:
+
 * The `unlitMaterials` flag turns all materials into unlit materials at ingestion time
 * The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint
 
-### Use case: Visualization of compact machines, etc.
+### Use case: Visualization of compact machines, etc
 
 These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes quite well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
+
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to default `dynamic`. 
 * Accurate ray casts are typically integral part of the application, so collision meshes must be generated
 * Cutplanes look better with the `opaqueMaterialDefaultSidedness` flag enabled

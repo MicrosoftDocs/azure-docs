@@ -26,7 +26,7 @@ When remote rendering is no longer needed by an application, ```RemoteManagerSta
 
 A session is composed on an ```AzureFrontend``` class which contains the credential information required to perform ARR API calls, create new ARR runtimes in Azure  and open existing ARR runtimes.  Once an ```AzureFrontend``` class has been initialized with account credentials, an ```AzureSession``` can either be created or a previously created session can be opened.
 
-```AzureFrontend.CreateRenderingSessionAsync``` will create a new VM on the Azure service. 
+```AzureFrontend.CreateRenderingSessionAsync``` will create a new VM on the Azure service.
 
 This VM will transition from the ```Starting``` state to the ```Ready``` state over a number of minutes. Once the VM is in the ```Ready``` state,  ```AzureSession.ConnectToRuntime``` can be called to connect to the ARR runtime:
 
@@ -63,7 +63,7 @@ This VM will transition from the ```Starting``` state to the ```Ready``` state o
 
     // Connect to server
     Result connectResult = session.ConnectToRuntime(new ConnectToRuntimeParams()).AsTask();
-    
+
     // Connected!
 
     // Disconnect
@@ -72,7 +72,7 @@ This VM will transition from the ```Starting``` state to the ```Ready``` state o
     // Decommision VM
     await session.StopAsync().AsTask();
 
-    // Close connection 
+    // Close connection
     RemoteManager.ShutdownRemoteRendering();
 ```
 
@@ -80,7 +80,7 @@ The above code snippets creates a new session on Azure and, once the session is 
 
 Multiple ```AzureFrontend``` and ```AzureSession``` instances can be maintained, manipulated, and queried from code. But, only a single ```AzureSession``` may be connected to a runtime at a time. If a second ```AzureSession.ConnectToRuntime``` is called by a different ```AzureSession``` instance, the call will fail.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Only a single ```AzureSession``` may be connected to a runtime at a time.
 
 The lifetime of a virtual machine is not tied to the ```AzureFrontend``` instance or the ```AzureSession``` instance. ```AzureSession.StopAsync``` must be called to decommission a virtual machine.
@@ -112,7 +112,7 @@ Unity uses a special initialization function to bind to Unity's coordinate syste
 
 ## Asynchronous Operations and Loading Data
 
-Data can be loaded through asynchronous APIs.  Models that have been [ingested](../how-tos/ingest-models.md) can be loaded through the following APIs:
+Data can be loaded through asynchronous APIs. Models that have been [converted](../conversion/conversion-rest-api.md) can be loaded through the following APIs:
 
 ```cs
     LoadModelAsync _pendingLoadTask = null;
@@ -133,6 +133,7 @@ Data can be loaded through asynchronous APIs.  Models that have been [ingested](
         };
     }
 ```
+
 A reference to an asynchronous operation must be held until the application is done with it. If the application uses the Completed event on the async, then the async must be held alive by the application until Completed has finished.
 
 Asynchronous return an asynchronous object where Completed and ProgressChanged callbacks can be registered. Furthermore all asynchronous objects have an ```AsTask``` member function to allow the ```await``` pattern.
@@ -153,13 +154,13 @@ void async SampleLoadModel(string modelId)
 
 ### Threading
 
-All asynchronous calls from `Actions` and `Entity` are completed during the `AzureSession.Actions.Update`. [Azure Frontend APIs](../sdk/azure-frontend-authentication.md) are completed in a background thread.
+All asynchronous calls from `Actions` and `Entity` are completed during the `AzureSession.Actions.Update`. [Azure Frontend APIs](../azure/authentication.md) are completed in a background thread.
 
 ### Built-in and external resources
 
 Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. These resources are listed with feature related to them, for example see [Sky](../sdk/features-sky.md)
 
-Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to an converted model in blob storage (see [Ingesting Models](../how-tos/ingest-models.md#ingested)).
+Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to a [converted model](../conversion/conversion-rest-api.md) in blob storage.
 
 ## Objects and Lifetime Management
 
@@ -168,9 +169,11 @@ Besides these built-in resources, the user may also use resources from external 
 The lifetime of these objects are not related to the lifetime of the user object representation such as the `Entity` class in C#. `Destroy` must be called to deallocate and remove the internal representation. The lifetimes are separate so that the user can work on smaller sections of large models in a less efficient user representation, while the compressed representation is stored inside the SDK.
 
 ## <span id="resources">Resources and Lifetime Management
+
 [Meshes](../sdk/concepts-meshes.md), [Materials](../sdk/concepts-materials.md) and [Textures](../sdk/concepts-textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count, rather than explicit ```Destroy``` method used for Entities and Components. When the resource is not assigned anywhere in the scene tree (for example, Mesh to a MeshComponent) and the user does not hold a reference to the resource with an instance of the Mesh class, then the resource is destroyed in the API on both client and server. The server will then release the native resource and free the memory.
 
 ## General Lifetime Management
+
 All API objects lifetime is bound to a connection. On disconnect all resources and objects are destroyed on both the client and the server. The log can be checked for information about unreleased resources that were destroyed.
 
 ## Features

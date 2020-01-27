@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Remote Rendering
+  - name: About Azure Remote Rendering
     href: overview/about.md
   - name: System requirements
     href: overview/system-requirements.md
@@ -12,30 +12,32 @@
   items:
   - name: Getting started
     href: quickstarts/getting-started.md
-  - name: Render a model
+  - name: Render a model with Unity
     href: quickstarts/quickstart-render-model.md
   - name: Convert a model for rendering
     href: quickstarts/quickstart-convert-model.md
-- name: Account creation
+- name: Azure account
   items:
-  - name: Azure frontend authentication
-    href: sdk/azure-frontend-authentication.md
-  - name: Create an account
-    href: how-tos/create-an-account.md
+  - name: Creating an account
+    href: azure/create-an-account.md
+  - name: Authentication
+    href: azure/authentication.md
   - name: Get a token
-    href: quickstarts/getting-tokens.md
-  - name: Launch virtual machines
-    href: quickstarts/launching-virtual-machines.md
+    href: azure/getting-tokens.md
   - name: Example scripts for frontend authentication
-    href: quickstarts/powershell-example-scripts-for-frontend.md
-- name: Model ingestion
+    href: azure/powershell-example-scripts-for-frontend.md
+- name: Model conversion
   items:
-  - name: Ingest models
-    href: how-tos/ingest-models.md
-  - name: Configure the model ingestion
-    href: how-tos/configure-model-ingestion.md
-  - name: Override materials during ingestion
-    href: how-tos/override-materials-at-ingestion.md
+  - name: The model conversion REST API
+    href: conversion/conversion-rest-api.md
+  - name: Configuring the model conversion
+    href: conversion/configure-model-conversion.md
+  - name: Overriding materials during model conversion
+    href: conversion/override-materials.md
+- name: Session management
+  items:
+  - name: The session management REST API
+    href: sessions/session-rest-api.md
 - name: SDK
   expanded: true
   items:
