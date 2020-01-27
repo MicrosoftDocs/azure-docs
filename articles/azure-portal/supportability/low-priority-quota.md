@@ -36,7 +36,7 @@ To request a spot quota limit increase for all virtual machine series using **He
 > [!NOTE]
 > You can also request a quota limit increase for multiple regions through a single support case. For details, see step 8.
 
-1. On the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
+1. From the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 
    ![The Help + support link](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
@@ -60,7 +60,7 @@ To request a spot quota limit increase for all virtual machine series using **He
 
    ![The "Provide details" link](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In **Quota details**, do the following actions:
+1. In **Quota details**, do the following steps:
 
    1. For **Deployment model**, select the appropriate model, and for **Locations**, select a location.
 

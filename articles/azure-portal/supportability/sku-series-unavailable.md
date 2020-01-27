@@ -52,7 +52,7 @@ When creating a support request to increase compute core quota, a region or a SK
 
 We first recommend that you consider an alternative region or SKU that meets your business needs.
 
-If you're unable to find a suitable region or SKU, create a **Subscription management** [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following these steps:
+If you're unable to find a suitable region or SKU, create a **Subscription management** [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following these steps:
 
 1. From the [Azure portal](https://portal.azure.com) menu, select **Help + support**. Then select **New support request**.
 

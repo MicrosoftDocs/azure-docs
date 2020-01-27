@@ -32,7 +32,7 @@ To learn about increasing the vCPU limit by region for standard quota, see [Stan
 
 To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
 
-You can request an increase in standard vCPU quota limits per VM series in either of two ways.
+You can request an increase in standard vCPU quota limits per VM series in either of two ways, as described in the following sections.
 
 ## Request a standard quota increase from Help + support
 
@@ -65,7 +65,7 @@ To request a standard vCPU quota increase per VM series from **Help + support**:
 
    ![The "Provide details" link](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In the **Quota details**, do the following actions:
+1. In the **Quota details**, do the following steps:
 
    ![TProvide additional quota details](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
