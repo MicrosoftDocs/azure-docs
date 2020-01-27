@@ -147,6 +147,12 @@
       "branch": "master"
     },
     {
+      "path_to_root": "functions-python-tensorflow-tutorial",
+      "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master"
