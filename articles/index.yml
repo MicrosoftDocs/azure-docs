@@ -12,10 +12,10 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 01/23/2020
+  ms.date: 01/27/2020
 
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
   items:
     # Card
     - title: Get started guide for Azure developers
@@ -45,94 +45,148 @@ productDirectory:
         - aiMachineLearning
       url: cognitive-services/anomaly-detector/index.yml
     # Card
-    - title: Azure Analysis Services
-      summary: Enterprise-grade analytics engine as a service
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - analytics
-      url: analysis-services/index.yml
-    # Card
-    - title: Azure Blockchain Service
-      summary: Build, govern, and expand consortium blockchain networks
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
-    # Card
-    - title: API Apps
-      summary: Easily build and consume Cloud APIs
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - compute
-        - containers
-      url: app-service/index.yml
-    # Card
-    - title: Azure Functions
-      summary: Process events with serverless code
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - containers
-      url: azure-functions/index.yml
-    # Card
-    - title: Azure API for FHIR
-      summary: Easily create and deploy a FHIR service for health data solutions and interoperability
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - databases
-      url: healthcare-apis/index.yml
-    # Card
-    - title: App Configuration Preview
-      summary: Fast, scalable parameter storage for app configuration
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - developerTools
-      url: azure-app-configuration/index.yml
-    # Card
-    - title: Application Insights
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - devops
-        - managementAndGovernance
-      url: azure-monitor/index.yml
-    # Card
-    - title: Azure Active Directory (AD)
-      summary: Synchronize on-premises directories and enable single sign-on
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - hybrid
-        - identity
-      url: active-directory/index.yml
-    # Card
-    - title: Azure Active Directory B2C
-      summary: Consumer identity and access management in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - identity
-      url: active-directory-b2c/index.yml
-    # Card
-    - title: API Management
-      summary: Publish APIs to developers, partners, and employees securely and at scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - integration
-        - iot
-      url: api-management/index.yml
-    # Card
-    - title: Azure Cosmos DB
-      summary: Globally distributed, multi-model database for any scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      azureCategories:
-        - databases
-        - iot
-      url: cosmos-db/index.yml
-    # Card
-    - title: Anomaly Detector
-      summary: Easily add anomaly detection capabilities to your apps
+    - title: Azure Bot Service
+      summary: Intelligent, serverless bot service that scales on demand
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: cognitive-services/anomaly-detector/index.yml
+      url: bot-service/index.yml
+    # Card
+    - title: Azure Cognitive Search
+      summary: AI-powered cloud search service for mobile and web app development
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: search/index.yml
+    # Card
+    - title: Azure Databricks
+      summary: Fast, easy, and collaborative Apache Spark-based analytics platform
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+        - analytics
+      url: azure-databricks/index.yml
+    # Card
+    - title: Azure Machine Learning
+      summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+        - iot
+      url: machine-learning/index.yml
+    # Card
+    - title: Azure Open Datasets
+      summary: Cloud platform to host and share curated open datasets to accelerate development of machine learning models
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: open-datasets/index.yml
+    # Card
+    - title: Bing Autosuggest
+      summary: Give your app intelligent autosuggest options for searches
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Custom Search
+      summary: An easy-to-use, ad-free, commercial-grade search tool that lets you deliver the results you want
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Entity Search
+      summary: Enrich your experiences by identifying and augmenting entity information from the web
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Image Search
+      summary: Search for images and get comprehensive results
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing News Search
+      summary: Search for news and get comprehensive results
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Spell Check
+      summary: Detect and correct spelling mistakes in your app
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Video Search
+      summary: Search for videos and get comprehensive results
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Visual Search
+      summary: Get rich insights to help build compelling image applications on the device of your choice
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Bing Web Search
+      summary: Get enhanced search details from billions of web documents
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: Bing-Web-Search/index.yml
+    # Card
+    - title: Cognitive Services
+      summary: Add smart API capabilities to enable contextual interactions
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+        - containers
+      url: cognitive-services/index.yml
+    # Card
+    - title: Computer Vision
+      summary: Distill actionable information from images
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: cognitive-services/computer-vision/index.yml
+    # Card
+    - title: Content Moderation
+      summary: Automated image, text, and video moderation
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: content-moderator/index.yml
+    # Card
+    - title: Custom Vision
+      summary: Easily customize your own state-of-the-art computer vision models for your unique use case
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: cognitive-services/Custom-Vision-Service/index.yml
+    # Card
+    - title: Data Science Virtual Machines
+      summary: Rich pre-configured environment for AI development
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: machine-learning/data-science-virtual-machine/index.yml
+    # Card
+    - title: Face
+      summary: Detect, identify, analyze, organize, and tag faces in photos
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - aiMachineLearning
+      url: cognitive-services/face/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
