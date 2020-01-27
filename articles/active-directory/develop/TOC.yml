@@ -405,7 +405,7 @@
       - name: Configure token lifetimes
         href: active-directory-configurable-token-lifetimes.md
       - name: Handle SameSite cookie changes in Chrome browser
-        href: howto-handle-samesite-cookie-changes-in-chrome-browser.md
+        href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Application configuration
       items:
       - name: New Azure portal app registration training guide

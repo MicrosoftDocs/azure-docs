@@ -12,7 +12,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.author: kkrishna
+ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ---
@@ -73,3 +73,8 @@ See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com
 ## References
 
 [ASP.NET Blog on SameSite issue](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Move to production](scenario-web-app-sign-user-overview.md)
