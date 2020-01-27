@@ -40,6 +40,3 @@ Learn how to build your own app with Azure Remote Rendering:
 * [Tutorial 2 - Working with remote entities](tutorials/tutorial-2-working-with-remote-entities.md)
 * [Tutorial 3 - Changing environment and materials](tutorials/tutorial-3-changing-environment-and-materials.md)
 
-## Release Notes
-
-Coming soon: View release notes on GitHub.
