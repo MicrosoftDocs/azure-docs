@@ -78,11 +78,7 @@ You can see the regions in which Azure IoT Central is available on the [Products
 
 ## Application template
 
-You can choose the below application template for your new Azure IoT Central application.
-
-| Application template | Description |
-| -------------------- | ----------- |
-| Legacy application   | Creates an empty application for you to populate with your own device templates and devices. |
+Choose the application template you want to use for your application.
 
 
 ## Next steps
