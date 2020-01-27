@@ -13,28 +13,25 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - C#
-    href: functions-create-your-first-function-visual-studio.md
-  - name: Create function - Java
-    href: functions-create-first-java-maven.md
-  - name: Create function - JavaScript
-    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript
-  - name: Create function - PowerShell
-    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell
-  - name: Create function - Python
-    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python
-  - name: Create function - TypeScript
-    href: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-typescript
-  - name: Connect to services
+  - name: Create function
+    expanded: true
+    items:   
+    - name: Visual Studio Code
+      href: /azure/azure-functions/functions-create-first-function-vs-code
+    - name: Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Command line
+      href: functions-create-first-azure-function-azure-cli.md
+    - name: Maven (Java)
+      href: functions-create-first-java-maven.md
+  - name: Connect to storage
     items:
-    - name: Storage - C#
-      href: functions-add-output-binding-storage-queue-vs.md
-    - name: Storage - Java
-      href: functions-add-output-binding-storage-queue-java.md
-    - name: Storage - JavaScript
+    - name: Visual Studio Code
       href: functions-add-output-binding-storage-queue-vs-code.md
-    - name: Storage - Python
-      href: functions-add-output-binding-storage-queue-python.md
+    - name: Visual Studio
+      href: functions-add-output-binding-storage-queue-vs.md
+    - name: Maven (Java)
+      href: functions-add-output-binding-storage-queue-java.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
