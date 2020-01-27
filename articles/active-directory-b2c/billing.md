@@ -136,4 +136,4 @@ Before you initiate the move, be sure to read the entire article to fully unders
 
 ## Next steps
 
-In addition to reviewing the usage and billing details within a selected Azure subscription, you can review detailed day-by-day usage reports by using the [usage reporting API](active-directory-b2c-reference-usage-reporting-api.md).
+In addition to reviewing the usage and billing details within a selected Azure subscription, you can review detailed day-by-day usage reports by using the [usage reporting API](view-usage-reports.md).

@@ -39,7 +39,7 @@ Record the **Application (client) ID** for use in a later step.
 Also record your custom redirect URI for use in a later step. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## Create your user flows
-In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:
+In Azure AD B2C, every user experience is defined by a [user flow](user-flow-overview.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:
 
 * Under **Sign-up attributes**, select the attribute **Display name**.  You can select other attributes as well.
 * Under **Application claims**, select the claims **Display name** and **User's Object ID**. You can select other claims as well.

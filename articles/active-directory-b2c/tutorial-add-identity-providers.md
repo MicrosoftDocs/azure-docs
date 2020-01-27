@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Add identity providers to your applications in Azure Active Directory B2C
 
-In your applications, you may want to enable users to sign in with different identity providers. An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](active-directory-b2c-reference-policies.md) using the Azure portal.
+In your applications, you may want to enable users to sign in with different identity providers. An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](user-flow-overview.md) using the Azure portal.
 
 In this article, you learn how to:
 

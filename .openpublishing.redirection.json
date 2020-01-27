@@ -5512,6 +5512,51 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-audit-logs.md",
+      "redirect_url": "/azure/active-directory-b2c/view-audit-logs",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-custom-attr.md",
+        "redirect_url": "/azure/active-directory-b2c/user-flow-custom-attributes",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-disable-ev.md",
+        "redirect_url": "/azure/active-directory-b2c/user-flow-disable-email-verification",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-language-customization.md",
+        "redirect_url": "/azure/active-directory-b2c/user-flow-language-customization",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-complexity.md",
+        "redirect_url": "/azure/active-directory-b2c/user-flow-password-complexity",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-policies.md",
+        "redirect_url": "/azure/active-directory-b2c/user-flow-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api.md",
+        "redirect_url": "/azure/active-directory-b2c/view-usage-reports",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
+        "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory-b2c/active-directory-b2c-user-migration.md",
+        "redirect_url": "/azure/active-directory-b2c/user-migration",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-guide-troubleshooting-custom.md",
       "redirect_url": "/azure/active-directory-b2c/troubleshoot-custom-policies",
       "redirect_document_id": true
@@ -12115,7 +12160,7 @@
       "source_path": "articles/lab-services/devtest-lab-auto-shutdown-vm.md",
       "redirect_url": "/azure/lab-services/devtest-lab-auto-shutdown",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
       "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
@@ -15126,7 +15171,7 @@
       "source_path": "articles/machine-learning/studio/algorithm-choice.md",
       "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize",
@@ -27175,12 +27220,12 @@
       "source_path": "articles/active-directory/user-help/my-applications-portal-overview.md",
       "redirect_url": "/azure/active-directory/user-help/my-applications-portal-access",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/active-directory/user-help/user-help-password-reset-overview.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",

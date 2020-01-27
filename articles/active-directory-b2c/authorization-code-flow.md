@@ -25,7 +25,7 @@ This article focuses on the **public clients** OAuth 2.0 authorization code flow
 > [!NOTE]
 > To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](openid-connect.md) instead of OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [user flow](active-directory-b2c-reference-policies.md). With user flows, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. Identity providers that use the OAuth 2.0 protocol include [Amazon](identity-provider-amazon.md), [Azure Active Directory](identity-provider-azure-ad-single-tenant.md), [Facebook](identity-provider-facebook.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), and [LinkedIn](identity-provider-linkedin.md).
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [user flow](user-flow-overview.md). With user flows, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. Identity providers that use the OAuth 2.0 protocol include [Amazon](identity-provider-amazon.md), [Azure Active Directory](identity-provider-azure-ad-single-tenant.md), [Facebook](identity-provider-facebook.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), and [LinkedIn](identity-provider-linkedin.md).
 
 To try the HTTP requests in this article:
 
@@ -223,4 +223,4 @@ To try these requests yourself, complete the following steps. Replace the exampl
 
 1. [Create an Azure AD B2C directory](tutorial-create-tenant.md). Use the name of your directory in the requests.
 2. [Create an application](tutorial-register-applications.md) to obtain an application ID and a redirect URI. Include a native client in your app.
-3. [Create your user flows](active-directory-b2c-reference-policies.md) to obtain your user flow names.
+3. [Create your user flows](user-flow-overview.md) to obtain your user flow names.

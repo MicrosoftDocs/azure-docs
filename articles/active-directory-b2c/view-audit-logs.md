@@ -43,7 +43,7 @@ For user object CRUD activities, refer to the **Core Directory** category.
 
 This example image from the Azure portal shows the data captured when a user signs in with an external identity provider, in this case, Facebook:
 
-![Example of Audit Log Activity Details page in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+![Example of Audit Log Activity Details page in Azure portal](./media/view-audit-logs/audit-logs-example.png)
 
 The activity details panel contains the following relevant information:
 
@@ -67,7 +67,7 @@ The Azure portal provides access to the audit log events in your Azure AD B2C te
 
 A list of activity events logged over the last seven days is displayed.
 
-![Example filter with two activity events in Azure portal](media/active-directory-b2c-reference-audit-logs/audit-logs-example-filter.png)
+![Example filter with two activity events in Azure portal](./media/view-audit-logs/audit-logs-example-filter.png)
 
 Several filtering options are available, including:
 
@@ -142,7 +142,7 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 The following PowerShell script shows an example of how to query the Azure AD reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
 
-You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
+You can try this script in the [Azure Cloud Shell](overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:

@@ -82,7 +82,7 @@ Currently there is no way to change the "From:" field on the email.
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 
-You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
+You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](user-migration.md) for details.
 
 ### What password user flow is used for local accounts in Azure AD B2C?
 
@@ -90,7 +90,7 @@ The Azure AD B2C password user flow for local accounts is based on the policy fo
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Azure AD Graph API](manage-user-accounts-graph-api.md) for user migration. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Azure AD Graph API](manage-user-accounts-graph-api.md) for user migration. See the [User migration guide](user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 
@@ -118,7 +118,7 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 
-Yes, see [language customization](active-directory-b2c-reference-language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
+Yes, see [language customization](user-flow-language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 

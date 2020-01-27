@@ -40,9 +40,9 @@ Security tokens that your application receives from Azure AD B2C can come from t
 
 ## Claims
 
-When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [user flows](active-directory-b2c-reference-policies.md) and [custom policies](custom-policy-overview.md) to send certain sets of user data in claims that are required for your application. These claims can include standard properties such as **displayName** and **emailAddress**. Your applications can use these claims to securely authenticate users and requests.
+When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [user flows](user-flow-overview.md) and [custom policies](custom-policy-overview.md) to send certain sets of user data in claims that are required for your application. These claims can include standard properties such as **displayName** and **emailAddress**. Your applications can use these claims to securely authenticate users and requests.
 
-The claims in ID tokens are not returned in any particular order. New claims can be introduced in ID tokens at any time. Your application shouldn't break as new claims are introduced. You can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) in your claims.
+The claims in ID tokens are not returned in any particular order. New claims can be introduced in ID tokens at any time. Your application shouldn't break as new claims are introduced. You can also include [custom user attributes](user-flow-custom-attributes.md) in your claims.
 
 The following table lists the claims that you can expect in ID tokens and access tokens issued by Azure AD B2C.
 

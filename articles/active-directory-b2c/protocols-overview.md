@@ -51,7 +51,7 @@ Arguably, Azure AD B2C policies are the most important features of the service. 
 
 To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. User flows fully describe consumer identity experiences, including sign-up, sign-in, and profile editing. User flows can be defined in an administrative UI. They can be executed by using a special query parameter in HTTP authentication requests.
 
-Policies and user flows are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C user flow reference guide](active-directory-b2c-reference-policies.md).
+Policies and user flows are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C user flow reference guide](user-flow-overview.md).
 
 ## Tokens
 The Azure AD B2C implementation of OAuth 2.0 and OpenID Connect makes extensive use of bearer tokens, including bearer tokens that are represented as JSON web tokens (JWTs). A bearer token is a lightweight security token that grants the "bearer" access to a protected resource.

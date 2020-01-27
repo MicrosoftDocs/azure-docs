@@ -28,11 +28,11 @@ ms.subservice: B2C
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**.
 
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-reference-custom-attr/switch-directories.png)
+    ![Switch to your Azure AD B2C tenant](./media/user-flow-custom-attributes/switch-directories.png)
 
     Choose the directory that contains your tenant.
 
-    ![B2C tenant highlighted in Directory and Subscription filter](./media/active-directory-b2c-reference-custom-attr/select-directory.PNG)
+    ![B2C tenant highlighted in Directory and Subscription filter](./media/user-flow-custom-attributes/select-directory.PNG)
 
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **User attributes**, and then select **Add**.

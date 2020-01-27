@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Configure session behavior in Azure Active Directory B2C
 
-This feature gives you fine-grained control, on a [per-user flow basis](active-directory-b2c-reference-policies.md), of:
+This feature gives you fine-grained control, on a [per-user flow basis](user-flow-overview.md), of:
 
 - Lifetimes of web application sessions managed by Azure AD B2C.
 - Single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant.

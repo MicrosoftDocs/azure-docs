@@ -124,7 +124,7 @@ The sample app uses a JSON file that contains dummy user data. After you success
 
 To edit the JSON file, open the `AADB2C.UserMigration.sln` Visual Studio solution. In the `AADB2C.UserMigration` project, open the `UsersData.json` file.
 
-![Portion of UsersData.json file showing JSON blocks of two users](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
+![Portion of UsersData.json file showing JSON blocks of two users](./media/user-migration/pre-migration-data-file.png)
 
 As you can see, the file contains a list of user entities. Each user entity has the following properties:
 
@@ -163,7 +163,7 @@ Right-click the `AADB2C.UserMigration` solution, and then rebuild the sample. If
 
 - To **migrate users with random password**, use the `UserMigration.exe 2` command. This operation also creates an Azure table entity. Later, you configure the policy to call the REST API service. The service uses an Azure table to track and manage the migration process.
 
-![Command Prompt window showing output of UserMigration.exe command](media/active-directory-b2c-user-migration/pre-migration-demo.png)
+![Command Prompt window showing output of UserMigration.exe command](./media/user-migration/pre-migration-demo.png)
 
 ### Step 2.4: Check the pre-migration process
 
@@ -187,7 +187,7 @@ To validate the migration, use one of the following two methods:
 
    1. Open the UserProfile.json file in a JSON editor to see user's information.
 
-      ![UserProfile.json file open in the Visual Studio Code editor](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
+      ![UserProfile.json file open in the Visual Studio Code editor](./media/user-migration/pre-migration-get-by-email2.png)
 
 ### Step 2.5: (Optional) Environment cleanup
 
@@ -218,7 +218,7 @@ To get the link to your password reset policy, follow these steps. This procedur
 
 1. Copy the URL shown in the **Run now endpoint** text box, and then send it to your users.
 
-    ![Password reset policy page with Run now endpoint highlighted](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
+    ![Password reset policy page with Run now endpoint highlighted](./media/user-migration/pre-migration-policy-uri.png)
 
 ## Step 4: (Optional) Change your policy to check and set the user migration status
 
@@ -330,7 +330,7 @@ Then, change the `Id` of the `LocalAccountSignIn` technical profile to `LocalAcc
 1. Open *B2C_1A_signup_signin*, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
 1. Enter the credentials of one of the migrated users, and then select **Sign In**. Your REST API should throw the following error message:
 
-    ![Sign-in Sign-up page showing the change password error message](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
+    ![Sign-in Sign-up page showing the change password error message](./media/user-migration/pre-migration-error-message.png)
 
 ### Step 4.6: (Optional) Troubleshoot your REST API
 
@@ -341,7 +341,7 @@ You can view and monitor logging information in near-real time.
 1. Set the **Level** to **Verbose**.
 1. Select **Save**
 
-    ![Diagnostics logs configuration page in Azure portal](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
+    ![Diagnostics logs configuration page in Azure portal](./media/user-migration/pre-migration-diagnostic-logs.png)
 
 1. On the **Settings** menu, select **Log stream**.
 1. Check the output of the RESTful API.
