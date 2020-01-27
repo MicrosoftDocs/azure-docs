@@ -44,23 +44,23 @@ When you install Azure FarmBeats, the following resources are provisioned in you
 
 The cost of Azure FarmBeats is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator). The actual cost of the total installation will vary based on the usage. The steady state cost for the two components is:
 
-* Datahub - less than $10 per day
-* Accelerator - less than $2 per day
+- Datahub - less than $10 per day
+- Accelerator - less than $2 per day
 
 ### Regions supported
 
 Currently, Azure FarmBeats is supported in public cloud environments in the following regions:
 
-* Australia East
-* Central US
-* East US
-* East US 2
-* West US
-* West US 2
-* North Europe
-* West Europe
-* gitEast Asia
-* SouthEast Asia
+- Australia East
+- Central US
+- East US
+- East US 2
+- West US
+- West US 2
+- North Europe
+- West Europe
+- East Asia
+- SouthEast Asia
 
 ### Time taken
 
@@ -140,10 +140,12 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 4. A new window appears. Complete the sign-up process by choosing the correct subscription, resource group, and location to which you want to install Azure FarmBeats.
 
 5. Provide the email address that should receive any service alerts related to Azure FarmBeats in the **FarmBeats Service Alerts** section. Click Next at the bottom of the page to move to the **Dependencies** Tab.
+![Basics Tab](./media/install-azure-farmbeats/BasicsTab.png)
 
 6. Copy the individual entries from the output of [AAD script](#Create-an-AAD-application) to the inputs in the AAD application section.
 
 7. Enter the [Sentinel account](#Create-Sentinel-account) user name and password in the Sentinel Account section. Click Next to move to the **Review + Create** Tab
+![Dependencies Tab](./media/install-azure-farmbeats/DependenciesTab.png)
 
 8. Once the entered details are validated, SELECT **OK**. The Terms of use page appears. Review the terms and select **Create** to start the installation. You will automatically be redirected to a page where you can follow the progress of the installation.
 
@@ -153,7 +155,25 @@ Once the installation is complete, you can verify the installation and start usi
 
 ## Upgrade
 
-//Atin to fill it in if we are shipping upgrades with mid-Jan
+To upgrade FarmBeats to the latest version, run the following in a Cloud Shell instance in your subscription. First time users will be prompted to select a subscription and create a storage account. Complete the setup as idate-ted.
+
+1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
+
+        ```azurepowershell-interactive
+            wget https://aka.ms/https://aka.ms/FarmBeatsUpgradeScript
+        ```
+2. By default, the file is downloaded to your home directory. Navigate to the directory.
+
+        ```azurepowershell-interactive
+            cd
+        ```
+3. Run the upgrade script
+
+        ```azurepowershell-interactive
+            ./upgrade-farmbeats.ps1 -SubscriptionId [FarmBeats Subscription ID] -ResourceGroup [FarmBeats DataHub ResourceGroup Name]
+        ```
+
+If you are upgrading from FarmBeats version 1.2.1 or 1.2.5, the script will prompt you to specify the path to the input.json file you created at the time of installing FarmBeats. For newer versions, no more inputs will be needed. The upgrade should finish in around 30 minutes.
 
 ## Uninstall
 
@@ -164,5 +184,5 @@ To uninstall Azure FarmBeats Datahub or Accelerator, complete the following step
 2. Go to Azure Active Directory & **delete the Azure AD application** linked to the Azure FarmBeats installation. This will remove the Azure FarmBeats installation from your Azure subscription.
 
 ## Next steps
- 
+
 You have learned how to install Azure FarmBeats in your Azure subscription. Now, learn how to [add users](manage-users-in-azure-farmbeats.md#manage-users) to your Azure FarmBeats instance.
