@@ -234,7 +234,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing

@@ -161,7 +161,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
   - name: Supported browsers

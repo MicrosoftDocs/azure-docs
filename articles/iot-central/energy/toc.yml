@@ -108,7 +108,7 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: /azure/iot-fundamentals/
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Supported browsers

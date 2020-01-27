@@ -148,7 +148,7 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: /azure/iot-fundamentals/
+      href: /azure/iot-fundamentals/iot-support-help
     - name: REST API
       href: https://docs.microsoft.com/rest/api/iotcentral/
     - name: Customer data requests
