@@ -12,9 +12,9 @@ ms.date: 01/15/2019
 GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure. 
 
 ## Prerequisites
-This example requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+This example requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Set up your GitHub repository and authenticate with Azure
+## Set up GitHub repository and authenticate
 You need an Azure service principle credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
 ```
 az login
@@ -39,14 +39,14 @@ This example uses the [Piggy Metrics](https://github.com/Azure-Samples/piggymetr
 
  ![Add new secret](./media/github-actions/actions1.png)
 
-Set the secret name to AZURE_CREDENTIALS, and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate with Azure*.
+Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate with Azure*.
 
  ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in Github Actions](./spring-cloud-github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./spring-cloud-github-actions-key-vault.md).
 
-## Provision Azure Spring Cloud service instance
-To provision your service instance, run the following commands using the Azure CLI.
+## Provision service instance
+To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
 ```
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
@@ -111,7 +111,10 @@ jobs:
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
 ### Deploy with Azure CLI action
-The az `run` command will use the latest version of Azure CLI. In case of breaking changes, you can also use a specific version of Azure CLI with azure/CLI `action`. This will run all the az command in a new container, therefore note that `env` will not work, and cross action file access may have extra restrictions.
+The az `run` command will use the latest version of Azure CLI. If there are breaking changes, you can also use a specific version of Azure CLI with azure/CLI `action`. 
+
+> [!Note] 
+> This command will run all the az command in a new container, so `env` will not work, and cross action file access may have extra restrictions.
 
 Create the .github/workflow/main.yml file in the repository:
 ```
@@ -188,13 +191,13 @@ jobs:
 ## Run the workflow
 GitHub Actions should be enabled automatically after you push `.github/workflow/main.yml` to GitHub. The action will be triggered when you push a new commit. If you create this file in the browser, your action should have already run.
 
-To verify your action has been enabled, click **Actions** tab on the GitHub repository page:
+To verify that the action has been enabled, click **Actions** tab on the GitHub repository page:
 
  ![Verify action enabled](./media/github-actions/actions3.png)
 
-If your action runs in error, for example, you haven't set Azure credential, you can re-run checks after fixing the error. On GitHub repository page, click **Actions**, select the specific workflow task, then click Re-run checks button to re-run checks:
+If your action runs in error, for example, if you haven't set Azure credential, you can rerun checks after fixing the error. On the GitHub repository page, click **Actions**, select the specific workflow task, and then click Rerun checks button to rerun checks:
 
- ![Re-run checks](./media/github-actions/actions4.png)
+ ![Rerun checks](./media/github-actions/actions4.png)
 
 ## Next steps
 * [Key Vault for Spring Cloud GitHub actions](./spring-cloud-github-actions-key-vault.md)

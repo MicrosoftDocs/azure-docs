@@ -9,14 +9,14 @@ ms.date: 01/20/2019
 ---
 
 # Authenticate Azure Spring Cloud with Key Vault in Github Actions
-Key vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  The key to get credentials has access to only the key vault scope, not the entire Azure scope. It's like a key that can only open a strongbox not a master key that can open all doors in a building. It is a way to get a key with another key, but useful in a CICD workflow. 
+Key vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  It has access to only the key vault scope, not the entire Azure scope. It's like a key that can only open a strong box not a master key that can open all doors in a building. It's a way to get a key with another key, but useful in a CICD workflow. 
 
-## Generate Credential to Access to Key Vault
-To generate the key to open the strongbox, execute command below on you local machine:
+## Generate Credential
+To generate a key to access the key vault, execute command below on your local machine:
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
-Note the scope specified by the `--scopes` parameter, which limits the key access to the resource.  It can only access the strongbox.
+Note the scope specified by the `--scopes` parameter, which limits the key access to the resource.  It can only access the strong box.
 
 With results:
 ```
@@ -33,12 +33,12 @@ With results:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Then save the results to GitHub **secrets** as described in[Set up your GitHub repository and authenticate with Azure](./spring-cloud-howto-github-actions.md#set-up-your-github-repository-and-authenticate-with-azure).
+Then save the results to GitHub **secrets** as described in [Set up your GitHub repository and authenticate with Azure](./spring-cloud-howto-github-actions.md#set-up-your-github-repository-and-authenticate-with-azure).
 
 ## Add Access Policies for the Credential
-The credential created above can only get general information about the Key Vault, not the contents it stores.  To get secrets stored in the Key Vault, you need set access policies for the credential.
+The credential you created above can only get general information about the Key Vault, not the contents it stores.  To get secrets stored in the Key Vault, you need set access policies for the credential.
 
-Go to the **Key Vault** dashboard in Azure Portal, click the **Access control** menu, then open the **Role assignments** tab. Select **Apps** for **Type**, `This resource` for **scope**.  You should see the credential you created in previous step:
+Go to the **Key Vault** dashboard in Azure portal, click the **Access control** menu, then open the **Role assignments** tab. Select **Apps** for **Type**, `This resource` for **scope**.  You should see the credential you created in previous step:
 
  ![Set access policy](./media/github-actions/key-vault1.png)
 
@@ -70,11 +70,11 @@ Again, results:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Copy the entire JSON string.  Bo back to **Key Vault** dashboard. Open the **Secrets** menu, then click the **Generate/Import** button. Input the secret name, such as `AZURE-CRENDENTIALS-FOR-SPRING`. Paste the JSON credential string to the **Value** input box. You may notice the value input box is a one-line text feild, rather then a multi-line text area.  You can paste the complete JSON string there.
+Copy the entire JSON string.  Bo back to **Key Vault** dashboard. Open the **Secrets** menu, then click the **Generate/Import** button. Input the secret name, such as `AZURE-CRENDENTIALS-FOR-SPRING`. Paste the JSON credential string to the **Value** input box. You may notice the value input box is a one-line text field, rather than a multi-line text area.  You can paste the complete JSON string there.
 
  ![Full scope credential](./media/github-actions/key-vault3.png)
 
-## Combine all credentials in GitHub Actions
+## Combine credentials in GitHub Actions
 Set the credentials used when the CICD pipeline executes:
 
 ```
@@ -86,7 +86,7 @@ jobs:
     steps:
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strongbox key you generated in the first step
+        creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strong box key you generated in the first step
     - uses: Azure/get-keyvault-secrets@v1.0
       with:
         keyvault: "zlhe-test"
