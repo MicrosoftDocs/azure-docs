@@ -124,6 +124,12 @@
       href: https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0
     - name: Application Gateway
       href: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway
+  - name: REST API
+    items:
+    - name: Front Door
+      href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
+    - name: Application Gateway
+      href: https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies
   - name: .NET
     href: /dotnet/api
   - name: Java
@@ -132,10 +138,6 @@
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/firewall
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: Author templates
