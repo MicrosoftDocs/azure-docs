@@ -500,7 +500,7 @@ In this section, you will configure how user data flows from Workday to Active D
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
    > [!CAUTION] 
-   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your Workday to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../manage-apps/skip-out-of-scope-deletions.md)
+   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your Workday to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
