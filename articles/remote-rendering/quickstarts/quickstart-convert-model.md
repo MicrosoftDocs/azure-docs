@@ -163,12 +163,7 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
 ```
 
 > [!NOTE]
-> The `modelLocation` allows you to add a single file only. 
-> That means, the input file should be self-contained and not contain external references
-> to textures or geometry. However, if the files are already located in the input
-> storage, they are properly considered for conversion. To place files manually, you can use the
-> Storage Explorer.
-
+> The example Powershell script only allows for handling of one self contained file in the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
 
 ## Running the asset conversion script
 You are now ready to have the script upload your model, call the conversion REST API, and retrieve a link to the conversion model in your output container.
@@ -212,4 +207,4 @@ This URL is what you set as a model name in the [render a model quickstart](../q
 
 ![Replace model in Unity](./media/replace-model-in-unity.png)
 
-Re-running the sample with the changed model name should now load and render your model.
+Rerunning the sample with the changed model name should now load and render your model.
