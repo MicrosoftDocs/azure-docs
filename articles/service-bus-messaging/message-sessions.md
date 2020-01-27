@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus message sessions | Microsoft Docs
-description: Handle sequences of Azure Service Bus messages with sessions.
+description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
