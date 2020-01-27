@@ -28497,6 +28497,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/domain-joined/domain-joined-zeppelin-signin.md",
+      "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
       "redirect_document_id": true
@@ -33882,6 +33887,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Analyzer-Names.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/AnalyzersMethod.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Constituency-Parsing.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Home.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/POS-tagging.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/Sentences-and-Tokens.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Recommendations/index.md",
       "redirect_url": "/azure/cognitive-services/Recommendations/overview",
       "redirect_document_id": false
@@ -33894,6 +33934,11 @@
     {
       "source_path": "articles/cognitive-services/Web-Language-Model/index.md",
       "redirect_url": "/azure/cognitive-services/Web-Language-Model/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Web-Language-Model/Home.md",
+      "redirect_url": "/azure/machine-learning/studio-module-reference/text-analytics",
       "redirect_document_id": false
     },
     {
