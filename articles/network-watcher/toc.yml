@@ -101,7 +101,7 @@
         href: network-watcher-nsg-flow-logging-cli.md
       - name: REST
         href: network-watcher-nsg-flow-logging-rest.md
-      - name: REST
+      - name: Azure Resoure Manager
         href: network-watcher-nsg-flow-logging-arm.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
