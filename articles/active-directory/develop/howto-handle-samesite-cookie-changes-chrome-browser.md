@@ -53,7 +53,10 @@ The table below presents the pull requests that worked around the SameSite chang
 |  [ASP.NET MVC Web App sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Same site cookie fix #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
 |  [active-directory-dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2)  |  [Same site cookie fix #28](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2/pull/28)  |
 
-See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) for details on how to handle SameSite cookies in ASP.NET Core.
+for details on how to handle SameSite cookies in ASP.NET and ASP.NET Core, see also:
+
+- [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
+- [ASP.NET Blog on SameSite issue](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # [Python](#tab/python)
 
@@ -70,11 +73,15 @@ See also [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com
 
 ---
 
-## References
-
-[ASP.NET Blog on SameSite issue](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
-
 ## Next steps
+
+Learn more about SameSite and the Web app scenario:
+
+> [!div class="nextstepaction"]
+> [Google Chrome's FAQ on SameSite](https://www.chromium.org/updates/same-site/faq)
+
+> [!div class="nextstepaction"]
+> [Chromium SameSite page](https://www.chromium.org/updates/same-site)
 
 > [!div class="nextstepaction"]
 > [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
