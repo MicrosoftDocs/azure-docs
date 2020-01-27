@@ -88,9 +88,9 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
 1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
 
-1. Open the Postman app and click new | Create new, and select Request. Enter a Request name. 
+1. Open the Postman app and click new | Create new, and select Request. Enter a Request name. Select a collection or folder to save it to, and click Save. 
 
-1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**. select a collection or folder to save it to, and click Save. You want to make a GET request. Select the **Authorization** tab, select OAuth 2.0, and then select **Get New Access Token**.
+1. We want to make GET request. Select the **Authorization** tab, select OAuth 2.0, and then select **Get New Access Token**.
 
     | Field  | Value |
     |---------|---------|
