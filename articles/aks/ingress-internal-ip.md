@@ -42,7 +42,8 @@ controller:
     annotations:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
-To host the load balancer in different subnet with in the same vnet, add subnet name under annotations
+
+To host the load balancer in a different subnet within the same virtual network, add the subnet name under *annotations*:
 
 ```yaml
 controller:
