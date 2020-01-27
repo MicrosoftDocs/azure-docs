@@ -28,7 +28,7 @@ The renderer on the server consumes a model in a proprietary binary format, not 
 The conversion REST API can consume models from Azure blob storage and will write the converted model back to a provided Azure blob storage container.
 You will need to have:
 - An Azure Subscription
-- A Storage v2 account in your subscription
+- A 'StorageV2' account in your subscription
 - A blob storage container for your input model
 - A blob storage container for your output data
 
