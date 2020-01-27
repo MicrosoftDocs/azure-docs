@@ -29,7 +29,7 @@ The IP address prefixes of IoT Hub public endpoints are published periodically u
 
 * Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
 
-* Setting up firewall rules in IoT Hub will also restrict invocation of certain commands through CLI.
+* Setting up firewall rules in IoT Hub will also block off connectivity needed to run Azure CLI and PowerShell commands against your IoT Hub. You can add ALLOW rules for your clients' IP address prefixes to enable your CLI or PowerShell clients to communicate with your IoT Hub.  
 
 
 ## Limitations and workarounds
