@@ -46,7 +46,7 @@ The following are potential possible causes:
 
 Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before it is configured to host this feature. Runbooks and the background process they use may cause the system to be over utilized and cause runbook job delays or timeouts.
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before it is configured to host this feature. Runbooks and the background processes they use may cause the system to be over utilized and cause runbook job delays or timeouts.
 
 Confirm the computer that will run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there's memory or CPU pressure, this may indicate the need to upgrade resources. You can also select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
