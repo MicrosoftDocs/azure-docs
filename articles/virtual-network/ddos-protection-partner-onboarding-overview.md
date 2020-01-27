@@ -36,7 +36,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 
 - If the protected resource is in the subscription covered under Azure Security Center, DDoS Protection Standard automatically sends an alert to Security Center whenever a DDoS attack is detected and mitigated against the protected application.
 - Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) on the metric Under DDoS attack or not.
-- You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors and other details.
+- You can additionally choose to create alerts for the other DDoS metrics and [configure attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details.
 
 ![DDoS metrics](./media/ddos-protection-partner-onboarding-overview/ddos-metrics.png)
 
@@ -44,7 +44,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 DDoS Protection Standard customers now have access to [Rapid Response team](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) during an active attack. DRR can help with attack investigation, custom mitigations during an attack, and post-attack analysis.
 
 ### SLA guarantee and cost protection
-DDoS Protection Standard service is covered by 99.99% SLA, and cost protection provides resource credits for scale out during a documented attack. For more details, refer to the [Azure SLA page](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
+DDoS Protection Standard service is covered by 99.99% SLA, and cost protection provides resource credits for scale out during a documented attack. For more information, see [SLA for Azure DDoS Protection](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
 
 ## Featured partner scenarios
 The following are three key benefits you can derive by integrating with the Azure DDoS Protection Standard:
