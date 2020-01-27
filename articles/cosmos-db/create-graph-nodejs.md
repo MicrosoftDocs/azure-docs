@@ -25,7 +25,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- [Node.js](https://nodejs.org/en/) version v0.10.29 or later
+- [Node.js](https://nodejs.org/en/) version 0.10.29 or later
 - [Git](https://git-scm.com/)
 
 ## Create a database account
