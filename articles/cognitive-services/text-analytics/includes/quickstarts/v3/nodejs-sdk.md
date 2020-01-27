@@ -34,7 +34,7 @@ ms.reviewer: sumeh, assafi
 ### Create a new Node.js application
 
 > [!NOTE]
-> You can also run v3 of the Text Analytics client library in your browser, by using a framework such as [RequireJS](https://requirejs.org/).
+> You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
