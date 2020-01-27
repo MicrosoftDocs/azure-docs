@@ -211,6 +211,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
     - *myHealthProbe* - for the name of the health probe.
 4. Click **OK**.
     
+    
     ![Adding a load balancing rule](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 
 ## Test the load balancer

@@ -83,8 +83,10 @@
       href: tutorial-connectivity.md
 - name: Concepts
   items:
-    - name: TLS 1.2 enforcement
-      href: tls-1.2-everywhere.md
+    - name: TLS support
+      href: iot-hub-tls-support.md
+    - name: TLS 1.0 and 1.1 deprecation
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Message enrichments overview
       href: iot-hub-message-enrichments-overview.md
     - name: Overview of device management
@@ -376,6 +378,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/iot
+    - name: Azure PowerShell
+      href: /powershell/module/az.iothub#iot
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Devices)
@@ -430,7 +434,7 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge solutions
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -438,6 +442,8 @@
           href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
+    - name: Support and help options
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Azure IoT Samples for C# (.NET)
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
     - name: Azure IoT Samples for Node.js

@@ -163,6 +163,17 @@ After the next scheduled health check runs, by default every seven days, the spe
 
 ## AD Health Check solutions FAQ
 
+*What checks are performed by the AD Assessment solution?*
+
+* The following query shows a description of all checks currently performed:
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+The results can then be exported to Excel for further review.
+
 *How often does a health check run?*
 
 * The check runs every seven days.

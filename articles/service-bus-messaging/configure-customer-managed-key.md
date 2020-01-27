@@ -12,7 +12,7 @@ ms.author: aschhab
 
 ---
 
-# Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal (Preview)
+# Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
 Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
 
 ## Overview
@@ -24,7 +24,6 @@ Enabling the BYOK feature is a one time setup process on your namespace.
 > There are some caveats to the customer managed key for service side encryption. 
 >   * This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
 >   * The encryption can only be enabled for new or empty namespaces. If the namespace contains data, then the encryption operation will fail.
->   * If [Virtual network (VNet) service endpoints](service-bus-service-endpoints.md) are configured on Azure Key Vault for your Service Bus namespace, BYOK will not be supported. 
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -37,7 +36,7 @@ This article shows how to configure a key vault with customer-managed keys by us
 To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your Service Bus Premium namespace.
-2. On the **Settings** page of your Service Bus namespace, select **Encryption (preview)**.
+2. On the **Settings** page of your Service Bus namespace, select **Encryption**.
 3. Select the **Customer-managed key encryption at rest** as shown in the following image.
 
     ![Enable customer managed key](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -103,9 +102,6 @@ You can rotate your key in the key vault by using the Azure Key Vaults rotation 
 Revoking access to the encryption keys won't purge the data from Service Bus. However, the data can't be accessed from the Service Bus namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/key-vault-secure-your-key-vault.md).
 
 Once the encryption key is revoked, the Service Bus service on the encrypted namespace will become inoperable. If the access to the key is enabled or the deleted key is restored, Service Bus service will pick the key so you can access the data from the encrypted Service Bus namespace.
-
-> [!NOTE]
-> If you delete an existing encryption key from your key vault and replace it with a new key on the Service Bus namespace, since the delete key is still valid (as it is cached) for up to an hour, your old data (which was encrypted with the old key) may still be accessible along with the new data, which is now accessible only using the new key. This behavior is by design in the preview version of the feature. 
 
 ## Next steps
 See the following articles:

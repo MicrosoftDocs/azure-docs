@@ -47,7 +47,7 @@ Each user or group processed by the Azure AD provisioning service is always eval
 
 As an example, consider the following scoping filter:
 
-![Scoping filter](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Scoping filter](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 According to this scoping filter, users must satisfy the following criteria to be provisioned:
 
@@ -89,8 +89,9 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99.
 
    h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern.
-
-8. Select **Add new scoping clause**.
+ 
+>[!IMPORTANT] 
+> The Includes and IsMemberOf filters are not supported. They will soon be removed from the UI.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 

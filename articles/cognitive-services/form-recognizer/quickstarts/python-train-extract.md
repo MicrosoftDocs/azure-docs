@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
 ## Create a Form Recognizer resource
 
@@ -40,11 +40,12 @@ First, you'll need a set of training data in an Azure Storage blob container. Yo
 > [!NOTE]
 > You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **Train Custom Model** API by running the following python code. Before you run the code, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Replace `<Subscription key>` with the subscription key you copied from the previous step.
-1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
+1. Replace `<subscription key>` with the subscription key you copied from the previous step.
+1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
+1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -53,17 +54,17 @@ To train a Form Recognizer model with the documents in your Azure blob container
     from requests import get, post
     
     # Endpoint URL
-    endpoint = r"<Endpoint>"
+    endpoint = r"<endpoint>"
     post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
     source = r"<SAS URL>"
-    prefix = "<folder name>"
+    prefix = "<Blob folder name>"
     includeSubFolders = False
     useLabelFile = False
     
     headers = {
         # Request headers
         'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': '<Subscription Key>',
+        'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
     body = 	{
@@ -78,7 +79,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     try:
         resp = post(url = post_url, json = body, headers = headers)
         if resp.status_code != 201:
-            print("POST model failed:\n%s" % resp.text)
+            print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
             quit()
         print("POST model succeeded:\n%s" % resp.headers)
         get_url = resp.headers["location"]
@@ -95,30 +96,33 @@ To train a Form Recognizer model with the documents in your Azure blob container
 After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This uses the ID value from the training call in a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
 
 ```python 
-n_tries = 10
+n_tries = 15
 n_try = 0
-wait_sec = 3
+wait_sec = 5
+max_wait_sec = 60
 while n_try < n_tries:
     try:
         resp = get(url = get_url, headers = headers)
-        resp_json = json.loads(resp.text)
+        resp_json = resp.json()
         if resp.status_code != 200:
-            print("GET model failed:\n%s" % resp_json)
+            print("GET model failed (%s):\n%s" % (resp.status_code, json.dumps(resp_json)))
             quit()
         model_status = resp_json["modelInfo"]["status"]
         if model_status == "ready":
-            print("Training succeeded:\n%s" % resp_json)
+            print("Training succeeded:\n%s" % json.dumps(resp_json))
             quit()
         if model_status == "invalid":
-            print("Training failed. Model is invalid:\n%s" % resp_json)
+            print("Training failed. Model is invalid:\n%s" % json.dumps(resp_json))
             quit()
         # Training still running. Wait and retry.
         time.sleep(wait_sec)
-        n_try += 1     
+        n_try += 1
+        wait_sec = min(2*wait_sec, max_wait_sec)     
     except Exception as e:
         msg = "GET model failed:\n%s" % str(e)
         print(msg)
         quit()
+print("Train operation did not complete within the allocated time.")
 ```
 
 When the training process is completed, you'll receive a `201 (Success)` response with JSON content like the following:

@@ -23,7 +23,7 @@ There are two common reasons for why the Azure AD extension is not working for y
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 
-Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. With custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
 ### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
 
@@ -35,7 +35,7 @@ In an Azure AD tenant, users that belong to the tenant sign-in with an email add
 
 In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, select **Identity providers**, select **Local account**, and then select **Username**.
 
-User accounts for applications must always be created through a sign-up user flow, sign-up or sign-in user flow, or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
+User accounts for applications can be created through a sign-up user flow, sign-up or sign-in user flow, the Microsoft Graph API, or in the Azure portal.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 

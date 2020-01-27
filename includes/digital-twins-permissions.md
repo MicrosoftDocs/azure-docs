@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/11/2019
+ ms.date: 01/23/2020
  ms.custom: include file
 ---
 
@@ -16,7 +16,7 @@
 
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the expandable left menu, and then open the **App registrations** pane. 
 
-    [![Select the Azure Active Directory pane](./media/digital-twins-permissions/select-aad-pane.png)](./media/digital-twins-permissions/select-aad-pane.png#lightbox)
+    [![Select the Azure Active Directory pane](./media/digital-twins-permissions/azure-portal-select-aad-pane.png)](./media/digital-twins-permissions/azure-portal-select-aad-pane.png#lightbox)
 
 1. Select the **+ New registration** button.
 
@@ -28,9 +28,18 @@
 
 1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
 
-    Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
+    1. **Redirect URIs** must match the address supplied by the authentication request:
 
-    [![Public client configuration setting](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
+        * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set the **Default client type** to yes.
+        * For Single-Page apps hosted on Azure App Service, select **Web**.
+
+        Select **Public client (mobile & desktop)** and enter `http://localhost:8080/`.
+
+        [![Configure Redirect URIs](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+
+    1. Check **Access tokens** to configure the **oauth2AllowImplicitFlow** setting to `true` in your resource's **Manifest** JSON.
+
+        [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  Open the **Overview** pane of your registered app, and copy the values of the following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
 
@@ -54,7 +63,7 @@
     > * Test tenant and customer accounts should search for `Azure Digital Twins`.
     > * Other Microsoft accounts should search for `Azure Smart Spaces Service`.
 
-1. Either API once selected shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read** drop-down option, and then select the **Read.Write** checkbox. Select the **Add permissions** button.
+1. Either API will appear as **Azure Digital Twins** in the same **Request API permissions** pane once selected. Select the **Read** drop-down option, and then select the **Read.Write** checkbox. Select the **Add permissions** button.
 
     [![Add API permissions](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
 
 ---
@@ -24,6 +24,9 @@ ms.author: shvija
 Capture is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to do batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
 
 This walkthrough uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub uses the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs, creates an append file for each of your devices, and writes the data to *.csv* files on each device.
+
+> [!IMPORTANT]
+> This quickstart uses version 1 of the Azure Event Hubs Python SDK. If you are new to Azure Event Hubs, use version 5 of the Python SDK. For a quickstart that uses version 5 of the Python SDK, see [this article](get-started-capture-python-v2.md). If you need to migrate existing code from version 1 to version 5, see the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
 
 In this walkthrough, you: 
 

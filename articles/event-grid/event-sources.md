@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid event sources
-description: Describes supported event sources for Azure Event Grid 
+description: This article describes supported event sources for Azure Event Grid. An event source is where the event happens. 
 services: event-grid
 author: spelluru
 
@@ -173,7 +173,7 @@ Subscribe to Azure Machine Learning workspace events to respond to model registr
 
 | Title | Description |
 | ----- | ----- |
-| [Consume Azure Machine Learning events](../machine-learning/service/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
+| [Consume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
 | [Azure Event Grid event schema for Azure Machine Learning](event-schema-machine-learning.md) | Shows fields in the Azure Machine Learning events. |
 
 ## Next steps
