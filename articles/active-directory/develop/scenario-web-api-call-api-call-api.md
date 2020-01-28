@@ -83,6 +83,8 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 # [Python](#tab/python)
 A sample demonstrating this flow with MSAL Python is not yet available.
 
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]
