@@ -1,5 +1,5 @@
 ---
-title: Java web app analytics with Azure Application Insights
+title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.service:  azure-monitor
 ms.subservice: application-insights
@@ -10,31 +10,32 @@ ms.date: 05/24/2019
 
 ---
 
-# Get started with Application Insights in a Java web project
+# Quickstart: Get started with Application Insights in a Java web project
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), diagnose performance issues and exceptions, and [write code][api] to track what users do with your app. 
+In this quickstart, you learn how to use Application Insights to automatically instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
-![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
+Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
-Application Insights supports Java apps running on Linux, Unix, or Windows.
+## Prerequisites
 
-You need:
+* An azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java 7 or later
-* A subscription to [Microsoft Azure](https://azure.microsoft.com/).
+## Sign in to the Azure portal
 
-## 1. Get an Application Insights instrumentation key
-1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
-2. Create an Application Insights resource. Set the application type to Java web application.
+Sign in to the [Azure portal](https://portal.azure.com/).
 
-3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
+## Get an Application Insights instrumentation key
+
+1. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
+
+2. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
 
-## 2. Add the Application Insights SDK for Java to your project
+## Add the Application Insights SDK for Java to your project
 *Choose the appropriate way for your project.*
 
-#### If you're using Maven... <a name="maven-setup" />
+**If you're using Maven... <a name="maven-setup" />**
 If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
 
 Then, refresh the project dependencies to get the binaries downloaded.
@@ -51,7 +52,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
     </dependencies>
 ```
 
-#### If you're using Gradle... <a name="gradle-setup" />
+**If you're using Gradle... <a name="gradle-setup" />**
 If your project is already set up to use Gradle for build, merge the following code to your build.gradle file.
 
 Then refresh the project dependencies to get the binaries downloaded.
@@ -64,7 +65,7 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 ```
 
-#### Otherwise, if you are manually managing dependencies ...
+**Otherwise, if you are manually managing dependencies...**
 Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
 ### Questions...
@@ -81,8 +82,8 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
   * If you are manually managing dependencies...
     * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-## 3. Add an ApplicationInsights.xml file
-Add ApplicationInsights.xml to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
+## Add an *ApplicationInsights.xml* file
+Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
 
 Substitute the instrumentation key that you got from the Azure portal.
 
@@ -137,15 +138,15 @@ You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.
     }
 ```
 
-## 4. Add agent
+## Add agent
 
 [Install the Java Agent](java-agent.md) to capture outgoing HTTP calls, JDBC queries, application logging,
 and better operation naming.
 
-## 5. Run your application
+## Run your application
 Either run it in debug mode on your development machine, or publish to your server.
 
-## 6. View your telemetry in Application Insights
+## View your telemetry in Application Insights
 Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
 HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
