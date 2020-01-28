@@ -66,7 +66,7 @@ Get-AzProximityPlacementGroup -ResourceId $ppg.Id |
     Format-Table -Property VirtualMachines -Wrap
 ```
 
-## Move an existing VM into a proximity placement group
+### Move an existing VM into a proximity placement group
 
 You can also add an existing VM to a proximity placement group. You need to stop\deallocate the VM first, then update the VM and restart.
 
@@ -78,7 +78,7 @@ Update-AzVM -VM $vm -ResourceGroupName $vm.ResourceGroupName -ProximityPlacement
 Restart-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 ```
 
-## Move an existing VM out of a proximity placement group
+### Move an existing VM out of a proximity placement group
 
 To remove a VM from a proximity placement group, you need to stop\deallocate the VM first, then update the VM and restart.
 
@@ -120,6 +120,7 @@ foreach ($vmId in $vmIDs){
 ```
 
 ### Move an existing availability set out of a proximity placement group
+
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
 $avSetName = "myAvailabilitySet"
@@ -149,19 +150,23 @@ To add or remove an existing scale set to a proximity placement group, you first
 
 ### Move an existing scale set into a proximity placement group
 
+```azurepowershell-interactive
 $ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPG -Name myPPG
 $vmss = Get-AzVmss -ResourceGroupName myVMSSResourceGroup -VMScaleSetName myScaleSet
 Stop-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 Update-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName -ProximityPlacementGroupId $ppg.Id
 Restart-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+```
 
 ### Move an existing scale set out of a proximity placement group
 
+```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName myVMSSResourceGroup -VMScaleSetName myScaleSet
 Stop-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 $vmss.ProximityPlacementGroup = ""
 Update-AzVmss -VirtualMachineScaleSet $vmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName  
 Restart-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+```
 
 ## Next steps
 
