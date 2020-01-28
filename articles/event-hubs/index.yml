@@ -4,7 +4,7 @@ title: Azure Event Hubs documentation # < 60 chars
 summary: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.  # < 160 chars
 
 metadata:
-  title: Azure Event Hubs documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Event Hubs documentation
   description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications. # Required; article description that is displayed in search results. < 160 chars.
   services: event-hubs
   ms.service: event-hubs #Required; service per approved list. service slug assigned to your service by ACOM.

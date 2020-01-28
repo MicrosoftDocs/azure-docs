@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.date: 12/09/2019
 ms.author: jhakulin
 ms.author: erhopf
-ms.topic: quickstart
+ms.topic: include
 ---
 
 ## Prerequisites

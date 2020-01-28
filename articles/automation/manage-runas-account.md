@@ -2,13 +2,9 @@
 title: Manage Azure Automation Run As accounts
 description: This article describes how to manage your Run As accounts with PowerShell, or from the portal.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Manage Azure Automation Run As accounts
@@ -19,19 +15,19 @@ When you create a Run As account, it creates a new service principal user in Azu
 
 There are two types of Run As Accounts:
 
-* **Azure Run As Account** - This account is used to manage [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md) resources.
+* **Azure Run As Account** - This account is used to manage [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) resources.
   * Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change this setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
   * Creates an Automation certificate asset named *AzureRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key that's used by the Azure AD application.
   * Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
 
-* **Azure Classic Run As Account** - This account is used to manage [Classic deployment model](../azure-resource-manager/resource-manager-deployment-model.md) resources.
+* **Azure Classic Run As Account** - This account is used to manage [Classic deployment model](../azure-resource-manager/management/deployment-models.md) resources.
   * Creates a management certificate in the subscription
   * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
   * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
   * Must be a co-administrator on the subscription to create or renew
 
   > [!NOTE]
-  > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+  > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
   > [!NOTE]
   > The service principal for a Run as Account does not have permissions to read Azure Active Directory by default. If you want to add permissions to read or manage Azure Active directory, you'll need to grant that permission on the service principal under **API permissions**. To learn more, see [Add permissions to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).

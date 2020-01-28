@@ -362,9 +362,9 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -372,9 +372,9 @@ This section provides steps for user account provisioning from Workday to each A
 
 5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Click on the information banner displayed to download the Provisioning Agent. 
 
@@ -465,7 +465,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
 
      > [!NOTE]
-     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
@@ -594,7 +594,7 @@ The following sections describe steps for configuring user provisioning from Wor
 
 1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -602,9 +602,9 @@ The following sections describe steps for configuring user provisioning from Wor
 
 5. Search for **Workday to Azure AD provisioning**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Complete the **Admin Credentials** section as follows:
 
@@ -699,9 +699,9 @@ Follow these instructions to configure writeback of user email addresses and use
 
 **To configure Workday Writeback connector:**
 
-1. Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -709,9 +709,9 @@ Follow these instructions to configure writeback of user email addresses and use
 
 5. Search for **Workday Writeback**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Complete the **Admin Credentials** section as follows:
 
@@ -921,7 +921,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* From the list of agents that appear – copy the value of the "id" field from that resource whose *resourceName* equals to your AD domain name.
+* From the list of agents that appear – copy the value of the `id` field from that resource whose *resourceName* equals to your AD domain name.
 * Paste the ID value into this command and execute the command in PowerShell.
 
   ```powershell
@@ -1209,7 +1209,7 @@ This section covers commonly seen errors with Workday user provisioning and how 
 |#|Error Scenario |Probable Causes|Recommended Resolution|
 |--|---|---|---|
 |1.| Error installing the provisioning agent with error message:  *Service 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) failed to start. Verify that you have sufficient privileges to start the system.* | This error usually shows up if you are trying to install the provisioning agent on a domain controller and group policy prevents the service from starting.  It is also seen if you have a previous version of the agent running and  you have not uninstalled it before starting a new installation.| Install the provisioning agent on a non-DC server. Ensure that previous versions of the agent are uninstalled before installing the new agent.|
-|2.| The Windows Service 'Microsoft Azure AD Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the **Log On** account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Azure AD Connect Provisioning Agent' and in the Log On tab specify the account of a domain administrator to run the service. Restart the service. |
+|2.| The Windows Service 'Microsoft Azure AD Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the logon account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Azure AD Connect Provisioning Agent' and in the logon tab specify the account of a domain administrator to run the service. Restart the service. |
 |3.| When configuring the provisioning agent with your AD domain in the step *Connect Active Directory*, the wizard takes a long time trying to load the AD schema and eventually times out. | This error usually shows up if the wizard is unable to contact the AD domain controller server due to firewall issues. | On the *Connect Active Directory* wizard screen, while providing the credentials for your AD domain, there is an option called *Select domain controller priority*. Use this option to select a domain controller that is in the same site as the agent server and ensure that there are no firewall rules blocking the communication. |
 
 #### Connectivity errors

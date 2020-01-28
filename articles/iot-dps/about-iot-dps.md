@@ -75,7 +75,7 @@ The Device Provisioning Service has many features, making it ideal for provision
 * **Enrollment list** containing the complete record of devices/groups of devices that may at some point register. The enrollment list contains information about the desired configuration of the device once it registers, and it can be updated at any time.
 * **Multiple allocation policies** to control how the Device Provisioning Service assigns devices to IoT hubs in support of your scenarios: Lowest latency, evenly weighted distribution (default), and static configuration via the enrollment list. Note that latency is determined using the same method as [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Monitoring and diagnostics logging** to make sure everything is working properly.
-* **Multi-hub support** allows the Device Provisioning Service to assign devices to more than one IoT hub. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
+* **Multi-hub support** allows the Device Provisioning Service to late-bind devices to an IoT hub at runtime. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
 * **Cross-region support** allows the Device Provisioning Service to assign devices to IoT hubs in other regions.
 
 You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
@@ -106,7 +106,7 @@ Each Azure subscription has default quota limits in place that could impact the 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 For more details on quota limits:
-* [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
+* [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Related Azure components
 The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

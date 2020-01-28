@@ -3,7 +3,7 @@ title: Create and test an IoT Plug and Play Preview device | Microsoft Docs
 description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play Preview device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
@@ -230,7 +230,7 @@ To create a model file that specifies the interfaces your IoT Plug and Play devi
           "name": "deviceinfo"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 

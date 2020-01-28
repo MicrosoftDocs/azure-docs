@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/30/2019
 ---
 
 # Understand Digital Twins object models and spatial intelligence graph
@@ -53,7 +53,7 @@ Other categories of objects are:
 
 Spatial graph is the hierarchical graph of spaces, devices, and people defined in the Digital Twins object model. The spatial graph supports inheritance, filtering, traversing, scalability, and extensibility. You can manage and interact with your spatial graph with a collection of REST APIs.
 
-If you deploy a Digital Twins service in your subscription, you become the global administrator of the root node. You're then automatically granted full access to the entire structure. Provision spaces in the graph by using the Space API. Provision services by using the Device API and sensors by using the Sensor API. [Open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) also are available to provision the graph in bulk.
+If you deploy a Digital Twins service in your subscription, you become the global administrator of the root node. You're then automatically granted full access to the entire structure. Provision spaces in the graph by using the Space API. Provision services by using the Device API and sensors by using the Sensor API. [Open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) are also available to provision the graph in bulk.
 
 **Graph inheritance**. Inheritance applies to the permissions and properties that descend from a parent node to all nodes beneath it. For example, when a role is assigned to a user on a given node, the user has that role's permissions to the given node and every node below it. Each property key and extended type defined for a given node is inherited by all the nodes beneath that node.
 

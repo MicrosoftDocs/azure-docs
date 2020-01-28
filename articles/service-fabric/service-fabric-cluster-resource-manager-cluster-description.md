@@ -1,18 +1,9 @@
 ﻿---
-title: Describe a cluster by using Cluster Resource Manager | Microsoft Docs
+title: Describe a cluster by using Cluster Resource Manager 
 description: Describe a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities for Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ---
@@ -478,7 +469,7 @@ First, there's ensuring that machines are not overloaded. This means making sure
 
 Second, there's balancing and optimization, which are critical to running services efficiently. Cost-effective or performance-sensitive service offerings can't allow some nodes to be hot while others are cold. Hot nodes lead to resource contention and poor performance. Cold nodes represent wasted resources and increased costs. 
 
-Service Fabric represents resources as *metrics*. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are “WorkQueueDepth” or “MemoryInMb.” For information about the physical resources that Service Fabric can govern on nodes, see [Resource governance](service-fabric-resource-governance.md). For information on configuring custom metrics and their uses, see [this article](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric represents resources as *metrics*. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are “WorkQueueDepth” or “MemoryInMb.” For information about the physical resources that Service Fabric can govern on nodes, see [Resource governance](service-fabric-resource-governance.md). For information on the default metrics used by the Cluster Resource Manager and how to configure custom metrics, see [this article](service-fabric-cluster-resource-manager-metrics.md).
 
 Metrics are different from placement constraints and node properties. Node properties are static descriptors of the nodes themselves. Metrics describe resources that nodes have and that services consume when they run on a node. A node property might be **HasSSD** and might be set to true or false. The amount of space available on that SSD and how much is consumed by services would be a metric like “DriveSpaceInMb.” 
 

@@ -24,11 +24,12 @@ This tutorial describes the steps you need to perform in both ServiceNow and Azu
 
 
 ## Capabilities Supported
-* Create users in ServiceNow
-* Remove users in ServiceNow when they do not require access anymore
-* Keep user attributes synchronized between Azure AD and ServiceNow
-* Provision groups and group memberships in ServiceNow
-* [Single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
+> [!div class="checklist"]
+> * Create users in ServiceNow
+> * Remove users in ServiceNow when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and ServiceNow
+> * Provision groups and group memberships in ServiceNow
+> * [Single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
 
 ## Prerequisites
 
@@ -137,6 +138,7 @@ Once you've configured provisioning, use the following resources to monitor your
 * **EntryJoiningPropertyValueIsMissing:** Review your [attribute mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) to identify the matching attribute. This value must be present on the user or group you're attempting to provision. 
 * Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (for example, format to specify country code for a user)
 * Some ServiceNow deployments require permitting IP ranges for the Azure AD provisioning service. The reserved IP ranges for the Azure AD provisioning service can be found [here](https://www.microsoft.com/download/details.aspx?id=56519) under "AzureActiveDirectoryDomainServices".
+* Provisioning users to the ServiceNow government cloud is not supported currently.
 
 ## Additional resources
 

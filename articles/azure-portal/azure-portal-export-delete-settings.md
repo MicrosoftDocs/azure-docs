@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: 
 manager:  mtillman
-ms.author: kfollis
+ms.author: mblythe
 ---
 # Export or delete user settings
 
