@@ -48,7 +48,7 @@ The script to automate the download, installation, and establishing the connecti
 
 ## Install and validate the agent on Windows
 
-## Install manually
+### Install manually
 
 You can install the Connected Machine agent manually by running the Windows Installer installation package `AzureConnectedMachineAgent.msi` after downloading it and copying it to a folder on the target server, or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
