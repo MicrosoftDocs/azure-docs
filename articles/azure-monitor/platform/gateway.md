@@ -200,7 +200,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 
 ### Azure Load Balancer
 
-To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal) excluding the steps outlined in the section **Create back-end servers**.   
+To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
 
 > [!NOTE]
 > Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/windows/manage-availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
