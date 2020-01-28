@@ -67,4 +67,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## Next steps
 
-Learn how to [Backup Azure File Shares from the Azure portal](backup-afs.md)
+Learn how to [Backup Azure File Shares from the Azure portal](https://docs.microsoft.com/azure/backup/backup-afs)
