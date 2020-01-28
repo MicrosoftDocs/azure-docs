@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Use GET requests to retrieve information about Azure ML's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
 > * Use DELETE requests to clean up resources 
-> * Use key-based authorization and score against deployed models
+> * Use key-based authorization to score deployed models
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ Note that the value starts with the string "Bearer " including a single space be
 
 ## Get a list of resource groups associated with your subscription
 
-To retrieve the list of resource groups associate with your subscription, run:
+To retrieve the list of resource groups associated with your subscription, run:
 
 ```bash
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
@@ -212,7 +212,7 @@ You can explore the REST API using the general pattern of:
 | subscriptions/{your-subscription-id}/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
 | resourceGroups/{your-resource-group}/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
-| provider-resource-path | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
+| provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
 
 
