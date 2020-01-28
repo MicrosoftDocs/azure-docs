@@ -118,7 +118,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Which subscriptions support the Disaster Recovery (DR) benefit?**
 
-  Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [licensing guide](https://aka.ms/sql2019licenseguide) and talk to your licensing contacts or acocunt manager for more information. 
+   Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [licensing guide](https://aka.ms/sql2019licenseguide) and talk to your licensing contacts or acocunt manager for more information. 
 
    
  ## Resource provider
