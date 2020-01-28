@@ -26,9 +26,9 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
-- A [Maven binary archive](https://maven.apache.org/download.cgi). On Linux, you can run `apt-get install maven` to install Maven.
-- [Git](https://www.git-scm.com/). On Linux, you can run `apt-get install git` to install Git.
+- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- A [Maven binary archive](https://maven.apache.org/download.cgi). 
+- [Git](https://www.git-scm.com/downloads). 
 
 ## Create a database account
 
