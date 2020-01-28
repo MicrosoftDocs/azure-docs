@@ -12,7 +12,7 @@ ms.workload: data-services
 
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
+ms.date: 01/28/2020
 ---
 
 # Integration runtime in Azure Data Factory
@@ -159,13 +159,13 @@ For Copy activity, it requires source and sink linked services to define the dir
 
 The Lookup and GetMetadata activity is executed on the integration runtime associated to the data store linked service.
 
-### Transformation activity
+### External transformation activity
 
-Each transformation activity has a target compute Linked Service, which points to an integration runtime. This integration runtime instance is where the transformation activity is dispatched from.
+Each external transformation activity that utilizes an external compute engine has a target compute Linked Service, which points to an integration runtime. This integration runtime instance determines the location where that external hand-coded transformation activity is dispatched from.
 
 ### Data Flow activity
 
-Data Flow activity is executed on the integration runtime associated to it. 
+Data Flow activities are executed on the Azure integration runtime associated to it. The Spark compute utilized by Data Flows are determined by the data flow properties in your Azure Integration Runtime and are fully managed by ADF.
 
 ## Next steps
 See the following articles:
