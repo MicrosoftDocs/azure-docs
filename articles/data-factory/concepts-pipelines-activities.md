@@ -23,7 +23,7 @@ This article helps you understand pipelines and activities in Azure Data Factory
 ## Overview
 A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick off a mapping data flow to analyze the log data. The pipeline allows you to manage the activities as a set instead of each one individually. You deploy and schedule the pipeline instead of the activities independently.
 
-The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from an on-premises SQL Server to an Azure Blob Storage. Then, use a data flow activity or an Apache Spark Notebook activity to process and transform data from the blob storage to an Azure Synapse Analytics pool on top of which business intelligence reporting solutions are built.
+The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from an on-premises SQL Server to an Azure Blob Storage. Then, use a data flow activity or a Databricks Notebook activity to process and transform data from the blob storage to an Azure Synapse Analytics pool on top of which business intelligence reporting solutions are built.
 
 Data Factory has three groupings of activities: [data movement activities](copy-activity-overview.md), [data transformation activities](transform-data.md), and [control activities](control-flow-web-activity.md). An activity can take zero or more input [datasets](concepts-datasets-linked-services.md) and produce one or more output [datasets](concepts-datasets-linked-services.md). The following diagram shows the relationship between pipeline, activity, and dataset in Data Factory:
 
@@ -44,7 +44,7 @@ Azure Data Factory supports the following transformation activities that can be 
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
-[Data Flow](control-flow-execute-data-flow-activity.md) | Azure Apache Spark managed by Azure Data Factory
+[Data Flow](control-flow-execute-data-flow-activity.md) | Azure Databricks managed by Azure Data Factory
 [Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
@@ -55,9 +55,9 @@ Data transformation activity | Compute environment
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse, or SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Activity](transform-data-using-dotnet-custom-activity.md) | Azure Batch
-[Apache Spark Notebook](transform-data-Apache Spark-notebook.md) | Azure Apache Spark
-[Apache Spark Jar Activity](transform-data-Apache Spark-jar.md) | Azure Apache Spark
-[Apache Spark Python Activity](transform-data-Apache Spark-python.md) | Azure Apache Spark
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[ADatabricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
 
 For more information, see the [data transformation activities](transform-data.md) article.
 
