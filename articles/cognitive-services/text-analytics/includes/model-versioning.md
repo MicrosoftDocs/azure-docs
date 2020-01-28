@@ -14,7 +14,8 @@ ms.author: aahi
 Version 3 of the Text Analytics API lets you choose the Text Analytics model used on your data. Use the optional `model-version` parameter to select a version of the model in your requests. If this parameter isn't specified the API will default to `latest`, the latest stable model version.
 
 Available model versions:
-* `2019-10-01` (`latest`)
+* `2019-10-01` 
+* `2020-02-01` (`latest`)
 
 Each response from the v3 endpoints includes a `model-version` field specifying the model version that was used.
 
