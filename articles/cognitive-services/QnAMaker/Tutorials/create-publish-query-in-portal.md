@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: Create, publish, and answer in QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This tutorial shows how to create a new knowledge base with questions and answers from a public web-based FAQ. Save, train, and publish the knowledge base. After the knowledge base is published, send a question and receive an answer with a cURL command. Then create a bot, and test the bot with the same question.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/14/2019
-ms.author: diberry
+ms.date: 01/28/2020
 #Customer intent: As an model designer, new to the QnA Maker service, I want to understand all the process requirements to create a knowledge base and generate an answer from that knowledge base.
 ---
 
@@ -41,7 +33,8 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
 
 1. Select **Create a knowledge base** from the top menu.
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
 
 1. Skip the first step, because you will use your existing QnA Maker service.
 
@@ -52,32 +45,40 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
     |Microsoft Azure Directory ID|This ID is associated with the account you use to sign into the Azure portal and the QnA Maker portal. |
     |Azure Subscription name|The billing account in which you created the QnA Maker resource.|
     |Azure QnA Service|Your existing QnA Maker resource.|
+    |Language|Language used for all knowledge bases in service. Do not mix languages in a single resource. That will harm answer quality.|
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
 
 1. Enter your knowledge base name, `My Tutorial kb`.
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
 
 1. Populate your knowledge base with the following settings:
 
     |Setting name|Setting value|Purpose|
     |--|--|--|
+    |Enable multi-turn extraction|Checked|Allows for follow-up prompts.|
+    |Default answer text|`No good answer was found.`|Returned when there is no match to the question.|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |The contents of the FAQ at that URL are formatted with a question followed by an answer. QnA Maker can interpret this format to extract questions and the associated answers.|
     |File |_not used in this tutorial_|This uploads files for questions and answers. |
     |Chit-chat personality|Friendly|This gives a friendly and casual [personality](../Concepts/best-practices.md#chit-chat) to common questions and answers. You can edit these questions and answers later. |
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
 1. Select **Create your KB** to finish the creation process.
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
 
 ## Review, save, and train the knowledge base
 
 1. Review the questions and answers. The first page is questions and answers from the URL.
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of QnA Maker portal](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
 
 1. Select the last page of questions and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality.
 
