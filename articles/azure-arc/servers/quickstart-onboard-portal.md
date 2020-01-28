@@ -66,7 +66,7 @@ The following table highlights the parameters that are supported by setup for th
 
 For example, to run the installation program with the `/?` parameter, enter **msiexec.exe /i AzureConnectedMachineAgent /?**.
 
-Files for the Connected Machine agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+Files for the Connected Machine agent are installed in *C:\Program Files\AzureConnectedMachineAgent* by default. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Install using scripted method
 
