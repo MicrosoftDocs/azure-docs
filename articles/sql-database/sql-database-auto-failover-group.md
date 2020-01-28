@@ -321,7 +321,7 @@ If you are using [Virtual Network service endpoints and rules](sql-database-vnet
 If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your SQL database using the traditional firewall rules. To support automatic failover, follow these steps:
 
 1. [Create a public IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
-2. [Create a public load balancer](../load-balancer/qquickstart-load-balancer-standard-public-portal.md) and assign the public IP to it.
+2. [Create a public load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md) and assign the public IP to it.
 3. [Create a virtual network and the virtual machines](../load-balancer/quickstart-load-balancer-standard-public-portal.md) for your front-end components
 4. [Create network security group](../virtual-network/security-overview.md) and configure inbound connections.
 5. Ensure that the outbound connections are open to Azure SQL database by using ‘Sql’ [service tag](../virtual-network/security-overview.md#service-tags).
