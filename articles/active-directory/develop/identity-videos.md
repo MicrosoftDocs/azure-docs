@@ -24,6 +24,14 @@ They are typically only 1-2 minutes long.
 
 ## Microsoft identity platform basics
 
+
+|Column1  |Column2  |
+|---------|---------|
+|Get a quick overview of what's in the Microsoft identity platform.     |   > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]      |
+|Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.     |  > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]       |
+|Row3     |         |
+|Row4     |         |
+
 Get a quick overview of what's in the Microsoft identity platform.
 
 <br/>
