@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Load Balancer
 
-Load Balancer and Public IP SKUs must match. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend for the Standard load balancer. If you want to create a Basic Load Balancer, use [this template](https://azure.microsoft.com/en-us/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft recommends using Standard SKU for production workloads.
+Load Balancer and Public IP SKUs must match. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend for the Standard load balancer. If you want to create a Basic Load Balancer, use [this template](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft recommends using Standard SKU for production workloads.
 
 The template used in this quickstart is a [Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
 
