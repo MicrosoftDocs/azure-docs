@@ -31,11 +31,19 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period (90 days), while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
-Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. It can be turned on via [CLI](key-vault-soft-delete-cli.md) or [Powershell](key-vault-soft-delete-powershell.md).
+Soft-delete is now on my default for newly created Key Vault's. It can be disabled via [CLI](key-vault-soft-delete-cli.md) or [Powershell](key-vault-soft-delete-powershell.md).
+
+It is possible to change the number of retention policy from 7 to 90 days (in the portal).   Once this is set and saved, this value can never be changed on that Vault (and purge protection follows the same interval).  This will also soon be configurable via PSH and CLI.
+
+Note that this has the following repercussions when creating new vaults after you have soft-deleted them.  If you attempt to create soft-deleted vault (or secret within a vault that has the same name), you will recieve an error message.  This is due to the fact that we hold the names of that vault or secret until they have officially been purged (which is set by the retention in days paramter).
+
+Once soft-delete is enababled and saved, it can never be changed for the vault thereafter.
 
 ### Purge protection 
 
-When purge protection is on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. These vaults and objects can still be recovered, assuring customers that the retention policy will be followed. 
+When purge protection is on, a vault or an object in deleted state cannot be purged until the retention period of 90 days (the default value) has passed. These vaults and objects can still be recovered, assuring customers that the retention policy will be followed. 
+
+It is possible to change the number of retention policy from 7 to 90 days (in the portal).   Once this is set and saved, this value can never be changed on that Vault. This will also soon be configurable via PSH and CLI. 
 
 Purge protection is an optional Key Vault behavior and is **not enabled by default**. It can be turned on via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) or [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
