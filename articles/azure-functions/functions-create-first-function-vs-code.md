@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Create an Azure Functions project using Visual Studio Code
 
-In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. To learn more, see the [Azure Functions overview](functions-overview.md).
+In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
 There is also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
 
@@ -24,10 +24,14 @@ There is also a [CLI-based version](functions-create-first-azure-function-azure-
 ::: zone-end
 ::: zone pivot="programming-language-python"
 + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
+
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
+
++ The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)
+
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end
 
@@ -54,7 +58,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your Azure Functions project | C# |
+    | Select a language for your function project | C# |
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -68,7 +72,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your Azure Functions project | JavaScript | 
+    | Select a language for your function project | JavaScript | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -81,7 +85,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your Azure Functions project | TypeScript | 
+    | Select a language for your function project | TypeScript | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -94,7 +98,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your Azure Functions project | PowerShell | 
+    | Select a language for your function project | PowerShell | 
     | Select a version | Azure Functions v2 | 
     | Select a template for your project's first function | HTTP trigger | 
     | Provide a function name | HttpExample | 
@@ -107,7 +111,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | 
     | ------ | ----- | 
-    | Select a language for your Azure Functions project | Python | 
+    | Select a language for your function project | Python | 
     | Select a version | Azure Functions v2 | 
     | Select a Python alias to create a virtual environment | Python alias | 
     | Select a template for your project's first function | HTTP trigger | 
