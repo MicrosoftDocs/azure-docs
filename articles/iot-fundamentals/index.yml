@@ -39,6 +39,10 @@ highlightedContent:
     - title: Azure IoT on Microsoft Learn
       itemType: learn
       url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
+    # Card
+    - title: Support and help options
+      itemType: how-to-guide
+      url: ../iot-fundamentals/iot-support-help.md
 
 # conceptualContent section
 conceptualContent:

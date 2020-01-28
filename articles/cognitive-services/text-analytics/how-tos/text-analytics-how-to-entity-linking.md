@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/06/2019
+ms.date: 01/27/2019
 ms.author: aahi
 ---
 
@@ -19,7 +19,7 @@ The Text Analytics API lets you takes unstructured text and returns a list of di
 
 ### Entity Linking
 
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. 
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
 
 ### Named Entity Recognition (NER)
