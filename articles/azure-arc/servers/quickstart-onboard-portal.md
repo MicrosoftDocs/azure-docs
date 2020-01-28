@@ -55,6 +55,8 @@ You can install the Connected Machine agent manually by running the Windows Inst
 >[!NOTE]
 >*Administrator* privileges are required to install or uninstall the agent.
 
+If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command described in a section below to set the proxy server system environment variable `https_proxy`.
+
 The following table highlights the parameters that are supported by setup for the agent from the command line.
 
 | Parameter | Description |
@@ -76,6 +78,22 @@ Files for the Connected Machine agent are installed in *C:\Program Files\Microso
 
     `./OnboardingScript.ps1`
 
+### Configure agent proxy setting
+
+Run the following command to set the proxy server environment variable.
+
+```powershell
+# If a proxy server is needed, execute these commands with proxy URL and port
+[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
+Restart-Service -Name himds
+```
+
+>[!NOTE]
+>The agent does not support setting proxy authentication in this preview.
+>
+
 ### Configure agent communication
 
 After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
@@ -84,11 +102,35 @@ After installing the agent, you need to configure the agent to communicate with 
 
 ## Install and validate the agent on Linux
 
+The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) and hosted on Microsoft's [package repository](https://packages.microsoft.com/). A shell script bundle `Install_linux_azcmagent.sh` located at [https://aka.ms/azcmagent](https://aka.ms/azcmagent) performs the following actions:
+
+- Configures the host machine to download the agent package from packages.microsoft.com.
+- Installs the Hybrid Resource Provider package.
+- Optionally, configures the agent with your proxy information, if you specify the `--proxy "{proxy-url}:{proxy-port}"` parameter.
+
+The script also contains logic to identify supported and un-supported distributions, as well as verifying required permissions to perform the installation. You can skip the conditional checks by specifying the `-O` parameter.
+
+The example below downloads the agent and installs it, without performing any of the conditional checks.
+
+```bash
+# Download the installation package
+wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+
+# Install the connected machine agent. 
+bash ~/Install_linux_azcmagent.sh
+```
+
+To download and install the agent, including the `--proxy` parameter for configuring the agent to communicate through your proxy server, run the following commands:
+
+```bash
+# Download the installation package
+wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+
+# Install the connected machine agent. 
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
 
 
-
-
-or the Linux shell script `Install_linux_azcmagent.sh` that included with the agent package.
 
 
 
