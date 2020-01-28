@@ -229,7 +229,7 @@ landingContent:
           url: regions.md
         - text: Support
           url: support.md
-    - linkListType: download
+    - linkListType: sample
       links:
         - text: Speech SDK samples
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk
