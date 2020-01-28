@@ -24,19 +24,14 @@ They are typically only 1-2 minutes long.
 
 ## Microsoft identity platform basics
 
-
-|Column1  |Column2  |
-|---------|---------|
-|Get a quick overview of what's in the Microsoft identity platform.     |   > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]      |
-|Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.     |  > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]       |
-|Row3     |         |
-|Row4     |         |
-
 Get a quick overview of what's in the Microsoft identity platform.
 
 <br/>
 
-> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=2]
+
+<iframe width="320" height="160" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>
+
 
 ### MSAL authentication libraries
 
@@ -44,13 +39,15 @@ Learn how the Microsoft identity platform libraries make it easier to handle aut
 
 <br/>
 
-> [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
+> [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=2]
+<iframe width="320" height="160" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>
 
 ### Accounts
 
 Learn the difference between work and school accounts, and personal Microsoft accounts.
 
-> [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
+> [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk?t=2]
+<iframe width="320" height="160" src="https://www.youtube.com/embed/E2OUluQQKSk?t=2" allowfullscreen></iframe>
 
 ### Brokers
 
@@ -58,7 +55,7 @@ Learn what a broker is and how to use one.
 
 <br/>
 
-> [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
+> [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0?t=2]
 
 ### Redirect URI
 
@@ -66,14 +63,14 @@ Learn how a redirect URI allows you to delegate sign in and get a security token
 
 <br/>
 
-> [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
+> [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU?t=2]
 
 ### Application object
 
 Learn about the role of the Azure Active Directory application object in the Microsoft identity platform.
 
 <br/>
-> [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
+> [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw?t=2]
 
 ### Azure active directory
 
