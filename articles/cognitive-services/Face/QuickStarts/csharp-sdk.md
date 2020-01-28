@@ -16,7 +16,6 @@ Get started with the Face client library for .NET. Follow these steps to install
 
 Use the Face client library for .NET to:
 
-* [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
