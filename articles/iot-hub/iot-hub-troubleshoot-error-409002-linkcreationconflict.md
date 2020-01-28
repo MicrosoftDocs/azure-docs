@@ -23,7 +23,7 @@ You see the error **409002 LinkCreationConflict** logged in diagnostic logs alon
 
 ## Cause
 
-Generally, this error happens when IoT Hub detects that a client has more than one connection. TThat is, when a new connection request arrives for a device with an existing connection, IoT Hub closes the existing connection with this error.
+Generally, this error happens when IoT Hub detects a client has more than one connection. In fact, when a new connection request arrives for a device with an existing connection, IoT Hub closes the existing connection with this error.
 
 ### Cause 1
 

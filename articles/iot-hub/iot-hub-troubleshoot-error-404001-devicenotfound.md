@@ -21,8 +21,8 @@ During a cloud-to-device (C2D) communication, such as C2D message, twin update, 
 
 ## Cause
 
-The operation failed because the device cannot be found by IoT Hub because it's not registered or disabled.
+The operation failed because the device cannot be found by IoT Hub. The device is either not registered or disabled.
 
 ## Solution
 
-Register the device ID that you used and try again.
+Register the device ID that you used, then try again.

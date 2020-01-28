@@ -25,4 +25,4 @@ When a device receives a cloud-to-device message from the queue (for example, us
 
 ## Solution
 
-If IoT Hub doesn't get the notification within the one minute lock timeout duration, it sets the message back to *Enqueued* state. The device can attempt to receive the message again. To prevent the error from happening in the future, implement device side logic to complete the message within one minute of receiving the message. This one minute time-out cannot be changed.
+If IoT Hub doesn't get the notification within the one-minute lock timeout duration, it sets the message back to *Enqueued* state. The device can attempt to receive the message again. To prevent the error from happening in the future, implement device side logic to complete the message within one minute of receiving the message. This one-minute time-out can't be changed.

@@ -17,7 +17,7 @@ This article describes the causes and solutions for **500xxx Internal errors**.
 
 ## Symptoms
 
-Requests to IoT Hub fail with an errors that begin with 500 and/or some sort of "server error". Some possibilities are:
+Your request to IoT Hub fails with an error that begins with 500 and/or some sort of "server error". Some possibilities are:
 
 * **500001 ServerError**: IoT Hub ran into a server-side issue.
 

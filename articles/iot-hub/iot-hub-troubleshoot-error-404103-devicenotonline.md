@@ -21,7 +21,7 @@ A Direct method to a device fails with the error **404103 DeviceNotOnline** even
 
 ## Cause
 
-If you have confirmed that the device is online and still get the error, it's likely because the direct method callback is not registered on the device.
+If you know that the device is online and still get the error, it's likely because the direct method callback isn't registered on the device.
 
 ## Solution
 

@@ -17,13 +17,13 @@ This article describes the causes and solutions for **403006 DeviceMaximumActive
 
 ## Symptoms
 
-When trying to initiate a file upload request, the request fails with the error code **403006** and a message "Number of active file upload requests cannot exceed 10".
+You file upload request fails with the error code **403006** and a message "Number of active file upload requests cannot exceed 10".
 
 ## Cause
 
 Each device client is limited to [10 concurrent file uploads](./iot-hub-devguide-quotas-throttling.md#other-limits). 
 
-Most likely, you're exceeding the limit because IoT Hub wasn't notified that previous file uploads are completed, commonly as a result of flaky network where the device frequently loses connection and fails to complete the upload.
+You can easily exceed the limit if your device doesn't notify IoT Hub when file uploads are completed. This problem is commonly caused by flaky device side network.
 
 ## Solution
 

@@ -21,7 +21,7 @@ Requests to IoT Hub fail with the error **503003 PartitionNotFound**.
 
 ## Cause
 
-This is an internal error for IoT Hub and is likely transient. See [IoT Hub internal server error cause](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause).
+This error is internal to IoT Hub and is likely transient. See [IoT Hub internal server error cause](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause).
 
 ## Solution
 

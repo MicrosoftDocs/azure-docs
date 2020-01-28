@@ -35,7 +35,7 @@ Requests to IoT Hub fail with the error message:
 
 ### Cause 1
 
-For MQTT, some SDK rely on IoT Hub to issue the disconnect when the SAS token expires to know when to refresh it. So, 
+For MQTT, some SDKs rely on IoT Hub to issue the disconnect when the SAS token expires to know when to refresh it. So, 
 
 1. The SAS token expires
 1. IoT Hub notices the expiration, and disconnects the device with **401003 IoTHubUnauthorized**
@@ -45,7 +45,7 @@ For MQTT, some SDK rely on IoT Hub to issue the disconnect when the SAS token ex
 
 ### Cause 2
 
-The authorization header, rule, or key was not considered sufficient by IoT Hub for authentication.
+IoT Hub couldn't authenticate the auth header, rule, or key.
 
 ## Solution
 
@@ -60,7 +60,7 @@ If the volume of errors is a concern, change to use the C SDK, which renews the 
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 - The SAS or other security token you use isn't expired. 
-- The authorization credential is well-formed for the protocol that you use. To learn more, see [IoT Hub access control](iot-hub-devguide-security.md).
+- The authorization credential is well formed for the protocol that you use. To learn more, see [IoT Hub access control](iot-hub-devguide-security.md).
 - The authorization rule used has the permission for the operation requested.
 
 ## Next steps

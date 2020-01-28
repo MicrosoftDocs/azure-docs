@@ -17,7 +17,7 @@ This article describes the causes and solutions for **429001 ThrottlingException
 
 ## Symptoms
 
-Your requests to IoT Hub fails with the error **429001 ThrottlingException**.
+Your requests to IoT Hub fail with the error **429001 ThrottlingException**.
 
 ## Cause
 
