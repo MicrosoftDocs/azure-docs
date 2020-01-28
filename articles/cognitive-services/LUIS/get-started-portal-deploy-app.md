@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint.
 ---
@@ -41,7 +41,7 @@ You create the prediction endpoint resource in the Azure portal. This resource s
    |Authoring location|**West US**|The Azure region for authoring.|
    |Authoring pricing tier|**F0**|The default pricing tier for authoring.|
    |Runtime location|**West US**|The Azure region for prediction endpoint queries.|
-   |Runtime pricing tier|**S0**|This pricing tier provides for a high-traffic websites.|
+   |Runtime pricing tier|**S0**|This pricing tier provides for high-traffic websites.|
    | | | |
 
 
@@ -70,6 +70,9 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 1. Complete the same steps to add the authoring key to your app.
 
 1. Find the new row in the table for the new prediction resource and copy the endpoint URL. It's correctly constructed to make an `HTTP GET` request to the LUIS API endpoint for a prediction.
+
+> [!TIP]
+> If you intend to use Active learning to improve your LUIS app, select **Change query parameters** and select **Save logs**. This action changes the example URL by adding the `log=true` querystring parameter. Copy and use the changed example query URL when making prediction queries to the runtime endpoint.
 
 ## Train the app
 
