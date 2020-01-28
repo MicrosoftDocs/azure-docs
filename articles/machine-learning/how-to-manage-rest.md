@@ -69,7 +69,7 @@ The response should provide an access token good for one hour:
 }
 ```
 
-Make note of the token, as you'll use it to authenticate all subsequent administrative requests. You will do so by setting an Authorization header in all requests:
+Make note of the token, as you'll use it to authenticate all subsequent administrative requests. You'll do so by setting an Authorization header in all requests:
 
 ```bash
 curl -h "Authentication: Bearer {your-access-token}" ...more args...
@@ -259,7 +259,7 @@ curl -X PUT \
 > [!Note]
 > In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
 
-A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm its successful completion.
+A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You'll need to poll (or use the portal) to confirm its successful completion.
 
 ### Create an experimental run
 
