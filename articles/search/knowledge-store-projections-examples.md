@@ -279,12 +279,13 @@ Create a custom shape that you would like to project, here we create a custom ob
             ]
         }
 ```
-Add the shaper skill to skills list in the skillset, we will also edit the knowledgeStore proerty before we PUT the skillset. Now that we have all the data needed to project to tables we can update the knowledgeStore object with the table definitions.
+Add the shaper skill to skills list in the skillset, we will also edit the knowledgeStore property before we PUT the skillset. Now that we have all the data needed to project to tables we can update the knowledgeStore object with the table definitions.
 
 Start by setting the knowledgeStore property on the skillset. 
 
 ```json
-{
+
+"knowledgeStore" : {
     "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
     "projections": [
         {
@@ -316,20 +317,20 @@ Set the ```storageConnectionString``` property to a valid V2 general purpose sto
 
 ### Slicing 
 
-When starting with a consolidated shape where all the content that needs to be projected is in a single shape (or node), slicing provides you with the ability to slice a single node into multiple tables or objects. Here, the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out parts of the shape, ```keyPhrases``` and ```Entities``` into separate tables. This is useful as multiple entities and keyPhrases are associated with each document. Slicing implicity generates a relationship between the parent and child tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
+When starting with a consolidated shape where all the content that needs to be projected is in a single shape (or enrichment node), slicing provides you with the ability to slice a single node into multiple tables or objects. Here, the ```pbiShape``` object is sliced into multiple tables. The slicing feature enables you to pull out parts of the shape, ```keyPhrases``` and ```Entities``` into separate tables. This is useful as multiple entities and keyPhrases are associated with each document. Slicing implicity generates a relationship between the parent and child tables, using the ```generatedKeyName``` in the parent table to create a column with the same name in the child table. 
 
 ### Naming relationships
 The ```generatedKeyName``` and ```referenceKeyName``` properties are used to relate data across tables or even across projection types. Each row in the child table/projection has a property pointing back to the parent. The name of the column or property in the child is the ```referenceKeyName``` from the parent. When the ```referenceKeyName``` is not provided, the service defaults it to the ```generatedKeyName``` from the parent. PowerBI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the parent table. One example would be to set the ```generatedKeyName``` as ID on the pbiDocument table and the ```referenceKeyName``` as DocumentID. This would result in the column in the pbiEntities and pbiKeyPhrases tables containing the document id being named DocumentID.
 
-You now have a working projection with three tables. Importing these tables into Power BI should result in Power BI auto discovering the relationships, allowing you to filter.
+Save the updated skillset and run the indexer, you now have a working projection with three tables. Importing these tables into Power BI should result in Power BI auto discovering the relationships.
 
 ## Projecting to Objects
 
 Object projections do not have the same limitations as table projections, are better suited for projecting large documents. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container.
-To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. The projections property is an array, for this example we are adding a new projection instance to the array.
+To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. The projections property is an array, for this example we are adding a new projection instance to the array. Updte the knowledgeStore definition with the projections defined inline, you do not need a shaper skill when using inline projections.
 
 ```json
-{
+"knowledgeStore" : {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
              {
@@ -383,7 +384,7 @@ To define an object projection, we will use the ```objects``` array in the proje
 File projections are images that are either extracted from the source document or outputs of enrichments that can be projected out of the enrichment process. File projections, similar to object projections are implemented as blobs and contain the image. To generate a file projection, we use the ```files``` array in the projection object. This example projects all images extracted from the document to a container called samplefile.
 
 ```json
-{
+"knowledgeStore" : {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
             {
@@ -449,7 +450,7 @@ Sometimes you might need to project content across projection types. For example
 ```
 
 ```json
-{
+"knowledgeStore" : {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
              {
@@ -501,7 +502,7 @@ This example also highlights another feature of projections, by defining multipl
 When building projections of different types, file and object projections are generated first and the paths are added to the tables.
 
 ```json
-{
+"knowledgeStore" : {
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
             {
