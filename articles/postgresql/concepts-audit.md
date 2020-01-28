@@ -80,7 +80,7 @@ To learn more about `log_line_prefix`, visit the [PostgreSQL documentation](http
 ### Getting started
 To quickly get started, set `pgaudit.log` to `WRITE`, and open your logs to review the output. 
 
-### Viewing audit logs
+## Viewing audit logs
 If you are using .log files, your audit logs will be included in the same file as your PostgreSQL error logs. You can download log files from the Azure [portal](howto-configure-server-logs-in-portal.md) or [CLI](howto-configure-server-logs-using-cli.md). 
 
 If you are using Azure diagnostic logging, the way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
