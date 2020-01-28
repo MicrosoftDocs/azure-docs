@@ -11,10 +11,10 @@ ms.topic: conceptual
 This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks the following configuration changes to help you pinpoint operational issues:
 
 - Windows software
-- Linux packages
+- Linux software (packages)
 
     >[!NOTE]
-    >Change Tracking only tracks software that is managed with the package manager, a manual binary installation will not be tracked.
+    >Change Tracking only tracks software that is managed with the distribution’s package manager.
 
 - Windows and Linux files
 - Windows registry keys
