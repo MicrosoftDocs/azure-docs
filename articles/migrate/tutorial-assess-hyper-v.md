@@ -19,7 +19,7 @@ This tutorial is the second in a series that demonstrates how to assess and migr
 > [!div class="checklist"]
 > * Set up an Azure Migrate project.
 > * Set up and register an Azure Migrate appliance.
-> * Start continuous discovery of on-premises VMs.a
+> * Start continuous discovery of on-premises VMs.
 > * Group discovered VMs, and assess the group.
 > * Review the assessment.
 
