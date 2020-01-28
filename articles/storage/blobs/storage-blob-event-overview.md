@@ -12,11 +12,11 @@ ms.reviewer: cbrooks
 
 # Reacting to Blob storage events
 
-Azure Storage events allow applications to react to events, such as the creation and deletion of blobs, by using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services.
+Azure Storage events allow applications to react to events, such as the creation and deletion of blobs. It does so without the need for complicated code or expensive and inefficient polling services.
 
-Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own custom http listener, and you only pay for what you use.
+Events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. The best part is you only pay for what you use.
 
-Blob storage events are reliably sent to the Event Grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery.
+Blob storage sends events to Event Grid which provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 
 Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
@@ -50,7 +50,7 @@ See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.
 
 ## Filtering events
 
-Blob event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Subject filters in Event Grid work based on "begins with" and "ends with" matches, so that events with a matching subject are delivered to the subscriber.
+Blob [events can be filtered](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) by the event type, container name, or name of the object that was created/deleted. Filters in Event Grid match the beginning or end of the subject so events with a matching subject go to the subscriber.
 
 To learn more about how to apply filters, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
