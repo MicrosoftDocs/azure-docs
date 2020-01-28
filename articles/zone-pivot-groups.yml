@@ -154,8 +154,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-  - id: programming-language-nodejs
-    title: Node.js
+  - id: programming-language-javascript
+    title: javascript
   - id: programming-language-java
     title: Java 
   - id: programming-language-other

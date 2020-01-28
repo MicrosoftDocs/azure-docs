@@ -27,7 +27,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics library is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
@@ -37,10 +37,10 @@ Use the Text Analytics client library to perform:
 
 ::: zone pivot="programming-language-python"
 
-There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
-
 > [!IMPORTANT]
-> Be sure to only follow the instructions for the version you are using.  
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
 
@@ -48,21 +48,21 @@ There are two versions of the Text Analytics client library you can use: `v2` or
 
 ::: zone pivot="programming-language-java"
 
-There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
-
 > [!IMPORTANT]
-> This quickstart only contains instructions for using version `3.0-preview`.
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
-
-There are two versions of the Text Analytics client library you can use: `v2` or `v3.0-preview`.
+::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> Be sure to only follow the instructions for the version you are using.  
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
 
