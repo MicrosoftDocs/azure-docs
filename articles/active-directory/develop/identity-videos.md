@@ -24,11 +24,11 @@ They are typically only 1-2 minutes long.
 
 ## Introduction to the Microsoft identity platform
 
-### What is the Microsoft identity platform?
+### What is the Microsoft identity platform
 
 Get a quick overview of what's in the Microsoft identity platform.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/bNlcFuIo3r8]
+> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
 
 <br/>
 
@@ -36,12 +36,9 @@ Get a quick overview of what's in the Microsoft identity platform.
 
 Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/yLVEBU9Z96Q]
+> [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
 
 <br/>
-
-
-
 
 
 <br/>
@@ -53,11 +50,11 @@ Learn how the Microsoft identity platform libraries make it easier to handle aut
 
 Learn what endpoints are and the benefits of moving from the v1.0 endpoint to the v2.0 endpoint.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/qpdC45tZYD]
+> [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg?]
 
 Learn why Microsoft recommends that you from the Azure Active Directory Authentication Library (ADAL) to the Microsoft Authentication library (MSAL).
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/q-TDszj2O-4]
+> [!VIDEO https://www.youtube.com/embed/q-TDszj2O-44]
 
 <br/>
 
@@ -67,9 +64,7 @@ This brief video covers what a tenant is.
 
 <br/>
 
->[!VIDEO https://www.microsoft.com/videoplayer/embed/RE3i5DH]
-
-
+>[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
 
 ========== videos
 
