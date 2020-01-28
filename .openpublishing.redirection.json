@@ -46799,6 +46799,11 @@
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-template.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-template",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/create-load-balancer-rest-api.md",
+      "redirect_url": "/api/load-balancer/loadbalancers/createorupdate",
+      "redirect_document_id": false
     }
   ]
 }
