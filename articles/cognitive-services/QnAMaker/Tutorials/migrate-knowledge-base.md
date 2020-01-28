@@ -1,7 +1,7 @@
 ---
 title: Migrate knowledge bases - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another. 
+description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 # Migrate a knowledge base using export-import
 
-Migrating a knowledge base requires exporting from one knowledge base, then importing into another. 
+Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
 
 ## Prerequisites
 
@@ -27,15 +27,16 @@ Migrating a knowledge base requires exporting from one knowledge base, then impo
 
 1. On the **Settings** page, select **Export knowledge base** to download a .tsv file that contains the content of your knowledge base - questions, answers, metadata, and the data source names from which they were extracted.
 
-1. Select **Create a knowledge base** from the top menu then create an empty knowledge base. 
+1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files.
 
-    ![Set data sources](../media/qnamaker-how-to-create-kb/set-data-sources.png)
+    > [!div class="mx-imgBorder"]
+    > ![Set data sources](../media/qnamaker-how-to-create-kb/entire-knowledge-base-create-steps.png)
 
-    - Give your service a **name.** Duplicate names are supported and special characters are supported as well.
+    Configure the knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
-1. Select **Create**.
+    Do not select anything from Step 4 because those values will be overwritten when you import the file.
 
-    ![Create KB](../media/qnamaker-how-to-create-kb/create-kb.png)
+1. In Step 5, select **Create**.
 
 1. In this new knowledge base, open the **Settings** tab and select **Import knowledge base**. This imports the questions, answers, and metadata, and retains the data source names from which they were extracted.
 
@@ -47,12 +48,12 @@ Migrating a knowledge base requires exporting from one knowledge base, then impo
 
     ![QnA Maker values](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
-    At this point, all the knowledge base content - questions, answers and metadata, along with the names of the source files and the URLs, are imported to the new knowledge base. 
+    At this point, all the knowledge base content - questions, answers and metadata, along with the names of the source files and the URLs, are imported to the new knowledge base.
 
 ## Chat logs and alterations
 Case-insensitive alterations (synonyms) are not imported automatically. Use the [V4 APIs](https://go.microsoft.com/fwlink/?linkid=2092179) to move the alterations in the new knowledge base.
 
-There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs. 
+There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs.
 
 ## Next steps
 
