@@ -45,6 +45,8 @@
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       maintainContext: true
       href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+    - name: Extract information in Excel using Text Analytics and Power Automate
+      href: tutorials/extract-information-from-excel.md
    
 - name: How-to guides
   items:
