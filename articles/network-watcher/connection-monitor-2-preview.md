@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Overview
 
-Connection Monitor (Preview) provides unified end-to-end connection monitoring capabilities in Azure Network Watcher for hybrid and Azure cloud deployments. Azure Network Watcher provides tools to monitor, diagnose, and view connectivity related metrics for your Azure deployments.
+Connection Monitor (Preview) provides unified end-to-end connection monitoring capabilities in Azure Network Watcher for hybrid and Azure cloud deployments. Azure Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
 Key Use Cases:
 
@@ -34,12 +34,12 @@ In this preview phase, the solution brings together the best of two key capabili
 
 Highlights:
 
-1. Unified, intuitive experience for Azure and hybrid monitoring needs
-2. Cross region, cross workspace connectivity monitoring
-3. Higher probing frequencies and better visibility into network performance
-4. Faster alerting for your hybrid deployments
-5. Support for HTTP, TCP, and ICMP based connectivity checks
-6. Metrics and Log Analytics support for both Azure and non-Azure test setups
+* Unified, intuitive experience for Azure and hybrid monitoring needs
+* Cross region, cross workspace connectivity monitoring
+* Higher probing frequencies and better visibility into network performance
+* Faster alerting for your hybrid deployments
+* Support for HTTP, TCP, and ICMP based connectivity checks
+* Metrics and Log Analytics support for both Azure and non-Azure test setups
 
 ![Connection Monitor](./media/connection-monitor-2-preview/HeroGraphic.png)
 
@@ -49,7 +49,7 @@ Follow the steps mentioned below to start monitoring using Connection Monitor (P
 
 Connection Monitor relies on lightweight executables to run connectivity checks.  We support connectivity checks from both Azure and on-premises environments. The specific executable to be used depends on whether your VM is hosted on Azure or on-premises.
 
-### Agents for Azure VMs
+### Agents for Azure virtual machines
 
 For Connection Monitor to recognize your Azure VMs as source for monitoring, you need to install the Network Watcher Agent virtual machine extension (also known as Network Watcher extension) on them. The Network Watcher Agent extension is a requirement for triggering end to end monitoring and other advanced functionality on Azure virtual machines. You can [create a VM and install the Network Watcher extension](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm)[on it](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm).  You can also install, configure, and troubleshoot Network Watcher extension for [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) and [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows) separately.
 
@@ -65,7 +65,7 @@ Ensure that the destination is reachable if there are firewalls or virtual netwo
 
 ## Step 2: Enable Network Watcher on your subscription
 
-All subscriptions with a VNET are enabled with Network Watcher. When you create a virtual network in your subscription, Network Watcher will be enabled automatically in that Virtual Network's region and subscription. There's no impact to your resources or associated charge for automatically enabling Network Watcher. Ensure that Network Watcher is'nt explicitly disabled on your subscription. For more information, see [Enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+All subscriptions with a VNET are enabled with Network Watcher. When you create a virtual network in your subscription, Network Watcher will be enabled automatically in that Virtual Network's region and subscription. There's no impact to your resources or associated charge for automatically enabling Network Watcher. Ensure that Network Watcher isn't explicitly disabled on your subscription. For more information, see [Enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
 ## Step 3: Create Connection Monitor 
 
@@ -86,15 +86,15 @@ Connection Monitors created using Connection Monitor (Preview) provide the abili
 
 Following are the entities in a Connection Monitor:
 
-1. Connection Monitor Resource – Region specific Azure resource. All the entities mentioned below are properties of a Connection Monitor resource.
-2. Endpoints – All sources and destinations that participate in connectivity checks are called as endpoints. Examples of endpoint – Azure VMs, On-Premise agents, URLs, IPs
-3. Test Configuration – Each test configuration is protocol specific. Based on the protocol chosen, you can define port, thresholds, test frequency, and other parameters
-4. Test Group – Each test group contains source endpoints, destination endpoints, and test configurations. Each Connection Monitor can contain more than one test groups
-5. Test – Combination of a source endpoint, destination endpoint, and test configuration make one test. Test is lowest level at which monitoring data (checks failed % and RTT) is available
+* Connection Monitor Resource – Region specific Azure resource. All the entities mentioned below are properties of a Connection Monitor resource.
+* Endpoints – All sources and destinations that participate in connectivity checks are called as endpoints. Examples of endpoint – Azure VMs, On-Premise agents, URLs, IPs
+* Test Configuration – Each test configuration is protocol specific. Based on the protocol chosen, you can define port, thresholds, test frequency, and other parameters
+* Test Group – Each test group contains source endpoints, destination endpoints, and test configurations. Each Connection Monitor can contain more than one test groups
+* Test – Combination of a source endpoint, destination endpoint, and test configuration make one test. Test is lowest level at which monitoring data (checks failed % and RTT) is available
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/CMTG.png)
+ ![Create a Connection Monitor](./media/connection-monitor-2-preview/CMTG2.png)
 
-#### From Portal
+#### From portal
 
 To create a Connection Monitor, follow the below mentioned steps:
 
@@ -125,7 +125,7 @@ To create a Connection Monitor, follow the below mentioned steps:
 
 
 
-#### From ARM Client
+#### From ARM client
 
 ```armclient
 $connectionMonitorName = "sampleConnectionMonitor"
@@ -362,11 +362,11 @@ Deployment command:
 armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-version=2019-07-01 $body -verbose
 ```
 
-### Creating Test Groups in Connection Monitor
+### Creating test groups in Connection Monitor
 
 Each test group in Connection Monitor includes sources and destination that get tested on network parameters of Checks Failed and RTT over test configurations.
 
-#### From Portal
+#### From portal
 
 To create a Test Group in a Connection Monitor, you specify the value for the below mentioned fields:
 
@@ -420,7 +420,7 @@ You can also change the value of "Group by" field to start the tree from any oth
   5. Destination Port –You can customize this field to put in a destination port of your choice.
   6. Test Frequency – This field decides how frequently sources will ping destinations on the protocol and port specified above. You can choose between 30 seconds, 1 minute, 5 minutes, 15 minutes, and 30 minutes. Sources will test connectivity to destinations based on the value you choose.  For example, if you select 30 seconds, sources will check connectivity to destination at least once in 30 seconds-period.
   7. Health Thresholds – You can set thresholds on the network parameters mentioned below
-    1. Checks Failed in % - Percentage of checks failed when sources check connectivity to destination over the criteria specified above. For TCP/ICMP protocol, checks failed in % can be equated to packet loss %. For HTTP protocol, this field represents the number of http requests that did'nt get a response.
+    1. Checks Failed in % - Percentage of checks failed when sources check connectivity to destination over the criteria specified above. For TCP/ICMP protocol, checks failed in % can be equated to packet loss %. For HTTP protocol, this field represents the number of http requests that didn't get a response.
     2. RTT in milliseconds – Round-trip time in milliseconds when sources connect to destination over the test configuration specified above.
 
  ![Add TG](./media/connection-monitor-2-preview/AddTestConfig.png)
@@ -459,41 +459,41 @@ All sources and destinations added to a test group with the test configuration s
 
 Once a Connection Monitor is created, sources check connectivity to destinations based on the test configuration specified.
 
-### Checks in a Test
+### Checks in a test
 
 Based on the protocol selected by a user in the test configuration, Connection Monitor (Preview) runs a series of checks for the source destination pair over the chosen test frequency.
 
 If HTTP is selected, the service calculates the number of HTTP responses that returned a response code to determine the checks failed %.  To calculate RTT we measure the time taken to receive the response of an HTTP call.
 
-If TCP or ICMP is selected, the service calculates packet % to determine checks failed %. To calculate RTT we measure the time taken to receive the ACK for packets sent. If you have enabled traceroute data for your network tests, you'll can see hop-by-hop loss and latency for your on-premise network.
+If TCP or ICMP is selected, the service calculates packet % to determine checks failed %. To calculate RTT we measure the time taken to receive the ACK for packets sent. If you have enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premise network.
 
-### States of a Test
+### States of a test
 
  Based on the data returned by checks in a test, each test can then have the following states:
 
-1. Pass = When actual values for Checks Failed % and RTT are within specified thresholds
-2. Fail = When actual values for Checks Failed % or RTT cross specified thresholds. If no threshold is specified, then a test is marked fail when checks failed % = 100%
-3. Warning – When criteria for checks failed % is'nt specified. In such a case, Connection Monitor (Preview) uses an auto set criterion as threshold and when that threshold is breached status of the test is set to "Warning"
+* Pass = When actual values for Checks Failed % and RTT are within specified thresholds
+* Fail = When actual values for Checks Failed % or RTT cross specified thresholds. If no threshold is specified, then a test is marked fail when checks failed % = 100%
+* Warning – When criteria for checks failed % isn't specified. In such a case, Connection Monitor (Preview) uses an auto set criterion as threshold and when that threshold is breached status of the test is set to "Warning"
 
-### Data Collection, Analysis and Alerts
+### Data collection, analysis and alerts
 
 All the data collected by Connection Monitor (Preview) is stored in the Log Analytics workspace configured at the time of Connection Monitor creation. Monitoring data is also available in Azure Monitor Metrics. You can use Log Analytics to keep your monitoring data for as long as you like but Azure Monitor stores metrics by default for 30 days**.** You can then [set metric based alerts on the data](https://azure.microsoft.com/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/).
 
-#### Monitoring Dashboards in Connection Monitor solution
+#### Monitoring dashboards in Connection Monitor solution
 
 You'll see a list of your Connection Monitor that you have access to for a given selection of subscriptions, regions, timestamp, source, and destination types.
 
 When you navigate to Connection Monitor (Preview) from Network Watcher service, you can choose to **View By**:
 
-1. Connection Monitor (default) – List of all Connection Monitors created for chosen subscriptions, regions, timestamp, source, and destination types
-2. Test Groups – List of all Test Groups created for chosen subscriptions, regions, timestamp, source, and destination types. These test groups are'nt filtered on Connection Monitor
-3. Tests – List of all Tests running for chosen subscriptions, regions, timestamp, source and destination types. These tests are'nt filtered on Connection Monitor or Test Groups.
+* Connection Monitor (default) – List of all Connection Monitors created for chosen subscriptions, regions, timestamp, source, and destination types
+* Test Groups – List of all Test Groups created for chosen subscriptions, regions, timestamp, source, and destination types. These test groups aren't filtered on Connection Monitor
+* Tests – List of all Tests running for chosen subscriptions, regions, timestamp, source and destination types. These tests aren't filtered on Connection Monitor or Test Groups.
 
 You can expand each Connection Monitor into the Test Groups and each Test Group into the various individual tests that are running in it in the dashboard. Marked as [1] in the image below.
 
 You can filter this list based on:
 
-1. Top-Level filters - Subscriptions, regions, timestamp source and destination types. Marked as [2] in the image below.
+1. Top-Level filters - Subscriptions, regions, timestamp source, and destination types. Marked as [2] in the image below.
 2. State-Based Filters - Second Level Filter on state of Connection Monitor/ Test Group/ Test. Marked as [3] in the image below.
 3. Search Field –Choose "All" to do a generic search. To search on any specific entity, use the dropdown to narrow down search results. Marked as [4] in the image below.
 
@@ -537,7 +537,7 @@ To view the trends of checks failed % and RTT for:
 
   4. You'll see top 5 failed tests on checks failed % or RTT msecs for the test group you chose in the previous step. For each test, you'll see trendlines for checks failed %, and RTT msec
   5. Select a test from the list above, or choose another test to investigate in detail.
-  6. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min and max values.
+  6. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values.
 
 
  ![RTT](./media/connection-monitor-2-preview/CMDrillCharts.png)
@@ -569,7 +569,7 @@ To view the trends of checks failed % and RTT for:
 
  ![Test2](./media/connection-monitor-2-preview/TestTopo.png)
 
-  4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability is'nt available for on-premise networks at the moment.
+  4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premise networks at the moment.
 
  ![Test3](./media/connection-monitor-2-preview/TestTopoHop.png)
 
@@ -592,7 +592,7 @@ Resource Type - Microsoft.Network/networkWatchers/connectionMonitors
 
  ![Monitor Metrics](./media/connection-monitor-2-preview/MonitorMetrics.png)
 
-#### Metric Alerts in Azure Monitor
+#### Metric alerts in Azure Monitor
 
 To create an alert:
 
@@ -617,20 +617,20 @@ Connection Monitor will help you diagnose issues corresponding to the Connection
 
 For networks with on-premise VMs as sources, we detect:
 
-1. Request timed out
-2. Endpoint not resolved by DNS – temporary or persistent. URL invalid.
-3. No hosts found.
-4. Source unable to connect to destination. Target not reachable through ICMP.
-5. Certificate-related issue - Client certificate required to authenticate agent, Certificate Relocation List not accessible, host name of the endpoint doesn't match the certificate's subject or subject alternate name, root certificate missing in source's Local Computer Trusted Certification Authorities store, SSL certificate expired/invalid/revoked, incompatible
+* Request timed out
+* Endpoint not resolved by DNS – temporary or persistent. URL invalid.
+* No hosts found.
+* Source unable to connect to destination. Target not reachable through ICMP.
+* Certificate-related issue - Client certificate required to authenticate agent, Certificate Relocation List not accessible, host name of the endpoint doesn't match the certificate's subject or subject alternate name, root certificate missing in source's Local Computer Trusted Certification Authorities store, SSL certificate expired/invalid/revoked, incompatible
 
 For networks with Azure VMs are sources, we detect:
 
-1. Agent Issues – Agent stopped, Failed DNS resolution, No application/listener listening on destination port, Socket could not be opened
-2. VM state issues – starting, stopping, stopped, deallocating, deallocated, rebooting, not allocated
-3. Missing ARP table entry
-4. Traffic blocked because of local firewall issues, NSG rules
-5. VNET Gateway – Missing routes, Tunnel between two gateways is disconnected or missing or second gateway not found by tunnel, No peering info found
-6. Missing route in MS Edge.
-7. Traffic stopped because of system routes or UDR
-8. BGP not enabled on gateway connection
-9. DIP Probe down at the Load Balancer
+* Agent Issues – Agent stopped, Failed DNS resolution, No application/listener listening on destination port, Socket could not be opened
+* VM state issues – starting, stopping, stopped, deallocating, deallocated, rebooting, not allocated
+* Missing ARP table entry
+* Traffic blocked because of local firewall issues, NSG rules
+* VNET Gateway – Missing routes, Tunnel between two gateways is disconnected or missing or second gateway not found by tunnel, No peering info found
+* Missing route in MS Edge.
+* Traffic stopped because of system routes or UDR
+* BGP not enabled on gateway connection
+* DIP Probe down at the Load Balancer
