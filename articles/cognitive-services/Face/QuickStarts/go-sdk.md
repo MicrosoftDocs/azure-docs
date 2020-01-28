@@ -39,15 +39,12 @@ Begin using the Face service by creating an Azure resource. Choose the resource 
 * A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
     * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
     * This is a great option if you want to try Face service, but don’t have an Azure subscription.
-<!-- Link to the 'create' blade in the azure portal -->
-* A [ Face service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+* A [ Face service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
     * Available through the Azure portal until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-<!-- remove the below text if your service is not supported by the multi-service option. -->
 * A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
     * Available through the Azure portal until you delete the resource.  
     * Use the same key and endpoint for your applications, across multiple Cognitive Services.
-
 
 ### Create an environment variable
 
@@ -55,9 +52,8 @@ Begin using the Face service by creating an Azure resource. Choose the resource 
 > The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
-<!-- replace the below variable names with the names expected in the code sample.-->
-* `PRODUCT_NAME_KEY` - The resource key for authenticating your requests.
-* `PRODUCT_NAME_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
+* `FACE_SUBSCRIPTION_KEY` - The resource key for authenticating your requests.
+* `FACE_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Use the instructions for your operating system.
@@ -65,8 +61,8 @@ Use the instructions for your operating system.
 #### [Windows](#tab/windows)
 
 ```console
-setx PRODUCT_NAME_KEY <replace-with-your-product-name-key>
-setx PRODUCT_NAME_ENDPOINT <replace-with-your-product-name-endpoint>
+setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
+setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
 ```
 
 After you add the environment variable, restart the console window.
@@ -74,8 +70,8 @@ After you add the environment variable, restart the console window.
 #### [Linux](#tab/linux)
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
+export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
 ```
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -85,8 +81,8 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
+export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
@@ -104,7 +100,7 @@ cd my-app
 Your workspace will contain three folders:
 
 * **src** - This directory will contain source code and packages. Any packages installed with the `go get` command will go here.
-* **pkg** - This directory will contain the compiled Go package objects. These files all have an `.a` extension.
+* **pkg** - This directory will contain the compiled Go package objects. These files all have a `.a` extension.
 * **bin** - This directory will contains the binary executable files that are created when you run `go install`.
 
 > [!TIP]
@@ -115,13 +111,13 @@ Your workspace will contain three folders:
 Next, install the client library for Go:
 
 ```bash
-go get -u <library-location-or-url>
+go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
 ```
 
 or if you use dep, within your repo run:
 
 ```bash
-dep ensure -add <library-location-or-url>
+dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
 ```
 
 ### Create a Go application
@@ -135,14 +131,9 @@ touch sample-app.go
 
 Open `sample-app.go` in your preferred IDE or text editor. Then add the package name and import the following libraries:
 
-```Go
-package main
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_imports)]
 
-import (
-	"..."
-	"..."
-)
-```
+Next, you'll begin adding code to carry out different Face service operations.
 
 ## Object model
 
@@ -150,16 +141,24 @@ The following classes and interfaces handle some of the major features of the Fa
 
 |Name|Description|
 |---|---|
-| | |
+|[BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | This class represents your authorization to use the Face service, and you need it for all Face functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes. |
+|[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|This class handles the basic detection and recognition tasks that you can do with human faces. |
+|[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)|This class represents all of the data that was detected from a single face in an image. You can use it to retrieve detailed information about the face.|
+|[ListClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#ListClient)|This class manages the cloud-stored **FaceList** constructs, which store an assorted set of faces. |
+|[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)| This class manages the cloud-stored **Person** constructs, which store a set of faces that belong to a single person.|
+|[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)| This class manages the cloud-stored **PersonGroup** constructs, which store a set of assorted **Person** objects. |
+|[SnapshotClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient)|This class manages the Snapshot functionality. You can use it to temporarily save all of your cloud-based Face data and migrate that data to a new Azure subscription. |
 
 ## Code examples
 
 These code samples show you how to complete basic tasks using the Face service client library for Go:
 
-* [Authenticate the client](#)
-* [Example task 1 (anchor link)](#)
-* [Example task 2 (anchor link)](#)
-* [Example task 3 (anchor link)](#)
+* [Authenticate the client](#authenticate-the-client)
+* [Detect faces in an image](#detect-faces-in-an-image)
+* [Find similar faces](#find-similar-faces)
+* [Create and train a person group](#create-and-train-a-person-group)
+* [Identify a face](#identify-a-face)
+* [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 ## Authenticate the client
 
