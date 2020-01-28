@@ -1,11 +1,11 @@
 ---
-title: #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: #Required; article description that is displayed in search results. Include the word "tutorial".
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+title: Convert machine learning experimental code to production code. #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
+description: Convert machine learning experimental code to production code using the MLOpsPython code template. #Required; article description that is displayed in search results. Include the word "tutorial".
+author: bjcmit #Required; your GitHub user alias, with correct capitalization.
+ms.author: brysmith #Required; microsoft alias of author; optional team alias.
+ms.service: machine-learning #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: tutorial #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 01/28/2020; mm/dd/yyyy format.
 ---
 
 <!---Recommended: Remove all the comments in this template before you
@@ -458,10 +458,10 @@ To get rid of evaluation, enable the switch to skip the evaluation step in the p
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-track-experiments)
-> [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-enable-app-insight)
-> [Data Ingestion Overview] (https://docs.microsoft.com/en-us/azure/machine-learning/overview-data-ingestion)
-> [DevOps for a Data Ingestion Pipeline] (https://docs.microsoft.com/en-us/azure/machine-learning/how-to-cicd-data-ingestion
+> [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
+> [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [Data Ingestion Overview] (https://docs.microsoft.com/azure/machine-learning/overview-data-ingestion)
+> [DevOps for a Data Ingestion Pipeline] (https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion
 
 
 <!--- Required:
