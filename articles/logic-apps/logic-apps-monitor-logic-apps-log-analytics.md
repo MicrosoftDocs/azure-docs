@@ -215,4 +215,4 @@ You can then select the destinations where you want to send that data. Retention
 
 ## Next steps
 
-* [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)
+* [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-messages-log-analytics.md)

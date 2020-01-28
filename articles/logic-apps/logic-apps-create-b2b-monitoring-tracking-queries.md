@@ -22,7 +22,7 @@ To find AS2, X12, or EDIFACT messages that you're tracking with [Azure Monitor l
 
 * A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-* An integration account that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn how to [set up Azure Monitor logging for your integration account](../logic-apps/logic-apps-monitor-b2b-messages.md).
+* An integration account that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn how to [set up Azure Monitor logging for your integration account](../logic-apps/logic-apps-monitor-b2b-messages-log-analytics.md).
 
 ## Create queries with filters
 

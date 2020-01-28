@@ -19,7 +19,7 @@ After you set up B2B communication between trading partners in your integration 
 * Correlations between messages and acknowledgments
 * Detailed error descriptions for failures
 
-Azure Monitor lets you create [log queries](../azure-monitor/log-query/log-query-overview.md) to help you find and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md#extend-data), such as Azure Storage and Azure Event Hubs.
+Azure Monitor lets you create [log queries](../azure-monitor/log-query/log-query-overview.md) to help you find and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/logic-apps-monitor-logic-apps-log-analytics.md#extend-data), such as Azure Storage and Azure Event Hubs.
 
 To set up logging for your integration account, [install the Logic Apps B2B solution](#install-b2b-solution) in the Azure portal. This solution provides aggregated information for B2B message events. Then, to enable logging and creating queries for this information, set up [Azure Monitor logs](#set-up-resource-logs).
 
@@ -31,7 +31,7 @@ This article shows how to enable Azure Monitor logging for your integration acco
 
 * A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
-* A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+* A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/logic-apps-monitor-logic-apps.md).
 
 * An integration account that's linked to your logic app. Learn [how to link your integration account to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -164,20 +164,10 @@ After your logic app runs, you can view the status and data about those messages
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](logic-apps-create-b2b-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
-
-<a name="tracking-schemas"></a>
-
-## Supported tracking schemas
-
-Azure supports these tracking schema types, which all have fixed schemas except the Custom type.
-
-* [AS2 tracking schema](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [X12 tracking schema](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 
 <a name="message-list-property-descriptions"></a>
 
@@ -290,5 +280,5 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 
 ## Next steps
 
-* [Create tracking queries for B2B messages in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Create tracking queries for B2B messages with Azure Monitor logs](../logic-apps/logic-apps-create-b2b-monitoring-tracking-queries.md)
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
