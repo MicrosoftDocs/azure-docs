@@ -35318,7 +35318,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-provisioning.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
       "redirect_document_id": true
     },
     {
@@ -35393,7 +35393,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/customize-application-attributes",
+      "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
       "redirect_document_id": true
     },
     {
@@ -35413,7 +35413,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-provisioning-reporting.md",
-      "redirect_url": "/azure/active-directory/manage-apps/check-status-user-account-provisioning",
+      "redirect_url": "/azure/active-directory/app-provisioning/check-status-user-account-provisioning",
       "redirect_document_id": true
     },
     {
