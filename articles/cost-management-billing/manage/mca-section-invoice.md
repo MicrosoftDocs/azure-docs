@@ -54,13 +54,13 @@ This section describes common scenarios for organizing costs and corresponding b
 
 |Scenario  |Structure  |
 |---------|---------|
-|Contoso is a small organization that needs a single monthly invoice but group costs by their departments - marketing and finance.  | A billing profile for Contoso and an invoice section each for marketing and finance departments. |
+|Contoso is a small organization that needs a single monthly invoice but group costs by their departments - marketing and engineering.  | A billing profile for Contoso and an invoice section each for marketing and engineering departments. |
 
 ![Info graphic for a simple billing scenario](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Scenario  |Structure  |
 |---------|---------|
-|Fabrikam is a mid-size organization that needs separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - productions and development.  | A billing profile each for marketing and finance departments. For marketing department, an invoice section each for production and development environment. |
+|Fabrikam is a mid-size organization that needs separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - production and development.  | A billing profile each for marketing and engineering departments. For engineering department, an invoice section each for production and development environment. |
 
 ![Info graphic for a simple billing scenario](./media/mca-section-invoice/organize-billing-scenario3.png)
 
