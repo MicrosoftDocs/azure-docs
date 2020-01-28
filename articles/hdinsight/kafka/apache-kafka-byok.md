@@ -94,7 +94,7 @@ You're now ready to create a new HDInsight cluster. BYOK can only be applied to 
 
 ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka.png)
 
-During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI. For complete cluster creation details, see [Create Apache Hadoop clusters using the Azure portal](./apache-kafka-get-started#create-an-apache-kafka-cluster.md)
+During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI. For complete cluster creation details, see [Create Apache Hadoop clusters using the Azure portal](./apache-kafka-get-started.md)
 
 ## Rotating the Encryption key
 
