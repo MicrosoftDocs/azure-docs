@@ -84,7 +84,7 @@ From the project directory:
 
 1. Open another new text file in your code editor
 1. Add `require` calls to load Azure and Node.js modules
-1. Create the structure for the program, including very basic exception handling
+1. Create the structure for the program, including basic exception handling
 
     Here's the code:
 
@@ -220,7 +220,7 @@ for await (const blob of containerClient.listBlobsFlat()) {
 
 ### Download blobs
 
-Download the previously created blob by calling the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method. The example code includes a helper function called `streamToString` which is used to read a Node.js readable stream into a string.
+Download the previously created blob by calling the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method. The example code includes a helper function called `streamToString`, which is used to read a Node.js readable stream into a string.
 
 Add this code to the end of the `main` function:
 
@@ -302,7 +302,7 @@ Step through the code in your debugger and check your [Azure portal](https://por
 
 In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
 
-For tutorials, samples, quick starts and other documentation, visit:
+For tutorials, samples, quickstarts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
 > [Azure for JavaScript documentation](/azure/javascript/)
