@@ -13,7 +13,7 @@ ms.date: 01/21/2020
 
 # Example: Create a Form Recognizer custom skill
 
-In this Azure Cognitive Search skillset example, you'll learn how to create a Form Recognizer custom skill using C# and Visual Studio. The example implements the [custom skill interface](cognitive-search-custom-skill-interface.md).
+In this Azure Cognitive Search skillset example, you'll learn how to create a Form Recognizer custom skill using C# and Visual Studio. Form Recognizer analyzes documents and extracts key/value pairs and table data. By wrapping Form Recognizer into the [custom skill interface](cognitive-search-custom-skill-interface.md), you can add this capability as a step in an end-to-end enrichment pipeline that also loads the documents and performs other transformations.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Train your model
 
-You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) to learn how to do train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
+You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
 
 ## Set up the custom skill
 
@@ -53,7 +53,7 @@ POST https://localhost:7071/api/analyze-form
 ### Request body
 
 > [!NOTE]
-> This request points to a sample file stored in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) repository. If you trained the model with your own forms, replace this URL with the URL to your own sample form. When the skill is integrated in a skillset, the URL and token will be provided by Cognitive Search.
+> This request uses a sample file stored in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) repository. If you trained the model with your own forms, replace this URL with the URL to your own sample form. When the skill is integrated in a skillset, the URL and token will be provided by Cognitive Search.
 
 ```json
 {
@@ -96,7 +96,7 @@ When you're satisfied with the function behavior, you can publish it.
 
 1. If you haven't already connected Visual Studio to your Azure account, select **Add an account....**
 
-1. Follow the on-screen prompts. You're asked to specify a unique name for your app service, the Azure subscription, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan, and a storage account if you don't already have these. When finished, select **Create**
+1. Follow the on-screen prompts. You're asked to specify a unique name for your app service, the Azure subscription, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan, and a storage account if you don't already have these. When finished, select **Create**.
 
 1. After the deployment is complete, notice the Site URL. This is the address of your function app in Azure. Save it to a temporary location.
 
