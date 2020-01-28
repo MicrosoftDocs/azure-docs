@@ -10,12 +10,12 @@ ms.date: 01/28/2020
 ms.author: kumud
 ---
 # Partnering with Azure DDoS Protection Standard
-This article describes partnering opportunities enabled by the Azure DDoS Protection Standard. This article is designed to help product managers and business development roles understand the investment paths and provide insight into partnering value propositions.
+This article describes partnering opportunities enabled by the Azure DDoS Protection Standard. This article is designed to help product managers and business development roles understand the investment paths and provide insight into the partnering value propositions.
 
 ## Background
 Distributed denial of service (DDoS) attacks are one of the top availability and security concerns voiced by customers moving their applications to the cloud. With extortion and hacktivism being the common motivations behind DDoS attacks, they have been consistently increasing in type, scale, and frequency of occurrence as they are relatively easy and cheap to launch.
 
-Azure DDoS Protection provides countermeasures against the most sophisticated DDoS threats, leveraging the global scale. The service provides enhanced DDoS mitigation capabilities for applications and resources deployed in virtual networks.
+Azure DDoS Protection provides countermeasures against the most sophisticated DDoS threats, leveraging the global scale of Azure networking. The service provides enhanced DDoS mitigation capabilities for applications and resources deployed in virtual networks.
 
 Technology partners can protect their customer’s resources natively with Azure DDoS Protection Standard to address the availability and reliability concerns due to DDoS attacks.
 
