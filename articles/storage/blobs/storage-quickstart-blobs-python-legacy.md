@@ -19,7 +19,7 @@ In this article, you use Python to upload, download, and list block blobs in a c
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - [Python](https://www.python.org/downloads/).
-- [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+- [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
