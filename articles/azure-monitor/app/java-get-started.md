@@ -73,10 +73,7 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
 
 ---
 
-**Otherwise, if you are manually managing dependencies...**
-Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
-
-### Questions...
+### Questions
 * *What's the relationship between the `-web-auto`, `-web` and `-core` components?*
   * `applicationinsights-web-auto` gives you metrics that track HTTP servlet request counts and response times,
     by automatically registering the Application Insights servlet filter at runtime.
