@@ -80,6 +80,8 @@ This version fixes a bug where some servers that were auto-upgraded from a previ
 
 Under certain circumstances, servers that were auto upgraded to version 1.4.18.0 did not re-enable Self-service password reset and Password Writeback after the upgrade was completed. This auto upgrade release fixes that issue and re-enables Self-service password reset and Password Writeback.
 
+We fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly.
+
 ## 1.4.18.0
 
 >[!WARNING]

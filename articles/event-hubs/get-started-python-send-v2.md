@@ -39,7 +39,7 @@ To complete this tutorial, you need the following prerequisites:
     Install this package for receiving the events using an Azure Blob storage as the checkpoint store.
 
     ```cmd
-    pip install azure-eventhub-checkpointstoreblobaio
+    pip install azure-eventhub-checkpointstoreblob-aio
     ```
 
 ## Send events
