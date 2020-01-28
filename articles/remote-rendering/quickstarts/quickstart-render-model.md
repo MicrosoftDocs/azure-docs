@@ -32,16 +32,24 @@ The following software must be installed:
 - The latest version of Visual Studio 2017 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/ "Visual Studio 2017")
 - GIT [(download)](https://git-scm.com/downloads "GIT")
 - Unity 2019.3 [(download)](https://unity3d.com/get-unity/download "Unity")
-- The NuGet command line and companion credential manager:
-  - Go to [this site](https://dev.azure.com/arrClient/arrClient).
-  - Click on *Artifacts*, change the dropdown to *ArrPackages*, and click on *Connect to feed*.
+- The NuGet command line tool and Credential Provider (see below)
 
-  ![Connect to Feed](./media/connect-to-feed.png "Connect to Feed")
+### Installing NuGet
 
-  - Download the NuGet command-line tool and the Credential Provider package from the link displayed.
-  - Extract to a directory of your choice and add the location to your `PATH` environment variable.
-    - Add the "arrPackages" feed with the following NuGet command:
-        `NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`
+1. Go to [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient).
+1. Click on **Artifacts**, change the dropdown to **ArrPackages**, and click on **Connect to feed**.
+  ![Connect to Feed 1](./media/connect-to-feed.png "Connect to Feed - Step 1")
+1. Click on **Nuget.exe**, then **Get the tools**
+  ![Connect to Feed 2](./media/connect-to-feed-2.png "Connect to Feed - step 2")
+1. From the link under *Step 1* download the latest NuGet.exe (under *Windows x86 Commandline*)
+1. Copy NuGet.exe to some folder and add the location to your `PATH` environment variable.
+1. The page linked under *Step 2* describes how to install the NuGet Credential Provider. The [manual installation](https://github.com/microsoft/artifacts-credprovider#manual-installation-on-windows) is straight forward.
+1. Open a **new** command prompt (if you had to change your `PATH` environment variable you cannot reuse an existing one).
+1. Add the "arrPackages" feed with the following NuGet command:
+  
+    ```plaintext
+    NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"
+    ```
 
 ## Clone the sample app
 
@@ -49,9 +57,11 @@ Open a command prompt (type `cmd` in the Windows start menu) and change to a dir
 
 Run the following commands:
 
-  *	`mkdir ARR`
-  *	`cd ARR`
-  * `git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient`
+```plaintext
+mkdir ARR
+cd ARR
+git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient
+```
 
 The last command creates a directory called arrClient in your ARR directory containing the sample app and a copy of the documentation.
 
@@ -61,38 +71,45 @@ It expects Unity packages to be present in directory beside it, which you need t
 ## Getting the Unity NuGet packages
 
 You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following:
-  * `cd arrClient\Unity`
-  *	`nuget install com.microsoft.azure.remote_rendering -ExcludeVersion`
-  *	`nuget install ScriptableRenderPipeline -ExcludeVersion`
 
-If the NuGet command results in authentication prompts, make sure you are using the NuGet + credential provider installation from the prerequisites steps above.
+```plaintext
+cd arrClient\Unity
+nuget install com.microsoft.azure.remote_rendering -ExcludeVersion
+nuget install ScriptableRenderPipeline -ExcludeVersion
+```
 
-The two commands above will download NuGet packages carrying Unity packages.
-You will now have an ‘ARR/ArrClient/Unity’ directory contains three folders:
-  * AzureRemoteRenderingSample - The sample project
-  * com.microsoft.azure.remote_rendering - The Unity package, which provides the client functionality of Azure Remote Rendering
-  * ScriptableRenderPipeline - A customized version of the Unity's ScriptableRenderPipeline.
+If the NuGet command results in authentication prompts, make sure you have NuGet and the NuGet Credential Provider installed as described in prerequisites above.
 
-## Rendering a first model with the Unity example project
+The two commands above will download NuGet packages, carrying Unity packages. This adds three directories to your ‘ARR/ArrClient/Unity’ folder:
+
+- *AzureRemoteRenderingSample* - The sample project
+- *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
+- *ScriptableRenderPipeline* - A customized version of the Unity's ScriptableRenderPipeline.
+
+## Rendering a model with the Unity sample project
+
+Open the Unity Hub and add the sample project, which is the *ARR\arrClient\Unity\AzureRemoteRenderingSample* folder.
+Open the project, if necessary, allow Unity to upgrade the project to your installed version.
 
 The default model we render will be a built-in model provided by ARR. We will show how to convert a custom model using the ARR conversion service in the next quickstart.
 
-Open the Unity Hub and add the sample project, which is the ARR\arrClient\Unity\AzureRemoteRenderingSample folder.
-Open the project, if necessary allowing Unity to upgrade the project to your installed version.
+### Enter your account info
 
-### Enter your account info as a one time step
-
-Select the RemoteRendering dropdown menu and open the AccountInfo window. Enter your account credentials. The [Create an account](../azure/create-an-account.md) chapter explains where to find the account credentials.
+Select *RemoteRendering > AccountInfo*  from the main menu. Enter your [account credentials](../azure/create-an-account.md).
 
 ![ARR Account Info](./media/arr-sample-account-info.png "ARR Account Info")
 
-You only need to set the *AccountDomain* and *Account Id/Key* values. You can ignore the two fields under *Account Token*.
+You only need to set the **AccountDomain**, **AccountId**, and **AccountKey**. Leave the other fields empty.
+
+> [!IMPORTANT]
+> Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is not sufficient for successfully connecting to ARR.
+> Always set **AccountDomain** to _**westus2**.mixedreality.azure.com_.
 
 These credentials will be saved to Unity's editor preferences.
 
 ### Create a session and view the default model
 
-From Unity's asset browser, open the scene **SampleScene**. Then select the **RRRoot** node:
+From Unity's asset browser, open the **SampleScene**. Then select the **RRRoot** node:
 
 ![Unity Scene Tree](./media/unity-scene.png "Unity Scene Tree")
 
@@ -100,26 +117,36 @@ Selecting the **RRRoot** node shows the following properties in the Inspector pa
 
 ![Unity Configure Sample Not Playing](./media/arr-sample-configure-session.png "Unity Configure Sample Not Playing")
 
-Now press Unity's **Play** button to start the session.
-If the account has been set up correctly, then the Inspector panel updates with additional status information at the bottom:
+Now press Unity's **Play** button to start the session. The session will undergo a series of state transitions. In the **Starting** state the remote VM is spun up, which may take several minutes. Upon success, it transitions to the **Ready** state. Now the session enters the **Connecting** state, where it tries to reach the rendering runtime on that VM.
 
-![Unity Configure Sample Playing](./media/arr-sample-configure-session-running.png "Unity Configure Sample Playing")
+> [!CAUTION]
+> The sample app may not display all the states that it transitions through, and just display 'Disconnected' in the viewport. The actual state is written to Unity's console. Do not press stop unless an actual error is printed, it is normal for the VMs to take 2 to 3 minutes to spin up.
 
-The session will undergo a series of state transitions. In the **Starting** state the remote VM is spun up, which may take several minutes. Upon success, it transitions to the **Ready** state. Now the session enters the **Connecting** state, where it tries to reach the rendering runtime on that VM. When successful, it finally transitions to the **Connected** state. Shortly after, a remotely rendered model will appear in the viewport.
+When successful, the sample finally transitions to the **Connected** state. Shortly after, a remotely rendered model will appear in the viewport.
+
+![Output from the sample](media/arr-sample-output.png)
 
 Congratulations! You are now viewing a remotely rendered model!
 
 Be aware that the rendered image will only appear in the 'Game' panel, not in the camera preview.
 
-You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector window.
+## Inspecting the scene
+
+Once the remote rendering connection is running, the Inspector panel updates with additional status information:
+
+![Unity sample playing](./media/arr-sample-configure-session-running.png)
+
+You can now explore the scene graph by selecting the new node and clicking **Show children** in the Inspector.
 
 ![Unity Hierarchy](./media/unity-hierarchy.png)
 
-Try moving objects or the [cut plane](../sdk/features-cut-planes.md) around in the editor. To synchronize transforms, either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
+Try moving objects or the [cut plane](../sdk/features-cut-planes.md) around:
+
+![Changing the cutplane](media/arr-sample-unity-cutplane.png)
+
+To synchronize transforms, either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
 
 ![Unity Inspector](./media/unity-inspector.png)
-
-![Unity Engine](./media/unity-engine.png "Unity Engine")
 
 ## Next steps
 
