@@ -241,7 +241,7 @@ The output of this command is similar to the following JSON:
 > [!IMPORTANT]
 > Copy the value of the `id` entry, as it is used in the next section.
 
-To check out a more comprehensive template for the JSON file that describe a dataset, use the following command:
+To see a more comprehensive template for a dataset, use the following command:
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -283,9 +283,9 @@ data:
 
 Change the value of the `id` entry to match the value returned when you registered the dataset. This value is used to load the data into the compute target during training.
 
-This YAML does the following:
+This YAML results in the following actions during training:
 
-* Mounts the dataset (based on the ID of the dataset) in the training environment, and stores the path to the mount point in the `mnist` environment variable..
+* Mounts the dataset (based on the ID of the dataset) in the training environment, and stores the path to the mount point in the `mnist` environment variable.
 * Passes the location of the data (mount point) inside the training environment to the script using the `--data-folder` argument.
 
 The runconfig file also contains information used to configure the environment used by the training run. If you inspect this file, you'll see that it references the `cpu-compute` compute target you created earlier. It also lists the number of nodes to use when training (`"nodeCount": "4"`), and contains a `"condaDependencies"` section that lists the Python packages needed to run the training script.
@@ -293,7 +293,7 @@ The runconfig file also contains information used to configure the environment u
 > [!TIP]
 > While it is possible to manually create a runconfig file, the one in this example was created using the `generate-runconfig.py` file included in the repository. This file gets a reference to the registered dataset, creates a run config programatically, and then persists it to file.
 
-For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), or reference this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) to see the full schema for a runconfig.
+For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## Submit the training run
 
@@ -374,7 +374,9 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
-The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+The `inferenceConfig.yml` file provides information on how to use the model for inference. For example, it references the entry script (`score.py`) and software dependencies. 
+
+For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

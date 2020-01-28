@@ -6,12 +6,12 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/28/2020
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
 
-This article lists partners of Windows Virtual Desktop.
+This article lists approved partner providers and independent software vendors for Windows Virtual Desktop.
 
 ## Citrix
 
