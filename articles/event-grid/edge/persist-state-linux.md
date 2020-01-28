@@ -58,7 +58,8 @@ For example, the following configuration will result in the creation of the volu
   ],
   "HostConfig": {
     "Binds": [
-      "egmetadataDbVol:/app/metadataDb"
+      "egmetadataDbVol:/app/metadataDb",
+      "egdataDbVol:/app/eventsDb"
     ],
     "PortBindings": {
       "4438/tcp": [
@@ -135,7 +136,8 @@ Instead of a docker volume, you also have the option to mount a host folder.
           ],
           "HostConfig": {
                 "Binds": [
-                  "/myhostdir:/app/metadataDb"
+                  "/myhostdir:/app/metadataDb",
+                  "/myhostdir2:/app/eventsDb"
                 ],
                 "PortBindings": {
                       "4438/tcp": [
@@ -167,7 +169,9 @@ To enable event persistence on an Event Subscription, set `persistencePolicy` to
  ```json
         {
           "properties": {
-            "persistencePolicy": "true",
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
             "destination": {
               "endpointType": "WebHook",
               "properties": {

@@ -23,8 +23,8 @@ Here's an example configuration for always presenting an identity certificate on
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge"
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge"
   ]
 }
  ```
@@ -35,7 +35,7 @@ Here's an example configuration for not presenting an identity certificate on ou
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=false"
+    "outbound__clientAuth__clientCert__enabled=false"
   ]
 }
  ```

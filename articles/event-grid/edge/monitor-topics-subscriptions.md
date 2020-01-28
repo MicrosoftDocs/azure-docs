@@ -16,12 +16,12 @@ Event Grid on Edge exposes a number of metrics for topics and event subscription
 
 ## Enable metrics
 
-Configure the module to emit metrics by setting the `metrics:reporterType` environment variable to `prometheus` in the container create options:
+Configure the module to emit metrics by setting the `metrics__reporterType` environment variable to `prometheus` in the container create options:
 
  ```json
         {
           "Env": [
-            "metrics:reporterType=prometheus"
+            "metrics__reporterType=prometheus"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -35,7 +35,7 @@ Configure the module to emit metrics by setting the `metrics:reporterType` envir
         }
  ```    
 
-Metrics will be available at `5888/metrics` of the module for http and `4438/metrics` for https. For example, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` for http. At this point, a metrics module can poll the endpoint to collect metrics as in this [example architecture](https://github.com/veyalla/ehm).
+Metrics will be available at `5888/metrics` of the module for http and `4438/metrics` for https. For example, `http://<modulename>:4438/metrics?api-version=2019-01-01-preview` for http. At this point, a metrics module can poll the endpoint to collect metrics as in this [example architecture](https://github.com/veyalla/ehm).
 
 ## Available metrics
 
