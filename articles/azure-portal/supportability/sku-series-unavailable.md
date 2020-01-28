@@ -74,7 +74,7 @@ If you're unable to find a suitable region or SKU, create a **Subscription manag
 
 1. Select **Review + create**. After you verify your information, select **Create** to create the request.
 
-## Feedback
+## Send us your suggestions
 
 We're always open to feedback and suggestions! Send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us on [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
 
