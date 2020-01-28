@@ -257,7 +257,7 @@ The result is:
 |12345|Manufacturer|ABC|
 |12345|Version|1.2.45|
 
-Using [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics), if necessary it's then possible to [join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) those fields in the main query (since this is not a join on reference data, it needs a [time boundary](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) that prevents duplication).
+If the extracted fields need to appear in columns, it is possible to pivot the dataset using the [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) syntax in addition to the [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) operation. That join will require a [time boundary](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) condition that prevents duplication:
 
 ```SQL
 WITH DynamicCTE AS (
