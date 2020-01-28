@@ -28,6 +28,7 @@ GZRS and RA-GZRS are currently available for preview in the following regions:
 - Asia Southeast
 - Europe North
 - Europe West
+- Japan East
 - UK South
 - US East
 - US East 2
@@ -125,6 +126,7 @@ Once the migration is complete, the storage account's replication setting will b
 Keep in mind the following restrictions on live migration:
 
 - While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated to GZRS or RA-GZRS by a certain date, then Microsoft recommends that you perform a manual migration instead. Generally, the more data you have in your account, the longer it takes to migrate that data.
+- Live migration is supported only for storage accounts that use GRS or RA-GRS replication. If your account uses LRS, then you need to first change your account's replication type to GRS or RA-GRS before proceeding. This intermediary step adds the secondary endpoint provided by GRS/RA-GRS.
 - Your account must contain data.
 - You can only migrate data within the same region.
 - Only standard storage account types support live migration. Premium storage accounts must be migrated manually.
