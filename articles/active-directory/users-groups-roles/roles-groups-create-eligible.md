@@ -57,9 +57,11 @@ The group is created with any selected roles assigned to it. You can also choose
 
 For this type of group, groupType will always be "Unified" and isPublic will always be false.
 
-### Using Microsoft Graph API
+## Using Microsoft Graph API
 
-    //Create a group that can be assigned Azure AD role. POST https://graph.microsoft.com/beta/groups
+### Create a group that can be assigned Azure AD role
+
+    POST https://graph.microsoft.com/beta/groups
     {
     "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
     "displayName": "Contoso_Helpdesk_Administrators",
