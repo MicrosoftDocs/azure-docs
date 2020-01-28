@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/24/2020
+ms.date: 01/25/2020
 ---
 
 # Mapping data flows performance and tuning guide
