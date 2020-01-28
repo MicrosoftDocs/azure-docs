@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 01/27/2020
+  ms.date: 01/28/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -57,6 +57,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
+        - web
       url: search/index.yml
     # Card
     - title: Azure Databricks
@@ -1411,6 +1412,13 @@ productDirectory:
       azureCategories:
         - storage
       url: storsimple/index.md
+    # Card
+    - title: Azure SignalR Service
+      summary: Add real-time web functionalities easily
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - web
+      url: azure-signalr/index.yml
 
 tools:
   title: Tools
