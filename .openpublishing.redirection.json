@@ -2947,6 +2947,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Recommendations/overview.md",
+      "redirect_url": "https://github.com/microsoft/Product-Recommendations/blob/master/README.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Video/Home.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
