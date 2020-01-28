@@ -16,21 +16,24 @@ This article describes common issues with developing Stream Analytics queries an
 
 ## Query is not producing expected output
 1.  Examine errors by testing locally:
-    - On the **Query** tab, select **Test**. Use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.   
-    - You can also [test your query directly on live input](stream-analytics-live-data-local-testing.md) using Stream Analytics tools for Visual Studio.
+    - On Azure portal, on the **Query** tab, select **Test**. Use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.   
+    - You can also [test your query locally](stream-analytics-live-data-local-testing.md) using Azure Stream Analytics tools for Visual Studio or [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  If you use [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verify that the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
+2.  [Debug queries step by step locally using job diagram](debug-locally-using-job-diagram.md) in Azure Stream Analytics tools for Visual Studio. The job diagram is to show how data flows from input sources (Event Hub, IoT Hub, etc.) through multiple query steps and finally output to sinks. Each query step is mapped to a temporary result set defined in the script using WITH statement. You can view the data as well as metrics in each query step in each intermediate result set to find the source of the issue.
+    ![Job diagram preview result](./media/debug-locally-using-job-diagram/preview-result.png)
 
-3.  Eliminate common pitfalls, such as:
+3.  If you use [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verify that the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
+
+4.  Eliminate common pitfalls, such as:
     - A [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) clause in the query filtered out all events, preventing any output from being generated.
     - A [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) instead.
     - When you use window functions, wait for the entire window duration to see an output from the query.
     - The timestamp for events precedes the job start time and, therefore, events are being dropped.
 
-4.  Ensure event ordering policies are configured as expected. Go to the **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production.
+5.  Ensure event ordering policies are configured as expected. Go to the **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
 
-5. Debug by using audit and diagnostic logs:
-    - Use [Audit Logs](../azure-resource-manager/management/view-activity-logs.md), and filter to identify and debug errors.
+6. Debug by using audit and diagnostic logs:
+    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
     - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
 
 ## Job is consuming too many Streaming Units
