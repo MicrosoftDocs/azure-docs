@@ -929,6 +929,82 @@ productDirectory:
       azureCategories:
         - integration
       url: service-bus/index.md
+    # Card
+    - title: Azure Digital Twins
+      summary: Build next-generation IoT spatial intelligence solutions
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+        - mixedReality
+      url: digital-twins/index.yml
+    # Card
+    - title: Azure IoT Central
+      summary: Accelerate the creation of IoT solutions
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+      url: iot-central/index.yml
+    # Card
+    - title: Azure IoT Hub
+      summary: Connect, monitor and manage billions of IoT assets
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+      url: iot-hub/index.yml
+    # Card
+    - title: Azure IoT solution accelerators
+      summary: Create fully customizable solutions with templates for common IoT scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+      url: iot-accelerators/index.yml
+    # Card
+    - title: Azure Maps
+      summary: Simple and secure location APIs provide geospatial context to data
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+        - mobile
+        - web
+      url: azure-maps/index.yml
+    # Card
+    - title: Azure Sphere
+      summary: Securely connect MCU-powered devices from the silicon to the cloud
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+      url: /azure-sphere/
+    # Card
+    - title: Azure Time Series Insights
+      summary: Explore and analyze time-series data from IoT devices
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+      url: time-series-insights/index.yml
+    # Card
+    - title: Notification Hubs
+      summary: Send push notifications to any platform from any back end
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+        - mobile
+        - web
+      url: notification-hubs/index.yml
+    # Card
+    - title: Windows 10 IoT Core Services
+      summary: Long-term OS support and services to manage device updates and assess device health
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+      url: /windows/iot-core/
+    # Card
+    - title: Security Center for IoT
+      summary: Unify security management and enable threat protection across your Azure IoT solution
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - iot
+        - security
+      url: asc-for-iot/index.yml
 
 tools:
   title: Tools
