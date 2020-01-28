@@ -51,7 +51,7 @@ pip install --upgrade azure-cognitiveservices-language-textanalytics
 
 Create a new Python file and create variables for your resource's Azure endpoint and subscription key.
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```python
 key = "<paste-your-text-analytics-key-here>"
