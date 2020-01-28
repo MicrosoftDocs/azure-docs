@@ -6,7 +6,7 @@ documentationcenter: na
 author: anupamvi
 mms.devlang: na
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 01/28/2020
 ms.author: kumud
 ---
 # Partnering with Azure DDoS Protection Standard
@@ -40,13 +40,13 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 ![DDoS metrics](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
 ### DDoS rapid response (DRR)
-DDoS Protection Standard customers now have access to [Rapid Response team](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) during an active attack. DRR can help with attack investigation, custom mitigations during an attack, and post-attack analysis.
+DDoS Protection Standard customers have access to [Rapid Response team](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) during an active attack. DRR can help with attack investigation, custom mitigations during an attack, and post-attack analysis.
 
 ### SLA guarantee and cost protection
 DDoS Protection Standard service is covered by 99.99% SLA, and cost protection provides resource credits for scale out during a documented attack. For more information, see [SLA for Azure DDoS Protection](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
 
 ## Featured partner scenarios
-The following are three key benefits you can derive by integrating with the Azure DDoS Protection Standard:
+The following are key benefits you can derive by integrating with the Azure DDoS Protection Standard:
 
 - Partner’s offered service (load balancer, web application firewall, firewall, etc.) to their customers are automatically protected (white labeled) by Azure DDoS Protection Standard in the backend.
 - Partners have access to Azure DDoS Protection Standard attack analytics and telemetry that they can integrate with their own products, offering a unified customer experience.  
@@ -61,11 +61,11 @@ Following steps are required for partners to configure integration with Azure DD
 1. Create a DDoS Protection Plan in your desired (partner) subscription. For step-by-step instructions, see [Create a DDoS Standard Protection plan](manage-ddos-protection.md#create-a-ddos-protection-plan).
    > [!NOTE]
    > Only 1 DDoS Protection Plan needs to be created for a given tenant. 
-2. Deploy a service with public endpoint in your required (partner) subscriptions such as - load balancer, firewalls, web application firewall. 
+2. Deploy a service with public endpoint in your (partner) subscriptions such as - load balancer, firewalls, web application firewall. 
 3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
    > [!IMPORTANT] 
    > Once Azure DDoS Protection Standard is enabled on a virtual network, all public IPs within that virtual network are automatically protected. The origin of these public IPs can either be within Azure (client subscription), or, outside of Azure. 
-4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application specific customer facing. For more information about using telemetry, see [Use DDoS Protection telemetry](manage-ddos-protection.md#use-ddos-protection-telemetry). For more information about configuring attack analytics, see [Configure DDoS attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics)
+4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application specific customer facing dashboard. For more information about using telemetry, see [Use DDoS Protection telemetry](manage-ddos-protection.md#use-ddos-protection-telemetry). For more information about configuring attack analytics, see [Configure DDoS attack analytics](manage-ddos-protection.md#configure-ddos-attack-analytics)
 
 ### Onboarding guides and technical documentation
 
