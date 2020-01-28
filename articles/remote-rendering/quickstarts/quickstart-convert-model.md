@@ -18,11 +18,13 @@ In the [previous quickstart](quickstart-render-model.md), you learned how to use
 You'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Set up Azure blob storage for input and output
 > * Configure the conversion script with your credentials and storage information
 > * Run the conversion and get back the URI of the converted model
 
 ## Prerequisites
+
 In addition to completing the [previous quickstart](quickstart-render-model.md), the following software must be installed:
 
 * Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
@@ -54,7 +56,6 @@ If you do not have an account yet, go to [https://azure.microsoft.com/get-starte
 
 Once you have an Azure account, go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
 
-
 ### Storage account creation
 
 To create blob storage, you first need a storage account.
@@ -72,13 +73,13 @@ This will bring up the following new screen with storage properties to fill out:
 
 Fill out the form in the following manner:
 
-  *	Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-  *	For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
-  *	Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
-  *	**Performance** set to ‘Standard’
-  *	**Account kind** set to ‘StorageV2 (general purpose v2)’
-  *	**Replication** set to ‘Read-access geo-redundant storage (RA-GRS)’
-  *	**Access tier** set to ‘Hot’
+* Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
+* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is ready given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
+* Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
+* **Performance** set to ‘Standard’
+* **Account kind** set to ‘StorageV2 (general purpose v2)’
+* **Replication** set to ‘Read-access geo-redundant storage (RA-GRS)’
+* **Access tier** set to ‘Hot’
 
 None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
@@ -96,12 +97,14 @@ From the **"Go to resource"** button above, you get into a screen with a panel o
 
 Press the **"+ Container"** button to create the **input** blob storage container.
 Use the following settings when creating it:
-  * Name = arrinput
-  * Public access level = Private
+  
+* Name = arrinput
+* Public access level = Private
 
 After the container has been created, click **+ Container** again and repeat with these settings for the **output** container:
-  * Name = arroutput
-  * Public access level = Private
+
+* Name = arroutput
+* Public access level = Private
 
 You should now have two blob storage containers:
 
@@ -144,9 +147,8 @@ To make it easier to run the model conversion service, we provide a utility scri
     }
 }
 ```
-The values in the **`accountSettings`** category should still be filled out from running the [render a model quickstart](../quickstarts/quickstart-render-model.md).
 
-Make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above. 
+Make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
 To fill out **azureSubscriptionId**, open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the list of subscriptions until you find the account used for this tutorial. **The SubscriptionID is located under the account name:**
@@ -155,12 +157,13 @@ To fill out **azureSubscriptionId**, open Azure Storage Explorer and click on th
 
 Unfortunately the ID cannot be copied to clipboard from here, but the ID can also be gathered from the web portal.
 
-Those are the settings you used during storage account creation and blob container setup. Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
+Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 > [!NOTE]
-> The example PowerShell script only allows for handling of one self contained file in the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
+> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
 
 ## Running the conversion script
+
 The script is now ready to upload your model, call the conversion API, and retrieve a link to the converted model.
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the prerequisites. Then log into your subscription:
@@ -178,12 +181,12 @@ PS> .\Ingestion.ps1
 You should see something like this:
 ![Ingestion.ps1](./media/successful-ingestion.png "Ingestion.ps1")
 
-The conversion script generates a **Shared Access Signature (SAS)** URI for the converted model. You can now copy this URI as the *model name* into the Unity sample app (see the [previous quickstart](quickstart-render-model.md)) to have it render your custom model!
+The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](quickstart-render-model.md)) to have it render your custom model!
 
 ![Replace model in Unity](./media/replace-model-in-unity.png)
 
-
 ## Re-creating a SAS URI
+
 The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, open Azure Storage Explorer and navigate to the *arroutput* blob storage container.
 You will find the converted model file in there (either an *ezArchive* or and *arrAsset* file).
 
@@ -191,13 +194,10 @@ Right-click on the entry and select **Get Shared Access Signature**:
 
 ![Signature Access](./media/model-share.png "Signature Access")
 
-Set the expiry date to a date you would like and press Create.
-Copy the URI that is shown in the next dialog.
-
-This URI is the replacement for the temporary URI and can be set as a *ModelName* property in the Unity sample.
-
+Set the expiry date to a date you would like and press **Create**. Copy the URI that is shown in the next dialog, it replaces the temporary URI that the script created.
 
 ## Next steps
+
 Now that you know the basics, have a look at our tutorials to gain more in-depth knowledge.
 
 > [!div class="nextstepaction"]
