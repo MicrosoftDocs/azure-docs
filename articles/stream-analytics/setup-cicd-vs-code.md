@@ -7,12 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 01/28/2020
 ---
 
 # Deploy an Azure Stream Analytics job using CI/CD npm package 
 
 You can use the Azure Stream Analytics CI/CD npm package to set up a continuous integration and deployment process for your Stream Analytics jobs. This article describes how to use the npm package in general with any CI/CD system, as well as specific instructions for deployment with Azure Pipelines.
+
+For more information about deploying with Powershell, see [deploy with a Resource Manager template file and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). You can also learn more about how to [use an object as a parameter in a Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 ## Build the VS Code project
 
@@ -104,19 +106,41 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
    |Contents| `**\Deploy\**` |
    |Target Folder| `$(build.artifactstagingdirectory)`|
 
+   ![Enter configurations for copy task](./media/setup-cicd-vs-code/copy-config.png)
+
 ### Add Publish build artifacts task
 
 1. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Publish build artifacts** and select the option with the black arrow icon. 
 
 2. Do not change any of the default configurations.
 
+## Release with Azure Pipelines
+
+Open a web browser and navigate to your Azure Stream Analytics Visual Studio Code project.
+
+1. Under **Pipelines** in the left navigation menu, select **Releases**. Then select **New pipeline**.
+
+2. Select **start with an Empty job**.
+
+3. In the **Artifacts** box, select **+ Add an artifact**. Under **Source**, select the build pipeline you just created and select **Add**.
+
+   ![Enter build pipeline artifact](./media/setup-cicd-vs-code/build-artifact.png)
+
+4. Change the name of **Stage 1** to **Deploy job to test environment**.
+
+5. Add a new stage and name it **Deploy job to production environment**.
+
+### Add tasks
+
+1. From the tasks dropdown, select **Deploy job to test environment**. 
+
+2. Select the **+** next to **Agent job** and search for *Azure resource group deployment*.
+
 ### Save and run
 
 Once you have finished adding the npm, command line, copy files, and publish build artifacts tasks, select **Save & queue**. When you are prompted, enter a save comment and select **Save and run**.
 
 ## Additional resources
-
-Learn more about how to [deploy with a Resource Manager template file and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Learn more about how to [use an object as a parameter in a Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need to provide Access to the service principal using PowerShell before deploying to Azure. Learn more about how to [deploy ADLS Gen1 with Managed Identity with Resource Manager template](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
