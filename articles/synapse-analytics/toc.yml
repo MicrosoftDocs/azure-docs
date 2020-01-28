@@ -273,7 +273,7 @@
       - name: Architecture
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Features overview
-        href: sql-analytics/overview-features
+        href: sql-analytics/overview-features.md
       - name: Resource consumption models
         href: sql-analytics/resource-consumption-models.md
       - name: Best practices SQL on-demand
