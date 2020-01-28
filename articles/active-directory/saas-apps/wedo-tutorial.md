@@ -150,7 +150,7 @@ Follow these steps to enable Azure AD SSO in WEDO.
 1. In the Profile settings, select the menu **Authentication** in the section **Network settings**.
 1. On the **SAML Authentication** page, perform the following steps:
 
-   ![SAML Authentication link](media/wedo-tutorial/network_security_authentification.png)
+   ![SAML Authentication link](media/wedo-tutorial/network-security-authentification.png)
 
    a. Enable **SAML Authentication**.
 
