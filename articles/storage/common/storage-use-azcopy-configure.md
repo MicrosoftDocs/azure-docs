@@ -107,19 +107,10 @@ If you're using the [azcopy sync](storage-ref-azcopy-sync.md) command to synchro
 
 The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps before the sync operation begins. If your synchronizing a large number of files, this up-front comparison might take a significant amount of time. 
 
-You can reduce the amount of time that it takes to synchronize files by eliminating the up-front comparison of file names and last modified times. To accomplish this, you can use the [azcopy copy](storage-ref-azcopy-copy.md) command and set the `--overwrite` flag to `ifSourceNewer`. 
+You can reduce the amount of time that it takes to synchronize files by eliminating the up-front comparison of file names and last modified times. To accomplish this, you can use the [azcopy copy](storage-ref-azcopy-copy.md) command and set the `--overwrite` flag to `ifSourceNewer`. For example: `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --overwrite=IfSourceNewer`. This command compares file names and last modified times as files are copied. This can improve performance in cases where there are a large number of files in either the source or destination.  
 
-For example, the following command uses the [azcopy sync](storage-ref-azcopy-sync.md) command to synchronize a container with changes to a local file system.
-
-`azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive`
-
-In this example, let's assume that the number of files being synchronized isn't significant. However, this command doesn't explicitly set the `--delete-destination` optional flag to a value of `true` or `prompt` so the number of files in the container increases over time until the performance impact of an up-front file comparisons becomes noticeable. 
-
-To increase the speed of the operation, consider using this command instead
-
-`azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --overwrite=IfSourceNewer`
-
-This command eliminates the up-front comparison of file names and last modified timestamps. Instead, those checks are performed as files are copied. This can improve performance in cases where there are a large number of files in either the source or destination.  
+> [!NOTE]
+> If you want your synchronization operation to delete files in the destination location if those files no longer exist in the source location, then you might not want to completely replace the [azcopy sync](storage-ref-azcopy-sync.md) command with the the [azcopy copy](storage-ref-azcopy-copy.md) command because the [azcopy copy](storage-ref-azcopy-copy.md) command won't do that. However, you could use the the [azcopy copy](storage-ref-azcopy-copy.md) command for better performance, and then periodically use the [azcopy sync](storage-ref-azcopy-sync.md) command and set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination directory if those files no longer exist in the source directory.
 
 ## Troubleshoot issues
 
