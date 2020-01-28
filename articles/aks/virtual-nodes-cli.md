@@ -314,6 +314,10 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 
 Now, remove the virtual network resources and resource group:
 
+
+> [!NOTE]
+> If you receive an error while attempting to remove the network profile, allow 3-4 days for the platform to automatically mitigate the issue and attempt the deletion again. If you need to delete a network profile immediately, [open a support request](https://azure.microsoft.com/support/create-ticket/) referencing the Azure Container Instances service.
+
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
@@ -329,9 +333,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-> [!NOTE]
-> If you receive an error while attempting to remove the network profile, allow 3-4 days for the platform to automatically mitigate the issue and attempt the deletion again. If you need to delete a network profile immediately, [open a support request](https://azure.microsoft.com/support/create-ticket/) referencing the Azure Container Instances service.
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
