@@ -52,7 +52,7 @@ To provision CMK, follow these steps: 
 
 5.  Enable CMK in Azure Sentinel.
 
-6.  Enable Azure Sentinel
+6.  Enable Azure Sentinel.
 
 ### STEP 1: Create an Azure Key Vault and storing key
 
