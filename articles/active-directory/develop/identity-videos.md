@@ -30,7 +30,43 @@ They are typically only 1-2 minutes long.
 |text     |  <iframe width="320" height="175" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>       |
 |text     |    <iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>     |
 
+## TEST2
 
+:::row:::
+    :::column:::
+        text
+    :::column-end:::
+    :::column:::
+        <iframe width="320" height="175" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        text
+    :::column-end:::
+    :::column:::
+        <iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen>
+    :::column-end:::
+:::row-end:::
+
+## TEST3
+
+:::row:::
+    :::column:::
+        text
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=2]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        text
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=2]
+    :::column-end:::
+:::row-end:::
 
 ## END TEST
 
