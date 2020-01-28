@@ -67,42 +67,11 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 ```
 
-# [Other](#tab/other)
+# [Otherwise...](#tab/other)
 
 Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
 ---
-
-
-**If you're using Maven... <a name="maven-setup" />**
-If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
-
-Then, refresh the project dependencies to get the binaries downloaded.
-
-```XML
-    <dependencies>
-      <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>applicationinsights-web-auto</artifactId>
-        <!-- or applicationinsights-web for manual web filter registration -->
-        <!-- or applicationinsights-core for bare API -->
-        <version>2.5.0</version>
-      </dependency>
-    </dependencies>
-```
-
-**If you're using Gradle... <a name="gradle-setup" />**
-If your project is already set up to use Gradle for build, merge the following code to your build.gradle file.
-
-Then refresh the project dependencies to get the binaries downloaded.
-
-```gradle
-    dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
-      // or applicationinsights-web for manual web filter registration
-      // or applicationinsights-core for bare API
-    }
-```
 
 **Otherwise, if you are manually managing dependencies...**
 Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
