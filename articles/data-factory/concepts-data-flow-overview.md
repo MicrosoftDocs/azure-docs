@@ -3,7 +3,7 @@ title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov, maghan
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
