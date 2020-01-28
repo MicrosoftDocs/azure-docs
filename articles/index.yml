@@ -832,6 +832,7 @@ productDirectory:
       azureCategories:
         - hybrid
         - identity
+        - security
       url: active-directory/index.yml
     # Card
     - title: Azure Arc
@@ -862,7 +863,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - hybrid
-      url: azure-stack/index.yml
+      url: /azure-stack/
     # Card
     - title: Security Center
       summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
@@ -885,7 +886,23 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - identity
+        - security
       url: active-directory-b2c/index.yml
+    # Card
+    - title: Azure Active Directory Domain Services
+      summary: Join Azure virtual machines to a domain without domain controllers
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - identity
+      url: active-directory-domain-services/index.yml
+    # Card
+    - title: Azure Information Protection
+      summary: Better protect your sensitive information—anytime, anywhere
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - identity
+        - security
+      url: /azure/information-protection/
     # Card
     - title: API Management
       summary: Publish APIs to developers, partners, and employees securely and at scale
