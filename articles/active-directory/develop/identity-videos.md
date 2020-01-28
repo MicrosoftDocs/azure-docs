@@ -22,59 +22,95 @@ Learn more about the Microsoft identity platform from these videos by members of
 
 They are typically only 1-2 minutes long.
 
-## Introduction to the Microsoft identity platform
-
-### What is the Microsoft identity platform
+## Microsoft identity platform basics
 
 Get a quick overview of what's in the Microsoft identity platform.
 
-> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
-
 <br/>
 
-### What do the MSAL family of authentication libraries do
+> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+
+### MSAL authentication libraries
 
 Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.
 
+<br/>
+
 > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
 
+### Accounts
+
+Learn the difference between work and school accounts, and personal Microsoft accounts.
+
+> [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
+
+### Brokers
+
+Learn what a broker is and how to use one.
+
 <br/>
 
+> [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
+
+### Redirect URI
+
+Learn how a redirect URI allows you to delegate sign in and get a security token for your app.
 
 <br/>
+
+> [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
+
+### Application object
+
+Learn about the role of the Azure Active Directory application object in the Microsoft identity platform.
+
+<br/>
+> [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
+
+### Azure active directory
+
+What's the role of Azure Active Directory in the Microsoft identity platform
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
+
+### Tenants
+
+Learn how tenants are related to your organization
+
+<br/>
+
+## App types
+
+### Web apps
+
+Learn about the difference between a single page application and a web app within the Microsoft identity platform.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8]
 
 ## Migration from v1.0 to v2.0
 
-
-## Why migrate your app from v1.0 to v2.0
+### Why migrate your app from v1.0 to v2.0
 
 Learn what endpoints are and the benefits of moving from the v1.0 endpoint to the v2.0 endpoint.
 
+<br/>
+
 > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg?]
+
+### Migrate your code
+
+Learn about migrating your ADAL codebase to use MSAL instead.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
 
 Learn why Microsoft recommends that you from the Azure Active Directory Authentication Library (ADAL) to the Microsoft Authentication library (MSAL).
 
-> [!VIDEO https://www.youtube.com/embed/q-TDszj2O-44]
-
 <br/>
 
-## What is the organizing scope of a tenant?
-
-This brief video covers what a tenant is.
-
-<br/>
-
->[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
-
-========== videos
-
-MSIX has a video page: https://review.docs.microsoft.com/en-us/windows/msix/team-video?branch=mcleans%2Fhub-page
-
-One dev Question
-
-[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
-What is the organizing scope of a tenant? One Dev Question: Jean-Marc Prieur
-Why migrate your app from v1.0 to v2.0 endpoint in Azure AD? | One Dev Question: Jean-Marc Prieur
-
-
-To get the url for the video: right-click video on youtube, choose 'copy embed code', copy src up to the '?', use that in the tag. See mail from me to markl directs tagged youtube
+> [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
