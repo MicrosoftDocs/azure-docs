@@ -312,6 +312,7 @@ Limitations and known issues:
 * Limitation of 200 features, unless a feature list is not specified (all features used).
 * Compute size must be large enough to handle the data. 
 * Ensure your dataset has data within the start and end date for a given monitor run.
+* Dataset monitors will only work on datasets that contain 50 rows or more. 
 
 Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the following table. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
 

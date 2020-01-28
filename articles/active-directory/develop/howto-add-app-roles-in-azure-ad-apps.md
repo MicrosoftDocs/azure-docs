@@ -15,7 +15,6 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Add app roles in your application and receive them in the token
@@ -33,9 +32,9 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 ### Declare app roles using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account, and then **Switch Directory**.
-1. Once the **Directory + subscription** pane opens, choose the Active Directory tenant where you wish to register your application, from the **Favorites** or **All Directories** list.
-1. Select **All services** in the left-hand nav, and choose **Azure Active Directory**.
+1. Select the **Directory + Subscription** icon in the portal toolbar.
+1. In the **Favorites** or **All Directories** list, choose the Active Directory tenant where you wish to register your application.
+1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the  **Azure Active Directory** pane, select **App registrations** to view a list of all your applications.
 1. Select the application you want to define app roles in. Then select **Manifest**.
 1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.

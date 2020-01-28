@@ -2,12 +2,12 @@
 title: Agile development of data science projects - Team Data Science Process
 description: Execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -82,13 +82,13 @@ After your project and project code repository are created, you can add a Featur
    
    You can also link the Feature to the project's Azure Repos code repository by selecting **Add link** under the **Development** section. 
    
-   After you finish editing the Feature, select **Save & Close**.
+   After you edit the Feature, select **Save & Close**.
    
    ![Edit Feature and select Save & Close](./media/agile-development/3a-add-link-repo.png)
 
 ## <a name='AddStoryunderfeature-4'></a>Add a User Story to the Feature 
 
-Under the Feature, you can add User Stories to describe major steps needed to finish the project. 
+Under the Feature, you can add User Stories to describe major steps needed to complete the project. 
 
 To add a new User Story to a Feature:
 

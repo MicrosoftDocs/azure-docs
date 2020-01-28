@@ -171,4 +171,4 @@ HDInsight customer-managed keys is available in all public clouds and national c
 
 ## Next steps
 
-* [Overview of enterprise security in Azure HDInsight](/domain-joined/hdinsight-security-overview.md)
+* [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md)

@@ -12,7 +12,7 @@ ms.author: prmitiki
 
 # Internet peering overview
 
-Peering is the interconnection between Microsoft’s global network (AS8075) and your network for the purpose of exchanging internet traffic from/to Microsoft online services and Microsoft Azure Services. Carriers or Service Providers can request to connect with Microsoft at any of our Edge locations. Each request is reviewed by Microsoft Azure Networking to ensure that it adheres to our peering policy. You can set up a peering with Microsoft network in two ways:
+Peering is the interconnection between Microsoft’s global network (AS8075) and your network for the purpose of exchanging internet traffic from/to Microsoft online services and Microsoft Azure Services. Carriers or Service Providers can request to connect with Microsoft at any of our Edge locations. Each request is reviewed by Microsoft to ensure that it adheres to our peering policy. You can set up a peering with Microsoft network in two ways:
 
 * **Direct peering:**
 
@@ -28,7 +28,7 @@ Peering is the interconnection between Microsoft’s global network (AS8075) and
 * Protect customer traffic against failures in your network or transit provider's network, by peering with Microsoft at redundant locations.
 * Learn performance metrics about your peering connections and utilize insights to troubleshoot your network.
 
-## Benefits of using Azure
+## Benefits of using Azure to set up peering
 
 You may request for peering with Microsoft using Azure PowerShell or portal. Peering set up in this manner is managed as an Azure resource and provides the following benefits:
 * Simplified and automatable steps to set up and manage peering with Microsoft.

@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Azure Batch service solutions 
 description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: 
@@ -13,8 +13,8 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 01/13/2020
-ms.author: lahugh
+ms.date: 01/28/2020
+ms.author: jushiman
 ---
 
 # Authenticate Batch service solutions with Active Directory
@@ -140,17 +140,28 @@ Your application should now appear in your access control settings with an RBAC 
 
 ![Assign an RBAC role to your application](./media/batch-aad-auth/app-rbac-role.png)
 
-### Assign a custom job submission role
+### Assign a custom role
 
-A custom job submission role grants permission for a user to submit jobs and tasks without permission to modify pools. This prevents users from performing operations that affect cost, such as creating pools or modifying nodes.
+A custom role grants permission for a user to submit jobs, tasks, and more without permission to modify pools. This prevents users from performing operations that affect cost, such as creating pools or modifying nodes.
 
-This is done by adding RBAC operations, to which roles can be granted permissions. The new operations are:
+You can use a custom role to grant permissions to an Azure AD user, group, or service principal for the following RBAC operations:
 
-- Pools (read, create/update, delete), including node management
-- Jobs (read, create/update, delete), including task management
-- Job Schedules (read, create/update, delete)
+- Microsoft.Batch/batchAccounts/pools/write
+- Microsoft.Batch/batchAccounts/pools/delete
+- Microsoft.Batch/batchAccounts/pools/read
+- Microsoft.Batch/batchAccounts/jobSchedules/write
+- Microsoft.Batch/batchAccounts/jobSchedules/delete
+- Microsoft.Batch/batchAccounts/jobSchedules/read
+- Microsoft.Batch/batchAccounts/jobs/write
+- Microsoft.Batch/batchAccounts/jobs/delete
+- Microsoft.Batch/batchAccounts/jobs/read
+- Microsoft.Batch/batchAccounts/certificates/write
+- Microsoft.Batch/batchAccounts/certificates/delete
+- Microsoft.Batch/batchAccounts/certificates/read
+- Microsoft.Batch/batchAccounts/read (for any read operation)
+- Microsoft.Batch/batchAccounts/listKeys/action (for any operation)
 
-Custom job submission roles are for users authenticated by AAD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using autopool require pool-level permissions.
+Custom roles are for users authenticated by Azure AD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using autopool require pool-level permissions.
 
 Here's an example of a custom role definition:
 
@@ -187,6 +198,8 @@ Here's an example of a custom role definition:
   }
 }
 ```
+
+For more general information on creating a custom role, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 ### Get the tenant ID for your Azure Active Directory
 

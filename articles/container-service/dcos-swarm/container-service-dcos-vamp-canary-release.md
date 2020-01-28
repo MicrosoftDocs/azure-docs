@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Canary release with Vamp on Azure DC/OS cluster
 description: How to use Vamp to canary release services and apply smart traffic filtering on an Azure Container Service DC/OS cluster 
-services: container-service
 author: gggina
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
@@ -141,7 +138,6 @@ This scenario uses a sample monolithic application called [**sava**](https://git
     9050: sava_cluster/webport  	# stable endpoint
    clusters:
     sava_cluster:               # cluster to create
-     services:
         -
           breed:
             name: sava:1.0.0    	# service variant name
@@ -202,7 +198,6 @@ To merge the new sava 1.1 service with the running deployment:
    name: sava:1.1.0      # blueprint name
    clusters:
     sava_cluster:       # cluster to update
-      services:
         -
           breed:
             name: sava:1.1.0    # service variant name

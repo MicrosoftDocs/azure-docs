@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Register a SAML application in Azure AD B2C
@@ -36,11 +37,11 @@ Summarizing the two non-exclusive core scenarios with SAML:
 | Scenario | Azure AD B2C role | How-to |
 | -------- | ----------------- | ------- |
 | My application expects a SAML assertion to complete an authentication. | **Azure AD B2C acts as the identity provider (IdP)**<br />Azure AD B2C acts as a SAML IdP to the applications. | This article. |
-| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
+| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](identity-provider-adfs2016-custom.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](identity-provider-salesforce-custom.md)</li></ul> |
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Azure AD B2C](active-directory-b2c-get-started-custom.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
+* Complete the steps in [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
 * Basic understanding of the Security Assertion Markup Language (SAML) protocol.
 * A web application configured as a SAML service provider (SP). For this tutorial, you can use a [SAML test application][samltest] that we provide.
 
@@ -173,7 +174,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Add following XML snippet just before the `<RelyingParty>` element. This XML overwrites orchestration step number 7 of the _SignUpOrSignIn_ user journey. If you customized your user journey by adding or removing orchestration steps, make sure the number (in the `order` element) is aligned with the one specified in the user journey for the token issuer step.
+1. Add following XML snippet just before the `<RelyingParty>` element. This XML overwrites orchestration step number 7 of the _SignUpOrSignIn_ user journey. If you started from a different folder in the starter pack, or customized your user journey by adding or removing orchestration steps, make sure the number (in the `order` element) is aligned with the one specified in the user journey for the token issuer step (for example, in the other starter pack folders it's step number 4 for `LocalAccounts`, 6 for `SocialAccounts` and 9 for `SocialAndLocalAccountsWithMfa`).
 
     ```XML
     <UserJourneys>
