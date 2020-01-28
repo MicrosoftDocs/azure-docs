@@ -61,7 +61,7 @@ The steps include:
 
 ## Configure a virtual network
 
-Use the Azure portal to a virtual network before you try to join an Azure-SSIS IR to it.
+Use the Azure portal to configure a virtual network before you try to join an Azure-SSIS IR to it.
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support the Data Factory UI.
 
