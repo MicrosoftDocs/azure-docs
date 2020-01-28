@@ -15,7 +15,7 @@ Jobs that output no result or unexpected results are common troubleshooting scen
 
 ## Debug a query using job diagram
 
-An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc) through multiple query steps and, finally, to output sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
+An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc.) through multiple query steps and, finally, to output sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
 
 > [!NOTE]
 > This job diagram only shows the data and metrics for local testing in a single node. It should not be used for performance tuning and troubleshooting.
