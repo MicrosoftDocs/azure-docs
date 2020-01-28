@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Service Bus queues with Java'
-description: 'Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in Java.'
+title: Use Azure Service Bus queues with Java
+description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
