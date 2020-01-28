@@ -32,7 +32,7 @@ Learn what's new with QnA Maker.
 
 ### September 2019
 
-* Import and export with [XLS file format](concepts/data-sources-supported.md)
+* Import and export with [XLS file format](concepts/content-types.md)
 
 ### June 2019
 

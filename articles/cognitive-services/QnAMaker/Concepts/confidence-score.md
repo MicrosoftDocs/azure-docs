@@ -85,5 +85,5 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Data sources supported](./data-sources-supported.md)
+> [Best practices](./best-practices.md)
 
