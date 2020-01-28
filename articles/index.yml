@@ -450,14 +450,158 @@ productDirectory:
       azureCategories:
         - compute
         - containers
+        - mobile
+        - web
       url: app-service/index.yml
+    # Card
+    - title: App Service
+      summary: Quickly create powerful cloud apps for web and mobile
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - mobile
+        - web
+      url: app-service/index.yml
+    # Card
+    - title: Azure CycleCloud
+      summary: Create, manage, operate, and optimize HPC and big compute clusters of any scale
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: cyclecloud/index.yml
+    # Card
+    - title: Azure Dedicated Host
+      summary: A dedicated physical server to host your Azure VMs for Windows and Linux
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: virtual-machines/windows/dedicated-hosts.md
     # Card
     - title: Azure Functions
       summary: Process events with serverless code
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
+        - compute
         - containers
+        - iot
       url: azure-functions/index.yml
+    # Card
+    - title: Azure Kubernetes Service (AKS)
+      summary: Simplify the deployment, management, and operations of Kubernetes
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - containers
+      url: aks/index.yml
+    # Card
+    - title: Azure Spring Cloud
+      summary: A fully managed Spring Cloud service, built and operated with Pivotal
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - web
+      url: spring-cloud/index.yml
+    # Card
+    - title: Azure VMware Solution by CloudSimple
+      summary: Run your VMware workloads natively on Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: vmware-cloudsimple/index.md
+    # Card
+    - title: Batch
+      summary: Cloud-scale job scheduling and compute management
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: batch/index.yml
+    # Card
+    - title: Cloud Services
+      summary: Create highly-available, infinitely-scalable cloud applications and APIs
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: cloud-services/index.yml
+    # Card
+    - title: Container Instances
+      summary: Easily run containers on Azure without managing servers
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - containers
+      url: container-instances/index.yml
+    # Card
+    - title: Linux Virtual Machines
+      summary: Provision virtual machines for Ubuntu, Red Hat, and more
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: virtual-machines/linux/index.yml
+    # Card
+    - title: Mobile Apps
+      summary: Build and host the backend for any mobile app
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - containers
+        - mobile
+        - web
+      url: app-service-mobile/index.yml
+    # Card
+    - title: SAP HANA on Azure Large Instances
+      summary: Run the largest SAP HANA workloads of any hyperscale cloud provider
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: virtual-machines/workloads/sap/hana-overview-architecture.md
+    # Card
+    - title: Service Fabric
+      summary: Develop microservices and orchestrate containers on Windows or Linux
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - containers
+      url: service-fabric/index.yml
+    # Card
+    - title: SQL Server on Virtual Machines
+      summary: Host enterprise SQL Server apps in the cloud
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - databases
+      url: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+    # Card
+    - title: Virtual Machine Scale Sets
+      summary: Manage and scale up to thousands of Linux and Windows virtual machines
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: virtual-machine-scale-sets/index.yml
+    # Card
+    - title: Web Apps
+      summary: Quickly create and deploy mission critical web apps at scale
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - containers
+        - mobile
+        - web
+      url: app-service/index.yml
+    # Card
+    - title: Windows Virtual Desktop
+      summary: The best virtual desktop experience, delivered on Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+        - windowsVirtualDesktop
+      url: virtual-desktop/index.yml
+    # Card
+    - title: Windows Virtual Machines
+      summary: Provision Windows virtual machines in seconds
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - compute
+      url: virtual-machines/windows/index.yml
     # Card
     - title: Azure API for FHIR
       summary: Easily create and deploy a FHIR service for health data solutions and interoperability
