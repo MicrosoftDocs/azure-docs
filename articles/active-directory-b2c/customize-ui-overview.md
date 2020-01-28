@@ -24,15 +24,15 @@ There are several ways to customize the UI of the user experiences your applicat
 
 ### User flows
 
-If you use [user flows](active-directory-b2c-reference-policies.md), you can change the look of your user flow pages by using built-in *page layout templates*, or by using your own HTML and CSS. Both methods are discussed later in this article.
+If you use [user flows](user-flow-overview.md), you can change the look of your user flow pages by using built-in *page layout templates*, or by using your own HTML and CSS. Both methods are discussed later in this article.
 
 You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customization for user flows.
 
 ### Custom policies
 
-If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
+If you're using [custom policies](custom-policy-overview.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, use [policy files to customize the UI](custom-policy-ui-customization.md).
 
-If you need to provide dynamic content based on a customer's decision, use custom policies that can [change page content dynamically](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a parameter that you pass from your web or mobile application.
+If you need to provide dynamic content based on a customer's decision, use custom policies that can [change page content dynamically](custom-policy-ui-customization-dynamic.md) depending on a parameter that's sent in a query string. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a parameter that you pass from your web or mobile application.
 
 ### JavaScript
 
@@ -61,6 +61,8 @@ Next, select a template from the list. Here are examples of the sign-in pages fo
 When you choose a template, the selected layout is applied to all pages in your user flow, and the URI for each page is visible in the **Custom page URI** field.
 
 ## Custom HTML and CSS
+
+If you wish to design your own policy layout with your customized HTML and CSS, you can do so by switching the "Use custom page content" toggle for each of the Layout names present in your policy. Please follow the below instructions regarding the custom layout configurations:
 
 Azure AD B2C runs code in your customer's browser by using an approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/).
 
@@ -146,7 +148,7 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](user-flow-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
@@ -175,4 +177,4 @@ The sample HTML and CSS files in the templates are located in the [/sample_templ
     [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
 - If you're using **custom policies**, you can start customizing the UI with the article:
 
-    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](custom-policy-ui-customization.md).
