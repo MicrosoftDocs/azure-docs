@@ -1,5 +1,5 @@
 ---
-title: T-SQL Feature differences - Azure Synapse Analytics
+title: T-SQL feature differences - Azure Synapse Analytics
 description: List of Transact-SQL features that are available in SQL Pool and SQL On-Demand.
 services: synapse analytics
 author: jovanpop-msft
