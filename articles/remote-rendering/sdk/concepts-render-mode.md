@@ -13,7 +13,7 @@ ms.service: azure-remote-rendering
 
 # Remote rendering modes
 
-Remote Rendering offers two main modes of operation, the `Balanced` mode and the `Quality` mode. These modes fundamentally govern how assets are rendered on the service VMs and cannot be changed during the runtime of a rendering process. They present trade-offs between resource usage, performance and rendering quality and are built to accommodate different use cases and rendering needs. Most of the supported use cases are a product of technical realities when it comes to rendering scenes containing massive amounts of data. Still, the two modes allow the user to choose a suitable approach for their needs and thus provide a base amount of versatility and adaptability.
+Remote Rendering offers two main modes of operation, the `Balanced` mode and the `Quality` mode. These modes fundamentally govern how assets are rendered on the service VMs and cannot be changed during the runtime of a rendering process. They present trade-offs between resource usage, performance, and rendering quality and are built to accommodate different use cases and rendering needs. Most of the supported use cases are a product of technical realities when it comes to rendering scenes containing massive amounts of data. Still, the two modes allow the user to choose a suitable approach for their needs and thus provide a base amount of versatility and adaptability.
 
 As best practices to quickly decide which mode is most appropriate, the following two rules generally apply:
 
@@ -47,7 +47,7 @@ public void ExampleConnect(AzureSession session)
 
 ### Balanced
 
-The `Balanced` mode is optimized for general usage and conservative resource utilization on the VMs. The `Balanced` mode maximizes the utilization of the VM's CPU, GPU, main memory, and graphics memory. It is well suited for very complex scenes in terms of both mesh and texture data.
+The `Balanced` mode is optimized for general usage and conservative resource utilization on the VMs. The `Balanced` mode maximizes the utilization of the VM's CPU, GPU, main memory, and graphics memory. It is well suited for complex scenes in terms of both mesh and texture data.
 
 The trade-off of `Balanced` mode is that it cannot deliver the best possible rendering quality in all situations, as exemplified by the following image:
 
@@ -65,7 +65,7 @@ The second available render mode `Quality` offers a gain in rendering quality at
 
 Besides this, this mode actually allows the rendering of transparencies to be done more efficiently.
 
-Due to the substantially higher resource consumption, this mode is only recommended for small to medium sized models, and only if the absolute best rendering quality is needed. The Remote Rendering service may even reject this mode for some models.
+Due to the substantially higher resource consumption, this mode is only recommended for small to medium-sized models, and only if the absolute best rendering quality is needed. The Remote Rendering service may even reject this mode for some models.
 
 ## See also
 
