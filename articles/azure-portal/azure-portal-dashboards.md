@@ -86,7 +86,7 @@ To change the size of a tile or to rearrange the tiles on a dashboard, follow th
 
 ### Additional tile configuration
 
-Some tiles may need more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from **Azure Monitor**. You can also customize tile data to override the dashboard's default time settings.
+Some tiles might require more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from **Azure Monitor**. You can also customize tile data to override the dashboard's default time settings.
 
 Any tile that needs to be set up displays a **Configure tile** banner until you customize the tile. Select that banner, then do the required setup.
 
