@@ -5978,12 +5978,12 @@
     },
     {
       "source_path": "articles/logic-apps/logic-apps-monitor-b2b-message.md",
-      "redirect_url": "/azure/logic-apps/logic-apps-monitor-b2b-messages",
+      "redirect_url": "/azure/logic-apps/logic-apps-monitor-b2b-messages-log-analytics",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal.md",
-      "redirect_url": "/azure/logic-apps/logic-apps-monitor-b2b-messages",
+      "redirect_url": "/azure/logic-apps/logic-apps-monitor-b2b-messages-log-analytics",
       "redirect_document_id": false
     },
     {
