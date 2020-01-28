@@ -54,7 +54,7 @@ The best answers are simple answers but not too simple. Do not use answers such 
 ## Chit-Chat
 Add chit-chat to your bot, to make your bot more conversational and engaging, with low effort. You can easily add chit-chat data sets from pre-defined personalities when creating your KB, and change them at any time. Learn how to [add chit-chat to your KB](../How-To/chit-chat-knowledge-base.md).
 
-Chit-chat is supported in [many languages](../how-to/chit-chat-knowledge-base?branch=pr-en-us-100699#language-support).
+Chit-chat is supported in [many languages](../how-to/chit-chat-knowledge-base.md#language-support).
 
 ### Choosing a personality
 Chit-chat is supported for several predefined personalities:
