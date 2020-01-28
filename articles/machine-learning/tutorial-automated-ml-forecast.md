@@ -47,7 +47,7 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
 1. Select **+New automated ML run**. 
 
-### Create and load dataset
+## Create and load dataset
 
 1. On the **Select dataset** form, select **From local files** from the  **+Create dataset** drop-down. 
 
@@ -88,7 +88,7 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
     1. Select  **Next**.
 
-### Configure the experiment run
+## Configure experiment run
 
 1. Populate the **Configure Run** form as follows:
     1. Enter an experiment name: `automl-bikeshare`
@@ -111,6 +111,8 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
     1. Select **Next**.
 
+## Select task type and settings
+
 1. On the **Task type and settings** form, select **Forecasting** as the machine learning task type.
 
     1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
@@ -128,6 +130,8 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
         Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 4
         
         Select **OK**.
+
+## Run experiment
 
 1. Select **Create** to run the experiment. The **Run Details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
 
