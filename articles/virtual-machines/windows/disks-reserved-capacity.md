@@ -1,5 +1,5 @@
 ---
-title: Optimize costs for Disk Storage with reservations
+title: Optimize costs for Azure Disk Storage with reservations
 description: Learn about purchasing Azure Disk Storage reservations to save costs on premium SSD managed disks.
 author: roygara
 ms.author: rogarana
