@@ -48,8 +48,10 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
 
 Azure Cosmos DB emulator currently doesn’t support hosted VS2019 agent pool. However, the emulator already comes with VS2019 installed and you use it by starting the emulator with the following PowerShell cmdlets. If you run into any issues when using the VS2019, reach out to the [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) team for help:
 
+```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 Start-CosmosDbEmulator
+```
 
 ## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the task to a build pipeline
 
