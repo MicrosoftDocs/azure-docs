@@ -72,7 +72,7 @@ There are two versions of the Text Analytics client library you can use: `v2` or
 
 ## Additional language support
 
-If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstarts available on GitHub. Use the table to find the right sample for your programming language.
+If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstarts available. Use the table to find the right sample for your programming language.
 
 | Language | Available version | 
 |----------|------------------------|
