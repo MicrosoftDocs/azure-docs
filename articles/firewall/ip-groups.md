@@ -59,6 +59,27 @@ You can now select **IP Group** as a **Source type** or **Destination type** for
 
 -- screenshot --
 
+## Region availability
+
+IP Groups are currently available in the following regions:
+
+- West US
+- East US
+- East US 2
+- West US 2
+- Central US
+- North Central US
+- West Central US
+- South Central US
+- Canada Central
+- North Europe
+- West Europe
+- France Central
+- UK South
+- Australia East
+- Australia Central
+- Australia Southeast
+
 ## Next steps
 
 - Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md).
