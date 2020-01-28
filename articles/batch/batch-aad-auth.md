@@ -142,7 +142,7 @@ Your application should now appear in your access control settings with an RBAC 
 
 ### Assign a custom role
 
-A custom role grants permission for a user to submit jobs, tasks, and more without permission to modify pools. This prevents users from performing operations that affect cost, such as creating pools or modifying nodes.
+A custom role grants granular permission to a user for submitting jobs, tasks, and more. This provides the ability to prevent users from performing operations that affect cost, such as creating pools or modifying nodes.
 
 You can use a custom role to grant permissions to an Azure AD user, group, or service principal for the following RBAC operations:
 
