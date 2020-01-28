@@ -14,7 +14,7 @@ ms.date: 01/31/2020
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), or [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). Or, you can use the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API can be used from any language or tool capable of making HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), or [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
@@ -28,26 +28,26 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- An **Azure subscription** for which you have administrative rights. If you do not have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree)
+- An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree)
 - An [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 - Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) to create a service principal in your workspace
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](https://aka.ms/wslinstall/) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
 ## Retrieve a service principal authentication token
 
-Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your workspace's service principal. In order to retrieve this token, you will need:
+Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your workspace's service principal. To retrieve this token, you'll need:
 
 - Your tenant ID (identifying the organization to which your subscription belongs)
 - Your client ID (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
-You should have these values from the response to the creation of your service principal as discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you are using your company subscription, it is possible that you do not have sufficient permissions to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
+You should have these values from the response to the creation of your service principal as discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
 
 To retrieve a token:
 
 1. Open a terminal window
 1. Enter the following code at the command line
-1. Substitute your own values for `{your-tenant-id}`, `{your-client-id}`, and `{your-client-secret}`. Throughout this article, strings surrounded by curly brackets are variables you will have to replace with your own appropriate values.
+1. Substitute your own values for `{your-tenant-id}`, `{your-client-id}`, and `{your-client-secret}`. Throughout this article, strings surrounded by curly brackets are variables you'll have to replace with your own appropriate values.
 1. Run the command
 
 ```bash
@@ -69,7 +69,7 @@ The response should provide an access token good for one hour:
 }
 ```
 
-Make note of the token, as you will use it to authenticate all subsequent administrative requests. You will do so by setting an Authorization header in all requests:
+Make note of the token, as you'll use it to authenticate all subsequent administrative requests. You will do so by setting an Authorization header in all requests:
 
 ```bash
 curl -h "Authentication: Bearer {your-access-token}" ...more args...
@@ -159,7 +159,7 @@ Again you'll receive a JSON list, this time containing a list, each item of whic
 }
 ```
 
-To work with resources within a workspace, you will need to switch from the general **management.azure.com** server to a REST API server specific to the location of the workspace. Note the value of the `discoveryUrl` key in the above JSON response. If you GET that URL, you'll receive a response along the lines of:
+To work with resources within a workspace, you'll switch from the general **management.azure.com** server to a REST API server specific to the location of the workspace. Note the value of the `discoveryUrl` key in the above JSON response. If you GET that URL, you'll receive a response something like:
 
 ```json
 {
@@ -176,7 +176,7 @@ To work with resources within a workspace, you will need to switch from the gene
 }
 ```
 
-The value of the `api` response is the URL of the server that you will use for additional requests. To list experiments, for instance, send the following command. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
+The value of the `api` response is the URL of the server that you'll use for additional requests. To list experiments, for instance, send the following command. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
 
 ```bash
 curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -228,7 +228,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), the following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
@@ -259,7 +259,7 @@ curl -X PUT \
 > [!Note]
 > In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
 
-A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm it's successful completion.
+A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm its successful completion.
 
 To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python program such as the following into a folder called **train.zip**.
 
@@ -338,11 +338,11 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 ```
 
 ~~
-After training, but before deployment, you will want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.~~
+After training, but before deployment, you'll want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.~~
 
 ### Delete resources you no longer need
 
-Some, but not all, resources support the DELETE verb. Check the [API Reference](https://docs.microsoft.com/rest/api/azureml/) prior to committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
+Some, but not all, resources support the DELETE verb. Check the [API Reference](https://docs.microsoft.com/rest/api/azureml/) before committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
 
 ```bash
 curl
