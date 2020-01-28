@@ -3,8 +3,8 @@ title: Set up SAP HANA System Replication on Azure virtual machines (VMs) | Micr
 description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
 documentationcenter: 
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
@@ -12,8 +12,8 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
-ms.author: sedusch
+ms.date: 01/28/2020
+ms.author: radeltch
 
 ---
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
