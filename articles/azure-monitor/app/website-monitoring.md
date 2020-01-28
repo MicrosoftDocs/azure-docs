@@ -11,7 +11,7 @@ ms.date: 07/15/2019
 ms.custom: mvc
 ---
 
-# Quickstart: Start monitoring your website
+# Quickstart: Start monitoring your website with Azure Monitor Application Insights
 
 In this quickstart, you learn to add the open-source Application Insights JavaScript SDK to your website. You also learn how to better understand the client/browser-side experience for visitors to your website.
 
