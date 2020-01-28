@@ -726,8 +726,8 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`).
 
     Key notes:
-    - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
-    - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
+    - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
+    - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
     - The `<resource-group>` value is the resource group of your App Gateway.
     - The `<identity-name>` value is the name of the created identity.
     - All identities for a given subscription can be listed using: `az identity list`.
