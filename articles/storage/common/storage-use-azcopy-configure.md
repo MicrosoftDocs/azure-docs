@@ -4,7 +4,7 @@ description: Configure, optimize, and troubleshoot AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -36,6 +36,14 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 ## Optimize performance
 
 You can benchmark performance, and then use commands and environment variables to find an optimal tradeoff between performance and resource consumption.
+
+This section helps you perform these optimization tasks:
+
+> [!div class="checklist"]
+> * Run benchmark tests
+> * Optimize throughput
+> * Optimize memory use 
+> * Synchronize files faster
 
 ### Run benchmark tests
 
@@ -92,6 +100,26 @@ Express this value in gigabytes (GB).
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+### Synchronize files faster
+
+If you're using the [azcopy sync](storage-ref-azcopy-sync.md) command to synchronize a large number of files between two locations, you might be able to improve performance by using the [azcopy copy](storage-ref-azcopy-copy.md) command instead. 
+
+The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps before the sync operation begins. If your synchronizing a large number of files, this up-front comparison might take a significant amount of time. 
+
+You can reduce the amount of time that it takes to synchronize files by eliminating the up-front comparison of file names and last modified times. To accomplish this, you can use the [azcopy copy](storage-ref-azcopy-copy.md) command and set the `--overwrite` flag to `ifSourceNewer`. 
+
+For example, the following command uses the [azcopy sync](storage-ref-azcopy-sync.md) command to synchronize a container with changes to a local file system.
+
+`azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive`
+
+In this example, let's assume that the number of files being synchronized isn't significant. However, this command doesn't explicitly set the `--delete-destination` optional flag to a value of `true` or `prompt` so the number of files in the container increases over time until the performance impact of an up-front file comparisons becomes noticeable. 
+
+To increase the speed of the operation, consider using this command instead
+
+`azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --overwrite=IfSourceNewer`
+
+This command eliminates the up-front comparison of file names and last modified timestamps. Instead, those checks are performed as files are copied. This can improve performance in cases where there are a large number of files in either the source or destination.  
 
 ## Troubleshoot issues
 
