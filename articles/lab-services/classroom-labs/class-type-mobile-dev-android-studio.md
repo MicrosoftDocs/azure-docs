@@ -83,8 +83,10 @@ Follow instructions below to download and install [Android Studio](https://devel
 15. On the **Select UI Theme** page, select desired theme. Click **Next**.
 16. On the **Verify Settings** page, click **Next**.
 17. On the **Downloading Components** page, wait until all components are downloaded.  Click **Finish**.
+
     > [!IMPORTANT]
     > It is expected that the HAXM installation fails.  HAXM does not support nested virtualization, which is why we installed Visual Studio Emulator for Android earlier in this article.
+
 18. The **Welcome to Android Studio** dialog will appear when the setup wizard is complete.
 
 ## Configure Android Studio and Visual Studio Emulator for Android
