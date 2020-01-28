@@ -12,7 +12,7 @@ The entries in the `inferenceconfig.json` document map to the parameters for the
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Path to a local file that contains the code to run for the image. |
 | `runtime` | `runtime` | Optional. Which runtime to use for the image. Supported runtimes are `spark-py` and `python`. If `environment` is set, this entry is ignored. |
-| `condaFile` | `conda_file` | Optional. Path to a local file that contains a Conda environment definition to use for the image.  If `environment` is set, this gentry is ignored. |
+| `condaFile` | `conda_file` | Optional. Path to a local file that contains a Conda environment definition to use for the image.  If `environment` is set, this entry is ignored. |
 | `extraDockerFileSteps` | `extra_docker_file_steps` | Optional. Path to a local file that contains additional Docker steps to run when setting up the image.  If `environment` is set, this entry is ignored.|
 | `sourceDirectory` | `source_directory` | Optional. Path to folders that contain all files to create the image, which makes it easy to access any files within this folder or subfolder. You can upload an entire folder from your local machine as dependencies for the Webservice. Note: your entry_script, conda_file, and extra_docker_file_steps paths are relative paths to the source_directory path. |
 | `enableGpu` | `enable_gpu` | Optional. Whether to enable GPU support in the image. The GPU image must be used on an Azure service, like Azure Container Instances. For example, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. The default is False. If `environment` is set, this entry is ignored.|
