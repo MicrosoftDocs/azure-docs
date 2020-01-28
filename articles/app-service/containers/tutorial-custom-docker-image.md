@@ -118,7 +118,7 @@ az acr credential show --name <azure-container-registry-name>
 The output reveals two passwords along with the user name.
 
 ```json
-<
+{
   "passwords": [
     {
       "name": "password",

@@ -121,8 +121,8 @@ When you use Azure AD B2C, your consumers can sign up for your applications by u
 Learn more:
 
 * [What is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/application-types.md)
 
 ## Device registration
 
