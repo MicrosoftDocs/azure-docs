@@ -74,7 +74,7 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-The delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a `0` delay, to run through an upgrade and not wait for the pre-configured delay.
+The delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a delay of `0` in order to skip any preconfigured upgrade delays.
 
 ## Manual upgrade mode
 
