@@ -34,7 +34,7 @@ Follow these best practices when setting up your app and authentication:
 
 3. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
    
-    ![](./media/configure-authentication-provider-aad/express-settings.png)
+    ![Express settings in Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
    
 4. (Optional) By default, App Service provides authentication but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code. To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
 
