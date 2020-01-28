@@ -205,6 +205,7 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 You can explore the REST API using the general pattern of:
 
 |URL component|Example|
+|-|-|
 | https://| |
 | regional-api-server/ | centralus.experiments.azureml.net/ |
 | operations-path/ | history/v1.0/ |
@@ -227,7 +228,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [tk](tk), the following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), the following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
@@ -258,9 +259,9 @@ curl -X PUT \
 > [!Note]
 > In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
 
-A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm it's successful completion. 
+A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm it's successful completion.
 
-To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python program such as the following into a folder called **train.zip**. 
+To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python program such as the following into a folder called **train.zip**.
 
 ```python
 # hello.py
@@ -333,17 +334,13 @@ You can monitor a run using the REST-ful pattern that should now be familiar:
 
 ```bash
 curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
-  -H 'Authorization:Bearer {your-access-token}' 
+  -H 'Authorization:Bearer {your-access-token}'
 ```
 
 ~~
 After training, but before deployment, you will want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.~~
 
-~~You may have a model that you have trained entirely outside of Azure. You can register such a model by ~~
-
-To register the outputs of a run as a model, 
-
-tk Well, all the business of registering a model seems problematic. So skip to: tk
+### Delete resources you no longer need
 
 Some, but not all, resources support the DELETE verb. Check the [API Reference](https://docs.microsoft.com/rest/api/azureml/) prior to committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
 
@@ -354,33 +351,19 @@ curl
   -H 'Authorization:Bearer {your-access-token}' 
 ```
 
-## Using REST on a deployed model
+## Use REST to score a deployed model
 
-While it's possible to deploy a model so that it authenticates with a service principal, most client-facing deployments use key-based authentication. To authent
+While it's possible to deploy a model so that it authenticates with a service principal, most client-facing deployments use key-based authentication. You can find the appropriate key in your deployment's page within the **Endpoints** tab of Studio. The same location will show your endpoint's scoring URI. Your model's inputs must be modeled as a JSON array named `data`:
 
-## Deploy a model 
-The REST API also supports updating many resources. For instance, 
-
-
-## tk 
-
-Deployed ML Web services use token-based authentication. 
+```bash
+curl 'https://{scoring-uri}' \
+ -H 'Authorization:Bearer {your-key}' \
+ -H 'Content-Type: application/json' \
+  -d '{ "data" : [ {model-specific-data-structure} ] }
+```
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-
-Reference is https://docs.microsoft.com/rest/api/azureml/
-
-
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+- Explore the complete [AzureML REST API Reference](https://docs.microsoft.com/rest/api/azureml/)
+- Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)
+- [Explore Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure/machine-learning/samples-notebooks)
