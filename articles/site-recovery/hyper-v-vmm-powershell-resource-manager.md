@@ -208,7 +208,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 1. Use this command to retrieve servers for the current vault. The command stores the Site Recovery servers in the `$Servers` array variable.
 
    ```azurepowershell
-   $Servers = Get-AzureRmRecoveryServicesAsrFabric
+   $Servers = Get-AzRecoveryServicesAsrFabric
    ```
 
 1. Run this command to retrieve the networks for the source Virtual Machine Manager server and the target Virtual Machine Manager server.
@@ -241,13 +241,13 @@ After the servers, clouds, and networks are configured correctly, enable protect
 1. Get the protection entity (VM), as follows:
 
    ```azurepowershell
-   $protectionEntity = Get-AzRecoveryServicesAsrProtectionContainer -FriendlyName $VMName -Fabric $PrimaryProtectionContainer
+   $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -FriendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
    ```
 
 1. Enable replication for the VM.
 
    ```azurepowershell
-   $jobResult = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainerMapping $protectionentity -VmmToVmm
+   $jobResult = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $protectionentity -ProtectionContainerMapping $policy -VmmToVmm
    ```
 
 > [!NOTE]
@@ -265,7 +265,7 @@ To test your deployment, run a test failover for a single virtual machine. You a
 1. Retrieve the VM into which VMs will fail over.
 
    ```azurepowershell
-   $Servers = Get-AzVM -ResourceGroupName #ResourceGroupName
+   $Servers = Get-AzRecoveryServicesASRFabric
    $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
    ```
 
@@ -274,7 +274,7 @@ To test your deployment, run a test failover for a single virtual machine. You a
    For a single VM:
 
    ```azurepowershell
-   $protectionEntity = Get-AzRecoveryServicesAsrProtectionContainer -FriendlyName $VMName -Fabric $PrimaryprotectionContainer
+   $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
    $jobIDResult =  Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity -VMNetwork $RecoveryNetworks[1]
    ```
@@ -298,7 +298,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
    For a single VM:
 
    ```azurepowershell
-   $protectionEntity = Get-AzRecoveryServicesAsrProtectionContainer -Name $VMName -Fabric $PrimaryprotectionContainer
+   $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
    $jobIDResult =  Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
    ```
@@ -318,7 +318,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
    For a single VM:
 
    ```azurepowershell
-   $protectionEntity = Get-AzRecoveryServicesAsrProtectionContainer -Name $VMName -Fabric $PrimaryprotectionContainer
+   $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
    $jobIDResult =  Start-AzRecoveryServicesAsrUnplannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
    ```
