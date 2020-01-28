@@ -23,8 +23,8 @@ In this article, you learn how to:
 > * Create a properly-formatted REST request using service principal authentication
 > * Use GET requests to retrieve information about Azure ML's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
-> * Use tk authorization and score against deployed models
 > * Use DELETE requests to clean up resources 
+> * Use key-based authorization and score against deployed models
 
 ## Prerequisites
 
@@ -261,6 +261,8 @@ curl -X PUT \
 
 A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm its successful completion.
 
+### Create an experimental run
+
 To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python program such as the following into a folder called **train.zip**.
 
 ```python
@@ -336,9 +338,6 @@ You can monitor a run using the REST-ful pattern that should now be familiar:
 curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
   -H 'Authorization:Bearer {your-access-token}'
 ```
-
-~~
-After training, but before deployment, you'll want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.~~
 
 ### Delete resources you no longer need
 
