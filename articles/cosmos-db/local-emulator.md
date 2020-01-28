@@ -442,47 +442,34 @@ Within the Windows VM run the command below and make note of the IPv4 address.
 ipconfig.exe
 ```
 
-Within your application you need to change the URI for the DocumentClient object to use the IPv4 address returned by `ipconfig.exe`. The next step is to work around the CA validation when constructing the DocumentClient object. For this you will need to provide an HttpClientHandler to the DocumentClient constructor, which has it's own implementation for ServerCertificateCustomValidationCallback.
+Within your application you need to change the URI used as Endpoint to use the IPv4 address returned by `ipconfig.exe` instead of `localhost`.
 
-Below is an example of what the code should look like.
-
-```csharp
-using System;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using System.Net.Http;
-
-namespace emulator
-{
-    class Program
-    {
-        static async void Main(string[] args)
-        {
-            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
-            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
-
-            //Work around the CA validation
-            var httpHandler = new HttpClientHandler()
-            {
-                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
-            };
-
-            //Pass http handler to document client
-            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
-            {
-                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
-                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
-            }
-        }
-    }
-}
-```
-
-Finally, from the within the Windows VM, launch the Cosmos emulator from the command line using the following options.
+The next step, from the within the Windows VM, launch the Cosmos emulator from the command line using the following options.
 
 ```cmd
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
+
+Finally, we need to import the Emulator CA certificate into the Linux or Mac environment.
+
+If you are working on Linux, .NET relays on OpenSSL to do the validation:
+
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key). 
+2. Copy that PFX file into your Linux environment.
+3. Convert the PFX file into a CRT file
+```bash
+openssl pkcs12 -in YourPFX.pfx -clcerts -nokeys -out YourCTR.crt
+```
+4. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+```bash
+cp YourCTR.crt /usr/local/share/ca-certificates/
+```
+5. Update the CA certificates, which will update the `/etc/ssl/certs/` folder.
+```bash
+update-ca-certificates
+```
+
+After following these steps, your environment will trust the certificate used by the Emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
 
 ## Troubleshooting
 
