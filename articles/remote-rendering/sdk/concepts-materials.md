@@ -4,6 +4,7 @@ description: Rendering material description and material properties
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
@@ -33,17 +34,17 @@ The PBR material is a material that provides physically based rendering (PBR). I
 
 Supported features:
 
- * Albedo map with albedo modulation, or albedo color
- * Normal map or vertex normals
- * Roughness map with roughness scale, or single roughness value
- * Metallic map with metallic scale, or single metallic value
- * Specular reflections
- * Ambient occlusion map with occlusion scale
- * UV transform (offset/scale, applied to all textures)
- * Alpha blending
- * Alpha clip with alpha clip threshold
- * Two-sided rendering (with two-sided lighting)
- * Support for using vertex colors as albedo modulation
+* Albedo map with albedo modulation, or albedo color
+* Normal map or vertex normals
+* Roughness map with roughness scale, or single roughness value
+* Metallic map with metallic scale, or single metallic value
+* Specular reflections
+* Ambient occlusion map with occlusion scale
+* UV transform (offset/scale, applied to all textures)
+* Alpha blending
+* Alpha clip with alpha clip threshold
+* Two-sided rendering (with two-sided lighting)
+* Support for using vertex colors as albedo modulation
 
 > [!NOTE]
 > The importer from source assets (fbx) always converts source materials into PBR materials and tries to match the physical properties.
@@ -56,12 +57,12 @@ A color material only provides a constant albedo color that may either originate
 
 Supported features:
 
- * Albedo map with albedo modulation, or albedo color
- * UV transform (offset/scale)
- * Alpha- and additive blending
- * Alpha clip with alpha clip threshold
- * Two-sided rendering (with two-sided lighting)
- * Support for using vertex colors as albedo modulation
+* Albedo map with albedo modulation, or albedo color
+* UV transform (offset/scale)
+* Alpha- and additive blending
+* Alpha clip with alpha clip threshold
+* Two-sided rendering (with two-sided lighting)
+* Support for using vertex colors as albedo modulation
 
 ## Material classes
 
@@ -91,18 +92,18 @@ void SetMaterialColorToGreen(Material material)
 
 Materials can either be modified on the mesh or on the mesh component. Since the mesh represents the resource that comes from source data, changing a material on the mesh will affect all instances that reference the mesh. It is thus recommended to operate on the MeshComponent instead, which represents an instance of the mesh. That way the mesh resource remains unchanged and furthermore multiple instances may have distinct material assignments.
 
-Materials are assigned and queried via a slot index [0 .. n-1] where n denotes the number of mesh parts in a mesh. Mesh resource and mesh component have the same number of material slots. The difference is that any slot on the mesh component starts as ```null``` which means the material used for rendering that part falls back to the mesh resource's slot. 
+Materials are assigned and queried via a slot index [0 .. n-1] where n denotes the number of mesh parts in a mesh. Mesh resource and mesh component have the same number of material slots. The difference is that any slot on the mesh component starts as ```null``` which means the material used for rendering that part falls back to the mesh resource's slot.
 
 So the material assignment workflow typically involves the following steps:
- * Create a new material, copy relevant properties from the material in the respective mesh resource's slot
- * Modify material properties, for example animate color over time
- * To reset to original material, just assign ```null``` (C#) to the mesh component's slot
- * Delete the material if not needed anymore
+
+* Create a new material, copy relevant properties from the material in the respective mesh resource's slot
+* Modify material properties, for example animate color over time
+* To reset to original material, just assign ```null``` (C#) to the mesh component's slot
+* Delete the material if not needed anymore
 
 Here are code examples to create and assign a material
 
-C#
-``` cs
+```csharp
 void SetMeshComponentToRed(AzureSession session, MeshComponent meshComp)
 {
     // create new Material instance

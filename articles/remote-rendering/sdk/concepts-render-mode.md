@@ -4,11 +4,13 @@ description: Configuring server side rendering modes
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Remote rendering modes
 
 Remote Rendering offers two main modes of operation, the `Balanced` mode and the `Quality` mode. These modes fundamentally govern how assets are rendered on the service VMs and cannot be changed during the runtime of a rendering process. They present trade-offs between resource usage, performance and rendering quality and are built to accommodate different use cases and rendering needs. Most of the supported use cases are a product of technical realities when it comes to rendering scenes containing massive amounts of data. Still, the two modes allow the user to choose a suitable approach for their needs and thus provide a base amount of versatility and adaptability.
@@ -30,7 +32,7 @@ public void ExampleConnect(AzureSession session)
     params.mode = ServiceRenderMode.Quality;
     session.ConnectToRuntime(params);
     // Wait for connection to be formed, do operations.
- 
+
     // Disconnect
     session.DisconnectFromRuntime();
 

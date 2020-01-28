@@ -1,9 +1,10 @@
 ---
-title: Creating an account for ARR
-description: Describes the steps to create an account for Azure Remote Rendering
+title: Creating an account
+description: Describes the steps to create an account
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual

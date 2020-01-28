@@ -4,6 +4,7 @@ description: User manual of the ArrInspector tool
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
@@ -56,7 +57,7 @@ The vertical range is by default computed based on the values currently displaye
 
 The log panel shows a list of log messages generated on the server side. On connection it will show up to 200 previous log messages, and will print new ones as they happen.
 
-You can filter the list based on the log type \[Error/Warning/Info/Debug\] by clicking on the toggle buttons on the top. 
+You can filter the list based on the log type \[Error/Warning/Info/Debug\] by clicking on the toggle buttons on the top.
 ![Log Filter Buttons](./media/log-filter.png)
 
 ## The Timing Data Capture Panel
@@ -105,7 +106,7 @@ By default the tool connects to the local ARR server (running on the same host t
 
 You can add new hosts by clicking on "add new host", and entering name and hostname (just the hostname ending in "mixedreality.azure.com", no http:// or port), or remove them by clicking on the bin icon on the right side.
 
-To connect to one of the hosts, just select the entry in the list and press OK. 
+To connect to one of the hosts, just select the entry in the list and press OK.
 
 ![Host Combo](./media/host-switch-combo.png)
 

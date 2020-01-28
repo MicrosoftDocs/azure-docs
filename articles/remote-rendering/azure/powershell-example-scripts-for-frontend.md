@@ -1,9 +1,10 @@
 ---
 title: Example Powershell scripts
-description: Sample powershell scripts that show how to use the front end via Powershell scripts
+description: Examples that show how to use the front end via Powershell scripts
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial

@@ -1,18 +1,19 @@
 ---
-title: Create a new Unity project
-description: User steps to create a new Unity project for remote rendering
+title: Creating a new Unity project
+description: Explains the steps to create a new Unity project
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Create a new Unity project
+# Creating a new Unity project
 
-Make sure you have all the prerequisites in the [Unity Sample Project Documentation](../how-tos/run-unity-sample-project.md#prerequisites) fulfilled. 
+Make sure you have all the prerequisites in the [Unity Sample Project Documentation](../how-tos/run-unity-sample-project.md#prerequisites) fulfilled.
 
 For the time being, it is advised to make a copy of the [UnitySampleProject](../how-tos/run-unity-sample-project.md) instead of creating a new project in Unity.
 
@@ -35,6 +36,7 @@ You'll have to adjust these entries in your **Project/Packages/manifest.json** t
 Go to "File->Build Settings...", switch ot UWP and click "Player Settings..." which should open them in the Unity Inspector view.
 
 Go to the "XR Settings" group:
+
 * Enable "Virtual Reality Support".
 * In the SDKs list, add "Windows Mixed Reality".
 * Switch "Depth Format" to "16-bit depth" to reduce power consumption and improve performance.
@@ -51,12 +53,14 @@ To use the scriptable render pipeline mentioned above, switch to the "Graphics" 
 ## MRTK
 
 To be able to use MRTK with ARR in the Unity editor, the MRTK [camera profile](https://github.com/Microsoft/MixedRealityToolkit-Unity/wiki/Camera-Profile) must be changed:
+
 * Set "Clear Flags" to "Color" under "Opaque Display Settings".
 * Set "Background Color" to black under "Opaque Display Settings".
 
 ## Game tab
 
-The Unity **Game** window has multiple options at the top: 
+The Unity **Game** window has multiple options at the top:
+
 * Select the "aspect ratio" setting and change it to "Free Aspect" and if available, uncheck "Low Resolution Aspect Ratios".
 * Verify that the "Scale" slider is set to 1x. This setting sometimes gets reset when the simulation starts and needs to be reset to 1x.
 
@@ -67,11 +71,12 @@ ARR may trigger errors at startup, which by default will pause the simulation, t
 ## Main camera
 
 The main camera of each scene needs to be changed:
+
 * Set "Background Type" to "Solid Color".
 * Set "Background" to black.
 * Set "Transform Position" to 0, 0, 0.
 * Set "Transform Rotation" to 0, 0, 0.
-* Set "Transform Scale" to 1, 1, 1. 
+* Set "Transform Scale" to 1, 1, 1.
 
 ## Add Tag
 

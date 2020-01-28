@@ -4,11 +4,13 @@ description: Sky rendering
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Sky
 
 Currently, the scene is exclusively lit by a global sky environment map. This environment map is identical to a typical sky box and differs only in so far as it not being visible to the observer directly (that is, as a virtual sky) but indirectly via diffuse, glossy and highly specular reflections on rendered objects. Using such a sky environment allows for smoothly varying lighting to give the scene a natural and realistic look compared to other typically more constricted light sources like point or directional lights. Examples of sky lighting results on rendered geometry can be found as follows:

@@ -1,9 +1,10 @@
 ---
 title: The model conversion REST API
-description: Tutorial how to ingest a model via REST API
+description: Describes how to convert a model via the REST API
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial

@@ -1,9 +1,10 @@
 ---
-title: Getting started with Azure Remote Rendering
-description: Getting started with Azure Remote Rendering
+title: Getting started
+description: Gives suggestions where to start learning Azure Remote Rendering
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial

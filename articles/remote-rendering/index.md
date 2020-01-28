@@ -1,8 +1,9 @@
 ---
-title: Azure Remote Rendering Documentation
-description: Azure Remote Rendering Welcome page
+title: Welcome page
+description: Azure Remote Rendering welcome page
 author: jakrams
 manager: jlyons
+titleSuffix: Azure Remote Rendering
 ms.author: jakras
 ms.service: azure-remote-rendering
 ms.topic: overview
@@ -39,4 +40,3 @@ Learn how to build your own app with Azure Remote Rendering:
 * [Tutorial 1 - Getting started](tutorials/tutorial-1-getting-started.md)
 * [Tutorial 2 - Working with remote entities](tutorials/tutorial-2-working-with-remote-entities.md)
 * [Tutorial 3 - Changing environment and materials](tutorials/tutorial-3-changing-environment-and-materials.md)
-

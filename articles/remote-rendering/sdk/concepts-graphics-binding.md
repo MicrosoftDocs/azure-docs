@@ -4,6 +4,7 @@ description: Setup of graphics bindings and use cases
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
@@ -54,9 +55,11 @@ if (currentSesson.GraphicsBinding)
 There are currently two graphics APIs that can be selected, `SimD3D11` and `WmrD3D11`. A third one `Headless` exists but is not yet supported on the client side.
 
 ### Simulation
+
 `GraphicsApi.SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding. This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
 
 ### Windows Mixed Reality
+
 `GraphicsApi.WmrD3D11` is the default binding to run on Hololens 2. It will create the `GraphicsBindingWmrD3d11` binding. In this mode Azure Remote Rendering hooks directly into the holographic APIs.
 
 To access the derived graphics binding for each of these, the base `GraphicsBinding` has to be cast.

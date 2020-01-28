@@ -1,9 +1,10 @@
 ---
 title: Components
-description: Definition of Components in the scope of Azure Remote Rendering API
+description: Definition of components in the scope of the Azure Remote Rendering API
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
