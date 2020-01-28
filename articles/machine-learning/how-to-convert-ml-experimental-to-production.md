@@ -5,7 +5,7 @@ author: bjcmit #Required; your GitHub user alias, with correct capitalization.
 ms.author: brysmith #Required; microsoft alias of author; optional team alias.
 ms.service: machine-learning #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: tutorial #Required
-ms.date: 01/28/2020; mm/dd/yyyy format.
+ms.date: 01/28/2020 #Required; mm/dd/yyyy format.
 ---
 
 <!---Recommended: Remove all the comments in this template before you
