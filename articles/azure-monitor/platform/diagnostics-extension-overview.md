@@ -17,16 +17,13 @@ Azure Diagnostics extension is an agent in Azure Monitor that collects monitorin
 > Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
 
-
-
 ## Comparison to Log Analytics agent
 The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
-- Azure Diagnostics extension can collect data to Azure Monitor Metrics. The Log Analytics agent primarily collects data to Azure Monitor Logs. Both can collect data to Azure Storage and Event Hubs.
+- Azure Diagnostics extension send data to Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent primarily collects data to [Azure Monitor Logs](data-platform-logs.md) where it supports [Azure Monitor for VMs](../insights/vminsights-overview.md) and [solutions](../insights/solutions.md).
 
 ## Data collected
-The Diagnostics extension for Windows and Linux can collect different data from the guest operating system.
 
 ### Windows diagnostics extension (WAD)
 
@@ -49,14 +46,14 @@ The Diagnostics extension for Windows and Linux can collect different data from 
 | --- | --- |
 | Syslog | Information sent to the Linux event logging system.   |
 | Performance counters  | Numerical values measuring performance of different aspects of operating system and workloads. |
-| Log files | Entries sent to a log file.  |
+| Log files | Entries sent to a file based log.  |
 
 ## Data destinations
-The Azure Diagnostic extension collects data into an Azure Storage account, and you can configure *data sinks* to send data to other destinations.
+The Azure Diagnostic extension for both Windows and Linux collects data into an Azure Storage account. See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-to-storage.md) and [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) for a list of specific tables and blobs.
+
+Configure one or more *data sinks* to send data to other destinations. The following sections list the sinks available for WAD and LAD.
 
 ### Windows diagnostics extension (WAD)
-WAD writes data to either tables or blobs in an Azure Storage account depending on the type of data being collected. See [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md). It supports the sinks in the following table.
-
 
 | Destination | Sink Name | Description |
 |:---|:---|:---|
@@ -89,20 +86,6 @@ The schema used for configuration of the diagnostics extension is available at t
 
 - [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
 - [Use Linux Diagnostic Extension to monitor metrics and logs](/virtual-machines/extensions/diagnostics-linux)
-
-
-### Azure portal
-
-
-
-
-Linux
-
-
-1. Click on ****Diagnostic settings** in the **Monitoring** section of the VMs menu in the Azure portal.
-2. Select a storage account.
-2. Click **Enable guest-level monitoring**.
-
 
 
 ## Costs

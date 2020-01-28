@@ -13,29 +13,22 @@ ms.date: 01/26/2020
 # Send data from Azure Monitor Diagnostics extension to Event Hubs
 The Diagnostics extension in Azure Monitor allows you to collect logs and metrics from Azure compute resources into Azure Storage and also send them to other destinations. This article describes how to send data from the Windows Azure Diagnostic extension (WAD) to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) so you can send the data to locations outside of Azure.
 
+## Supported data
 
-Supported data types include:
+The data collected from the guest operating system that can be sent to Event Hubs includes the following. Other data sources collected by WAD, including IIS Logs and crash dumps, cannot be sent to Event Hubs.
 
 * Event Tracing for Windows (ETW) events
 * Performance counters
 * Windows event logs
 * Azure Diagnostics infrastructure logs
 
-This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:
-
-* How to customize the logs and metrics that get sent to Event Hubs
-* How to change configurations in each environment
-* How to view Event Hubs stream data
-* How to troubleshoot the connection  
-
 ## Prerequisites
-Diagnostics extension is supported on Azure compute resources including VMs, Virtual Machine Scale Sets, Cloud Services, and Service Fabric.
 
-* Windows diagnostics extension 1.6 or higher.
+* Windows diagnostics extension 1.6 or higher. See [Azure Diagnostics extension configuration schema versions and history](diagnostics-extension-schema.md) for a version history and [Azure Diagnostics extension overview](diagnostics-extension-overview.md) for supported resources.
 * Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## Configuration schema
-See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. See the reference for further explanation of the schema.
+See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. 
 
 
 ## Define the event hub sink
@@ -222,7 +215,7 @@ In the following example, the **sinks** attribute is applied directly to three c
 
 
 
-The following example shows how a developer can limit the amount of data sent to the critical metrics that are used for this service’s health.  
+The following example shows how you can limit the amount of data sent to the critical metrics that are used for this service’s health. In this example, the sink is applied to logs and is filtered only to error level trace.
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
@@ -235,23 +228,8 @@ The following example shows how a developer can limit the amount of data sent to
 }
 ```
 
-In this example, the sink is applied to logs and is filtered only to error level trace.
 
-## Deploy and update a Cloud Services application and diagnostics config
-Visual Studio provides the easiest path to deploy the application and Event Hubs sink configuration. To view and edit the file, open the *.wadcfgx* file in Visual Studio, edit it, and save it. The path is **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx**.  
 
-At this point, all deployment and deployment update actions in Visual Studio, Visual Studio Team System, and all commands or scripts that are based on MSBuild and use the **/t:publish** target include the *.wadcfgx* in the packaging process. In addition, deployments and updates deploy the file to Azure by using the appropriate Azure Diagnostics agent extension on your VMs.
-
-After you deploy the application and Azure Diagnostics configuration, you will immediately see activity in the dashboard of the event hub. This indicates that you're ready to move on to viewing the hot-path data in the listener client or analysis tool of your choice.  
-
-In the following figure, the Event Hubs dashboard shows healthy sending of diagnostics data to the event hub starting sometime after 11 PM. That's when the application was deployed with an updated *.wadcfgx* file, and the sink was configured properly.
-
-![][0]  
-
-> [!NOTE]
-> When you make updates to the Azure Diagnostics config file (.wadcfgx), it's recommended that you push the updates to the entire application as well as the configuration by using either Visual Studio publishing, or a Windows PowerShell script.  
->
->
 
 ## Viewing data sent to event hub
 A simple approach is view the data sent to the event hub is to create a small test console application to listen to the event hub and print the output stream. You can place the following code, which is explained in more detail

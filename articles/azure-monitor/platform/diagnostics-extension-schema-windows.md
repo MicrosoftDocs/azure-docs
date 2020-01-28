@@ -205,7 +205,7 @@ The top-level element of the diagnostics configuration file.
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|
+|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter. Values are available at [UnitType Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Azure Monitor or Event Hubs.|    
 
 
@@ -316,136 +316,10 @@ The top-level element of the diagnostics configuration file.
 
  Boolean. Use `true` to enable the diagnostics or `false` to disable the diagnostics.
 
-## Example  
+## Example configuration
  Following is a complete sample configuration for Windows diagnostics extension shown in both JSON and XML.
 
- ### XML
-
-```xml  
-<?xml version="1.0" encoding="utf-8"?>  
-<DiagnosticsConfiguration  xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">   
-  <PublicConfig>  
-    <WadCfg>  
-      <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
-
-        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
-          <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
-        </PerformanceCounters>  
-
-        <Directories scheduledTransferPeriod="PT5M">  
-          <IISLogs containerName="iislogs" />  
-          <FailedRequestLogs containerName="iisfailed" />  
-
-          <DataSources>  
-            <DirectoryConfiguration containerName="mynewprocess">  
-              <Absolute path="C:\MyNewProcess" expandEnvironment="false" />  
-            </DirectoryConfiguration>  
-            <DirectoryConfiguration containerName="badapp">  
-              <Absolute path="%SYSTEMDRIVE%\BadApp" expandEnvironment="true" />  
-            </DirectoryConfiguration>  
-            <DirectoryConfiguration containerName="goodapp">  
-              <LocalResource name="Skippy" relativePath="..\PeanutButter"/>  
-            </DirectoryConfiguration>  
-          </DataSources>  
-
-        </Directories>  
-
-        <EtwProviders>  
-          <EtwEventSourceProviderConfiguration   
-                       provider="MyProviderClass"   
-                       scheduledTransferPeriod="PT5M">  
-            <Event id="0"/>  
-            <Event id="1" eventDestination="errorTable"/>  
-            <DefaultEvents />  
-          </EtwEventSourceProviderConfiguration>  
-          <EtwManifestProviderConfiguration provider="5974b00b-84c2-44bc-9e58-3a2451b4e3ad" scheduledTransferLogLevelFilter="Information" scheduledTransferPeriod="PT2M">  
-            <Event id="0"/>  
-            <DefaultEvents eventDestination="defaultTable"/>  
-          </EtwManifestProviderConfiguration>  
-        </EtwProviders>  
-
-        <WindowsEventLog scheduledTransferPeriod="PT5M">  
-          <DataSource name="System!*[System[Provider[@Name='Microsoft Antimalware']]]"/>  
-          <DataSource name="System!*[System[Provider[@Name='NTFS'] and (EventID=55)]]" />  
-          <DataSource name="System!*[System[Provider[@Name='disk'] and (EventID=7 or EventID=52 or EventID=55)]]" />  
-        </WindowsEventLog>  
-
-        <Logs  bufferQuotaInMB="1024"   
-             scheduledTransferPeriod="PT1M"   
-             scheduledTransferLogLevelFilter="Verbose"   
-             sinks="ApplicationInsights.AppLogs"/>  <!-- sinks attribute added in 1.5 -->  
-
-        <CrashDumps containerName="wad-crashdumps" directoryQuotaPercentage="30" dumpType="Mini">  
-          <CrashDumpConfiguration processName="mynewprocess.exe" />  
-          <CrashDumpConfiguration processName="badapp.exe"/>  
-        </CrashDumps>  
-
-        <DockerSources> <!-- Added in 1.9 -->
-          <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
-        </DockerSources>
-
-      </DiagnosticMonitorConfiguration>  
-
-      <SinksConfig>   <!-- Added in 1.5 -->  
-        <Sink name="AzureMonitorSink">
-            <AzureMonitor> <!-- Added in 1.11 -->
-                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
-                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
-            </AzureMonitor>
-        </Sink>
-        <Sink name="ApplicationInsights">   
-          <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
-          <Channels>   
-            <Channel logLevel="Error" name="Errors"  />   
-            <Channel logLevel="Verbose" name="AppLogs"  />   
-          </Channels>   
-        </Sink>   
-        <Sink name="EventHub"> <!-- Added in 1.7 -->
-          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
-        </Sink>
-        <Sink name="secondaryEventHub"> <!-- Added in 1.7 -->
-          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
-        </Sink>
-        <Sink name="secondaryStorageAccount"> <!-- Added in 1.7 -->
-          <StorageAccount name="secondarydiagstorageaccount" endpoint="https://core.windows.net" />
-        </Sink>
-   </SinksConfig>
-
-  </WadCfg>  
-
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
-  </PublicConfig>  
-
-  <PrivateConfig>  <!-- Added in 1.3 -->  
-    <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
-    <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-
-    <AzureMonitorAccount>
-        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
-            <PrincipalId>{Insert service principal clientId}</PrincipalId>
-            <Secret>{Insert service principal client secret}</Secret>
-        </ServicePrincipalMeta>
-    </AzureMonitorAccount>
-
-    <SecondaryStorageAccounts>
-       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
-    </SecondaryStorageAccounts>
-
-    <SecondaryEventHubs>
-       <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-    </SecondaryEventHubs>
-
-  </PrivateConfig>  
-  <IsEnabled>true</IsEnabled>  
-</DiagnosticsConfiguration>  
-
-```  
-> [!NOTE]
-> The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
-> There is also an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
->
-
+ 
 ### JSON
 
 The *PublicConfig* and *PrivateConfig* are separated because in most JSON usage cases, they are passed as different variables. These cases include Resource Manager templates, PowerShell, and Visual Studio.
@@ -671,3 +545,130 @@ The *PublicConfig* and *PrivateConfig* are separated because in most JSON usage 
 }
 
 ```
+
+### XML
+
+```xml  
+<?xml version="1.0" encoding="utf-8"?>  
+<DiagnosticsConfiguration  xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">   
+  <PublicConfig>  
+    <WadCfg>  
+      <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
+
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
+          <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
+        </PerformanceCounters>  
+
+        <Directories scheduledTransferPeriod="PT5M">  
+          <IISLogs containerName="iislogs" />  
+          <FailedRequestLogs containerName="iisfailed" />  
+
+          <DataSources>  
+            <DirectoryConfiguration containerName="mynewprocess">  
+              <Absolute path="C:\MyNewProcess" expandEnvironment="false" />  
+            </DirectoryConfiguration>  
+            <DirectoryConfiguration containerName="badapp">  
+              <Absolute path="%SYSTEMDRIVE%\BadApp" expandEnvironment="true" />  
+            </DirectoryConfiguration>  
+            <DirectoryConfiguration containerName="goodapp">  
+              <LocalResource name="Skippy" relativePath="..\PeanutButter"/>  
+            </DirectoryConfiguration>  
+          </DataSources>  
+
+        </Directories>  
+
+        <EtwProviders>  
+          <EtwEventSourceProviderConfiguration   
+                       provider="MyProviderClass"   
+                       scheduledTransferPeriod="PT5M">  
+            <Event id="0"/>  
+            <Event id="1" eventDestination="errorTable"/>  
+            <DefaultEvents />  
+          </EtwEventSourceProviderConfiguration>  
+          <EtwManifestProviderConfiguration provider="5974b00b-84c2-44bc-9e58-3a2451b4e3ad" scheduledTransferLogLevelFilter="Information" scheduledTransferPeriod="PT2M">  
+            <Event id="0"/>  
+            <DefaultEvents eventDestination="defaultTable"/>  
+          </EtwManifestProviderConfiguration>  
+        </EtwProviders>  
+
+        <WindowsEventLog scheduledTransferPeriod="PT5M">  
+          <DataSource name="System!*[System[Provider[@Name='Microsoft Antimalware']]]"/>  
+          <DataSource name="System!*[System[Provider[@Name='NTFS'] and (EventID=55)]]" />  
+          <DataSource name="System!*[System[Provider[@Name='disk'] and (EventID=7 or EventID=52 or EventID=55)]]" />  
+        </WindowsEventLog>  
+
+        <Logs  bufferQuotaInMB="1024"   
+             scheduledTransferPeriod="PT1M"   
+             scheduledTransferLogLevelFilter="Verbose"   
+             sinks="ApplicationInsights.AppLogs"/>  <!-- sinks attribute added in 1.5 -->  
+
+        <CrashDumps containerName="wad-crashdumps" directoryQuotaPercentage="30" dumpType="Mini">  
+          <CrashDumpConfiguration processName="mynewprocess.exe" />  
+          <CrashDumpConfiguration processName="badapp.exe"/>  
+        </CrashDumps>  
+
+        <DockerSources> <!-- Added in 1.9 -->
+          <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
+        </DockerSources>
+
+      </DiagnosticMonitorConfiguration>  
+
+      <SinksConfig>   <!-- Added in 1.5 -->  
+        <Sink name="AzureMonitorSink">
+            <AzureMonitor> <!-- Added in 1.11 -->
+                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
+                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
+            </AzureMonitor>
+        </Sink>
+        <Sink name="ApplicationInsights">   
+          <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
+          <Channels>   
+            <Channel logLevel="Error" name="Errors"  />   
+            <Channel logLevel="Verbose" name="AppLogs"  />   
+          </Channels>   
+        </Sink>   
+        <Sink name="EventHub"> <!-- Added in 1.7 -->
+          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
+        </Sink>
+        <Sink name="secondaryEventHub"> <!-- Added in 1.7 -->
+          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
+        </Sink>
+        <Sink name="secondaryStorageAccount"> <!-- Added in 1.7 -->
+          <StorageAccount name="secondarydiagstorageaccount" endpoint="https://core.windows.net" />
+        </Sink>
+   </SinksConfig>
+
+  </WadCfg>  
+
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  </PublicConfig>  
+
+  <PrivateConfig>  <!-- Added in 1.3 -->  
+    <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
+    <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+
+    <AzureMonitorAccount>
+        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
+            <PrincipalId>{Insert service principal clientId}</PrincipalId>
+            <Secret>{Insert service principal client secret}</Secret>
+        </ServicePrincipalMeta>
+    </AzureMonitorAccount>
+
+    <SecondaryStorageAccounts>
+       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
+    </SecondaryStorageAccounts>
+
+    <SecondaryEventHubs>
+       <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+    </SecondaryEventHubs>
+
+  </PrivateConfig>  
+  <IsEnabled>true</IsEnabled>  
+</DiagnosticsConfiguration>  
+
+```  
+> [!NOTE]
+> The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
+> There is also an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
+>

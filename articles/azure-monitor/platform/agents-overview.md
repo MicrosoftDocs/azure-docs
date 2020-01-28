@@ -12,16 +12,12 @@ ms.date: 11/15/2019
 
 
 # Overview of the Azure Monitor agents 
-Compute resources such as virtual machines generate data to monitor their performance and availability just like [other cloud resources](../insights/monitor-azure-resource.md). Compute resources though also have a guest operating system and workloads that need to be monitored. Collecting this monitoring data from inside the resource requires an agent. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
-
-## Summary of agents
+Compute resources such as virtual machines require an agent to collect monitoring data to measure the performance and availability of their guest operating system and workloads. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
 
 > [!NOTE]
-> Azure Monitor currently has multiple agents because of recent consolidation of Azure Monitor and Log Analytics. Both agents share some capabilities while other features are unique to a particular agent. Depending on your requirements, you may need one of the agents or both. 
-The following diagram illustrates the Azure Monitor agents used for virtual machines.
+> Azure Monitor currently has multiple agents because of recent consolidation of Azure Monitor and Log Analytics. While there may be overlap in their features, each has unique capabilities. Depending on your requirements, you may need one or more of the agents on your virtual machines. 
 
-
-![Agents overview](media/agents-overview/overview.png)
+## Summary of agents
 
 
 Azure Monitor has three agents that each provide specific functionality. Depending on your requirements, you may install a single agent or multiple on your virtual machines and other compute resources.
@@ -32,34 +28,42 @@ Azure Monitor has three agents that each provide specific functionality. Dependi
 
 The following table provides a quick comparison of the different agents. See the rest of this article for details on each.
 
-| | Azure Diagnostic Extension | Log Analytics agent | Dependency agent |
-|:---|:---|:---|:---|
-| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
-| Operating systems | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
-| Agent dependencies  | None | None | Requires Log Analytics agent |
-| Data collected | Event Logs<br>ETW events<br>Syslog<br>Performance<br>IIS logs<br>.NET app tracing output logs<br>Crash dumps | Event Logs<br>Syslog<br>Performance<br>IIS logs<br>Custom logs<br>Data from solutions | Process details and dependencies<br>Network connection metrics |
-| Data sent to | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
+| | Windows Azure<br>Diagnostic Extension (WAD) | Linux Azure<br>Diagnostic Extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
+|:---|:---|:---|:---|:---|:---|
+| Environments supported | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| Operating systems | Windows | Linux | Linux | Windows<br>Linux | Windows<br>Linux |
+| Agent dependencies  | None | None | None | None | Requires Log Analytics agent |
+| Data collected | Event Logs<br>ETW events<br>Performance<br>Custom logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Diagnostics troubleshooting Logs | Syslog<br>Performance | Performance | Event Logs<br>Syslog<br>Performance<IIS logs><br>Custom logs<br>Data from solutions | Process details and dependencies<br>Network connection metrics |
+| Data sent to | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
+| Data source<br>configuration | Each agent | Each agent | Each agent | Centrally on workspace | None |
 
 
 
 ## Azure Diagnostic extension
-The [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure compute resources. It primarily collects data into Azure Storage. You can configure Azure Monitor to copy the data from storage to a Log Analytics workspace. You can also collect guest performance data into Azure Monitor Metrics.
+The [Azure Diagnostics extension](diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure compute resources. It primarily collects data into Azure Storage. You can configure Azure Monitor to copy the data from storage to a Log Analytics workspace. You can also collect guest performance data into Azure Monitor Metrics.
 
 Azure Diagnostic Extension is often referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension.
 
 
 ### Scenarios supported
-
 Scenarios supported by the Azure Diagnostics extension include the following:
 
-* Collect logs and performance data from Azure compute resources.
-* Archive logs and performance data from the guest operating system to Azure storage.
-* View monitoring data in storage using a tool such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-* Collect performance data in a metrics database to take advantage of features supported by [Azure Monitor Metrics](data-platform-metrics.md) such as near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md) and [autoscale](autoscale-overview.md). 
-* Collect monitoring data from [storage to a Log Analytics workspace](azure-storage-iis-table.md) to take advantage of features supported by [Azure Monitor Logs](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) such as [log queries](../log-query/log-query-overview.md).
+* Archive logs and performance data from the guest operating system to Azure storage and view monitoring data in storage using a tool such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* Collect performance data into [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) take advantage of features such as near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md) and [autoscale](autoscale-overview.md). (Windows only. Telegraf agent required for Linux VMs as described below.) 
 * Send monitoring data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
 * Investigate VM boot issues with [Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Copy data from applications running in your VM [to Application Insights](diagnostics-extension-to-application-insights.md) to integrate with other application monitoring.
+
+### Data source configuration
+When you configure the diagnostics extension on a virtual machine, you must specify a configuration. This configuration includes each of the 
+
+
+## Telegraf agent
+The [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) is used to collect performance data from Linux computers to Azure Monitor Metrics.
+
+Scenarios supported by the Azure Diagnostics extension include the following:
+
+* Collect performance data into [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) take advantage of features such as near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md) and [autoscale](autoscale-overview.md). 
 
 ## Log Analytics agent
 The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises. It collects data into a Log Analytics workspace.
@@ -99,4 +103,3 @@ You may have specific requirements to use either the Azure Diagnostic Extension 
 ## Next steps
 
 - See [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) to review requirements and supported methods to deploy the agent to machines hosted in Azure, in your datacenter, or other cloud environment.
-
