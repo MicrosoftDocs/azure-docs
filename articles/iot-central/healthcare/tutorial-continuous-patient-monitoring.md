@@ -31,8 +31,9 @@ Navigate to the [Azure IoT Central application manager website](https://apps.azu
 
 Click the **Create app** button to begin creating your application and then sign in with a Microsoft personal, work, or school account. This takes you to the **New application** page.
 
->[!div class="mx-imgBorder"] 
->![Create application Healthcare](media/app-manager-health-create.png)
+![Create application Healthcare](media/app-manager-health-create.png)
+
+![Create application Healthcare billing info](media/app-manager-health-create-billinginfo.png)
 
 To create your application:
 

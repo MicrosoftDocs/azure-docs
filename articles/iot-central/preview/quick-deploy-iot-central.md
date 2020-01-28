@@ -36,6 +36,8 @@ To create a new Azure IoT Central application:
 
     ![Azure IoT Central Create an application page](media/quick-deploy-iot-central/iotcentralcreate-industry-pnp.png)
 
+    ![Azure IoT Central Billing info](media/quick-deploy-iot-central/iotcentralcreate-billinginfo-pnp.png)
+
     > [!NOTE]
     > If you're using the Custom app template, you'll see an **Application template** dropdown field. From here you can switch between preview and generally available templates. You might also see other templates that have been made available for your organization.
 

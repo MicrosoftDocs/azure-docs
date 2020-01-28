@@ -41,6 +41,9 @@ You can create application using following steps
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
 
+> [!div class="mx-imgBorder"]
+> ![Connected Logistics billing info](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
+
 ## Walk through the application 
 
 ## Dashboard
