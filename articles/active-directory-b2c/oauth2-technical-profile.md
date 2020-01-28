@@ -109,7 +109,7 @@ If you are using the **b2clogin.com** domain instead of **login.microsoftonline.
 
 Examples:
 
-- [Add Google+ as an OAuth2 identity provider using custom policies](active-directory-b2c-custom-setup-goog-idp.md)
+- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
 
 
 
