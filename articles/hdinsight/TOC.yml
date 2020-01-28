@@ -469,7 +469,9 @@
           href: ./hadoop/apache-hadoop-mahout-linux-mac.md
         - name: Advanced analytics for HDInsight
           href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-    - name: Manage
+      - name: Use Apache Pig
+        href: ./hadoop/use-pig.md
+      - name: Manage
       items:
       - name: Use empty edge nodes
         href: ./hdinsight-apps-use-edge-node.md
