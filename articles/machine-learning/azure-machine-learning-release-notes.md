@@ -43,6 +43,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed a bug where PythonScriptStep results could be incorrectly reused despite changing the arguments list
   + **azureml-pipeline-steps**
     + Added documentation example for dataset as PythonScriptStep input
+  + **azureml-contrib-pipeline-steps**
+    + Parameters passed in ParallelRunConfig can be overwritten by passing pipeline parameters now. New pipeline parameters supported aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count and aml_process_count_per_node are already part of earlier release).
   
 ## 2020-01-21
 
