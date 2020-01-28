@@ -36,7 +36,7 @@ As an approved provider, the benefits of Windows Virtual Desktop will be extende
 
 ## 10ZiG
 
-![10ZiG logo]()
+![10ZiG logo](./media/partners/10zig.png)
 
 10ZiG Technology, with cutting-edge Thin and Zero Client hardware and software, is a long-standing partner with Microsoft and a dedicated Microsoft Azure and Windows Virtual Desktop partner. 10ZiG Windows 10 IoT-based Thin Clients are powerful, reliable, and affordable endpoints that exceed the expectations of all Windows Virtual Desktop multi-users from task-based to power user. 10ZiG Manager Software provides exceptional management and deployment, with no limitations on licenses, at no additional cost. The 10ZiG Tech Team, Advance Warranty Program, and no-hassle demos, are a one-stop Windows Virtual Desktop multi-session support solution in the cloud.
 
@@ -138,11 +138,11 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 
 ## Liquit
 
-![Liquit logo]()
+![Liquit logo](./media/partners/liquit.png)
 
 Liquit application aggregation and delivery software enables enterprises and service providers to connect to and combine with all workspace back-ends (Citrix. VMWare, Windows Virtual Desktop, RDP, and Legacy) and deliver a customized and consistent customer experience, regardless of where the customer's applications reside. When a customer publishes the smart icon, Liquit decides where to start the application based on the customer's location, device, and profile rights.
 
-As a certified integration partner, Liquit helps accelerate transition to the cloud without a rip-and-replace delay. Windows Virtual Desktop can easily connect to an existing environment, create a workspace, and deliver the desktop. You can then take your time migrating off of old platforms and make changes on the back-end without your users noticing. Gain a consistent end-user experience, flexible infrastructure, and maintain control of your applications regardless of where they reside.
+As a certified integration partner, Liquit helps accelerate transition to the cloud without a rip-and-replace delay. Windows Virtual Desktop can easily connect to an existing environment, create a workspace, and deliver the desktop. You can then take your time migrating off of old platforms and make changes on the back-end without your users noticing. Gain a consistent end-user experience, flexible infrastructure, and maintain control of your applications no matter where they are.
 
 ## Login VSI
 
@@ -215,6 +215,8 @@ RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop adm
 - [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
 
 ## sepago
+
+![sepago logo](./media/partners/sepago.png)
 
 sepago was founded in 2002 by four friends in Cologne. Today, sepago is an IT management consultancy with a steadily increasing number of sepagists in Cologne, Munich, and Hamburg. sepago are experts on automated application provisioning, virtualization, cloud solutions, and IT security. They support medium-sized and large companies on their way to digital transformation and ensure that users can work securely and efficiently. Their innovation and development lab builds smart solutions using big data and AI technologies. These solutions focus on improving the business, user experience, and administrations of partner products like Windows Virtual Desktop.
 
