@@ -1,14 +1,16 @@
 ---
 title: Spatial queries
-description: How to do spatial queries (ray casts) in a scene
+description: How to do spatial queries in a scene
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Spatial queries
 
 This section will cover spatial queries, that is queries returning objects lying in a given spatial region, or intersecting a given geometry.
@@ -19,8 +21,8 @@ The model's geometry needs to be processed to generate the optimized data that w
 
 ## Ray cast query
 
-A ray cast query traces a line in space, and returns objects that intersect the line. It also returns the object's surface normal at the point of impact. To perform ray casts on objects, the server needs the model data to be prepared as so called collision meshes. This is an [ingestion setting](../how-tos/configure-model-ingestion.md) that is enabled by default. Without collision meshes, ray cast queries will always gracefully return with no result.
-If no ray casts are required on a model it is recommended to export without collision meshes, because collision mesh generation has large impact on 
+A ray cast query traces a line in space, and returns objects that intersect the line. It also returns the object's surface normal at the point of impact. To perform ray casts on objects, the server needs the model data to be prepared as so called collision meshes. This is a [conversion setting](../conversion/configure-model-conversion.md) that is enabled by default. Without collision meshes, ray cast queries will always gracefully return with no result.
+If no ray casts are required on a model it is recommended to export without collision meshes, because collision mesh generation has large impact on:
 
 - ingestion time
 - file size

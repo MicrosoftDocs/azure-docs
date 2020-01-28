@@ -4,23 +4,26 @@ description: Single sided rendering settings and use cases
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Single sided rendering
 
 > [!WARNING]
-> Single Sided Rendering settings are experimental. 
+> Single sided rendering settings are experimental.
 
 The single sided rendering settings allow for a tradeoff between single-sided rendering, which generally gives better performance than double sided, and quality of scenes sliced by [cut planes](../sdk/features-cut-planes.md).
 
 ## Prerequisites
 
-To be able to make use of the single sided rendering settings, models need to be ingested with the `opaqueMaterialDefaultSidedness` setting set to `SingleSided`. See [configuring ingestion](../how-tos/configure-model-ingestion.md) for further information.
+To be able to make use of the single sided rendering settings, models need to be converted with the `opaqueMaterialDefaultSidedness` setting set to `SingleSided`. See [Configuring the model conversion](../conversion/configure-model-conversion.md) for further information.
 
 ## Features
+
 The API provides three rendering modes for single-sided geometry:
 
 * `Normal`: render model as is, that is, single sided

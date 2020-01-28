@@ -1,17 +1,17 @@
 ---
-title: Overriding materials for ingestion
-description: Explains the material overriding workflow at ingestion time
+title: Overriding materials during model conversion
+description: Explains the material overriding workflow at conversion time
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-
-# Override materials for ingestion
+# Overriding materials during model conversion
 
 When a model is ingested for use in Azure Remote Rendering, in addition to the converted asset, a *materials file* is also produced.
 This file describes how the settings in the source model are used to define the **physically-based rendering** (**PBR**) materials used by the renderer.
@@ -74,6 +74,7 @@ We assume that this has been done below.
 
 Let's say that the box model should have a different albedo color and texture for use in ARR.
 In this case, the file `box_materials_override.json` can be edited as follows.
+
 ```json
 [
     {
@@ -120,7 +121,7 @@ In this case, the file `box_materials_override.json` can be edited as follows.
 
 \<generated\> parameters will be ignored when consuming the override file. They are provided in the output file to highlight the customization points that contribute to the appearance of the model.
 
-The `box_materials_override.json` file is placed the input container, and add a `ModelIngestionSettings.json` is added beside `box.fbx`, which tells ingestion where to find the override file ([See this section on configuring ingestion](../how-tos/ingest-models.md#configuringIngestion)):
+The `box_materials_override.json` file is placed the input container, and add a `ModelIngestionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
 
 ```json
 {
@@ -130,10 +131,11 @@ The `box_materials_override.json` file is placed the input container, and add a 
 
 When the model is reingested, the new settings will apply.
 
-**Unlit materials**
+### Unlit materials
 
 The Unlit material model describes a constantly shaded surface that is independent of lighting,
 useful for assets made by Photogrammetry algorithms, default is `false`:
+
 ```json
 [
     {
@@ -146,7 +148,6 @@ useful for assets made by Photogrammetry algorithms, default is `false`:
     }
 ]
 ```
-
 
 ## JSON schema
 

@@ -1,19 +1,21 @@
 ---
-title: Azure Remote Rendering tutorial - changing environment and materials
-description: Tutorial that provides sample code to modify environment and materials on a loaded scene
+title: Tutorial 3 - Changing the environment and materials
+description: Tutorial that provides sample code to modify the environment and materials on a loaded scene
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
-# Azure remote rendering tutorial #3 - changing environment and materials
+
+# Tutorial 3 - Changing the environment and materials
 
 This tutorial requires a model that contains [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials. The Khronos Group has a repository of [glTF Sample Models](https://github.com/KhronosGroup/glTF-Sample-Models) that are in the correct format for Azure Remote Rendering.
 
-Once you have completed ingestion of the new model, generate a SAS url for the `.ezArchive` file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
+Once you have completed conversion of the new model, generate a SAS url for the `.ezArchive` file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
 ![changing model name property](media/change-model-name-property.png)
 
 ## Modify materials

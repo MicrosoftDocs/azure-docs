@@ -1,17 +1,19 @@
 ---
 title: Authentication
-description: Explains how authentication works in Azure Remove Rendering
+description: Explains how authentication works
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Authentication
 
-Azure Remote Rendering uses the same authentication mechanism as Azure Spatial Anchors (ASA), for detailed documentation, see https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp. Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
+Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
 
 ## AzureFrontendAccountInfo
 
@@ -56,11 +58,11 @@ All AzureSession and AzureFrontend async calls are completed in a background thr
 
 This section will cover Azure Frontend APIs, which SDK wrappers around the the ingestion service and rendering service REST APIs.
 
-### Ingestion APIs
+### Conversion APIs
 
-For detailed documentation about ingestion service, see the [article](../how-tos/ingest-models.md).
+See [the model conversion REST API](../conversion/conversion-rest-api.md) for more details about the conversion service.
 
-#### Start asset ingestion
+#### Start asset conversion
 
 ``` cs
 private StartIngestionAsync _pendingAsync = null;
@@ -112,7 +114,7 @@ void GetIngestionStatus(AzureFrontend frontend, string assetId)
 
 ### Rendering APIs
 
-For detailed documentation about rendering service, see the [article](../quickstarts/launching-virtual-machines.md).
+See [the session management REST API](../sessions/session-rest-api.md) for details about session management.
 
 A rendering session can either be created dynamically on the service or an already existing session ID can be 'opened' into an AzureSession object.
 

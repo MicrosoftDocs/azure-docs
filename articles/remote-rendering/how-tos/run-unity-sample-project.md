@@ -1,14 +1,16 @@
 ---
-title: Set up and run Unity sample project
-description: How to set up and run the Unity sample project
+title: How to set up and run the Unity sample project
+description: Describes the steps needed to configure the Unity sample project
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
+
 # How to set up and run the Unity sample project
 
 In the Unity folder of the [AzureRemoteRenderingClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository is a sample project called *AzureRemoteRenderingSample*.
@@ -23,9 +25,9 @@ This project illustrates how a client application can connect to an Azure Remote
 1. To view the video stream from the server on a desktop PC, it is required to have the [HEVC Video Extensions](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7) installed.
 1. Download the NuGet command line and a companion credential manager:
     * These tools are obtained from the [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient) site.
-    * Click on Artifacts and change the dropdown from ArrClient to ArrPackages and click on ‘Connect to feed’. 
-    * If necessary, switch the dropdown in the "Get packages using Visual Studio" to "All Packages" 
-    * Download the NuGet command line tool and the Credential Provider package from the link displayed. 
+    * Click on Artifacts and change the dropdown from ArrClient to ArrPackages and click on ‘Connect to feed’.
+    * If necessary, switch the dropdown in the "Get packages using Visual Studio" to "All Packages"
+    * Download the NuGet command line tool and the Credential Provider package from the link displayed.
     * Extract this to a directory of your choosing and add the location to your Path by editing the system environment variables.
     * Add the "arrPackages" feed with the following NuGet command:  
         `nuget.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`
@@ -48,7 +50,7 @@ In brief, the steps are:
 
 ## Configuring the sample
 
-See [Rendering Your First Model](../quickstarts/rendering-your-first-model.md) for sample setup.
+See [Quickstart: Render a model with Unity](../quickstarts/quickstart-render-model.md) for a sample setup.
 
 1. Dock the 'Game' view tab besides the 'Scene' tab.
 1. Press the play button in Unity.
@@ -61,7 +63,7 @@ See [Rendering Your First Model](../quickstarts/rendering-your-first-model.md) f
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to 'Universal Windows Platform', set *Target Device* to 'HoloLens,' set *Architecture* to 'ARM64.'  Select *Switch to Platform* then press **Build** to select the output folder.
-<br />![Unity build settings](./media/unity-build-settings.png)
+    ![Unity build settings](./media/unity-build-settings.png)
 1. Open the generated **UnityProject.sln** solution in Visual Studio.
 1. Change the configuration to **ARM64** and **Release** and switch the debugger mode to **Remote Machine**.
 1. For the project "UnityProject", go to *Properties > Debugging > Machine Name* and change the 'Remote Machine' connection to your device IP (make sure to change it for Release).
@@ -113,8 +115,4 @@ There are also models placed within the scene:
 
 ## Using your own model
 
-In AzureRemoteRenderingSample\Assets\Scripts, replace 
-"builtin://UnitySampleModel" with the URL of your model. Retrieve a SAS URI for your ingested model stored in azure blob storage as described in [Using the model ingestion REST API](../how-tos/ingest-models.md)
-
-
-
+In AzureRemoteRenderingSample\Assets\Scripts, replace *builtin://UnitySampleModel* with the URL of your model. Retrieve a SAS URI for your converted model stored in Azure blob storage as described in [the model conversion REST API](../conversion/conversion-rest-api.md).

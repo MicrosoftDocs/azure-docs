@@ -4,6 +4,7 @@ description: Best practices for performance profiling using WPF
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
@@ -37,10 +38,9 @@ When searching for information about performance traces, you will inevitably com
 
 **WPR** stands for [**W**indows **P**erformance **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) and is the name of the application that starts and stops the recording of event traces. WPR takes a profile file (\*.wprp) that configures which exact events to log. Such a `wprp` file is provided with the ARR SDK. When doing traces on a desktop PC, you may launch WPR directly. When doing a trace on the HoloLens, you typically go through the web interface instead.
 
-**WPA** stands for [**W**indows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) and is the name of the GUI application that is used to open \*.etl files and sift through the data to identify performance issues. WPA allows you to sort data by various criteria, display the data in several ways, dig down into details and correlate information. 
+**WPA** stands for [**W**indows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) and is the name of the GUI application that is used to open \*.etl files and sift through the data to identify performance issues. WPA allows you to sort data by various criteria, display the data in several ways, dig down into details and correlate information.
 
 While ETL traces can be created on any Windows device (local PC, HoloLens, cloud server, etc.), they are typically saved to disk and analyzed with WPA on a desktop PC. ETL files can be sent to other developers for them to have a look. Be aware that sensitive information, such as file-paths and IP addresses, may be captured in ETL traces, though. You can use ETW in two ways: to record traces, or to analyze traces. Recording traces is straight-forward and requires minimal setup. Analyzing traces on the other hand does require a decent understanding of both the WPA tool and the problem that you are investigating. General material for learning WPA will be given below, as well as guidelines for how to interpret ARR-specific traces.
-
 
 ## Recording a trace on a local PC
 
@@ -54,9 +54,9 @@ To identify ARR performance issues you should prefer to do a trace directly on a
 1. Select the file *AzureRemoteRenderingNetworkProfiling.wprp*. You can find this file in the ARR SDK under *Tools/ETLProfiles*.
    The profile will now be listed in WPR under *Custom measurements*. Make sure it is the only enabled profile.
 1. Expand *First level triage*:
-    - If all you want to do is capture a quick trace of the ARR networking events, **disable** this option.
-    - If you need to correlate ARR network events with other system characteristics, such as CPU or memory usage, then **enable** this option.
-    - If you do enable this option, the trace will most likely be multiple gigabytes in size and take a long time to save and open in WPA.
+    * If all you want to do is capture a quick trace of the ARR networking events, **disable** this option.
+    * If you need to correlate ARR network events with other system characteristics, such as CPU or memory usage, then **enable** this option.
+    * If you do enable this option, the trace will most likely be multiple gigabytes in size and take a long time to save and open in WPA.
 
 Afterwards your WPR configuration should look like this:
 
@@ -70,14 +70,13 @@ Click **Save** to stop recording and specify where to store the ETL file.
 
 You now have an ETL file that you can either open directly in WPA or send to someone else.
 
-
 ## Recording a trace on a HoloLens
 
 To record a trace on a HoloLens, boot up your device and enter its IP address into a browser to open up the *Device Portal*.
 
 ![Device Portal](./media/wpr-hl.png)
 
-1. On the left, navigate to *Performance > Performance Tracing*. 
+1. On the left, navigate to *Performance > Performance Tracing*.
 1. Select **Custom profiles**
 1. Click **Browse...**
 1. Select the file *AzureRemoteRenderingNetworkProfiling.wprp*. You can find this file in the ARR SDK under *Tools/ETLProfiles*.
@@ -116,7 +115,6 @@ The columns in the middle have no special meaning.
 ![Events view](./media/wpa-event-view.png)
 
 In the *Generic Events View Editor* you can configure all the columns to display, the aggregation mode, sorting and which columns are used as keys or for graphing. In the example above, **Field 2** is enabled and Field 3 - 6 are disabled. Field 2 is typically the first *custom data* field of an ETW event and thus for ARR "FrameStatistics" events, which represent some network latency value. Enable other "Field" columns to see further values of this event.
-
 
 ### Presets
 

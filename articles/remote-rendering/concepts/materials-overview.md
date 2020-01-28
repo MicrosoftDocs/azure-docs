@@ -1,9 +1,10 @@
 ---
 title: Materials overview
-description: General material properties and workflow
+description: Describes the material properties and workflow
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual

@@ -4,11 +4,13 @@ description: Texture resource workflow
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Textures
 
 Textures are immutable shared resources that can be used in various places in the API. Textures can be encountered in a loaded model when inspecting its meshes and materials or loaded on demand by the user. There are three distinguished types of textures:
@@ -37,7 +39,7 @@ void LoadMyTexture(AzureSession session, string textureUri)
             else
             {
                 Console.WriteLine("Texture loading failed!");
-            } 
+            }
             _async = null;
         };
 }
@@ -46,8 +48,10 @@ void LoadMyTexture(AzureSession session, string textureUri)
 Texture [URI](../concepts/sdk-concepts.md#built-in-and-external-resources) has to point to a texture in dds format to be loadable by the Remote Rendering Server. Specific content of the dds file is affected by the texture type (2D/CubeMap/3D) and feature that will be using it. For example, the pixel content has to be grayscale for PBR material [roughness map](../concepts/materials-overview.md#roughness).
 
 ## Using textures
+
 API calls that expect Textures as input will always specify what type of texture is expected.
 
 ## See also
+
 * [Materials](../concepts/materials-overview.md)
 * [Sky](../sdk/features-sky.md)
