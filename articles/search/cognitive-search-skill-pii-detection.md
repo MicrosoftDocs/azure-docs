@@ -124,8 +124,10 @@ Parameters are case-sensitive and all are optional.
 ```
 
 
-## Error cases
-If the language code for the document is unsupported, an error is returned and no entities are extracted.
+## Error and warning cases
+If the language code for the document is unsupported, a warning is returned and no entities are extracted.
+If your text is empty, a warning will be produced.
+If your text is larger than 50,000 characters, only the first 50,000 characters will be analyzed and a warning will be issued.
 
 If the skill returns a warning, the output `maskedText` may be empty.  This means that if you expect that output to exist for input into later skills, it will not work as intended. Keep this in mind when writing your skillset definition.
 
