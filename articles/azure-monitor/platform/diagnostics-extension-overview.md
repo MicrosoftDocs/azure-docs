@@ -16,14 +16,7 @@ Azure Diagnostics extension is an agent in Azure Monitor that collects monitorin
 > [!NOTE]
 > Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
-## Resources supported
-The Azure Diagnostics extension can be used with any Azure compute resource which includes the following:
 
-| Resource | Documentation |
-|:---|:---|
-| Azure Cloud Service (classic) Web and Worker Roles | [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)<br>[Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)<br>[Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)<br> |
-| Azure virtual machines | 
-| Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 
 ## Comparison to Log Analytics agent
@@ -118,6 +111,13 @@ There is no cost for Azure Diagnostic Extension, but you may incur charges for t
 ## Versioning and configuration schema
 See [Azure Diagnostics Version History and Schema](diagnostics-extension-schema.md).
 
+## Other documentation
+The Azure Diagnostics extension can be used with any Azure compute resource which includes the following:
+
+| Resource | Documentation |
+|:---|:---|
+| Azure Cloud Service (classic) Web and Worker Roles | [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)<br>[Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)<br>[Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)<br> |
+| Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 ## Next steps
 
