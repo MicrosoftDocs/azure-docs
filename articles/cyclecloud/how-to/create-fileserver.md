@@ -1,19 +1,16 @@
 ---
-title: Create FileServer
+title: Create a simple NFS and file share
 description: How to create a simple network file server that can be used in CycleCloud
 author: mvrequa
 ms.date: 01/20/2020
 ms.author: adjohnso
 ---
 
-# Configuring a NFS server and file share
+# Configuring an NFS server and file share
 
-By assimilating two topics, disks and nfs exports, we can define a nfs file share within 
-a Cyclecloud cluster template. The local filesystem is defined by volumes and mounts. The
-NFS service is defined by exports. By these configs we have very fine control over the properties
-of the filesystem.
+Most HPC workflows will mount a network file system (NFS) to nodes that can be used for shared application data and job results. A file server node can be defined in a CycleCloud cluster template. The template configs provide very fine control over the file system properties. The local filesystem is defined by `volumes` and `mounts` and the NFS service is defined by `exports`. 
 
-Consider the following example which pulls these topics together in a single node file share.
+The following example pulls these topics together in a single node file share.
 
 ```ini
     [[node fileserver]]
@@ -54,17 +51,18 @@ Consider the following example which pulls these topics together in a single nod
     [[parameter VolumeSize]]
     DefaultValue = 1024
 ```
-The _configuration_ section are automation parameters interpreted by the node
-when it starts. These instructions are necessary to invoke the nfs configuration.
 
-This example defines two SSD volumes, or Azure Premium Disks, which
-will be mounted in a RAID 0 configuration to the mount point _/data_. 
-All this is done with the two _volume_ sections and the 
-_cyclecloud.mounts_ section.
+The `configuration` section contains automation parameters interpreted by the node when it starts. These instructions are necessary to invoke the NFS configuration.
 
-The _exports_ section then specifies which director to export. 
-Since the _export_path_ falls under the RAID volume, data written to
-this export will be handled by the RAID volume.
+This example defines two SSD volumes, or Azure Premium Disks, which will be mounted in a RAID 0 configuration to the mount point _/data_. 
+The two `volume` sections define the volumes while the `cyclecloud.mounts` section defines how the volumes are mounted.
 
-Using local disks for a file share is not supported. The _volume_ section 
-refers to Azure Disk Storage.
+The `exports` section then specifies which directory to export. Since the `export_path` falls under the RAID volume, data written to this export will be handled by the RAID volume.
+
+> [!NOTE]
+> Using local disks for a file share is not supported. The `volume` section refers to Azure Disk Storage.
+
+## Further Reading
+
+* [How to Mount a Disk](./mount-disk.md)
+* [How to Mount a File Server](./mount-fileserver.md)
