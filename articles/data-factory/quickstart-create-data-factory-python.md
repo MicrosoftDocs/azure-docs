@@ -29,9 +29,11 @@ Azure Data Factory is a cloud-based data integration service. This service allow
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python](https://www.python.org/downloads/).
+* [Python](https://www.python.org/downloads/) version 3.4 or more recent.
 
 * [An Azure Storage account](../storage/common/storage-account-create.md).
+
+* [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
 * [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values to use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to the **Contributor** role by following instructions in the same article.
 
