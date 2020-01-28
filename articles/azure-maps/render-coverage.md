@@ -13,9 +13,9 @@ manager:
 
 # Azure Maps render coverage
 
-Azure Maps uses both raster tiles and vector tiles to create maps. At its lowest resolution, the entire world fits on a single tile. At its highest resolution, a single tile represents 38 square meters. As you zoom in on a map, therefore, you can see increasingly more details about continents, regions, cities, and individual streets. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
+Azure Maps uses both raster tiles and vector tiles to create maps. At the lowest resolution, the entire world fits on a single tile. At the highest resolution, a single tile represents 38 square meters. As you zoom in on a map, therefore, you can see increasingly more details about continents, regions, cities, and individual streets. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-However, Maps does not have the same level of information and accuracy for all regions. The following tables provide information about what level of rendered detail you can expect from each region.
+However, Maps does not have the same level of information and accuracy for all regions. The following tables provide information about what level of rendered detail you can expect for each region.
 
 ## Legend
 
