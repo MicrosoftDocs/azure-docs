@@ -31,9 +31,10 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ### Storage account
 If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-account-create.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
-The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
-> [!NOTE]
->  You cannot currently archive data to a storage account that is behind a secured virtual network.
+The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions. 
+
+> [!TIP]
+> See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for providing access to a storage account behind a secured virtual network.
 
 ### Event Hubs
 If you're sending your Activity Log to an event hub, then you need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you previously streamed Activity Log events to this Event Hubs namespace, then that event hub will be reused.
