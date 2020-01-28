@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus message browsing | Microsoft Docs
-description: Browse and peek Service Bus messages
+title: Azure Service Bus - message browsing
+description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages that reside in a queue or subscription.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
