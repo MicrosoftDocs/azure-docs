@@ -22,6 +22,18 @@ Learn more about the Microsoft identity platform from these videos by members of
 
 They are typically only 1-2 minutes long.
 
+## TEST
+
+
+|Column1  |Column2  |
+|---------|---------|
+|text     |  <iframe width="320" height="175" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>       |
+|text     |    <iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>     |
+
+
+
+## END TEST
+
 ## Microsoft identity platform basics
 
 Get a quick overview of what's in the Microsoft identity platform.
@@ -40,14 +52,14 @@ Learn how the Microsoft identity platform libraries make it easier to handle aut
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=2]
-<iframe width="320" height="160" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>
+<iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>
 
 ### Accounts
 
 Learn the difference between work and school accounts, and personal Microsoft accounts.
 
 > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk?t=2]
-<iframe width="320" height="160" src="https://www.youtube.com/embed/E2OUluQQKSk?t=2" allowfullscreen></iframe>
+<iframe width="320" height="175" src="https://www.youtube.com/embed/E2OUluQQKSk?t=2" allowfullscreen></iframe>
 
 ### Brokers
 
