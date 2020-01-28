@@ -7,11 +7,11 @@ ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Create your first function using Visual Studio Code
+# Quickstart: Create an Azure Functions project using Visual Studio Code
 
-In this quickstart, you use Microsoft Visual Studio Code to create and test a "hello world" function on your local computer. You then use Visual Studio Code to create Azure resources and publish your function code to those Azure resources. You can also [create and publish functions from the Terminal or command prompt](functions-create-first-azure-function-azure-cli.md).
+In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. To learn more, see the [Azure Functions overview](functions-overview.md).
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. To learn more, see the [Azure Functions overview](functions-overview.md).
+There is also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
 
 ## Prerequisites
 
