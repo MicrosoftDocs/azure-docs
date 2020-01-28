@@ -95,7 +95,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Two New Identity Protection Detections
+### Two new Identity Protection detections
 
 **Type:** New feature  
 **Service category:** Identity Protection  
