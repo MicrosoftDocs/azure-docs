@@ -124,13 +124,13 @@ For more information on the SQL Database compute sizes, see [What are SQL Databa
 To setup active geo-replication between two databases belonging to different subscriptions (whether under the same tenant or not), you must follow the special procedure described in this section.  The procedure is based on SQL commands and requires: 
 
 - Creating a privileged login on both servers
-- Whitelisting the IP address of the client performing the change on both servers (such as the IP address of the host running SQL Server Management Studio). 
+- Adding the IP address to the allow list of the client performing the change on both servers (such as the IP address of the host running SQL Server Management Studio). 
 
-The client performing the changes needs network access to the primary server. Although the same IP address of the client must be whitelisted on the secondary server, network connectivity to the secondary server is not strictly required. 
+The client performing the changes needs network access to the primary server. Although the same IP address of the client must be added to the allow list on the secondary server, network connectivity to the secondary server is not strictly required. 
 
 ### On the master of the primary server
 
-1. Whitelist the IP address of the client performing the changes (for more information see, [Configure firewall](sql-database-firewall-configure.md)). 
+1. Add the IP address to the allow list of the client performing the changes (for more information see, [Configure firewall](sql-database-firewall-configure.md)). 
 1. Create a login dedicated to setup active geo-replication (and adjust the credentials as needed):
 
    ```sql
@@ -166,7 +166,7 @@ The client performing the changes needs network access to the primary server. Al
 
 ### On the master of the secondary server 
 
-1. Whitelist the IP address of the client performing the changes. It must the same exact IP address of the primary server. 
+1. Add the IP address to the allow list of the client performing the changes. It must the same exact IP address of the primary server. 
 1. Create the same login as on the primary server, using the same username password, and SID: 
 
    ```sql
