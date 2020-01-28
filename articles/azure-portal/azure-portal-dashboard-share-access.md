@@ -56,7 +56,7 @@ Before assigning access, you must publish the dashboard.
 
     ![publish your dashboard](./media/azure-portal-dashboard-share-access/publish-desktop-for-access-control.png)
 
-     By default, sharing publishes your dashboard to a resource group named **dashboards**
+     By default, sharing publishes your dashboard to a resource group named **dashboards**.
 
 Your dashboard is now published. If the permissions inherited from the subscription are suitable, you don't need to do anything more. Other users in your organization can access and modify the dashboard based on their subscription level role.
 

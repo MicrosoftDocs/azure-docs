@@ -29,7 +29,7 @@ In this example, we create a new, private dashboard and assign a name. Follow th
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
+1. From the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
 
     ![Open the dashboard](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
@@ -146,7 +146,7 @@ When you create a dashboard, it's private by default, which means you're the onl
 
 1. Select the checkbox to publish this dashboard to the 'dashboards' resource group for the selected subscription. Or, clear the checkbox and choose to publish to an existing resource group instead.
 
-1. Choose a location for the dashboard resource. We recommend you locate the dashboard with other resources. Note: if you choose from existing resource groups, the dashboard is automatically located with that resource group.
+1. Choose a location for the dashboard resource. We recommend you locate the dashboard with other resources. If you choose from existing resource groups, the dashboard is automatically located with that resource group.
 
 1. Select **Publish**.
 
