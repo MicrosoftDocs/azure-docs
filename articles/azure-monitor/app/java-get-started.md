@@ -12,13 +12,13 @@ ms.date: 05/24/2019
 
 # Quickstart: Get started with Application Insights in a Java web project
 
-In this quickstart, you learn how to use Application Insights to automatically instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+In this quickstart, you use Application Insights to automatically instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
 ## Prerequisites
 
-* An azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Sign in to the Azure portal
 
@@ -34,6 +34,45 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Add the Application Insights SDK for Java to your project
 *Choose the appropriate way for your project.*
+
+# [Maven](#tab/maven)
+
+If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
+
+Then, refresh the project dependencies to get the binaries downloaded.
+
+```XML
+    <dependencies>
+      <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>applicationinsights-web-auto</artifactId>
+        <!-- or applicationinsights-web for manual web filter registration -->
+        <!-- or applicationinsights-core for bare API -->
+        <version>2.5.0</version>
+      </dependency>
+    </dependencies>
+```
+
+# [Gradle](#tab/gradle)
+
+If your project is already set up to use Gradle for build, merge the following code to your build.gradle file.
+
+Then refresh the project dependencies to get the binaries downloaded.
+
+```gradle
+    dependencies {
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      // or applicationinsights-web for manual web filter registration
+      // or applicationinsights-core for bare API
+    }
+```
+
+# [Other](#tab/other)
+
+Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
+
+---
+
 
 **If you're using Maven... <a name="maven-setup" />**
 If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
