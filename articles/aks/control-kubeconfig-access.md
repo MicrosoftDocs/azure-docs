@@ -49,8 +49,8 @@ These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
 To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands:
 
 * Get the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
-* Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
+* Use the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
+* Finally, assign a role using the [az role assignment create][az-role-assignment-create] command.
 
 The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
