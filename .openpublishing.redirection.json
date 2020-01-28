@@ -5852,8 +5852,8 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
-      "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
