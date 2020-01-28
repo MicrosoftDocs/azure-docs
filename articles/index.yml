@@ -468,7 +468,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - compute
-      url: cyclecloud/index.yml
+      url: /azure/cyclecloud/index
     # Card
     - title: Azure Dedicated Host
       summary: A dedicated physical server to host your Azure VMs for Windows and Linux
@@ -521,7 +521,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - compute
-      url: cloud-services/index.yml
+      url: cloud-services/index.md
     # Card
     - title: Container Instances
       summary: Easily run containers on Azure without managing servers
@@ -546,7 +546,7 @@ productDirectory:
         - containers
         - mobile
         - web
-      url: app-service-mobile/index.yml
+      url: app-service-mobile/index.md
     # Card
     - title: SAP HANA on Azure Large Instances
       summary: Run the largest SAP HANA workloads of any hyperscale cloud provider
@@ -602,6 +602,37 @@ productDirectory:
       azureCategories:
         - compute
       url: virtual-machines/windows/index.yml
+    # Card
+    - title: Azure Dev Spaces
+      summary: 
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - containers
+        - developerTools
+      url: dev-spaces/index.yml
+    # Card
+    - title: Azure Red Hat OpenShift
+      summary: Fully managed OpenShift service, jointly operated with Red Hat
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - containers
+      url: virtual-machines/linux/openshift-get-started.md
+    # Card
+    - title: Container Registry
+      summary: Store and manage container images across all types of Azure deployments
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - containers
+      url: container-registry/index.yml
+    # Card
+    - title: Web App for Containers
+      summary: Easily deploy and run containerized web apps that scale with your business
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - containers
+        - mobile
+        - web
+      url: app-service/containers/index.yml
     # Card
     - title: Azure API for FHIR
       summary: Easily create and deploy a FHIR service for health data solutions and interoperability
