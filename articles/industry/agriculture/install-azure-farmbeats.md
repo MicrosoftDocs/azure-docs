@@ -78,13 +78,13 @@ You'll need the following permissions in the Azure tenant you're looking to inst
 - Subscription - Owner
 - Resource Group in which FarmBeats is being installed - Owner
 
-The first two permissions are needed for [creating the AAD application](#Create-an-AAD-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application. The person installing FarmBeats needs to be an owner of the Resource Group in which FarmBeats is being installed.
+The first two permissions are needed for [creating the AAD application](#Create%20an%20AAD%20application) step. If needed, you can get someone with the appropriate permissions to create the AAD application. The person installing FarmBeats needs to be an owner of the Resource Group in which FarmBeats is being installed.
 
 You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
 ### Decide Subscription and Region
 
-You'll need the Azure subscription ID and the region where you want to install Azure FarmBeats. Choose one of the regions listed in the [Regions supported](#regions-supported) section.
+You'll need the Azure subscription ID and the region where you want to install Azure FarmBeats. Choose one of the regions listed in the [Regions supported](#regions%20supported) section.
 
 Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
@@ -144,7 +144,7 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 5. Provide the email address that should receive any service alerts related to Azure FarmBeats in the **FarmBeats Service Alerts** section. Click Next at the bottom of the page to move to the **Dependencies** Tab.
 ![Basics Tab](./media/install-azure-farmbeats/BasicsTab.png)
 
-6. Copy the individual entries from the output of [AAD script](#Create-an-AAD-application) to the inputs in the AAD application section.
+6. Copy the individual entries from the output of [AAD script](#Create%20an%20AAD%20application) to the inputs in the AAD application section.
 
 7. Enter the [Sentinel account](#Create-Sentinel-account) user name and password in the Sentinel Account section. Click Next to move to the **Review + Create** Tab
 ![Dependencies Tab](./media/install-azure-farmbeats/DependenciesTab.png)
@@ -174,7 +174,7 @@ To upgrade FarmBeats to the latest version, run the following steps in a Cloud S
 3. Run the upgrade script
 
     ```azurepowershell-interactive
-        /upgrade-farmbeats.ps1 -SubscriptionId [FarmBeats Subscription ID] -ResourceGroup [FarmBeats DataHub ResourceGroup Name]
+        ./upgrade-farmbeats.ps1 -SubscriptionId [FarmBeats Subscription ID] -ResourceGroup [FarmBeats DataHub ResourceGroup Name]
     ```
 
 If you are upgrading from FarmBeats version 1.2.1 or 1.2.5, the script will prompt you to specify the path to the input.json file you created at the time of installing FarmBeats. For newer versions, no more inputs will be needed. The upgrade should finish in around 30 minutes.
