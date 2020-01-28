@@ -13,45 +13,39 @@ If a new service type is added to a published application as part of an upgrade,
 
 Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## Avoid connection drops during planned downtime of stateless services
+## Avoid connection drops during stateless service planned downtime (preview)
 
-For planned stateless instance downtime, like when the application/cluster is upgraded or nodes are getting deactivated, there are a few connections drops which are observed because the endpoint exposed by the instances is removed after it goes down.
+For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint being removed after it goes down.
 
-To avoid getting connections drops for planned downtime, the request drain feature has been enabled which can be configured by adding a replica close delay duration in the service configuration. This would be used to delay the close of the stateless Instance. The endpoint advertised by the stateless Instance is removed, before we start the delay timer prior to closing this Instance. This delay duration would give existing requests to drain gracefully before the instance actually goes down. This endpoint change is advertised to the clients, and they would have to resolve the endpoints again, so that they do not send new requests to the instance which is going down.
+To avoid this, configure the *RequestDrain* (preview) feature by adding a replica *instance close delay duration* in the service configuration. This ensures the endpoint advertised by the stateless instance is removed *before* the delay timer starts for closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by callback function, so they can re-resolve the endpoint and avoid sending new requests to the instance going down.
 
 ### Service configuration
 
-The delay can be configured in the service in following ways:
+There are several ways to configure the delay on the service side.
 
-#### When creating a new service
+ * **When creating a new service**, specify a `-InstanceCloseDelayDuration`:
 
-By setting an `-InstanceCloseDelayDuration` value:
+    ```powershell
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    ```
 
-```powershell
-New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
-```
+ * **While defining the service in the defaults section in the application manifest**, assign the `InstanceCloseDelayDurationSeconds` property:
 
-#### While defining the service in the defaults section in the application manifest
+    ```xml
+          <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
+              <SingletonPartition />
+          </StatelessService>
+    ```
 
-With the `InstanceCloseDelayDurationSeconds` property:
+ * **When updating an existing service**, specify a `-InstanceCloseDelayDuration`:
 
-```xml
-      <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
-          <SingletonPartition />
-      </StatelessService>
-```
-
-#### When updating an existing service
-
-By setting an `-InstanceCloseDelayDuration` value:
-
-```powershell
-Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
-```
+    ```powershell
+    Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
 
 ### Client configuration
 
-Since we remove the endpoint advertised by an instance and then start the delay timer before we close the Instance down, the clients will get a change notification for the endpoints updated for which they would need to register a callback (`ServiceManager_ServiceNotificationFilterMatched`) like this:
+To receive notification when an endpoint has changed, clients can register a callback (`ServiceManager_ServiceNotificationFilterMatched`) like this: 
 
 ```csharp
     var filterDescription = new ServiceNotificationFilterDescription
@@ -72,7 +66,7 @@ The change notification is an indication that the endpoints have changed, the cl
 
 ### Optional upgrade overrides
 
-Apart from the pre-configured delay duration, you also have the option to override the delay, at the time of initiating an application/cluster upgrade using the same (`InstanceCloseDelayDurationSec`) option:
+In addition to setting default delay durations per service, you can also override the delay during application/cluster upgrade using the same (`InstanceCloseDelayDurationSec`) option:
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -80,9 +74,7 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-This delay duration will only be valid for this instance of the upgrade and will not change the individual service delay configurations. For example, you can use this to give a 0 delay, to run through an upgrade and not wait for the pre-configured delay.
-
-
+The delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a `0` delay, to run through an upgrade and not wait for the pre-configured delay.
 
 ## Manual upgrade mode
 
