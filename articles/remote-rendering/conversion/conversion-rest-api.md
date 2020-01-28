@@ -57,7 +57,7 @@ We provide two REST API endpoints to:
 
 ## Common request headers
 
-- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [get a token](../azure/getting-tokens.md)
+- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [get a token](../azure/tokens.md)
 
 ## Common response headers
 
