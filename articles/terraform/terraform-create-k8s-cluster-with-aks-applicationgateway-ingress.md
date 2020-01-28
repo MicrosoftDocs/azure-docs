@@ -46,7 +46,7 @@ The first step is to create the directory that holds your Terraform configuratio
     cd clouddrive
     ```
 
-1. Create a directory named `terraform-aks-k8s`.
+1. Create a directory named `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
