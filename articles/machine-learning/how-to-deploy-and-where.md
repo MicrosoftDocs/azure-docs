@@ -547,7 +547,7 @@ Before you deploy your model as a service, you might want to profile it to deter
 
 ```python
 import json
-test_sample = json.dumps({'data': [
+test_data = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10]
 ]})
 

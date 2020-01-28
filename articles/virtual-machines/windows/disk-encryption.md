@@ -174,6 +174,20 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 ```
 
+#### Encrypt existing unattached managed disks 
+
+Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
+
+```PowerShell
+$rgName = "yourResourceGroupName"
+$diskName = "yourDiskName"
+$diskEncryptionSetName = "yourDiskEncryptionSetName"
+ 
+$diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $diskEncryptionSetName
+ 
+New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+```
+
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```PowerShell

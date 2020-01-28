@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 01/27/2020
 ms.custom: seodec18
 ---
 
@@ -111,11 +111,12 @@ namespace CsharpTsiMsalGaSample
         internal static string AadClientApplicationId = "#PLACEHOLDER#";
         internal static string[] AadScopes = new string[] { "https://api.timeseries.azure.com//user_impersonation" };
         internal static string AadRedirectUri = "http://localhost:8080/";
-        internal static string AadAuthenticationAuthority = "https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/";
+        internal static string AadTenantName = "#PLACEHOLDER#";
+        internal static string AadAuthenticationAuthority = "https://login.microsoftonline.com/" + AadTenantName + ".onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/";
 
         private static async Task<string> AcquireAccessTokenAsync()
         {
-            if (AadClientApplicationId == "#PLACEHOLDER#" || AadScopes.Length == 0 || AadRedirectUri == "#PLACEHOLDER#" || AadAuthenticationAuthority.StartsWith("#PLACEHOLDER#"))
+            if (AadClientApplicationId == "#PLACEHOLDER#" || AadScopes.Length == 0 || AadRedirectUri == "#PLACEHOLDER#" || AadTenantName.StartsWith("#PLACEHOLDER#"))
             {
                 throw new Exception($"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started"} to update the values of 'AadClientApplicationId', 'AadScopes', 'AadRedirectUri', and 'AadAuthenticationAuthority'.");
             }
@@ -144,7 +145,7 @@ namespace CsharpTsiMsalGaSample
         // System.Net.HttpClient helper to wrap HTTP POST made to the GA Reference Data API
         private static async Task<HttpResponseMessage> AsyncHttpPostRequestHelper(HttpClient httpClient, string input)
         {
-             if (EnvironmentFqdn == "#PLACEHOLDER#" || EnvironmentReferenceDataSetName == "#PLACEHOLDER#")
+             if (EnvironmentFqdn.StartsWith("#PLACEHOLDER#") || EnvironmentReferenceDataSetName == "#PLACEHOLDER#")
              {
                 throw new Exception($"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'EnvironmentFqdn' and 'EnvironmentReferenceDataSetName'.");
              }
@@ -166,8 +167,8 @@ namespace CsharpTsiMsalGaSample
              if (response.IsSuccessStatusCode)
              {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                var r = JsonConvert.DeserializeObject<object>(jsonString);
-                Console.WriteLine("HTTP JSON Response Body: {0}", r);
+                var jsonStringTransferObject = JsonConvert.DeserializeObject<object>(jsonString);
+                Console.WriteLine("HTTP JSON Response Body: {0}", jsonStringTransferObject);
                 Console.WriteLine("");
                 return response;
              }
