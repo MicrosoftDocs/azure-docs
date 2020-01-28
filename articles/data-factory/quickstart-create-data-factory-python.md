@@ -15,7 +15,7 @@ ms.date: 01/22/2018
 ms.custom: seo-python-october2019
 ---
 
-# Quickstart: Create an Azure data factory and pipeline using Python
+# Quickstart: Create a data factory and pipeline using Python
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -35,7 +35,7 @@ Azure Data Factory is a cloud-based data integration service. This service allow
 
 * [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values to use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to the **Contributor** role by following instructions in the same article.
 
-### Create and upload an input file
+## Create and upload an input file
 
 1. Launch Notepad. Copy the following text and save it as **input.txt** file on your disk.
 
