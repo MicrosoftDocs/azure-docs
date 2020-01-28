@@ -79,18 +79,18 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
     by automatically registering the Application Insights servlet filter at runtime.
   * `applicationinsights-web` also gives you metrics that track HTTP servlet request counts and response times,
     but requires manual registration of the Application Insights servlet filter in your application.
-  * `applicationinsights-core` gives you just the bare API, for example, if your application is not servlet-based.
+  * `applicationinsights-core` gives you just the bare API, for example, if your application isn't servlet-based.
   
 * *How should I update the SDK to the latest version?*
-  * If you are using Gradle or Maven...
+  * If you're using Gradle or Maven...
     * Update your build file to specify the latest version.
-  * If you are manually managing dependencies...
+  * If you're manually managing dependencies...
     * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## Add an *ApplicationInsights.xml* file
-Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
+Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project’s deployment class path. Copy the following XML into it.
 
-Substitute the instrumentation key that you got from the Azure portal.
+Replace the instrumentation key with the one that you got from the Azure portal.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -119,18 +119,18 @@ Substitute the instrumentation key that you got from the Azure portal.
 </ApplicationInsights>
 ```
 
-Optionally, the configuration file can reside in any location accessible to your application.  The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains ApplicationInsights.xml. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Optionally, the configuration file can be in any location accessible to your application.  The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains *ApplicationInsights.xml*. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
+* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server. It then adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
 
 ### Alternative ways to set the instrumentation key
 Application Insights SDK looks for the key in this order:
 
 1. System property: -DAPPINSIGHTS_INSTRUMENTATIONKEY=your_ikey
 2. Environment variable: APPINSIGHTS_INSTRUMENTATIONKEY
-3. Configuration file: ApplicationInsights.xml
+3. Configuration file: *ApplicationInsights.xml*
 
 You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -196,7 +196,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 ## Azure App Service config (Spring Boot)
 
-Spring Boot apps running on Windows require additional configuration to run on Azure App Services. Modify **web.config** and add the following:
+Spring Boot apps running on Windows require additional configuration to run on Azure App Services. Modify **web.config** and add the following configuration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -235,7 +235,7 @@ Open **Investigate**, **Metrics**, to see a range of performance counters.
 ![Screenshot of metrics pane with process private bytes selected](./media/java-get-started/011-perf-counters.png)
 
 ### Customize performance counter collection
-To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
+To disable collection of the standard set of performance counters, add the following code under the root node of the *ApplicationInsights.xml* file:
 
 ```XML
     <PerformanceCounters>
