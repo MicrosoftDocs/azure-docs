@@ -35322,6 +35322,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/plan-auto-user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-auto-user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/plan-cloud-hr-provision.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-cloud-hr-provision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/provisioning-agent-release-version-history.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/provisioning-agent-release-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/sap-successfactors-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/sap-successfactors-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/skip-out-of-scope-deletions.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/skip-out-of-scope-deletions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
       "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-portal",
       "redirect_document_id": true
@@ -35412,9 +35437,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings.md",
       "redirect_url": "/azure/active-directory/manage-apps/functions-for-customizing-application-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/functions-for-customizing-application-data.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
