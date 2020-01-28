@@ -13,9 +13,9 @@ ms.date: 06/03/2019
 
 # Quickstart: Ingest data using the Azure Data Explorer Python library
 
-In this quickstart, you ingest data using the Azure Data Explorer Python library. First, create a table and data mapping in a cluster. You then queue ingestion to the cluster and validate the results.
+In this quickstart, you ingest data using the Azure Data Explorer Python library. Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Python: an ingest library and a data library. These libraries enable you to ingest, or load, data into a cluster and query data from your code.
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Python: an ingest library and a data library. These libraries enable you to ingest, or load, data into a cluster and query data from your code.
+First, create a table and data mapping in a cluster. You then queue ingestion to the cluster and validate the results.
 
 ## Prerequisites
 
