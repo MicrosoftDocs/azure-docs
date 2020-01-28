@@ -111,7 +111,7 @@ Below is an example of a semi-structured doc, without an index:
 
  ![Azure Blob storage semi-structured Doc](../media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
-### Structured QnA Document
+### Structured QnA document
 
 The format for structured Question-Answers in DOC files, is in the form of alternating Questions and Answers per line, one question per line followed by its answer in the following line, as shown below:
 
@@ -167,3 +167,7 @@ Learn more from the [QnA Maker markdown reference documentation](../reference-ma
 ## Testing your Markdown
 
 Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
+
+## Next steps
+
+* Understand how to design and manage [question and answer (QnA) sets](question-answer-set.md)
