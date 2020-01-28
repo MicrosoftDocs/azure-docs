@@ -266,14 +266,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: cognitive-services/speech-service/index.md#pivot=start&panel=speechtotext
+      url: /azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
     # Card
     - title: Speech Translation
       summary: Easily integrate real-time speech translation to your app
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: cognitive-services/speech-service/index.md#pivot=start&panel=speechtranslation
+      url: /azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
@@ -287,7 +287,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: cognitive-services/speech-service/index.md#pivot=start&panel=texttospeech
+      url: /azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
     # Card
     - title: Translator Text
       summary: Easily conduct machine translation with a simple REST API call
@@ -309,6 +309,101 @@ productDirectory:
       azureCategories:
         - analytics
       url: analysis-services/index.yml
+    # Card
+    - title: Azure Data Explorer
+      summary: Fast and highly scalable data exploration service
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: data-explorer/index.yml
+    # Card
+    - title: Azure Data Lake Storage
+      summary: Massively scalable, secure data lake functionality built on Azure Blob Storage
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+        - storage
+      url: storage/blobs/data-lake-storage-introduction.md
+    # Card
+    - title: Azure Data Share
+      summary: A simple and safe service for sharing big data with external organizations
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+        - storage
+      url: data-share/index.yml
+    # Card
+    - title: Azure Stream Analytics
+      summary: Real-time data stream processing from millions of IoT devices
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+        - iot
+      url: stream-analytics/index.yml
+    # Card
+    - title: Azure Synapse Analytics
+      summary: Limitless analytics service with unmatched time to insight (formerly SQL Data Warehouse)
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: sql-data-warehouse/index.yml
+    # Card
+    - title: Data Catalog
+      summary: Get more value from your enterprise data assets
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: data-catalog/index.yml
+    # Card
+    - title: Data Factory
+      summary: Hybrid data integration at enterprise scale, made easy
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: data-factory/index.yml
+    # Card
+    - title: Data Lake Analytics
+      summary: Distributed analytics service that makes big data easy
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: data-lake-analytics/index.yml
+    # Card
+    - title: Event Hubs
+      summary: Receive telemetry from millions of devices
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: event-hubs/index.yml
+    # Card
+    - title: HDInsight
+      summary: Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: hdinsight/index.yml
+    # Card
+    - title: Log Analytics
+      summary: Full observability into your applications, infrastructure, and network
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+        - managementAndGovernance
+      url: azure-monitor/index.yml
+    # Card
+    - title: Power BI Embedded
+      summary: Embed fully interactive, stunning data visualizations in your applications
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: power-bi-embedded/index.md
+    # Card
+    - title: R Server for HDInsight
+      summary: Predictive analytics, machine learning, and statistical modeling for big data
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - analytics
+      url: hdinsight/r-server/r-server-overview.md
     # Card
     - title: Azure Blockchain Service
       summary: Build, govern, and expand consortium blockchain networks
