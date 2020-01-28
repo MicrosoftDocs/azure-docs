@@ -38,7 +38,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-core**
     + User may now specify a value for the auth key when regenerating keys for webservices.
   + **azureml-interpret**
-    + updated azureml-interpret to depend on interpret-community 0.5.0
+    + Updated azureml-interpret to depend on interpret-community 0.5.0
+  + **azureml-pipeline-core**
+    + Fixed a bug where PythonScriptStep results could be incorrectly reused despite changing the arguments list
   + **azureml-pipeline-steps**
     + Added documentation example for dataset as PythonScriptStep input
   
