@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -25,7 +25,7 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 
 ### Configuring multi-turn
 
-Create your knowledge base with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
+[Create your knowledge base](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
 
 <!--is this a global setting that can only be configured at kb creation time? -->
 
@@ -46,8 +46,15 @@ Your user may enter questions with either a conversational style of text, `How d
 
 The best answers are simple answers but not too simple. Do not use answers such as `yes` and `no`. If your answer should link to other sources or provide a rich experience with media and links, use [metadata tagging](../how-to/edit-knowledge-base.md#add-metadata) to distinguish between answers, then [submit the query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) with metadata tags in the `strictFilters` property to get the correct answer version.
 
+|Answer|Follup-up prompts|
+|--|--|
+|Power down the Surface laptop with the power button on the keyboard.|* Key-combinations to sleep, shut down, and restart.<br>* How to hard-boot a Surface laptop<br>* How to change the BIOS for a Surface laptop<br>* Differences between sleep, shut down and restart|
+|Customer service is available via phone, Skype, and text message 24 hours a day.|* Contact information for sales.<br> * Office and store locations and hours for an in-person visit.<br> * Accessories for a Surface laptop.|
+
 ## Chit-Chat
 Add chit-chat to your bot, to make your bot more conversational and engaging, with low effort. You can easily add chit-chat data sets from pre-defined personalities when creating your KB, and change them at any time. Learn how to [add chit-chat to your KB](../How-To/chit-chat-knowledge-base.md).
+
+Chit-chat is supported in [many languages](../how-to/chit-chat-knowledge-base?branch=pr-en-us-100699#language-support).
 
 ### Choosing a personality
 Chit-chat is supported for several predefined personalities:

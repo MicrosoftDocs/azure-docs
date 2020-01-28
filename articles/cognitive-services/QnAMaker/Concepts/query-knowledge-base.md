@@ -25,7 +25,7 @@ The process is explained in the following table.
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
 |4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
-|5QnA Maker uses syntactic and semantic based featurization to determine the similarity between the user query and the fetched QnA results.|
+|5|QnA Maker uses syntactic and semantic based featurization to determine the similarity between the user query and the fetched QnA results.|
 |6|The machine-learned ranker model uses the different features, from step 5, to determine the confidence scores and the new ranking order.|
 |7|The new results are returned to the client application in ranked order.|
 |||
@@ -47,8 +47,8 @@ A user query is the question that the end user asks of the knowledge base, such 
     "scoreThreshold": 20,
     "strictFilters": [
     {
-        "name": "feature",
-        "value": "collaboration"
+        "name": "QuestionType",
+        "value": "Support"
     }],
     "userId": "sd53lsY="
 }
@@ -67,20 +67,22 @@ The HTTP response is the answer retrieved from the knowledge base, based on the 
     "answers": [
         {
             "questions": [
-                "What is the closing time?"
+                "How do I add a collaborator to my app?",
+                "What access control is provided for the app?",
+                "How do I find user management and security?"
             ],
-            "answer": "10.30 PM",
+            "answer": "Use the Azure portal to add a collaborator using Access Control (IAM)",
             "score": 100,
             "id": 1,
             "source": "Editorial",
             "metadata": [
                 {
-                    "name": "restaurant",
-                    "value": "Contoso"
+                    "name": "QuestionType",
+                    "value": "Support"
                 },
                 {
-                    "name": "location",
-                    "value": "New York"
+                    "name": "ToolDependency",
+                    "value": "Azure Portal"
                 }
             ]
         }
