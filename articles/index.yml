@@ -896,6 +896,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - identity
+        - security
       url: active-directory-domain-services/index.yml
     # Card
     - title: Azure Information Protection
@@ -1305,6 +1306,111 @@ productDirectory:
       azureCategories:
         - networking
       url: web-application-firewall/index.yml
+    # Card
+    - title: Azure Dedicated HSM
+      summary: Manage hardware security modules that you use in the cloud
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - security
+      url: dedicated-hsm/index.yml
+    # Card
+    - title: Key Vault
+      summary: Safeguard and maintain control of keys and other secrets
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - security
+      url: key-vault/index.yml
+    # Card
+    - title: Archive Storage
+      summary: Industry leading price point for storing rarely accessed data
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: storage/blobs/storage-blob-storage-tiers.md
+    # Card
+    - title: Avere vFXT for Azure
+      summary: Run high-performance, file-based workloads in the cloud
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: avere-vfxt/index.yml
+    # Card
+    - title: Azure FXT Edge Filer
+      summary: Hybrid storage optimization solution for HPC environments
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: fxt-edge-filer/index.yml
+    # Card
+    - title: Azure HPC Cache
+      summary: File caching for high-performance computing (HPC)
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: hpc-cache/index.yml
+    # Card
+    - title: Azure NetApp Files
+      summary: Enterprise-grade Azure file shares, powered by NetApp
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: azure-netapp-files/index.yml
+    # Card
+    - title: Blob Storage
+      summary: REST-based object storage for unstructured data
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: storage/blobs/index.yml
+    # Card
+    - title: Disk Storage
+      summary: Persistent, secured disk options supporting virtual machines
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: virtual-machines/windows/managed-disks-overview.md
+    # Card
+    - title: File Storage
+      summary: File shares that use the standard SMB 3.0 protocol
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: storage/files/index.yml
+    # Card
+    - title: Managed Disks
+      summary: Persistent, secured disk storage for Azure virtual machines
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: virtual-machines/windows/managed-disks-overview.md
+    # Card
+    - title: Queue Storage
+      summary: Effectively scale apps according to traffic
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: storage/queues/index.yml
+    # Card
+    - title: Storage
+      summary: Get secure, massively scalable cloud storage for your data, apps, and workloads
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: storage/index.yml
+    # Card
+    - title: Storage Explorer
+      summary: View and interact with Azure Storage resources
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: vs-azure-tools-storage-manage-with-storage-explorer.md
+    # Card
+    - title: StorSimple
+      summary: Lower costs with an enterprise hybrid cloud storage solution
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - storage
+      url: storsimple/index.md
 
 tools:
   title: Tools
