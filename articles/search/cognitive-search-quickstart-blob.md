@@ -152,7 +152,7 @@ You've now created your first skillset and learned important concepts useful for
 
 Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
 
-Another important concept is that skills operate over content types, and when working with heterogenous content, some inputs will be skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
+Another important concept is that skills operate over content types, and when working with heterogeneous content, some inputs will be skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
 
 Output is directed to a search index, and there is a mapping between name-value pairs created during indexing and individual fields in your index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
 
