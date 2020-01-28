@@ -130,6 +130,8 @@
     items:
     - name: Configure Autoscaling
       href: ./how-to/configure-autoscaling.md
+    - name: Use the REST API
+      href: ./how-to/use-rest-api.md
   - name: Troubleshoot
     href: ./how-to/troubleshoot.md
 
