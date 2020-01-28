@@ -96,7 +96,7 @@ The steps for manually removing node state apply only to node types with a *Bron
 To keep the nodes of the cluster evenly distributed across upgrade and fault domains, and hence enable their even utilization, the most recently created node should be removed first. In other words, the nodes should be removed in the reverse order of their creation. The most recently created node is the one with the greatest `virtual machine scale set InstanceId` property value. The code examples below return the most recently created node.
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
 ```azurecli
