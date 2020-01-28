@@ -29,7 +29,7 @@ Let's take a look at key components that generally play a part in a water consum
 ## Devices and connectivity 
 This section refers to devices used for smart water solutions, such as water quality monitoring or water consumption monitoring, generally as smart water devices. Smart water devices can be flow meters, water quality monitors, smart valves, leak detectors, and so on.
 
-Devices used in smart water solutions will generally be connected through low-power wide area networks (LPWAN), via a third-party network operator. For these types of devices, you can use the [Azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
+Devices used in smart water solutions will generally be connected through low-power wide area networks (LPWAN), through a third-party network operator. For these types of devices, you can use the [Azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
 
 ## IoT Central 
 Azure IoT Central is an IoT App platform, which gets you started up and running on your IoT solution quickly. You can brand, customize, and integrate your solution with third-party services.
@@ -39,7 +39,7 @@ After you connect your smart water devices to IoT Central, you get device comman
 ## Extensibility and integrations 
 You can extend your IoT application in IoT Central and optionally:
 * transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application
-* automate workflows in other systems by triggering actions via Microsoft Flow or webhooks from IoT Central application
+* automate workflows in other systems by triggering actions using Microsoft Flow or webhooks from IoT Central application
 * programatically access your IoT application in IoT Central through IoT Central APIs
 
 ## Business Applications 

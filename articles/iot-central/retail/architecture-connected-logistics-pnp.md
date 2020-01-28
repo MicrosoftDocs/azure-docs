@@ -21,7 +21,7 @@ Partners & customer can use the app template & following guidance to develop end
 1. Set of IoT tags sending telemetry data to a gateway device
 2. Gateway devices sending telemetry and aggregated insights to IoT Central
 3. Data is routed to the desired Azure service for manipulation
-4. Azure services like ASA or Azure Functions can be leveraged to reformat data streams and send to the desired storage accounts 
+4. Azure services like ASA or Azure Functions can be used to reformat data streams and send to the desired storage accounts 
 5. Various business workflows can be powered by end-user business applications
 
 ## Details

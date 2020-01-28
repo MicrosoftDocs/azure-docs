@@ -19,7 +19,7 @@ Continuous patient monitoring solutions can be built by using the app template p
 >[!div class="mx-imgBorder"] 
 >![CPM Architecture](media/cpm-architecture.png)
 
-1. Medical devices communicating via Bluetooth Low Energy (BLE)
+1. Medical devices communicating using Bluetooth Low Energy (BLE)
 1. Mobile phone gateway receiving BLE data and sending to IoT Central
 1. Continuous data export of patient health data to the Azure API for FHIR&reg;
 1. Machine learning based on interoperable data
