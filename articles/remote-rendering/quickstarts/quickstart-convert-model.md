@@ -150,7 +150,9 @@ Make sure to change **resourceGroup**, **storageAccountName**, **blobInputContai
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
 To fill out **azureSubscriptionId**, open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the list of subscriptions until you find the account used for this tutorial. **The SubscriptionID is located under the account name:**
+
 ![Subscription ID](./media/subscription-id.png "Subscription ID")
+
 Unfortunately the ID cannot be copied to clipboard from here, but the ID can also be gathered from the web portal.
 
 Those are the settings you used during storage account creation and blob container setup. Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
