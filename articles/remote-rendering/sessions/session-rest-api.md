@@ -46,7 +46,7 @@ PS> $accountKey = "*******************************************="
 
 ## Common request headers
 
-- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [getting a token](../azure/getting-tokens.md).
+- The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [getting a token](../azure/tokens.md).
 
 ```powershell
 PS> [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
