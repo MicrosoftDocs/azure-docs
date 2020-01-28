@@ -1099,6 +1099,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - managementAndGovernance
+        - migration
       url: cost-management-billing/index.yml
     # Card
     - title: Microsoft Azure portal
@@ -1174,6 +1175,21 @@ productDirectory:
       azureCategories:
         - media
       url: media-services/latest/index.yml
+    # Card
+    - title: Data Box
+      summary: Appliances and solutions for data transfer to Azure and edge compute
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - migration
+        - storage
+      url: databox-family/index.yml
+    # Card
+    - title: Spatial Anchors
+      summary: Create multi-user, spatially aware mixed reality experiences
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - mixedReality
+      url: spatial-anchors/index.yml
 
 tools:
   title: Tools
