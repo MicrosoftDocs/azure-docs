@@ -51,9 +51,7 @@ The contents of the file should satisfy the following json schema:
                     },
                     "minItems": 3,
                     "maxItems": 3
-                },
-                "meshType" : { "type" : "string", "enum" : [ "merge", "compact" ], "default" : "merge" },
-                "numberOfMergedMeshes" : { "type" : "integer", "default" : 16 }
+                }
             },
             "additionalProperties" : false
         }
@@ -129,14 +127,6 @@ This parameter can be set to false when ray-cast support is not required.
 ### Coordinate system overriding
 
 * `axis` - To override coordinate system unit-vectors, default values are `["+x", "+y", "+z"]` where sign means direction of a vector. In theory, the FBX format has a header where those vectors are defined and we use that information to transform the scene, and the glTF format defines a fixed coordinate system with Y-axis up. In practice, some assets have wrong header or saved with wrong Up-axis and it could be overridden by this option. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting  the Y-axis to the opposite direction.
-
-### Parameters affecting rendering performance
-
-* `meshType` - This option should have no bearing on the appearance of the model, but can be used to switch between two internal mesh formats.
-The default mesh type is called `compact`. `compact` is a highly optimized format, which is relatively new and has, as yet, had less use.
-If you experience issues, you can switch back to the better tested format called `merge`.
-* `numberOfMergedMeshes` - Geometry data is organized into a number of groups using this value. The current default is 12.
-For optimal use with compacted meshes, it may be worth experimenting with lower values.
 
 ## Typical use cases
 
