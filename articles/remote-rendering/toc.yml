@@ -23,7 +23,7 @@
   - name: Authentication
     href: azure/authentication.md
   - name: Service access tokens
-    href: azure/getting-tokens.md
+    href: azure/tokens.md
   - name: Example scripts for frontend authentication
     href: azure/powershell-example-scripts-for-frontend.md
 - name: Model conversion
