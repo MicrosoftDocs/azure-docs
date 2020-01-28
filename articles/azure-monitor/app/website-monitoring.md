@@ -1,6 +1,6 @@
 ---
-title: Monitor websites with Azure Monitor Application Insights
-description: Provides instructions to quickly setup client/browser-side website monitoring with Azure Monitor Application Insights
+title: 'Quickstart: Monitor websites with Azure Monitor Application Insights'
+description: Provides quickstart instructions setup client/browser-side website monitoring with Azure Monitor Application Insights
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -11,19 +11,15 @@ ms.date: 07/15/2019
 ms.custom: mvc
 ---
 
-# Start monitoring your website
+# Quickstart: Start monitoring your website
+
+In this quickstart, you learn how to better understand the client/browser-side experience for visitors to your website by adding the open source Application Insights JavaScript SDK to your website.
 
 With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capabilities.
 
-This quickstart guides you through adding the [open source Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) which allows you to understand the client/browser-side experience for visitors to your website.
-
 ## Prerequisites
 
-To complete this quickstart:
-
-- You need an Azure Subscription.
-
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+* An azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Sign in to the Azure portal
 
