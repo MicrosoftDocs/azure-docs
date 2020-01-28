@@ -1,6 +1,6 @@
 ---
-title: Convert your own model
-description: Explains how to convert a custom model for rendering.
+title: Convert a model
+description: Quickstart that shows the conversion steps for a custom model.
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -13,47 +13,52 @@ ms.service: azure-remote-rendering
 
 # Quickstart: Convert a model for rendering
 
-In the previous quickstart, you have learnt how to set up a Unity project to render a model with the Remote Rendering service. That quickstart used a built-in model to render. In this quickstart you will learn how to convert your own model, for example an .FBX file. Once converted, you can modify the sample from the first quickstart to actually render it.
+In the [previous quickstart](quickstart-render-model.md), you learnt how to use the Unity sample project to render a built-in model. This guide shows how to convert your own models.
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Set up Azure blob storage for input and output
 > * Configure the conversion script with your credentials and storage information
-> * Run the conversion and get back the URL of the converted model
-
-
-## Overview
-The renderer on the server consumes a model in a proprietary binary format, not a source model format (.FBX, .GLTF, ...) directly. To convert a model from source format to target format, we need to call the conversion REST API, which will be shown in this article.
-
-The conversion REST API can consume models from Azure blob storage and will write the converted model back to a provided Azure blob storage container.
-You will need to have:
-- An Azure Subscription
-- A 'StorageV2' account in your subscription
-- A blob storage container for your input model
-- A blob storage container for your output data
-
-ARR supports the conversion of the following source formats: FBX, GLTF, and GLB files.
+> * Run the conversion and get back the URI of the converted model
 
 ## Prerequisites
-The following must be installed to complete this quickstart:
-- You need a remote rendering service account: [Create an account](../azure/create-an-account.md)
-- Install the Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
-- Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
-```powershell
-PS> Install-Module -Name Az -AllowClobber
-```
+In addition to completing the [previous quickstart](quickstart-render-model.md), the following software must be installed:
 
+* Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
+* Azure Powershell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+  * Open a Powershell with admin rights
+  * Run: `Install-Module -Name Az -AllowClobber`
+
+## Overview
+
+The renderer on the server can't work directly with source model formats such as FBX or GLTF. Instead, it requires the model to be in a proprietary binary format.
+The conversion service consumes models from Azure blob storage and writes converted models back to a provided Azure blob storage container.
+
+You need:
+
+* An Azure subscription
+* A 'StorageV2' account in your subscription
+* A blob storage container for your input model
+* A blob storage container for your output data
+
+ARR supports the conversion of these source formats:
+
+* FBX
+* GLTF
+* GLB
 
 ## Azure setup
-For this guide, we will describe how to use Azure Remote Rendering with a free Azure account.
-The same setup will apply if you are an existing user.
 
-Go to  [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/) or if you already have an account go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
-If you do not have an Azure account, then click on the free account option on the home page and follow those instructions.
-Once completed, you will be forwarded to the portal page in the second link.
+If you do not have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), click on the free account option, and follow the instructions.
 
-First, a Storage Account must be created so that will be the first task to complete. To accomplish that, click on the "Create a resource" button:
+Once you have an Azure account, go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
+
+
+### Storage account creation
+
+To create blob storage, you first need a storage account.
+To create one, click on the "Create a resource" button:
 
 ![Azure - add resource](./media/azure-add-a-resource.png "Click the 'Create a resource' button")
 
@@ -75,26 +80,26 @@ Fill out the form in the following manner:
   *	**Replication** set to ‘Read-access geo-redundant storage (RA-GRS)’
   *	**Access tier** set to ‘Hot’
 
-None of the properties in other tabs have to be changed. When finished, click on the "Review + create" button at the bottom and follow the steps to complete the setup.
+None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
 The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Click on the **"Go to resource"** button for the next steps:
 
 ![Azure Storage creation complete](./media/storage-creation-complete.png)
 
-Now you need to create blob containers – you will need one for input and one for output, so creating these two containers is the next step.
+### Blob storage creation
 
-## Blob storage creation
+Next we need two blob containers, one for input and one for output.
 
-From the **"Go to resource"** button above you get into a screen with a panel on the left. Close to the bottom, in the **"Blob service"** category, click on the **"Containers"** button:
+From the **"Go to resource"** button above, you get into a screen with a panel on the left. Close to the bottom, in the **"Blob service"** category, click on the **"Containers"** button:
 
 ![Azure - add Containers](./media/azure-add-containers.png)
 
-Press the **"+ Container"** button to create your first blob storage container.
+Press the **"+ Container"** button to create the **input** blob storage container.
 Use the following settings when creating it:
   * Name = arrinput
   * Public access level = Private
 
-Once the container has been created, repeat the process by clicking the **"+ Container**" button, but this time use the following settings:
+After the container has been created, click **+ Container** again and repeat with these settings for the **output** container:
   * Name = arroutput
   * Public access level = Private
 
@@ -102,43 +107,20 @@ You should now have two blob storage containers:
 
 ![Blob Storage Setup](./media/blob-setup.png "Blob Storage Setup")
 
-At this point, switch to using the Microsoft Azure Storage Explorer tool – this provides information in one central location and makes it easier to configure Azure Remote Rendering.
-Once you sign in using your Microsoft Azure account created in the previous steps, you will be presented with the following.
+At this point, switch to the **Azure Storage Explorer** tool (which you installed earlier) – it provides information in one central location and makes it easier to configure Azure Remote Rendering.
+
+After signing into the explorer, you will be presented with a tree structure. Navigate to your blob containers like in the image below:
+
 (You may need to expand a few items in the tree to see everything.)
 
 ![Azure Storage Explorer](./media/azure-explorer.png "Azure Storage Explorer")
 
-As you can see from the image above, the tool displays all the information needed in setting up and linking our Azure Storage accounts to the Azure Remote Rendering tools, via the properties menu.
+As you can see, the tool displays all the information needed via the properties menu.
 
-It also will allow you to generate sharable links, which will be needed later in the process.
-For now, the next step is to configure a .json file so that the script can upload and convert your model.
+## Conversion settings
 
-## Ingestion.ps1 settings in arrconfig.json
+To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Ingestion.ps1**. The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
 
-Similar to the process of starting a rendering session, we provide a script to launch a conversion.
-It is located in `Scripts` folder and is called `Ingestion.ps1`.
-`Ingestion.ps1` uses `Scripts\arrconfig.json` to configure itself. First open `Scripts\arrconfig.json` in a text editor of your choice.
-
-The values in the **`accountSettings`** category should still be filled out from running the [render a model quickstart](../quickstarts/quickstart-render-model.md). If not, put in your `arrAccountId` and `arrAccountKey` (primary or secondary key) as described in the [Create an account](../azure/create-an-account.md) section.
-
-In addition to the values for spinning up the rendering session you also need to provide values for the following properties:
-
-The `azureStorageSettings` section contains values used by the Ingestion.ps1 script. Fill it out if you want to upload a model to Azure Blob Storage and convert it by using our model conversion service.
-
-* `azureStorageSettings.azureSubscriptionId` :  Open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the tree list panel of subscriptions until you find the account used for this tutorial (in this case, the free trial account). **The SubscriptionID is located under the account name**
-![Subscription ID](./media/subscription-id.png "Subscription ID")
-
-Unfortunately the ID cannot be copied as text from here, but the can also be gathered from the web portal.
-
-
-* `azureStorageSettings.resourceGroup` :  **ARR_Tutorial** (The resource group created at the start).
-* `azureStorageSettings.storageAccountName` : **arrtutorialstorage** (Your picked unique name of the Storage account created above).
-* `azureStorageSettings.blobInputContainerName` : **arrinput** (The blob input container created above).
-* `azureStorageSettings.blobOutputContainerName`: **arroutput** (The blob output container created above).
-* `modelSettings.modelLocation` : the local file path of the model you want to convert with the conversion service. In this example, there is a robot.fbx file at the path `D:\\tmp\\robot.fbx`.
-Make sure to properly escape "\\" in the path using "\\\\".
-
-Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned above. Change it to point to a local file you want to convert using the ARR conversion service.
 ```json
 {
     "accountSettings": {
@@ -152,7 +134,7 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
     },
     "azureStorageSettings": {
         "azureSubscriptionId": "7*******-****-****-****-*********39b",
-        "resourceGroup": "ARR_TUTORIAL",
+        "resourceGroup": "ARR_Tutorial",
         "storageAccountName": "arrtutorialstorage",
         "blobInputContainerName": "arrinput",
         "blobOutputContainerName": "arroutput"
@@ -162,28 +144,30 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
     }
 }
 ```
+The values in the **`accountSettings`** category should still be filled out from running the [render a model quickstart](../quickstarts/quickstart-render-model.md).
+
+Make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above. 
+Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
+
+To fill out **azureSubscriptionId**, open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the list of subscriptions until you find the account used for this tutorial. **The SubscriptionID is located under the account name:**
+![Subscription ID](./media/subscription-id.png "Subscription ID")
+Unfortunately the ID cannot be copied to clipboard from here, but the ID can also be gathered from the web portal.
+
+Those are the settings you used during storage account creation and blob container setup. Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 > [!NOTE]
 > The example Powershell script only allows for handling of one self contained file in the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
 
-## Running the asset conversion script
-You are now ready to have the script upload your model, call the conversion REST API, and retrieve a link to the conversion model in your output container.
+## Running the conversion script
+The script is now ready to upload your model, call the conversion API, and retrieve a link to the converted model.
 
-Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following command in powershell with admin rights:
-```powershell
-PS> Install-Module -Name Az -AllowClobber
-```
-Installation of the Azure Powershell is a one-time step (see prerequisites).
+Open a Powershell, make sure you installed the *Azure Powershell* as mentioned in the prerequisites. Then log into your subscription:
 
-## Make sure you are logged into your subscription
-If you want to use the asset conversion service and upload files to Azure Blob Storage, you will need to log into your subscription.
-In a powershell window (does not need admin rights):
 ```powershell
 PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
-## Run Ingestion.ps1
-Make sure you are within the `\ARR\arrClient\Scripts` directory, and run the script with:
+Change to the `arrClient\Scripts` directory and run the conversion script:
 
 ```powershell
 PS> .\Ingestion.ps1
@@ -192,20 +176,27 @@ PS> .\Ingestion.ps1
 You should see something like this:
 ![Ingestion.ps1](./media/successful-ingestion.png "Ingestion.ps1")
 
-The conversion script generates a Shared Access Signature (SAS) URI for the converted model for you to use.
-Copy the SAS URI now. Note that this URI will be only valid for 24 h - after that you can create a SAS URI yourself by following these steps without reconverting the model.
+The conversion script generates a **Shared Access Signature (SAS)** URI for the converted model. You can now copy this URI as the *model name* into the Unity sample app (see the [previous quickstart](quickstart-render-model.md)) to have it render your custom model!
 
-Open Azure Storage Explorer and navigate to the arroutput blob storage container.
-You will find the converted model ezArchive file in there.
-Right click on this entry and select **Get Shared Access Signature**:
+![Replace model in Unity](./media/replace-model-in-unity.png)
+
+
+## Re-creating a SAS URI
+The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, open Azure Storage Explorer and navigate to the *arroutput* blob storage container.
+You will find the converted model file in there (either an *ezArchive* or and *arrAsset* file).
+
+Right-click on the entry and select **Get Shared Access Signature**:
 
 ![Signature Access](./media/model-share.png "Signature Access")
 
 Set the expiry date to a date you would like and press Create.
-Copy the URL link that is generated.
+Copy the URI that is prompted in the next dialog.
 
-This URL is what you set as a model name in the [render a model quickstart](../quickstarts/quickstart-render-model.md):
+This URI is the replacement for the temporary URI and can be set as a *ModelName* property in the Unity sample.
 
-![Replace model in Unity](./media/replace-model-in-unity.png)
 
-Rerunning the sample with the changed model name should now load and render your model.
+## Next steps
+Now that you know the basics, have a look at our tutorials to gain more in-depth knowledge.
+
+> [!div class="nextstepaction"]
+> [Tutorial 1](../tutorials/tutorial-1-getting-started.md)
