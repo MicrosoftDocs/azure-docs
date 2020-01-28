@@ -3,7 +3,7 @@ title: Azure support for generation 2 VMs
 description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-windows
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
+ms.date: 01/28/2020
+ms.author: jushiman
 ---
 
 # Support for generation 2 VMs on Azure
