@@ -13,7 +13,7 @@ services: event-grid
 
 # Configure identity for the Event Grid module
 
-This article gives  examples of how you can configure identity for Event Grid on Edge. By default, the Event Grid module presents its identity certificate as configured by the IoT security daemon. Event Grid on Edge presents its identity certificate with its outgoing calls when it delivers events. A subscriber  can then validate it's the Event Grid module that sent the event before accepting.
+This article gives shows how to configure identity for Grid on Edge. By default, the Event Grid module presents its identity certificate as configured by the IoT security daemon. Event Grid on Edge presents its identity certificate with its outgoing calls when it delivers events. A subscriber  can then validate it's the Event Grid module that sent the event before accepting.
 
 See [Security and authentication](security-authentication.md) guide for all the possible configurations.
 
