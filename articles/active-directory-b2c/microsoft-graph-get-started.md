@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
@@ -30,13 +30,13 @@ There are two modes of communication you can use when working with the Microsoft
 
 This article helps you prepare for using the **automated** method.
 
-## Register a management application
+## Register management application
 
 To prepare for using the Microsoft Graph API to manage resources in your B2C tenant, first register an application that your automation scripts and applications will use to access tenant resources.
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
-### Assign API access permissions
+### Grant API access
 
 Next, grant the registered application permissions to manipulate tenant resources through calls to the Microsoft Graph API.
 
