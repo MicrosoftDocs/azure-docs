@@ -57,13 +57,13 @@ Workspaces, the filters admins can configure to organize their users apps, will 
 
 ---
  
-### B2C Phone sign-up and sign-in using custom policy
+### Azure AD B2C Phone sign-up and sign-in using custom policy
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policy, phone sign-up and sign-in allows developers and enterprises to communicate their brand through page customization.
+With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policies, phone sign-up and sign-in allows developers and enterprises to communicate their brand through page customization. Find out how to [set up phone sign-up and sign-in with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication).
  
 ---
  
