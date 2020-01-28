@@ -97,7 +97,7 @@ Before you begin, ensure that all the [prerequisites](backup-azure-dpm-introduct
 14. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
 
     * **Automatically over the network** transfers the backup data to Azure as per the schedule chosen for backup.
-    * How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+    * How **Offline Backup** works is explained at [Overview of Offline Backup](offline-backup-overview.md).
 
     Choose the relevant transfer mechanism to send the initial backup copy to Azure and click **Next**.
 15. Once you review the policy details in the **Summary** screen, click on the **Create group** button to complete the workflow. You can click the **Close** button and monitor the job progress in Monitoring workspace.

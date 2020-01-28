@@ -328,4 +328,4 @@ From the server you are trying to configure offline backup, perform the followin
 
 ## Questions
 
-For any questions or clarifications, regarding any issues faced, reach out to [saurse@microsoft.com](mailto:saurse@microsoft.com)
+For any questions or clarifications, regarding any issues faced, reach out to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)

@@ -3,7 +3,7 @@ title: Offline backup for DPM and Azure Backup Server
 description: Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server (MABS).
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
+ms.date: 1/28/2020
 ---
 # Offline-backup workflow for DPM and Azure Backup Server
 
@@ -50,13 +50,41 @@ Ensure that the following prerequisites are met before initiating the Offline Ba
     | United States | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* An Azure Storage account with *classic* deployment model has been created in the subscription from which you downloaded the publish settings file as shown below:
+* An Azure Storage account with *Resource Manager* deployment model has been created in the subscription from which you downloaded the publish settings file as shown below:
 
-  ![Creating a classic storage account](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creating a storage account with Resource Manager development](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * With regards to disks that will be sent to Azure, ensure that only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
 * The SATA drives have to be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that BitLocker is enabled on the *copy computer*
+
+## Prepare the Server for the Offline Backup process
+
+>[!NOTE]
+> If you cannot find the listed utilities such as *AzureOfflineBackupCertGen.exe* in your installation of the MARS agent, write to AskAzureBackupTeam@microsoft.com to get access to them.
+
+* Open an elevated command prompt on the server and run the following command:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    The tool will create an Azure Offline Backup AD Application if one does not exist.
+
+    If an Application already exists, this executable will ask you to manually upload the certificate to the application in the tenant. Follow the steps below in this section to upload the certificate manually to the app.
+
+* The AzureOfflineBackup.exe tool will generate an OfflineApplicationParams.xml file.  Copy this file to the server with MABS or DPM.
+* Install the [latest MARS agent](https://aka.ms/azurebackup_agent) on the DPM/Venus server.
+* Register the server to Azure.
+* Run the following command:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+    For more information on the supported options for the AzureOfflineBackupCertGen.exe, see *ReadMeAzureCertGen.txt* and *addRegistry.PNG*
+
+* The command above will create the file `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_Storageaccountname.xml`
 
 ## Workflow
 
@@ -212,4 +240,3 @@ At the time of the next scheduled backup, Azure Backup performs incremental back
 ## Next steps
 
 * For any questions on the Azure Import/Export workflow, refer to [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
-
