@@ -348,6 +348,10 @@ The following are sample Event Grid role definitions that allow users to take di
 
 You can create custom roles with [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), and [REST](../role-based-access-control/custom-roles-rest.md).
 
+## Encryption at rest
+
+All events or data written to disk by the Event Grid service is encrypted by a Microsoft managed key ensuring that it is encrypted at rest. Additionally, the maximum period of time that events or data is retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the the event time-to-live, whichever is less.
+
 ## Next steps
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md)

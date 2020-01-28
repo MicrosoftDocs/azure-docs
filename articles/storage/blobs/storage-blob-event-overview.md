@@ -30,6 +30,9 @@ If you want to try this out now, see any of these quickstart articles:
 
 If your account has a hierarchical namespace, this tutorial will show you how to connect together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table](data-lake-storage-events.md).
 
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+
 ## The event model
 
 Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
