@@ -2,12 +2,12 @@
 title: Integrate with other applications - QnA Maker
 description: Qna Maker integrates into client applications such as chat bots as well as with other natural language processing services such as Language Understanding (LUIS).
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/27/2020
 ---
 
 # Design knowledge base for client applications
 
-Qna Maker integrates into client applications such as chat bots as well as with other natural language processing services such as Language Understanding (LUIS).
+QnA Maker integrates into client applications such as chat bots as well as with other natural language processing services such as Language Understanding (LUIS).
 
 ## Integration with a conversational client
 
@@ -27,4 +27,4 @@ While QnA Maker processes questions that use natural language processing, it can
 
 ## Next steps
 
-Learn development cycle [concepts](development-lifecycle-knowledge-base.md) for Qna Maker.
+Learn development cycle [concepts](development-lifecycle-knowledge-base.md) for QnA Maker.

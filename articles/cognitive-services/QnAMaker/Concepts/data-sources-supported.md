@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/27/2020
 ms.author: diberry
 ---
 
@@ -201,7 +201,7 @@ Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutori
 
 Version control for data is provided through the import/export features on the **Settings** page in the QnA Maker portal.
 
-Export your knowledge base as a `.tsv` or `.xls` file, then check in to your current source control. 
+Export your knowledge base as a `.tsv` or `.xls` file, then check in to your current source control.
 
 ## Next steps
 

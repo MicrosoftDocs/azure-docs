@@ -2,7 +2,7 @@
 title: Design knowledge base - QnA Maker
 description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) sets and optional metadata associated with each QnA pair.
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/27/2020
 ---
 
 # Question and answer set concepts

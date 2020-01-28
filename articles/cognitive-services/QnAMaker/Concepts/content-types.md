@@ -3,7 +3,7 @@ title: Content types - QnA Maker
 description: Content types include many standard structured documents such as PDF, DOC, and TXT.
 services: cognitive-services
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/27/2020
 ---
 
 # Content types of documents you can add to a knowledge base

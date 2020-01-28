@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
 ---

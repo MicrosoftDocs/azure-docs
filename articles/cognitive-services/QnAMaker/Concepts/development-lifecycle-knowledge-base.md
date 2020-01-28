@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -30,7 +30,7 @@ The knowledge base is ready for testing once it is populated with content, eithe
 
 This tight loop of test-update continues until you are satisfied with the results. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
-For large KBs, use automated testing with the [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) and the `isTest` body property which queries the `test` knowledge base instead of the published knowledge base.
+For large KBs, use automated testing with the [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) and the `isTest` body property, which queries the `test` knowledge base instead of the published knowledge base.
 
 ```json
 {
@@ -61,7 +61,7 @@ Based on what you learn from your analytics, make appropriate [updates to your k
 
 Version control for data is provided through the import/export features on the **Settings** page in the QnA Maker portal.
 
-You can backup a knowledge base by exporting the knowledge base, in either `.tsv` or `.xls` format. Once exported, include this file as part of your regular source control check.
+You can back up a knowledge base by exporting the knowledge base, in either `.tsv` or `.xls` format. Once exported, include this file as part of your regular source control check.
 
 When you need to go back to a specific version, you need to import that file from your local system. An exported knowledge base **must** only be used via import on the **Settings** page. It can't be used as a file or URL document data source. This will replace questions and answers currently in the knowledge base with the contents of the imported file.
 
