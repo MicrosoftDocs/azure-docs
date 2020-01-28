@@ -81,11 +81,11 @@ You can enable Azure Monitor logging directly from your integration account.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your integration account.
 
-   ![Find and select your integration account](media/logic-apps-monitor-b2b-messages/find-integration-account.png)
+   ![Find and select your integration account](./media/logic-apps-monitor-b2b-messages/find-integration-account.png)
 
 1. On your integration account's menu, under **Monitoring**, select **Diagnostic settings**. Select **Add diagnostic setting**.
 
-   ![Under "Monitoring", select "Diagnostics settings"](media/logic-apps-monitor-b2b-messages/monitor-diagnostics-settings.png)
+   ![Under "Monitoring", select "Diagnostics settings"](./media/logic-apps-monitor-b2b-messages/monitor-diagnostics-settings.png)
 
 1. To create the setting, follow these steps:
 
@@ -103,7 +103,7 @@ You can enable Azure Monitor logging directly from your integration account.
 
    For example: 
 
-   ![Set up Azure Monitor logs to collect diagnostic data](media/logic-apps-monitor-b2b-messages/send-diagnostics-data-log-analytics-workspace.png)
+   ![Set up Azure Monitor logs to collect diagnostic data](./media/logic-apps-monitor-b2b-messages/send-diagnostics-data-log-analytics-workspace.png)
 
 <a name="view-message-status"></a>
 
@@ -131,7 +131,7 @@ After your logic app runs, you can view the status and data about those messages
 
    A list of messages appears for your chosen tile. For example, here's what an AS2 message list might look like:
 
-   ![Statuses and details for AS2 messages](media/logic-apps-monitor-b2b-messages/as2-message-results-list.png)
+   ![Statuses and details for AS2 messages](./media/logic-apps-monitor-b2b-messages/as2-message-results-list.png)
 
    To learn more about the properties for each message type, see these message property descriptions:
 
@@ -153,7 +153,7 @@ After your logic app runs, you can view the status and data about those messages
    * [X12 folder and file name formats](#x12-folder-file-names)
    * [EDIFACT folder and file name formats](#edifact-folder-file-names)
 
-   ![Download message files](media/logic-apps-monitor-b2b-messages/download-messages.png)
+   ![Download message files](./media/logic-apps-monitor-b2b-messages/download-messages.png)
 
 -->
 

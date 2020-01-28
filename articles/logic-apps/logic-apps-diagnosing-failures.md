@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 01/31/2020
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -68,23 +68,16 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 ## Perform runtime debugging
 
-To help with debugging, you can add diagnostic steps to a workflow, 
-along with reviewing the trigger and runs history. For example, 
-you can add steps that use the [Webhook Tester](https://webhook.site/) 
-service so that you can inspect HTTP requests and determine 
-their exact size, shape, and format.
+To help with debugging, you can add diagnostic steps to a logic app workflow, along with reviewing the trigger and runs history. For example, you can add steps that use the [Webhook Tester](https://webhook.site/) service so that you can inspect HTTP requests and determine their exact size, shape, and format.
 
-1. Visit [Webhook Tester](https://webhook.site/) and copy the unique URL created
+1. Go to the [Webhook Tester](https://webhook.site/) site and copy the generated unique URL.
 
-2. In your logic app, add an HTTP POST action with the 
-body content that you want to test, 
-for example, an expression or another step output.
+1. In your logic app, add an HTTP POST action plus the body content that you want to test, for example, an expression or another step output.
 
-3. Paste the URL for your Webhook Tester into the HTTP POST action.
+1. Paste your URL from Webhook Tester into the HTTP POST action.
 
-4. To review how a request is formed when generated from the Logic Apps engine, 
-run the logic app, and see Webhook Tester for details.
+1. To review how a request is formed when generated from the Logic Apps engine, run the logic app, and revisit the Webhook Tester site for more details.
 
 ## Next steps
 
-[Monitor your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Monitor your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md)

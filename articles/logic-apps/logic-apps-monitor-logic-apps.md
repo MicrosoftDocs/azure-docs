@@ -1,5 +1,5 @@
 ---
-title: Monitor run status, view trigger history, and set up alerts
+title: Monitor status, view history, and set up alerts
 description: Troubleshoot logic apps by checking run status, reviewing trigger history, and enabling alerts in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
@@ -28,17 +28,17 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
    To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
 
-   ![Find and select "Logic Apps" service](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+   ![Find and select "Logic Apps" service](./media/logic-apps-monitor-logic-apps/find-your-logic-app.png)
 
    The Azure portal shows all the logic apps that are associated with your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
 
-   ![View logic apps associated with subscriptions](./media/logic-apps-monitor-your-logic-apps/logic-apps-list-in-subscription.png)
+   ![View logic apps associated with subscriptions](./media/logic-apps-monitor-logic-apps/logic-apps-list-in-subscription.png)
 
 1. Select your logic app, and then select **Overview**.
 
    On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear. If the list shows many runs, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
 
-   ![Overview, runs history, and other logic app information](media/logic-apps-monitor-your-logic-apps/overview-pane-logic-app-details-run-history.png)
+   ![Overview, runs history, and other logic app information](./media/logic-apps-monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
    Here are the possible statuses for a logic app run:
 
@@ -53,19 +53,19 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run.
 
-   ![Select a specific run to review](media/logic-apps-monitor-your-logic-apps/select-specific-logic-app-run.png)
+   ![Select a specific run to review](./media/logic-apps-monitor-logic-apps/select-specific-logic-app-run.png)
 
    The **Logic app run** pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
-   ![Each action in the specific run](media/logic-apps-monitor-your-logic-apps/logic-app-run-pane.png)
+   ![Each action in the specific run](./media/logic-apps-monitor-logic-apps/logic-app-run-pane.png)
 
    To view this information in list form, on the **Logic app run** toolbar, select **Run Details**.
 
-   ![On the toolbar, select "Run Details"](media/logic-apps-monitor-your-logic-apps/select-run-details-on-toolbar.png)
+   ![On the toolbar, select "Run Details"](./media/logic-apps-monitor-logic-apps/select-run-details-on-toolbar.png)
 
    The Run Details view shows each step, their status, and other information.
 
-   ![Review details about each step in the run](media/logic-apps-monitor-your-logic-apps/review-logic-app-run-details.png)
+   ![Review details about each step in the run](./media/logic-apps-monitor-logic-apps/review-logic-app-run-details.png)
 
    For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
@@ -73,11 +73,11 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
    * In the **Logic app run** pane select the step so that the shape expands. You can now view information such as inputs, outputs, and any errors that happened in that step, for example:
 
-     ![In logic app run pane, view failed step](media/logic-apps-monitor-your-logic-apps/specific-step-inputs-outputs-errors.png)
+     ![In logic app run pane, view failed step](./media/logic-apps-monitor-logic-apps/specific-step-inputs-outputs-errors.png)
 
    * In the **Logic app run details** pane, select the step that you want.
 
-     ![In run details pane, view failed step](media/logic-apps-monitor-your-logic-apps/select-failed-step-in-failed-run.png)
+     ![In run details pane, view failed step](./media/logic-apps-monitor-logic-apps/select-failed-step-in-failed-run.png)
 
      You can now view information such as inputs and outputs for that step, for example:
 
@@ -98,21 +98,21 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
    To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
 
-   ![Find and select "Logic Apps" service](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+   ![Find and select "Logic Apps" service](./media/logic-apps-monitor-logic-apps/find-your-logic-app.png)
 
    The Azure portal shows all the logic apps that are associated with your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
 
-   ![View logic apps associated with subscriptions](./media/logic-apps-monitor-your-logic-apps/logic-apps-list-in-subscription.png)
+   ![View logic apps associated with subscriptions](./media/logic-apps-monitor-logic-apps/logic-apps-list-in-subscription.png)
 
 1. Select your logic app, and then select **Overview**.
 
 1. On your logic app's menu, select **Overview**. In the **Summary** section, under **Evaluation**, select **See trigger history**.
 
-   ![View trigger history for your logic app](media/logic-apps-monitor-your-logic-apps/overview-pane-logic-app-details-trigger-history.png)
+   ![View trigger history for your logic app](./media/logic-apps-monitor-logic-apps/overview-pane-logic-app-details-trigger-history.png)
 
    The trigger history pane shows all the trigger attempts that your logic app has made. Each time that the trigger fires for an item or event, the Logic Apps engine creates a separate logic app instance that runs the workflow. By default, each instance runs in parallel so that no workflow has to wait before starting a run. So if your logic app triggers on multiple items at the same time, a trigger entry with the same date and time appears for each item.
 
-   ![Multiple trigger attempts for different items](media/logic-apps-monitor-your-logic-apps/logic-app-trigger-history.png)
+   ![Multiple trigger attempts for different items](./media/logic-apps-monitor-logic-apps/logic-app-trigger-history.png)
 
    Here are the possible statuses for a trigger attempt:
 
@@ -130,11 +130,11 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
 1. To view information about a specific trigger attempt, on the trigger pane, select that trigger event. If the list shows many trigger attempts, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
 
-   ![View specific trigger attempt](media/logic-apps-monitor-your-logic-apps/select-trigger-event-for-review.png)
+   ![View specific trigger attempt](./media/logic-apps-monitor-logic-apps/select-trigger-event-for-review.png)
 
    You can now review information about the selected trigger event, for example:
 
-   ![View specific trigger information](media/logic-apps-monitor-your-logic-apps/view-specific-trigger-details.png)
+   ![View specific trigger information](./media/logic-apps-monitor-logic-apps/view-specific-trigger-details.png)
 
 <a name="add-azure-alerts"></a>
 
@@ -144,13 +144,13 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
 1. On your logic app menu, under **Monitoring**, select **Alerts** > **New alert rule**.
 
-   ![Add an alert for your logic app](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
+   ![Add an alert for your logic app](./media/logic-apps-monitor-logic-apps/set-up-alerts.png)
 
 1. On the **Create rule** pane, follow these steps:
 
    1. Under **Resource**, select your logic app, if not already selected. Under **Condition**, select **Add** so that you can define the condition that triggers the alert.
 
-      ![Add a condition for the rule](media/logic-apps-monitor-your-logic-apps/add-condition-for-rule.png)
+      ![Add a condition for the rule](./media/logic-apps-monitor-logic-apps/add-condition-for-rule.png)
 
    1. On the **Configure signal logic** pane, find and select the signal for to get an alert. You can use the search box, or to sort the signals alphabetically, select the **Signal name** column header.
 
@@ -158,7 +158,7 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
       1. In the **Signal name** column, find and select the **Triggers Failed** signal.
 
-         ![Select signal for creating alert](media/logic-apps-monitor-your-logic-apps/find-and-select-signal.png)
+         ![Select signal for creating alert](./media/logic-apps-monitor-logic-apps/find-and-select-signal.png)
 
       1. On the information pane that opens for the selected signal, under **Alert logic**, set up your condition, for example:
 
@@ -176,7 +176,7 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
          Here's the finished condition:
 
-         ![Set up condition for alert](media/logic-apps-monitor-your-logic-apps/set-up-condition-for-alert.png)
+         ![Set up condition for alert](./media/logic-apps-monitor-logic-apps/set-up-condition-for-alert.png)
 
    1. Specify a name, optional description, and severity level for your alert. Either leave the **Enable rule upon creation** setting turned on, or turn off until you're ready to enable the rule.
 
