@@ -46,7 +46,7 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
 > [!NOTE]
 > The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
 
-Azure Cosmos DB emulator currently doesn’t support hosted VS2019 agent pool. However, the emulator already comes with VS2019 installed and you use it by starting the emulator with the following PowerShell cmdlets. If you run into any issues when using the VS2019, reach out to the Azure DevOps team for help:
+Azure Cosmos DB emulator currently doesn’t support hosted VS2019 agent pool. However, the emulator already comes with VS2019 installed and you use it by starting the emulator with the following PowerShell cmdlets. If you run into any issues when using the VS2019, reach out to the [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) team for help:
 
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 Start-CosmosDbEmulator
