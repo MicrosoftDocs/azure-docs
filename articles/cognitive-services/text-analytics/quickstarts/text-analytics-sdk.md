@@ -76,8 +76,8 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 
 | Language | Available version | 
 |----------|------------------------|
-| Ruby     | [Version 2](../includes/quickstarts/v2/ruby-sdk.md)          | 
-| Go       | [Version 2](../includes/quickstarts/v2/go-sdk.md)          | 
+| Ruby     | [Version 2](ruby-sdk.md)          | 
+| Go       | [Version 2](go-sdk.md)          | 
 
 ::: zone-end
 
