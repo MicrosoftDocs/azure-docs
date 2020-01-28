@@ -1005,6 +1005,130 @@ productDirectory:
         - iot
         - security
       url: asc-for-iot/index.yml
+    # Card
+    - title: Automation
+      summary: Simplify cloud management with process automation
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: automation/index.yml
+    # Card
+    - title: Azure Advisor
+      summary: Your personalized Azure best practices recommendation engine
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: advisor/index.yml
+    # Card
+    - title: Azure Backup
+      summary: Simplify data protection and protect against ransomware
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+        - storage
+      url: backup/index.yml
+    # Card
+    - title: Azure Blueprints
+      summary: Enabling quick, repeatable creation of governed environments
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: governance/blueprints/index.yml
+    # Card
+    - title: Azure Lighthouse
+      summary: Empowering service providers to manage customers at scale and with precision
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: lighthouse/index.yml
+    # Card
+    - title: Azure Managed Applications
+      summary: Simplify management of cloud offerings
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: azure-resource-manager/managed-applications/index.yml
+    # Card
+    - title: Azure Migrate
+      summary: Easily discover, assess, right-size, and migrate your on-premises VMs to Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+        - migration
+      url: migrate/index.yml
+    # Card
+    - title: Azure Policy
+      summary: Implement corporate governance and standards at scale for Azure resources
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: governance/policy/index.yml
+    # Card
+    - title: Azure Resource Manager
+      summary: Simplify how you manage your app resources
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: azure-resource-manager/index.yml
+    # Card
+    - title: Azure Service Health
+      summary: Personalized guidance and support for when issues in Azure services affect you
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: service-health/index.yml
+    # Card
+    - title: Azure Site Recovery
+      summary: Keep your business running with built-in disaster recovery service
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+        - migration
+      url: site-recovery/index.yml
+    # Card
+    - title: Cloud Shell
+      summary: Streamline Azure administration with a browser-based shell
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: cloud-shell/overview.md
+    # Card
+    - title: Cost Management + Billing
+      summary: Optimize what you spend on the cloud, while maximizing cloud potential
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: cost-management-billing/index.yml
+    # Card
+    - title: Microsoft Azure portal
+      summary: Build, manage, and monitor all Azure products in a single, unified console
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: azure-portal/index.yml
+    # Card
+    - title: Network Watcher
+      summary: Network performance monitoring and diagnostics solution
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+        - networking
+      url: network-watcher/index.yml
+    # Card
+    - title: Scheduler
+      summary: Run your jobs on simple or complex recurring schedules
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+      url: scheduler/index.md
+    # Card
+    - title: Traffic Manager
+      summary: Route incoming traffic for high performance and availability
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - managementAndGovernance
+        - networking
+      url: traffic-manager/index.md
 
 tools:
   title: Tools
