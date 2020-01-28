@@ -18,6 +18,30 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-02-04
+
+### Azure Machine Learning SDK for Python v1.86.0rc0
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + Increased speed of featurization.
+    + Fixed the frequency check during scoring, now in the forecasting tasks we do not require strict frequency equivalence between train and test set.
+  + **azureml-core**
+    + User may now specify a value for the auth key when regenerating keys for webservices.
+  + **azureml-interpret**
+    + updated azureml-interpret to depend on interpret-community 0.5.0
+  + **azureml-pipeline-steps**
+    + Added documentation example for dataset as PythonScriptStep input
+  
 ## 2020-01-21
 
 ### Azure Machine Learning SDK for Python v1.0.85
