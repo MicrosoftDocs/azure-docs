@@ -1,9 +1,10 @@
 ---
 title: Getting a token
-description: Tutorial how to get access to Remote Rendering service REST APIs via tokens
+description: Describes how to create tokens for accessing the ARR REST APIs
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial

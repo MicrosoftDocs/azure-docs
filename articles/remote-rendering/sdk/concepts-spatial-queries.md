@@ -1,14 +1,16 @@
 ---
 title: Spatial queries
-description: How to do spatial queries (ray casts) in a scene
+description: How to do spatial queries in a scene
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Spatial queries
 
 This section will cover spatial queries, that is queries returning objects lying in a given spatial region, or intersecting a given geometry.

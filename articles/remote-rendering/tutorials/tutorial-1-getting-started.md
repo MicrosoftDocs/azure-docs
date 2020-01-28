@@ -1,9 +1,10 @@
 ---
-title: ARR Tutorial 1 - Getting started
+title: Tutorial 1 - Getting started
 description: Prerequisites to get the sample up and running
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial

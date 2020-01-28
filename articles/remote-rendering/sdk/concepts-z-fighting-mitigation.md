@@ -4,11 +4,13 @@ description: Techniques to mitigate z-fighting artifacts
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Z-fighting mitigation
 
 Generally, z-fighting refers to a problem in rasterization-based rendering, where two or more surfaces in close proximity to each other seemingly intersect in specific and view dependent patterns. In practice this creates visible flickering, called z-fighting, while the camera moves. This problem is intensified for AR and VR due to the fact that head-mounted devices naturally always move, thus changing the camera. To reduce viewer discomfort a z-fighting mitigation functionality is available in the Remote Rendering API.

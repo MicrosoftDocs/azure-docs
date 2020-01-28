@@ -1,12 +1,13 @@
 ---
 title: The session management REST API
-description: Describes how to convert a model through the REST API
+description: Describes how to manage sessions
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
-ms.topic: tutorial
+ms.topic: article
 ms.service: azure-remote-rendering
 ---
 
@@ -21,7 +22,7 @@ The script and its configuration are described here: [Example Powershell scripts
 
 ## Environments
 
-| Environment | Base URL | 
+| Environment | Base URL |
 |-----------|:-----------|
 | Production West US 2 | https://remoterendering.westus2.mixedreality.azure.com |
 | Production West Europe | https://remoterendering.westeurope.mixedreality.azure.com |

@@ -4,11 +4,13 @@ description: Definition of meshes in the scope of Azure Remote Rendering
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Meshes
 
 Meshes are an immutable shared resource. Meshes own the vertex data associated with a shape in the rendered scene and which materials to be used by default for rendering. The vertex data is not exposed, but can be attached to and moved via a MeshComponent as an opaque grouping.

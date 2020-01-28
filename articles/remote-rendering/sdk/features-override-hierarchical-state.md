@@ -4,19 +4,21 @@ description: Explaining the concept of hierarchical (render-) state overrides
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Overriding hierarchical states
 
 In many cases, it is necessary to dynamically change the appearance of parts of a mesh, for example hiding subgraphs of a mesh or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph and manage material cloning and assignment on each node.
 
 To accomplish this use case with least possible overhead, there is a component called HierarchicalStateOverrideComponent. This component imposes hierarchical state updates on arbitrary branches of the scene graph. That means, a state can be defined on any level in the scene graph and it trickles down the hierarchy until either being overridden by a new state or being applied to leaf object geometry. Accordingly, a use case where the whole car should be switched to transparent rendering except for the inner engine part involves only two instances of the component:
 
- * The first component is assigned to root level and turns on transparent rendering ('see-through', see below) for the whole object
- * The second component is assigned to the root node of the engine part and overrides the state by explicitly turning off see-through mode again.
+* The first component is assigned to root level and turns on transparent rendering ('see-through', see below) for the whole object
+* The second component is assigned to the root node of the engine part and overrides the state by explicitly turning off see-through mode again.
 
 ## Features
 
@@ -49,7 +51,6 @@ component.SetState(combinedFeatures, HierarchicalEnableState.ForceOn);
 
 ```
 
-
 While each feature's enabled state is binary, the tint color itself is an exception. A dedicated tint color can be set on the component and thus vary per object.
 
 ## Assign Render States to the Scene Graph
@@ -67,5 +68,6 @@ An instance of ```HierarchicalStateOverrideComponent``` itself does not add much
 Transparent ('see-through') rendering puts more workload to the server's GPUs than standard rendering. Accordingly, if large parts of the scene graph are switched to see-through mode with many layers of geometry being visible this may become a performance bottleneck and thus compromise stable frame rates. The same is valid for objects with selection outline, but not to the same extent as see-through.
 
 ## See also
+
 * [Global outlines properties](../sdk/features-outlines.md)
 * [Physics ray casts](../sdk/concepts-spatial-queries.md)

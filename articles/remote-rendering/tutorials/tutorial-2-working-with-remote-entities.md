@@ -1,9 +1,10 @@
 ---
-title: ARR Tutorial 2 - Working with remote entities
+title: Tutorial 2 - Working with remote entities
 description: Tutorial that provides sample code to work with remote entities
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: tutorial

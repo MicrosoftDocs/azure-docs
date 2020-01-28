@@ -1,9 +1,10 @@
 ---
 title: System requirements
-description: System requirements for Azure Remote Rendering
+description: Lists the system requirements for Azure Remote Rendering
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: overview

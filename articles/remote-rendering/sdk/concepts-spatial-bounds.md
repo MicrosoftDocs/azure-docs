@@ -1,14 +1,16 @@
 ---
 title: Query object bounds
-description: Explains how spatial object bounds can be queried through the API
+description: Explains how spatial object bounds can be queried
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
+titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
+
 # Query object bounds
 
 Object bounds can be queried by two mechanisms.  
@@ -33,4 +35,3 @@ The asynchronous server query can be performed via the `QueryLocalBoundsAsync` a
         };
     }
 ```
-
