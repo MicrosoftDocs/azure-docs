@@ -16,7 +16,7 @@ ms.date: 1/27/2020
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
 
-The **PII Detection** skill extracts personally identifiable information from a text and gives you the option to mask it in the text in various ways. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
+The **PII Detection** skill extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
@@ -32,12 +32,12 @@ The maximum size of a record should be 50,000 characters as measured by [`String
 
 ## Skill parameters
 
-Parameters are case-sensitive and are all optional.
+Parameters are case-sensitive and all are optional.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
 | defaultLanguageCode |	Language code of the input text. For now, only `en` is supported. |
-| minimumPrecision | A value between 0 and 1. If the confidence score (in the `piiEntities` output) is lower than this value, the entity is not returned or masked. The default is 0. |
+| minimumPrecision | A value between 0.0 and 1.0. If the confidence score (in the `piiEntities` output) is lower than the set `minimumPrecision` value, the entity is not returned or masked. The default is 0.0. |
 | maskingMode | A parameter that provides various ways to mask the detected PII in the input text. The following options are supported: <ul><li>`none` (default): This means that no masking will be performed and the `maskedText` output will not be returned. </li><li> `redact`: This option will remove the detected entities from the input text and not replace them with anything. Note that in this case, the offset in the `piiEntities` output will be in relation to the original text, and not the masked text. </li><li> `replace`: This option will replace the detected entities with the character given in the `maskingCharacter` parameter.  The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> |
 | maskingCharacter | The character that will be used to masked the text if the `maskingMode` parameter is set to `replace`. The following options are supported: `*` (default), `#`, `X`. This parameter can only be `null` if `maskingMode` is not set to `replace`. |
 
@@ -127,7 +127,7 @@ Parameters are case-sensitive and are all optional.
 ## Error cases
 If the language code for the document is unsupported, an error is returned and no entities are extracted.
 
-If the skill returns a warning for any reason, the output `maskedText` will be empty.  This means that if you expect that output to exist for input into later skills, it will not work as intended. Keep this in mind when writing your skillset definition.
+If the skill returns a warning, the output `maskedText` may be empty.  This means that if you expect that output to exist for input into later skills, it will not work as intended. Keep this in mind when writing your skillset definition.
 
 ## See also
 
