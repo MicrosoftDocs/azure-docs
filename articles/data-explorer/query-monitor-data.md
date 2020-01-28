@@ -66,7 +66,7 @@ Run queries on your LA or AI cluster. Verify that your cluster is selected in th
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 ```
 
-![New image - Query LA workspace](media/adx-proxy/query-la.png)
+![Query LA workspace](media/adx-proxy/query-la.png)
 
 ### Cross query of your LA or AI ADX Proxy cluster and the ADX native cluster 
 
@@ -82,7 +82,7 @@ let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourceg
 union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
-![New image - Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)
+![Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)
 
 Using the [`join` operator](/azure/kusto/query/joinoperator), instead of union, may require a [`hint`](/azure/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster (and not on the proxy). 
 
