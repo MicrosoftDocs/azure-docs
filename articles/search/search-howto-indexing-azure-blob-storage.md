@@ -133,7 +133,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
 * The textual content of the document is extracted into a string field named `content`.
 
 > [!NOTE]
-> Azure Cognitive Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. A warning is included in the indexer status response for truncated documents.  
+> Azure Cognitive Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. A warning is included in the indexer status response for truncated documents.  
 
 * User-specified metadata properties present on the blob, if any, are extracted verbatim.
 * Standard blob metadata properties are extracted into the following fields:

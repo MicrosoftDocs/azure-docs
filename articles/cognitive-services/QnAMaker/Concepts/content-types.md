@@ -1,22 +1,13 @@
 ---
-title: Data sources supported - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: QnA Maker automatically extracts question-answer pairs stored as web pages, PDF files, or MS Word doc files or structured QnA content files.
+title: Content types - QnA Maker
+description: Content types include many standard structured documents such as PDF, DOC, and TXT.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.author: diberry
+ms.date: 01/27/2020
 ---
 
-# Data sources for QnA Maker content
-
-QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files    . Content can also be added to the knowledge base from structured QnA content files.
-
-<a name="data-types"></a>
+# Content types of documents you can add to a knowledge base
+Content types include many standard structured documents such as PDF, DOC, and TXT.
 
 ## File and URL data types
 
@@ -29,31 +20,34 @@ The table below summarizes the types of content and file formats that are suppor
 |*Excel|Structured QnA file<br> (including RTF, HTML support)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |*TXT/TSV|Structured QnA file|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-### Import and export knowledge base
+If you need authentication for your data source, consider the following methods to get that content into QnA Maker:
 
-**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in the QnA Maker portal. They can't be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
+* Download file manually and import into QnA Maker
+* Add file from authenticated [Sharepoint location](../how-to/add-sharepoint-datasources.md)
 
-## Data source locations
+## URL content
 
-Data source locations are **public URLs or files**, which do not require authentication.
+Two types of documents can be imported via **URL** in QnA Maker:
 
-If you need authentication for your data source, consider the following methods to get that data into QnA Maker:
+* FAQ URLs
+* Support URLs
 
-* [Download file manually](#download-file-from-authenticated-data-source-location) and import into QnA Maker
-* Import file for authenticated [Sharepoint location](#import-file-from-authenticated-sharepoint)
+Each type indicates an expected format.
 
-### Download file from authenticated data source location
+## File-based content
 
-If you have an authenticated file (not on an authenticated Sharepoint location) or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base.
+You can add files to a knowledge base from a public source, or your local file system, in the [QnA Maker portal](https://www.qnamaker.ai).
 
-### Import file from authenticated Sharepoint
+## Content format guidelines
 
-[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated **files**. Sharepoint resources must be files, not web pages. If the URL ends with a web extension, such as **.ASPX**, it will not import into QnA Maker from Sharepoint.
+QnA Maker adds file and URL content, converting the content into QnA sets, stored as markdown (`.md`). Content is fit for a knowledge base where the content is organized in some structured form, and is represented in well-defined sections. The sections can further be broken into subsections, or subtopics. Extraction works best on content that has a clear structure with hierarchical headings.
 
+QnA Maker identifies sections and subsections and relationships in the content based on visual clues like font size, font style, numbering, colors, etc. Semi-structured content includes manuals, FAQs, guidelines, policies, brochures, flyers, and many other types of files.
 
 ## FAQ URLs
 
 QnA Maker can support FAQ web pages in 3 different forms: Plain FAQ pages, FAQ pages with links, FAQ pages with a Topics Homepage.
+
 
 ### Plain FAQ pages
 
@@ -117,7 +111,7 @@ Below is an example of a semi-structured doc, without an index:
 
  ![Azure Blob storage semi-structured Doc](../media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
-### Structured QnA Document
+### Structured QnA document
 
 The format for structured Question-Answers in DOC files, is in the form of alternating Questions and Answers per line, one question per line followed by its answer in the following line, as shown below:
 
@@ -162,50 +156,18 @@ After the file is imported, the question-and-answer pair is in the knowledge bas
 
  ![Screenshot of alternate questions for single answer imported into knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
-## Structured data format through import
-
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
-
-| Question  | Answer  | Source| Metadata (1 key: 1 value) |
-|-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
-| Question2 | Answer2 | Editorial|    `Key:Value`       |
-
-## Editorially add to knowledge base
-
-If you do not have pre-existing content to populate the knowledge base, you can add QnAs editorially in QnA Maker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
-
-<a href="#formatting-considerations"></a>
-
 ## Formatting considerations
 
 After importing a file or URL, QnA Maker converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your knowledge base content.
 
 If you add or edit your content directly in your knowledge base, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. QnA Maker supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
 
-Refer to the markdown examples provided in the [QnA Maker markdown reference](../reference-markdown-format.md) for more information.
-
-## Editing your knowledge base locally
-
-Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally.
-
-Export the knowledge base from the **Settings** page, then edit the knowledge base with Microsoft Excel. If you choose to use another application to edit your exported TSV file, the application may introduce syntax errors because it is not fully TSV compliant. Microsoft Excel's TSV files generally don't introduce any formatting errors.
-
-Once you are done with your edits, reimport the TSV file from the **Settings** page. This will completely replace the current knowledge base with the imported knowledge base.
+Learn more from the [QnA Maker markdown reference documentation](../reference-markdown-format.md).
 
 ## Testing your Markdown
 
 Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
 
-## Version control for data in your knowledge base
-
-Version control for data is provided through the [import/export feature](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) on the **Settings** page.
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Set up a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
-
-## See also
-
-[QnA Maker overview](../Overview/overview.md)
+* Understand how to design and manage [question and answer (QnA) sets](question-answer-set.md)

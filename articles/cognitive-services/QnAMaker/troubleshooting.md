@@ -89,7 +89,7 @@ The default message is part of the settings in your App service.
 
 ### Why is my SharePoint link not getting extracted?
 
-See [Data source locations](./Concepts/data-sources-supported.md#data-source-locations) for more information.
+See [Data source locations](./Concepts/knowledge-base.md#data-source-locations) for more information.
 
 ### The updates that I made to my knowledge base are not reflected on publish. Why not?
 

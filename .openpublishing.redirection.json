@@ -842,6 +842,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Concepts/data-sources-supported.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/create-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -2944,6 +2949,11 @@
     {
       "source_path": "articles/cognitive-services/Recommendations/cognitive-services-recommendations-ui-intro.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Recommendations/overview.md",
+      "redirect_url": "https://github.com/microsoft/Product-Recommendations/blob/master/README.md",
       "redirect_document_id": false
     },
     {
