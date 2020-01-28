@@ -111,7 +111,7 @@ We've added two new sign-in linked detection types to Identity Protection: Suspi
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
  
-When a request is sent to login.microsoftonline.com to sign in a user, the service will append an empty fragment to the request.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the request.  No application should have a dependency on this behavior.  
+When a request is sent to login.microsoftonline.com to sign in a user, the service will append an empty fragment to the request.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the request. No application should have a dependency on this behavior. For more information, see [Breaking changes](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-breaking-changes#february-2020) in the Microsoft identity platform documentation.
 
 ---
 
