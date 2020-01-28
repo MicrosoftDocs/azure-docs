@@ -265,7 +265,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 ## The /.default scope
 
-You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It is constructed using the resource URI + `/.default` (e.g. if the resource URI is `https://contosoApp.com`, then the scope requested would be `https://contosoApp.com/.default`).  See the [section on trailing slashes](#trailing-slashes-and-default) for cases where you must include a second slash to correctly request the token.  
+You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It is constructed using the resource URI + `/.default` (e.g. if the resource URI is `https://contosoApp.com`, then the scope requested would be `https://contosoApp.com/.default`).  See the [section on trailing slashes](#trailing-slash-and-default) for cases where you must include a second slash to correctly request the token.  
 
 The /.default scope can be used in any OAuth 2.0 flow, but is necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md), as well as when using the v2 admin consent endpoint to request application permissions.  
 
@@ -311,9 +311,9 @@ This produces a consent screen for all registered permissions (if applicable bas
 
 ### Trailing slash and /.default
 
-Some resource URIs have a trailing slash, which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash! 
+Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash! 
 
-In general - if you've validated that the token is being issued, and the token is being rejected by the API that should accept it, consider adding a second slash and trying again. 
+In general - if you've validated that the token is being issued, and the token is being rejected by the API that should accept it, consider adding a second slash and trying again. This happens because the login server emits a token with the audience matching the URIs in the `scope` parameter - with `/.default` removed from the end.  If this removes the trailing slash, the login server still processes the request and validates it against the resource URI, even though they no longer match - this is non-standard and should not be relied on by your application. 
 
 ## Troubleshooting permissions and consent
 
