@@ -103,14 +103,15 @@ Express this value in gigabytes (GB).
 
 ### Synchronize files faster
 
-If you're using the [azcopy sync](storage-ref-azcopy-sync.md) command to synchronize a large number of files between two locations, you might be able to improve performance by using the [azcopy copy](storage-ref-azcopy-copy.md) command instead. 
+If you're not satisfied with the amount of time that it takes the [azcopy sync](storage-ref-azcopy-sync.md) to synchronize files between two locations, then you might be able to improve performance by using the [azcopy copy](storage-ref-azcopy-copy.md) command instead. 
 
 The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps before the sync operation begins. If your synchronizing a large number of files, this up-front comparison might take a significant amount of time. 
 
-You can reduce the amount of time that it takes to synchronize files by eliminating the up-front comparison of file names and last modified times. To accomplish this, you can use the [azcopy copy](storage-ref-azcopy-copy.md) command and set the `--overwrite` flag to `ifSourceNewer`. For example: `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --overwrite=IfSourceNewer`. This command compares file names and last modified times as files are copied. This can improve performance in cases where there are a large number of files in either the source or destination.  
+You can increase speed by eliminating this up-front comparison. To accomplish this, you can use the [azcopy copy](storage-ref-azcopy-copy.md) command and set the `--overwrite` flag to `ifSourceNewer`. This flag compares files as they are copied which can increase speed in cases where there are a large number of files to copy. 
 
-> [!NOTE]
-> If you want your synchronization operation to delete files in the destination location if those files no longer exist in the source location, then you might not want to completely replace the [azcopy sync](storage-ref-azcopy-sync.md) command with the the [azcopy copy](storage-ref-azcopy-copy.md) command because the [azcopy copy](storage-ref-azcopy-copy.md) command won't do that. However, you could use the the [azcopy copy](storage-ref-azcopy-copy.md) command for better performance, and then periodically use the [azcopy sync](storage-ref-azcopy-sync.md) command and set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination directory if those files no longer exist in the source directory.
+The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then you might not want to completely replace the [azcopy sync](storage-ref-azcopy-sync.md) command with the the [azcopy copy](storage-ref-azcopy-copy.md) command. 
+
+However, you could periodically use the the [azcopy copy](storage-ref-azcopy-copy.md) command for better performance, and then to remove unneeded files from the destination, use the [azcopy sync](storage-ref-azcopy-sync.md) command.  That way, you set the `--delete-destination` optional flag to a value of `true` or `prompt`.
 
 ## Troubleshoot issues
 
