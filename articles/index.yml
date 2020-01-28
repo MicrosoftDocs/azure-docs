@@ -1182,7 +1182,7 @@ productDirectory:
       azureCategories:
         - migration
         - storage
-      url: databox-family/index.yml
+      url: databox-family/index.md
     # Card
     - title: Spatial Anchors
       summary: Create multi-user, spatially aware mixed reality experiences
@@ -1190,6 +1190,121 @@ productDirectory:
       azureCategories:
         - mixedReality
       url: spatial-anchors/index.yml
+    # Card
+    - title: Visual Studio App Center
+      summary: Continuously build, test, release, and monitor your mobile and desktop apps
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - mobile
+      url: /appcenter/
+    # Card
+    - title: Xamarin
+      summary: Create cloud-powered mobile apps faster
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - mobile
+      url: /xamarin/
+    # Card
+    - title: Application Gateway
+      summary: Build secure, scalable, and highly available web front ends in Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+        - security
+      url: application-gateway/index.yml
+    # Card
+    - title: Azure Bastion
+      summary: Private and fully managed RDP and SSH access to your virtual machines
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: bastion/index.yml
+    # Card
+    - title: Azure DDoS Protection
+      summary: Protect your applications from Distributed Denial of Service (DDoS) attacks
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+        - security
+      url: virtual-network/ddos-protection-overview.md
+    # Card
+    - title: Azure DNS
+      summary: Host your DNS domain in Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: dns/index.yml
+    # Card
+    - title: Azure Firewall
+      summary: Native firewalling capabilities with built-in high availability, unrestricted cloud scalability, and zero maintenance
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: firewall/index.yml
+    # Card
+    - title: Azure Firewall Manager
+      summary: Central network security policy and route management for globally distributed, software-defined perimeters
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: firewall-manager/index.yml
+    # Card
+    - title: Azure Front Door
+      summary: Scalable, security-enhanced delivery point for global, microservice-based web applications
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: frontdoor/index.yml
+    # Card
+    - title: Azure Internet Analyzer
+      summary: Test how networking infrastructure changes will impact your customers' performance
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: internet-analyzer/index.yml
+    # Card
+    - title: Azure Private Link
+      summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: private-link/index.yml
+    # Card
+    - title: Load Balancer
+      summary: Deliver high availability and network performance to your applications
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: load-balancer/index.yml
+    # Card
+    - title: Virtual Network
+      summary: Provision private networks, optionally connect to on-premises datacenters
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: virtual-network/index.yml
+    # Card
+    - title: Virtual WAN
+      summary: Optimize and automate branch to branch connectivity through Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: virtual-wan/index.yml
+    # Card
+    - title: VPN Gateway
+      summary: Establish secure, cross-premises connectivity
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+        - security
+      url: vpn-gateway/index.yml
+    # Card
+    - title: Web Application Firewall
+      summary: A cloud-native web application firewall (WAF) service that provides powerful protection for web apps
+      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      azureCategories:
+        - networking
+      url: web-application-firewall/index.yml
 
 tools:
   title: Tools
