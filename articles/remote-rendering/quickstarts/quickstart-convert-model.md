@@ -13,7 +13,7 @@ ms.service: azure-remote-rendering
 
 # Quickstart: Convert a model for rendering
 
-In the [previous quickstart](quickstart-render-model.md), you learnt how to use the Unity sample project to render a built-in model. This guide shows how to convert your own models.
+In the [previous quickstart](quickstart-render-model.md), you learned how to use the Unity sample project to render a built-in model. This guide shows how to convert your own models.
 
 You'll learn how to:
 
@@ -26,8 +26,8 @@ You'll learn how to:
 In addition to completing the [previous quickstart](quickstart-render-model.md), the following software must be installed:
 
 * Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
-* Azure Powershell [(documentation)](https://docs.microsoft.com/powershell/azure/)
-  * Open a Powershell with admin rights
+* Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+  * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
 
 ## Overview
@@ -156,12 +156,12 @@ Unfortunately the ID cannot be copied to clipboard from here, but the ID can als
 Those are the settings you used during storage account creation and blob container setup. Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 > [!NOTE]
-> The example Powershell script only allows for handling of one self contained file in the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
+> The example PowerShell script only allows for handling of one self contained file in the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
 
 ## Running the conversion script
 The script is now ready to upload your model, call the conversion API, and retrieve a link to the converted model.
 
-Open a Powershell, make sure you installed the *Azure Powershell* as mentioned in the prerequisites. Then log into your subscription:
+Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the prerequisites. Then log into your subscription:
 
 ```powershell
 PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
@@ -190,7 +190,7 @@ Right-click on the entry and select **Get Shared Access Signature**:
 ![Signature Access](./media/model-share.png "Signature Access")
 
 Set the expiry date to a date you would like and press Create.
-Copy the URI that is prompted in the next dialog.
+Copy the URI that is shown in the next dialog.
 
 This URI is the replacement for the temporary URI and can be set as a *ModelName* property in the Unity sample.
 
