@@ -13,9 +13,9 @@ ms.custom: mvc
 
 # Quickstart: Start monitoring your website
 
-In this quickstart, you learn how to better understand the client/browser-side experience for visitors to your website by adding the open source Application Insights JavaScript SDK to your website.
+In this quickstart, you learn to add the open-source Application Insights JavaScript SDK to your website. You also learn how to better understand the client/browser-side experience for visitors to your website.
 
-With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capabilities.
+With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring and client/browser-side monitoring capabilities.
 
 ## Prerequisites
 
@@ -38,8 +38,8 @@ Application Insights can gather telemetry data from any internet-connected appli
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data. You can create a new resource group or use an existing one. |
+   | **Name**      | Globally Unique Value | Name that identifies the app you're monitoring |
+   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host Application Insights data. You can create a new resource group or use an existing one. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
 2. Click **Create**.
@@ -62,11 +62,11 @@ Application Insights can gather telemetry data from any internet-connected appli
     </html>
     ```
 
-## Configure App Insights SDK
+## Configure Application Insights SDK
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](media/website-monitoring/instrumentation-key-001.png)
+   ![New Application Insights resource form](media/website-monitoring/instrumentation-key-001.png)
 
 2. Add the following script to your ``hello_world.html`` before the closing ``</head>`` tag:
 
@@ -82,13 +82,13 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Edit ``hello_world.html`` and add your instrumentation key.
 
-4. Open ``hello_world.html`` in a local browser session. This will create a single pageview. You can refresh your browser to generate multiple test page views.
+4. Open ``hello_world.html`` in a local browser session. This action creates a single pageview. You can refresh your browser to generate multiple test page views.
 
 ## Start monitoring in the Azure portal
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. The four default charts on the overview page are scoped to server-side application data. Since we are instrumenting the client/browser-side interactions with the JavaScript SDK this particular view doesn't apply unless we also have a server-side SDK installed.
+1. You can now reopen the Application Insights **Overview** page in the Azure portal to view details about your currently running application. The **Overview** page is where you retrieved your instrumentation key. The four default charts on the overview page are scoped to server-side application data. Since we're instrumenting the client/browser-side interactions with the JavaScript SDK, this particular view doesn't apply unless we also have a server-side SDK installed.
 
-2. Click on ![Application Map icon](media/website-monitoring/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
+2. Click on ![Application Map icon](media/website-monitoring/006.png) **Analytics**.  This action opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
 
     ```kusto
     // average pageView duration by name
@@ -107,11 +107,11 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/website-monitoring/analytics-query.png)
 
-3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header, then select **Performance**  Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access the [end-to-end transaction details](../../azure-monitor/app/transaction-diagnostics.md) experience.
+3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header, then select **Performance**  Here you find metrics related to the performance of your website. There's also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access the [end-to-end transaction details](../../azure-monitor/app/transaction-diagnostics.md) experience.
 
    ![Server metrics graph](./media/website-monitoring/browser-performance.png)
 
-4. To begin exploring the [user behavior analytics tools](../../azure-monitor/app/usage-overview.md), from the main Application Insights menu select [**Users**](../../azure-monitor/app/usage-segmentation.md) under the **Usage** header. Since we are testing from a single machine, we will only see data for one user. For a live website, the distribution of users might look as follows:
+4. To begin exploring the [user behavior analytics tools](../../azure-monitor/app/usage-overview.md), from the main Application Insights menu select [**Users**](../../azure-monitor/app/usage-segmentation.md) under the **Usage** header. Since we're testing from a single machine, we'll only see data for one user. For a live website, the distribution of users might look as follows:
 
      ![User graph](./media/website-monitoring/usage-users.png)
 
@@ -123,7 +123,7 @@ To learn more advanced configurations for monitoring websites, check out the [Ja
 
 ## Clean up resources
 
-If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. Otherwise, if you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+If you plan to continue on to work with additional quickstarts or with the tutorials, don't clean up the resources created in this quickstart. Otherwise, if you don't plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 
 > [!NOTE]
 > If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
