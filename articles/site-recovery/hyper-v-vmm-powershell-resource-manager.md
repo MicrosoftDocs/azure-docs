@@ -119,7 +119,7 @@ Make sure you have Azure PowerShell ready to go:
 
    ```console
    .\SetupDr.exe /i
-   $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
+   $installationRegPath = "HKLM:\Software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
    do
    {
      $isNotInstalled = $true;
@@ -276,7 +276,7 @@ To test your deployment, run a test failover for a single virtual machine. You a
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-   $jobIDResult =  Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity -VMNetwork $RecoveryNetworks[1]
+   $jobIDResult = Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity -VMNetwork $RecoveryNetworks[1]
    ```
 
    For a recovery plan:
@@ -286,7 +286,7 @@ To test your deployment, run a test failover for a single virtual machine. You a
 
    $recoveryplan = Get-AzRecoveryServicesAsrRecoveryPlan -FriendlyName $recoveryplanname
 
-   $jobIDResult =  Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan -VMNetwork $RecoveryNetworks[1]
+   $jobIDResult = Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan -VMNetwork $RecoveryNetworks[1]
    ```
 
 To check the completion of the operation, follow the steps in [Monitor activity](#monitor-activity).
@@ -300,7 +300,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-   $jobIDResult =  Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
+   $jobIDResult = Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
    ```
 
    For a recovery plan:
@@ -310,7 +310,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 
    $recoveryplan = Get-AzRecoveryServicesAsrRecoveryPlan -FriendlyName $recoveryplanname
 
-   $jobIDResult =  Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan
+   $jobIDResult = Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan
    ```
 
 1. Perform an unplanned failover.
@@ -320,7 +320,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-   $jobIDResult =  Start-AzRecoveryServicesAsrUnplannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
+   $jobIDResult = Start-AzRecoveryServicesAsrUnplannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
    ```
 
    For a recovery plan:
@@ -330,7 +330,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 
    $recoveryplan = Get-AzRecoveryServicesAsrRecoveryPlan -FriendlyName $recoveryplanname
 
-   $jobIDResult =  Start-AzRecoveryServicesAsrUnplannedFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan
+   $jobIDResult = Start-AzRecoveryServicesAsrUnplannedFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan
    ```
 
 ## Monitor activity
@@ -340,7 +340,7 @@ Use the following commands to monitor failover activity. Wait for the processing
 ```azurepowershell
 Do
 {
-    $job = Get-AzureSiteRecoveryJob -TargetObjectId $associationJob.JobId;
+    $job = Get-AzRecoveryServicesAsrJob -TargetObjectId $associationJob.JobId;
     Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
     if($job -eq $null -or $job.StateDescription -ne "Completed")
     {
