@@ -95,7 +95,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 
 ## Migrate from v1.0 to v2.0
 
-**These videos help you understand the benefits of migrating to the the latest version of the Microsoft identity platform**
+**These videos explain the benefits of migrating to the the latest version of the Microsoft identity platform**
 
 :::row:::
     :::column:::
