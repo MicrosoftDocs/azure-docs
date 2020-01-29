@@ -14848,6 +14848,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/machine-learning/how-to-ui-sample-classification-predict-flight-delay.md",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
