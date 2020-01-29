@@ -52,10 +52,6 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Select **Run**, and use the same compute target and experiment that you used in part one.
 
-1. Select the **Score Model** module.
-
-1. In the properties pane, select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed along with the predicted price ("Scored Labels").
-
 1. Select **Deploy**.
 
 ## Create an inferencing cluster

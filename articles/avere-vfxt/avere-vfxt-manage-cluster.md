@@ -4,15 +4,17 @@ description: How to manage Avere cluster - add or remove nodes, reboot, stop, or
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
 # Manage the Avere vFXT cluster
 
-After creating the cluster, you might need to add cluster nodes or stop or reboot the cluster. And when your project is finished you need to know how to stop and remove the cluster permanently.
+At some point in the life cycle of your Avere vFXT for Azure cluster, you might need to add cluster nodes, or to start or reboot the cluster. When your project is finished you'll need to know how to stop the cluster and remove it permanently.
 
-Depending on the cluster management task, you might need to use the Avere Control Panel, the vfxt.py command line cluster creation script, or the Azure portal to do it.
+This article explains how to add or remove cluster nodes and other basic cluster operations. If you need to change cluster settings or monitor its work, use the [Avere Control Panel](avere-vfxt-cluster-gui.md).
+
+Depending on the management task, you might need to use one of three different tools: Avere Control Panel, the vfxt.py command line cluster management script, and the Azure portal.
 
 This table gives an overview of which tools can be used for each task.
 
@@ -33,7 +35,7 @@ Detailed instructions for each tool are included below.
 
 When you shut down or stop any Azure VM, it stops incurring compute charges, but you still must pay for its storage. If you shut down a vFXT node or the entire vFXT cluster and you don't intend to restart it, you should use the Azure portal to delete the related VMs.
 
-In the Azure portal, a *stopped* node (which can be restarted) shows the status **stopped** in the Azure portal; a *deleted* node shows the status **stopped (deallocated)** and it no longer incurs compute or storage charges.
+In the Azure portal, a *stopped* node (which can be restarted) shows the status **stopped** in the Azure portal. A *deleted* node shows the status **stopped (deallocated)** and it no longer incurs compute or storage charges.
 
 Before deleting the VM, make sure that all changed data has been written from the cache to back-end storage by using the Avere Control Panel or vfxt.py options to stop or shut down the cluster.
 
@@ -45,7 +47,7 @@ The Avere Control Panel can be used for these tasks:
 * Remove a node from the cluster
 * Stop or reboot the entire cluster
 
-Avere Control Panel prioritizes data integrity, so it attempts to write any changed data to backend storage before a possibly destructive operation. This makes it a safer option than the Avere portal.
+Avere Control Panel prioritizes data integrity, so it attempts to write any changed data to back-end storage before a possibly destructive operation. This makes it a safer option than the Azure portal.
 
 Access Avere Control Panel from a web browser. Follow the instructions in [Access the vFXT cluster](avere-vfxt-cluster-gui.md) if you need help.
 
@@ -64,7 +66,7 @@ Read [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/h
 
 The **System Maintenance** settings page has commands for restarting cluster services, rebooting the cluster, or safely powering the cluster down. Read [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (in the Avere cluster settings guide) for details.
 
-When a cluster is shutting down, it posts state messages to the **Dashboard** tab at first. After a few moments, the Avere Control Panel session will stop responding, which means that the cluster has shut down.
+When a cluster begins to shut down, it posts state messages to the **Dashboard** tab. After a few moments, the messages stop and eventually the Avere Control Panel session stops responding, which means that the cluster has shut down.
 
 ## Manage the cluster with vfxt.py
 
@@ -78,7 +80,7 @@ The vfxt.py script can be used for these cluster management tasks:
 * Stop or start a cluster  
 * Destroy a cluster
 
-Like Avere Control Panel, vfxt.py operations try to make sure changed data is stored permanently on back-end storage before shutting down or destroying the cluster or node. This makes it a safer option than the Avere portal.
+Like Avere Control Panel, vfxt.py operations try to make sure changed data is stored permanently on back-end storage before shutting down or destroying the cluster or node. This makes it a safer option than the Azure portal.
 
 A complete vfxt.py usage guide is available on GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
@@ -90,7 +92,7 @@ The cluster must be running to use this command.
 
 Supply the following values:
 
-* Resource group name for the cluster, and also for network and storage resources if they are not the same as the cluster
+* Resource group name for the cluster, and also for network and storage resources if they are not in the same resource group as the cluster
 * Cluster location
 * Cluster network and subnet
 * Cluster node access role (use the built-in role [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator))
@@ -134,7 +136,7 @@ Because the cluster is stopped, you must pass instance identifiers to specify th
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-The option ``--quick-destroy`` can be used if you do not want to write changed data from the cluster cache.
+The option ``--quick-destroy`` can be used if you do not want to save changed data from the cluster cache.
 
 Read the [vfxt.py usage guide](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) for additional information.
 
@@ -190,7 +192,7 @@ In addition to deleting the cluster nodes, consider removing these components:
 * Data disks associated with cluster nodes
 * Network interfaces and public IPs associated with cluster components
 * Virtual networks
-* Storage accounts (**only** if they contain no important data)
+* Storage containers and storage accounts (**only** if they contain no important data)
 * Availability set
 
 ![Azure portal "all resources" list showing resources created for a test cluster](media/avere-vfxt-all-resources-list.png)

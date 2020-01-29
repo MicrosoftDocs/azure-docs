@@ -47,6 +47,8 @@
       href: manage-feature-flags.md
     - name: Use Key Vault references in ASP.NET Core
       href: use-key-vault-references-dotnet-core.md
+    - name: Use Key Vault references in Spring Boot
+      href: use-key-vault-references-spring-boot.md      
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
 - name: Samples
@@ -61,6 +63,8 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Sync using GitHub Actions
+      href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
     - name: High availability

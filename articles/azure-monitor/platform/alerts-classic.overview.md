@@ -90,7 +90,7 @@ Get information about alert rules and configuring them by using:
 * Configure [classic Metric Alerts PowerShell](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Learn more about [Activity Log](activity-logs-overview.md)
+* Learn more about [Activity Log](platform-logs-overview.md)
 * Configure [Activity Log Alerts via Azure portal](activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](alerts-activity-log.md)
 * Review the [activity log alert webhook schema](activity-log-alerts-webhook.md)

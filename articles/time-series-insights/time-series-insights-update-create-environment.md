@@ -35,7 +35,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 ## Prerequisites
 
-* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a device simulation
 
@@ -58,12 +58,12 @@ In this section, you will create three simulated devices that send data to an Az
 
    [![Provision the device simulation solution.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. After provisioning has finished, you will see two updates displaying that the deployment state has moved from **Provisioning** to **Ready**. 
+1. After provisioning has finished, two notifications will appear announcing that the deployment state has moved from **Provisioning** to **Ready**. 
 
    >[!IMPORTANT]
    > Don't enter your solution accelerator yet! Keep this web page open because you'll return to it later.
 
-   [![Device simulation solution provisioning complete.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
+   [![Device simulation solution provisionings complete.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
 
 1. Now, inspect the newly created resources in the Azure portal. On the **Resource groups** page, notice that a new resource group was created by using the **Solution name** provided in the last step. Make note of the resources that were created for the device simulation.
 
@@ -88,7 +88,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
     | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
     | **Location** | Select a data center region for your Azure Time Series Insights Preview environment. To avoid additional latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your IoT hub created by the device simulator. |
     | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
-    | **Property name** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Property name** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
     |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable this setting. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
@@ -121,7 +121,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
     [![Review + Create page, with Create button.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
-    You can see the status of your deployment:
+    You can review the status of your deployment:
 
     [![Notification that deployment is complete.](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
@@ -165,7 +165,7 @@ Now that you've deployed your Time Series Insights environment, begin streaming 
 
     Select **Start simulation**.
 
-    In the device simulation dashboard, you will see **Active devices** and **Total messages**.
+    In the device simulation dashboard, **Active devices** and **Total messages** are displayed.
 
     [![Azure IoT simulation dashboard.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
@@ -177,9 +177,9 @@ In this section, you perform basic analytics on your time series data by using t
 
     [![The Time Series Insights Preview explorer URL.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. In the Time Series Insights explorer, you will see a bar spanning the top of the screen. This is your availability picker. Ensure that you have at least two 2 m selected, and if needed, expand the time frame by selecting and dragging the picker handles to the left and right.
+1. In the Time Series Insights explorer, a bar spanning the top of the screen will appear. This is your availability picker. Ensure that you have at least two 2 m selected, and if needed, expand the time frame by selecting and dragging the picker handles to the left and right.
 
-1. You will be able to see **Time Series Instances** on the left.
+1. **Time Series Instances** will be displayed on the left-hand side.
 
     [![List of unparented instances.](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
@@ -201,7 +201,7 @@ In this section, you perform basic analytics on your time series data by using t
 
 ## Define and apply a model
 
-In this section, you apply a model to structure your data. To complete the model, you define types, hierarchies, and instances. To learn more about data modeling, see [Time Series Model](./time-series-insights-update-tsm.md).
+In this section, you apply a model to structure your data. To complete the model, you define types, hierarchies, and instances. To learn more about data modeling, read [Time Series Model](./time-series-insights-update-tsm.md).
 
 1. In the explorer, select the **Model** tab:
 
@@ -250,9 +250,9 @@ In this section, you apply a model to structure your data. To complete the model
 
     Select **Apply**.
 
-1. Select **Save**. You should see three variables created.
+1. Select **Save**. Three variables are created and displayed.
 
-    [![After adding the type, see it in the Model view.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+    [![After adding the type, review it in the Model view.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Select the **Hierarchies** tab. Then, select **+ Add**.
    

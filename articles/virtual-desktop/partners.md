@@ -6,12 +6,12 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/28/2020
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
 
-This article lists partners of Windows Virtual Desktop.
+This article lists approved partner providers and independent software vendors for Windows Virtual Desktop.
 
 ## Citrix
 
@@ -217,7 +217,7 @@ Tricerat offers a superior print management solution for Windows Virtual Desktop
 
 With Tricerat, printing is seamless in Windows Virtual Desktop and beyond. Tricerat software allows administrators to easily connect on-premises printers to the cloud, extending enterprise print management from traditional environments to new, modern workspaces.
 
-- [Go to the partner website](https://www.tricerat.com/solutions/wvd-microsoft/).
+- [Go to the partner website](https://www.tricerat.com/microsoft-printing).
 
 ## Workspot
 
