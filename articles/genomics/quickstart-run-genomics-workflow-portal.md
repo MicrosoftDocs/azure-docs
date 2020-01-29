@@ -34,9 +34,9 @@ Configure your Genomics account with the following information, as shown in the 
  |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
-You can select**Notifications** in the top menu bar to monitor the deployment process.
+You can select **Notifications** in the top menu bar to monitor the deployment process.
 
-![Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Notifications")
+![Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box1.png "Notifications")
 
 For more information about Microsoft Genomics, see [What is Microsoft Genomics?](overview-what-is-genomics.md)
 
