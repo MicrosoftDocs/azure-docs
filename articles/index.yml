@@ -329,7 +329,7 @@ productDirectory:
     # Card
     - title: Azure Data Share
       summary: A simple and safe service for sharing big data with external organizations
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage/data-shares.svg
       azureCategories:
         - analytics
         - storage
@@ -352,7 +352,7 @@ productDirectory:
     # Card
     - title: Data Catalog
       summary: Get more value from your enterprise data assets
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/integration/azure-data-catalog.svg
       azureCategories:
         - analytics
       url: data-catalog/index.yml
@@ -387,7 +387,7 @@ productDirectory:
     # Card
     - title: Log Analytics
       summary: Full observability into your applications, infrastructure, and network
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/log-analytics-workspaces.svg
       azureCategories:
         - analytics
         - managementAndGovernance
@@ -430,7 +430,7 @@ productDirectory:
     # Card
     - title: Azure Cosmos DB
       summary: Globally distributed, multi-model database for any scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/databases/azure-cosmos-db.svg
       azureCategories:
         - blockchain
         - databases
@@ -439,7 +439,7 @@ productDirectory:
     # Card
     - title: Logic Apps
       summary: Automate the access and use of data across clouds without writing code
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/integration/logic-apps.svg
       azureCategories:
         - blockchain
         - integration
@@ -638,7 +638,7 @@ productDirectory:
     # Card
     - title: Azure API for FHIR
       summary: Easily create and deploy a FHIR service for health data solutions and interoperability
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/integration/azure-api-for-fhir.svg
       azureCategories:
         - databases
         - integration
@@ -653,21 +653,21 @@ productDirectory:
     # Card
     - title: Azure Database for MariaDB
       summary: Managed MariaDB database service for app developers
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/databases/azure-database-mariadb-server.svg
       azureCategories:
         - databases
       url: mariadb/index.yml
     # Card
     - title: Azure Database for MySQL
       summary: Managed MySQL database service for app developers
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/databases/azure-database-mysql-server.svg
       azureCategories:
         - databases
       url: mysql/index.yml
     # Card
     - title: Azure Database for PostgreSQL
       summary: Managed PostgreSQL database service for app developers
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/databases/azure-database-postgresql-server.svg
       azureCategories:
         - databases
         - hybrid
@@ -675,7 +675,7 @@ productDirectory:
     # Card
     - title: Azure Database Migration Service
       summary: Simplify on-premises database migration to the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/migrate/azure-database-migration-services.svg
       azureCategories:
         - databases
         - migration
@@ -683,7 +683,7 @@ productDirectory:
     # Card
     - title: Azure SQL Database
       summary: Managed, intelligent SQL in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/databases/sql-database.svg
       azureCategories:
         - databases
         - hybrid
@@ -706,14 +706,14 @@ productDirectory:
     # Card
     - title: App Configuration
       summary: Fast, scalable parameter storage for app configuration
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/integration/app-configuration.svg
       azureCategories:
         - developerTools
       url: azure-app-configuration/index.yml
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/devops/azure-devops.svg
       azureCategories:
         - developerTools
         - devops
@@ -722,7 +722,7 @@ productDirectory:
     # Card
     - title: Azure DevTest Labs
       summary: Quickly create environments using reusable templates and artifacts
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/devops/devtest-labs.svg
       azureCategories:
         - developerTools
         - devops
@@ -730,7 +730,7 @@ productDirectory:
     # Card
     - title: Azure Lab Services
       summary: Set up labs for classrooms, trials, development and testing, and other scenarios
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/devops/lab-services.svg
       azureCategories:
         - developerTools
       url: lab-services/index.yml
@@ -787,7 +787,7 @@ productDirectory:
     # Card
     - title: Application Insights
       summary: Full observability into your applications, infrastructure, and network
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/application-insights.svg
       azureCategories:
         - devops
         - managementAndGovernance
@@ -809,7 +809,7 @@ productDirectory:
     # Card
     - title: Azure Monitor
       summary: Full observability into your applications, infrastructure, and network
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/monitor.svg
       azureCategories:
         - devops
         - managementAndGovernance
@@ -831,7 +831,7 @@ productDirectory:
     # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/identity/azure-active-directory.svg
       azureCategories:
         - hybrid
         - identity
@@ -847,7 +847,7 @@ productDirectory:
     # Card
     - title: Azure ExpressRoute
       summary: Dedicated private network fiber connections to Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/expressroute-circuits.svg
       azureCategories:
         - hybrid
         - networking
@@ -855,7 +855,7 @@ productDirectory:
     # Card
     - title: Azure Sentinel
       summary: Put cloud-native SIEM and intelligent security analytics to work to help protect your enterprise
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/security/azure-sentinel.svg
       azureCategories:
         - hybrid
         - security
@@ -870,7 +870,7 @@ productDirectory:
     # Card
     - title: Security Center
       summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/security/security-center.svg
       azureCategories:
         - hybrid
         - security
@@ -886,7 +886,7 @@ productDirectory:
     # Card
     - title: Azure Active Directory B2C
       summary: Consumer identity and access management in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/identity/azure-ad-b2c.svg
       azureCategories:
         - identity
         - security
@@ -902,7 +902,7 @@ productDirectory:
     # Card
     - title: Azure Information Protection
       summary: Better protect your sensitive information—anytime, anywhere
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/identity/azure-information-protection.svg
       azureCategories:
         - identity
         - security
@@ -910,7 +910,7 @@ productDirectory:
     # Card
     - title: API Management
       summary: Publish APIs to developers, partners, and employees securely and at scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/integration/api-management-services.svg
       azureCategories:
         - integration
         - iot
@@ -928,14 +928,14 @@ productDirectory:
     # Card
     - title: Service Bus
       summary: Connect across private and public cloud environments
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/integration/azure-service-bus.svg
       azureCategories:
         - integration
       url: service-bus/index.md
     # Card
     - title: Azure Digital Twins
       summary: Build next-generation IoT spatial intelligence solutions
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/iot/digital-twins.svg
       azureCategories:
         - iot
         - mixedReality
@@ -950,7 +950,7 @@ productDirectory:
     # Card
     - title: Azure IoT Hub
       summary: Connect, monitor and manage billions of IoT assets
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/iot/iot-hub.svg
       azureCategories:
         - iot
       url: iot-hub/index.yml
@@ -987,7 +987,7 @@ productDirectory:
     # Card
     - title: Notification Hubs
       summary: Send push notifications to any platform from any back end
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/web/notification-hubs.svg
       azureCategories:
         - iot
         - mobile
@@ -1003,7 +1003,7 @@ productDirectory:
     # Card
     - title: Security Center for IoT
       summary: Unify security management and enable threat protection across your Azure IoT solution
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/security/security-center.svg
       azureCategories:
         - iot
         - security
@@ -1011,14 +1011,14 @@ productDirectory:
     # Card
     - title: Automation
       summary: Simplify cloud management with process automation
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/automation-accounts.svg
       azureCategories:
         - managementAndGovernance
       url: automation/index.yml
     # Card
     - title: Azure Advisor
       summary: Your personalized Azure best practices recommendation engine
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/advisor.svg
       azureCategories:
         - managementAndGovernance
       url: advisor/index.yml
@@ -1033,7 +1033,7 @@ productDirectory:
     # Card
     - title: Azure Blueprints
       summary: Enabling quick, repeatable creation of governed environments
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/blueprints.svg
       azureCategories:
         - managementAndGovernance
       url: governance/blueprints/index.yml
@@ -1054,7 +1054,7 @@ productDirectory:
     # Card
     - title: Azure Migrate
       summary: Easily discover, assess, right-size, and migrate your on-premises VMs to Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/migrate/azure-migrate.svg
       azureCategories:
         - managementAndGovernance
         - migration
@@ -1062,7 +1062,7 @@ productDirectory:
     # Card
     - title: Azure Policy
       summary: Implement corporate governance and standards at scale for Azure resources
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/policy.svg
       azureCategories:
         - managementAndGovernance
       url: governance/policy/index.yml
@@ -1098,7 +1098,7 @@ productDirectory:
     # Card
     - title: Cost Management + Billing
       summary: Optimize what you spend on the cloud, while maximizing cloud potential
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/cost-management-and-billing.svg
       azureCategories:
         - managementAndGovernance
         - migration
@@ -1113,7 +1113,7 @@ productDirectory:
     # Card
     - title: Network Watcher
       summary: Network performance monitoring and diagnostics solution
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/network-watcher.svg
       azureCategories:
         - managementAndGovernance
         - networking
@@ -1143,7 +1143,7 @@ productDirectory:
     # Card
     - title: Content Delivery Network
       summary: Ensure secure, reliable content delivery with broad global reach
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/cdn-profiles.svg
       azureCategories:
         - media
         - networking
@@ -1173,14 +1173,14 @@ productDirectory:
     # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/web/media-services.svg
       azureCategories:
         - media
       url: media-services/latest/index.yml
     # Card
     - title: Data Box
       summary: Appliances and solutions for data transfer to Azure and edge compute
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/migrate/data-box.svg
       azureCategories:
         - migration
         - storage
@@ -1209,7 +1209,7 @@ productDirectory:
     # Card
     - title: Application Gateway
       summary: Build secure, scalable, and highly available web front ends in Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/application-gateways.svg
       azureCategories:
         - networking
         - security
@@ -1232,14 +1232,14 @@ productDirectory:
     # Card
     - title: Azure DNS
       summary: Host your DNS domain in Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/dns-zones.svg
       azureCategories:
         - networking
       url: dns/index.yml
     # Card
     - title: Azure Firewall
       summary: Native firewalling capabilities with built-in high availability, unrestricted cloud scalability, and zero maintenance
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/firewalls.svg
       azureCategories:
         - networking
       url: firewall/index.yml
@@ -1253,7 +1253,7 @@ productDirectory:
     # Card
     - title: Azure Front Door
       summary: Scalable, security-enhanced delivery point for global, microservice-based web applications
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/front-doors.svg
       azureCategories:
         - networking
       url: frontdoor/index.yml
@@ -1274,7 +1274,7 @@ productDirectory:
     # Card
     - title: Load Balancer
       summary: Deliver high availability and network performance to your applications
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/networking/load-balancers.svg
       azureCategories:
         - networking
       url: load-balancer/index.yml
@@ -1288,7 +1288,7 @@ productDirectory:
     # Card
     - title: Virtual WAN
       summary: Optimize and automate branch to branch connectivity through Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/other/virtual-wans.svg
       azureCategories:
         - networking
       url: virtual-wan/index.yml
@@ -1317,7 +1317,7 @@ productDirectory:
     # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/security/key-vaults.svg
       azureCategories:
         - security
       url: key-vault/index.yml
@@ -1352,7 +1352,7 @@ productDirectory:
     # Card
     - title: Azure NetApp Files
       summary: Enterprise-grade Azure file shares, powered by NetApp
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage/azure-netapp-files.svg
       azureCategories:
         - storage
       url: azure-netapp-files/index.yml
@@ -1366,7 +1366,7 @@ productDirectory:
     # Card
     - title: Disk Storage
       summary: Persistent, secured disk options supporting virtual machines
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/disks.svg
       azureCategories:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
@@ -1394,28 +1394,28 @@ productDirectory:
     # Card
     - title: Storage
       summary: Get secure, massively scalable cloud storage for your data, apps, and workloads
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage/storage-accounts.svg
       azureCategories:
         - storage
       url: storage/index.yml
     # Card
     - title: Storage Explorer
       summary: View and interact with Azure Storage resources
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage/storage-explorer.svg
       azureCategories:
         - storage
       url: vs-azure-tools-storage-manage-with-storage-explorer.md
     # Card
     - title: StorSimple
       summary: Lower costs with an enterprise hybrid cloud storage solution
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage/storsimple-device-managers.svg
       azureCategories:
         - storage
       url: storsimple/index.md
     # Card
     - title: Azure SignalR Service
       summary: Add real-time web functionalities easily
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/web/signalr.svg
       azureCategories:
         - web
       url: azure-signalr/index.yml
