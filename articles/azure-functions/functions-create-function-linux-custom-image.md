@@ -4,7 +4,7 @@ description: Learn how to create Azure Functions running on a custom Linux image
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Create a function on Linux using a custom container
