@@ -83,7 +83,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-public-preview) 
+* [Named Entity recognition](#named-entity-recognition-ner) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 

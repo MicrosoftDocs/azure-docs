@@ -91,7 +91,7 @@ The response object is a list containing the analysis information for each docum
 * [Client Authentication](#client-authentication)
 * [Sentiment Analysis](#sentiment-analysis) 
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-public-preview)
+* [Named Entity recognition](#named-entity-recognition-ner)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -237,7 +237,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ---
 
-## Named Entity Recognition
+## Named Entity Recognition (NER)
 
 #### [Version 3.0-preview](#tab/version-3)
 
