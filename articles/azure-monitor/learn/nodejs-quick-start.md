@@ -13,13 +13,13 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 
 # Quickstart: Start monitoring your Node.js Web application with Azure Application Insights
 
-In this quickstart, you add the version 0.22 Application Insights SDK for Node.js to an existing Node.js web application.
+In this quickstart, you add the Application Insights SDK version 0.22 for Node.js to an existing Node.js web application.
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the version 0.20 SDK release onward, you can monitor common third-party packages, including MongoDB, MySQL, and Redis.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Sign in to the Azure portal
 

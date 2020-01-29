@@ -18,7 +18,7 @@ Application Insights is an extensible analytics service for web developers that 
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Sign in to the Azure portal
 
@@ -33,7 +33,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
 
 ## Add the Application Insights SDK for Java to your project
-*Choose the appropriate way for your project.*
+
+*Choose your project type.*
 
 # [Maven](#tab/maven)
 
@@ -67,7 +68,7 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 ```
 
-# [All others](#tab/other)
+# [Other types](#tab/other)
 
 Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
