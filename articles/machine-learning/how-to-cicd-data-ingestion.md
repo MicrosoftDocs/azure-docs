@@ -300,7 +300,7 @@ The next step is to make sure that the deployed solution is working. The followi
       displayName: 'Wait until the testing is done'
 ```
 
-The final task in the job checks the result of the notebook execution. If it returns an error, it fails the pipeline execution.
+The final task in the job checks the result of the notebook execution. If it returns an error, it sets the status of pipeline execution to failed.
 
 ## Putting pieces together
 
