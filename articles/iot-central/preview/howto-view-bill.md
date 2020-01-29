@@ -14,9 +14,9 @@ manager: philmea
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section and also how you can move your application from the free pricing plan to a standard pricing plan.
+This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section. You will learn how you can move your application from the free pricing plan to a standard pricing plan, and also how to upgrade or downgrade your pricing plan.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
+To access and use the **Administration** section, you must be in the *Administrator* role have a *custom user role* that allows you to view billing for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
 ## View your bill
 
@@ -25,9 +25,6 @@ To view your bill, go to the **Pricing** page in the **Administration** section.
 ## Move from free to standard pricing plan
 
 - Applications that use the free pricing plan are free for seven days before they expire. In order to avoid losing data you can move them to a standard pricing plan at any time before they expire.
-- Applications that use a standard pricing plan are charged per device, with the first two devices free, per subscription.
-
-Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
 In the pricing section, you can move your application from the free to a standard pricing plan.
 
@@ -41,9 +38,28 @@ To complete this self-service process, follow these steps:
 
     ![Convert trial](media/howto-view-bill/convert.png)
 
-1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your paid application.
 
-1. After you select **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
+1. After you select **Convert**, your application is now a paid application and you start getting billed.
+
+> [!Note]
+> By default, you are converted to a *Standard 2* pricing plan.
+
+## Upgrade/Downgrade Pricing Plan
+
+- Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
+
+In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan at any time.
+
+1. Go to the **Pricing** page in the **Administration** section.
+
+    ![Trial state](media/howto-view-bill/pricing.png)
+
+1. Select the **Plan** and click **Save** to upgrade or downgrade.
+
+
+Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+
 
 ## Next steps
 
