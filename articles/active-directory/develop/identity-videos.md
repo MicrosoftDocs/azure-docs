@@ -18,11 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Microsoft identity platform videos
 
-Learn more about the Microsoft identity platform, and the Microsoft Authentication library (MSAL), from these videos by members of the Microsoft identity platform team. They are typically only 1-2 minutes long.
+Learn about the Microsoft identity platform, and the Microsoft Authentication libraries (MSAL), from these videos by members of the Microsoft identity platform team. They are typically 1-2 minutes long.
 
 ## Microsoft identity platform basics
 
-**These videos help you learn the basic Microsoft identity platform concepts**
+**Videos to help you learn basic Microsoft identity platform concepts**
 
 :::row:::
     :::column:::
@@ -32,7 +32,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        How the MSAL libraries make authentication easier.
+        How MSAL libraries make authentication easier.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
@@ -40,13 +40,13 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        Differences between organizational and personal Microsoft accounts.
+        Organizational and personal Microsoft account differences.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        What is a broker and how to use one.
+        Brokers and how to use one.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
@@ -60,7 +60,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
-        The role of the Azure AD app object.
+        Role of the Azure AD app object.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
@@ -68,13 +68,13 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        The role of Azure AD.
+        Role of Azure AD.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        How tenants relate to your organization.
+        How tenants relate to your org.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
@@ -82,7 +82,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        Differences between SPA apps and web apps.
+        SPA and web app differences.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
@@ -95,7 +95,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 
 ## Migrate from v1.0 to v2.0
 
-**These videos explain the benefits of migrating to the the latest version of the Microsoft identity platform**
+**Videos explaining the benefits of migrating to the the latest version of the Microsoft identity platform**
 
 :::row:::
     :::column:::
