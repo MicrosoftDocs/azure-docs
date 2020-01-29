@@ -8,7 +8,7 @@
 - name: Connect to Azure Arc
   expanded: true
   items:
-  - name: Connect machines to Azure Arc manually
+  - name: Connect machines to Azure Arc from the Azure portal
     href: ./servers/quickstart-onboard-portal.md
   - name: Connect machines at scale using a service principal
     href: ./servers/quickstart-onboard-powershell.md
