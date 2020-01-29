@@ -52,7 +52,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "S1" -Template "iotc-demo@1.0.0" `
+  -Sku "ST1" -Template "iotc-demo@1.0.0" `
   -DisplayName "My Custom Display Name"
 ```
 
@@ -64,7 +64,7 @@ The script first creates a resource group in the east US region for the applicat
 |Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **East US**, **West US**, **North Europe**, or **West Europe** regions, or in the **Australia** or **Asia Pacific** geographies.  |
 |Name              |The name of the application in the Azure portal. |
 |Subdomain         |The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
-|Sku               |Currently, the only value is **S1** (standard tier). See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
+|Sku               |Currently, you can use values as either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Template          | The application template to use. For more information, see the following table: |
 |DisplayName       |The name of the application as displayed in the UI. |
 

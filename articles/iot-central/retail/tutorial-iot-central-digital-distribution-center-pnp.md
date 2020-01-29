@@ -43,6 +43,9 @@ You can create application using following steps
 > [!div class="mx-imgBorder"]
 > ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-create.png)
 
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution billing info](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+
 ## Walk through the application dashboard 
 
 After successfully deploying the app template, your default dashboard is a distribution center operator focused portal. Northwind Trader is a fictitious distribution center solution provider managing conveyor systems. 

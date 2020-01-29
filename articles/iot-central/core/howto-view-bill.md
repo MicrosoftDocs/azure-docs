@@ -20,24 +20,24 @@ To access and use the **Administration** section, you must be in the **Administr
 
 ## View your bill
 
-To view your bill, go to the **Billing** page in the **Administration** section. The Azure billing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
+To view your bill, go to the **Pricing** page in the **Administration** section. The Azure pricing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
 
 ## Move from free to standard pricing plan
 
-- Applications that use the free pricing plan are free for seven days before they expire. You can move them to a standard pricing plan at any time before they expire.
-- Applications that use a standard pricing plan are charged per device, with the first two devices free, per subscription.
+- Applications that use the free pricing plan are free for seven days before they expire. In order to avoid losing data you can move them to a standard pricing plan at any time before they expire.
+- Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
-In the billing section, you can move your application from the free to a standard pricing plan.
+In the pricing section, you can move your application from the free to a standard pricing plan.
 
 To complete this self-service process, follow these steps:
 
-1. Go to the **Billing** page in the **Administration** section.
+1. Go to the **Pricing** page in the **Administration** section.
 
     ![Trial state](media/howto-view-bill/freetrialbilling.png)
 
-1. Select **Convert to Pay-As-You-Go**.
+1. Select **Convert to a paid plan**.
 
     ![Convert trial](media/howto-view-bill/convert.png)
 
