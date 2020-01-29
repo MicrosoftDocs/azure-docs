@@ -3,11 +3,9 @@ title: Create monitoring and tracking queries
 description: Create monitoring and tracking queries with Azure Log Analytics for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 01/30/2020
 ---
 
 # Create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
