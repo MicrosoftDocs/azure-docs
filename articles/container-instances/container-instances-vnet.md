@@ -28,7 +28,8 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 Certain limitations apply when you deploy container groups to a virtual network.
 
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
-* You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
+* You can't use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
+* You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically slower than deploying a standard container instance.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -257,7 +258,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> If you receive an error while attempting to remove the network profile, allow 2-3 days for the platform to automatically mitigate the issue and attempt the deletion again. If you still have issues removing the network profile, [open a support request](https://azure.microsoft.com/support/create-ticket/).
+> If you receive an error while attempting to remove the network profile, allow 3-4 days for the platform to automatically mitigate the issue and attempt the deletion again. If you need to delete a network profile immediately, [open a support request](https://azure.microsoft.com/support/create-ticket/) referencing the Azure Container Instances service.
 
 This feature currently requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
 
