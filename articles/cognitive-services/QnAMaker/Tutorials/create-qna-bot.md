@@ -96,8 +96,6 @@ If you didn't create a new resource group, you need to find the resources associ
 
 ## Related to QnA Maker bots
 
-* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
-    ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 
