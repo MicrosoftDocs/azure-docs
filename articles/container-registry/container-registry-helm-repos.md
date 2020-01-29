@@ -9,14 +9,14 @@ ms.date: 01/28/2020
 
 To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. With Helm, application packages are defined as [charts](https://helm.sh/docs/topics/charts/), which are collected and stored in a [Helm chart repository](https://helm.sh/docs/topics/chart_repository/).
 
-This article shows you how to to host Helm charts in repositories in an Azure container registry, using either a Helm 2 or Helm 3 installation. For this example, you store an existing Helm chart from the public Helm *stable* repo. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts].
+This article shows you how to host Helm charts in repositories in an Azure container registry, using either a Helm 2 or Helm 3 installation. For this example, you store an existing Helm chart from the public Helm *stable* repo. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts].
 
 > [!IMPORTANT]
 > Support for Helm charts in Azure Container Registry is currently in preview. Previews are made available to you on the condition that you agree to the supplemental [terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Helm 2 or Helm 3?
 
-To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 2 and Helm 3. Among other differences, Helm 3 supports a new chart format along with the existing format supported by Helm 2. For details on the differences between Helm 2 and Helm 3, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
+To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 2 and Helm 3. Among other differences, Helm 3 supports a new chart format and no longer installs the Tiller server-side component. For details on the differences between Helm 2 and Helm 3, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
 To store and manage Helm charts in an Azure container registry, you can use either the Helm 2 or Helm 3 client. The clients have different workflows to interact with an Azure container registry.
 
@@ -34,7 +34,7 @@ With **Helm 3** you:
 
 When using **either Helm 2 or Helm 3**, you can:
 
-* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history, for example.
+* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
 
 ### Additional information
@@ -96,9 +96,9 @@ mycontainerregistry.azurecr.io/helm/wordpress:latest     wordpress       8.1.0  
 
 ### Push chart to Azure Container Registry
 
-Run the `helm chart push` command in the Helm 3 CLI to push the Helm chart to a repository in your Azure container registry.
+Run the `helm chart push` command in the Helm 3 CLI to push the Helm chart to a repository in your Azure container registry. If it doesn't exist, the repository is created.
 
-First use the Azure CLI command [az acr login][az-acr-login] to authenticate to your registry. This command logs into the registry through the Helm CLI:
+First use the Azure CLI command [az acr login][az-acr-login] to authenticate to your registry:
 
 ```azurecli
 az acr login --name mycontainerregistry
@@ -131,22 +131,42 @@ For example, run [az acr repository show][az-acr-repository-show] to see the pro
 az acr repository show --name mycontainerregistry --repository helm/wordpress
 ```
 
+Output is similar to:
+
+```console
+{
+  "changeableAttributes": {
+    "deleteEnabled": true,
+    "listEnabled": true,
+    "readEnabled": true,
+    "writeEnabled": true
+  },
+  "createdTime": "2020-01-29T16:54:30.1514833Z",
+  "imageName": "helm/wordpress",
+  "lastUpdateTime": "2020-01-29T16:54:30.4992247Z",
+  "manifestCount": 1,
+  "registry": "mycontainerregistry.azurecr.io",
+  "tagCount": 1
+}
+```
+
 Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
 az acr repository show-manifests --name mycontainerregistry --repository helm/wordpress --detail
 ```
 
-Output, abbreviated in this example, shows a `mediaType` of `application/vnd.cncf.helm.config.v1+json`:
+Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:
 
 ```console
 [
   {
     [...]
-    "createdTime": "2020-01-29T04:26:30.2560503Z",
-    "digest": "sha256:0c36ee6e41bc0807bfa97cb647e493ac381b96c1f18749b7388c244a8cc75694",
+    "configMediaType": "application/vnd.cncf.helm.config.v1+json",
+    "createdTime": "2020-01-29T16:54:30.2382436Z",
+    "digest": "sha256:xxxxxxxx51bc0807bfa97cb647e493ac381b96c1f18749b7388c24bbxxxxxxxxx",
     "imageSize": 29995,
-    "lastUpdateTime": "2020-01-29T04:26:30.2560503Z",
+    "lastUpdateTime": "2020-01-29T16:54:30.3492436Z",
     "mediaType": "application/vnd.oci.image.manifest.v1+json",
     "tags": [
       "latest"
@@ -218,7 +238,7 @@ version: 8.1.0
 
 ### Install a Helm chart
 
-Run `helm install` to install the Helm chart you pulled to the local cache and exported. You must specify a release name or pass the `--generate-name` parameter. For example:
+Run `helm install` to install the Helm chart you pulled to the local cache and exported. Specify a release name or pass the `--generate-name` parameter. For example:
 
 ```console
 helm install wordpress --generate-name
