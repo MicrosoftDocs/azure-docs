@@ -73,7 +73,7 @@
   - name: Manage secrets
     href: service-fabric-mesh-howto-manage-secrets.md
   - name: Move an application to another Azure region
-    href: service-fabric-mesh-move-across-regions.md
+    href: move-across-regions.md
   - name: Find samples
     href: service-fabric-mesh-howto-find-samples.md
 
