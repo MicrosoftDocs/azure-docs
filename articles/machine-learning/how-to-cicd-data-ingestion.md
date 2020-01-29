@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: iefedore
+ms.author: eedorenko
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
