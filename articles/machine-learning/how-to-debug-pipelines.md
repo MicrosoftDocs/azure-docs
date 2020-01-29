@@ -16,9 +16,9 @@ ms.date: 12/12/2019
 
 In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
 
-
 ## Debug and troubleshoot in the Azure Machine Learning SDK
-The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected. 
+The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected.
+
 ### Testing scripts locally
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
@@ -76,6 +76,48 @@ The following table contains common problems during pipeline development, with p
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
 
+### Logging options and behavior
+
+The table below provides information for different debug options for pipelines. It isn't an exhaustive list, as other options exist besides just the Azure Machine Learning, Python, and OpenCensus ones shown here.
+
+| Library                    | Type   | Example                                                          | Destination                                  | Resources                                                                                                                                                                                                                                                                                                                    |
+|----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [How to track experiments](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Python printing/logging    | Log    | `print(val)`<br>`logging.info(message)`                          | Driver logs, Azure Machine Learning Designer | [How to track experiments](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python logging](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - traces                | [Debug pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python logging cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
+
+#### Logging options example
+
+```python
+import logging
+
+from azureml.core.run import Run
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+run = Run.get_context()
+
+# Azure ML Scalar value logging
+run.log("scalar_value", 0.95)
+
+# Python print statement
+print("I am a python print statement, I will be sent to the driver logs.")
+
+# Initialize python logger
+logger = logging.getLogger(__name__)
+logger.setLevel(args.log_level)
+
+# Plain python logging statements
+logger.debug("I am a plain debug statement, I will be sent to the driver logs.")
+logger.info("I am a plain info statement, I will be sent to the driver logs.")
+
+handler = AzureLogHandler(connection_string='<connection string>')
+logger.addHandler(handler)
+
+# Python logging with OpenCensus AzureLogHandler
+logger.warning("I am an OpenCensus warning statement, find me in Application Insights!")
+logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
+``` 
+
 ## Debug and troubleshoot in Azure Machine Learning designer (preview)
 
 This section provides an overview of how to troubleshoot  pipelines in the designer.
@@ -100,6 +142,9 @@ You can also find the log files of specific runs in the pipeline run detail page
 1. Select any module in the preview pane.
 1. In the properties pane, go to the **Logs** tab.
 1. Select the log file `70_driver_log.txt`
+
+## Debug and troubleshoot in Application Insights
+For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 #Customer intent: "As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code."

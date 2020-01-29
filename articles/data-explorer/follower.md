@@ -378,6 +378,7 @@ The follower database administrator can modify the [caching policy](/azure/kusto
 
 * The follower and the leader clusters must be in the same region.
 * [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
+* Data encryption using [customer managed keys](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) is not supported on both leader and follower clusters. 
 * You can't delete a database that is attached to a different cluster before detaching it.
 * You can't delete a cluster that has a database attached to a different cluster before detaching it.
 * You can't stop a cluster that has attached follower or leader database(s). 

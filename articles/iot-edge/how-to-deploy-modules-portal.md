@@ -38,9 +38,9 @@ The Azure portal has a wizard that walks you through creating the deployment man
 1. In the **IoT Edge Modules** section of the page, select **Add**.
 1. Look at the types of modules from the drop-down menu:
 
-   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image. 
+   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
    * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
-   * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload. 
+   * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
 1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 1. If needed, repeat steps 5 through 8 to add additional modules to your deployment.
@@ -48,7 +48,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 ### Specify routes
 
-On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route is called **route** and defined as **FROM /messages/* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route is called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
 Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next: Review + create** to continue to the next step of the wizard.
 

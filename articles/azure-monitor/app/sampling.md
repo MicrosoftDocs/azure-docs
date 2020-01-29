@@ -481,18 +481,18 @@ The accuracy of the approximation largely depends on the configured sampling per
   
   The following shows the default `ApplicationInsights.config` file generated. In ASP.NET Core, the same default behavior is enabled in code. Use the [examples in the earlier section of this page](#configuring-adaptive-sampling-for-aspnet-core-applications) to change this default behavior.
 
-```xml
-<TelemetryProcessors>
-    <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-        <ExcludedTypes>Event</ExcludedTypes>
-    </Add>
-    <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-        <IncludedTypes>Event</IncludedTypes>
-    </Add>
-</TelemetryProcessors>
-```
+    ```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <ExcludedTypes>Event</ExcludedTypes>
+        </Add>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <IncludedTypes>Event</IncludedTypes>
+        </Add>
+    </TelemetryProcessors>
+    ```
 
 *Can telemetry be sampled more than once?*
 
@@ -530,18 +530,18 @@ The accuracy of the approximation largely depends on the configured sampling per
 
 * The best way to achieve this is to write a custom [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. As initializers are guaranteed to be run before telemetry processors (including sampling), this ensures that all sampling techniques will ignore this item from any sampling considerations.
 
-```csharp
-public class MyTelemetryInitializer : ITelemetryInitializer
-{
-    public void Initialize(ITelemetry telemetry)
+    ```csharp
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        if(somecondition)
+        public void Initialize(ITelemetry telemetry)
         {
-            ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            if(somecondition)
+            {
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            }
         }
     }
-}
-```
+    ```
 
 ## Older SDK versions
 
