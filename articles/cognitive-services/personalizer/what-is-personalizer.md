@@ -95,6 +95,6 @@ Since Personalizer uses collective information in near real-time to return the s
 * [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
 * [Learn about features and actions for the Rank request](concepts-features.md)
 * [Learn about determining the score for the Reward request](concept-rewards.md)
-* [Quickstarts]()
-* [Tutorial]()
+* [Quickstarts](sdk-learning-loop.md)
+* [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
