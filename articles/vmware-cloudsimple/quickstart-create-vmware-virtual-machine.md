@@ -1,6 +1,8 @@
 ---
 title: Azure VMware Solutions (AVS) Quickstart - Create VMware VMs on Azure 
 description: Learn how to create and configure VMware VMs from Azure portal using Azure VMware Solutions (AVS) 
+titleSuffix: Azure VMware Solutions (AVS)
+
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/14/2019 

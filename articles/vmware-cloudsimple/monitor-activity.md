@@ -1,6 +1,8 @@
 --- 
 title: Azure VMware Solutions (AVS) - Monitor AVS Private Cloud activity
 description: Describes the information available on activities in the Azure VMware Solution by AVS environment, including alerts, events, tasks, and audit.
+titleSuffix: Azure VMware Solutions (AVS)
+
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/13/2019 

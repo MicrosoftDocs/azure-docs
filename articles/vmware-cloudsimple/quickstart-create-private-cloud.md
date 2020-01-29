@@ -1,6 +1,8 @@
 ---
 title: Azure VMware Solutions (AVS) Quickstart - Create an AVS Private Cloud 
 description: Learn how to create and configure an AVS Private Cloud with Azure VMware Solutions (AVS) 
+titleSuffix: Azure VMware Solutions (AVS)
+
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/16/2019 

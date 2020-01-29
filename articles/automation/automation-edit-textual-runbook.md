@@ -4,8 +4,8 @@ description: This article provides different procedures for working with PowerSh
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm

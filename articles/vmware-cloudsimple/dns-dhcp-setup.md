@@ -22,7 +22,7 @@ Applications and workloads running in an AVS Private Cloud environment require n
 
 ## Linux-based DNS server setup
 
-Linux offers various packages for setting up DNS servers. Here is an [example setup from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7) with instructions for setting up an open-source BIND DNS server.
+Linux offers various packages for setting up DNS servers. Here is an [example setup from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) with instructions for setting up an open-source BIND DNS server.
 
 ## Windows-based setup
 

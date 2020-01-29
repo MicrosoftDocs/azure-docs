@@ -1,21 +1,11 @@
 ---
-title: Defragmentation of Metrics in Azure Service Fabric | Microsoft Docs
-description: An overview of using defragmentation or packing as a strategy for metrics in Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Defragmentation of Metrics in Azure Service Fabric 
+description: Learn about using defragmentation, or packing, as a strategy for metrics in Service Fabric. This technique is useful for very large services.
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Defragmentation of metrics and load in Service Fabric
 The Service Fabric Cluster Resource Manager's default strategy for managing load metrics in the cluster is to distribute the load. Ensuring that nodes are evenly utilized avoids hot and cold spots that lead to both contention and wasted resources. Distributing workloads in the cluster is also the safest in terms of surviving failures since it ensures that a failure doesn’t take out a large percentage of a given workload. 

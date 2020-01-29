@@ -1,9 +1,9 @@
 ---
 title: Device concepts in Azure device provisioning | Microsoft Docs
-description: Describes device provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
+description: Describes device provisioning concepts specific to devices with Device Provisioning Service (DPS) and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -46,7 +46,7 @@ The registration ID is used to uniquely identify a device in the Device Provisio
 
 ## Device ID
 
-The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. Setting the desired device ID is only supported in individual enrollments. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## ID scope
 

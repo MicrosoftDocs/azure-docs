@@ -1,6 +1,6 @@
 ---
-title: How to request transit data in Azure Maps | Microsoft Docs
-description: Request public transit data using the Azure Maps Mobility service.
+title: Request transit data | Microsoft Azure Maps
+description: In this article, you will learn how to request public transit data using the Microsoft Azure Maps Mobility Service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/06/2019
@@ -25,7 +25,8 @@ In this article you will learn, how to:
 
 ## Prerequisites
 
-To make any calls to the Azure Maps public transit APIs, you need a Maps account and key. For information on creating an account, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to retrieve a primary subscription key for your account.
+To make any calls to the Azure Maps public transit APIs, you need a Maps account and key. For information on creating an account and getting a key, Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+
 
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 

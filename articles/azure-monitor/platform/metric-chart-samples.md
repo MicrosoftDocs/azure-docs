@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor metric chart samples
+title: Azure Monitor metric chart example
 description: Learn about visualizing your Azure Monitor data.
 author: vgorbenko
 services: azure-monitor
@@ -10,7 +10,7 @@ ms.author: vitalyg
 ms.subservice: metrics
 ---
 
-# Metric chart samples
+# Metric chart examples 
 
 The Azure platform offers [over a thousand metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), many of which have dimensions. By using [dimension filters](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), applying [splitting](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) and explains the necessary steps to configure each of these charts.
 

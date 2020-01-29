@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Simulate a failure in accessing read access redundant storage in Azure | Microsoft Docs'
-description: Simulate an error in accessing read access geo-redundant storage
+title: Tutorial - Simulate a failure in reading data from the primary region
+titleSuffix: Azure Storage
+description: Simulate an error in reading data from the primary region when read-access geo-redundant storage (RA-GRS) is enabled for the storage account.
 services: storage
 author: tamram
 
-
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ---
 
-# Tutorial: Simulate a failure in accessing read-access redundant storage
+# Tutorial: Simulate a failure in reading data from the primary region
 
 This tutorial is part two of a series. In it, you learn about the benefits of a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) by simulating a failure.
 

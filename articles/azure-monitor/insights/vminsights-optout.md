@@ -4,8 +4,8 @@ description: This article describes how to stop monitoring your virtual machines
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/05/2018
 
 ---

@@ -9,7 +9,8 @@ ms.date: 07/23/2019
 ## Authenticate with Azure Active Directory
 
 > [!IMPORTANT]
-> Currently, **only** the Computer Vision API, Face API, Text Analytics API, and Immersive Reader support authentication using Azure Active Directory (AAD).
+> 1. Currently, **only** the Computer Vision API, Face API, Text Analytics API, Immersive Reader, Form Recognizer, Anomaly Detector, and all Bing services except Bing Custom Search support authentication using Azure Active Directory (AAD).
+> 2. AAD authentication needs to be always used together with custom subdomain name of your Azure resource. [Regional endpoints](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) does not support AAD authentication.
 
 In the previous sections, we showed you how to authenticate against Azure Cognitive Services using either a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require role-based access controls. Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
 
@@ -17,12 +18,12 @@ In the following sections, you'll use either the Azure Cloud Shell environment o
 
 ### Create a resource with a custom subdomain
 
-The first step is to create a custom subdomain.
+The first step is to create a custom subdomain. If you want to use an existing Cognitive Services resource which does not have custom subdomain name, follow the instructions in [Cognitive Services Custom Subdomains](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
 
-1. Start by opening the Azure Cloud Shell. then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+1. Start by opening the Azure Cloud Shell. Then [select a subscription](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
 
    ```azurecli-interactive
-   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
 2. Next, [create a Cognitive Services resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain. The subdomain name needs to be globally unique and cannot include special characters, such as: ".", "!", ",".

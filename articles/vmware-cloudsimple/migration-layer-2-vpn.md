@@ -451,7 +451,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 
     Expand Uplink Interface:
 
-    * **DNS IP Address**. Enter the on-premise DNS IP address.
+    * **DNS IP Address**. Enter the on-premises DNS IP address.
     * **Default Gateway**. Enter the default gateway of the VLAN that will act as a default gateway for this client.
     * **IP Address**. Enter the uplink IP address of the standalone client.
     * **Prefix Length**. Enter the prefix length of the uplink VLAN/subnet.

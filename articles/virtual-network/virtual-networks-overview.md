@@ -74,7 +74,7 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 
 ## Azure VNet limits
 
-There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-subscription-service-limits.md#networking-limits). 
+There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-portal/supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## Pricing
 

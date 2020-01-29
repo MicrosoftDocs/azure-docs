@@ -1,5 +1,5 @@
 ---
-title: Access and start apps from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
+title: Access and start apps from My Apps (preview) portal - Azure AD
 description: Learn how to access and start your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
 author: eross-msft
@@ -12,7 +12,6 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Access and start apps from the My Apps (preview) portal

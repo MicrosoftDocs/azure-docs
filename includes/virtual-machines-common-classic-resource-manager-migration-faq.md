@@ -11,7 +11,7 @@ ms.custom: include file
 
 ---
 
-# Frequently asked questions about classic to Azure Resource Manager migration
+
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 
@@ -19,7 +19,7 @@ No. The VMs (classic) are fully supported services in general availability. You 
 
 ## What happens to my VMs if I don’t plan on migrating in the near future? 
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../articles/azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
+We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../articles/azure-resource-manager/management/deployment-models.md) that are part of IaaS under Resource Manager.
 
 ## What does this migration plan mean for my existing tooling? 
 

@@ -1,6 +1,8 @@
 ---
 title: Accessing Azure VMware Solutions (AVS) from on-premises 
 description: Accessing your Azure VMware Solutions (AVS) from your on-premises network through a firewall
+titleSuffix: Azure VMware Solutions (AVS)
+
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/08/2019 

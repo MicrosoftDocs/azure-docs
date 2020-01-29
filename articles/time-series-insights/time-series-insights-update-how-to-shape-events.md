@@ -1,6 +1,6 @@
 ---
-title: 'Shape events with Azure Time Series Insights Preview | Microsoft Docs'
-description: Understand how to shape events with Azure Time Series Insights Preview.
+title: 'Shape events - Azure Time Series Insights | Microsoft Docs'
+description: Learn about best practices and how to shape events for querying in Azure Time Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
 ---
 
@@ -26,7 +26,7 @@ Think about how you send events to Time Series Insights Preview. Namely, you sho
 For the best query performance, do the following:
 
 * Don't send unnecessary properties. Time Series Insights Preview bills you on your usage. It's best to store and process the data that you'll query.
-* Use instance fields for static data. This practice helps you avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Time Series Insights service that's generally available. To learn more about instance fields, see [Time Series Model](./time-series-insights-update-tsm.md).
+* Use instance fields for static data. This practice helps you avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Time Series Insights service that's generally available. To learn more about instance fields, read [Time Series Model](./time-series-insights-update-tsm.md).
 * Share dimension properties among two or more events. This practice helps you send data over the network more efficiently.
 * Don't use deep array nesting. Time Series Insights Preview supports up to two levels of nested arrays that contain objects. Time Series Insights Preview flattens arrays in messages into multiple events with property value pairs.
 * If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and might improve query performance because fewer events need to be processed.
@@ -152,5 +152,4 @@ In the example above, the flattened `data_flow` property would present a naming 
 
 ## Next steps
 
-- To put these guidelines into practice, see [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview REST API for data access.
-- To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).
+To put these guidelines into practice, read [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview REST API for data access.

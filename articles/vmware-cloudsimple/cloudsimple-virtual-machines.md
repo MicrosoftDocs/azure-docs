@@ -1,6 +1,7 @@
 ---
 title: Azure VMware Solutions (AVS) - Virtual machines overview 
 description: Learn about AVS virtual machines and their benefits. 
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/20/2019

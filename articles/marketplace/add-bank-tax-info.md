@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 
 
 
@@ -23,7 +24,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 ## Partner Center
 
-Bank and tax information is now managed within Partner Center. Instructions to configure these settings can be found in the "Financial Details" section of [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Bank and tax information is now managed within Partner Center. Instructions to configure these settings can be found in the "Commercial Marketplace overview" page of [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#payout-account).
 
 
 ## Next steps

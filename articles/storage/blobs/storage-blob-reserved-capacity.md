@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -17,7 +17,7 @@ You can save money on storage costs for blob data with Azure Storage reserved ca
 
 Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
 
-For information about Azure Storage reservation pricing, see [Block blob pricing](/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](/pricing/details/storage/data-lake/).
+For information about Azure Storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## Reservation terms for Azure Storage
 
@@ -25,7 +25,7 @@ The following sections describe the terms of an Azure Storage reservation.
 
 ### Reservation capacity
 
-You can purchase Azure Storage reserved capacity in units of 100 TiB and 1 PiB per month for a one-year or three-year term.
+You can purchase Azure Storage reserved capacity in units of 100 TB and 1 PB per month for a one-year or three-year term.
 
 ### Reservation scope
 
@@ -50,19 +50,19 @@ To purchase reserved capacity:
 
 - You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin on the subscription.
-- For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
+- For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Blob Storage reserved capacity.
 
 ## Determine required capacity before purchase
 
 When you purchase an Azure Storage reservation, you must choose the region, access tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region, access tier, and redundancy level. For example, suppose you purchase a reservation for data in US West for the hot tier using zone-redundant storage (ZRS). You cannot use the same reservation for data in US East, data in the archive tier, or data in geo-redundant storage (GRS). However, you can purchase another reservation for your additional needs.  
 
-Reservations are available today for 100 TiB or 1 PiB blocks, with higher discounts for 1 PiB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
+Reservations are available today for 100 TB or 1 PB blocks, with higher discounts for 1 PB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
 
 ## Purchase Azure Storage reserved capacity
 
 You can purchase Azure Storage reserved capacity through the [Azure portal](https://portal.azure.com). Pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](/azure/billing/billing-monthly-payments-reservations).
 
-For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../billing/billing-understand-storage-charges.md).
+For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Follow these steps to purchase reserved capacity:
 
@@ -97,7 +97,7 @@ You can exchange or refund a reservation, with certain limitations. These limita
 
 To exchange or refund a reservation, navigate to the reservation details in the Azure portal. Select **Exchange** or **Refund**, and follow the instructions to submit a support request. When the request has been processed, Microsoft will send you an email to confirm completion of the request.
 
-For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### Exchange a reservation
 
@@ -123,5 +123,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Understand how the reservation discount is applied to Azure Storage](../../billing/billing-understand-storage-charges.md)
+- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Understand how the reservation discount is applied to Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md)

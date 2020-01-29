@@ -1,5 +1,5 @@
 ---
-title: Connect and index Azure SQL Database content using indexers
+title: Search over Azure SQL data
 titleSuffix: Azure Cognitive Search
 description: Import data from Azure SQL Database using indexers, for full text search in Azure Cognitive Search. This article covers connections, indexer configuration, and data ingestion.
 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Connect to and index Azure SQL Database content using Azure Cognitive Search indexers
+# Connect to and index Azure SQL Database content using an Azure Cognitive Search indexer
 
 Before you can query an [Azure Cognitive Search index](search-what-is-an-index.md), you must populate it with your data. If the data lives in an Azure SQL database, an **Azure Cognitive Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process, which means less code to write and less infrastructure to care about.
 

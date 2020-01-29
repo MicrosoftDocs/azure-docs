@@ -1,6 +1,7 @@
 ---
-title: Azure VMware Solutions (AVS) - AVS activity management 
+title: Activity management 
 description: Describes activity concepts on VMware Solution by AVS
+titleSuffix: Azure VMware Solutions (AVS) 
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019

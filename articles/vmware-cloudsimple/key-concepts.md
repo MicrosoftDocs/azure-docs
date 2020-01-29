@@ -1,6 +1,7 @@
 ---
 title: Key concepts for administering Azure VMware Solutions (AVS) 
 description: Describes key concepts for administering Azure VMware Solutions (AVS)
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 04/24/2019 

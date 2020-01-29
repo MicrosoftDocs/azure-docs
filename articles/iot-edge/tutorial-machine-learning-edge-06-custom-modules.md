@@ -1,10 +1,10 @@
 ---
-title: Create and deploy custom modules - Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: Create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.
+title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
+description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -40,7 +40,7 @@ To accomplish these tasks, we use three custom modules:
 
   * Outputs:
     * **classify:** sends messages to "amlInput"
-    * **writeAvro:** sends messages "avroModuleInput"
+    * **writeAvro:** sends messages to "avroModuleInput"
     * **toIotHub:** sends messages to $upstream, which passes the messages to the connected IoT Hub
 
 The diagram below shows the modules, inputs, outputs, and the IoT Edge Hub routes for the full solution:

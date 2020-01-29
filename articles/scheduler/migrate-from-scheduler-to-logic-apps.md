@@ -239,14 +239,14 @@ and select **Add a parallel branch**.
 1. When you're finished, select **Done**.
 
 To learn more about exception handling, see 
-[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 ## FAQ
 
 <a name="retire-date"></a>
 
 **Q**: When is Azure Scheduler retiring? <br>
-**A**: Azure Scheduler is scheduled to fully retire on December 31, 2019. For important steps to take before this date and a detailed timeline, see [Extending retirement date for Scheduler to December 31, 2019](https://azure.microsoft.com/en-us/updates/extending-retirement-date-of-scheduler/). For general updates, see [Azure updates - Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
+**A**: Azure Scheduler is scheduled to fully retire on December 31, 2019. For important steps to take before this date and a detailed timeline, see [Extending retirement date for Scheduler to December 31, 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). For general updates, see [Azure updates - Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
 
 **Q**: What happens to my job collections and jobs after the service retires? <br>
 **A**: All Scheduler job collections and jobs stop running and are deleted from the system.

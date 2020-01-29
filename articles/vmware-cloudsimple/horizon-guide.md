@@ -42,7 +42,7 @@ The following sections describe how to deploy a VDI solution using Horizon in yo
 ### Estimate the size of your desktop environment
 
 * Verify that your identified configuration is within VMware operational limits.
-* Estimate the resources that are needed in your DR site to protect your on-premises environment.
+* Estimate the resources that are needed for all your desktops and your Horizon management components.
 
 ### Create an AVS Private Cloud for your environment
 
@@ -76,7 +76,7 @@ Follow standard security best practices to secure your Horizon deployment:
 
 * Allow only desktop RDP traffic / SSH traffic to your desktop VMs.
 * Allow only management traffic between Horizon management plane VLAN and desktop pool VLAN.
-* Allow only management traffic from on-premise network.
+* Allow only management traffic from on-premises network.
 
 You can enforce these best practices by configuring [firewall rules](firewall.md) from the AVS portal.
 

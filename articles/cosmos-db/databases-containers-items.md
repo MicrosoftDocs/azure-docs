@@ -78,7 +78,7 @@ An Azure Cosmos container has a set of system-defined properties. Depending on w
 
 | System-defined property | System-generated or user-configurable | Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | Unique identifier of container | Yes | No | No | No | No |
+|\_rid | System-generated | Unique identifier of container | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Last updated timestamp of the container | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the container | Yes | No | No | No | No |
@@ -114,7 +114,7 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 
 | System-defined property | System-generated or user-configurable| Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | Unique identifier of the item | Yes | No | No | No | No |
+|\_rid | System-generated | Unique identifier of the item | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Timestamp of the last update of the item | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |

@@ -1,12 +1,12 @@
 ---
-title: What are service dependencies in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Conditional Access service dependencies - Azure Active Directory 
 description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -1,6 +1,8 @@
 ---
 title: Azure VMware Solutions (AVS) Quickstart - Create service 
 description: Learn how to create the AVS service, purchase nodes, and reserve nodes  
+titleSuffix: Azure VMware Solutions (AVS)
+
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/16/2019 

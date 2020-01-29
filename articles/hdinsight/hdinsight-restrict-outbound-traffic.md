@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# Configure outbound network traffic for Azure HDInsight clusters using Firewall (Preview)
+# Configure outbound network traffic for Azure HDInsight clusters using Firewall
 
 This article provides the steps for you to secure outbound traffic from your HDInsight cluster using Azure Firewall. The steps below assume that you're configuring an Azure Firewall for an existing cluster. If you're deploying a new cluster and behind a firewall, create your HDInsight cluster and subnet first and then follow the steps in this guide.
 
@@ -173,7 +173,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-To learn about the scale limits of Azure Firewall and request increases, see [this](../azure-subscription-service-limits.md#azure-firewall-limits) document or refer to the [FAQs](../firewall/firewall-faq.md).
+To learn about the scale limits of Azure Firewall and request increases, see [this](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) document or refer to the [FAQs](../firewall/firewall-faq.md).
 
 ## Access to the cluster
 

@@ -1,5 +1,5 @@
 ---
-title: Lookup activity in Azure Data Factory | Microsoft Docs
+title: Lookup activity in Azure Data Factory 
 description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 services: data-factory
 documentationcenter: ''
@@ -233,10 +233,7 @@ This storage account contains the JSON file with the names of the SQL tables.
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -253,10 +250,7 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
         "type": "AzureSqlDatabase",
         "description": "",
 		"typeProperties": {
-			"connectionString": {
-				"value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-				"type": "SecureString"
-			}
+			"connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
 		}
 	}
 }

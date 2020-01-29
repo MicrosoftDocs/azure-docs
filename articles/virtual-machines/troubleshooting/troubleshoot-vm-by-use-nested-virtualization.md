@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a problem Azure VM by using nested virtualization in Azure | Microsoft Docs
+title: Troubleshoot a faulty Azure VM by using nested virtualization in Azure | Microsoft Docs
 description: How to troubleshoot a problem Azure VM by using nested virtualization in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,22 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/19/2019
 ms.author: genli
 ---
-# Troubleshoot a problem Azure VM by using nested virtualization in Azure
+# Troubleshoot a faulty Azure VM by using nested virtualization in Azure
 
-This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the problem VM on the Hyper-V host (Rescue VM) for troubleshooting purposes.
+This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the faulty VM on the Hyper-V host (Rescue VM) for troubleshooting purposes.
 
 ## Prerequisites
 
-To mount the problem VM, the Rescue VM must meet the following prerequisites:
-
--   The Rescue VM must be in the same location as the problem VM.
-
--   The Rescue VM must be in the same resource group as the problem VM.
-
--   The Rescue VM must use the same type of Storage Account (Standard or Premium) as the problem VM.
+In order to mount the faulty VM, the Rescue VM must use the same type of Storage Account (Standard or Premium) as the faulty VM.
 
 ## Step 1: Create a Rescue VM and install Hyper-V role
 
@@ -38,9 +32,9 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
     -  Size: Any V3 series with at least two cores that support nested virtualization. For more information, see [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-    -  Same location, Storage Account, and Resource Group as the problem VM.
+    -  Same location, Storage Account, and Resource Group as the faulty VM.
 
-    -  Select the same storage type as the problem VM (Standard or Premium).
+    -  Select the same storage type as the faulty VM (Standard or Premium).
 
 2.  After the Rescue VM is created, remote desktop to the Rescue VM.
 
@@ -66,72 +60,57 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 13. Allow the server to install the Hyper-V role. This takes a few minutes and the server will reboot automatically.
 
-## Step 2: Create the problem VM on the Rescue VM’s Hyper-V server
+## Step 2: Create the faulty VM on the Rescue VM’s Hyper-V server
 
-1.  Record the name of the disk in the problem VM, and then delete the problem VM. Make sure that you keep all attached disks. 
+1.  [Create a snapshot disk](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) for the OS disk of the VM that has problem, and then attach the snapshot disk to the recuse VM.
 
-2.  Attach the OS disk of your problem VM as a data disk of the Rescue VM.
+2.  Remote desktop to the Rescue VM.
 
-    1.  After the problem VM is deleted, go to the Rescue VM.
+3.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the faulty VM is set to **Offline**.
 
-    2.  Select **Disks**, and then **Add data disk**.
+4.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server, and then select the **Hyper-V Manager**.
 
-    3.  Select the problem VM’s disk, and then select **Save**.
+5.  In the Hyper-V Manager, right-click the Rescue VM, and then select **New** > **Virtual Machine** > **Next**.
 
-3.  After the disk has successfully attached, remote desktop to the Rescue VM.
+6.  Type a name for the VM, and then select **Next**.
 
-4.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the problem VM is set to **Offline**.
+7.  Select **Generation 1**.
 
-5.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server, and then select the **Hyper-V Manager**.
+8.  Set the startup memory at 1024 MB or more.
 
-6.  In the Hyper-V Manager, right-click the Rescue VM, and then select **New** > **Virtual Machine** > **Next**.
+9. If applicable select the Hyper-V Network Switch that was created. Else move to the next page.
 
-7.  Type a name for the VM, and then select **Next**.
-
-8.  Select **Generation 1**.
-
-9.  Set the startup memory at 1024 MB or more.
-
-10. If applicable select the Hyper-V Network Switch that was created. Else move to the next page.
-
-11. Select **Attach a virtual hard disk later**.
+10. Select **Attach a virtual hard disk later**.
 
     ![the image about the Attach a Virtual Hard Disk Later option](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
-12. Select **Finish** when the VM is created.
+11. Select **Finish** when the VM is created.
 
-13. Right-click the VM that you created, and then select **Settings**.
+12. Right-click the VM that you created, and then select **Settings**.
 
-14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
+13. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
 
     ![the image about adds new hard drive](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
+14. In **Physical Hard Disk**, select the disk of the faulty VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
 
     ![the image about mounts the disk](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-17. Select **Apply**, and then select **OK**.
+15. Select **Apply**, and then select **OK**.
 
-18. Double-click on the VM, and then start it.
+16. Double-click on the VM, and then start it.
 
-19. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
+17. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
 
-## Step 3: Re-create your Azure VM in Azure
+## Step 3: Replace the OS disk used by the faulty VM
 
 1.  After you get the VM back online, shut down the VM in the Hyper-V manager.
 
-2.  Go to the [Azure portal](https://portal.azure.com) and select the Rescue VM > Disks,  copy the name of the disk. You will use the name in the next step. Detach the fixed disk from the Rescue VM.
-
-3.  Go to **All resources**, search for the disk name, and then select the disk.
-
-     ![the image about searches the disk](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
-
-4. Click **Create VM**.
-
-     ![the image about creates vm from the disk](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
-
-You can also use Azure PowerShell to create the VM from the disk. For more information, see [Create the new VM from an existing disk by using PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
+2.  [Unmount and detach the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+).
+3.  [Replace the OS disk used by the VM with the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+).
 
 ## Next steps
 

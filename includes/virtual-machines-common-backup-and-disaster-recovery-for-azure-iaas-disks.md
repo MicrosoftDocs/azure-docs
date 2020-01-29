@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: "include file"
 ---
 
-# Backup and disaster recovery for Azure IaaS disks
+
 
 This article explains how to plan for backup and disaster recovery (DR) of IaaS virtual machines (VMs) and disks in Azure. This document covers both managed and unmanaged disks.
 
@@ -148,8 +148,6 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 1.	Configure the backup policy and select the VM from the same UI.
 
 1.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 

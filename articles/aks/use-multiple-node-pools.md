@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/9/2019
+ms.date: 01/22/2020
 ms.author: mlearned
 ---
 
@@ -29,19 +29,20 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * You can't delete the default (first) node pool.
 * The HTTP application routing add-on can't be used.
-* You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
-* The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-* The AKS cluster can have a maximum of eight node pools.
-* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
-* All node pools must reside in the same subnet.
+* The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
+* The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
+* The AKS cluster can have a maximum of 10 node pools.
+* The AKS cluster can have a maximum of 1000 nodes across those 10 node pools.
+* All node pools must reside in the same vnet and subnet.
+* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
 
 ## Create an AKS cluster
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.15.7* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 > [!NOTE]
-> The *Basic* load balanacer SKU is not supported when using multiple node pools. By default, AKS clusters are created with the *Standard* loadbalacer SKU.
+> The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from Azure CLI and Azure portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -54,7 +55,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -79,7 +80,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.12.7
+    --kubernetes-version 1.15.5
 ```
 
 > [!NOTE]
@@ -102,7 +103,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.12.7",
+    "orchestratorVersion": "1.15.5",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -112,7 +113,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -121,32 +122,32 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.10* and node size of *Standard_DS2_v2*.
+> If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
 ## Upgrade a node pool
- 
+
 > [!NOTE]
 > Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
-When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool.
+When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.15.7* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool.
 
 The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
-Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.15.7*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --no-wait
 ```
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.10*:
+List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.15.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -157,7 +158,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -169,7 +170,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -186,28 +187,34 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 ## Upgrade a cluster control plane with multiple node pools
 
 > [!NOTE]
-> Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme. The version number is expressed as *x.y.z*, where *x* is the major version, *y* is the minor version, and *z* is the patch version. For example, in version *1.12.6*, 1 is the major version, 12 is the minor version and 6 is the patch version. The Kubernetes version of the control plane as well as the initial node pool is set during cluster creation. All additional node pools have their Kubernetes version set when they are added to the cluster. The Kubernetes versions may differ between node pools as well as between a node pool and the control plane, but the follow restrictions apply:
-> 
-> * The node pool version must have the same major version as the control plane.
-> * The node pool version may be one minor version less than the control plane version.
-> * The node pool version may be any patch version as long as the other two constraints are followed.
+> Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme. The version number is expressed as *x.y.z*, where *x* is the major version, *y* is the minor version, and *z* is the patch version. For example, in version *1.12.6*, 1 is the major version, 12 is the minor version, and 6 is the patch version. The Kubernetes version of the control plane and the initial node pool are set during cluster creation. All additional node pools have their Kubernetes version set when they are added to the cluster. The Kubernetes versions may differ between node pools as well as between a node pool and the control plane.
 
-An AKS cluster has two cluster resource objects with Kubernetes versions associated. The first is a control plane Kubernetes version. The second is an agent pool with a Kubernetes version. A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
+An AKS cluster has two cluster resource objects with Kubernetes versions associated.
 
-* Upgrading the control plane requires using `az aks upgrade`
-   * This upgrades the control plane version and all node pools in the cluster
-   * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane gets upgraded and none of the associated node pools are changed.
-* Upgrading individual node pools requires using `az aks nodepool upgrade`
-   * This upgrades only the target node pool with the specified Kubernetes version
+1. A cluster control plane Kubernetes version.
+2. A node pool with a Kubernetes version.
 
-The relationship between Kubernetes versions held by node pools must also follow a set of rules.
+A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
 
-* You cannot downgrade the control plane nor a node pool Kubernetes version.
-* If a node pool Kubernetes version is not specified, behavior depends on the client being used. For declaration in Resource Manager template the existing version defined for the node pool is used, if none is set the control plane version is used.
-* You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
-* A node pool Kubernetes version must be the same major version as the control plane.
-* A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.
-* A node pool can be any Kubernetes patch version less than or equal to the control plane, never greater.
+Upgrading an AKS control plane requires using `az aks upgrade`. This upgrades the control plane version and all node pools in the cluster. 
+
+Issuing the `az aks upgrade` command with the `--control-plane-only` flag upgrades only the cluster control plane. None of the associated node pools in the cluster are changed.
+
+Upgrading individual node pools requires using `az aks nodepool upgrade`. This upgrades only the target node pool with the specified Kubernetes version
+
+### Validation rules for upgrades
+
+The valid Kubernetes upgrades for a cluster's control plane and node pools are validated by the following sets of rules.
+
+* Rules for valid versions to upgrade node pools:
+   * The node pool version must have the same *major* version as the control plane.
+   * The node pool *minor* version must be within two *minor* versions of the control plane version.
+   * The node pool version cannot be greater than the control `major.minor.patch` version.
+
+* Rules for submitting an upgrade operation:
+   * You cannot downgrade the control plane or a node pool Kubernetes version.
+   * If a node pool Kubernetes version is not specified, behavior depends on the client being used. Declaration in Resource Manager templates fall back to the existing version defined for the node pool if used, if none is set the control plane version is used to fall back on.
+   * You can either upgrade or scale a control plane or a node pool at a given time, you cannot submit multiple operations on a single control plane or node pool resource simultaneously.
 
 ## Scale a node pool manually
 
@@ -229,7 +236,7 @@ az aks nodepool scale \
 List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
 ```console
-$ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 [
   {
@@ -237,7 +244,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Scaling",
     ...
@@ -249,7 +256,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -287,7 +294,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Deleting",
     ...
@@ -299,7 +306,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -340,7 +347,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Creating",
     ...
@@ -352,7 +359,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -372,8 +379,8 @@ You now have two node pools in your cluster - the default node pool initially cr
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
 ```
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
@@ -383,10 +390,10 @@ The Kubernetes scheduler can use taints and tolerations to restrict what workloa
 
 For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
 
-In this example, apply a taint to your GPU-based node using the [kubectl taint node][kubectl-taint] command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key:value* and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
+In this example, apply a taint to your GPU-based node using the --node-taints command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key:value* and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
 
 ```console
-kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
+az aks nodepool --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
 The following basic example YAML manifest uses a toleration to allow the Kubernetes scheduler to run an NGINX pod on the GPU-based node. For a more appropriate, but time-intensive example to run a Tensorflow job against the MNIST dataset, see [Use GPUs for compute-intensive workloads on AKS][gpu-cluster].
@@ -445,12 +452,12 @@ Only pods that have this taint applied can be scheduled on nodes in *gpunodepool
 
 ## Manage node pools using a Resource Manager template
 
-When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With node pools in AKS, the initial node pool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the agent pools for an existing AKS cluster.
+When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With node pools in AKS, the initial node pool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the node pools for an existing AKS cluster.
 
 Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
 
-* Updates the *Linux* agent pool named *myagentpool* to run three nodes.
-* Sets the nodes in the node pool to run Kubernetes version *1.13.10*.
+* Updates the *Linux* node pool named *myagentpool* to run three nodes.
+* Sets the nodes in the node pool to run Kubernetes version *1.15.7*.
 * Defines the node size as *Standard_DS2_v2*.
 
 Edit these values as need to update, add, or delete node pools as needed:
@@ -489,7 +496,7 @@ Edit these values as need to update, add, or delete node pools as needed:
     },
     "variables": {
         "apiVersion": {
-            "aks": "2019-04-01"
+            "aks": "2020-01-01"
         },
         "agentPoolProfiles": {
             "maxPods": 30,
@@ -502,7 +509,7 @@ Edit these values as need to update, add, or delete node pools as needed:
     },
     "resources": [
         {
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2020-01-01",
             "type": "Microsoft.ContainerService/managedClusters/agentPools",
             "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
             "location": "[parameters('location')]",
@@ -515,7 +522,7 @@ Edit these values as need to update, add, or delete node pools as needed:
                 "storageProfile": "ManagedDisks",
                 "type": "VirtualMachineScaleSets",
                 "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-                "orchestratorVersion": "1.13.10"
+                "orchestratorVersion": "1.15.7"
             }
         }
     ]
@@ -529,6 +536,25 @@ az group deployment create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
+
+> [!TIP]
+> You can add a tag to your node pool by adding the *tag* property in the template, as shown in the following example.
+> 
+> ```json
+> ...
+> "resources": [
+> {
+>   ...
+>   "properties": {
+>     ...
+>     "tags": {
+>       "name1": "val1"
+>     },
+>     ...
+>   }
+> }
+> ...
+> ```
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 

@@ -1,6 +1,9 @@
 ---
+
 title: Azure VMware Solutions (AVS) - AVS Private cloud VMware components 
 description: Describes how VMware components are installed on AVS private cloud 
+titleSuffix: Azure VMware Solutions (AVS)
+
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019

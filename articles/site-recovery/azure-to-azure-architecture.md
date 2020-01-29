@@ -1,12 +1,12 @@
 ---
-title: Azure to Azure replication architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
+title: Azure to Azure disaster recovery architecture in Azure Site Recovery
+description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 1/23/2020
 ms.author: raynew
 ---
 
@@ -141,17 +141,19 @@ Please note that details of network connectivity requirements can be found in  [
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>.
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD).<br/><br/> If Azure AD addresses are added in future you need to create new Network Security Group (NSG) rules.  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the target location. 
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 
 #### Target region rules
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region. | Storage.\<region-name>.
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD.<br/><br/> If Azure AD addresses are added in future you need to create new NSG rules.  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the source location. 
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 
 
 #### Control access with NSG rules

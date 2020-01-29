@@ -1,10 +1,11 @@
 ---
-title: Add assessment tools in Azure Migrate | Microsoft Docs
-description: Describes how to add assessment tools in the Azure Migrate hub. 
+title: Add assessment tools in Azure Migrate 
+description: Learn how to add assessment tools in Azure Migrate. 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/04/2019
+ms.manager: carmonm
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -13,13 +14,13 @@ ms.author: raynew
 
 This article describes how to add assessment tools in [Azure Migrate](migrate-overview.md).
 
-Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes native tools, tools provided by other Azure services, and third-party independent software vendor (ISV) offerings.
+Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes Azure Migrate tools, as well as other tools and independent software vendor (ISV) offerings.
 
 If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
 
-## Selecting an ISV tool
+## Select a tool
 
-If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for assessment, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation to connect the tool workspace with Azure Migrate. 
+If you choose a non-Azure Migrate tool for assessment, start by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Tools have an option to connect to Azure Migrate. Follow the instructions and documentation, to connect the tool to Azure Migrate. [Learn more](migrate-services-overview.md) about tools.
 
 
 ## Select an assessment scenario
@@ -43,11 +44,8 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for as
 
 3. In **Azure Migrate**, select the assessment tool you want to use.
 
-    
-    ![Assessment tools](./media/how-to-assess/assess-tool.png)
-
     - If you use Azure Migrate Server Assessment, you can set up, run, and view assessments directly in the Azure Migrate project.
-    - If you use a third-party assessment tool, navigate to the link provided for their site, and run the assessment in accordance with the instructions they provide.
+    - If you use a different assessment tool, navigate to the link provided for their site, and run the assessment in accordance with the instructions they provide.
 
 
 ## Select a database assessment tool
@@ -68,4 +66,4 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for as
 
 ## Next steps
 
-Try out an assess using Azure Migrate Server Assessment for [Hyper-V](tutorial-prepare-hyper-v.md) or [VMware](tutorial-prepare-vmware.md) VMs.
+Try out an assess using Azure Migrate Server Assessment for [VMware](tutorial-prepare-vmware.md) VMs, [Hyper-V](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md)

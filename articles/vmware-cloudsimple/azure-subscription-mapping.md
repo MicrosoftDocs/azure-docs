@@ -1,6 +1,7 @@
 --- 
 title: Create resource pools with Azure subscription mapping
 description: Describes how to create resource pools for your AVS Private Cloud through Azure subscription mapping
+titleSuffix: Azure VMware Solution by CloudSimple
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/14/2019 

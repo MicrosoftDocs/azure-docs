@@ -1,11 +1,12 @@
 ---
-title: Quickstart - Direct web traffic with Azure Application Gateway - Azure portal | Microsoft Docs
+title: 'Quickstart: Direct web traffic using the portal'
+titleSuffix: Azure Application Gateway
 description: Learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -60,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
+   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU. 
 
 2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 

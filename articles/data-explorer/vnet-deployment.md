@@ -59,6 +59,9 @@ The total number of IP addresses:
 [Azure Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) enables you to secure your Azure multi-tenant resources to your virtual network.
 Deploying Azure Data Explorer cluster into your subnet allows you to setup data connections with [Event Hub](/azure/event-hubs/event-hubs-about) or [Event Grid](/azure/event-grid/overview) while restricting the underlying resources for Azure Data Explorer subnet.
 
+> [!NOTE]
+> When using EventGrid setup with [Storage](/azure/storage/common/storage-introduction) and [Event Hub], the storage account used in the subscription can be locked with service endpoints to Azure Data Explorer's subnet while allowing trusted Azure platform services in the [firewall configuration](/azure/storage/common/storage-network-security), but the Event Hub can't enable Service Endpoint since it doesn't support trusted [Azure platform services](/azure/event-hubs/event-hubs-service-endpoints).
+
 ## Dependencies for VNet deployment
 
 ### Network Security Groups configuration
@@ -215,30 +218,31 @@ Use ExpressRoute to connect on premises network to the Azure Virtual Network. A 
 
 If you want to secure outbound traffic using [Azure Firewall](/azure/firewall/overview) or any virtual appliance to limit domain names, the following Fully Qualified Domain Names (FQDN) must be allowed in the firewall.
 
-* prod.warmpath.msftcloudes.com:443
-* production.diagnostics.monitoring.core.windows.net:443
-* graph.windows.net:443
-* *.update.microsoft.com:443
-* shavamanifestcdnprod1.azureedge.net:443
-* login.live.com:443
-* wdcp.microsoft.com:443
-* login.microsoftonline.com:443
-* azureprofilerfrontdoor.cloudapp.net:443
-* *.core.windows.net:443
-* *.servicebus.windows.net:443
-* shoebox2.metrics.nsatc.net:443
-* production.diagnostics.monitoring.core.windows.net:443
-* prod-dsts.dsts.core.windows.net:443
-* ocsp.msocsp.com:80
-* *.windowsupdate.com:80
-* ocsp.digicert.com:80
-* go.microsoft.com:80
-* dmd.metaservices.microsoft.com:80
-* www.msftconnecttest.com:80
-* crl.microsoft.com:80
-* www.microsoft.com:80
-* adl.windows.com:80
-* crl3.digicert.com:80
+```
+prod.warmpath.msftcloudes.com:443
+production.diagnostics.monitoring.core.windows.net:443
+graph.windows.net:443
+*.update.microsoft.com:443
+shavamanifestcdnprod1.azureedge.net:443
+login.live.com:443
+wdcp.microsoft.com:443
+login.microsoftonline.com:443
+azureprofilerfrontdoor.cloudapp.net:443
+*.core.windows.net:443
+*.servicebus.windows.net:443
+shoebox2.metrics.nsatc.net:443
+prod-dsts.dsts.core.windows.net:443
+ocsp.msocsp.com:80
+*.windowsupdate.com:80
+ocsp.digicert.com:80
+go.microsoft.com:80
+dmd.metaservices.microsoft.com:80
+www.msftconnecttest.com:80
+crl.microsoft.com:80
+www.microsoft.com:80
+adl.windows.com:80
+crl3.digicert.com:80
+```
 
 You also need to define the [route table](/azure/virtual-network/virtual-networks-udr-overview) on the subnet with the [management addresses](#azure-data-explorer-management-ip-addresses) and [health monitoring addresses](#health-monitoring-addresses) with next hop *Internet* to prevent asymmetric routes issues.
 

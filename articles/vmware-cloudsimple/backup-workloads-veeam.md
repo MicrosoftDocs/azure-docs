@@ -114,7 +114,6 @@ The following items are needed during the implementation phase:
 Configure infrastructure services in the AVS Private Cloud to make it easy to manage your workloads and tools.
 
 * You can add an external identity provider as described in [Set up vCenter identity sources to use Active Directory](set-vcenter-identity.md) if any of the following apply:
-
   * You want to identify users from your on-premise Active Directory (AD) in your AVS Private Cloud.
   * You want to set up an AD in your AVS Private Cloud for all users.
   * You want to use Azure AD.

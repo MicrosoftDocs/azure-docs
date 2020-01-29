@@ -1,6 +1,7 @@
 ---
 title: Azure VMware Solutions (AVS) - AVS maintenance and updates
 description: Describes the AVS service process for scheduled maintenance and updates
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
