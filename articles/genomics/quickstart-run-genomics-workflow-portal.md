@@ -89,7 +89,7 @@ The Microsoft Genomics service expects inputs to be stored as block blobs in an 
 If you already have your data in an Azure storage account, you only need to make sure that it is in the same location as your Genomics account. Otherwise, egress charges are incurred when running the Microsoft Genomics service. 
 If you don’t yet have an Azure storage account, you need to create one and upload your data. You can find more information about Azure storage accounts [here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create an Azure storage account, navigate to [Create storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.  
 
-![Storage account create page](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage account create page")
+![Storage account create page](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade1.png "Storage account create page")
 
 Configure your storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is BlobStorage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads.  The default deployment model, Azure Resource Manager, is recommended.  
 
