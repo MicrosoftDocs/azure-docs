@@ -34,8 +34,6 @@ To define an Azure Blob container, enter this information.
 
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
-
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
 * **Storage account** - Select the account that you want to use.
