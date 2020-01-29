@@ -79,8 +79,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 >
 > ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md)
 
-Steps for apply Azure Disk Encryption are available in [Azure Disk Encryption scenarios on Linux VMs](disk-encryption-linux.md) and related articles.
-
 ## Additional VM requirements
 
 Azure Disk Encryption requires the dm-crypt and vfat modules to be present on the system. Removing or disabling vfat from the default image will prevent the system from reading the key volume and obtaining the key needed to unlock the disks on subsequent reboots. System hardening steps that remove the vfat module from the system are not compatible with Azure Disk Encryption. 
