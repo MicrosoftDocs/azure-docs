@@ -24,11 +24,11 @@ highlightedContent:
     # Card
     - title: Azure application architecture guide
       itemType: architecture
-      url: /azure/architecture/guide/index
+      url: https://docs.microsoft.com/azure/architecture/guide/index
     # Card
     - title: Microsoft Cloud Adoption Framework for Azure
       itemType: architecture
-      url: /azure/cloud-adoption-framework/index
+      url: https://docs.microsoft.com/azure/cloud-adoption-framework/index
     # Card
     - title: Azure fundamentals with Microsoft Learn
       itemType: learn
@@ -50,7 +50,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/ai-ml/bot-services.svg
       azureCategories:
         - aiMachineLearning
-      url: /azure/bot-service/
+      url: https://docs.microsoft.com/azure/bot-service/
     # Card
     - title: Azure Cognitive Search
       summary: AI-powered cloud search service for mobile and web app development
@@ -267,14 +267,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: /azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
+      url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
     # Card
     - title: Speech Translation
       summary: Easily integrate real-time speech translation to your app
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: /azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
+      url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
@@ -288,7 +288,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
-      url: /azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
+      url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
     # Card
     - title: Translator Text
       summary: Easily conduct machine translation with a simple REST API call
@@ -470,7 +470,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - compute
-      url: /azure/cyclecloud/index
+      url: https://docs.microsoft.com/azure/cyclecloud/index
     # Card
     - title: Azure Dedicated Host
       summary: A dedicated physical server to host your Azure VMs for Windows and Linux
@@ -571,7 +571,7 @@ productDirectory:
       azureCategories:
         - compute
         - databases
-      url: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
     # Card
     - title: Virtual Machine Scale Sets
       summary: Manage and scale up to thousands of Linux and Windows virtual machines
@@ -718,7 +718,7 @@ productDirectory:
         - developerTools
         - devops
         - hybrid
-      url: /azure/devops/
+      url: https://docs.microsoft.com/azure/devops/
     # Card
     - title: Azure DevTest Labs
       summary: Quickly create environments using reusable templates and artifacts
@@ -741,7 +741,7 @@ productDirectory:
       azureCategories:
         - developerTools
         - devops
-      url: /azure/devops/pipelines/
+      url: https://docs.microsoft.com/azure/devops/pipelines/
     # Card
     - title: CLI
       summary: Command-line tools to manage Azure resources
@@ -769,7 +769,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - developerTools
-      url: /visualstudio/
+      url: https://docs.microsoft.com/visualstudio/
     # Card
     - title: Visual Studio Code
       summary: A powerful, lightweight code editor for cloud development
@@ -783,7 +783,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - developerTools
-      url: /visualstudio/online/overview/what-is-vsonline
+      url: https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline
     # Card
     - title: Application Insights
       summary: Full observability into your applications, infrastructure, and network
@@ -798,14 +798,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - devops
-      url: /azure/devops/artifacts/
+      url: https://docs.microsoft.com/azure/devops/artifacts/
     # Card
     - title: Azure Boards
       summary: Plan, track, and discuss work across your teams
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - devops
-      url: /azure/devops/boards/
+      url: https://docs.microsoft.com/azure/devops/boards/
     # Card
     - title: Azure Monitor
       summary: Full observability into your applications, infrastructure, and network
@@ -820,14 +820,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - devops
-      url: /azure/devops/repos/
+      url: https://docs.microsoft.com/azure/devops/repos/
     # Card
     - title: Azure Test Plans
       summary: Test and ship with confidence with a manual and exploratory testing toolkit
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - devops
-      url: /azure/devops/test/
+      url: https://docs.microsoft.com/azure/devops/test/
     # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
@@ -866,7 +866,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - hybrid
-      url: /azure-stack/
+      url: https://docs.microsoft.com/azure-stack/
     # Card
     - title: Security Center
       summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
@@ -906,7 +906,7 @@ productDirectory:
       azureCategories:
         - identity
         - security
-      url: /azure/information-protection/
+      url: https://docs.microsoft.com/azure/information-protection/
     # Card
     - title: API Management
       summary: Publish APIs to developers, partners, and employees securely and at scale
@@ -976,7 +976,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - iot
-      url: /azure-sphere/
+      url: https://docs.microsoft.com/azure-sphere/
     # Card
     - title: Azure Time Series Insights
       summary: Explore and analyze time-series data from IoT devices
@@ -999,7 +999,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - iot
-      url: /windows/iot-core/
+      url: https://docs.microsoft.com/windows/iot-core/
     # Card
     - title: Security Center for IoT
       summary: Unify security management and enable threat protection across your Azure IoT solution
@@ -1198,14 +1198,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - mobile
-      url: /appcenter/
+      url: https://docs.microsoft.com/appcenter/
     # Card
     - title: Xamarin
       summary: Create cloud-powered mobile apps faster
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - mobile
-      url: /xamarin/
+      url: https://docs.microsoft.com/xamarin/
     # Card
     - title: Application Gateway
       summary: Build secure, scalable, and highly available web front ends in Azure
@@ -1426,8 +1426,8 @@ tools:
     # Card
     - title: .NET
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      url: /dotnet/azure/index
+      url: https://docs.microsoft.com/dotnet/azure/index
     # Card
     - title: Python
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
-      url: /azure/python/index
+      url: https://docs.microsoft.com/azure/python/index
