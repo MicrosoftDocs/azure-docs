@@ -34,21 +34,26 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 2. Go to **Azure Active Directory** > **Enterprise Applications**.
 
-3. Under **Manage**, select **Collections)**.
+3. Under **Manage**, select **Collections**.
 
 4. Select **New collection**. In the **New collection** page, enter a **Name** for the collection (we recommend not using "collection" in the name. Then enter a **Description**.
 
-5. Select **Review + Create**. The properties for the new collection appear.
+   ![New collection page](media/acces-panel-collections/new-collection.png)
 
-6. To add applications to the collection, select the **Applications** tab. Select **+ Add application**, and then in the **Add applications** page, select all the applications you want to add to the collection, or use the **Search** box to find applications. 
+5. Select the **Applications** tab. Select **+ Add application**, and then in the **Add applications** page, select all the applications you want to add to the collection, or use the **Search** box to find applications.
 
-7. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the up arrows to change the order of applications in the list. To move an application down or to delete it from the collection, select the **More** menu (**...**).
+   ![Add an application to the collection](media/acces-panel-collections/add-applications.png)
 
-8. To assign users and groups to the collection, select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the **Search** box to find users or groups.
+6. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the up arrows to change the order of applications in the list. To move an application down or to delete it from the collection, select the **More** menu (**...**).
 
-10. When you're finished selecting users and groups, choose **Select**.
+7. Select the **Owners** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
 
-11. To change a user's role from **Read Access** to **Owner** or vice versa, click the current role and select a new role.
+9. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the **Search** box to find users or groups. When you're finished selecting users and groups, choose **Select**.
+
+   ![Add users and groups](media/acces-panel-collections/add-users-and-groups.png)
+
+11. Select **Review + Create**. The properties for the new collection appear.
+
 
 ## View audit logs
 
