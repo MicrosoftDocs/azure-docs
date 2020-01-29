@@ -44932,12 +44932,12 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-blob-static-website-custom-domain.md",
-      "redirect_url": "/azure/storage/blobs/storage-blob-static-website-cdn.md",
+      "redirect_url": "/azure/storage/blobs/storage-blob-static-website-cdn",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/blobs/storage-https-custom-domain-cdn.md",
-      "redirect_url": "/azure/storage/blobs/storage-custom-domain-name.md#enable-https",
+      "redirect_url": "/azure/storage/blobs/storage-custom-domain-name#enable-https",
       "redirect_document_id": false
     },
     {
