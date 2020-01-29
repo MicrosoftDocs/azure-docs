@@ -42,7 +42,7 @@ The team members work in slightly different ways to collaborate on the Python no
 
 ### Python Notebook Source Code
 
-The data engineers work with the Python notebook source code either locally in a an IDE (for example, [Visual Studio Code](https://code.visualstudio.com)) or directly in the Databricks workspace. The latter gives the ability to debug the code on the development environment. In any case, the code is going to be merged to the repository following a branching policy. 
+The data engineers work with the Python notebook source code either locally in an IDE (for example, [Visual Studio Code](https://code.visualstudio.com)) or directly in the Databricks workspace. The latter gives the ability to debug the code on the development environment. In any case, the code is going to be merged to the repository following a branching policy. 
 It's highly recommended to store the code in `.py` files rather than in `.ipynb` Jupyter notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
 
 ### Azure Data Factory Source Code
@@ -183,7 +183,7 @@ The values in the json file are default values configured in the pipeline defini
 
 ## Continuous Delivery (CD)
 
-The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running tests. If succesful, it continues to the next environment. The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) and [jobs](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) that perform the following steps:
+The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running tests. If successful, it continues to the next environment. The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) and [jobs](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) that perform the following steps:
 * Deploy a Python Notebook to Azure Databricks workspace
 * Deploy an Azure Data Factory pipeline 
 * Run the pipeline
