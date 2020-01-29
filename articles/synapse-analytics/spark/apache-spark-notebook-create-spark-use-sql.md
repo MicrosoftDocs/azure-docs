@@ -111,7 +111,7 @@ A notebook is an interactive environment that supports various programming langu
 
  Enter the code below in another cell and run it, this creates a Spark table, a CSV, and a Parquet file all with copies of the data:
 
-   ```Python
+   ``pPython
    demo_df.createOrReplaceTempView('demo_df')
    demo_df.write.csv('demo_df', mode='overwrite')
    demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')

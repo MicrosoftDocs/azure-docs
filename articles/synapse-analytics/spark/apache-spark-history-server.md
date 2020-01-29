@@ -213,14 +213,6 @@ The Executor Usage Graph visualizes the Spark job executor's allocation and runn
 
 Input/output data using Resilient Distributed Datasets (RDDs) does not show in data tab.
 
-<!--- TODO: Need to replace this diagram
-## Next steps
-
-* [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Configure Apache Spark settings](apache-spark-settings.md)
-
---->
-
 ## Next steps
 
 * [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
