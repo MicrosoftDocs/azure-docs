@@ -36,7 +36,7 @@ Configure your Genomics account with the following information, as shown in the 
 
 You can select**Notifications** in the top menu bar to monitor the deployment process.
 
-![Microsoft Genomics Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics Notifications")
+![Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Notifications")
 
 For more information about Microsoft Genomics, see [What is Microsoft Genomics?](overview-what-is-genomics.md)
 
@@ -46,7 +46,7 @@ You need to install both Python and the Microsoft Genomics Python client in your
 
 ### Install Python
 
-The Microsoft Genomics Python client is compatible with Python 2.7. 12 or later 2.7.xx version. 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/). 
+The Microsoft Genomics Python client is compatible with Python 2.7. 12 or later 2.7.xx version. 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
 > Python 3.x isn't compatible with Python 2.7.xx.  MSGen is a Python 2.7 application. When running MSGen, make sure that your active Python environment is using a 2.7.xx version of Python. You may get errors when trying to use MSGen with a 3.x version of Python.
@@ -72,7 +72,7 @@ You can install these packages using `pip`, `easy_install` or through standard `
 To test the Microsoft Genomics client, download the config file from your Genomics account. 
 In the Azure portal, navigate to your Genomics account by selecting **All services** in the top left, and then searching for and selecting Genomics accounts.
 
-![Find Microsoft Genomics on Azure portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filter for Microsoft Genomics on Azure portal")
+![Find Microsoft Genomics on Azure portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Find Microsoft Genomics on Azure portal")
 
 Select the Genomics account you just made, navigate to **Access Keys**, and download the configuration file.
 
@@ -87,9 +87,9 @@ msgen list -f "<full path where you saved the config file>"
 ## Create a Microsoft Azure Storage account 
 The Microsoft Genomics service expects inputs to be stored as block blobs in an Azure storage account. It also writes output files as block blobs to a user-specified container in an Azure storage account. The inputs and outputs can reside in different storage accounts.
 If you already have your data in an Azure storage account, you only need to make sure that it is in the same location as your Genomics account. Otherwise, egress charges are incurred when running the Microsoft Genomics service. 
-If you don’t yet have an Azure storage account, you need to create one and upload your data. You can find more information about Azure storage accounts [here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create an Azure storage account, navigate to the [Create storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.  
+If you don’t yet have an Azure storage account, you need to create one and upload your data. You can find more information about Azure storage accounts [here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create an Azure storage account, navigate to [Create storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.  
 
-![Storage create blade](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage create blade")
+![Storage create blade](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage account create page")
 
 Configure your storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is BlobStorage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads.  The default deployment model, Azure Resource Manager, is recommended.  
 
