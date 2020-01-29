@@ -134,7 +134,43 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 1. From the tasks dropdown, select **Deploy job to test environment**. 
 
-2. Select the **+** next to **Agent job** and search for *Azure resource group deployment*.
+2. Select the **+** next to **Agent job** and search for *Azure resource group deployment*. Enter the following parameters:
+
+   |Setting|Value|
+   |-|-|
+   |Display name| *Deploy myASAJob*|
+   |Azure subscription| Choose your subscription.|
+   |Action| *Create or update resource group*|
+   |Resource group| Choose a name for the test resource group that will contain your Stream Analytics job.|
+   |Location|Choose the location of your test resource group.|
+   |Template location| *Linked artifact*|
+   |Template| $(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.json |
+   |Template parameters|($(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.parameters.json|
+   |Override template parameters|-Input_IoTHub1_iotHubNamespace $(test_eventhubname)|
+   |Deployment mode|Incremental|
+
+3. From the tasks dropdown, select **Deploy job to production environment**.
+
+4. Select the **+** next to **Agent job** and search for *Azure resource group deployment*. Enter the following parameters:
+
+   |Setting|Value|
+   |-|-|
+   |Display name| *Deploy myASAJob*|
+   |Azure subscription| Choose your subscription.|
+   |Action| *Create or update resource group*|
+   |Resource group| Choose a name for the production resource group that will contain your Stream Analytics job.|
+   |Location|Choose the location of your production resource group.|
+   |Template location| *Linked artifact*|
+   |Template| $(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.json |
+   |Template parameters|($(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.parameters.json|
+   |Override template parameters|-Input_IoTHub1_iotHubNamespace $(eventhubname)|
+   |Deployment mode|Incremental|
+
+### Create release
+
+To create a release, select **Create release** in the top right corner.
+
+![Create a release using Azure pipelines](./media/setup-cicd-vs-code/create-release.png)
 
 ### Save and run
 
