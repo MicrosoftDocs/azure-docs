@@ -116,6 +116,10 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 2. Do not change any of the default configurations.
 
+### Save and run
+
+Once you have finished adding the npm, command line, copy files, and publish build artifacts tasks, select **Save & queue**. When you are prompted, enter a save comment and select **Save and run**.
+
 ## Release with Azure Pipelines
 
 Open a web browser and navigate to your Azure Stream Analytics Visual Studio Code project.
@@ -173,10 +177,6 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 To create a release, select **Create release** in the top right corner.
 
 ![Create a release using Azure pipelines](./media/setup-cicd-vs-code/create-release.png)
-
-### Save and run
-
-Once you have finished adding the npm, command line, copy files, and publish build artifacts tasks, select **Save & queue**. When you are prompted, enter a save comment and select **Save and run**.
 
 ## Additional resources
 
