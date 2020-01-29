@@ -67,6 +67,9 @@
       href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
+      items:
+        - name: Security
+          href: concept-private-endpoint.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
