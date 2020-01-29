@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -23,24 +23,22 @@ Migrating a knowledge base requires exporting from one knowledge base, then impo
 
 ## Migrate a knowledge base from QnA Maker
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
-1. Select the knowledge base you want to migrate.
+1. Select the origin knowledge base you want to migrate.
 
-1. On the **Settings** page, select **Export knowledge base** to download a .tsv file that contains the content of your knowledge base - questions, answers, metadata, and the data source names from which they were extracted.
+1. On the **Settings** page, select **Export knowledge base** to download a .tsv file that contains the content of your origin knowledge base - questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted.
 
-1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files.
+1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation.
 
-    > [!div class="mx-imgBorder"]
-    > ![Set data sources](../media/qnamaker-how-to-create-kb/entire-knowledge-base-create-steps.png)
-
-    Configure the knowledge base name only. Duplicate names are supported and special characters are supported as well.
+    Configure the knowledge base. Set the new knowledge base name only. Duplicate names are supported and special characters are supported as well.
 
     Do not select anything from Step 4 because those values will be overwritten when you import the file.
 
 1. In Step 5, select **Create**.
 
-1. In this new knowledge base, open the **Settings** tab and select **Import knowledge base**. This imports the questions, answers, and metadata, and retains the data source names from which they were extracted.
+1. In this new knowledge base, open the **Settings** tab and select **Import knowledge base**. This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted.
 
-   ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
+   > [!div class="mx-imgBorder"]
+   > ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 1. **Publish** the knowledge base. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
