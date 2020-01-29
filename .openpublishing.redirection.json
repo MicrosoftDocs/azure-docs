@@ -6862,6 +6862,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/create-cli.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/create-visual-studio.md",
       "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
       "redirect_document_id": false
