@@ -26,13 +26,13 @@ Learn about the Microsoft identity platform, and the Microsoft Authentication li
 
 :::row:::
     :::column:::
-        Quick overview of the Microsoft identity platform.
+        Microsoft identity platform overview
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        How MSAL libraries make authentication easier.
+        How MSAL libraries make authentication easier
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
@@ -40,13 +40,13 @@ Learn about the Microsoft identity platform, and the Microsoft Authentication li
 :::row-end:::
 :::row:::
     :::column:::
-        Organizational and personal Microsoft account differences.
+        Organizational and personal Microsoft account differences
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        Brokers and how to use one.
+        Brokers and how to use one
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
@@ -54,7 +54,7 @@ Learn about the Microsoft identity platform, and the Microsoft Authentication li
 :::row-end:::
 :::row:::
     :::column:::
-        How to use redirect URIs.
+        How to use redirect URIs
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
@@ -88,8 +88,10 @@ Learn about the Microsoft identity platform, and the Microsoft Authentication li
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
     :::column:::
+        Scopes explained
     :::column-end:::
     :::column:::
+        > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
 :::row-end:::
 
@@ -119,7 +121,9 @@ Learn about the Microsoft identity platform, and the Microsoft Authentication li
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
+        Advantages of MSAL over ADAL
     :::column-end:::
     :::column:::
+        > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
     :::column-end:::
 :::row-end:::
