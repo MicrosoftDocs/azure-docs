@@ -23,7 +23,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Node.js](https://nodejs.org/en/) 0.10.29+.
+- [Node.js 0.10.29+](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
 ## Create a database account
