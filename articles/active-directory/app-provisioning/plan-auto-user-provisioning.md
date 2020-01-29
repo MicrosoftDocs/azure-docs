@@ -293,29 +293,17 @@ We recommend that you assume ownership of and consume these reports on a cadence
 
 Refer to the following links to troubleshoot any issues that may turn up during provisioning:
 
-<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-auto-user-provisioning.md
-* [Problem configuring user provisioning to an Azure AD Gallery application](../manage-apps/application-provisioning-config-problem.md)
-=======
 * [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
->>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-auto-user-provisioning.md
 
 * [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../manage-apps/user-provisioning-sync-attributes-for-mapping.md)
 
 * [User provisioning to an Azure AD Gallery application is taking hours or more](../manage-apps/application-provisioning-when-will-provisioning-finish.md)
 
-<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-auto-user-provisioning.md
-* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../manage-apps/application-provisioning-config-problem-storage-limit.md)
-
-* [No users are being provisioned to an Azure AD Gallery application](../manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
-
-* [Wrong set of users are being provisioned to an Azure AD Gallery application](../manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
-=======
 * [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 
 * [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
 * [Wrong set of users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
->>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-auto-user-provisioning.md
 
 ### Helpful documentation
 
