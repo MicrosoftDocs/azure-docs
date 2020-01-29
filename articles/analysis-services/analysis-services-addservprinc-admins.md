@@ -43,7 +43,7 @@ You can configure server administrators using SQL Server Management Studio (SSMS
 You can also configure server administrators by deploying the Analysis Services server using an Azure Resource Manager template. The identity running the deployment must belong to the **Contributor** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
-> The service principal must be added using the format `app:{service-principalclient-id}@{azure-ad-tenant-id}`.
+> The service principal must be added using the format `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
 
 The following Resource Manager template deploys an Analysis Services server with a specified service principal added to the Analysis Services Admin role:
 
