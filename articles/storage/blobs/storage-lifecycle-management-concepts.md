@@ -243,6 +243,9 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 
 The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.  
 
+>[!NOTE]
+>Lifecycle management only supports block blob type.  
+
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
 - Delete blob 2,555 days (seven years) after last modification

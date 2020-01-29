@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/24/2020
 ms.author: jgao
 
 ---
@@ -37,7 +37,7 @@ The benefits of deployment script:
 
 ## Prerequisites
 
-- **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). You need the identity ID when you deploy the template. The format of the identity is:
+- **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -52,7 +52,7 @@ The benefits of deployment script:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps.md). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+- **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
 
 ## Resource schema
 
@@ -64,16 +64,16 @@ The following json is an example.  The latest template schema can be found [here
   "apiVersion": "2019-10-01-preview",
   "name": "myDeploymentScript",
   "location": "[resourceGroup().location]",
+  "kind": "AzurePowerShell",
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
       "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
     }
   },
-  "kind": "AzurePowerShell",
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "2.8",
+    "azPowerShellVersion": "3.0",
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -228,7 +228,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 ## Clean up deployment script resources
 
-Deployment script creates a storage account and a container instance that are used for executing deployment scripts and storing debug information. These two resources are created in the same resource group as the provisioned resources, and will be deleted by the script service when script expires. You can control the life cycle of these resources.  Until they are deleted, you are billed for both resources. For the price information, see [Container Instances pricing](/pricing/details/container-instances/) and [Azure Storage pricing](/pricing/details/storage/).
+Deployment script creates a storage account and a container instance that are used for executing deployment scripts and storing debug information. These two resources are created in the same resource group as the provisioned resources, and will be deleted by the script service when script expires. You can control the life cycle of these resources.  Until they are deleted, you are billed for both resources. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 The life cycle of these resources is controlled by the following properties in the template:
 

@@ -249,11 +249,7 @@ HDInsight is a managed service. If Azure detects a problem with the cluster, it 
 * Install and configure a service or web site.
 * Install and configure a component that requires configuration changes on multiple nodes in the cluster.
 
-Script Actions are Bash scripts. The scripts run during cluster creation, and are used to install and configure additional components. Example scripts are provided for installing the following components:
-
-* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-
-For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Script Actions are Bash scripts. The scripts run during cluster creation, and are used to install and configure additional components. For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ### Jar files
 

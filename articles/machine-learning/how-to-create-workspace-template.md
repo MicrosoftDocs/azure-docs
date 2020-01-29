@@ -88,7 +88,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## Use Azure CLI
 
@@ -103,7 +103,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/secure-template-with-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## Troubleshooting
 
@@ -120,7 +120,7 @@ Most resource creation operations through templates are idempotent, but Key Vaul
 To avoid this problem, we recommend one of the following approaches:
 
 * Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
-  
+
 * Examine the Key Vault access policies and then use these policies to set the `accessPolicies` property of the template. To view the access policies, use the following Azure CLI command:
 
     ```azurecli-interactive
@@ -161,7 +161,7 @@ To avoid this problem, we recommend one of the following approaches:
           }
         },
         ```
-    
+
     * **Remove** the `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` line from the `dependsOn` section of the workspace. Also **Change** the `keyVault` entry in the `properties` section of the workspace to reference the `keyVaultId` parameter:
 
         ```json
@@ -189,7 +189,7 @@ To avoid this problem, we recommend one of the following approaches:
           }
         }
         ```
-      
+
     After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then re-use the Key Vault by setting the `keyVault` property of the workspace to its ID.
 
     To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
@@ -206,5 +206,5 @@ To avoid this problem, we recommend one of the following approaches:
 
 ## Next steps
 
-* [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+* [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

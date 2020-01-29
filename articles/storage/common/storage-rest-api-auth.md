@@ -19,13 +19,13 @@ This article shows you how to call the Azure Storage REST APIs, including how to
 
 ## Prerequisites
 
-The sample application lists the blob containers for a storage account. To try out the code in this article, you need the following items: 
+The sample application lists the blob containers for a storage account. To try out the code in this article, you need the following items:
 
 - Install [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the **Azure development** workload.
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-quickstart-create-account.md).
+- A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-account-create.md).
 
 - The example in this article shows how to list the containers in a storage account. To see output, add some containers to blob storage in the storage account before you start.
 
@@ -39,7 +39,7 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the storage-dotnet-rest-api-with-auth folder, open it, and double-click on StorageRestApiAuth.sln. 
+This command clones the repository to your local git folder. To open the Visual Studio solution, look for the storage-dotnet-rest-api-with-auth folder, open it, and double-click on StorageRestApiAuth.sln.
 
 ## About REST
 
@@ -94,16 +94,16 @@ For security when running in production, always use HTTPS rather than HTTP. For 
 
 In our sample project, the code for creating the Authorization header is in a separate class. The idea is that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
-To build the request, which is an HttpRequestMessage object, go to ListContainersAsyncREST in Program.cs. The steps for building the request are: 
+To build the request, which is an HttpRequestMessage object, go to ListContainersAsyncREST in Program.cs. The steps for building the request are:
 
-- Create the URI to be used for calling the service. 
+- Create the URI to be used for calling the service.
 - Create the HttpRequestMessage object and set the payload. The payload is null for ListContainersAsyncREST because we're not passing anything in.
 - Add the request headers for x-ms-date and x-ms-version.
 - Get the authorization header and add it.
 
-Some basic information you need: 
+Some basic information you need:
 
-- For ListContainers, the **method** is `GET`. This value is set when instantiating the request. 
+- For ListContainers, the **method** is `GET`. This value is set when instantiating the request.
 - The **resource** is the query portion of the URI that indicates which API is being called, so the value is `/?comp=list`. As noted earlier, the resource is on the reference documentation page that shows the information about the [ListContainers API](/rest/api/storageservices/List-Containers2).
 - The URI is constructed by creating the Blob service endpoint for that storage account and concatenating the resource. The value for **request URI** ends up being `http://contosorest.blob.core.windows.net/?comp=list`.
 - For ListContainers, **requestBody** is null and there are no extra **headers**.
@@ -161,7 +161,7 @@ Now that you have constructed the request, you can call the SendAsync method to 
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -210,7 +210,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -309,7 +309,7 @@ Let's start with those two canonicalized fields, because they are required to cr
 
 ### Canonicalized headers
 
-To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this: 
+To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -317,7 +317,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 Here's the code used to create that output:
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -446,7 +446,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 In ListContainersAsyncREST, change the code that sets the URI to the API for ListBlobs. The container name is **container-1**.
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -518,7 +518,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Response body (XML):** This XML response shows the list of blobs and their properties. 
+**Response body (XML):** This XML response shows the list of blobs and their properties.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
