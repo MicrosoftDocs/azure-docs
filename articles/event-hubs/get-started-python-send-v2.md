@@ -157,6 +157,6 @@ The receiver window should display the messages that were sent to the event hub.
 
 
 ## Next steps
-In this quickstart, you have sent and received events asynchronously. To learn how to send and receive events synchronously, see samples on the [GitHub sync_samples page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples/sync_samples).
+In this quickstart, you've sent and received events asynchronously. To learn how to send and receive events synchronously, go to the [GitHub sync_samples page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples/sync_samples).
 
 For all the samples (both synchronous and asynchronous) on GitHub, go to [Azure Event Hubs client library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples).
