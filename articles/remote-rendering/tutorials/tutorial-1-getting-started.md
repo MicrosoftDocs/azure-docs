@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Setting up a Unity project from scratch
-description: Prerequisites to get the sample up and running
+description: Explains how to configure a blank Unity project for the use with Azure Remote Rendering.
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 30/01/2020
+ms.date: 01/30/2020
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
@@ -17,7 +17,13 @@ In this tutorial you will learn:
 
 > [!div class="checklist"]
 >
-> * How to do stuff
+> * Getting the required NuGet packages.
+> * Configuring a scratch Unity project for ARR.
+> * Creating and stopping rendering sessions.
+> * Reusing existing sessions.
+> * Connecting and disconnecting from sessions.
+> * Loading models into a rendering session.
+> * Displaying connection stats.
 
 ## Prerequisites
 
@@ -541,7 +547,7 @@ To test this:
 >[!NOTE]
 > Multiple users can *open* a session to query its information, but only one user can be *connected* to a session at a time. If another user is already connected, the connection will fail with a **handshake error**.
 
-## Load a built-in model
+## Load a model
 
 Insert the following code into the *RemoteRendering* script and remove the old versions of the duplicate functions:
 
@@ -688,6 +694,9 @@ When you now press play, open a session and connect to it, the **Load Model** bu
 
 The [WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) is an important component used for [hologram stability](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). However, it will only have effect when deployed on a Mixed Reality device.
 
+> [!TIP]
+> If you followed the [second quickstart guide](../quickstarts/quickstart-convert-model.md), you already know how to convert your own models. All you need to do now to render it, is to put the URI to a converted model into the *Model Name* property.
+
 ## Display frame statistics
 
 Azure Remote Rendering tracks various information about the quality of the connection. For a quick way to display this information do the following:
@@ -751,9 +760,7 @@ Now, when connected to the remote session, the text should show the streaming st
 
 ## Next steps
 
-In this tutorial you have learned all the steps necessary to take a blank Unity project and get it working with Azure Remote Rendering. So far you are only rendering the built-in model, but if you followed the [second quickstart guide](../quickstarts/quickstart-convert-model.md), you already know how to convert your own models. All you need to do is to plug in such an URI into the *Model Name* property of your *Remote Rendering* script.
-
-In the next tutorial we will take a closer look at how to work with remote entities.
+In this tutorial you have learned all the steps necessary to take a blank Unity project and get it working with Azure Remote Rendering. In the next tutorial we will take a closer look at how to work with remote entities.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Working with remote entities](./tutorial-2-working-with-remote-entities.md)
