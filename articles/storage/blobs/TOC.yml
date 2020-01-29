@@ -383,7 +383,7 @@
       - name: Host a static website
         href: storage-blob-static-website-how-to.md
       - name: Integrate with Azure CDN
-        href: storage-blob-static-website-cdn.md
+        href: static-website-content-delivery-network.md
     - name: Use a custom domain
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint

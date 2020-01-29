@@ -44932,7 +44932,7 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-blob-static-website-custom-domain.md",
-      "redirect_url": "/azure/storage/blobs/storage-blob-static-website-cdn",
+      "redirect_url": "/azure/storage/blobs/static-website-content-delivery-network",
       "redirect_document_id": false
     },
     {

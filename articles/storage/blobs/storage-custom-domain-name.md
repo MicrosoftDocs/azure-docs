@@ -302,7 +302,7 @@ To map a custom domain and enable HTTPS access, do the following:
 
    For a Blob Storage endpoint, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md). 
 
-   For a static website endpoint, see [Integrate a static website with Azure CDN](storage-blob-static-website-cdn.md).
+   For a static website endpoint, see [Integrate a static website with Azure CDN](static-website-content-delivery-network.md).
 
 2. [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
 
