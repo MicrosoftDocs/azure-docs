@@ -47,7 +47,7 @@ productDirectory:
     # Card
     - title: Azure Bot Service
       summary: Intelligent, serverless bot service that scales on demand
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/ai-ml/bot-services.svg
       azureCategories:
         - aiMachineLearning
       url: /azure/bot-service/
@@ -70,7 +70,7 @@ productDirectory:
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/ai-ml/machine-learning-service-workspaces.svg
       azureCategories:
         - aiMachineLearning
         - iot
@@ -148,7 +148,7 @@ productDirectory:
     # Card
     - title: Cognitive Services
       summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/ai-ml/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
         - containers
@@ -236,7 +236,7 @@ productDirectory:
     # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/ai-ml/genomics.svg
       azureCategories:
         - aiMachineLearning
       url: genomics/index.yml
@@ -307,14 +307,14 @@ productDirectory:
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/analysis-services.svg
       azureCategories:
         - analytics
       url: analysis-services/index.yml
     # Card
     - title: Azure Data Explorer
       summary: Fast and highly scalable data exploration service
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/azure-data-explorer-clusters.svg
       azureCategories:
         - analytics
       url: data-explorer/index.yml
@@ -337,7 +337,7 @@ productDirectory:
     # Card
     - title: Azure Stream Analytics
       summary: Real-time data stream processing from millions of IoT devices
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/stream-analytics.svg
       azureCategories:
         - analytics
         - iot
@@ -345,7 +345,7 @@ productDirectory:
     # Card
     - title: Azure Synapse Analytics
       summary: Limitless analytics service with unmatched time to insight (formerly SQL Data Warehouse)
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/sql-data-warehouses.svg
       azureCategories:
         - analytics
       url: sql-data-warehouse/index.yml
@@ -359,28 +359,28 @@ productDirectory:
     # Card
     - title: Data Factory
       summary: Hybrid data integration at enterprise scale, made easy
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/data-factory.svg
       azureCategories:
         - analytics
       url: data-factory/index.yml
     # Card
     - title: Data Lake Analytics
       summary: Distributed analytics service that makes big data easy
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/data-lake-analytics.svg
       azureCategories:
         - analytics
       url: data-lake-analytics/index.yml
     # Card
     - title: Event Hubs
       summary: Receive telemetry from millions of devices
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/event-hubs.svg
       azureCategories:
         - analytics
       url: event-hubs/index.yml
     # Card
     - title: HDInsight
       summary: Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/analytics/hd-insight-clusters.svg
       azureCategories:
         - analytics
       url: hdinsight/index.yml
@@ -458,7 +458,7 @@ productDirectory:
     # Card
     - title: App Service
       summary: Quickly create powerful cloud apps for web and mobile
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/app-services.svg
       azureCategories:
         - compute
         - mobile
@@ -490,7 +490,7 @@ productDirectory:
     # Card
     - title: Azure Kubernetes Service (AKS)
       summary: Simplify the deployment, management, and operations of Kubernetes
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/kubernetes-services.svg
       azureCategories:
         - compute
         - containers
@@ -527,7 +527,7 @@ productDirectory:
     # Card
     - title: Container Instances
       summary: Easily run containers on Azure without managing servers
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/container-instances.svg
       azureCategories:
         - compute
         - containers
@@ -535,7 +535,7 @@ productDirectory:
     # Card
     - title: Linux Virtual Machines
       summary: Provision virtual machines for Ubuntu, Red Hat, and more
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/virtual-machine.svg
       azureCategories:
         - compute
       url: virtual-machines/linux/index.yml
@@ -559,7 +559,7 @@ productDirectory:
     # Card
     - title: Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/service-fabric-clusters.svg
       azureCategories:
         - compute
         - containers
@@ -575,7 +575,7 @@ productDirectory:
     # Card
     - title: Virtual Machine Scale Sets
       summary: Manage and scale up to thousands of Linux and Windows virtual machines
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/vm-scale-sets.svg
       azureCategories:
         - compute
       url: virtual-machine-scale-sets/index.yml
@@ -600,7 +600,7 @@ productDirectory:
     # Card
     - title: Windows Virtual Machines
       summary: Provision Windows virtual machines in seconds
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/compute/virtual-machine.svg
       azureCategories:
         - compute
       url: virtual-machines/windows/index.yml
@@ -622,7 +622,7 @@ productDirectory:
     # Card
     - title: Container Registry
       summary: Store and manage container images across all types of Azure deployments
-      imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/containers/container-registries.svg
       azureCategories:
         - containers
       url: container-registry/index.yml
