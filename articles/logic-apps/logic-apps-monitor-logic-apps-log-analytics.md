@@ -223,14 +223,16 @@ Each diagnostic event has details about your logic app and that event, for examp
 
   ``` json
   "HTTP": {
-     "type": "http",
+     "type": "Http",
      "inputs": {
-        "uri": "http://uri",
+        "body": "@triggerBody()",
         "headers": {
            "Content-Type": "application/json"
         },
-        "body": "@triggerBody()"
+        "method": "POST",
+        "uri": "http://store.fabrikam.com",
      },
+     "runAfter": {},
      "trackedProperties": {
         "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
         "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
@@ -269,7 +271,7 @@ This example shows how the `ActionCompleted` event includes the `clientTrackingI
          "clientTrackingId": "<my-custom-tracking-ID>"
       },
       "trackedProperties": {
-         "myTrackedProperty": "<value>"
+         "myTrackedPropertyName": "<value>"
       }
    }
 }
