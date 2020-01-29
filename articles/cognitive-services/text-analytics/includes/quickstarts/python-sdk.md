@@ -206,7 +206,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ---
 
-## Named Entity recognition 
+## Named Entity recognition (NER)
 
 #### [Version 3.0-preview](#tab/version-3)
 
@@ -249,10 +249,7 @@ Named Entities:
 	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
 ```
 
-## Named Entity Recognition - personal information (public preview)
-
-> [!NOTE]
-> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
+## Using NER to detect personal information
 
 Create a new function called `entity_pii_example()` that takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the entities.
 
@@ -365,6 +362,8 @@ Linked Entities:
 
 #### [Version 2](#tab/version-2)
 
+> [!NOTE]
+> In version 2.1, entity linking is included in the NER response.
 
 Using the client created earlier, call the [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
 

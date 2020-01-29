@@ -37,6 +37,9 @@ ms.reviewer: sumeh, assafi
 
 ### Create a new Node.js application
 
+> [!NOTE]
+> You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
+
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
@@ -89,7 +92,6 @@ The response object is a list containing the analysis information for each docum
 * [Sentiment Analysis](#sentiment-analysis) 
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-public-preview)
-* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -239,6 +241,11 @@ Document ID: 3 , Language: Chinese_Simplified
 
 #### [Version 3.0-preview](#tab/version-3)
 
+> [!NOTE]
+> In version `3.0-preview`:
+> * NER includes separate methods for detecting personal information. 
+> * Entity linking is a separate request than NER.
+
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
 
 ```javascript
@@ -287,10 +294,7 @@ Document ID: 1
         Offset: 71, Length: 2   Score: 0.8
 ```
 
-## Named Entity Recognition - personal information (public preview)
-
-> [!NOTE]
-> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
+## Using NER to detect personal information
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
 
@@ -389,6 +393,8 @@ Document ID: 0
 
 #### [Version 2](#tab/version-2)
 
+> [!NOTE]
+> In version 2.1, entity linking is included in the NER response.
 
 Create a list of objects, containing your documents. Call the client's [entities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 

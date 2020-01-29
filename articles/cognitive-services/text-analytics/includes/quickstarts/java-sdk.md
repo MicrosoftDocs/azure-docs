@@ -99,10 +99,9 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
-* [Sentiment Analysis](#sentiment-analysis) (public preview)
+* [Sentiment Analysis](#sentiment-analysis) 
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
-* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
+* [Named Entity recognition](#named-entity-recognition-public-preview) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -122,9 +121,6 @@ static TextAnalyticsClient authenticateClient(String subscriptionKey, String end
 In your program's `main()` method, call the authentication method to instantiate the client.
 
 ## Sentiment analysis
-
-> [!NOTE]
-> The below code is for sentiment analysis v3, which is in public preview.
 
 Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
@@ -189,10 +185,12 @@ static void detectLanguageExample(TextAnalyticsClient client)
 ```console
 Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
-## Named Entity recognition (public preview)
+## Named Entity recognition (NER)
 
 > [!NOTE]
-> The below code is for Named Entity Recognition v3, which is in public preview.
+> In version `3.0-preview`:
+> * NER includes separate methods for detecting personal information. 
+> * Entity linking is a separate request than NER.
 
 Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its `recognizeEntities()` function. The returned `RecognizeEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not.
 
@@ -224,10 +222,7 @@ Recognized NamedEntity Text: Seattle, Type: Location, Subtype: N/A, Offset: 26, 
 Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offset: 34, Length: 9, Score: 0.800.
 ```
 
-## Named Entity Recognition - personal information (public preview)
-
-> [!NOTE]
-> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
+## Using NER to detect personal information
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
 
