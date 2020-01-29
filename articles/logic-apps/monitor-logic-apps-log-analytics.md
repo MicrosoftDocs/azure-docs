@@ -18,7 +18,7 @@ This article shows how to enable Log Analytics when you create logic apps, how t
 
 ## Prerequisites
 
-Before you start, you need a Log Analytics workspace. If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+Before you start, you need a [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -32,7 +32,7 @@ You can turn on Log Analytics when you create your logic app.
 
    1. From the **Log Analytics workspace** list, select the workspace where you want to send the data from your logic app runs.
 
-      ![Provide logic app information](./media/logic-apps-monitor-logic-apps-log-analytics/create-logic-app-details.png)
+      ![Provide logic app information](./media/monitor-logic-apps-log-analytics/create-logic-app-details.png)
 
       After you finish this step, Azure creates your logic app, which is now associated with your Log Analytics workspace. Also, this step automatically installs the Logic Apps Management solution in your workspace.
 
@@ -48,35 +48,35 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
 
 1. In the [Azure portal](https://portal.azure.com)'s search box, enter `log analytics workspaces`, and then select **Log Analytics workspaces**.
 
-   ![Select "Log Analytics workspaces"](./media/logic-apps-monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
+   ![Select "Log Analytics workspaces"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
 1. Under **Log Analytics workspaces**, select your workspace.
 
-   ![Select your Log Analytics workspace](./media/logic-apps-monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
+   ![Select your Log Analytics workspace](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
 1. On the **Overview** pane, under **Get started with Log Analytics** > **Configure monitoring solutions**, select **View solutions**.
 
-   ![On overview pane, select "View solutions"](./media/logic-apps-monitor-logic-apps-log-analytics/log-analytics-workspace.png)
+   ![On overview pane, select "View solutions"](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
 1. Under **Overview**, select **Add**.
 
-   ![On overview pane, add new solution](./media/logic-apps-monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
+   ![On overview pane, add new solution](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
 1. After the **Marketplace** opens, in the search box, enter `logic apps management`, and select **Logic Apps Management**.
 
-   ![From Marketplace, select "Logic Apps Management"](./media/logic-apps-monitor-logic-apps-log-analytics/select-logic-apps-management.png)
+   ![From Marketplace, select "Logic Apps Management"](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
 
 1. On the solution description pane, select **Create**.
 
-   ![Select "Create" to add "Logic Apps Management" solution](./media/logic-apps-monitor-logic-apps-log-analytics/create-logic-apps-management-solution.png)
+   ![Select "Create" to add "Logic Apps Management" solution](./media/monitor-logic-apps-log-analytics/create-logic-apps-management-solution.png)
 
 1. Review and confirm the Log Analytics workspace where you want to install the solution, and select **Create** again.
 
-   ![Select "Create" for "Logic Apps Management"](./media/logic-apps-monitor-logic-apps-log-analytics/confirm-log-analytics-workspace.png)
+   ![Select "Create" for "Logic Apps Management"](./media/monitor-logic-apps-log-analytics/confirm-log-analytics-workspace.png)
 
    After Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace, the solution appears on your workspace's summary pane.
 
-   ![Workspace summary pane](./media/logic-apps-monitor-logic-apps-log-analytics/workspace-summary-pane-logic-apps-management.png)
+   ![Workspace summary pane](./media/monitor-logic-apps-log-analytics/workspace-summary-pane-logic-apps-management.png)
 
 <a name="set-up-resource-logs"></a>
 
@@ -88,7 +88,7 @@ When you store information about runtime events and data in [Azure Monitor logs]
 
 1. On your logic app menu, under **Monitoring**, select **Diagnostic settings** > **Add diagnostic setting**.
 
-   ![Under "Monitoring", select "Diagnostic settings" > "Add diagnostic setting"](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
+   ![Under "Monitoring", select "Diagnostic settings" > "Add diagnostic setting"](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
 1. To create the setting, follow these steps:
 
@@ -108,7 +108,7 @@ When you store information about runtime events and data in [Azure Monitor logs]
 
    For example:
 
-   ![Select Log Analytics workspace and data for logging](./media/logic-apps-monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
+   ![Select Log Analytics workspace and data for logging](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
 <a name="view-logic-app-runs"></a>
 
@@ -120,7 +120,7 @@ After your logic app runs, you can view the data about those runs in your Log An
 
 1. On your workspace's menu, select **Workspace summary** > **Logic Apps Management**.
 
-   ![Logic app run status and count](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
+   ![Logic app run status and count](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
 
    > [!NOTE]
    > If the Logic Apps Management tile doesn't immediately show results after a run, 
@@ -128,53 +128,53 @@ After your logic app runs, you can view the data about those runs in your Log An
 
    Here, your logic app runs are grouped by name or by execution status. This page also shows details about failures in actions or triggers for the logic app runs.
 
-   ![Status summary for your logic app runs](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-runs-summary-details.png)
+   ![Status summary for your logic app runs](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary-details.png)
 
 1. To view all the runs for a specific logic app or status, select the row for that logic app or status.
 
    Here is an example that shows all the runs for a specific logic app:
 
-   ![View logic app runs and status](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-run-details.png)
+   ![View logic app runs and status](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
    For actions where you [set up tracked properties](#extend-data), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
 
-   ![View tracked properties for a logic app](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
+   ![View tracked properties for a logic app](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
 
    > [!NOTE]
    > Tracked properties or completed events might might experience 10-15 minute 
-   > delays before appearing in your log analytics workspace.
+   > delays before appearing in your Log Analytics workspace.
    > Also, the **Resubmit** capability on this page is currently unavailable.
 
 1. To filter your results, you can perform both client-side and server-side filtering.
 
    * **Client-side filter**: For each column, select the filters that you want, for example:
 
-     ![Example column filters](./media/logic-apps-monitor-logic-apps-log-analytics/filters.png)
+     ![Example column filters](./media/monitor-logic-apps-log-analytics/filters.png)
 
    * **Server-side filter**: To select a specific time window or to limit the number of runs that appear, use the scope control at the top of the page. By default, only 1,000 records appear at a time.
 
-     ![Change the time window](./media/logic-apps-monitor-logic-apps-log-analytics/change-interval.png)
+     ![Change the time window](./media/monitor-logic-apps-log-analytics/change-interval.png)
 
 1. To view all the actions and their details for a specific run, select the row for a logic app run.
 
    Here is an example that shows all the actions and triggers for a specific logic app run:
 
-   ![View actions for a logic app run](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-action-details.png)
+   ![View actions for a logic app run](./media/monitor-logic-apps-log-analytics/logic-app-action-details.png)
 
 <!-------------
    * **Resubmit**: You can resubmit one or more logic apps runs that failed, succeeded, or are still running. Select the check boxes for the runs that you want to resubmit, and then select **Resubmit**.
 
-     ![Resubmit logic app runs](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-resubmit.png)
+     ![Resubmit logic app runs](./media/monitor-logic-apps-log-analytics/logic-app-resubmit.png)
 --------------->
 
 <a name="extend-data"></a>
 
-## Extend diagnostic data Azure Storage and Azure Event Hubs
+## Send diagnostic data to Azure Storage and Azure Event Hubs
 
 Along with Azure Monitor logs, you can extend how you use your logic app's diagnostic data with other Azure services, for example:
 
-* [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Stream Azure Diagnostics Logs to Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
+* [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs-collect-storage.md)
+* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 You can then get real-time monitoring by using telemetry and analytics from other services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
@@ -184,7 +184,7 @@ You can then get real-time monitoring by using telemetry and analytics from othe
 Based on the locations where you want to send diagnostic data, make sure that you first [create an Azure storage account](../storage/common/storage-create-storage-account.md) or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
 You can then select the destinations where you want to send that data. Retention periods apply only when you use a storage account.
 
-![Send data to Azure storage account or event hub](./media/logic-apps-monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
+![Send data to Azure storage account or event hub](./media/monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
 
 <a name="diagnostic-event-properties"></a>
 
@@ -279,5 +279,5 @@ This example shows how the `ActionCompleted` event includes the `clientTrackingI
 
 ## Next steps
 
-* [Create monitoring and tracking queries](../logic-apps/logic-apps-create-monitoring-tracking-queries.md)
-* [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-messages-log-analytics.md)
+* [Create monitoring and tracking queries](../logic-apps/create-monitoring-tracking-queries.md)
+* [Monitor B2B messages with Azure Monitor logs](../logic-apps/monitor-b2b-messages-log-analytics.md)
