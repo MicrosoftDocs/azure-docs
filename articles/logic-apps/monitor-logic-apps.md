@@ -44,7 +44,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
    |--------|-------------|
    | **Cancelled** | The workflow was running but received a cancel request. |
    | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure. |
-   | **Running** | The workflow is currently running. <p>This status can also appear for throttled workflows or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/monitor-your-logic-apps-oms.md), you can get information about any throttle events that happen. |
+   | **Running** | The workflow is currently running. <p>This status can also appear for throttled workflows or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/monitor-logic-apps.md), you can get information about any throttle events that happen. |
    | **Succeeded** | All actions succeeded. <p>**Note**: If any failures happened in a specific action, a later action in the workflow handled that failure. |
    | **Waiting** | The workflow hasn't started or is paused, for example, due to an earlier workflow that's still running. |
    |||
