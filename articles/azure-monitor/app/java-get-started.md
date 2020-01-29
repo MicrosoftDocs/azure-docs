@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 # [Maven](#tab/maven)
 
-If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
+If your project is already set up to use Maven for build, merge the following code to your *pom.xml* file.
 
 Then, refresh the project dependencies to get the binaries downloaded.
 
@@ -55,7 +55,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
 
 # [Gradle](#tab/gradle)
 
-If your project is already set up to use Gradle for build, merge the following code to your build.gradle file.
+If your project is already set up to use Gradle for build, merge the following code to your *build.gradle* file.
 
 Then refresh the project dependencies to get the binaries downloaded.
 
@@ -67,7 +67,7 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 ```
 
-# [Otherwise...](#tab/other)
+# [All others](#tab/other)
 
 Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
