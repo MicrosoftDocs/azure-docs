@@ -66,6 +66,7 @@
   - name: Built-in security controls
     href: load-balancer-security-controls.md
 - name: How to
+  items:
   - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
     href: upgrade-basic-standard.md
   - name: Load balance VMs across availability zones (CLI)
