@@ -70,7 +70,7 @@ Now let's clone a Node.js app from GitHub, set the connection string, and run it
 
 This step is optional. If you're interested in learning how the Azure Cosmos database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-Note, if you're familiar with the previous version of the [SQL JavaScript SDK](sql-api-sdk-node.md), you may be used to seeing the terms *collection* and *document*. Because Azure Cosmos DB supports [multiple API models](introduction.md), [version 2.0+ of the JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) uses the generic terms *container*, which may be a collection, graph, or table, and *item* to describe the content of the container.
+If you're familiar with the previous version of the [SQL JavaScript SDK](sql-api-sdk-node.md), you may be used to seeing the terms *collection* and *document*. Because Azure Cosmos DB supports [multiple API models](introduction.md), [version 2.0+ of the JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) uses the generic terms *container*, which may be a collection, graph, or table, and *item* to describe the content of the container.
 
 The following snippets are all taken from the *app.js* file.
 
