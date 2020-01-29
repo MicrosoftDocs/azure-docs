@@ -107,3 +107,5 @@
     href: tutorials/tutorial-2-working-with-remote-entities.md
   - name: "Tutorial 3: Changing environment and materials"
     href: tutorials/tutorial-3-changing-environment-and-materials.md
+  - name: "Sample model reference"
+    href: samples/sample-model.md
