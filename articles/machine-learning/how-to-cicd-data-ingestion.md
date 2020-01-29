@@ -18,7 +18,7 @@ ms.date: 01/30/2020
 
 # DevOps for a Data Ingestion pipeline
 
-In most scenarios a Data Ingestion solution is a composition of scripts, service invocations and a pipeline orchestrating all the activities. In this article, you learn how to apply DevOps practices to the development lifecycle of a common data ingestion pipeline. The pipeline prepares the data for the Machine Learning model training.
+In most scenarios, a Data Ingestion solution is a composition of scripts, service invocations, and a pipeline orchestrating all the activities. In this article, you learn how to apply DevOps practices to the development lifecycle of a common data ingestion pipeline. The pipeline prepares the data for the Machine Learning model training.
 
 ## The solution
 
