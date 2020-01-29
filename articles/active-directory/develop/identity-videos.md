@@ -56,7 +56,7 @@ They are typically only 1-2 minutes long.
         text
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=2]
+        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=3]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -64,7 +64,7 @@ They are typically only 1-2 minutes long.
         text
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=2]
+        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=3]
     :::column-end:::
 :::row-end:::
 
@@ -76,7 +76,7 @@ Get a quick overview of what's in the Microsoft identity platform.
 
 <br/>
 
-> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=2]
+> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=3]
 
 <iframe width="320" height="160" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>
 
