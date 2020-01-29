@@ -67,7 +67,7 @@ import java.util.List;
 
 In the java file, add a new class and add your azure resource's key and endpoint as shown below.
 
-[!INCLUDE [text-analytics-find-resource-information](find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```java
 public class TextAnalyticsSample {
