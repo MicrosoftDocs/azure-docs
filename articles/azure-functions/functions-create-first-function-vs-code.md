@@ -34,6 +34,11 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)  
 ::: zone-end  
+::: zone pivot="programming-language-java"  
++ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
+
++ [Apache Maven](https://maven.apache.org), version 3.0 or above.
+::: zone-end  
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
 ::: zone pivot="programming-language-csharp"  
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
@@ -42,7 +47,10 @@ Before you get started, make sure you have the following requirements in place:
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
-+ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 ::: zone-end  
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
@@ -80,21 +88,35 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     + **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary.  
     ::: zone-end
 
+    ::: zone pivot="programming-language-java"  
+    + **Select a language for your function project**: Choose `Java`.
+
+    + **Provide a group ID**: Choose `com.function`.
+
+    + **Provide an artifact ID**: Choose `JavaVSCode`.
+
+    + **Provide a version**: Choose `1.0-SNAPSHOT`.
+
+    + **Provide a package name**: Choose `com.function`.
+
+    + **Provide a app name**: Choose `JavaVSCode-12345`.
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Select a template for your project's first function**: Choose `HTTP trigger`.
     
     + **Provide a function name**: Type `HttpExample`.
-    
+    ::: zone-end  
     ::: zone pivot="programming-language-csharp"
     + **Provide a namespace**: Type `My.Functions`. 
-    ::: zone-end
-
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
+    ::: zone-end  
     + **Select how you would like to open your project**: Choose `Add to workspace`.
 
 1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 

@@ -201,6 +201,22 @@ groups:
     title: JavaScript
   - id: programming-language-other
     title: Other languages...
+- id: programming-languages-set-functions02
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell 
+  - id: programming-language-python
+    title: Python 
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language
