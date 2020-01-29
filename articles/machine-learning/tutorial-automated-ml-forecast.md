@@ -1,7 +1,7 @@
 ---
-title: Foreacast bike sharing demand with automated ML experiment
+title: Forecast bike sharing demand with automated ML experiment
 titleSuffix: Azure Machine Learning
-description: Learn how to train and deploy a demand forecasting with automated machine learning in Azure Machine Learning studio.
+description: Learn how to train and deploy a demand forecasting model with automated machine learning in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,7 +11,7 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 01/27/2020
 
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model with built in holiday featurization.
+# Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
 # Tutorial: Forecast bike sharing demand with automated machine learning
@@ -23,19 +23,19 @@ In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an experiment in an Azure Machine Learning workspace.
-> * Configure a remote run of automated ML for a time-series model with lag and holiday features.
-> * View the engineered names for featurized data and featurization summary for all raw features.
-> * Evaluate the fitted model using a rolling test.
+> * Configure a remote run of automated ML for a demand forecast model.
+> * Explore the experiment results.
+> * Deploy the best model.
 
 ## Prerequisites
 
-* [Create an Enterprise edition workspace](how-to-manage-workspace.md) if you don't already have an Azure Machine Learning workspace. 
+* An Enterprise edition Azure Machine Learning workspace. If you don't have a workspace, [create an Enterprise edition workspace](how-to-manage-workspace.md). 
     * Automated machine learning in the Azure Machine Learning studio is only avaialble for Enterprise edition workspaces. 
-* Download the [bike-no.csv]() data file
+* Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
 
-## Set up experiment
+## Get started in Azure Machine Learning studio
 
-Complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+For this tutorial, you create your automated ml experiment run in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -49,9 +49,11 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
 ## Create and load dataset
 
+Before you configure your experiment, upload your data file to your workspace in the form of an Azure Machine Learning dataset. Doing so, allows you to ensure that your data is formatted appropriately for your experiment.
+
 1. On the **Select dataset** form, select **From local files** from the  **+Create dataset** drop-down. 
 
-    1. On the **Basic info** form, give your dataset a name and provide an optional description. The dataset type  should default to **Tabular**, since automated ML in Azure Machine Learning studio currently only supports TabularDatasets.
+    1. On the **Basic info** form, give your dataset a name and provide an optional description. The dataset type  should default to **Tabular**, since automated ML in Azure Machine Learning studio currently only supports tabular datasets.
     
     1. Select **Next** on the bottom left
 
@@ -77,7 +79,9 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
     1. The **Schema** form allows for further configuration of your data for this experiment. 
     
-        1. For this example, choose to ignore the **Casual** and **Registered** columns. These columns are a breakdown of the  **cnt** column so, therefore unneccessary.
+        1. For this example, choose to ignore the **casual** and **registered** columns. These columns are a breakdown of the  **cnt** column so, therefore unneccessary.
+
+        1. Also for this example, leave the default for
         
         1. Select **Next**.
 
@@ -90,10 +94,12 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
 ## Configure experiment run
 
+After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
+
 1. Populate the **Configure Run** form as follows:
     1. Enter an experiment name: `automl-bikeshare`
 
-    1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total rentals.
+    1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
 
     1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
 
@@ -112,6 +118,8 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
     1. Select **Next**.
 
 ## Select task type and settings
+
+Complete the set up for your automated ml experiment by specifying the machine learnign task type and configuration settings.
 
 1. On the **Task type and settings** form, select **Forecasting** as the machine learning task type.
 
@@ -133,12 +141,12 @@ Complete the following experiment set-up and run steps in Azure Machine Learning
 
 ## Run experiment
 
-1. Select **Create** to run the experiment. The **Run Details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
+To run your experiment, select **Create**. The **Run Details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
-> Once running, it takes **2-3 minutes more for each iteration**.  <br>
-> In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the **Models** tab as they complete while the others are still running. 
+> Once running, it takes **2-3 minutes more for each iteration**.  <br> <br>
+> In production, you'd likely walk away for a bit as this process is rather lengthy. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
 
 ##  Explore models
 
@@ -150,14 +158,13 @@ The following navigates through the **Model details** and the **Visualizations**
 
 ![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-
 ## Deploy the model
 
 Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
 
-For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for forecasting bikeshare customer demand. 
+For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bikeshare rental demand. 
 
-Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab. Select **Refresh**. 
+Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab.
 
 In this experiment context, **StackEnsemble** is considered the best model, based on the **Normalized root mean squared error** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
@@ -167,20 +174,20 @@ In this experiment context, **StackEnsemble** is considered the best model, base
 
     Field| Value
     ----|----
-    Deployment name| my-automl-deploy
-    Deployment description| My first automated machine learning experiment deployment
+    Deployment name| bikeshare-deploy
+    Deployment description| bikeshare demand deployment
     Compute type | Select Azure Compute Instance (ACI)
     Enable authentication| Disable. 
-    Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be autogenerated. 
+    Use custom deployment assets| Disable. Disabling allows for the default driver file (scoring script) and environment file to be autogenerated. 
     
     For this example, we use the defaults provided in the *Advanced* menu. 
 
 1. Select **Deploy**.  
 
-    A green success message appears at the top of the **Run** screen, and 
-    in the **Recommended model** pane, a status message appears under **Deploy status**. Select **Refresh** periodically to check the deployment status.
+    A green success message appears at the top of the **Run** screen stated that the deployment was started successfully. The progress of the deployment can be found  
+    in the **Recommended model** pane under **Deploy status**.
     
-Now you have an operational web service to generate predictions. 
+Once deployment succeeds, you have an operational web service to generate predictions. 
 
 Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
 
@@ -204,7 +211,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ## Next steps
 
-In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a demand forecasting model. See these articles for more information and next steps:
+In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a demand forecasting model. See this article for steps on how to create a Power BI supported schema and how to consume your newly deployed web service in Power BI:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
