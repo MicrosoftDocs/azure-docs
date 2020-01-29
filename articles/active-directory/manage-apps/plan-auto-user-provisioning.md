@@ -293,17 +293,17 @@ We recommend that you assume ownership of and consume these reports on a cadence
 
 Refer to the following links to troubleshoot any issues that may turn up during provisioning:
 
-* [Problem configuring user provisioning to an Azure AD Gallery application](application-provisioning-config-problem.md)
+* [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
 
 * [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
 
-* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](application-provisioning-config-problem-storage-limit.md)
+* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 
-* [No users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-no-users-provisioned.md)
+* [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Wrong set of users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Wrong set of users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
 
 ### Helpful documentation
 

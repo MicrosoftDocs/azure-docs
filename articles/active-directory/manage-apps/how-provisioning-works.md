@@ -44,7 +44,7 @@ To request an automatic Azure AD provisioning connector for an app that doesn't 
 
 Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you'll need to enter valid credentials. You can find credential types and requirements for the application by referring to the app tutorial. In the Azure portal, you'll be able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
-If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](application-provisioning-config-problem-storage-limit.md).
+If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](../app-provisioning/application-provisioning-config-problem-storage-limit.md).
 
 ## Mapping attributes
 
@@ -157,7 +157,7 @@ If most or all of the calls that are made against the target system consistently
 
 When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
-The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](application-provisioning-quarantine-status.md).
+The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ### How long provisioning takes
 
@@ -193,4 +193,4 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it is used to 
 
 [Build a SCIM endpoint and configure provisioning when creating your own app](use-scim-to-provision-users-and-groups.md)
 
-[Troubleshoot problems with configuring and provisioning users to an application](application-provisioning-config-problem.md).
+[Troubleshoot problems with configuring and provisioning users to an application](../app-provisioning/application-provisioning-config-problem.md).
