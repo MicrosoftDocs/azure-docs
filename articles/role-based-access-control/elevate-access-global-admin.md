@@ -18,7 +18,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Elevate access to manage all Azure subscriptions and management groups
+# Elevate access to manage all Azure subscriptions and management Groups
 
 As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 

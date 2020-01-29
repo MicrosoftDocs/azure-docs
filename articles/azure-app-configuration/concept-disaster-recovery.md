@@ -24,6 +24,8 @@ Your application loads its configuration from both the primary and secondary sto
 
 Technically, your application isn't executing a failover. It's attempting to retrieve the same set of configuration data from two App Configuration stores simultaneously. Arrange your code so that it loads from the secondary store first and then the primary store. This approach ensures that the configuration data in the primary store takes precedence whenever it's available. The following code snippet shows how you can implement this arrangement in the .NET Core CLI:
 
+#### [.NET Core 2.x](#tab/core2x)
+
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
@@ -34,8 +36,24 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                   .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
         })
         .UseStartup<Startup>();
-    }
+    
 ```
+
+#### [.NET Core 3.x](#tab/core3x)
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                config.AddAzureAppConfiguration(settings["ConnectionString_SecondaryStore"], optional: true)
+                    .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
+            })
+            .UseStartup<Startup>());
+```
+---
 
 Notice the `optional` parameter passed into the `AddAzureAppConfiguration` function. When set to `true`, this parameter prevents the application from failing to continue if the function can't load configuration data.
 

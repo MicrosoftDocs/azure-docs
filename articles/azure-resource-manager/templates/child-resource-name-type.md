@@ -50,8 +50,8 @@ The following example shows a virtual network and with a subnet. Notice that the
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -63,10 +63,10 @@ The following example shows a virtual network and with a subnet. Notice that the
     },
     "resources": [
       {
-        "apiVersion": "2018-10-01",
         "type": "subnets",
-        "location": "[parameters('location')]",
+        "apiVersion": "2018-10-01",
         "name": "Subnet1",
+        "location": "[parameters('location')]",
         "dependsOn": [
           "VNet1"
         ],
@@ -97,8 +97,8 @@ The following example shows a virtual network and subnet that are both defined a
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -110,8 +110,8 @@ The following example shows a virtual network and subnet that are both defined a
     }
   },
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks/subnets",
+    "apiVersion": "2018-10-01",
     "location": "[parameters('location')]",
     "name": "VNet1/Subnet1",
     "dependsOn": [
@@ -126,6 +126,6 @@ The following example shows a virtual network and subnet that are both defined a
 
 ## Next steps
 
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
 
 * To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).

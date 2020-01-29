@@ -3,10 +3,10 @@ title: 'Ingest data from Event Hub into Azure Data Explorer'
 description: 'In this article, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 01/08/2020
 
 # Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
 ---
@@ -106,7 +106,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
 
     ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
 
-    Data Source:
+    **Data Source:**
 
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -115,9 +115,10 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     | Event hub | *test-hub* | The event hub you created. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
     | Event system properties | Select relevant properties | The [Event Hub system properties](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). If there are multiple records per event message, the system properties will be added to the first one. When adding system properties, [create](/azure/kusto/management/tables#create-table) or [update](/azure/kusto/management/tables#alter-table-and-alter-merge-table) table schema and [mapping](/azure/kusto/management/mappings) to include the selected properties. |
+    | Compression | *None* | The compression type of the Event Hub messages payload. Supported compression types: *None, GZip*.|
     | | |
 
-    Target table:
+    **Target table:**
 
     There are two options for routing the ingested data: *static* and *dynamic*. 
     For this article, you use static routing, where you specify the table name, data format, and mapping. Therefore, leave **My data includes routing info** unselected.
@@ -125,15 +126,17 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE and TXT. Supported compression options: GZip |
-    | Column mapping | *TestMapping* | The [mapping](/azure/kusto/management/mappings) you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**. Required for JSON, MULTILINE JSON, or AVRO, and optional for other formats.|
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC and PARQUET. |
+    | Column mapping | *TestMapping* | The [mapping](/azure/kusto/management/mappings) you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**. Required for JSON or MULTILINE JSON, and optional for other formats.|
     | | |
 
     > [!NOTE]
     > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
     > * Only events enqueued after you create the data connection are ingested.
-    > * Enable GZip compression for static routing by opening a [support request in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Enable GZip compression for dynamic routing as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
-    > * Avro format and event system properties aren't supported on compression payload.
+    > * You can also set the compression type via dynamic properties as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest).
+    > * Avro, ORC and PARQUET formats as well as event system properties aren't supported on GZip compression payload.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## Copy the connection string
 

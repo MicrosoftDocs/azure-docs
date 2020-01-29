@@ -220,7 +220,7 @@ The following properties are supported for HTTP under `storeSettings` settings i
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | The type property under `storeSettings` must be set to **HttpReadSetting**. | Yes      |
+| type                     | The type property under `storeSettings` must be set to **HttpReadSettings**. | Yes      |
 | requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
 | addtionalHeaders         | Additional HTTP request headers.                             | No       |
 | requestBody              | The body for the HTTP request.                               | No       |
@@ -250,11 +250,11 @@ The following properties are supported for HTTP under `storeSettings` settings i
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "HttpReadSetting",
+                    "type": "HttpReadSettings",
                     "requestMethod": "Post",
                     "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
                     "requestBody": "<body for POST HTTP request>"

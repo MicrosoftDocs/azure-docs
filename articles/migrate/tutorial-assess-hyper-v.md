@@ -2,7 +2,7 @@
 title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 01/23/2020
 ms.custom: mvc
 ---
 
@@ -133,14 +133,14 @@ Import the downloaded file, and create the VM.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
 4. In **Storage Folders**, leave the default setting. Click **Next**.
-5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 ### Configure the appliance
 
