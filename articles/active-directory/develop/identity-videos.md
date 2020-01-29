@@ -16,7 +16,7 @@ ms.reviewer: celested
 
 # Microsoft identity platform videos
 
-Learn about the Microsoft identity platform and the Microsoft Authentication libraries (MSAL). They are typically 1-2 minutes long.
+Learn about the Microsoft identity platform and the Microsoft Authentication libraries (MSAL). They're typically 1-2 minutes long.
 
 ## Microsoft identity platform basics
 
