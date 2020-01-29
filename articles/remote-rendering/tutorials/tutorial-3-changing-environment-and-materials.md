@@ -15,7 +15,7 @@ ms.service: azure-remote-rendering
 
 This tutorial requires a model that contains [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials. The Khronos Group has a repository of [glTF Sample Models](https://github.com/KhronosGroup/glTF-Sample-Models) that are in the correct format for Azure Remote Rendering.
 
-Once you have completed conversion of the new model, generate a SAS url for the `.ezArchive` file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
+Once you have completed conversion of the new model, generate a SAS url for the `.arrAsset` file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
 ![changing model name property](media/change-model-name-property.png)
 
 ## Modify materials

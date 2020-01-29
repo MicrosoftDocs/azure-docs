@@ -13,7 +13,7 @@ ms.service: azure-remote-rendering
 
 # The model conversion REST API
 
-In order to render a model, it needs to be converted into the native remote rendering service format (ezArchive).
+In order to render a model, it needs to be converted into the native remote rendering service format (arrAsset).
 We call this process *ingestion*.
 Ingestion is done by having your model stored under an Azure blob storage and calling our model ingestion REST API to convert it. The result will be written back to a provided Azure blob storage container. The remote rendering runtime will load the ingested model from that location.
 
