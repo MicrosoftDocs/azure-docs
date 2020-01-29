@@ -258,7 +258,7 @@ The value of the data filename parameter is coming from the $(DATA_FILE_NAME) va
 
 ### Run the pipeline and check the data ingestion result
 
-The next step is to make sure that the deployed solution is working. The following job definition runs an Azure Data Factory pipeline with a PowerShell script and executes a Python notebook on an Azure Databricks cluster. The notebook checks if the data has been ingested correctly. It validates the result data file with $(bin_FILE_NAME) name.
+The next step is to make sure that the deployed solution is working. The following job definition runs an Azure Data Factory pipeline with a [PowerShell script](https://github.com/microsoft/DataOps/tree/master/adf/utils) and executes a Python notebook on an Azure Databricks cluster. The notebook checks if the data has been ingested correctly. It validates the result data file with $(bin_FILE_NAME) name.
 
 ```yaml
   - job: "Integration_test_job"
