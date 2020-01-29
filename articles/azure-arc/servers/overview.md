@@ -130,4 +130,4 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 
 ## Next steps
 
-See [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) to review requirements and supported methods to deploy the agent to machines hosted on your corporate network or other cloud environment.
+- To begin evaluating Azure Arc for servers, follow the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md). 
