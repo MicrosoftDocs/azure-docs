@@ -36,7 +36,7 @@ See the minimum recommendations for [primary node types](service-fabric-cluster-
 
 Any more than the minimum number of nodes should be based on the number of replicas of the application/services that you want to run in this node type.  [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md) helps you estimate the resources you need to run your applications. You can always scale the cluster up or down later to adjust for changing application workload. 
 
-#### Use ephemeral OS disks for VM scale sets
+#### Use ephemeral OS disks for virtual machine scale sets
 
 *Ephemeral OS disks* are storage created on the local virtual machine (VM), and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
 
@@ -44,7 +44,7 @@ Any more than the minimum number of nodes should be based on the number of repli
 * Enable faster reset/reimage node management operations
 * Reduce overall costs (the disks are free and incur no additional storage cost)
 
-Ephemeral OS disks is not a specific Service Fabric feature, but rather a feature of the Azure *Virtual Machine scale sets* that are mapped to Service Fabric node types. Using them with Service Fabric requires the following in your cluster Azure Resource Manager template:
+Ephemeral OS disks is not a specific Service Fabric feature, but rather a feature of the Azure *virtual machine scale sets* that are mapped to Service Fabric node types. Using them with Service Fabric requires the following in your cluster Azure Resource Manager template:
 
 1. Ensure your node types specify [supported Azure VM sizes](../virtual-machines/windows/ephemeral-os-disks.md) for  Ephemeral OS disks, and that the VM size has sufficient cache size to support its OS disk size (see *Note* below.) For example:
 
@@ -55,16 +55,16 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
     ```
 
     > [!NOTE]
-    > Be sure to select a VM size with a cache size equal or greater than the OS disk size of the VM itself, otherwise your ARM deployment might result in error (even if it's initially accepted).
+    > Be sure to select a VM size with a cache size equal or greater than the OS disk size of the VM itself, otherwise your Azure deployment might result in error (even if it's initially accepted).
 
-2. Specify a VMSS (Virtual Machine Scale Set) version of `2018-06-01` or later. For example:
+2. Specify a virtual machine scale set version (`vmssApiVersion`) of `2018-06-01` or later:
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. In the VMSS section of your deployment template, specify `Local` option for `diffDiskSettings`:
+3. In the virtual machine scale set section of your deployment template, specify `Local` option for `diffDiskSettings`:
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",
