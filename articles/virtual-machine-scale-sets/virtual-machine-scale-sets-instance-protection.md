@@ -1,19 +1,10 @@
 ---
-title: Instance Protection for Azure virtual machine scale set instances | Microsoft Docs
+title: Instance Protection for Azure virtual machine scale set instances
 description: Learn how to protect Azure virtual machine scale set instances from scale-in and scale-set operations.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: manayar
 

@@ -199,6 +199,10 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 
 Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You don't have to provide the name when used with resource iteration.
 
+> [!NOTE]
+> Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
+>
+
 Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
 
 ```json
@@ -293,6 +297,10 @@ You can use resource and property iteration together. Reference the property ite
 ## Variable iteration
 
 To create multiple instances of a variable, use the `copy` property in the variables section. You create an array of elements constructed from the value in the `input` property. You can use the `copy` property within a variable, or at the top level of the variables section. When using `copyIndex` inside a variable iteration, you must provide the name of the iteration.
+
+> [!NOTE]
+> Variable iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('diskNames', 1).
+>
 
 For a simple example of creating an array of string values, see [copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 

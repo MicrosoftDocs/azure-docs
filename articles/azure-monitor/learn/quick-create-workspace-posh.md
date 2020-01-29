@@ -16,7 +16,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
-* Device collections from System Center Configuration Manager  
+* Device collections from Configuration Manager  
 * Diagnostic or log data from Azure storage  
  
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:

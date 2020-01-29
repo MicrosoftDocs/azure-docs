@@ -735,8 +735,14 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/blockchain/workbench/">
-                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <img src="media/index/blockchain-workbench-alt.svg" alt="" />
                                                 <p>Azure Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/blockchain/tokens/">
+                                                <img src="media/index/blockchain-tokens.svg" alt="" />
+                                                <p>Azure Blockchain Tokens</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1399,7 +1405,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/managed-applications">
+                                            <a href="/azure/azure-resource-manager/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
                                                 <p>Azure Managed Applications</p>
                                             </a>
@@ -2695,7 +2701,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                        <img src="media/index/blockchain-workbench-alt.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2707,7 +2713,26 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                        </ul>
+                            <li>
+                                <a href="/azure/blockchain/tokens/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-tokens.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Blockchain Tokens</h3>
+                                                    <p>Easily define, create, and manage ledger-based tokens</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>  
                     </li>
                     <li>
                         <a href="#Compute">Compute</a>
@@ -4889,7 +4914,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/managed-applications">
+                                <a href="/azure/azure-resource-manager/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

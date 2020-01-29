@@ -90,7 +90,7 @@ If you are using the **b2clogin.com** domain instead of **login.microsoftonline.
 
 Examples:
 
-- [Add Twitter as an OAuth1 identity provider by using custom policies](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter-custom.md)
 
 
 
