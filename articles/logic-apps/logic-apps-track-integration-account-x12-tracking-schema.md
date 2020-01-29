@@ -1,13 +1,13 @@
 ---
 title: X12 tracking schemas for B2B messages
-description: Create X12 tracking schemas that monitor B2B messages in integration accounts for Azure Logic Apps with Enterprise Integration Pack
+description: Create tracking schemas to monitor X12 messages for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 01/01/2020
 ---
 
 # Create schemas for tracking X12 messages in integration accounts for Azure Logic Apps
@@ -63,7 +63,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | interchangeControlNumber | No | String | Interchange control number |
 | functionalGroupControlNumber | No | String | Functional control number |
 | transactionSetControlNumber | No | String | Transaction set control number |
-| CorrelationMessageId | No | String | Correlation message ID and a combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
+| CorrelationMessageId | No | String | Correlation message ID, which is a combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
 | messageType | No | String | Transaction set or document type |
 | isMessageFailed | Yes | Boolean | Whether the X12 message failed |
 | isTechnicalAcknowledgmentExpected | Yes | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
@@ -116,22 +116,22 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | Name of the X12 agreement to which the messages are resolved |
 | direction | Yes | Enum | Direction of the message flow, receive or send |
-| interchangeControlNumber | No | String | Interchange control number of the functional acknowledgment. Value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
-| functionalGroupControlNumber | No | String | Functional group control number of the functional acknowledgment. Value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
-| isaSegment | No | String | ISA segment of the message. Value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
-| gsSegment | No | String | GS segment of the message. Value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
-| respondingfunctionalGroupControlNumber | No | String | Responding interchange control number |
-| respondingFunctionalGroupId | No | String | Responding functional group ID, which maps to AK101 in the acknowledgment |
-| respondingtransactionSetControlNumber | No | String | Responding transaction set control number |
-| respondingTransactionSetId | No | String | Responding transaction set ID, which maps to AK201 in the acknowledgment |
+| interchangeControlNumber | No | String | Interchange control number of the functional acknowledgment. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner. |
+| functionalGroupControlNumber | No | String | Functional group control number of the functional acknowledgment. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
+| isaSegment | No | String | ISA segment of the message. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
+| gsSegment | No | String | GS segment of the message. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
+| respondingfunctionalGroupControlNumber | No | String | The responding interchange control number |
+| respondingFunctionalGroupId | No | String | The responding functional group ID, which maps to AK101 in the acknowledgment |
+| respondingtransactionSetControlNumber | No | String | The responding transaction set control number |
+| respondingTransactionSetId | No | String | The responding transaction set ID, which maps to AK201 in the acknowledgment |
 | statusCode | Yes | Boolean | Transaction set acknowledgment status code |
 | segmentsCount | Yes | Enum | Acknowledgement status code with these permitted values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
 | processingStatus | Yes | Enum | Processing status of the acknowledgment with these permitted values: `Received`, `Generated`, and `Sent` |
-| CorrelationMessageId | No | String | Correlation message ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
+| CorrelationMessageId | No | String | Correlation message ID, which is a combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
 | isMessageFailed | Yes | Boolean | Whether the X12 message failed |
 | ak2Segment | No | String | Acknowledgement for a transaction set within the received functional group |
 | ak3Segment | No | String | Reports errors in a data segment |
-| ak5Segment | No | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why|
+| ak5Segment | No | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why |
 |||||
 
 ## X12 interchange tracking schema
@@ -277,7 +277,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverQualifier | Yes | String | Receive partner qualifier |
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | The name of the X12 agreement to which the messages are resolved |
-| direction | Yes | Enum | Direction of the message flow, receive or send |
+| direction | Yes | Enum | Direction of the message flow, either receive or send |
 | interchangeControlNumber | No | String | Interchange control number |
 | functionalGroupControlNumber | No | String | Functional control number |
 | gsSegment | No | String | Message GS segment |
@@ -290,7 +290,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | gs04 | No | String | Functional group date |
 | gs05 | No | String | Functional group time |
 | gs07 | No | String | Responsible agency code |
-| gs08 | No | String | Version/release/industry identifier code |
+| gs08 | No | String | Identifier code for the version, release, or industry |
 |||||
 
 ## X12 functional group acknowledgment tracking schema
