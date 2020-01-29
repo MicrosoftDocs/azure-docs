@@ -41,6 +41,9 @@ The way you specify who can request an access package is with a policy. When you
 | I want to specify different approval settings for some users | Multiple |
 | I want some users access package assignments to expire while other users can extend their access | Multiple |
 
+For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies
+).
+
 ### Open an existing policy of request and approval settings
 
 To change the request and approval settings for an access package, you need to open the corresponding policy. Follow these steps to open the request and approval settings for an access package.
