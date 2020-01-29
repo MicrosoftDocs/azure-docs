@@ -25,7 +25,7 @@ In this article, you create an Azure Data Explorer cluster and database by using
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python](https://www.python.org/downloads/) version 3.4 or more recent.
+* [Python 3.4+](https://www.python.org/downloads/).
 
 * [An Azure AD Application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Get values for `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 

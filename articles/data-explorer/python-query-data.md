@@ -23,7 +23,7 @@ This article is also available as an [Azure Notebook](https://notebooks.azure.co
 
 * An organizational email account that is a member of Azure Active Directory (AAD)
 
-* [Python](https://www.python.org/downloads/) version 3.4 or more recent
+* [Python 3.4+](https://www.python.org/downloads/)
 
 ## Install the data library
 

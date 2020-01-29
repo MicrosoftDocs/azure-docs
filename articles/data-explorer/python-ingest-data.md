@@ -23,9 +23,9 @@ This article is also available as an [Azure Notebook](https://notebooks.azure.co
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [A cluster and database](create-cluster-database-portal.md).
+* [Python 3.4+](https://www.python.org/downloads/).
 
-* [Python](https://www.python.org/downloads/) version 3.4 or more recent.
+* [A cluster and database](create-cluster-database-portal.md).
 
 ## Install the data and ingest libraries
 
