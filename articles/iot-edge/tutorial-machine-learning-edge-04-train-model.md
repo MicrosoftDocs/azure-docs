@@ -4,7 +4,7 @@ description: 'In this tutorial, you will train a machine learning model using Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/27/2020
+ms.date: 1/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -105,19 +105,23 @@ Now that the project is created, run the **01-turbofan\_regression.ipynb** noteb
 
     ![Select first notebook to run](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-2. If prompted, choose the Python 3.6 Kernel from the dialog and select **Set Kernel**.
+1. If prompted, choose the Python 3.6 Kernel from the dialog and select **Set Kernel**.
 
-3. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
+1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
 
-4. Follow the instructions in the notebook.
+1. In the notebook, scroll down to the **Set global properties** section and fill in the values for your Azure subscription, settings, and resources.
 
-    * Click the **Run** button on the top toolbar or press `Ctrl` + `Enter` to run a cell.
-    * `Shift` + `Enter` runs a cell and navigates to the next cell.
-    * When a cell is running, it has an asterisk between the square brackets, like **[\*]**. When it is complete, the asterisk will be replaced with a number and relevant output may appear. Since cells often build on the work of the previous ones, only one cell can run at a time.
+    ![Set global properties in the notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
 
-5. When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page.
+1. Above the toolbar, select **Run all** from the **Cell** menu.
 
-6. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this section to run the second notebook.
+    When a cell is running, it has an asterisk between the square brackets, like **[\*]**. When the cell's operation is complete, the asterisk will be replaced with a number and relevant output may appear. Since cells often build on the work of the previous ones, only one cell can run at a time.
+
+    Follow the instructions in the notebook. Correct any errors and run the cell again. Click the **Run** button on the toolbar or press `Ctrl` + `Enter` to run a cell. Press `Shift` + `Enter` to run a cell and navigates to the next cell.
+
+1. When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page.
+
+1. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this section to run the second notebook.
 
 ## Next steps
 
