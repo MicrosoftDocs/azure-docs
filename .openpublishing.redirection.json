@@ -44931,6 +44931,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-blob-static-website-custom-domain.md",
+      "redirect_url": "/azure/storage/blobs/static-website-content-delivery-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-https-custom-domain-cdn.md",
+      "redirect_url": "/azure/storage/blobs/storage-custom-domain-name#enable-https",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-elastic-jobs-overview.md",
       "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
@@ -47367,6 +47377,16 @@
     },
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-public-zonal-cli.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
       "redirect_document_id": false
     }
