@@ -19,6 +19,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+You will want to upgrade to the [latest version of Microsoft Edge](https://www.microsoft.com/edge) or use Google's Chrome browser for this quickstart at this time.
+
 [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 [Create an index](search-create-index-portal.md) to use as the basis of your application. 
