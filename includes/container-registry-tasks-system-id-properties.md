@@ -23,10 +23,10 @@ In the command output, the `identity` section shows an identity of type `SystemA
   "location": "eastus",
 [...]
 ``` 
-Use the [az acr task show][az-acr-task-show] command to store the principalId in a variable, to use in later commands:
+Use the [az acr task show][az-acr-task-show] command to store the principalId in a variable, to use in later commands. Substitute the name of your task and your registry in the following command:
 
 ```azurecli
-principalID=$(az acr task show --name dockerhubtask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->
