@@ -226,7 +226,7 @@ SQL pool supports many, but not all, of the table features offered by other data
 - [Sequence](https://docs.microsoft.com/sql/t-sql/statements/create-sequence-transact-sql?view=sql-server-ver15)
 - [Sparse Columns](https://docs.microsoft.com/sql/relational-databases/tables/use-sparse-columns?view=sql-server-ver15)
 - Surrogate Keys, implement with [Identity](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md)
-- [Synonyms](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver15)
+- [Synonyms](https://docs.microsoft.com/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver15)
 - [Triggers](https://docs.microsoft.com/sql/t-sql/statements/create-trigger-transact-sql?view=sql-server-ver15)
 - [Unique Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql?view=sql-server-ver15)
 - [User-Defined Types](https://docs.microsoft.com/sql/relational-databases/native-client/features/using-user-defined-types?view=sql-server-ver15)
