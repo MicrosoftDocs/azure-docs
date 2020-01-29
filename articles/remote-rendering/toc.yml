@@ -16,6 +16,14 @@
     href: quickstarts/quickstart-render-model.md
   - name: Convert a model for rendering
     href: quickstarts/quickstart-convert-model.md
+- name: Tutorials
+  items:
+  - name: "Setting up a Unity project from scratch"
+    href: tutorials/tutorial-1-unity-project-setup.md
+  - name: "Working with remote entities"
+    href: tutorials/tutorial-2-working-with-remote-entities.md
+  - name: "Changing environment and materials"
+    href: tutorials/tutorial-3-changing-environment-and-materials.md
 - name: Azure account
   items:
   - name: Creating an account
@@ -99,11 +107,3 @@
     href: tools/tex-conv.md
   - name: Performance profiling in remote rendering
     href: how-tos/performance-tracing.md
-- name: Tutorials
-  items:
-  - name: "Tutorial 1: Getting-started"
-    href: tutorials/tutorial-1-getting-started.md
-  - name: "Tutorial 2: Working with remote entities"
-    href: tutorials/tutorial-2-working-with-remote-entities.md
-  - name: "Tutorial 3: Changing environment and materials"
-    href: tutorials/tutorial-3-changing-environment-and-materials.md
