@@ -64,7 +64,7 @@ Use the Text Analytics client library to perform:
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 
 ::: zone-end
 
