@@ -75,7 +75,11 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | SLES | 12-SP3 | Data disk |
 
 > [!NOTE]
-> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. 
+> The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.  
+>
+> ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md)
+
+Steps for apply Azure Disk Encryption are available in [Azure Disk Encryption scenarios on Linux VMs](../../linux/disk-encryption-linux.md) and related articles.
 
 ## Additional VM requirements
 

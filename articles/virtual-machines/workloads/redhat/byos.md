@@ -166,6 +166,12 @@ The following is an example script. You should replace the Resource Group, locat
     # Create a virtual machine
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
+## Encrypt Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images
+
+Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images can be secured through the use of [../../linux/disk-encryption-overview.md](Azure Disk Encryption). However, the subscription **must** be registered before enabling encryption.  Details on registering a RHEL BYOS Gold Image are avaialable on the Red Hat site; see [Creating Red Hat Customer Portal Activation Keys](https://access.redhat.com/articles/1378093).
+
+Steps for apply Azure Disk Encryption are available in [Azure Disk Encryption scenarios on Linux VMs](../../linux/disk-encryption-linux.md) and related articles.
+
 
 ## Additional information
 - If you attempt to provision a VM on a subscription that is not enabled for this offer, you will get the following error and you should contact Microsoft or Red Hat to enable your subscription.
