@@ -60,7 +60,7 @@ Replace the application's `Main` method. You will define the methods called here
 static void Main(string[] args)
 {
     var client = new TextAnalyticsClient(endpoint, key);
-
+    // You will implement these methods later in the quickstart.
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
