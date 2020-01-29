@@ -26,14 +26,13 @@ They are typically only 1-2 minutes long.
 
 :::row:::
     :::column:::
-<br/>
-        Get a quick overview of what's in the Microsoft identity platform.
+        Quick overview of what's in the Microsoft identity platform.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=3]
     :::column-end:::
     :::column:::
-        Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.
+        Learn how the Microsoft identity platform libraries make it easier to handle authentication.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=3]
@@ -41,14 +40,12 @@ They are typically only 1-2 minutes long.
 :::row-end:::
 :::row:::
     :::column:::
-<br/>
         Learn the difference between work and school accounts, and personal Microsoft accounts.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk?t=3]
     :::column-end:::
     :::column:::
-<br/>
         Learn what a broker is and how to use one.
     :::column-end:::
     :::column:::
@@ -57,14 +54,13 @@ They are typically only 1-2 minutes long.
 :::row-end:::
 :::row:::
     :::column:::
-<br/>
         Learn how a redirect URI allows you to delegate sign in and get a security token for your app.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU?t=3]
     :::column-end:::
     :::column:::
-        Learn about the role of the Azure Active Directory application object in the Microsoft identity platform.
+        Learn about the role of the Azure Active Directory app object in the Microsoft identity platform.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw?t=3]
@@ -72,15 +68,13 @@ They are typically only 1-2 minutes long.
 :::row-end:::
 :::row:::
     :::column:::
-<br/>
-        What's the role of Azure Active Directory in the Microsoft identity platform
+        What's the role of Azure Active Directory in the Microsoft identity platform.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q?t=3]
     :::column-end:::
     :::column:::
-<br/>
-        Learn how tenants are related to your organization
+        Learn how tenants are related to your organization.
     :::column-end:::
     :::column:::
         > [!VIDEO https://youtube/mDhT4Zv1fZU?t=3]
@@ -88,8 +82,7 @@ They are typically only 1-2 minutes long.
 :::row-end:::
 :::row:::
     :::column:::
-        <br/>
-        Learn about the difference between a single page application and a web app within the Microsoft identity platform.
+        Learn the difference between a single page apps and web apps in the Microsoft identity platform.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=3]
@@ -104,14 +97,12 @@ They are typically only 1-2 minutes long.
 
 :::row:::
     :::column:::
-<br/>
-        Learn what endpoints are and the benefits of moving from the v1.0 endpoint to the v2.0 endpoint.
+        Learn what endpoints are and the benefits of moving to the v2.0 endpoint.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg?t=3]
     :::column-end:::
      :::column:::
-<br/>
         Learn about migrating your ADAL codebase to use MSAL.
     :::column-end:::
     :::column:::
@@ -120,8 +111,7 @@ They are typically only 1-2 minutes long.
 :::row-end:::
 :::row:::
     :::column:::
-        <br/>
-        Learn why Microsoft recommends that you migrate from ADAL to MSAL.
+        Learn why we recommend that you migrate from ADAL to MSAL.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg?t=3]
