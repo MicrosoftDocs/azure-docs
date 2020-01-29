@@ -44931,6 +44931,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-blob-static-website-custom-domain.md",
+      "redirect_url": "/azure/storage/blobs/static-website-content-delivery-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-https-custom-domain-cdn.md",
+      "redirect_url": "/azure/storage/blobs/storage-custom-domain-name#enable-https",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-elastic-jobs-overview.md",
       "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
