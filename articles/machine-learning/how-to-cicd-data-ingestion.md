@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: iefedore
-author: iefedore
+author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
