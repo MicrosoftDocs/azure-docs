@@ -62,13 +62,19 @@ az group create --name myResourceGroup --location eastus
 Use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command to create a key vault. Be sure to specify a unique key vault name. 
 
 ```azurecli-interactive
-az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
+az keyvault create \
+  --name mykeyvault \
+  --resource-group myResourceGroup \ 
+  --location eastus
 ```
 
 Store a sample secret in the key vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command:
 
 ```azurecli-interactive
-az keyvault secret set --name SampleSecret --value "Hello Container Instances" --description ACIsecret  --vault-name mykeyvault
+az keyvault secret set \
+  --name SampleSecret \
+  --value "Hello Container Instances" \
+  --description ACIsecret --vault-name mykeyvault
 ```
 
 Continue with the following examples to access the key vault using either a user-assigned or system-assigned managed identity in Azure Container Instances.
@@ -80,7 +86,9 @@ Continue with the following examples to access the key vault using either a user
 First create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group used to create the key vault, or use a different one.
 
 ```azurecli-interactive
-az identity create --resource-group myResourceGroup --name myACIId
+az identity create \
+  --resource-group myResourceGroup \
+  --name myACIId
 ```
 
 To use the identity in the following steps, use the [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) command to store the identity's service principal ID and resource ID in variables.
@@ -100,13 +108,20 @@ Run the following [az container create](/cli/azure/container?view=azure-cli-late
 The `--assign-identity` parameter passes your user-assigned managed identity to the group. The long-running command keeps the container running. This example uses the same resource group used to create the key vault, but you could specify a different one.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azure-cli --assign-identity $resourceID --command-line "tail -f /dev/null"
+az container create \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --image mcr.microsoft.com/azure-cli \
+  --assign-identity $resourceID \
+  --command-line "tail -f /dev/null"
 ```
 
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container?view=azure-cli-latest#az-container-show) command.
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show \
+  --resource-group myResourceGroup \
+  --name mycontainer
 ```
 
 The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Azure Active Directory:
@@ -132,7 +147,11 @@ The `identity` section in the output looks similar to the following, showing the
 Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) command to set an access policy on the key vault. The following example allows the user-assigned identity to get secrets from the key vault:
 
 ```azurecli-interactive
- az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
+ az keyvault set-policy \
+    --name mykeyvault \
+    --resource-group myResourceGroup \
+    --object-id $spID \
+    --secret-permissions get
 ```
 
 ### Use user-assigned identity to get secret from key vault
@@ -140,7 +159,10 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-la
 Now you can use the managed identity within the running container instance to access the key vault. First launch a bash shell in the container:
 
 ```azurecli-interactive
-az container exec --resource-group myResourceGroup --name mycontainer --exec-command "/bin/bash"
+az container exec \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --exec-command "/bin/bash"
 ```
 
 Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to key vault, run the following command:
@@ -187,13 +209,20 @@ The `--assign-identity` parameter with no additional value enables a system-assi
 rgID=$(az group show --name myResourceGroup --query id --output tsv)
 
 # Create container group with system-managed identity
-az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azure-cli --assign-identity --scope $rgID --command-line "tail -f /dev/null"
+az container create \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --image mcr.microsoft.com/azure-cli \
+  --assign-identity --scope $rgID \
+  --command-line "tail -f /dev/null"
 ```
 
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show](/cli/azure/container?view=azure-cli-latest#az-container-show) command.
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show \
+  --resource-group myResourceGroup \
+  --name mycontainer
 ```
 
 The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Azure Active Directory:
@@ -220,7 +249,11 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) command to set an access policy on the key vault. The following example allows the system-managed identity to get secrets from the key vault:
 
 ```azurecli-interactive
- az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
+ az keyvault set-policy \
+   --name mykeyvault \
+   --resource-group myResourceGroup \
+   --object-id $spID \
+   --secret-permissions get
 ```
 
 ### Use container group identity to get secret from key vault
@@ -228,7 +261,10 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-la
 Now you can use the managed identity to access the key vault within the running container instance. First launch a bash shell in the container:
 
 ```azurecli-interactive
-az container exec --resource-group myResourceGroup --name mycontainer --exec-command "/bin/bash"
+az container exec \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --exec-command "/bin/bash"
 ```
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
@@ -240,7 +276,9 @@ az login --identity
 From the running container, retrieve the secret from the key vault:
 
 ```bash
-az keyvault secret show --name SampleSecret --vault-name mykeyvault --query value
+az keyvault secret show \
+  --name SampleSecret \
+  --vault-name mykeyvault --query value
 ```
 
 The value of the secret is retrieved:
