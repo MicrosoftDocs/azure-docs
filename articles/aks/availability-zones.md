@@ -4,6 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 author: mlearned
 
+ms.custom: fasttrack-edit
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
@@ -118,6 +119,53 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 As you add additional nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
 
+Note that in newer Kubernetes versions (1.17.0 and later), AKS is using the newer label `topology.kubernetes.io/zone` in addition to the deprecated `failure-domain.beta.kubernetes.io/zone`.
+
+## Verify pod distribution across zones
+
+As documented in [Well-Known Labels, Annotations and Taints][kubectl-well_known_labels], Kubernetes uses the `failure-domain.beta.kubernetes.io/zone` label to automatically distribute pods in a replication controller or service across the different zones available. In order to test this, you can scale up your cluster from 3 to 5 nodes, to verify correct pod spreading:
+
+```azurecli-interactive
+az aks scale \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 5
+```
+
+When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` should give an output similar to this sample:
+
+```console
+Name:       aks-nodepool1-28993262-vmss000000
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000001
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+Name:       aks-nodepool1-28993262-vmss000002
+            failure-domain.beta.kubernetes.io/zone=eastus2-3
+Name:       aks-nodepool1-28993262-vmss000003
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000004
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+```
+
+As you can see, we have now two additional nodes in zones 1 and 2. You can now deploy an application consisting of 3 replicas, we will use NGINX as example:
+
+```console
+kubectl run nginx --image=nginx --replicas=3
+```
+
+If you verify that nodes where your pods are running, you will see that the pods are running on the pods corresponding to three different Availability Zones. For example with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` you would get an output similar to this:
+
+```console
+Name:         nginx-6db489d4b7-ktdwg
+Node:         aks-nodepool1-28993262-vmss000000/10.240.0.4
+Name:         nginx-6db489d4b7-v7zvj
+Node:         aks-nodepool1-28993262-vmss000002/10.240.0.6
+Name:         nginx-6db489d4b7-xz6wj
+Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
+```
+
+As you can see from the previous output, the first pod is running on node 0, which is located in the Availability Zone `eastus2-1`. The second pod is running on node 2, which corresponds to `eastus2-3`, and the third one in node 4, in `eastus2-2`. As you can see, without any additional configuration Kubernetes is spreading the pods correctly across all three Availability Zones.
+
 ## Next steps
 
 This article detailed how to create an AKS cluster that uses availability zones. For more considerations on highly available clusters, see [Best practices for business continuity and disaster recovery in AKS][best-practices-bc-dr].
@@ -140,3 +188,4 @@ This article detailed how to create an AKS cluster that uses availability zones.
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/
