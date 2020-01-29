@@ -42,8 +42,8 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
    | Status | Description |
    |--------|-------------|
-   | **Cancelled** | The workflow was running but received a cancel request. |
-   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure. |
+   | **Cancelled** | The workflow was running but received a cancel request |
+   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure |
    | **Running** | The workflow is currently running. <p>This status can also appear for throttled workflows or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/monitor-logic-apps.md), you can get information about any throttle events that happen. |
    | **Succeeded** | All actions succeeded. <p>**Note**: If any failures happened in a specific action, a later action in the workflow handled that failure. |
    | **Waiting** | The workflow hasn't started or is paused, for example, due to an earlier workflow that's still running. |
@@ -122,9 +122,8 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
    |||
 
    > [!TIP]
-   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, 
-   > select **Run trigger**, and select the trigger, which forces a check. Or, select **Run** on 
-   > Logic Apps Designer toolbar.
+   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, select **Run trigger**, 
+   > and select the trigger, which forces a check. Or, select **Run** on Logic Apps Designer toolbar.
 
 1. To view information about a specific trigger attempt, on the trigger pane, select that trigger event. If the list shows many trigger attempts, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
 
@@ -144,45 +143,43 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
    ![Add an alert for your logic app](./media/monitor-logic-apps/add-new-alert-rule.png)
 
-1. On the **Create rule** pane, follow these steps:
+1. On the **Create rule** pane, under **Resource**, select your logic app, if not already selected. Under **Condition**, select **Add** so that you can define the condition that triggers the alert.
 
-   1. Under **Resource**, select your logic app, if not already selected. Under **Condition**, select **Add** so that you can define the condition that triggers the alert.
+   ![Add a condition for the rule](./media/monitor-logic-apps/add-condition-for-rule.png)
 
-      ![Add a condition for the rule](./media/monitor-logic-apps/add-condition-for-rule.png)
+1. On the **Configure signal logic** pane, find and select the signal for which you want to get an alert. You can use the search box, or to sort the signals alphabetically, select the **Signal name** column header.
 
-   1. On the **Configure signal logic** pane, find and select the signal for to get an alert. You can use the search box, or to sort the signals alphabetically, select the **Signal name** column header.
+   For example, if you want to send an alert when a trigger fails, follow these steps:
 
-      For example, if you want to send an alert when a trigger fails, follow these steps:
+   1. In the **Signal name** column, find and select the **Triggers Failed** signal.
 
-      1. In the **Signal name** column, find and select the **Triggers Failed** signal.
+      ![Select signal for creating alert](./media/monitor-logic-apps/find-and-select-signal.png)
 
-         ![Select signal for creating alert](./media/monitor-logic-apps/find-and-select-signal.png)
+   1. On the information pane that opens for the selected signal, under **Alert logic**, set up your condition, for example:
 
-      1. On the information pane that opens for the selected signal, under **Alert logic**, set up your condition, for example:
+   1. For **Operator**, select **Greater than or equal to**.
 
-         1. For **Operator**, select **Greater than or equal to**.
+   1. For **Aggregation type**, select **Count**.
 
-         1. For **Aggregation type**, select **Count**.
+   1. For **Threshold value**, enter `1`.
 
-         1. For **Threshold value**, enter `1`.
+   1. Under **Condition preview**, confirm that your condition appears correct.
 
-         1. Under **Condition preview**, confirm that your condition appears correct.
+   1. Under **Evaluated based on**, set up the interval and frequency for running the alert rule. For **Aggregation granularity (Period)**, select the period for grouping the data. For **Frequency of evaluation**, select how often you want to check the condition.
 
-         1. Under **Evaluated based on**, set up the interval and frequency for running the alert rule. For **Aggregation granularity (Period)**, select the period for grouping the data. For **Frequency of evaluation**, select how often you want to check the condition.
+   1. When you're ready, select **Done**.
 
-         1. When you're ready, select **Done**.
+   Here's the finished condition:
 
-         Here's the finished condition:
+   ![Set up condition for alert](./media/monitor-logic-apps/set-up-condition-for-alert.png)
 
-         ![Set up condition for alert](./media/monitor-logic-apps/set-up-condition-for-alert.png)
+   The **Create rule** page now shows the condition that you created and the cost for running that alert.
 
-      The **Create rule** page now shows the condition that you created and the cost for running that alert.
+   ![New alert on the "Create rule" page](./media/monitor-logic-apps/finished-alert-condition-cost.png)
 
-      ![New alert on the "Create rule" page](./media/monitor-logic-apps/finished-alert-condition-cost.png)
+1. Specify a name, optional description, and severity level for your alert. Either leave the **Enable rule upon creation** setting turned on, or turn off until you're ready to enable the rule.
 
-   1. Specify a name, optional description, and severity level for your alert. Either leave the **Enable rule upon creation** setting turned on, or turn off until you're ready to enable the rule.
-
-   1. When you're done, select **Create alert rule**.
+1. When you're done, select **Create alert rule**.
 
 > [!TIP]
 > To run a logic app from an alert, you can include the 
