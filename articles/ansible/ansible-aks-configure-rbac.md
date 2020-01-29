@@ -151,7 +151,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Replace the `&lt;your-aad-account>` placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
+Replace the `<your-aad-account>` placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
 
 Save the following playbook - that deploys your new role to AKS - as `aks-kube-deploy.yml`:
 

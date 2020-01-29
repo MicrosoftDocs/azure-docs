@@ -18,7 +18,11 @@ ms.reviewer: arvindha
 
 Historically, IT staff have relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](../manage-apps/user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
+=======
+To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 Azure AD uses this integration to enable the following cloud HR application (app) workflows:
 
@@ -91,7 +95,11 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 | | [How to deploy user provisioning in Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
 | Tutorials | [List of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 | FAQ | [Automated user provisioning](../manage-apps/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+=======
+| FAQ | [Automated user provisioning](user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 | | [Provisioning from Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### Solution architecture
@@ -101,7 +109,11 @@ The following example describes the end-to-end user provisioning solution archit
 - **Authoritative HR data flow from cloud HR app to Active Directory.** In this flow, the HR event (Joiners-Movers-Leavers process) is initiated in the cloud HR app tenant. The Azure AD provisioning service and Azure AD Connect provisioning agent provision the user data from the cloud HR app tenant into Active Directory. Depending on the event, it might lead to create, update, enable, and disable operations in Active Directory.
 - **Sync with Azure AD and write back email and username from on-premises Active Directory to cloud HR app.** After the accounts are updated in Active Directory, it's synced with Azure AD through Azure AD Connect. The email addresses and username attributes can be written back to the cloud HR app tenant.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 ![Workflow diagram](./media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img1.png)
+=======
+![Workflow diagram](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 #### Description of workflow
 
@@ -145,13 +157,21 @@ To facilitate Azure AD provisioning workflows between the cloud HR app and Activ
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 ![Azure Active Directory portal app gallery](./media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+=======
+![Azure Active Directory portal app gallery](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img2.png)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ### Decision flow chart
 
 Use the following decision flow chart to identify which cloud HR provisioning apps are relevant to your scenario.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 ![Decision flow chart](./media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
+=======
+![Decision flow chart](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img3.png)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ## Design the Azure AD Connect provisioning agent deployment topology
 
@@ -179,7 +199,11 @@ We recommend the following production configuration:
 |Number of provisioning connector apps to configure|One app per child domain|
 |Server host for Azure AD Connect provisioning agent|Windows 2012 R2+ with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 ![Flow to on-premises agents](./media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
+=======
+![Flow to on-premises agents](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ### Single cloud HR app tenant -> target multiple child domains in a disjoint Active Directory forest
 
@@ -193,13 +217,21 @@ We recommend the following production configuration:
 |Number of provisioning connector apps to configure|One app per child domain|
 |Server host for Azure AD Connect provisioning agent|Windows 2012 R2+ with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 ![Single cloud HR app tenant disjoint Active Directory forest](./media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
+=======
+![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img5.png)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ### Azure AD Connect provisioning agent requirements
 
 The cloud HR app to Active Directory user provisioning solution requires that you deploy one or more Azure AD Connect provisioning agents on servers that run Windows 2012 R2 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+=======
+To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 The provisioning agent uses a service account to communicate with the Active Directory domains. Before you install the agent, create a service account in Active Directory Users and Computers that meets the following requirements:
 
@@ -216,7 +248,11 @@ When you enable provisioning from the cloud HR app to Active Directory or Azure 
 
 ### Define scoping filters
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 Use [scoping filters](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) to define the attribute-based rules that determine which users should be provisioned from the cloud HR app to Active Directory or Azure AD.
+=======
+Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) to define the attribute-based rules that determine which users should be provisioned from the cloud HR app to Active Directory or Azure AD.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 When you initiate the Joiners process, gather the following requirements:
 
@@ -228,7 +264,11 @@ Depending on your requirements, when you configure attribute mappings, you can s
 
 ### Determine matching attributes
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 With provisioning, you get the ability to match existing accounts between the source and target system. When you integrate the cloud HR app with the Azure AD provisioning service, you can [configure attribute mapping](../manage-apps/configure-automatic-user-provisioning-portal.md#mappings) to determine what user data should flow from the cloud HR app to Active Directory or Azure AD.
+=======
+With provisioning, you get the ability to match existing accounts between the source and target system. When you integrate the cloud HR app with the Azure AD provisioning service, you can [configure attribute mapping](configure-automatic-user-provisioning-portal.md#mappings) to determine what user data should flow from the cloud HR app to Active Directory or Azure AD.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 When you initiate the Joiners process, gather the following requirements:
 
@@ -238,13 +278,21 @@ When you initiate the Joiners process, gather the following requirements:
 - From an identity lifecycle perspective, how do you handle employee to contingent worker conversion, or otherwise?
 - Do converted users keep their old Active Directory accounts or do they get new ones?
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 Depending on your requirements, Azure AD supports direct attribute-to-attribute mapping by providing constant values or [writing expressions for attribute mappings](../manage-apps/functions-for-customizing-application-data.md). This flexibility gives you ultimate control of what's populated in the targeted app attribute. You can use the [Microsoft Graph API](../manage-apps/export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
+=======
+Depending on your requirements, Azure AD supports direct attribute-to-attribute mapping by providing constant values or [writing expressions for attribute mappings](functions-for-customizing-application-data.md). This flexibility gives you ultimate control of what's populated in the targeted app attribute. You can use the [Microsoft Graph API](export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 By default, the attribute in the cloud HR app that represents the unique employee ID is used as the matching attribute *mapped to the unique attribute in Active Directory.* For example, in the Workday app scenario, the **Workday** **WorkerID** attribute is mapped to the Active Directory **employeeID** attribute.
 
 You can set multiple matching attributes and assign matching precedence. They're evaluated on matching precedence. As soon as a match is found, no further matching attributes are evaluated.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 You can also [customize the default attribute mappings](../manage-apps/customize-application-attributes.md#understanding-attribute-mapping-types), such as changing or deleting existing attribute mappings. You can also create new attribute mappings according to your business needs. For more information, see the cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) for a list of custom attributes to map.
+=======
+You can also [customize the default attribute mappings](customize-application-attributes.md#understanding-attribute-mapping-types), such as changing or deleting existing attribute mappings. You can also create new attribute mappings according to your business needs. For more information, see the cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) for a list of custom attributes to map.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ### Determine user account status
 
@@ -263,7 +311,11 @@ When you initiate the Joiners-Leavers process, gather the following requirements
 | | How do employee and contingent worker conversions affect existing Active Directory accounts? |
 | | How do you process the Rescind operation in Active Directory? Rescind operations need to be handled if future dated hires are created in Active Directory as part of the Joiner process. |
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 Depending on your requirements, you might customize the mapping logic by using [Azure AD expressions](../manage-apps/functions-for-customizing-application-data.md) so that the Active Directory account is enabled or disabled based on a combination of data points.
+=======
+Depending on your requirements, you might customize the mapping logic by using [Azure AD expressions](functions-for-customizing-application-data.md) so that the Active Directory account is enabled or disabled based on a combination of data points.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ### Map cloud HR app to Active Directory user attributes
 
@@ -287,7 +339,11 @@ Depending on your requirements, you can modify the mappings to meet your integra
 
 When you initiate the Joiners process, you might need to generate unique attribute values when you set attributes like CN, samAccountName, and the UPN, which has unique constraints.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 The Azure AD function [SelectUniqueValues](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](../manage-apps/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
+=======
+The Azure AD function [SelectUniqueValues](functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 > [!NOTE]
 > This function is currently only supported for Workday to Active Directory user provisioning. It can't be used with other provisioning apps.
@@ -296,7 +352,11 @@ The Azure AD function [SelectUniqueValues](../manage-apps/functions-for-customiz
 
 It's a common requirement to place Active Directory user accounts into containers based on business units, locations, and departments. When you initiate a Movers process, and if there's a supervisory organization change, you might need to move the user from one OU to another in Active Directory.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 Use the [Switch()](../manage-apps/functions-for-customizing-application-data.md#switch) function to configure the business logic for the OU assignment, and map it to the Active Directory attribute **parentDistinguishedName**.
+=======
+Use the [Switch()](functions-for-customizing-application-data.md#switch) function to configure the business logic for the OU assignment, and map it to the Active Directory attribute **parentDistinguishedName**.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 For example, if you want to create users in OU based on the HR attribute **Municipality**, you can use the following expression:
 
@@ -314,14 +374,22 @@ SSPR is a simple means for IT administrators to enable users to reset their pass
 
 ## Plan for initial cycle
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 When the Azure AD provisioning service runs for the first time, it performs an [initial cycle](../manage-apps/how-provisioning-works.md#initial-cycle) against the cloud HR app to create a snapshot of all user objects in the cloud HR app. The time taken for initial cycles is directly dependent on how many users are present in the source system. The initial cycle for some cloud HR app tenants with over 100,000 users can take a long time.
+=======
+When the Azure AD provisioning service runs for the first time, it performs an [initial cycle](how-provisioning-works.md#initial-cycle) against the cloud HR app to create a snapshot of all user objects in the cloud HR app. The time taken for initial cycles is directly dependent on how many users are present in the source system. The initial cycle for some cloud HR app tenants with over 100,000 users can take a long time.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 **For large cloud HR app tenants (>30,000 users),** run the initial cycle in progressive stages. Start the incremental updates only after you validate that the correct attributes are set in Active Directory for different user provisioning scenarios. Follow the order here.
 
 1. Run the initial cycle only for a limited set of users by setting the [scoping filter](#plan-scoping-filters-and-attribute-mapping).
 2. Verify Active Directory account provisioning and the attribute values set for the users selected for the first run. If the result meets your expectations, expand the scoping filter to progressively include more users and verify the results for the second run.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 After you're satisfied with the results of the initial cycle for test users, start the [incremental updates](../manage-apps/how-provisioning-works.md#incremental-cycles).
+=======
+After you're satisfied with the results of the initial cycle for test users, start the [incremental updates](how-provisioning-works.md#incremental-cycles).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 ## Plan testing and security
 
@@ -353,7 +421,11 @@ It's common for a security review to be required as part of the deployment of a 
 
 The cloud HR user provisioning implementation might fail to work as desired in the production environment. If so, the following rollback steps can assist you in reverting to a previous known good state.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 1. Review the [provisioning summary report](../manage-apps/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](../manage-apps/check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
+=======
+1. Review the [provisioning summary report](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 2. The last known good state of the users or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Azure AD or Active Directory).
 3. Work with the app owner to update the users or groups affected directly in the app by using the last known good state values.
 
@@ -369,13 +441,21 @@ Azure AD can provide additional insights into your organization's user provision
 
 ### Gain insights from reports and logs
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 After a successful [initial cycle](../manage-apps/how-provisioning-works.md#initial-cycle), the Azure AD provisioning service continues to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
+=======
+After a successful [initial cycle](how-provisioning-works.md#initial-cycle), the Azure AD provisioning service continues to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 - The service is manually stopped. A new initial cycle is triggered by using the [Azure portal](https://portal.azure.com/) or the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
 - A new initial cycle is triggered owing to a change in attribute mappings or scoping filters.
 - The provisioning process goes into quarantine because of a high error rate. It stays in quarantine for more than four weeks, at which time it's automatically disabled.
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 To review these events and all other activities performed by the provisioning service, [learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md).
+=======
+To review these events and all other activities performed by the provisioning service, [learn how to review logs and get reports on provisioning activity](check-status-user-account-provisioning.md).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 
 #### Azure Monitor logs
 
@@ -395,12 +475,21 @@ Azure AD provisioning service doesn't generate reports, perform analytics, or pr
 
 To troubleshoot any issues that might turn up during provisioning, see the following articles:
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 - [Problem configuring user provisioning to an Azure AD Gallery application](../manage-apps/application-provisioning-config-problem.md)
 - [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../manage-apps/user-provisioning-sync-attributes-for-mapping.md)
 - [User provisioning to an Azure AD Gallery application is taking hours or more](../manage-apps/application-provisioning-when-will-provisioning-finish.md)
 - [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../manage-apps/application-provisioning-config-problem-storage-limit.md)
 - [No users are being provisioned to an Azure AD Gallery application](../manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 - [Wrong set of users are being provisioned to an Azure AD Gallery application](../manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+=======
+- [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
+- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
+- [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
+- [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+- [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
+- [Wrong set of users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 - [Setting up Windows Event Viewer for agent troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Setting up Azure portal Audit Logs for service troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Understanding logs for AD User Account create operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
@@ -409,7 +498,11 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 
 ### Next steps
 
+<<<<<<< HEAD:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 - [Writing expressions for attribute mappings](../manage-apps/functions-for-customizing-application-data.md)
+=======
+- [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 - [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 - [Azure AD Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)
