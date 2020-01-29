@@ -11,6 +11,7 @@ ms.author: adjohnso
 
 Cyclecloud provides a [REST API](../api.md) for adding automated and programmatic cluster management. Custom autoscaling and custom scheduler integration requires a tool which evaluates a workload queue and starts Virtual Machines (VM) equal to the workload demand. The CycleCloud REST API is the appropriate endpoint for such a tool and supports workload requirements that may include high-throughput or tightly-coupled VM arrangements. 
 
+
 ## Determine cluster status
 
 You can query CycleCloud to determine cluster status which indicates VM availability in each of the cluster configurations. 
@@ -20,6 +21,10 @@ curl --location --request GET '${CC-URL}/clusters/${CLUSTER}/status' \
 --header 'Authorization: Basic ****************************'
 ```
 
+> [!NOTE]
+> The CycleCloud API accepts basic authentication using username and password combination. These _curl_ API examples
+are a base64 encoded string 'user:password'.
+
 The response will be in the following form. The response contains a complete set 
 of node attributes but many are omitted here for simplicity.
 
@@ -27,24 +32,60 @@ of node attributes but many are omitted here for simplicity.
 {
   "state": "Started",
   "targetState": "Started",
-  "maxCount": 10000,
-  "maxCoreCount": 1000000,
+  "maxCount": 100,
+  "maxCoreCount": 10000,
   "nodearrays": [
     {
       "name": "ondemand",
-      "maxCount": 10000,
+      "maxCount": 100,
       "maxCoreCount": 500,
       "buckets": [
         {
         "bucketId": "cd56af52-abcd-1234-a4e7-e6a91ca519a2",
         "definition": {
             "machineType": "Standard_Fs32_v2"
+          },
+          "maxCount": 3,
+          "maxCoreCount": 96,
+          "activeCount": 0,
+          "activeCoreCount": 0,
+          "availableCount": 3,
+          "availableCoreCount": 96,
+          "quotaCount": 3,
+          "quotaCoreCount": 100,
+          "consumedCoreCount": 0,
+          "maxPlacementGroupSize": 40,
+          "maxPlacementGroupCoreSize": 1280,
+          "valid": true,
+          "placementGroups": [],
+          "virtualMachine": {
+            "vcpuCount": 32,
+            "memory": 64.0,
+            "infiniband": false
           }
           },
         {
         "bucketId": "d81e001a-abcd-1234-9754-79815cb7b225",
         "definition": {
             "machineType": "Standard_Hc44rs"
+          },
+          "maxCount": 11,
+          "maxCoreCount": 484,
+          "activeCount": 0,
+          "activeCoreCount": 0,
+          "availableCount": 11,
+          "availableCoreCount": 484,
+          "quotaCount": 200,
+          "quotaCoreCount": 8800,
+          "consumedCoreCount": 44,
+          "maxPlacementGroupSize": 40,
+          "maxPlacementGroupCoreSize": 1760,
+          "valid": true,
+          "placementGroups": [],
+          "virtualMachine": {
+            "vcpuCount": 44,
+            "memory": 327.83,
+            "infiniband": true
           }
         }
     ]
@@ -90,9 +131,12 @@ curl --location --request GET '${CC-URL}/clusters/${CLUSTER}/nodes?request_id=46
 
 ## Add tightly-coupled nodes
 
-Some workloads demand tightly-coupled nodes. CycleCloud nodearrays can be defined with multiple valid machine types in a list. Suppose that the `ondemand` nodearray has both `Standard_Fs32_v2_`and `Standard_Hc44rs` defined. The cluster status API will show at least two `buckets` for this nodearray one for  each VM Size.
+CycleCloud nodearrays can be defined with multiple valid machine types in a list. Suppose that the `ondemand` nodearray has both 
+`Standard_F32s_v2_`and `Standard_Hc44rs` defined. The cluster status API will show at least two `buckets` for this nodearray one 
+for each VM Size. Observe that the `Standard_Hc44rs` bucket indicates that _infiniband_ service is available. Some quantitative
+software is written to scale out across nodes and take advantage of low-latency connections between nodes.
 
-Suppose the workload calls for four nodes connected by Azure Infiniband networking. To ensure that the four nodes end up in the same placement group, you will use the [create nodes API call](../api.md#create-cluster-nodes) with a `placementGroupId`.
+Suppose you are running such a workload and a job calls for four nodes connected by Azure Infiniband networking. To ensure that the four nodes end up in the same placement group, and thus on the same Infiniband network, you will use the [create nodes API call](../api.md#create-cluster-nodes) with a `placementGroupId`.
 
 ```bash
 curl --location --request POST '${CC-URL}/clusters/${CLUSTER}/nodes/create' \
