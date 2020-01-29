@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: landing-page
-  ms.date: 01/21/2020
+  ms.date: 01/29/2020
   ms.author: dapine
 
 landingContent:
@@ -23,24 +23,12 @@ landingContent:
       links:
         - text: What is the Speech service?
           url: overview.md
-        - text: Language and region support
-          url: language-support.md
-    - linkListType: architecture
-      links:
-        - text: Call center scenario
-          url: call-center-transcription.md
-    - linkListType: deploy
-      links:
-        - text: Deploy Speech service containers
-          url: speech-container-howto.md
-        - text: Deploy Speech service containers with Kubernetes
-          url: speech-container-howto-on-premises.md
-        - text: Deploy Speech service containers to Azure Container Instances
-          url: deploy-speech-on-container-instances.md
     - linkListType: whats-new
       links:
         - text: Speech SDK release notes
           url: releasenotes.md
+        - text: Speech Devices SDK release notes
+          url: devices-sdk-release-notes.md
 
 - title: Speech-to-text
   linkLists:
@@ -56,14 +44,20 @@ landingContent:
           url: quickstarts/speech-to-text-from-microphone.md
         - text: Recognize speech stored in blob storage
           url: quickstarts/from-blob.md
+    - linkListType: how-to-guide
+      links:
+        - text: Improve accuracy with Phrase Lists
+          url: how-to-phrase-lists.md
+        - text: Improve accuracy with Tenant Models
+          url: tutorial-tenant-model.md
+        - text: Improve accuracy with Custom Speech
+          url: how-to-custom-speech.md
     - linkListType: reference
       links:
-        - text: Speech-to-text REST API
-          url: rest-speech-to-text.md
-        - text: Batch transcription REST API
-          url: batch-transcription.md
-        - text: Speech-to-text FAQ
-          url: faq-stt.md
+        - text: Language support
+          url: language-support.md#speech-to-text
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
 
 - title: Text-to-speech
   linkLists:
@@ -79,12 +73,20 @@ landingContent:
           url: quickstarts/text-to-speech.md
         - text: Async synthesis for long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - linkListType: how-to-guide
+      links:
+        - text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md
+        - text: Improve synthesis with Audio Content creation
+          url: how-to-audio-content-creation.md
+        - text: Improve synthesis with Custom Voice
+          url: how-to-custom-voice.md
     - linkListType: reference
       links:
-        - text: Text-to-speech REST API
-          url: rest-text-to-speech.md
-        - text: Text-to-speech FAQ
-          url: faq-text-to-speech.md
+        - text: Language support
+          url: language-support.md#text-to-speech
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
 
 - title: Intent recognition
   linkLists:
@@ -167,46 +169,30 @@ landingContent:
       links:
         - text: Voice enable your bot with Speech SDK
           url: tutorial-voice-enable-your-bot-speech-sdk.md
-    - linkListType: reference
-      links:
-        - text: Voice assistants FAQ
-          url: faq-voice-assistants.md
 
-- title: Customization
+- title: Hosting
   linkLists:
-    - linkListType: overview
-      links:
-      - text: What is Custom Speech?
-        url: how-to-custom-speech.md
-      - text: What is Custom Voice?
-        url: how-to-custom-voice.md
-    - linkListType: tutorial
-      links:
-        - text: Create a tenant model
-          url: tutorial-tenant-model.md
     - linkListType: how-to-guide
       links:
-        - text: Inspect custom speech data
-          url: how-to-custom-speech-inspect-data.md
-        - text: Evaluate custom speech accuracy
-          url: how-to-custom-speech-evaluate-data.md
-        - text: Train a model for custom speech
-          url: how-to-custom-speech-train-model.md
-        - text: Create a custom voice
-          url: how-to-custom-voice-create-voice.md
-        - text: Prepare data to create a custom voice
-          url: how-to-custom-voice-prepare-data.md
-    - linkListType: deploy
+        - text: Create an Azure Speech resource
+          url: get-started.md#create-a-speech-resource-in-azure
+        - text: Deploy Speech service containers
+          url: speech-container-howto.md
+    - linkListType: reference
       links:
-        - text: Deploy a custom speech model
-          url: how-to-custom-speech-deploy-model.md
+        - text: Supported regions
+          url: regions.md
+        - text: Sovereign Clouds
+          url: sovereign-clouds.md
 
-- title: Resources, support, and references
+- title: Resources and support
   linkLists:
     - linkListType: reference
       links:
         - text: Speech SDK
           url: speech-sdk.md
+        - text: Scenario availability
+          url: scenario-availability.md
         - text: Speech Devices SDK
           url: speech-devices-sdk.md
         - text: Regions
@@ -219,9 +205,3 @@ landingContent:
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk
         - text: Speech Devices SDK samples
           url: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-    - linkListType: whats-new
-      links:
-        - text: Speech SDK release notes
-          url: releasenotes.md
-        - text: Speech Devices SDK release notes
-          url: devices-sdk-release-notes.md
