@@ -43,7 +43,7 @@ This section helps you perform these optimization tasks:
 > * Run benchmark tests
 > * Optimize throughput
 > * Optimize memory use 
-> * Synchronize files faster
+> * Optimize file synchronization
 
 ### Run benchmark tests
 
@@ -101,17 +101,13 @@ Express this value in gigabytes (GB).
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
-### Synchronize files faster
+### Optimize file synchronization
 
-If you're not satisfied with the amount of time that it takes the [azcopy sync](storage-ref-azcopy-sync.md) to synchronize files between two locations, then you might be able to improve performance by using the [azcopy copy](storage-ref-azcopy-copy.md) command instead. 
+The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps before the starting the sync operation. If you have a large number of files, then you can improve performance by eliminating this up-front comparison. 
 
-The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps before the sync operation begins. If your synchronizing a large number of files, this up-front comparison might take a significant amount of time. 
+To accomplish this, use the [azcopy copy](storage-ref-azcopy-copy.md) command instead, and set the `--overwrite` flag to `ifSourceNewer`. Instead of an up-front comparison, files are compared as they are copied.  
 
-You can increase speed by eliminating this up-front comparison. To accomplish this, you can use the [azcopy copy](storage-ref-azcopy-copy.md) command and set the `--overwrite` flag to `ifSourceNewer`. This flag compares files as they are copied which can increase speed in cases where there are a large number of files to copy. 
-
-The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then you might not want to completely replace the [azcopy sync](storage-ref-azcopy-sync.md) command with the the [azcopy copy](storage-ref-azcopy-copy.md) command. 
-
-However, you could periodically use the the [azcopy copy](storage-ref-azcopy-copy.md) command for better performance, and then to remove unneeded files from the destination, use the [azcopy sync](storage-ref-azcopy-sync.md) command.  That way, you set the `--delete-destination` optional flag to a value of `true` or `prompt`.
+The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want the copy operation to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](storage-ref-azcopy-sync.md) command with the `--delete-destination` flag set to a value of `true` or `prompt`. 
 
 ## Troubleshoot issues
 
