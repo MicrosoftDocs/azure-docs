@@ -30,6 +30,8 @@ ms.reviewer: assafi
 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
+## Setting up
+
 ### Create a new .NET Core application
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
