@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus message count | Microsoft Docs
-description: Retrieve the count of Azure Service Bus messages.
+title: Azure Service Bus - message count
+description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

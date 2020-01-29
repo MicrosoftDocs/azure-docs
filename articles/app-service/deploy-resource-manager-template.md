@@ -1,13 +1,8 @@
 ﻿---
-title: Guidance on deploying apps with templates - Azure App Service | Microsoft Docs 
-description: Recommendations for creating Azure Resource Manager templates to deploy web apps.
-services: app-service
-documentationcenter: app-service
+title: Deploy apps with templates
+description: Find guidance on creating Azure Resource Manager templates to provision and deploy App Service apps.
 author: tfitzmac
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
@@ -42,7 +37,7 @@ You deploy resources in the following order:
 **Tier 3**
 * Source control--depends on the web app.
 * MSDeploy site extension--depends on the web app.
-* Application Insights instance that targets the server farm--depends on the web app.
+* Azure Application Insights instance that targets the web app--depends on the web app.
 
 **Tier 4**
 * App Service certificate--depends on source control or MSDeploy if either is present. Otherwise, it depends on the web app.
@@ -95,7 +90,7 @@ If your Resource Manager template uses MSDeploy, the deployment error messages c
 
 ## Choose a unique web app name
 
-The name for your web app must be globally unique. You can use a naming convention that's likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) to assist with generating a unique name.
+The name for your web app must be globally unique. You can use a naming convention that's likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/templates/template-functions-string.md#uniquestring) to assist with generating a unique name.
 
 ```json
 {

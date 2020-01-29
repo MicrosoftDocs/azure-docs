@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 01/10/2020
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -56,9 +56,9 @@ Azure Cognitive Services containers provide the following set of Docker containe
 |[Speech Service API][sp-containers-cstt] |F0, S0|**Custom Speech-to-text** |Transcribes continuous real-time speech into text using a custom model.|
 |[Speech Service API][sp-containers-tts] |F0, S0|**Text-to-speech** |Converts text to natural-sounding speech.|
 |[Speech Service API][sp-containers-ctts] |F0, S0|**Custom Text-to-speech** |Converts text to natural-sounding speech using a custom model.|
-|[Text Analytics][ta-containers] |F0, S|**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
-|[Text Analytics][ta-containers]|F0, S|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
-|[Text Analytics][ta-containers]|F0, S|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](./text-analytics/language-support.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
+|[Text Analytics][ta-containers-keyphrase] |F0, S|**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
+|[Text Analytics][ta-containers-language]|F0, S|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
+|[Text Analytics][ta-containers-sentiment]|F0, S|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](./text-analytics/language-support.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -131,3 +131,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
+[ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
+[ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
+[ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment

@@ -1,16 +1,16 @@
 ---
-title: 'Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
-description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: 'Quickstart: Use Node.js to query from Azure Cosmos DB SQL API account'
+description: How to use Node.js to create an app that connects to Azure Cosmos DB SQL API account and queries data. 
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 11/19/2019
 ms.author: dech
 
 ---
-# Quickstart: Build a Node.js app using Azure Cosmos DB SQL API account
+# Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -20,9 +20,7 @@ ms.author: dech
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
-
-This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built on the [SQL JavaScript SDK](sql-api-sdk-node.md). This quickstart uses version 2.0 of the [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
+This quickstart demonstrates how to use a Node.js app to connect to the [SQL API](sql-api-introduction.md) account in Azure Cosmos DB. You can then use Azure Cosmos DB SQL queries to query and manage data. The Node.js app you build in this article uses the [SQL JavaScript SDK](sql-api-sdk-node.md). This quickstart uses version 2.0 of the [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
 
 ## Prerequisites
 
@@ -33,7 +31,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 	* [Node.js](https://nodejs.org/en/) version v6.0.0 or higher
 	* [Git](https://git-scm.com/)
 
-## Create a database account
+## Create a database 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -51,7 +49,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 ## Clone the sample application
 
-Now let's clone a SQL API app from GitHub, set the connection string, and run it.
+Now let's clone a Node.js app from GitHub, set the connection string, and run it.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -73,25 +71,25 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the Azure Cosmos database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
 Note, if you are familiar with the previous version of the JavaScript SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/azure/cosmos-db/introduction), version 2.0+ of the JavaScript SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item' to describe the content of the container.
 
 The following snippets are all taken from the **app.js** file.
 
-* The `CosmosClient` is initialized.
+* The `CosmosClient` object is initialized.
 
     ```javascript
     const client = new CosmosClient({ endpoint, key });
     ```
 
-* A new database is created.
+* Create a new Azure Cosmos database.
 
     ```javascript
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* A new container (collection) is created.
+* A new container (collection) is created within the database.
 
     ```javascript
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
@@ -103,7 +101,7 @@ The following snippets are all taken from the **app.js** file.
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
-* A SQL query over JSON is performed.
+* A SQL query over JSON is performed on the family database. The query returns all the children of the "Anderson" family. 
 
     ```javascript
 	  const querySpec = {
@@ -129,7 +127,7 @@ The following snippets are all taken from the **app.js** file.
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+Now go back to the Azure portal to get the connection string details of your Azure Cosmos account. Copy the connection string into the app so that it can connect to your database.
 
 1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
 
@@ -139,18 +137,19 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `config.js`. 
 
-    `config.endpoint = "https://FILLME.documents.azure.com"`
+    `config.endpoint = "<Your Azure Cosmos account URI>"`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.key` in `config.js`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-    `config.key = "FILLME"`
+    `config.key = "<Your Azure Cosmos account key>"`
     
 ## Run the app
+
 1. Run `npm install` in a terminal to install required npm modules
 
 2. Run `node app.js` in a terminal to start your node application.
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+You can now go back to Data Explorer, modify, and work with this new data.
 
 ## Review SLAs in the Azure portal
 
@@ -162,7 +161,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos account, create a container using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos account, create a container using the data explorer, and run an app. You can now import additional data to your Azure Cosmos database. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)

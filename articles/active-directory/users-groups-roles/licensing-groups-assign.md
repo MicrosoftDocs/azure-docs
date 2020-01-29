@@ -37,7 +37,7 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 
-   ![Select products to assign licenses](./media/licensing-groups-assign/all-products-assign.png)
+   ![Select products to assign licenses](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. On the **Assign license** page, select **Users and groups** to open a list of users and groups.
 
@@ -85,7 +85,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. Select a user to open the user's **Licenses** page. This page shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group has been assigned to the user.
 
-   ![View all license conflicts for a user](./media/licensing-groups-assign/user-license-view.png)
+   ![View all license conflicts for a user](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. To solve this conflict, remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
 

@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Service Bus queues | Microsoft Docs
-description: Write a C# console application that uses Service Bus messaging queues.
+description: In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -70,17 +70,11 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
     Enter your connection string for the namespace as the `ServiceBusConnectionString` variable. Enter your queue name.
 
-1. Replace the default contents of `Main()` with the following line of code:
+1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you will add in the next step to send messages to the queue. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the send messages method:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         const int numberOfMessages = 10;
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
@@ -96,7 +90,6 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         await queueClient.CloseAsync();
     }
     ```
-
 1. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that does the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
 
     ```csharp
@@ -143,25 +136,20 @@ namespace CoreSenderApp
         const string QueueName = "<your_queue_name>";
         static IQueueClient queueClient;
 
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        static async Task MainAsync()
-        {
+        public static async Task Main(string[] args)
+        {    
             const int numberOfMessages = 10;
             queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
+    
             Console.WriteLine("======================================================");
             Console.WriteLine("Press ENTER key to exit after sending all the messages.");
             Console.WriteLine("======================================================");
-
-            // Send Messages
+    
+            // Send messages.
             await SendMessagesAsync(numberOfMessages);
-
+    
             Console.ReadKey();
-
+    
             await queueClient.CloseAsync();
         }
 
@@ -231,14 +219,8 @@ To receive the messages you sent, create another **Console App (.NET Core)** app
 1. Replace the default contents of `Main()` with the following line of code:
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-1. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the `RegisterOnMessageHandlerAndReceiveMessages()` method:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");

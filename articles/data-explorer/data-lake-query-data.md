@@ -9,20 +9,15 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ---
 
-# Query data in Azure Data Lake using Azure Data Explorer (Preview)
+# Query data in Azure Data Lake using Azure Data Explorer
 
 Azure Data Lake Storage is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
  
 Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
-> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried.
+> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried. [Optimize your query performance in the lake](#optimize-your-query-performance) for best results.
  
-## Optimize query performance in the lake 
-
-* Partition data for improved performance and optimized query time.
-* Compress data for improved performance (gzip for best compression, lz4 for best performance).
-* Use Azure Blob Storage or Azure Data Lake Storage Gen2 with the same region as your Azure Data Explorer cluster. 
 
 ## Create an external table
 
@@ -226,6 +221,37 @@ This query uses partitioning, which optimizes query time and performance. The qu
 ![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
   
 You can write additional queries to run on the external table *TaxiRides* and learn more about the data. 
+
+## Optimize your query performance
+
+Optimize your query performance in the lake by using the following best practices for querying external data. 
+ 
+### Data format
+ 
+Use a columnar format for analytical queries since:
+* Only the columns relevant to a query can be read. 
+* Column encoding techniques can reduce data size significantly.  
+Azure Data Explorer supports Parquet and ORC columnar formats. Parquet format is suggested due to optimized implementation. 
+ 
+### Azure region 
+ 
+Ascertain that external data resides in the same Azure region as your Azure Data Explorer cluster. This reduces cost and data fetch time.
+ 
+### File size
+ 
+Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files should be greater than the number of CPU cores in your Azure Data Explorer cluster. 
+ 
+### Compression
+ 
+Use compression to reduce the amount of data being fetched from the remote storage. For Parquet format, use the internal Parquet compression mechanism that compresses column groups separately, thus allowing you to read them separately. To validate use of compression mechanism, check that the files are named as follows: “<filename>.gz.parquet” or “<filename>.snappy.parquet” as opposed to “<filename>.parquet.gz”). 
+ 
+### Partitioning
+ 
+Organize your data using "folder" partitions that enables the query to skip irrelevant paths. When planning partitioning consider file size and common filters in your queries such as timestamp or tenant ID.
+ 
+### VM size
+ 
+Select VM SKUs with more cores and higher network throughput (memory is less important). For more information see [Select the correct VM SKU for your Azure Data Explorer cluster](manage-cluster-choose-sku.md).
 
 ## Next steps
 

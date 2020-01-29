@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 01/20/2020
 
 #Customer intent: I want to use Azure Data Factory to integrate with Azure Data Explorer.
 ---
@@ -41,6 +41,14 @@ For a detailed walk-through of the command activity, see [use Azure Data Factory
 ### Copy in bulk from a database template
 
 The [Copy in bulk from a database to Azure Data Explorer by using the Azure Data Factory template](data-factory-template.md) is a predefined Azure Data Factory pipeline. The template is used to create many pipelines per database or per table for faster data copying. 
+
+### Mapping data flows 
+
+[Azure Data Factory mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations that allow data engineers to develop graphical data transformation logic without writing code. To create a data flow and ingest data to Azure Data Explorer, use the following method:
+
+1. Create the [mapping data flow](/azure/data-factory/data-flow-create).
+1. [Export the data into Azure Blob](/azure/data-factory/data-flow-sink). 
+1. Define [Event Grid](/azure/data-explorer/ingest-data-event-grid) or [ADF copy activity](/azure/data-explorer/data-factory-load-data) to ingest the data to Azure Data Explorer.
 
 ## Select between Copy and Azure Data Explorer Command activities when copy data 
 
@@ -115,7 +123,9 @@ This section addresses the use of copy activity where Azure Data Explorer is the
 | **Data processing complexity** | Latency varies according to source file format, column mapping, and compression.|
 | **The VM running your integration runtime** | <ul><li>For Azure copy, ADF VMs and machine SKUs can't be changed.</li><li> For on-prem to Azure copy, determine that the VM hosting your self-hosted IR is strong enough.</li></ul>|
 
-## Monitor activity progress
+## Tips and common pitfalls
+
+### Monitor activity progress
 
 * When monitoring the activity progress, the *Data written* property may be much larger than the *Data read* property
 because *Data read* is calculated according to the binary file size, while *Data written* is calculated according to the in-memory size, after data is de-serialized and decompressed.
@@ -123,6 +133,84 @@ because *Data read* is calculated according to the binary file size, while *Data
 * When monitoring the activity progress, you can see that data is written to the Azure Data Explorer sink. When querying the Azure Data Explorer table, you see that data hasn't arrived. This is because there are two stages when copying to Azure Data Explorer. 
     * First stage reads the source data, splits it to 900-MB chunks, and uploads each chunk to an Azure Blob. The first stage is seen by the ADF activity progress view. 
     * The second stage begins once all the data is uploaded to Azure Blobs. The Azure Data Explorer engine nodes download the blobs and ingest the data into the sink table. The data is then seen in your Azure Data Explorer table.
+
+### Failure to ingest CSV files due to improper escaping
+
+Azure Data Explorer expects CSV files to align with [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+It expects:
+* Fields that contain characters that require escaping (such as " and new lines) should start and end with a **"** character, without whitespace. All **"** characters *inside* the field are escaped by using a double **"** character (**""**). For example, _"Hello, ""World"""_ is a valid CSV file with a single record having a single column or field with the content _Hello, "World"_.
+* All records in the file must have the same number of columns and fields.
+
+Azure Data Factory allows the backslash (escape) character. If you generate a CSV file with a backslash character using Azure Data Factory, ingestion of the file to Azure Data Explorer will fail.
+
+#### Example
+
+The following text values:
+Hello, "World"<br/>
+ABC   DEF<br/>
+"ABC\D"EF<br/>
+"ABC DEF<br/>
+
+Should appear in a proper CSV file as follows:
+"Hello, ""World"""<br/>
+"ABC   DEF"<br/>
+"""ABC DEF"<br/>
+"""ABC\D""EF"<br/>
+
+By using the default escape character (backslash), the following CSV won't work with Azure Data Explorer:
+"Hello, \"World\""<br/>
+"ABC   DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### Nested JSON objects
+
+When copying a JSON file to Azure Data Explorer, note that:
+* Arrays aren't supported.
+* If your JSON structure contains object data types, Azure Data Factory will flatten the object's child items, and try to map each child item to a different column in your Azure Data Explorer table. If you want the entire object item to be mapped to a single column in Azure Data Explorer:
+    * Ingest the entire JSON row into a single dynamic column in Azure Data Explorer.
+    * Manually edit the pipeline definition by using Azure Data Factory's JSON editor. In **Mappings**
+       * Remove the multiple mappings that were created for each child item, and add a single mapping that maps your object type to your table column.
+       * After the closing square bracket, add a comma followed by:<br/>
+       `"mapComplexValuesToString": true`.
+
+### Specify AdditionalProperties when copying to Azure Data Explorer
+
+> [!NOTE]
+> This feature is currently available by manually editing the JSON payload. 
+
+Add a single row under the “sink” section of the copy activity as follows:
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+Escaping of the value may be tricky. Use the following code snippet as a reference:
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+The printed value:
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## Next steps
 

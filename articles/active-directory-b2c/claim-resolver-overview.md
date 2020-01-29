@@ -1,6 +1,7 @@
 ---
-title: About claim resolvers in Azure Active Directory B2C custom policies | Microsoft Docs
-description: Learn about how claims resolvers are used in a custom policy in Azure Active Directory B2C.
+title: Claim resolvers in custom policies
+titleSuffix: Azure AD B2C
+description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -15,7 +16,7 @@ ms.subservice: B2C
 
 # About claim resolvers in Azure Active Directory B2C custom policies
 
-Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](active-directory-b2c-overview-custom.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
+Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
 
 To use a claim resolver in an input or output claim, you define a string **ClaimType**, under the [ClaimsSchema](claimsschema.md) element, and then you set the **DefaultValue** to the claim resolver in the input or output claim element. Azure AD B2C reads the value of the claim resolver and uses the value in the technical profile.
 
@@ -132,7 +133,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
 The following example passes in the query string a parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 
@@ -154,7 +155,7 @@ As a result Azure AD B2C sends the above parameters to the HTML content page:
 
 ### Application Insights technical profile
 
-With Azure Application Insights and claim resolvers you can gain insights on user behavior. In the Application Insights technical profile, you send input claims that are persisted to Azure Application Insights. For more information, see [Track user behavior in Azure AD B2C journeys by using Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md). The following example sends the policy ID, correlation ID, language, and the client ID to Azure Application Insights.
+With Azure Application Insights and claim resolvers you can gain insights on user behavior. In the Application Insights technical profile, you send input claims that are persisted to Azure Application Insights. For more information, see [Track user behavior in Azure AD B2C journeys by using Application Insights](analytics-with-application-insights.md). The following example sends the policy ID, correlation ID, language, and the client ID to Azure Application Insights.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

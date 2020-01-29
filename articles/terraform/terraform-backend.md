@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Store Terraform state in Azure Storage
 description: An introduction to storing Terraform state in Azure Storage.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
 ---
@@ -82,6 +79,7 @@ The following example configures a Terraform back end and creates an Azure resou
 ```hcl
 terraform {
   backend "azurerm" {
+    resource_group_name   = "tstate"
     storage_account_name  = "tstate09762"
     container_name        = "tstate"
     key                   = "terraform.tfstate"

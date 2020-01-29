@@ -3,7 +3,7 @@ title: Azure support for generation 2 VMs
 description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-windows
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: lahugh
+ms.date: 01/28/2020
+ms.author: jushiman
 ---
 
 # Support for generation 2 VMs on Azure
@@ -27,7 +27,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers generation 2 support for the following selected VM series:
+Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [DC-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
@@ -50,15 +50,12 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers genera
 
 Generation 2 VMs support the following Marketplace images:
 
-* Windows Server 2019 Datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019, 2016, 2012 R2, 2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04,18.04, 19.04, 19.10
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
 * RHEL 8.0
-
 
 ## On-premises vs. Azure generation 2 VMs
 
@@ -123,6 +120,12 @@ For example, use the following PowerShell cmdlet to get a list of the SKUs in th
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which looks like this:

@@ -1,13 +1,8 @@
 ---
 title: Troubleshoot Azure File Shares Backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
-
-ms.service: backup
-author: dcurwin
-ms.author: dacurwin
 ms.date: 08/20/2019
-ms.topic: tutorial
-manager: carmonm
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot problems backing up Azure File Shares
@@ -33,7 +28,7 @@ The following table is for configuring the backup:
 
 | Error messages | Workaround or Resolution tips |
 | ------------------ | ----------------------------- |
-| Could not find my Storage Account to configure backup for Azure file share | <ul><li>Wait until discovery is complete. <li>Check if any File share from the storage account is already protected with another Recovery Services vault. **Note**: All file shares in a Storage Account can be protected only under one Recovery Services vault. <li>Be sure the File share is not present in any of the unsupported Storage Accounts.|
+| Could not find my Storage Account to configure backup for Azure file share | <ul><li>Wait until discovery is complete. <li>Check if any File share from the storage account is already protected with another Recovery Services vault. **Note**: All file shares in a Storage Account can be protected only under one Recovery Services vault. <li>Be sure the File share is not present in any of the unsupported Storage Accounts.<li> Make sure that the **Allow trusted Microsoft services to access this storage account** checkbox is checked in the storage account.[Learn more.](../storage/common/storage-network-security.md)|
 | Error in portal states discovery of storage accounts failed. | If your subscription is partner (CSP-enabled), ignore the error. If your subscription is not CSP-enabled, and your storage accounts can't be discovered, contact support.|
 | Selected Storage Account validation or registration failed.| Retry the operation, if the problem persists contact support.|
 | Could not list or find File shares in the selected Storage Account. | <ul><li> Make sure the Storage Account exists in the Resource Group (and has not been deleted or moved after the last validation/registration in vault).<li>Make sure the File share you are looking to protect has not been deleted. <li>Make sure the Storage Account is a supported storage account for File share backup.<li>Check if the File share is already protected in the same Recovery Services vault.|
@@ -69,5 +64,5 @@ The following table is for configuring the backup:
 
 For more information about backing up Azure file shares, see:
 
-- [Back up Azure file shares](backup-azure-files.md)
+- [Back up Azure file shares](backup-afs.md)
 - [Back up Azure file share FAQ](backup-azure-files-faq.md)

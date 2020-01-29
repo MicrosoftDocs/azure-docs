@@ -1,5 +1,6 @@
 ---
-title: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define an OpenID Connect technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -98,6 +99,6 @@ When you configure the redirect URI of your identity provider, enter `https://{y
 
 Examples:
 
-- [Add Microsoft Account (MSA) as an identity provider using custom policies](active-directory-b2c-custom-setup-msa-idp.md)
-- [Sign in by using Azure AD accounts](active-directory-b2c-setup-aad-custom.md)
-- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](active-directory-b2c-setup-commonaad-custom.md)
+- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account-custom.md)
+- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant-custom.md)
+- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant-custom.md)

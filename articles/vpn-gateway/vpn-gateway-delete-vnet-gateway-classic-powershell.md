@@ -1,20 +1,13 @@
 ---
-title: 'Delete a virtual network gateway: PowerShell: Azure classic | Microsoft Docs'
-description: Delete a virtual network gateway using PowerShell in the classic deployment model. 
+title: 'Delete a virtual network gateway: Azure classic'
+description: Delete a virtual network gateway using PowerShell in the classic deployment model.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 01/09/2020
 ms.author: cherylmc
 ---
 # Delete a virtual network gateway using PowerShell (classic)

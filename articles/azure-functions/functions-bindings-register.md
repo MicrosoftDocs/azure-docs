@@ -1,12 +1,8 @@
 ---
 title: Register Azure Functions binding extensions
 description: Learn to register an Azure Functions binding extension based on your environment.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
@@ -62,9 +58,6 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 If you use `Install-Package` to reference a binding, you don't need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
 
 ## <a name="vs-code"></a> C# class library with Visual Studio Code
-
-> [!NOTE]
-> We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages. 
 
 In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
 

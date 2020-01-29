@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create a Front Door profile for high availability of applications using the Azure portal
+title: 'Quickstart: Create Front Door profile for high availability of applications'
 description: This quickstart article describes how to create a Front Door for your highly available and high performance global web application.
 services: front-door
 documentationcenter: ''

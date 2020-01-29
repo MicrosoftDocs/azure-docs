@@ -1,25 +1,26 @@
 ---
-title: Create policy to audit resources with PowerShell
-description: Use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 03/11/2019
+title: "Quickstart: New policy assignment with PowerShell"
+description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
+ms.date: 11/25/2019
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
 The first step in understanding compliance in Azure is to identify the status of your resources. In
 this quickstart, you create a policy assignment to identify virtual machines that aren't using
-managed disks. When complete, you'll identify virtual machines that are *non-compliant*.
+managed disks. When complete, you'll identify virtual machines that are _non-compliant_.
 
 The Azure PowerShell module is used to manage Azure resources from the command line or in scripts.
 This guide explains how to use Az module to create a policy assignment.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
-
 ## Prerequisites
 
-- Before you start, make sure that the latest version of Azure PowerShell is installed. See [Install Azure PowerShell module](/powershell/azure/install-az-ps)
-  for detailed information.
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
+  account before you begin.
+
+- Before you start, make sure that the latest version of Azure PowerShell is installed. See
+  [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information.
+
 - Register the Azure Policy Insights resource provider using Azure PowerShell. Registering the
   resource provider makes sure that your subscription works with it. To register a resource
   provider, you must have permission to the register resource provider operation. This operation is
@@ -31,11 +32,14 @@ before you begin.
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  For more information about registering and viewing resource providers, see [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md)
+  For more information about registering and viewing resource providers, see
+  [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a policy assignment
 
-In this quickstart, you create a policy assignment for the *Audit VMs without managed disks*
+In this quickstart, you create a policy assignment for the _Audit VMs without managed disks_
 definition. This policy definition identifies virtual machines not using managed disks.
 
 Run the following commands to create a new policy assignment:
@@ -53,11 +57,11 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 The preceding commands use the following information:
 
-- **Name** - The actual name of the assignment. For this example, *audit-vm-manageddisks* was used.
-- **DisplayName** - Display name for the policy assignment. In this case, you're using *Audit VMs
-  without managed disks Assignment*.
+- **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
+- **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
+  without managed disks Assignment_.
 - **Definition** – The policy definition, based on which you're using to create the assignment. In
-  this case, it's the ID of policy definition *Audit VMs that do not use managed disks*.
+  this case, it's the ID of policy definition _Audit VMs that do not use managed disks_.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace
   &lt;scope&gt; with the name of your resource group.
@@ -75,7 +79,8 @@ you created. Run the following commands:
 Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
 ```
 
-For more information about getting policy state, see [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
+For more information about getting policy state, see
+[Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 Your results resemble the following example:
 

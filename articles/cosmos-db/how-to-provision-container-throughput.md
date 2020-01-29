@@ -1,10 +1,10 @@
 ---
 title: Provision container throughput in Azure Cosmos DB
-description: Learn how to provision throughput at the container level in Azure Cosmos DB
+description: Learn how to provision throughput at the container level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/13/2019
 ms.author: mjbrown
 ---
 
@@ -12,7 +12,7 @@ ms.author: mjbrown
 
 This article explains how to provision throughput on a container (collection, graph, or table) in Azure Cosmos DB. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-## Provision throughput using Azure portal
+## Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -28,7 +28,7 @@ This article explains how to provision throughput on a container (collection, gr
 
     ![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## Provision throughput using Azure CLI or PowerShell
+## Azure CLI or PowerShell
 
 To create a container with dedicated throughput see,
 
@@ -38,7 +38,7 @@ To create a container with dedicated throughput see,
 > [!Note]
 > If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
 
-## Provision throughput by using .NET SDK
+## .NET SDK
 
 > [!Note]
 > Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra API.
@@ -61,7 +61,37 @@ await client.CreateDocumentCollectionAsync(
 ### .Net V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
+## JavaScript SDK
+
+```javascript
+// Create a new Client
+const client = new CosmosClient({ endpoint, key });
+
+// Create a database
+const { database } = await client.databases.createIfNotExists({ id: "databaseId" });
+
+// Create a container with the specified throughput
+const { resource } = await database.containers.createIfNotExists({
+id: "containerId",
+throughput: 1000
+});
+
+// To update an existing container or databases throughput, you need to user the offers API
+// Get all the offers
+const { resources: offers } = await client.offers.readAll().fetchAll();
+
+// Find the offer associated with your container or the database
+const offer = offers.find((_offer) => _offer.offerResourceId === resource._rid);
+
+// Change the throughput value
+offer.content.offerThroughput = 2000;
+
+// Replace the offer.
+await client.offer(offer.id).replace(offer);
+```
+
 ### <a id="dotnet-cassandra"></a>Cassandra API
+
 Similar commands can be issued through any CQL-compliant driver.
 
 ```csharp

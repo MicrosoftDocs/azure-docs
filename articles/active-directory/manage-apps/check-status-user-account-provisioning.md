@@ -1,5 +1,5 @@
 ---
-title: Report automatic user account provisioning to SaaS applications | Microsoft Docs
+title: Report automatic user account provisioning to SaaS applications
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 documentationcenter: ''
@@ -50,13 +50,13 @@ From here, you can access both the provisioning progress bar and the provisionin
 The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for given application. It is located in the **Current Status** section underneath **Settings**, and shows the status of the current initial or incremental cycle. This section also shows:
 
 * The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
-* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](user-provisioning.md#what-happens-during-provisioning) has completed.
-* Whether or not an [initial cycle](user-provisioning.md#what-happens-during-provisioning) has been completed.
+* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
+* Whether or not an [initial cycle](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
 
 The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
- ![Summary report](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Summary report](media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## Provisioning logs (preview)
 

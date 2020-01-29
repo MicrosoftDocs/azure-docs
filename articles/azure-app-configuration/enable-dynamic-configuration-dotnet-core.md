@@ -1,5 +1,6 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in a .NET Core app | Microsoft Docs
+title: "Tutorial: Use dynamic configuration in a .NET Core app"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
@@ -30,8 +31,8 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your application to update its configuration with an app configuration store on demand.
-> * Inject the latest configuration in your application's controllers.
+> * Set up your .NET Core app to update its configuration in response to changes in an App Configuration store.
+> * Consume the latest configuration in your application.
 
 ## Prerequisites
 
@@ -87,14 +88,14 @@ class Program
 }
 ```
 
-The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the app configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance could be used to trigger a refresh operation anywhere in your code.
+The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance could be used to trigger a refresh operation anywhere in your code.
     
 > [!NOTE]
 > The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -116,7 +117,7 @@ The `ConfigureRefresh` method is used to specify the settings used to update the
 
     ![Quickstart app launch local](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
 1. Select **Configuration Explorer**, and update the values of the following keys:
 
@@ -137,7 +138,7 @@ The `ConfigureRefresh` method is used to specify the settings used to update the
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
+In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [CLI samples](./cli-samples.md)
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

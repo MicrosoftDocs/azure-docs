@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services overview | Microsoft Docs
-description: This topic gives an overview of Azure Media Services
+description: Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. This article gives an overview of Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako

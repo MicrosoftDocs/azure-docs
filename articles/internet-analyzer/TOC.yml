@@ -21,7 +21,11 @@
 - name: Resources
   items:
   - name: Internet Analyzer FAQ
-    href: internet-analyzer-faq.md     
+    href: internet-analyzer-faq.md
+  - name: Internet Analyzer troubleshooting
+    href: troubleshoot.md
+  - name: Internet Analyzer CLI reference
+    href: https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog

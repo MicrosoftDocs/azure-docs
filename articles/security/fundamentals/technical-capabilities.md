@@ -20,7 +20,7 @@ ms.author: TomSh
 
 ---
 # Azure security technical capabilities
-This article provides an introduction to security services in Azure that help you protect you data, resources, and applications in the cloud and meet the security needs of your business.
+This article provides an introduction to security services in Azure that help you protect your data, resources, and applications in the cloud and meet the security needs of your business.
 
 ## Azure platform
 
@@ -116,7 +116,7 @@ In the Azure portal or through the [Azure Active Directory portal](https://aad.p
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
-In the past, application developers who wanted to [sign up and sign in consumers](../../active-directory-b2c/active-directory-b2c-overview.md) into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
+In the past, application developers who wanted to [sign up and sign in consumers](../../active-directory-b2c/overview.md) into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
 
 When you use Azure Active Directory B2C, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
 
@@ -474,7 +474,7 @@ It monitors:
 
 - **Custom events and metrics** that you write yourself in the client or server code, to track business events such as items sold, or games won.
 
-The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your solution as a group.
+The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) enables you to work with the resources in your solution as a group.
 
 You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
@@ -497,7 +497,7 @@ Resource Manager provides several benefits:
 - You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
 > [!Note]
-> Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
+> Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 

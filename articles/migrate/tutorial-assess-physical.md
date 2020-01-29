@@ -1,19 +1,11 @@
 ---
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
-ms.author: raynew
+ms.date: 11/18/2019
 ---
 
 # Assess physical servers with Azure Migrate: Server Assessment
-
-> [!NOTE]
-> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
- 
 
 This article shows you how to assess on-premises physical servers, using the Azure Migrate: Server Assessment tool.
 
@@ -103,11 +95,12 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
 
-3.  For appliance version 1.19.05.10, the generated hash should match these settings.
+3.  For the latest appliance version, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 ### Run the Azure Migrate installer script
 
@@ -130,7 +123,7 @@ Run the script as follows:
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-The script will launch the appliance web application when it finishes successfully. 
+The script will launch the appliance web application when it finishes successfully.
 
 In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
@@ -139,7 +132,7 @@ In case of any issues, you can access the script logs at C:\ProgramData\Microsof
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Make sure that the appliance can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 
 ### Configure the appliance
@@ -161,7 +154,7 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials. 
+2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
     - Sign-in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
@@ -183,7 +176,7 @@ You can add one set of credentials each for Windows and Linux servers.
     - To remove a server, select > **Delete**.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 1.5 minutes per server for metadata of discovered server to appear in the Azure portal. 
+This starts discovery. It takes around 1.5 minutes per server for metadata of discovered server to appear in the Azure portal.
 
 ### Verify servers in the portal
 

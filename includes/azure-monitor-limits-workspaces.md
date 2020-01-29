@@ -58,7 +58,6 @@ ms.custom: "include file"
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 500 | |
-| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of November, 2019. |
 | Data export | Not currently available | Use Azure Function or Logic App to aggregate and export data. | 
 
 **Data ingestion volume rate**

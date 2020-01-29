@@ -1,18 +1,18 @@
 ---
 title: Azure Table Storage support in Azure Cosmos DB
-description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work together.
+description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work together by sharing the same table data model an operations
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 08/05/2019
-author: wmengmsft
-ms.author: wmeng
+ms.date: 12/02/2019
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
 ---
 
 # Developing with Azure Cosmos DB Table API and Azure Table storage
 
-Azure Cosmos DB Table API and Azure Table storage share the same table data model and expose the same create, delete, update, and query operations through their SDKs. 
+Azure Cosmos DB Table API and Azure Table storage share the same table data model and expose the same create, delete, update, and query operations through their SDKs.
 
 [!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 

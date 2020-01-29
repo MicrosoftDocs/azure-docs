@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 
 ---
 
 # Tutorial: Video and transcript moderation
 
-In this tutorial, you will learn how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
+In this tutorial, you will learn how to build a complete video and transcript moderation solution with machine-assisted moderation and human review integration.
 
 This tutorial shows you how to:
 

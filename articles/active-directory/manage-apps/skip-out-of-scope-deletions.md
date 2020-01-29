@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management
@@ -27,21 +27,21 @@ This guide describes how to use the Microsoft Graph API and the Microsoft Graph 
 * If ***SkipOutOfScopeDeletions*** is set to 1 (true), then accounts that go out of scope will get not be disabled in the target
 This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
-As this configuration is widely used with the *Workday to Active Directory user provisioning* app, the steps below include screenshots of the Workday application. However this can also be used with other provisioning apps.
+As this configuration is widely used with the *Workday to Active Directory user provisioning* app, the steps below include screenshots of the Workday application. However this can also be used with **all other apps** such (ServiceNow, Salesforce, Dropbox, etc.).
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
 
-   ![Workday App Service Principal ID](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![Workday App Service Principal ID](media/skip-out-of-scope-deletions/wd_export_01.png)
 
 ## Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
 
-    ![Graph Sign-in](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Graph Sign-in](media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. Upon successful sign-in, you will see the user account details in the left-hand pane.
 
@@ -53,11 +53,11 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![GET job query](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![GET job query](media/skip-out-of-scope-deletions/skip-03.png)
 
 Copy the Response into a text file. It will look like the JSON text shown below, with values highlighted in yellow specific to your deployment. Add the lines highlighted in green to the end and update the Workday connection password highlighted in blue. 
 
-   ![GET job response](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![GET job response](media/skip-out-of-scope-deletions/skip-04.png)
 
 Here is the JSON block to add to the mapping. 
 
@@ -79,22 +79,22 @@ In the URL below replace [servicePrincipalId]  with the **ServicePrincipalId** e
 ```
 Copy the updated text from Step 3 into the "Request Body" and set the header "Content-Type" to "application/json" in "Request Headers". 
 
-   ![PUT request](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![PUT request](media/skip-out-of-scope-deletions/skip-05.png)
 
 Click on “Run Query”. 
 
 You should get the output as "Success – Status Code 204". 
 
-   ![PUT response](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![PUT response](media/skip-out-of-scope-deletions/skip-06.png)
 
 ## Step 5: Verify that out of scope users don’t get disabled
 
 You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example below, we are excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
 
-   ![Scoping example](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Scoping example](media/skip-out-of-scope-deletions/skip-07.png)
 
 In the next provisioning cycle, the Azure AD provisioning service will identify that the user 21173 has gone out of scope and if the SkipOutOfScopeDeletions property is enabled, then the synchronization rule for that user will display a message as shown below: 
 
-   ![Scoping example](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![Scoping example](media/skip-out-of-scope-deletions/skip-08.png)
 
 

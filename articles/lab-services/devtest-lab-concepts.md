@@ -47,7 +47,7 @@ Artifacts are used to deploy and configure your application after a VM is provis
 * Actions that you want to run on the VM - such as cloning a repo.
 * Applications that you want to test.
 
-Artifacts are [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) JSON files that contain instructions to perform deployment and apply configuration.
+Artifacts are [Azure Resource Manager](../azure-resource-manager/management/overview.md) JSON files that contain instructions to perform deployment and apply configuration.
 
 ## Artifact repositories
 Artifact repositories are git repositories where artifacts are checked in. Artifact repositories can be added to multiple labs in your organization enabling reuse and sharing.
