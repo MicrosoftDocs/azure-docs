@@ -22,7 +22,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 
 ## Microsoft identity platform basics
 
-**These videos help you learn the basic concepts of the Microsoft identity platform**
+**These videos help you learn the basic Microsoft identity platform concepts**
 
 :::row:::
     :::column:::
@@ -32,7 +32,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        How the Microsoft identity platform libraries make authentication easier.
+        How the MSAL libraries make authentication easier.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
@@ -40,7 +40,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        The difference between organizational and personal Microsoft accounts.
+        Differences between organizational and personal Microsoft accounts.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
@@ -54,13 +54,13 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        How a redirect URI lets you delegate sign in and get a security token for your app.
+        How to use redirect URIs.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
-        Learn about the role of the Azure AD app object in the Microsoft identity platform.
+        The role of the Azure AD app object.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
@@ -68,13 +68,13 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        What's the role of Azure AD in the Microsoft identity platform.
+        The role of Azure AD.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        How tenants are related to your organization.
+        How tenants relate to your organization.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
@@ -82,7 +82,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        Learn the difference between SPA apps and web apps in the Microsoft identity platform.
+        Differences between SPA apps and web apps.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
@@ -99,13 +99,13 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 
 :::row:::
     :::column:::
-        Learn about endpoints and the benefits of moving to v2.0.
+        Endpoints and the benefits of moving to v2.0.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Learn about migrating your ADAL codebase to MSAL.
+        Migrating your ADAL codebase to MSAL.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -113,7 +113,7 @@ Learn more about the Microsoft identity platform, and the Microsoft Authenticati
 :::row-end:::
 :::row:::
     :::column:::
-        Why we recommend you migrate from ADAL to MSAL.
+        Why migrate from ADAL to MSAL.
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
