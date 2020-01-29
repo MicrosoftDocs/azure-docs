@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Optimize reserve instance costs with Cloudyn in Azure | Microsoft Docs
+title: Tutorial - Optimize reserve instance cost with Cloudyn - Azure
 description: In this tutorial, you learn how to optimize your reserved instance costs for Azure and Amazon Web Services (AWS).
 services: cost-management
 keywords:

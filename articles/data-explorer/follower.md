@@ -122,7 +122,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### Attach a database using an Azure Resource Manager template
 
-In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
+In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
 
 ```json
 {

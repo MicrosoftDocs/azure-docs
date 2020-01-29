@@ -37,19 +37,19 @@ Migrating a database into a [managed instance](sql-database-managed-instance.md)
 
 1. To import from a BACPAC file into a new single database using the Azure portal, open the appropriate database server page and then, on the toolbar, select **Import database**.  
 
-   ![Database import1](./media/sql-database-import/import1.png)
+   ![Database import1](./media/sql-database-import/sql-server-import-database.png)
 
 1. Select the storage account and the container for the BACPAC file and then select the BACPAC file from which to import.
 
 1. Specify the new database size (usually the same as origin) and provide the destination SQL Server credentials. For a list of possible values for a new Azure SQL database, see [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
-   ![Database import2](./media/sql-database-import/import2.png)
+   ![Database import2](./media/sql-database-import/sql-server-import-database-settings.png)
 
 1. Click **OK**.
 
 1. To monitor an import's progress, open the database's server page, and, under **Settings**, select **Import/Export history**. When successful, the import has a **Completed** status.
 
-   ![Database import status](./media/sql-database-import/import-status.png)
+   ![Database import status](./media/sql-database-import/sql-server-import-database-history.png)
 
 1. To verify the database is live on the database server, select **SQL databases** and verify the new database is **Online**.
 

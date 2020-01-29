@@ -11,7 +11,7 @@ When using Azure delegated resource management, it’s important to consider sec
 
 ## Require Azure Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)  (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your service provider tenant, including any users who will have access to customer resources.
+[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your service provider tenant, including any users who will have access to customer resources.
 
 We suggest that you ask your customers to implement Azure Multi-Factor Authentication in their tenants as well.
 

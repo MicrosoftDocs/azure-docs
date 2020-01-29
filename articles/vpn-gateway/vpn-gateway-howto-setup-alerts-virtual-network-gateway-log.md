@@ -1,5 +1,5 @@
 ---
-title: 'Set up alerts on diagnostic log events from Azure VPN Gateway'
+title: 'Azure VPN Gateway: Configure alerts on diagnostic log events'
 description: Steps to configure alerts on VPN Gateway diagnostic log events
 services: vpn-gateway
 author: anzaman

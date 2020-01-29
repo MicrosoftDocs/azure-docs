@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Detect data anomalies using the Anomaly Detector client library for Python"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
+description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data with this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -62,7 +62,7 @@ Create variables your resource's Azure endpoint and key. If you created the envi
 Install the `ms-rest-azure` and `azure-cognitiveservices-anomalydetector` NPM packages. The csv-parse library is also used in this quickstart:
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure csv-parse
+npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
 Your app's `package.json` file will be updated with the dependencies.

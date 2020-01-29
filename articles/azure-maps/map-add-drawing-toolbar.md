@@ -98,6 +98,17 @@ Below is the complete running code sample of the functionality above:
 
 ## Next steps
 
+Learn how to use additional features of the drawing tools module:
+
+> [!div class="nextstepaction"]
+> [Get shape data](map-get-shape-data.md)
+
+> [!div class="nextstepaction"]
+> [React to drawing events](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
+
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]

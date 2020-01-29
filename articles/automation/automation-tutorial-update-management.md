@@ -2,12 +2,9 @@
 title: Manage updates and patches for your Azure VMs
 description: This article provides an overview of how to use Azure Automation Update Management to manage updates and patches for your Azure and non-Azure VMs.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 11/20/2019
-ms.author: magoedte
+ms.date: 12/03/2019
 ms.custom: mvc
 ---
 # Manage updates and patches for your Azure VMs
@@ -121,6 +118,10 @@ To customize the subject of the alert email,  under **Create rule**, under **Cus
 ## Schedule an update deployment
 
 Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+
+>[!NOTE]
+>When you schedule an update deployment, it creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, it breaks the scheduled update deployment and presents an error when you attempt to reconfigure it from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
+>
 
 To schedule a new update deployment for the VM, go to **Update management**, and then select **Schedule update deployment**.
 

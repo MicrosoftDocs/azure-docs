@@ -64,7 +64,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).
+    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
 
@@ -81,6 +81,9 @@ az extension add --name spring-cloud
         az configure --defaults spring-cloud=<service instance name>
     ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+
 ## Setup your configuration server
 
 Update your config-server with the location of the git repository for our project:
@@ -88,6 +91,9 @@ Update your config-server with the location of the git repository for our projec
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
 ## Build the microservices applications locally
 
@@ -127,6 +133,9 @@ az spring-cloud app deploy -n account-service --jar-path ./account-service/targe
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
+
 ## Assign public endpoint to gateway
 
 We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
@@ -153,9 +162,14 @@ You can also navigate the Azure portal to find the URL.
 1. Find the URL on the **gateway Overview** page
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
+
 ## Next Steps
 
 In this quickstart, you've deployed a Spring Cloud application from the Azure CLI.  To learn more about Azure Spring Cloud, continue to the tutorial on preparing your app for deployment.
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

@@ -1,5 +1,6 @@
 ---
-title: Azure CLI Script Sample - Export from an Azure App Configuration Store | Microsoft Docs
+title: Azure CLI Script Sample - Export from an Azure App Configuration Store
+titleSuffix: Azure App Configuration
 description: Provides information and sample scripts for exporting from an Azure App Configuration store
 services: azure-app-configuration
 documentationcenter: ''

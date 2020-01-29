@@ -87,7 +87,7 @@ Because additional virtual machines will be deployed into your subscription duri
 
 You may need to request an increase for [Network quotas](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) to ensure you don't exhaust IPs. See [networking and IP ranges for AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) for additional information.
 
-For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
+For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
 
 ## High Availability and Business Continuity
 

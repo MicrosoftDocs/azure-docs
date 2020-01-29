@@ -21,6 +21,14 @@ ms.author: tarcher
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure.
 
 To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/azure/terraform).
+> [!NOTE]
+> For Terraform specific support, please reach out to Terraform directly using one of their community channels:
+>
+>	• The [Terraform section](https://discuss.hashicorp.com/c/terraform-core) of the community portal contains questions, use cases, and useful patterns.
+>
+>	• For provider-related questions please visit the [Terraform Providers](https://discuss.hashicorp.com/c/terraform-providers) section of the community portal.
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

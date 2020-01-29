@@ -402,8 +402,8 @@ Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a te
 when the condition is met.
 
 > [!NOTE]
-> [Nested templates](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
-> [linked templates](../../../azure-resource-manager/resource-group-linked-templates.md) are currently not supported.
+> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
+> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template) are currently not supported.
 
 ### DeployIfNotExists evaluation
 

@@ -59,7 +59,7 @@ namespace MyNamespace
 
 ### Caveats
 
-A series of registration steps run before and after the runtime processes the startup class. Therefore, the keep in mind the following items:
+A series of registration steps run before and after the runtime processes the startup class. Therefore, keep in mind the following items:
 
 - *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
 

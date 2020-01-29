@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager templates for Azure Cosmos DB Cassandra API
+title: Resource Manager templates for Azure Cosmos DB Cassandra API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Cassandra API. 
 author: TheovanKraay
 ms.service: cosmos-db

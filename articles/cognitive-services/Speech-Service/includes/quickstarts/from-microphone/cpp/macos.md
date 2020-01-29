@@ -1,14 +1,17 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, C++ (macOS) - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, C++ (macOS) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on macOS by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
+<<<<<<< HEAD
+ms.date: 12/17/2019
+=======
 ms.date: 07/05/2019
+>>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ms.author: wolfma
 ---
 
@@ -28,7 +31,7 @@ Before you get started:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/macos/from-microphone/helloworld.cpp#code)]
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
@@ -60,7 +63,7 @@ Before you get started:
    ./helloworld
    ```
 
-1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service and transcribed to text, which appears in the same window.
 
    ```text
    Say something...

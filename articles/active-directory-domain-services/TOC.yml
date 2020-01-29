@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: Configure password and account lockout policies
           href: password-policy.md
-        - name: Enable security audit events (preview)
+        - name: Enable security audit events
           href: security-audit-events.md
     - name: Domain-join VMs
       items:

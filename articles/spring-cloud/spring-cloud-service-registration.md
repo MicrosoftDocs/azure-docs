@@ -15,24 +15,7 @@ Service Discovery is a key requirement for a microservice-based architecture.  C
 ## Register your application using Spring Cloud Service Registry
 
 Before your application can manage service registration and discovery using Spring Cloud Service Registry, several dependencies must be included in the application's *pom.xml* file.
-
-To begin, add a snapshot repository to the *repository* section of your *pom.xml*
-
-```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-```
-
-## Include dependencies
-
-Next, we include dependencies for *spring-cloud-starter-netflix-eureka-client* and *spring-cloud-starter-azure-spring-cloud-client* to your *pom.xml*
+Include dependencies for *spring-cloud-starter-netflix-eureka-client* and *spring-cloud-starter-azure-spring-cloud-client* to your *pom.xml*
 
 ```xml
     <dependency>
@@ -42,7 +25,7 @@ Next, we include dependencies for *spring-cloud-starter-netflix-eureka-client* a
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
+        <version>2.1.0</version>
     </dependency>
 ```
 

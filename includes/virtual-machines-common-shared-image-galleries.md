@@ -110,6 +110,7 @@ There are limits, per subscription, for deploying resources using Shared Image G
 - 100 shared image galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+- Any disk attached to the image must be less than or equal to 1TB in size
 
 For more information, see [Check resource usage against limits](https://docs.microsoft.com/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
  
@@ -235,9 +236,9 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image, then you can create an image definition and image version from it.
+ Scenario 1: If you have a managed image in the same subscription as your SIG, then you can create an image definition and image version from it.
 
- Scenario 2: If you have an unmanaged image, you can create a managed image from it, and then create an image definition and image version from it. 
+ Scenario 2: If you have an unmanaged image in the same subscription as your SIG, you can create a managed image from it, and then create an image definition and image version from it. 
 
  Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD to a managed image, then you can create an image definition and image version from it.
 

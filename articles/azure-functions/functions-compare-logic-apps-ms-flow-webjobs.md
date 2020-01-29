@@ -1,5 +1,5 @@
 ---
-title: What are Microsoft Flow, Logic Apps, Functions, and WebJobs? - Azure
+title: Integration and automation platform options in Azure 
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Microsoft Flow, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
 ms.date: 04/09/2018
@@ -7,9 +7,10 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
 
-# What are Microsoft Flow, Logic Apps, Functions, and WebJobs?
+# Choose the right integration and automation services in Azure
 
-This article compares the following Microsoft cloud 
+This article compares the following Microsoft cloud services:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -78,7 +79,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 |[Pay-per-use pricing](functions-scale.md#consumption-plan)|✔||
 |[Integration with Logic Apps](functions-twitter-email.md)|✔||
 | Trigger events |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Supported languages  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| Supported languages  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Package managers|NPM and NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (without the WebJobs SDK) supports C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, and more. This is not a comprehensive list. A WebJob can run any program or script that can run in the App Service sandbox.

@@ -44,6 +44,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="2.4.4"/>2.4.4
 * Optimized partition key range cache refreshes.
+* Fixes the scenario where the SDK doesn't entertain partition split hint from server and results in incorrect client side routing caches refresh.
 
 ### <a name="2.4.2"/>2.4.2
 * Optimized collection cache refreshes.

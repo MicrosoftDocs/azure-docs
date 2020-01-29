@@ -1,6 +1,6 @@
 ---
-title: Understand the Linux Hybrid Runbook Worker health in Azure Update Management
-description: Learn how to troubleshoot issues with the Hybrid Runbook Worker on Linux that supports Update Management.
+title: Diagnose Linux Hybrid Runbook Worker - Azure Update Management
+description: Learn how to troubleshoot and resolve issues with the Azure Automation Hybrid Runbook Worker on Linux that supports Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -11,7 +11,7 @@ ms.subservice: update-management
 manager: carmonm
 ---
 
-# Understand the Linux Hybrid Runbook Worker health in Update Management
+# Understand and resolve Linux Hybrid Runbook Worker health for Update Management
 
 There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
@@ -174,4 +174,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## Next steps
 
-To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
+To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md).

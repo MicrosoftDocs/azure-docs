@@ -14,7 +14,7 @@ ms.author: ellacroi
 
 The AppSource storefront includes offers that build on or extend Dynamics 365, Office 365, Power BI, and Power Apps. Each of these products have specific documentation to guide you in the publishing process. See below for links to more detail for each offer type. 
 
-AppSource has list and trial offers, with the call to action "Contact Me" or "Try It Now." There is currently no transaction functionality in AppSource.
+AppSource has paid, list, and trial offers, with the call to action "Get it Now," "Contact Me," and "Try It Now." 
 
 ## Product-Specific guides
 

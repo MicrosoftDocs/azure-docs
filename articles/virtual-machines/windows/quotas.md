@@ -84,4 +84,4 @@ If a quota increase is required to purchase a Single Subscription RI, you can [r
 
 ## Next steps
 
-For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

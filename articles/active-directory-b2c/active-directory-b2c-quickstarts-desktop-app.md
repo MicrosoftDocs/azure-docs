@@ -1,5 +1,6 @@
 ---
-title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C
+title: "Quickstart: Set up sign-in for a desktop app"
+titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: mmacy
@@ -72,9 +73,9 @@ Azure AD B2C provides functionality to allow users to update their profiles. The
 
 Click **Call API** to make a request to the protected resource.
 
-    ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-    The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
 
 You've successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
 

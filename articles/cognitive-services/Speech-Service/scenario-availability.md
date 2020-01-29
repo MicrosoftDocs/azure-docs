@@ -1,5 +1,5 @@
 ---
-title: Scenario Availability - Speech Service
+title: Scenario Availability - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK features many scenarios across a wide variety of programming languages and environments. Not all scenarios are available in all programming languages or all environments yet. Listed below is the availability of each scenario.
 services: cognitive-services

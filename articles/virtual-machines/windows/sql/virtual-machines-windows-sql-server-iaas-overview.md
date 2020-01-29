@@ -98,14 +98,16 @@ If you have an existing database, you'll want to move that to the newly provisio
 
 The Azure portal provides a single page where you can manage [all of your Azure SQL resources](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) including your SQL virtual machines.
 
-To access the **Azure SQL resources** page, select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+To access the **Azure SQL resources** page, select **Azure SQL** in the Azure portal menu, or search for and select **Azure SQL** from any page.
+
+![Search for Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **Azure SQL** provides a quick and easy way to access all of your SQL databases, elastic pools, database servers, SQL managed instances, and SQL virtual machines. Azure SQL is not a service or resource. 
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
 
-![Azure SQL portal page](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+![Create Azure SQL resource](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
 After selecting **+ Add**, view additional information about the different options by selecting **Show details** on any tile.
 

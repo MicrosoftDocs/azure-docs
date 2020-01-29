@@ -1,14 +1,9 @@
 ---
-title: Azure Service Fabric - Using Service Fabric application KeyVault references | Microsoft Docs
+title: Azure Service Fabric - Using Service Fabric application KeyVault references 
 description: This article explains how to use service-fabric KeyVaultReference support for application secrets.
-services: service-fabric
-author: athinanthny
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
 ---
 
 #  KeyVaultReference support for Service Fabric applications (preview)
@@ -32,8 +27,8 @@ A common challenge when building cloud applications is how to securely store sec
     [
         ...
     {
-        "parameters":  [
-            "name":  "CentralSecretService",
+                "name":  "CentralSecretService",
+                "parameters":  [
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -46,7 +41,7 @@ A common challenge when building cloud applications is how to securely store sec
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
                 }
-                ],
+                ]
             },
             {
                 "name":  "ManagedIdentityTokenService",

@@ -2,7 +2,7 @@
 title: Supported languages in Azure Functions
 description: Learn which languages are supported (GA) and which are experimental or in preview.
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/27/2019
 
 ---
 
@@ -20,7 +20,7 @@ There are three levels of support:
 
 ## Languages by runtime version 
 
-[Two versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
+[Three versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -30,7 +30,7 @@ The experimental languages in version 1.x don't scale well and don't support all
 
 Don't use experimental features for anything that you rely on, as there is no official support for them. Support cases should not be opened for problems with experimental languages. 
 
-The version 2.x runtime doesn't support experimental languages. Support for new languages is added only when the language can be supported in production. 
+Later runtime versions do not support experimental languages. Support for new languages is added only when the language can be supported in production. 
 
 ### Language extensibility
 

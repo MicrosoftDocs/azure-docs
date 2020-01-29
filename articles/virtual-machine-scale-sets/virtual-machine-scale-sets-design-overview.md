@@ -1,6 +1,6 @@
 ---
-title: Design Considerations for Azure Virtual Machine Scale Sets | Microsoft Docs
-description: Learn about design considerations for your Azure Virtual Machine Scale Sets
+title: Design Considerations for Azure Virtual Machine Scale Sets
+description: Learn about the design considerations for your Azure Virtual Machine Scale Sets. Compare scale sets features with VM features.
 keywords: linux virtual machine,virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''

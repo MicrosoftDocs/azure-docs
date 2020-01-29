@@ -2,7 +2,7 @@
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
 ms.date: 01/31/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Programmatically create policies
 

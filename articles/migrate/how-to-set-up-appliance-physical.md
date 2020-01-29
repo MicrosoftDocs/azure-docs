@@ -79,7 +79,7 @@ Run the script as follows:
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script by running the following command:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 The script will launch the appliance web application when it finishes successfully.
 

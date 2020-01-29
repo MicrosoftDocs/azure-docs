@@ -91,7 +91,7 @@ To create a cache in the Azure China Cloud, use one of the following locations.
 * China East
 * China North
 
-For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.windowsazure.cn/).
+For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](https://www.windowsazure.cn/).
 
 ### To connect to Microsoft Azure Germany
 To connect to Microsoft Azure Germany, use one of the following commands.

@@ -50,7 +50,7 @@ To learn more about the supported features for the Windows operating systems, li
 
 * CentOS 6 and 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 and 7
+* Oracle Linux 6 and Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 and 7
 * Debian GNU/Linux 8 and 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS

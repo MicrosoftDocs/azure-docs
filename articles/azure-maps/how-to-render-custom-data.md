@@ -17,12 +17,14 @@ This article explains how to use the [static image service](https://docs.microso
 
 To render custom pushpins, labels, and geometry overlays, you can use the Postman application. You can use Azure Maps [Data Service APIs](https://docs.microsoft.com/rest/api/maps/data) to store and render overlays.
 
+> [!Tip]
+> It is often much more cost effective to use the Azure Maps Web SDK to show a simple map on a web page than to use the static image service. The web SDK uses map tiles and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load. Note that the Azure Maps web SDK has options for disabling panning and zooming. Additionally, the Azure Maps web SDK provides a richer set of data visualization options than a static map web service does.  
 
 ## Prerequisites
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to create an Azure Maps account by following instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to retrieve a primary subscription key for your account.
+To complete the procedures in this article, you first need to create an Azure Maps account and get you maps account key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 
 ## Render pushpins with labels and a custom image

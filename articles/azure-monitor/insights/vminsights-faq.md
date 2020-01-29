@@ -4,8 +4,8 @@ description: Answers to common questions for Azure Monitor for VMs which monitor
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/09/2018
 
 ---

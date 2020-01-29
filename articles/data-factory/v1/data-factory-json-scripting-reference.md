@@ -587,13 +587,13 @@ To define an Azure Data Lake Store linked service, set the type of the linked se
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
 | dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
+| subscriptionId | Azure subscription ID to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 | servicePrincipalId | Specify the application's client ID. | Yes (for service principal authentication) |
 | servicePrincipalKey | Specify the application's key. | Yes (for service principal authentication) |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes (for service principal authentication) |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credential that assigns the auto-generated authorization URL to this property. | Yes (for user credential authentication)|
-| sessionId | OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
+| sessionId | OAuth session ID from the OAuth authorization session. Each session ID is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
 
 #### Example: using service principal authentication
 ```json
@@ -3306,7 +3306,7 @@ For more information, see [Amazon S3 connector article](data-factory-amazon-simp
 
 
 ### Linked service
-You can link an on-premises file system to an Azure data factory with the **On-Premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-Premises File Server linked service.
+You can link an on-premises file system to an Azure data factory with the **On-premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-premises File Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -4967,9 +4967,9 @@ The following table provides descriptions for the properties used in the JSON de
 | accountName |Azure Data Lake Analytics Account Name. |Yes |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
 | authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| subscriptionId |Azure subscription ID |No (If not specified, subscription of the data factory is used). |
 | resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
+| sessionId |session ID from the OAuth authorization session. Each session ID is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
 
 
 #### JSON example

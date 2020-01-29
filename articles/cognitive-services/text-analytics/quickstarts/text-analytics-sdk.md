@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
 ---
@@ -64,7 +64,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Explore a solution](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 
 * [Text Analytics overview](../overview.md)

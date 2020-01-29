@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Workbench configuration metadata reference
 description: Azure Blockchain Workbench Preview application configuration metadata overview.
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to understand application configuration metadata details used by Azure Blockchain Workbench.
@@ -386,6 +386,7 @@ Identifiers represent a collection of information used to describe workflow prop
 | Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Yes | 50 |
 | DisplayName | Friendly display name for the property or parameter. | Yes | 255 |
 | Description | Description of the property or parameter. | No | 255 |
+| Type | Property [data type](#type). | Yes |
 
 ### Identifiers example
 

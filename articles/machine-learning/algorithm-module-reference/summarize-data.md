@@ -1,7 +1,7 @@
 ---
 title:  "Summarize Data"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Summarize Data module in Azure Machine Learning service to generate a basic descriptive statistics report for the columns in a dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Summarize Data module in Azure Machine Learning to generate a basic descriptive statistics report for the columns in a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -69,4 +69,4 @@ The report from the module can include the following statistics.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service.  
+See the [set of modules available](module-reference.md) to Azure Machine Learning.  

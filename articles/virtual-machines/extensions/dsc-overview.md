@@ -114,7 +114,7 @@ Important information about Resource Manager DSC extension cmdlets:
 
 The Azure DSC extension can use DSC configuration documents to directly configure Azure VMs during deployment. This step doesn't register the node to Automation. The node is *not* centrally managed.
 
-The following example shows a simple example of a configuration. Save the configuration locally as IisInstall.ps1.
+The following example shows a simple example of a configuration. Save the configuration locally as iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -130,7 +130,7 @@ configuration IISInstall
 }
 ```
 
-The following commands place the IisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
+The following commands place the iisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'

@@ -25,7 +25,7 @@ Complete the following steps before you compile and run the sample code:
 
 1. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request.
 
-   For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+   For information about how to set up non-interactive applications, read [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 
 1. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code.
 

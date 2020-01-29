@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls web APIs (calling a web API) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (calling a web API)
+title: Call web APIs from a desktop app - Microsoft identity platform | Azure
+description: Learn how to build a desktop app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -97,7 +97,7 @@ task.resume()
 
 If you need to call several APIs for the same user, once you got a token for the first API, you can just call `AcquireTokenSilent`, and you'll get a token for the other APIs silently most of the time.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -110,7 +110,7 @@ The cases where interaction is required is when:
 - The user consented for the first API, but now needs to consent for more scopes (incremental consent)
 - The first API didn't require multiple-factor authentication, but the next one does.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

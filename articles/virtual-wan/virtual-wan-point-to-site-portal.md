@@ -131,7 +131,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 2. Download the VPN profile for the gateway. This can be done from the User VPN configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here [how to export a certificate to get the encoded public key.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site)
-5. Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
+5. Fill in the private key section with the P2S client certificate private key in base64. See here [how to extract private key.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients#windows)
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
 7. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
 8. Right-click the OpenVPN icon in the system tray and click connect.
@@ -160,7 +160,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps

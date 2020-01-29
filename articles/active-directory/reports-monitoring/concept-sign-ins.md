@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -53,9 +53,15 @@ The user sign-ins report provides answers to the following questions:
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-Start with [Azure portal](https://portal.azure.com). To access the sign-ins report select **Sign-ins**, continue to the **Monitoring.** It may take up to two hours for some sign-in records to show up in the portal.
+On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
-![Sign-in activity](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Sign-in activity")
+![Select Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Sign-in activity](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
+
+It may take up to two hours for some sign-in records to show up in the portal.
 
 > [!IMPORTANT]
 > The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
@@ -75,9 +81,10 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-Displays additional fields or remove fields that are already displayed.
+The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can't have fields
+that have more than one value for a given sign-in request as column. This is, for example, true for authentication details, conditional access data and network location.   
 
-![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
@@ -153,7 +160,8 @@ Click the **Download** option to create a CSV or JSON file of the most recent 25
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+> The number of records you can download is constrained by the [Azure Active 
+> Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-ins data shortcuts

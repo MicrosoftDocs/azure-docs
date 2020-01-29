@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Grant access to an ASP.NET web API - Azure Active Directory B2C
+title: "Tutorial: Grant access to an ASP.NET web API"
+titleSuffix: Azure AD B2C
 description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web API and call it from an ASP.NET web application.
 services: active-directory-b2c
 author: mmacy

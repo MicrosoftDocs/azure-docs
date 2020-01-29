@@ -1,21 +1,11 @@
 ---
-title: Diagnose common code package errors by using Service Fabric | Microsoft Docs
+title: Diagnose common code package errors by using Service Fabric 
 description: Learn how to troubleshoot common code package errors with Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: grzuber
-manager: gkhanna
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/09/2019
 ms.author: grzuber
-
 ---
 
 # Diagnose common code package errors by using Service Fabric

@@ -4,8 +4,8 @@ description: Overview of Azure Monitor for VMs which monitors the health and per
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
 
 ---

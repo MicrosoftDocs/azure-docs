@@ -3,7 +3,7 @@ title: "Create a Kubernetes dev space: Visual Studio Code & Node.js"
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a Node.js application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 # Create a Kubernetes dev space: Visual Studio Code and Node.js with Azure Dev Spaces
@@ -275,4 +275,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 > [Learn about multi-service development](multi-service-nodejs.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

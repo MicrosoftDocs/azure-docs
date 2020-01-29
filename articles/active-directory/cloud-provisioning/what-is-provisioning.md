@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -61,5 +61,5 @@ This has been accomplished by Azure AD Connect sync, Azure AD Connect cloud prov
  
 ## Next steps 
 
-- [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
+- [Install cloud provisioning](how-to-install.md)

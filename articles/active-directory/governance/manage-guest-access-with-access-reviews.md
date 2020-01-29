@@ -1,5 +1,5 @@
 ---
-title: Manage guest access with access reviews - Azure Active Directory | Microsoft Docs
+title: Manage guest access with access reviews - Azure AD
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''

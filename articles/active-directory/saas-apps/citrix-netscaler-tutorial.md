@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Citrix NetScaler | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Kerberos Based Authentication)| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix NetScaler.
 services: active-directory
 documentationCenter: na
@@ -14,377 +14,410 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 12/13/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Citrix NetScaler
 
-In this tutorial, you learn how to integrate Citrix NetScaler with Azure Active Directory (Azure AD).
-Integrating Citrix NetScaler with Azure AD provides you with the following benefits:
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Kerberos Based Authentication)
 
-* You can control in Azure AD who has access to Citrix NetScaler.
-* You can enable your users to be automatically signed-in to Citrix NetScaler (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate Citrix NetScaler with Azure Active Directory (Azure AD). When you integrate Citrix NetScaler with Azure AD, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Azure AD who has access to Citrix NetScaler.
+* Enable your users to be automatically signed-in to Citrix NetScaler with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
+
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with Citrix NetScaler, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Citrix NetScaler single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Citrix NetScaler single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Citrix NetScaler supports **SP** initiated SSO
 
 * Citrix NetScaler supports **Just In Time** user provisioning
 
+- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+
+- [Configure Citrix NetScaler single sign-on for Header Based Authentication](header-citrix-netscaler-tutorial.md)
+
 ## Adding Citrix NetScaler from the gallery
 
 To configure the integration of Citrix NetScaler into Azure AD, you need to add Citrix NetScaler from the gallery to your list of managed SaaS apps.
 
-**To add Citrix NetScaler from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Citrix NetScaler** in the search box.
+1. Select **Citrix NetScaler** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+## Configure and test Azure AD single sign-on for Citrix NetScaler
 
-	![The Azure Active Directory button](common/select-azuread.png)
+Configure and test Azure AD SSO with Citrix NetScaler using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix NetScaler.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+To configure and test Azure AD SSO with Citrix NetScaler, complete the following building blocks:
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Citrix NetScaler SSO](#configure-citrix-netscaler-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Citrix NetScaler test user](#create-citrix-netscaler-test-user)** - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button](common/add-new-app.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **Citrix NetScaler**, select **Citrix NetScaler** from result panel then click **Add** button to add the application.
+1. In the [Azure portal](https://portal.azure.com/), on the **Citrix NetScaler** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	 ![Citrix NetScaler in the results list](common/search-new-app.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-In this section, you configure and test Azure AD single sign-on with Citrix NetScaler based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Citrix NetScaler needs to be established.
-
-To configure and test Azure AD single sign-on with Citrix NetScaler, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Citrix NetScaler Single Sign-On](#configure-citrix-netscaler-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Citrix NetScaler test user](#create-citrix-netscaler-test-user)** - to have a counterpart of Britta Simon in Citrix NetScaler that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Citrix NetScaler, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Citrix NetScaler** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![Citrix NetScaler Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
-    
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<<Your FQDN>>`
 
-    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
-    
-    > [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Citrix NetScaler Client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Citrix NetScaler Client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
     > [!NOTE]
-	> In order to get SSO working, these URLs should be accessible from public sites. You need to enable the firewall or other security settings on Netscaler side to enble Azure AD to post the token on the configured ACS URL.
+    > In order to get SSO working, these URLs should be accessible from public sites. You need to enable the firewall or other security settings on Netscaler side to enble Azure AD to post the token on the configured ACS URL.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **App Federation Metadata Url**, copy the Url and save it on your Notepad.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Citrix NetScaler** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Citrix NetScaler** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
-### Configure Citrix NetScaler Single Sign-On
-
-1. In a different web browser window, sign-on to your Citrix NetScaler tenant as an administrator.
-
-2. Make sure that the **NetScaler Firmware Version = NS12.1: Build 48.13.nc**.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure01.png)
-
-3. On the **VPN Virtual Server** page, perform the following steps:
-
-     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure02.png)
-
-    a. Set Gateway Settings **ICA Only** as **true**.
-    
-    b. Set **Enable Authentication** as **true**.
-    
-    c. **DTLS** is optional.
-    
-    d. Make sure **SSLv3** as **Disabled**.
-
-4. A customized **SSL Ciphers** Group is created to attain A+ on https://www.ssllabs.com as shown below:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure03.png)
-
-5. On the **Configure Authentication SAML Server** page, perform the following steps:
-
-      ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure04.png)
-
-    a. In the **Name** textbox, type the name of your server.
-
-    b. In the **Redirect URL** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
-
-    c. In the **Single Logout URL** textbox, paste the value of **Logout URL** which you have copied from the Azure portal.
-
-    d. In **IDP Certificate Name**, click the **"+"** sign to add the certificate which you have downloaded from the Azure portal. After it is uploaded please select the certificate from the dropdown.
-
-    e. Following more fields need to be set on this page
-
-      ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure24.png)
-
-    f. Select **Requested Authentication Context** as **Exact**.
-
-    g. Select **Signature Algorithm** as **RSA-SHA256**.
-
-    h. Select **Digest Method** as **SHA256**.
-
-    i. Check **Enforce Username**.
-
-    j. Click **OK**
-
-6. To configure the **Session Profile**, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure06.png)
-
-    a. In the **Name** textbox, type the name of your session profile.
-
-    b. On the **Client Experience** tab, make the changes as shown in the screenshot below.
-
-    c. Continue making the changes on the **General tab** as shown below and click **OK**
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure07.png)
-
-    d. On the **Published Applications** tab, make the changes as shown in the screenshot below and click **OK**.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure08.png)
-
-    e. On the **Security** tab, make the changes as shown in the screenshot below and click **OK**.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure09.png)
-
-7. Make the ICA Connections connecting on Session Reliability Port **2598** as shown in the below screenshot.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure10.png)
-
-8. On the **SAML** section, add the **Servers** as shown in the screenshot below.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure11.png)
-
-9. On the **SAML** section, add the **Policies** as shown in the screenshot below.
-
-     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure12.png)
-
-10. On the **Global Settings** page, go to the **Clientless Access** section.
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure13.png)
-
-11. On the **Configuration** tab, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure14.png)
-
-    a. Select **Allow Domains**.
-
-    b. In the **Domain Name** textbox, select the domain.
-
-    c. Click **OK**.
-
-12. Make the **StoreFront** Settings on the **Receiver for Web Sites** as shown in the screenshot below:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure15.png)
-
-13. On the **Manage Authentication Methods - Corp** pop-up, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure16.png)
-
-    a. Select **User name and password**.
-
-    b. Select **Pass-through from NetScaler Gateway**.
-
-    c. Click **OK**.
-
-14. On the **Configure Trusted Domains** pop-up, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure17.png)
-
-    a. Select **Trusted domains only**.
-
-    b. Click on **Add** to add your domain in **Trusted domains** textbox.
-
-    c. Select Default Domain from your **Default domain** list.
-
-    d. Select **Show domains list in logon page**.
-
-    e. Click **OK**.
-
-15. On the **Manage NetScaler Gateways** pop-up, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure18.png)
-
-    a. Click on **Add** to add your NetScaler Gateways in **NetScaler Gateways** textbox.
-
-    b. Click **Close**.
-
-16. On the **StoreFront General Settings** tab, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure19.png)
-
-    a. In the **Display name** textbox type your NetScaler Gateway name.
-
-    b. In the **NetScaler Gateway URL** textbox type your NetScaler Gateway URL.
-
-    c. Select **Usage or role** as **Authentication and HDX routing**.
-
-    d. Click **OK**.
-
-17. On the **StoreFront Secure Ticket Authority** tab, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure20.png)
-
-    a. Click on **Add** button to add your **Secure Ticket Authority URL's** in the textbox.
-
-    b. Select **Enable session reliability**.
-
-    c. Click **OK**.
-
-18. On the **StoreFront Authentication Settings** tab, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure21.png)
-
-    a. Select your **Version**.
-
-    b. Select **Logon type** as **Domain**.
-
-    c. Enter your **Callback URL**.
-
-    d. Click **OK**.
-
-19. On the **StoreFront Deploy Citrix Receiver** tab, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure22.png)
-
-    a. Select **Deployment option** as **Use Receiver for HTML5 if local Receiver is unavailable**.
-
-    b. Click **OK**.
-
-20. On the **Manage Beacons** pop-up, perform the following steps:
-
-    ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure23.png)
-
-    a. Select the **Internal beacon** as **Use the service URL**.
-
-    b. Click **Add** to add your URL's in the **External beacons** textbox.
-
-    c. Click **OK**.
-
-### Create an Azure AD test user 
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Citrix NetScaler.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Citrix NetScaler.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Citrix NetScaler**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Citrix NetScaler**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-2. In the applications list, select **Citrix NetScaler**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Citrix NetScaler link in the Applications list](common/all-applications.png)
+	![The Add User link](common/add-assign-user.png)
 
-3. In the menu on the left, select **Users and groups**.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+## Configure Citrix NetScaler SSO
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+- [Configure Citrix NetScaler single sign-on for Header Based Authentication](header-citrix-netscaler-tutorial.md)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+### Publishing Web Server 
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+1. Create a **Virtual Server**.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+    a. Go to **Traffic Management > Load Balancing > Services**.
+    
+    b. Click **Add**.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/web01.png)
+
+    c. Specify the details of the Web Server running the Applications below:
+    * **Service Name**
+    * **Server IP/ Existing Server**
+    * **Protocol**
+    * **Port**
+
+     ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/web01.png)
+
+### Configuring Load Balancer
+
+1. To Configure Load Balancer, perform the following steps:
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/load01.png)
+
+    a. Go to **Traffic Management > Load Balancing > Virtual Servers**.
+
+    b. Click **Add**.
+
+    c. Specify the details below :
+
+    * **Name**
+    * **Protocol**
+    * **IP Address**
+    * **Port**
+    * Click **ok**
+
+### Bind Virtual Server
+
+Bind the Load Balancer with the Virtual Server Created Previously.
+
+![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind01.png)
+
+![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind02.png)
+
+### Bind Certificate
+
+Since we will be publishing this service as SSL bind the Server Certificate then test your application.
+
+![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind03.png)
+
+![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind04.png)
+
+## Citrix ADC SAML Profile
+
+### Create Authentication Policy
+
+1. Go to **Security > AAA – Application Traffic > Policies > Authentication > Authentication Policies**.
+
+2. Click **Add** then specify Details.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/policy01.png)
+
+    a. Name for the **Authentication Policy**.
+
+    b. Expression : **true**.
+
+    c. Action type **SAML**.
+
+    d. Action = Click **Add** (follow the Create  Authentication SAML Server Wizard).
+    
+    e. Click Create on the **Authentication Policy**.
+
+### Create Authentication SAML Server
+
+1. Perform the following steps:
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/server01.png)
+
+    a. Specify the **Name**.
+
+    b. Import Metadata (specify the federation metadata URL from Azure SAML UI which you have copied from above).
+    
+    c. Specify **Issuer Name**.
+
+    d. Click **create**.
+
+### Create Authentication Virtual Server
+
+1.	Go to **Security > AAA - Application Traffic >> Authentication Virtual Servers**.
+
+2.	Click **Add** and perform the following steps:
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/server02.png)
+
+    a.	Provide a **Name**.
+
+    b.	Choose **Non-Addressable**.
+
+    c.	Protocol **SSL**.
+
+    d.	Click **OK**.
+
+    e.	Click **Continue**.
+
+### Configure the Authentication Virtual Server to use Azure AD
+
+You will need to modify the 2 sections of the Authentication Virtual Server.
+
+1.	**Advanced Authentication Policies**
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual01.png)
+
+    a. Select the **Authentication Policy** that you created previously.
+
+    b. Click **Bind**.
+
+      ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual02.png)
+
+2. **Form Based Virtual Servers**
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual03.png)
+
+    a.	You will need to Provide an **FQDN** since its enforced by UI.
+
+    b.	Choose the **Virtual Server Load Balancer** that you would like to protect with Azure AD Authentication.
+
+    c.	Click **Bind**.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual04.png)
+
+    >[!NOTE]
+    >Ensure you click **Done** on the Authentication Virtual Server Configuration page as well.
+
+3. Verify the changes. Browse to the application URL. You should see your tenant login page instead of unauthenticated access previously.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual05.png)
+
+## Configure Citrix NetScaler single sign-on for Kerberos Based Authentication
+
+### Create a Kerberos Delegation Account for Citrix ADC
+
+1. Create a user Account ( in this example AppDelegation ).
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos01.png)
+
+2. Set up a HOST SPN on this accounts.
+
+    * setspn -S HOST/AppDelegation.IDENTT.WORK identt\appdelegation
+    
+        In the example above
+
+        a. Identt.work    ( Domain FQDN )
+
+        b. Identt        ( Domain Netbios Name)
+
+        c. AppDelegation ( delegation user account Name)
+
+3. Configure Delegation for the WebServer 
+ 
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos02.png)
+
+    >[!NOTE]
+    >In the example above the Internal Webserver name running WIA Site is cweb2
+
+### Citrix AAA KCD ( Kerberos Delegation Accounts)
+
+1.	Go to  **Citrix Gateway > AAA KCD (Kerberos Constrained Delegation) Accounts**.
+
+2.	Click Add and specify the below details:
+
+    a.	Specify **Name**.
+
+    b.	**Realm**.
+
+    c.	**Service SPN**  `http/<host/fqdn>@DOMAIN.COM`.
+    
+    >[!NOTE]
+    >@DOMAIN.com is mandatory and in uppercase.
+
+    d.	Specify **Delegated user account**.
+
+    e.	Check the Password for the Delegated user and Specify **Password**.
+
+    f.	Click **OK**.
+ 
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos03.png)
+
+### Citrix Traffic Policy and Traffic Profile
+
+1.	Go to **Security > AAA - Application Traffic > Policies > Traffic Policies, Profiles and Form SSO ProfilesTraffic Policies**.
+
+2.	Select **Traffic Profiles**.
+
+3.	Click **Add**.
+
+4.	Configure Traffic Profile.
+
+    a.	Specify **Name**.
+
+    b.	Specify **Single Sign-on**.
+
+    c.	Specify the **KCD Account** created in previously step from drop down.
+
+    d.	Click **OK**.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos04.png)
+ 
+5.	Select **Traffic Policy**.
+
+6.	Click **Add**.
+
+7.	Configure Traffic Policy.
+
+    a.	Specify **Name**.
+
+    b.	Choose the previously created **Traffic Profile** from the drop down.
+
+    c.	Set expression to **true**.
+
+    d.	Click **Ok**.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos05.png)
+
+### Citrix Bind Traffic Policy to Virtual Servers
+
+To bind a Traffic policy to a specific virtual server by using the GUI.
+
+* Navigate to **Traffic Management > Load Balancing > Virtual Servers**.
+
+* In the details pane list of virtual servers, select the **virtual server** to which you want to bind the rewrite policy, and then click **Open**.
+
+* In the Configure Virtual Server (Load Balancing) dialog box, select the **Policies tab**. All policies configured on your NetScaler appear on the list.
+ 
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos06.png)
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos07.png)
+
+1.	Select the **check box** next to the name of the policy you want to bind to this virtual server.
+ 
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos08.png)
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos09.png)
+
+1. Only the policy is bound, Click **Done**.
+ 
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos10.png)
+
+1. Test using the Windows Integrated Website.
+
+    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos11.png)    
 
 ### Create Citrix NetScaler test user
 
-In this section, a user called Britta Simon is created in Citrix NetScaler. Citrix NetScaler supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Citrix NetScaler, a new one is created after authentication.
+In this section, a user called B.Simon is created in Citrix NetScaler. Citrix NetScaler supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Citrix NetScaler, a new one is created after authentication.
 
->[!NOTE]
->If you need to create a user manually, you need to contact the [Citrix NetScaler Client support team](https://www.citrix.com/contact/technical-support.html).
+> [!NOTE]
+> If you need to create a user manually, you need to contact the [Citrix NetScaler Client support team](https://www.citrix.com/contact/technical-support.html).
 
-### Test single sign-on 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Citrix NetScaler tile in the Access Panel, you should be automatically signed in to the Citrix NetScaler for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Try Citrix NetScaler with Azure AD](https://aad.portal.azure.com/)
+
+- [Configure Citrix NetScaler single sign-on for Header Based Authentication](header-citrix-netscaler-tutorial.md)

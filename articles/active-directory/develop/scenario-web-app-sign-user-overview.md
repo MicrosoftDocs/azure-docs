@@ -1,5 +1,5 @@
 ---
-title: Web app that signs in users (overview) - Microsoft identity platform
+title: Sign in users from a Web app - Microsoft identity platform | Azure
 description: Learn how to build a web app that signs in users (overview)
 services: active-directory
 documentationcenter: dev-center-name

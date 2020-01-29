@@ -4,7 +4,7 @@ description: This doc discusses the ways to troubleshoot common issues encounter
 author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: roaror
 

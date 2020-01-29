@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples - Attach and use data disks | Microsoft Docs
-description: Azure CLI Samples
+title: Azure CLI Samples - Attach and use data disks
+description: This script creates an Azure virtual machine scale set and attaches and prepares data disks with Azure CLI.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

@@ -47,6 +47,8 @@ Using these tools you can:
 > [!NOTE]
 > If you previously exported Security Center alerts to a SIEM using Azure Activity log, the procedure below replaces that methodology.
 
+To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
+
 ### To integrate with a SIEM 
 
 After you have configured continuous export of your chosen Security Center data to Azure Event Hubs, you can set up the appropriate connector on your SIEM by following the instructions below.
@@ -62,13 +64,17 @@ If you're using **Azure Sentinel**, use the native Azure Security Center alerts 
 Also, if you'd like to move the continuously exported data automatically from your configured Event Hub to Azure Data Explorer, use the instructions in [Ingest data from Event Hub into Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
 
 
-## Continuous export to Log Analytics workspace
+## Continuous export to a Log Analytics workspace
 
-To export to Log Analytics workspace, you must have Security Center's free or standard tier Log Analytics solutions enabled on your workspace. If you're using the Azure portal, the Security Center free tier solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually select the free or standard pricing tier for the required workspace from within **Pricing & settings**.  
+To export to a Log Analytics workspace, you must have Security Center's free or standard tier Log Analytics solutions enabled on your workspace. If you're using the Azure portal, the Security Center free tier solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually select the free or standard pricing tier for the required workspace from within **Pricing & settings**.  
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security or SecurityCenterFree.
+### Log Analytics tables and schemas
+
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security('Security and Audit') or SecurityCenterFree.
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
 
 ###  View exported security alerts and recommendations in Azure Monitor
 
@@ -82,7 +88,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
-1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
 
     * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
 
@@ -100,8 +106,7 @@ To download a CSV report for alerts or recommendations, open the **Security aler
 [![Download alerts data as a CSV file](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
-> These reports contain alerts and recommendations for resources from the currently selected subscriptions in the Directory + subscription filter in the Azure Portal:
-> ![The filter for selecting Directory + subscription](./media/continuous-export/filter-for-export-csv.png)
+> These reports contain alerts and recommendations for resources from the currently selected subscriptions.
 
 ## Next steps
 
@@ -112,3 +117,4 @@ For related material, see the following documentation:
 - [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
 - [Azure Sentinel documentation](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/)
+- [Workflow automation and continuous export data types schemas](https://aka.ms/ASCAutomationSchemas)

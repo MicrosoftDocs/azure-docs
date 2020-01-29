@@ -25,7 +25,7 @@ As an end user, you can reset your password or unlock your account by yourself i
 
 ## Register or confirm authentication data with SSPR
 
-1. Open the web browser on your device and go to the [password reset registration page](https://aka.ms/ssprsetup).
+1. Open the web browser on your device and go to the [password reset registration page](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 2. Enter your username and the password that your administrator provided.
 3. Depending on how your IT staff has configured things, one or more of the following options are available for you to configure and verify. If your administrator has your permission to use your information, they can populate some of the information for you.
     * **Office phone**: Only your administrator can set this option.

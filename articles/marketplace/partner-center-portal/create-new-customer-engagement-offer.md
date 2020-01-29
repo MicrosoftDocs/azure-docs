@@ -7,7 +7,7 @@ ms.author: jenhayes
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 12/31/2019
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer

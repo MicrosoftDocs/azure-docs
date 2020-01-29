@@ -80,4 +80,4 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
 ## About Networking limits
 
-To learn more about Networking limits, see the [Networking section](../azure-subscription-service-limits.md#networking-limits) of the limits page or our Network Limits FAQ
+To learn more about Networking limits, see the [Networking section](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) of the limits page or our Network Limits FAQ

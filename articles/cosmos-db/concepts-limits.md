@@ -110,13 +110,14 @@ There are no restrictions on the item payloads like number of properties and nes
 
 ## Per-request limits
 
-Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases.  
+Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
 | Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 sec |
-| Maximum request size (stored procedure, CRUD)| 2 MB |
+| Maximum request size (for example, stored procedure, CRUD)| 2 MB |
 | Maximum response size (for example, paginated query) | 4 MB |
+| Maximum number of operations in a transactional batch | 100 |
 
 Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
 

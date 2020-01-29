@@ -25,7 +25,7 @@ Updates rarely affect the hosted VMs. When updates do have an effect, Azure choo
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./windows/manage-availability.md) or the corresponding article for [Linux](./linux/manage-availability.md).
 
-Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](/windows/scheduled-events.md) or for [Linux](/linux/scheduled-events.md).
+Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](./windows/scheduled-events.md) or for [Linux](./linux/scheduled-events.md).
 
 
 
@@ -39,7 +39,7 @@ Memory-preserving maintenance works for more than 90 percent of Azure VMs. It do
 
 These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals. 
 
-These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](/windows/scheduled-events.md) or [Linux](/linux/scheduled-events.md) for such applications. 
+These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](./windows/scheduled-events.md) or [Linux](./linux/scheduled-events.md) for such applications. 
 
 There is also a feature, maintenance control, in public preview that can help manage maintenance that doesn't require a reboot. You must be using either [Azure Dedicated Hosts](./linux/dedicated-hosts.md) or an [isolated VM](../security/fundamentals/isolation-choices.md). Maintenance control gives you the option to skip platform updates and apply the updates at your choice of time within a 35-day rolling window. For more information, see [Control updates with Maintenance Control and the Azure CLI](maintenance-control-cli.md).
 

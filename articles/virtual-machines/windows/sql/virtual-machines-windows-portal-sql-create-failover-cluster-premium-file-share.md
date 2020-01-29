@@ -79,7 +79,6 @@ Before you complete the steps in this article, you should already have:
    - An IP address for each FCI.
 - DNS configured on the Azure network, pointing to the domain controllers.
 - A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files.
-- A file share for backups that's different from the premium file share used for your data files. This file share can be either standard or premium.
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 

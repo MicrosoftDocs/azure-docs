@@ -1,10 +1,9 @@
 ---
 title: Common query patterns in Azure Stream Analytics
 description: This article describes a number of common query patterns and designs that are useful in Azure Stream Analytics jobs.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019

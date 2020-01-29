@@ -1,8 +1,7 @@
 ---
-title: 'Install a Point-to-Site client certificate: Azure | Microsoft Docs'
+title: 'Azure VPN Gateway: Install a Point-to-Site client certificate'
 description: Install client cert for P2S certificate authentication - Windows, Mac, Linux.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 
 ms.service: vpn-gateway

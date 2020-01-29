@@ -105,16 +105,9 @@ You can use the restore disk option if you want to:
 
 Yes, you can use backups taken before disks were migrated from unmanaged to managed.
 
-- By default, a restore VM job creates an unmanaged VM.
-- However, you can restore disks and use them to create a managed VM.
-
 ### How do I restore a VM to a restore point before the VM was migrated to managed disks?
 
-By default, a restore VM job creates a VM with unmanaged disks. To create a VM with managed disks:
-
-1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+The restore process remains the same. If the recovery point is of a point-in-time when VM had unmanaged disks, you can [restore disks as unmanaged](tutorial-restore-disk.md#unmanaged-disks-restore). If the VM had managed disks then, you can [restore disks as managed disks](tutorial-restore-disk.md#managed-disk-restore). Then you can [create a VM from those disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 

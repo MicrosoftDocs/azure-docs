@@ -61,11 +61,13 @@ Depending on what you want to review, you will create your access review in Azur
 
 To onboard access reviews, follow these steps.
 
-1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
+1. Go to the [Azure portal](https://portal.azure.com) to manage access reviews and sign in as a Global administrator or User administrator.
 
-1. In the left navigation, click **Azure Active Directory**.
+1. Search for and select **Azure Active Directory**.
 
-1. In the left menu, click **Identity Governance**.
+      ![Azure portal search for Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. Select **Identity Governance**.
 
 1. Click **Access reviews**.
  

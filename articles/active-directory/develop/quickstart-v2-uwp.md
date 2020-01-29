@@ -2,19 +2,14 @@
 title: Microsoft identity platform Windows UWP quickstart | Azure
 description: Learn how a Universal Windows Platform (XAML) application can get an access token and call an API protected by Microsoft identity platform endpoint.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
@@ -53,13 +48,12 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. Expand the **Desktop + devices** section.  (If **Desktop + devices** is not visible, first click the top banner to view the preview Authentication experience)
-> 1. Under the **Redirect URI** section, select **Add URI**.  Type **urn:ietf:wg:oauth:2.0:oob**.
+> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Select **Save**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a redirect URI as **urn:ietf:wg:oauth:2.0:oob**.
+> For the code sample for this quickstart to work, you need to add a redirect URI as **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >

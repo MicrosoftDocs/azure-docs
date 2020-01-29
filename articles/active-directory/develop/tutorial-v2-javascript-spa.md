@@ -1,6 +1,5 @@
 ---
-title: Azure AD v2.0 JavaScript single-page application (SPA) guided setup 
-titleSuffix: Microsoft identity platform
+title: JavaScript single-page app tutorial - Microsoft identity platform | Azure
 description: How JavaScript SPA applications can call an API that requires access tokens by Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name

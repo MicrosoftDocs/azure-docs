@@ -3,11 +3,11 @@ title: Monitor an Azure Cloud Service | Microsoft Docs
 description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
+ms.author: tagore
 ---
 
 # Introduction to Cloud Service Monitoring
@@ -91,4 +91,7 @@ Note that while you can use Application Insights to display the performance coun
 
 - [Learn about Application Insights with Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Set up performance counters](diagnostics-performance-counters.md)
+
+
+
 

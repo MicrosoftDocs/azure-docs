@@ -58,7 +58,7 @@ The `IAccount` interface represents information about a single account. The same
 
 Once the `AuthenticationResult` has been returned by MSAL (in `result`), you need to add it to the HTTP authorization header, before making the call to access the protected Web API.
 
-```CSharp
+```csharp
 httpClient = new HttpClient();
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 

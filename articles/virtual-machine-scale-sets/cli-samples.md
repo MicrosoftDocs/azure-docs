@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples | Microsoft Docs
-description: Azure CLI Samples
+title: Azure CLI Samples
+description: A table that includes links to sample bash scripts built using the Azure CLI, like creating and managing a scale set.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

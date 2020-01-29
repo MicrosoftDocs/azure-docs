@@ -1,14 +1,11 @@
 ---
-title: Secure B2B messages with certificates - Azure Logic Apps | Microsoft Docs
+title: Secure B2B messages with certificates
 description: Add certificates to secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ---

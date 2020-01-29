@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: nberdy
+ms.author: rezas
 ---
 
 # Understand and invoke direct methods from IoT Hub

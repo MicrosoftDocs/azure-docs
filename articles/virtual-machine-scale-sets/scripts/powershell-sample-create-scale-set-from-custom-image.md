@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples - Use a custom VM image | Microsoft Docs
-description: Azure PowerShell Samples
+title: Azure PowerShell Samples - Use a custom VM image
+description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -94,7 +94,7 @@ For example, if your on-premises installation uses a data disk that is assigned 
 1. On the on-premises machine (not the host server) open an elevated command prompt.
 2. Type **diskpart**.
 3. Type **SAN**. If the drive letter of the guest operating system isn't maintained, **Offline All** or **Offline Shared** is returned.
-4. At the **DISKPART** prompt, type **SANPOLICY=ONLINEALL**. This setting ensures that disks are brought online, and are both readable and writeable.
+4. At the **DISKPART** prompt, type **SAN Policy=OnlineAll**. This setting ensures that disks are brought online, and are both readable and writeable.
 5. During the test migration, you can verify that the drive letters are preserved.
 
 
