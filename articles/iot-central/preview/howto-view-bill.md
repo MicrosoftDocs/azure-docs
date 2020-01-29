@@ -49,7 +49,7 @@ In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan
 
 1. Go to the **Pricing** page in the **Administration** section.
 
-    ![Trial state](media/howto-administer/pricing.png)
+    ![Trial state](media/howto-view-bill/pricing.png)
 
 1. Select the **Plan** and click **Save** to upgrade or downgrade.
 
