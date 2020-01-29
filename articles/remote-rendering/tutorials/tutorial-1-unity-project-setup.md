@@ -36,7 +36,7 @@ For this tutorial you need:
 
 ## Prepare a folder
 
-1. Create a folder that will hold the NuGet packages and Unity project folder. You can use this folder to store multiple Unity projects, if needed. For this tutorial we assume the folder path is `C:\RemoteRendering\`.
+1. Create a folder that will hold the NuGet packages and Unity project folder, for example `C:\RemoteRendering\`. You can use this folder to store multiple Unity projects, if needed.
 
 1. Install the latest NuGet packages:
 
@@ -52,13 +52,13 @@ For this tutorial you need:
 
 ## Create a new Unity project
 
-From the Unity Hub, create a new project in the folder created above (e.g. `C:\RemoteRendering\`).
+From the Unity Hub, create a new project in the folder created above (for example, `C:\RemoteRendering\`).
 
 ![new project window](media/new-project.png)
 
 ## Configure the project's manifest
 
-You need to modify the file `Packages/manifest.json` inside your Unity project folder. Open the file in a text editor and append the lines listed below:
+You need to modify the file `Packages/manifest.json` that's located in your Unity project folder. Open the file in a text editor and append the lines listed below:
 
 ```json
 {
@@ -76,7 +76,7 @@ You need to modify the file `Packages/manifest.json` inside your Unity project f
 > [!IMPORTANT]
 > The relative paths used above expect that the NuGet packages were installed next to the Unity project. If you installed them somewhere else you need to adjust the paths accordingly.
 
-Once the manifest has been modified, Unity will refresh. Confirm the packages have been loaded in the *Project* window:
+After you modified and saved the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
 
 ![confirm package imports](media/confirm-packages.png)
 
@@ -126,11 +126,11 @@ Select the **Main Camera** node.
     * **SpatialPerception**
     * Optional for development: **PrivateNetworkClientServer**
 
-      This is needed if you want to connect the Unity remote debugger to your device.
+      This option is needed if you want to connect the Unity remote debugger to your device.
 
-1. In **Supported Device Families** enable **Holographic**
+1. In **Supported Device Families**, enable **Holographic**
 
-1. If you want to use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview) for more information on recommended settings and capabilities.
+1. If you want to use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), for more information on recommended settings and capabilities.
 
 ## Create a script to initialize Azure Remote Rendering
 
@@ -276,14 +276,12 @@ public class RemoteRendering : MonoBehaviour
 }
 ```
 
-This script will initialize Azure Remote Rendering, tell it which camera object to use for rendering, and place a **Create Session** button into the viewport when *Play Mode* is activated.
+This script initializes Azure Remote Rendering, tell it which camera object to use for rendering, and places a **Create Session** button into the viewport, when *Play Mode* is activated.
 
 > [!CAUTION]
 > Modifying the script and saving it while the play mode is active in Unity may result in Unity freezing and you are forced to shut it down through the task manager. Therefore, always stop the play mode before editing the *RemoteRendering* script.
 
 ## Test Azure Remote Rendering session creation
-
-Now that we have a script that sets up ARR and is able to start and stop sessions, it is time to try it out.
 
 Create a new GameObject in the scene and add the *RemoteRendering* component to it. Fill in the appropriate *Account Domain*, *Account Id*, and *Account Key* for your Remote Rendering account:
 
@@ -293,7 +291,7 @@ Start the application in the editor (**press Play** or CTRL+P). You should see t
 
 ![Creating a first session](media/test-create.png)
 
-If this fails, make sure you entered your account details correctly into the RemoteRendering component properties. If everything is in order, a message will appear in the console window showing the session ID assigned to you and stating that the session is currently in the *Starting* state:
+If this fails, make sure you entered your account details correctly into the RemoteRendering component properties. Otherwise, a message will appear in the console window showing the session ID assigned to you, and stating that the session is currently in the *Starting* state:
 
 ![Session starting output](media/create-session-output.png)
 
@@ -301,12 +299,12 @@ At this point Azure is provisioning a server for you and starting up a remote re
 
 ![Session ready output](media/create-session-output-2.png)
 
-This is it! For the time being nothing more will happen. To prevent charges, you should always stop sessions when they are not needed anymore. In this sample you can either do this by clicking the **Stop Session** button or by simply stopping the Unity simulation. Due to the **Auto-Stop Session** property on the *ARRServiceUnity* component, which is on by default, the session will be stopped automatically for you. If everything fails, due to crashes or connection issues, your session may run for as long as your *MaxLeaseTime* before it is shut down by the server.
+This is it! For the time being nothing more will happen. To prevent charges, you should always stop sessions when they are not needed anymore. In this sample you can either do this by clicking the **Stop Session** button or by stopping the Unity simulation. Due to the **Auto-Stop Session** property on the *ARRServiceUnity* component, which is on by default, the session will be stopped automatically for you. If everything fails, due to crashes or connection issues, your session may run for as long as your *MaxLeaseTime* before it is shut down by the server.
 
 > [!NOTE]
 > Stopping a session will take immediate effect and cannot be undone. Once stopped, you have to create a new session, with the same startup overhead.
 
-## Re-using sessions
+## Reusing sessions
 
 Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible.
 
@@ -400,12 +398,12 @@ Insert the following code into the *RemoteRendering* script and remove the old v
 > [!CAUTION]
 > Before you run this code, make sure to deactivate the option **Auto-Stop Session** in the RemoteRendering component. Otherwise every session that you create will be automatically stopped when you stop the simulation, and attempting to reuse it will fail.
 
-When you press *Play*, you now get three buttons in the viewport: **Create Session**, **Query Active Sessions**, and **Use Existing Session**. The first button always creates a new session. The second button queries which *active* sessions exists. If you did not manually specify a session ID to try to use, this action will automatically select that session ID for future use. The third button attempts to connect to an existing session. Either one that you specified manually through the *Session Id* component property, or one found by *Query Active Sessions*.
+When you press *Play*, you now get three buttons in the viewport: **Create Session**, **Query Active Sessions**, and **Use Existing Session**. The first button always creates a new session. The second button queries which *active* sessions exist. If you did not manually specify a session ID to try to use, this action will automatically select that session ID for future use. The third button attempts to connect to an existing session. Either one that you specified manually through the *Session Id* component property, or one found by *Query Active Sessions*.
 
 > [!TIP]
 > It is possible to open sessions that have been stopped, expired or are in an error state. While they cannot be used for rendering anymore, you can query their details, once you opened an inactive session. The code above checks a session's status in `ARRService_OnSessionStarted`, to automatically stop when the session has become unusable.
 
-With this functionality you can now create and reuse sessions, which should improve your development workflow significantly.
+With this functionality, you can now create and reuse sessions, which should improve your development workflow significantly.
 
 Typically, creating a session would be triggered outside of the client application because of the time required to spin up the server.
 
@@ -533,16 +531,16 @@ Insert the following code into the *RemoteRendering* script and remove the old v
 #endif
 ```
 
-To test this:
+To test this functionality:
 
 1. Press **Play** in Unity.
 1. Open a session:
     1. If you already have a session, press **Query Active Sessions** and then **Use Existing session**.
-    1. If you do not have a running session yet, press **Create Session**.
+    1. Otherwise, press **Create Session**.
 1. Press **Connect**.
-1. After a few seconds the console output should print that you are now connected.
+1. After a few seconds, the console output should print that you are connected.
 1. For now, nothing else should happen.
-1. Press **Disconnect** or simply stop Unity's play mode.
+1. Press **Disconnect** or stop Unity's play mode.
 
 >[!NOTE]
 > Multiple users can *open* a session to query its information, but only one user can be *connected* to a session at a time. If another user is already connected, the connection will fail with a **handshake error**.
@@ -760,7 +758,7 @@ Now, when connected to the remote session, the text should show the streaming st
 
 ## Next steps
 
-In this tutorial you have learned all the steps necessary to take a blank Unity project and get it working with Azure Remote Rendering. In the next tutorial we will take a closer look at how to work with remote entities.
+In this tutorial, you learned all the steps necessary to take a blank Unity project and get it working with Azure Remote Rendering. In the next tutorial, we will take a closer look at how to work with remote entities.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Working with remote entities](./tutorial-2-working-with-remote-entities.md)
