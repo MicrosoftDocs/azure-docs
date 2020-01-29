@@ -51,8 +51,6 @@
       href: load-balancer-query-metrics-rest-api.md
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md
-  - name: IPv6 support
-    href: https://docs.microsoft.com/azure/virtual-network/ipv6-overview
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
