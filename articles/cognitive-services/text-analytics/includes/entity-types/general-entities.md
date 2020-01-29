@@ -13,7 +13,7 @@ ms.author: aahi
 ## General entity types:
 
 ### Person
-Recognized names and other persons in text.
+Recognize person names in text.
 
 Languages:
 * Public preview: `English`
