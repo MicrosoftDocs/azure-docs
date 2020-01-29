@@ -24,7 +24,7 @@ This document walks through the process of programmatically creating and publish
 
 ## Overview
 
-Shared dashboards in the [Azure portal](https://portal.azure.com) are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts. You can manage resources programmatically by using the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure), and [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps).  
+Shared dashboards in the [Azure portal](https://portal.azure.com) are [resources](../azure-resource-manager/management/overview.md) just like virtual machines and storage accounts. You can manage resources programmatically by using the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](/cli/azure), and [Azure PowerShell commands](/powershell/azure/get-started-azureps).  
 
 Many features build on these APIs to make resource management easier. Each of these APIs and tools offers ways to create, list, retrieve, modify, and delete resources. Since dashboards are resources, you can pick your favorite API or tool to use.
 
@@ -34,7 +34,7 @@ The most practical way to build up this JSON document is to use the Azure portal
 
 ## Create a dashboard
 
-To create a dashboard, select **New dashboard** in the Azure portal Dashboard view.
+To create a dashboard, select **Dashboard** from the [Azure portal](https://portal.azure.com) menu, then select **New dashboard**.
 
 ![new dashboard command](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
@@ -48,11 +48,11 @@ Others have fixed sizes to choose from in their context menu.
 
 ## Share the dashboard
 
-After you configure the dashboard, the next steps are to publish the dashboard using the **Share** command and then use the resource explorer to fetch the JSON.
+After you configure the dashboard, the next steps are to publish the dashboard using the **Share** command and then use the Resource Explorer to fetch the JSON.
 
 ![sharing a dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove role assignments using Azure RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ![make changes to sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -62,7 +62,7 @@ Publishing only takes a few seconds.  When it's done, the next step is to go to 
 
 ![browse Resource Explorer](./media/azure-portal-dashboards-create-programmatically/search-resource-explorer.png)
 
-From the resource explorer, navigate to the subscription and resource group that you chose. Next, select the newly published dashboard resource to reveal the JSON.
+From the Resource Explorer, navigate to the subscription and resource group that you chose. Next, select the newly published dashboard resource to reveal the JSON.
 
 ![view JSON in Resource Explorer](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json-detail.png)
 
@@ -78,14 +78,14 @@ To publish this dashboard for any virtual machine in the future, parameterize ev
 
 There are two approaches for APIs that create resources in Azure:
 
-* Imperative APIs create one resource at a time. For more information, see [Resources](https://docs.microsoft.com/rest/api/resources/resources).
-* A template-based deployment system that creates multiple, dependent resources with a single API call. For more information, see  [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+* Imperative APIs create one resource at a time. For more information, see [Resources](/rest/api/resources/resources).
+* A template-based deployment system that creates multiple, dependent resources with a single API call. For more information, see  [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 Template-based deployment supports parameterization and templating. We use this approach in this article.
 
 ## Programmatically create a dashboard from your template using a template deployment
 
-Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Parameterization should be done using the template's parameter syntax.  You replace all instances of the resource ID we found earlier as shown here.
 
@@ -101,7 +101,7 @@ Example JSON property converted to a parameterized version based on template par
 id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
 ```
 
-Declare some required template metadata and the parameters at the top of the JSON template like this:
+Declare required template metadata and the parameters at the top of the JSON template like this:
 
 ```json
 
@@ -128,9 +128,9 @@ You can see the full, working template at the end of this document.
 
 Once you've configured your template, deploy it using any of the following methods:
 
-* [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments)
-* [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create)
+* [REST APIs](/rest/api/resources/deployments)
+* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
 * [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 
 Here are two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any virtual machine and deployed using Azure Resource Manager.

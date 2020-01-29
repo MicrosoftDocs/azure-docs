@@ -19,7 +19,7 @@ ms.author: mblythe
 ---
 # Create and share dashboards in the Azure portal
 
-Dashboards are a focused and organized view in the Azure portal of your cloud resources. Use dashboards as a workspace where you can quickly launch tasks for day-to-day operations and monitor resources. Build custom dashboards based on projects, tasks, or user roles, for example.
+Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can quickly launch tasks for day-to-day operations and monitor resources. Build custom dashboards based on projects, tasks, or user roles, for example.
 
 The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard. Create and customize additional dashboards, and publish and share dashboards to make them available to other users. This article describes how to create a new dashboard, customize the interface, and publish and share dashboards.
 
@@ -37,7 +37,7 @@ In this example, we create a new, private dashboard and assign a name. Follow th
 
     ![Screenshot of default dashboard](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-1. This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
+    This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
 
     ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
 

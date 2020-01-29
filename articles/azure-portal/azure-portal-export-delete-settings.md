@@ -28,7 +28,7 @@ It's a good idea to export and review your settings before you delete them. Rebu
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the header of the portal, select **Settings**.
+1. In the header of the portal, select ![settings icon](media/azure-portal-export-delete-settings/settings-icon.png) **Settings**.
 
 1. Select **Export all settings** or **Delete all settings and private dashboards**.
 
