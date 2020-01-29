@@ -230,7 +230,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ||||
 
 
-## <a name="alerts-akscluster"></a>Alerts for AKS cluster level
+## <a name="alerts-akscluster"></a>Alerts for containers - Azure Kubernetes Service clusters
 
 [Further details and notes](security-center-alerts-compute.md#azure-containers-)
 
@@ -245,7 +245,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 |**PREVIEW - Container with a sensitive volume mount detected**|Kubernetes audit log analysis detected a new container with a sensitive volume mount. The volume that was detected is a hostPath type that mounts a sensitive file or folder from the node to the container. If the container gets compromised, the attacker can use this mount to gain access to the node.|PrivilegeEscalation|
 ||||
 
-## <a name="alerts-containerhost"></a>Alerts for Containers' host level
+## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
 [Further details and notes](security-center-alerts-compute.md#azure-containers-)
 
@@ -300,7 +300,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 ||||
 
 
-## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+## <a name="alerts-azurecosmos"></a>Alerts for Azure Cosmos DB (Preview)
 
 [Further details and notes](security-center-alerts-data-services.md#azure-cosmos-db)
 
