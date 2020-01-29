@@ -45,7 +45,7 @@ Media Analytics media processors produce MP4 files or JSON files. If a media pro
 ## Media Analytics services
 
 ### Indexer
-With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. For detailed information and examples, see [Indexing Media Files with Azure Media Indexer](media-services-index-content).
+With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. For detailed information and examples, see [Indexing Media Files with Azure Media Indexer](media-services-index-content.md).
 
 ### Motion Detector
 You can use Motion Detector to detect motion in a video with stationary backgrounds. This makes it possible to check for false positives on motion events detected by surveillance cameras. For detailed information and examples, see [Motion detection for Azure Media Analytics](media-services-motion-detection.md).
