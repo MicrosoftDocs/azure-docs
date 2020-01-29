@@ -28,10 +28,6 @@ ms.reviewer: assafi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
-## Setting up
-
-### Create a Text Analytics Azure resource
-
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
 ### Create a new .NET Core application
