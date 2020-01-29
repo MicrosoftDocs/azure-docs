@@ -93,5 +93,5 @@ If you create a new Jupyter notebook and receive one of the errors listed above,
 
     And save the file. 
 
-    If version_info is already set to (5, 0, 3), then continue to the next step as only Ambari needs to be restarted, no additional changes are needed.
+    If version_info is already set to (4, 4, 0), then continue to the next step as only Ambari needs to be restarted, no additional changes are needed.
 1. Go back to Ambari, and in **Service Actions**, click **Restart All**.
