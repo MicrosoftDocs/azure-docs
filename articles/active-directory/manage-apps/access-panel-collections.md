@@ -24,7 +24,22 @@ ms.collection: M365-identity-device-management
 Your users can use the My Apps portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up collections. With a collection, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A collection essentially applies a filter to the applications a user can already access, so the user sees only those applications in the collection that have been assigned to them.
 
 > [!NOTE]
-> This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-collections).
+> This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+
+## Enable My Apps preview features
+
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a user administrator or Global Administrator.
+
+2. Go to **Azure Active Directory** > **User settings**.
+
+3. Under **User feature previews**, select **Manage user feature preview settings**.
+
+4. Under **Users can use preview features for My Apps**, choose one of the following options:
+   * **Selected** - Enables preview features for a specific group. Use the **Select a group** option to select the group for which you want to enable preview features.  
+   * **All** - Enables preview features for all users.
+
+> [!NOTE]
+> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. After you enable the new My Apps experience, the **An updated My Applications experience is available** banner will display at the top of the My Apps page, and users can select **Try it** to view the new experience. To stop using the new experience, users can select **Yes** from the **Leave new experience** banner at the top of the page.
 
 ## Create a collection
 
