@@ -143,6 +143,8 @@ No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t f
 
 Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
 
+Features (Eventlogs, Powershell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client do not work through Azure AD Application Proxy presently.
+
 ## Link translation
 
 ### Does using Link translation affect performance?
