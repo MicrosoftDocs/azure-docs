@@ -70,6 +70,7 @@ Chaos will automatically schedule runs based on the Chaos Schedule. The Chaos Sc
 The following command sets a schedule (assuming the current schedule has version 0) that starts
 on 2016-01-01 and expires on 2038-01-01 that runs Chaos 24 hours of the day, 7 days a week.
 Chaos will be scheduled on the cluster for that time.
+```
 sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
@@ -131,7 +132,7 @@ sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z"
         ]
     }
     ]
-
+```
 
 
 
