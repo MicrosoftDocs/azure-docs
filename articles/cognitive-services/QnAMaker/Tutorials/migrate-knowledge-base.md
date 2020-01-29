@@ -38,7 +38,7 @@ Migrating a knowledge base requires exporting from one knowledge base, then impo
 1. In this new knowledge base, open the **Settings** tab and select **Import knowledge base**. This imports the questions, answers, metadata, follow-up prompts, and retains the data source names from which they were extracted.
 
    > [!div class="mx-imgBorder"]
-   > ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
+   > [![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 1. **Publish** the knowledge base. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
