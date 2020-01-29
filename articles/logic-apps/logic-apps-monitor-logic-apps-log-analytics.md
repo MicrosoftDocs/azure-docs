@@ -186,6 +186,95 @@ You can then select the destinations where you want to send that data. Retention
 
 ![Send data to Azure storage account or event hub](./media/logic-apps-monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
 
+<a name="diagnostic-event-properties"></a>
+
+## Azure Monitor diagnostics events
+
+Each diagnostic event has details about your logic app and that event, for example, the status, start time, end time, and so on. To programmatically set up monitoring, tracking, and logging, you can use this information with the [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) and the [REST API for Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). You can also use the `clientTrackingId` and `trackedProperties` properties, which appear in 
+
+* `clientTrackingId`: If not provided, Azure automatically generates this ID and correlates events across a logic app run, including any nested workflows that are called from the logic app. You can manually specify this ID in a trigger by passing a `x-ms-client-tracking-id` header with your custom ID value in the trigger request. You can use a request trigger, HTTP trigger, or webhook trigger.
+
+* `trackedProperties`: To track inputs or outputs in diagnostics data, you can add a `trackedProperties` section to an action either by using the Logic App Designer or directly in your logic app's JSON definition. Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a run. To track more than one property, one or more properties, add the `trackedProperties` section and the properties that you want to the action definition.
+
+  Here's an example that shows how the **Initialize variable** action definition includes tracked properties from the action's input where the input is an array, not a record.
+
+  ``` json
+  {
+     "Initialize_variable": {
+        "type": "InitializeVariable",
+        "inputs": {
+           "variables": [
+              {
+                 "name": "ConnectorName", 
+                 "type": "String", 
+                 "value": "SFTP-SSH" 
+              }
+           ]
+        },
+        "runAfter": {},
+        "trackedProperties": { 
+           "myTrackedPropertyName": "@action().inputs.variables[0].value"
+        }
+     }
+  }
+  ```
+
+  This example show multiple tracked properties:
+
+  ``` json
+  "HTTP": {
+     "type": "http",
+     "inputs": {
+        "uri": "http://uri",
+        "headers": {
+           "Content-Type": "application/json"
+        },
+        "body": "@triggerBody()"
+     },
+     "trackedProperties": {
+        "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
+        "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
+        "transactionId": "@action()['inputs']['body']['<content>']"
+     }
+  }
+  ```
+
+This example shows how the `ActionCompleted` event includes the `clientTrackingId` and `trackedProperties` attributes:
+
+```json
+{
+   "time": "2016-07-09T17:09:54.4773148Z",
+   "workflowId": "/subscriptions/XXXXXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Logic/workflows/MyLogicApp",
+   "resourceId": "/subscriptions/<subscription-ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Logic/workflows/MyLogicApp/runs/<run-ID>/actions/Http",
+   "category": "WorkflowRuntime",
+   "level": "Information",
+   "operationName": "Microsoft.Logic/workflows/workflowActionCompleted",
+   "properties": {
+      "$schema": "2016-06-01",
+      "startTime": "2016-07-09T17:09:53.4336305Z",
+      "endTime": "2016-07-09T17:09:53.5430281Z",
+      "status": "Succeeded",
+      "code": "OK",
+      "resource": {
+         "subscriptionId": "<subscription-ID>",
+         "resourceGroupName": "MyResourceGroup",
+         "workflowId": "<logic-app-workflow-ID>",
+         "workflowName": "MyLogicApp",
+         "runId": "08587361146922712057",
+         "location": "westus",
+         "actionName": "Http"
+      },
+      "correlation": {
+         "actionTrackingId": "e1931543-906d-4d1d-baed-dee72ddf1047",
+         "clientTrackingId": "<my-custom-tracking-ID>"
+      },
+      "trackedProperties": {
+         "myTrackedProperty": "<value>"
+      }
+   }
+}
+```
+
 ## Next steps
 
 * [Create monitoring and tracking queries](../logic-apps/logic-apps-create-monitoring-tracking-queries.md)
