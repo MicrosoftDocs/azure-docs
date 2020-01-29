@@ -45,7 +45,6 @@ You can create IoT Central application with generally available features by sele
 > [!NOTE]
 > The preview application templates are currently only available in the **Europe** and **United States** locations.
 
-![Management portal: create IoT Central resource](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 After filling out all fields, select **Create**.
 
