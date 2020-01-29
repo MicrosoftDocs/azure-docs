@@ -96,7 +96,7 @@ The feature is in preview also for Linux. To use the VNet Integration feature wi
 
 Once your app is integrated with your VNet, it will use the same DNS server that your VNet is configured with. 
 
-Regional VNet Integration requires your integration subnet to be delegated to Microsoft.Web.  The VNet Integration UI will delegate the subnet to Microsoft.Web automatically. If your account does not have sufficient networking permissions to set this, you will need someone who can set attributes on your integration subnet to do delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set delegation for Microsoft.Web.
+Regional VNet Integration requires your integration subnet to be delegated to Microsoft.Web/serverFarms.  The VNet Integration UI will delegate the subnet to Microsoft.Web/serverFarms automatically. If your account does not have sufficient networking permissions to set this, you will need someone who can set attributes on your integration subnet to do delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set delegation for Microsoft.Web/serverFarms.
 
 To disconnect your app from the VNet, select **Disconnect**. This will restart your web app. 
 
