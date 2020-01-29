@@ -1,6 +1,6 @@
 ---
-title: How reservation recommendations are created
-description: Learn how reservation recommendations are created for virtual machines.
+title: How Azure reservation recommendations are created
+description: Learn how Azure reservation recommendations are created for virtual machines.
 author: banders
 ms.reviewer: yashar
 ms.service: cost-management-billing

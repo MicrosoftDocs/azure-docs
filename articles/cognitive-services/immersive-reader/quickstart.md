@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 01/14/2020
 ms.author: metan
 #Customer intent: As a developer, I want to quickly integrate the Immersive Reader into my web application so that I can see the Immersive Reader in action and understand the value it provides.
 ---
