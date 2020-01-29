@@ -142,7 +142,7 @@ You can now explore the scene graph by selecting the new node and clicking **Sho
 
 Try moving objects or the [cut plane](../sdk/features-cut-planes.md) around:
 
-![Changing the cutplane](media/arr-sample-unity-cutplane.png)
+![Changing the cut plane](media/arr-sample-unity-cutplane.png)
 
 To synchronize transforms, either click **Sync now** or check the **Sync every frame** option. For component properties, just changing them is enough.
 
