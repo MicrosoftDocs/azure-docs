@@ -82,7 +82,7 @@ If you create a new Jupyter notebook and receive one of the errors listed above,
 1. In Ambari, on the left menu, click **Jupyter**, then on **Service Actions**, click **Stop**.
 1. ssh into the cluster headnode where the Jupyter service is running.
 1. Open the following file /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py in sudo mode.
-1. Check the value of the version_info.
+1. Check the value of version_info.
 1. If the value of version_info is set to: 
 
     version_info = (5, 0, 3)
