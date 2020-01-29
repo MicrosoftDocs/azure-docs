@@ -1,6 +1,6 @@
 ---
 title: Integrate with Azure Private Link Service
-description: Learn how to integrate Azure Key Vaulk with Azure Private Link Service
+description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/28/2020
@@ -56,7 +56,7 @@ After configuring the key vault basics, select the Networking tab and follow the
     ![Image](./media/private-link-service-2.png)
  
 You will now be able to see the configured private endpoint. You now have the option to delete and edit this private endpoint. 
-Select the "Review + Create" button and create the key vault. It will take approximately 5-10 minutes for the deployment to complete. 
+Select the "Review + Create" button and create the key vault. It will take 5-10 minutes for the deployment to complete. 
 
 ### Establish a private link connection to an existing key vault
 
@@ -64,7 +64,7 @@ If you already have a key vault, you can create a private link connection by fol
 
 1. Sign in to the Azure portal. 
 1. In the search bar, type in "key vaults"
-1. Select the key vault which you want to add a private endpoint to from the list.
+1. Select the key vault from the list to which you want to add a private endpoint.
 1. Select the "Networking" tab under Settings
 1. Select the Private endpoint connections (preview) tab at the top of the page
 1. Select the "+ Private Endpoint" button at the top of the page.
@@ -72,7 +72,7 @@ If you already have a key vault, you can create a private link connection by fol
     ![Image](./media/private-link-service-3.png)
     ![Image](./media/private-link-service-4.png)
 
-Please note, you can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
+You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
 
 ![Image](./media/private-link-service-3.png)
 ![Image](./media/private-link-service-4.png)
@@ -88,13 +88,13 @@ There are four provisioning states:
 | None | Pending | Connection is created manually and is pending approval from the Private Link resource owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
-| Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean up. |
+| Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connections to key vault
+###  How to manage a private endpoint connection to key vault
 
-1. Log in to the Azure Portal.
+1. Log in to the Azure portal.
 1. In the search bar, type in "key vaults"
-1. Select the key vault which you want to manage.
+1. Select the key vault that you want to manage.
 1. Select the "Networking" tab.
 1. If there are any connections that are pending, you will see a connection listed with "Pending" in the provisioning state. 
 1. Select the private endpoint you wish to approve
@@ -105,7 +105,7 @@ There are four provisioning states:
 
 ## Validate that the private link connection works 
 
-You should now validate that the resources within the same subnet of the private endpoint resource are connecting to your key vault over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that the resources within the same subnet of the private endpoint resource are connecting to your key vault over a private IP address, and that they have the correct private DNS zone integration.
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
@@ -147,7 +147,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## Limitations and Design Considerations
 
-**Pricing:**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
+**Pricing**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitations**:  Private Endpoint for Azure Key Vault is in public preview. This feature is available in all Azure public regions.
 
