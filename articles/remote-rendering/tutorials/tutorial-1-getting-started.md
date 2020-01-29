@@ -541,20 +541,12 @@ To test this:
 >[!NOTE]
 > Multiple users can *open* a session to query its information, but only one user can be *connected* to a session at a time. If another user is already connected, the connection will fail with a **handshake error**.
 
+## Load a built-in model
 
-
-
-## Loading a model
-
-Create a load function that will use the built-in model. The _[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html)_ is an important component used for [hologram stability](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). This will only have effect when deployed on a Mixed Reality device.
+Insert the following code into the *RemoteRendering* script and remove the old versions of the duplicate functions:
 
 ```csharp
-#if UNITY_WSA
-    using UnityEngine.XR.WSA;
-#endif
-```
 
-```csharp
     public string ModelName = "builtin://UnitySampleModel";
 
     private Entity modelEntity = null;
@@ -563,35 +555,20 @@ Create a load function that will use the built-in model. The _[WorldAnchor](http
 #if UNITY_WSA
     private WorldAnchor modelWorldAnchor = null;
 #endif
-```
 
-```csharp
     public async void LoadModel()
     {
-        if (!isConnected)
-        {
-            return;
-        }
-
-        if (modelEntity != null)
-        {
-            DestroyModel();
-        }
-
         // create a root object to parent a loaded model to
-        modelEntity = RemoteManager.CreateEntity();
+        modelEntity = arrService.CurrentActiveSession.Actions.CreateEntity();
 
-        // get the gameobject represetntation of this entity
+        // get the game object representation of this entity
         modelEntityGO = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 
         // ensure the entity will sync translations with the server
         var sync = modelEntityGO.GetComponent<RemoteEntitySyncObject>();
-        if (sync != null)
-        {
-            sync.SyncEveryFrame = true;
-        }
+        sync.SyncEveryFrame = true;
 
-        // set postion to an arbitrary distance from the parent
+        // set position to an arbitrary distance from the parent
         modelEntityGO.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
         modelEntityGO.transform.localScale = Vector3.one;
 
@@ -599,9 +576,6 @@ Create a load function that will use the built-in model. The _[WorldAnchor](http
         // anchor the model in the world
         modelWorldAnchor = modelEntityGO.AddComponent<WorldAnchor>();
 #endif
-
-        // load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams(ModelName, modelEntity.Id);
 
         // load a model that will be parented to the entity
         var loadModelParams = new LoadModelParams(ModelName, modelEntity);
@@ -613,16 +587,12 @@ Create a load function that will use the built-in model. The _[WorldAnchor](http
 
         await async.AsTask();
     }
-```
 
-To unload the model, call Destroy() on the entity object, but also its GameObject:
-
-```csharp
     public void DestroyModel()
     {
         if (modelEntity == null)
         {
-                return;
+            return;
         }
 
 #if UNITY_WSA
@@ -634,69 +604,144 @@ To unload the model, call Destroy() on the entity object, but also its GameObjec
 
         DestroyImmediate(modelEntityGO);
     }
-```
 
-Update the UI:
-
-```csharp
-    private void OnGUI()
-    {
-        ...
-
-        y += 40;
-
-        if (isConnected)
-        {
-            if (modelEntity == null)
-            {
-                if (GUI.Button(new Rect(10, y, 175, 30), "Load Model"))
-                {
-                    LoadModelAsync();
-                }
-            }
-            else
-            {
-                if (GUI.Button(new Rect(10, y, 175, 30), "Destroy Model"))
-                {
-                    DestroyModel();
-                }
-            }
-        }
-    }
-```
-
-![model loaded in the editor](media/model-loaded-replace-me.png)
-
-Update the Disconnect function to destroy any models that had been loaded
-
-```csharp
     public void DisconnectSession()
     {
-        if (!isConnected)
+        if (isConnected)
         {
-            return;
+            arrService.CurrentActiveSession?.DisconnectFromRuntime();
         }
 
         DestroyModel();
-        ...
     }
+
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        if (arrService.CurrentActiveSession == null)
+        {
+            if (GUI.Button(new Rect(10, 10, 175, 30), "Create Session"))
+            {
+                CreateSession();
+            }
+
+            if (GUI.Button(new Rect(10, 50, 175, 30), "Query Active Sessions"))
+            {
+                QueryActiveSessions();
+            }
+
+            if (!string.IsNullOrEmpty(SessionId))
+            {
+                if (GUI.Button(new Rect(10, 90, 175, 30), "Use Existing Session"))
+                {
+                    UseExistingSession();
+                }
+            }
+        }
+        else
+        {
+            if (GUI.Button(new Rect(10, 10, 175, 30), "Stop Session"))
+            {
+                StopSession();
+            }
+
+            if (arrService.LastProperties.Status == RenderingSessionStatus.Ready)
+            {
+                if (!isConnected)
+                {
+                    if (GUI.Button(new Rect(10, 50, 175, 30), "Connect"))
+                    {
+                        ConnectSession();
+                    }
+                }
+                else
+                {
+                    if (GUI.Button(new Rect(10, 50, 175, 30), "Disconnect"))
+                    {
+                        DisconnectSession();
+                    }
+
+                    if (modelEntity == null)
+                    {
+                        if (GUI.Button(new Rect(10, 90, 175, 30), "Load Model"))
+                        {
+                            LoadModel();
+                        }
+                    }
+                    else
+                    {
+                        if (GUI.Button(new Rect(10, 90, 175, 30), "Destroy Model"))
+                        {
+                            DestroyModel();
+                        }
+                    }
+                }
+            }
+        }
+    }
+#endif
 ```
 
-## Show frame statistics data
+When you now press play, open a session and connect to it, the **Load Model** button appears. After clicking it, the console output will show the loading progress and when it reaches 100% you should see the model of an engine appear:
 
-In this part of the tutorial, use the provided script that will be used to show the rendering statistics for the connected session. In the tutorial folder, copy the RemoteFrameStats.cs file to your project
+![Model loaded in the editor](media/model-loaded-replace-me.png)
 
-Create a GameObject and rename it FrameStats and set its z position 0.325 units away from the camera and add the RemoteFrameStats component to the GameObject.
+The [WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) is an important component used for [hologram stability](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). However, it will only have effect when deployed on a Mixed Reality device.
 
-Add a Canvas as a child of the FrameStats GameObject and set the properties as shown:
+## Display frame statistics
+
+Azure Remote Rendering tracks various information about the quality of the connection. For a quick way to display this information do the following:
+
+Create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) and give it the name **RemoteFrameStats**. Open the script file and replace its entire content with the code below:
+
+```csharp
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class RemoteFrameStats : MonoBehaviour
+{
+    public Text FrameStats = null;
+
+    ARRServiceStats arrServiceStats = null;
+
+    private void OnEnable()
+    {
+        arrServiceStats = new ARRServiceStats();
+    }
+
+    void Update()
+    {
+        if (!RemoteManagerUnity.IsConnected)
+        {
+            FrameStats.text = string.Empty;
+            return;
+        }
+
+        arrServiceStats.Update(RemoteManagerUnity.CurrentSession);
+
+        if (FrameStats != null)
+        {
+            FrameStats.text = arrServiceStats.GetStatsString();
+        }
+    }
+}
+```
+
+Create a GameObject and name it *FrameStats*. Attach it as a child node to the *Main Camera* object and set its position to **x = 0, y = 0, z = 0.325**. Add the **RemoteFrameStats** component to the object.
+
+Add a **UI > Canvas** child object to the *FrameStats* object and set its properties like this:
 
 ![canvas properties](media/framestats-canvas.png)
 
-Add a UI Text object as a child of the Canvas and set its properties as shown:
+Add a **UI > Text** object as a child of the canvas and set its properties like this:
 
 ![text properties](media/framestats-text.png)
 
-With the FrameStats GameObject selected in the Hierarchy, populate the FrameStats field with the Text object. In the Unity Editor, you should see something like this:
+Select the *FrameStats* object and populate the **FrameStats field** by clicking on the circle icon and selecting the **Text** object:
 
 ![setting text property](media/framestats-set-text.png)
 
@@ -706,5 +751,9 @@ Now, when connected to the remote session, the text should show the streaming st
 
 ## Next steps
 
+In this tutorial you have learned all the steps necessary to take a blank Unity project and get it working with Azure Remote Rendering. So far you are only rendering the built-in model, but if you followed the [second quickstart guide](../quickstarts/quickstart-convert-model.md), you already know how to convert your own models. All you need to do is to plug in such an URI into the *Model Name* property of your *Remote Rendering* script.
+
+In the next tutorial we will take a closer look at how to work with remote entities.
+
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](./tutorial-2-working-with-remote-entities.md)
+> [Tutorial: Working with remote entities](./tutorial-2-working-with-remote-entities.md)
