@@ -17,7 +17,7 @@ You can enable Azure Arc for servers (preview) for one or a small number of Wind
 
 This installation method requires that you have administrative rights on the machine to install and configure the agent. On Linux, using the root account and on Windows, you are member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements. 
+Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -130,63 +130,38 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 ```
 
+### Configure agent communication
 
+After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
 
+`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
+## Verify connection with Azure Arc
 
-With the script you just created, you need to copy it to the target machine you want to connect to Azure Arc, and log on to run it. The script downloads the agent, installs it, and connects the machine in a single operation. After the script is complete, you need to verify the machine by submitting a code that is displayed at the end of script execution from your browser.
-
->[!NOTE]
->Verifying the machine using a web browser does not need to be performed from the server you are connecting to Azure Arc. We recommend as a standard security practice to avoid browsing the Internet from your production machines.
->
-
-You can complete these steps using SSH for Linux, and for Windows by logging on locally, using Remote Desktop Protocol (RDP), or PowerShell remoting.
-
-1. Log onto the server.
-
-2. Open a shell with administrative privileges. 
-
-3. Open the folder you copied the script to and execute it on the server by running the command:
-
-    ```
-
-
-1. Logon to the server (using SSH, RDP or PowerShell Remoting)
-1. Start a shell: bash on Linux, PowerShell as Administrator on Windows
-1. Paste in the script from the portal and execute it on the server to be connected to Azure.
-1. The default authentication for onboarding an individual server is *interactive* using Azure 'device login'. When you run the script, you will see a message similar to:
-
-  ```none
-  To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B3V3NLWRF to authenticate.
-  ```
-  
-   Open a browser and enter the code to authenticate. The browser doesn't need to be running on the server you are onboarding, it could be on another computer such as your laptop.
-
-1. If you would like to authenticate non-interactively, follow the steps in [Create a Service Principal](quickstart-onboard-powershell.md#create-a-service-principal-for-onboarding-at-scale) and modify the script generated from the portal.
-
-> [!NOTE]
-> If you are using Internet Explorer on the server for the very first time to logon, it will error out. You can just reopen the browser and do it again.
-
-## Execute the script on target nodes
-
-Log in to each Node and execute the script you generated from the portal. After the script completes successfully, go to the Azure portal verify that the server has been successfully connected.
+After performing the steps to install the agent and configure it to connect to Azure Arc for servers, go to the Azure portal to verify that the server has been successfully connected. You can view your machines in the Azure portal by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
 
 ![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
 ## Clean up
 
-To disconnect a machine from Azure Arc for servers, you need to perform two steps.
+To disconnect a machine from Azure Arc for servers, you need to perform the following steps.
 
-1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
-1. Uninstall the agent from the machine.
+1. Open Azure Arc for servers by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
 
-   On Windows, you can use the "Apps & Features" control panel to uninstall the agent.
-  
-  ![Apps & Features](./media/quickstart-onboard/apps-and-features.png)
+2. Select the machine in the list, click the ellipse (`...`) and select **Delete**.
 
-   If you would like to script the uninstall, you can use the following example which retrieves the **PackageId** and uninstall the agent using `msiexec /X`.
+3. To uninstall the Windows agent from the machine, perform the following:
 
-   look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the **PackageId**. You can then uninstall the agent using `msiexec`.
+    1. Sign on to the computer with an account that has administrative rights.
+
+    2. In **Control Panel**, select **Programs and Features**.
+
+    3. In **Programs and Features**, select **Azure Connected Machine Agent**, select **Uninstall**, and then select **Yes**.
+
+        >[!NOTE]
+        >The agent Setup Wizard can also be run by double-clicking **AzureConnectedMachineAgent.msi** installer package.
+
+    If you would like to script the uninstall, you can use the following example which retrieves the product code and uninstalls the agent using the Msiexec.exe command-line - `msiexec /x {Product Code}`. Open the Registry Editor and look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the product code GUID. You can then uninstall the agent using Msiexec.
 
    The example below demonstrates uninstalling the agent.
 
@@ -194,10 +169,10 @@ To disconnect a machine from Azure Arc for servers, you need to perform two step
    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
    Get-ItemProperty | `
    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ForEach-Object {MsiExec.exe /Quiet /x "$($_.PsChildName)"}
    ```
 
-   On Linux, execute the following command to uninstall the agent.
+4. To uninstall the Linux agent, execute the following command to uninstall the agent.
 
    ```bash
    sudo apt purge hybridagent
