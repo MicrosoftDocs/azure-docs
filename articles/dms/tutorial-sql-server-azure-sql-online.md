@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 01/21/2020
 ---
 
 # Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database online using DMS
@@ -237,7 +237,7 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
     ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
-7.Select **Create** to create the service.
+7. Select **Create** to create the service.
 
 ## Create a migration project
 

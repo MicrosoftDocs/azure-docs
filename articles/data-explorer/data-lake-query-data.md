@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ---
 
-# Query data in Azure Data Lake using Azure Data Explorer (Preview)
+# Query data in Azure Data Lake using Azure Data Explorer
 
 Azure Data Lake Storage is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
  

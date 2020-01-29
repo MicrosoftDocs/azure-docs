@@ -14,7 +14,6 @@ ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure an application's publisher domain

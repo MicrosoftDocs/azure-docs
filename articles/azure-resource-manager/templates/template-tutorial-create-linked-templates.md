@@ -137,9 +137,9 @@ The linked template creates a storage account. The linked template can be used a
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2018-11-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },

@@ -1,16 +1,9 @@
 ---
 title: Data extraction - LUIS
-titleSuffix: Azure Cognitive Services
 description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
-services: cognitive-services
 author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.author: diberry
+ms.date: 01/23/2020
 ---
 
 # Extract data from utterance text with intents and entities
@@ -31,7 +24,7 @@ LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint).
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you're editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you're learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
@@ -73,7 +66,7 @@ The primary data is the top scoring **intent name**. The endpoint response is:
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 |Data Object|Data Type|Data Location|Value|
 |--|--|--|--|
@@ -133,7 +126,7 @@ Set the querystring parameter, `show-all-intents=true`. The endpoint response is
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 The intents are ordered from highest to lowest score.
 
@@ -196,7 +189,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 |Domain|Data Object|Data Type|Data Location|Value|
 |--|--|--|--|--|
@@ -245,12 +238,11 @@ All entities are returned in the **entities** array of the response from the end
 ```
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 ## Tokenized entity returned
-Several [cultures](luis-language-support.md#tokenization) return the entity object with the `entity` value [tokenized](luis-glossary.md#token). The startIndex and endIndex returned by LUIS in the entity object do not map to the new, tokenized value but instead to the original query in order for you to extract the raw entity programmatically. 
 
-For example, in German, the word `das Bauernbrot` is tokenized into `das bauern brot`. The tokenized value, `das bauern brot`, is returned and the original value can be programmatically determined from the startIndex and endIndex of the original query, giving you `das Bauernbrot`.
+Review the [token support](luis-language-support.md#tokenization) in LUIS.
 
 ## Simple entity data
 
@@ -258,11 +250,11 @@ A [simple entity](reference-entity-simple.md) is a machine-learned value. It can
 
 ## Composite entity data
 
-A [composite entity](reference-entity-composite.md) is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
+A [composite entity](reference-entity-composite.md) is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.
 
 ## List entity data
 
-[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
+[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query.
 
 ## Prebuilt entity data
 [Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following text is an example utterance with the returned prebuilt entities:
@@ -529,7 +521,7 @@ With the querystring parameter, `verbose=true`:
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-* * * 
+* * *
 ## Regular expression entity data
 
 A [regular expression entity](reference-entity-regular-expression.md) extracts an entity based on a regular expression pattern you provide.
@@ -539,11 +531,11 @@ Getting names from an utterance is difficult because a name can be almost any co
 
 ### Add prebuilt PersonName and GeographyV2 entities
 
-[PersonName](luis-reference-prebuilt-person.md) and [GeographyV2](luis-reference-prebuilt-geographyV2.md) entities are available in some [language cultures](luis-reference-prebuilt-entities.md). 
+[PersonName](luis-reference-prebuilt-person.md) and [GeographyV2](luis-reference-prebuilt-geographyV2.md) entities are available in some [language cultures](luis-reference-prebuilt-entities.md).
 
 ### Names of people
 
-People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](luis-concept-roles.md) of first and last name. 
+People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](luis-concept-roles.md) of first and last name.
 
 If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
@@ -594,7 +586,7 @@ Entity name is `Location`, with two roles, `Origin` and `Destination`.
 
 #### [V3 prediction endpoint response](#tab/V3)
 
-In V3, the **role name** is the primary name of the object. 
+In V3, the **role name** is the primary name of the object.
 
 Entity name is `Location`, with two roles, `Origin` and `Destination`.
 
@@ -682,7 +674,7 @@ Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 ## Pattern.any entity data
 
-[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
+[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.
 
 ## Sentiment analysis
 If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.
@@ -1136,7 +1128,7 @@ Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 If a word or phrase matches more than one list entity, the endpoint query returns each List entity.
 
-For the query `when is the best time to go to red rock?`, and the app has the word `red` in more than one list, LUIS recognizes all the entities and returns an array of entities as part of the JSON endpoint response: 
+For the query `when is the best time to go to red rock?`, and the app has the word `red` in more than one list, LUIS recognizes all the entities and returns an array of entities as part of the JSON endpoint response:
 
 #### [V2 prediction endpoint response](#tab/V2)
 

@@ -90,14 +90,14 @@ To run the code in the notebook, install packages at the project level by doing 
 
 ## Load the required modules and frameworks
 
-To load all the required modules and frameworks, run the following script:
-
-```python
+To load all the required modules and frameworks, run the following script.
 import time
 import aiohttp
 import urllib.parse
 from IPython.display import Image, display
 ```
+
+After your run the script, enter "Ctrl" and "Z" together, to leave the Python interpreter and go back to the console.
 
 ## Request the reachable range boundary
 

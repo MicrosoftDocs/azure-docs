@@ -1,6 +1,7 @@
 ---
 title: Search efficiently using the Azure Maps Search Service  | Microsoft Azure Maps 
 description: Learn how to apply best practices for the Search service using Microsoft Azure Maps
+
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/23/2020
@@ -89,7 +90,7 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 ```JSON
 {
     "summary": {
-        "queryTime": 8,
+        "queryTime": 14,
         "numResults": 1
     },
     "addresses": [
@@ -142,10 +143,10 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
     "summary": {
         "query": "microsoft",
         "queryType": "NON_NEAR",
-        "queryTime": 25,
-        "numResults": 6,
+        "queryTime": 18,
+        "numResults": 7,
         "offset": 0,
-        "totalResults": 6,
+        "totalResults": 7,
         "fuzzyLevel": 1,
         "geoBias": {
             "lat": 47.6370891183,
@@ -155,54 +156,236 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
     "results": [
         {
             "type": "Street",
-            "id": "US/STR/p0/10294417",
-            "score": 2.594,
-            "dist": 327.546040632591,
+            "id": "US/STR/p0/9438784",
+            "score": 2.594099998474121,
+            "dist": 314.0590106663596,
             "address": {
                 "streetName": "Microsoft Way",
                 "municipalitySubdivision": "Redmond",
                 "municipality": "Redmond",
             },
             "position": {
-                "lat": 47.63989,
-                "lon": -122.12509
+                "lat": 47.63988,
+                "lon": -122.12438
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.63748,
-                    "lon": -122.12309
+                    "lat": 47.64223,
+                    "lon": -122.1256,
+                    "valid": true
                 },
                 "btmRightPoint": {
-                    "lat": 47.64223,
-                    "lon": -122.13061
+                    "lat": 47.63748,
+                    "lon": -122.12309,
+                    "valid": true
                 }
             }
         },
-        ...,
-        ...,
-        ...,
-        ...,
         {
             "type": "Street",
-            "id": "US/STR/p0/9063400",
-            "score": 2.075,
-            "dist": 3655467.6406921702,
+            "id": "US/STR/p0/1756074",
+            "score": 2.592679977416992,
+            "dist": 876.0272035824189,
+            "address": {
+                "streetName": "Microsoft Road",
+                "municipalitySubdivision": "Redmond",
+                "municipality": "Redmond",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle East",
+                "countrySubdivision": "WA",
+                "countrySubdivisionName": "Washington",
+                "postalCode": "98052",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Microsoft Road, Redmond, WA 98052"
+            },
+            "position": {
+                "lat": 47.64032,
+                "lon": -122.1344
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.64253,
+                    "lon": -122.13535,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 47.63816,
+                    "lon": -122.13305,
+                    "valid": true
+                }
+            }
+        },
+        {
+            "type": "Street",
+            "id": "US/STR/p0/1470668",
+            "score": 2.5290400981903076,
+            "dist": 2735.4883918101486,
+            "address": {
+                "streetName": "Microsoft West Campus Road",
+                "municipalitySubdivision": "Redmond",
+                "municipality": "Bellevue",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle East",
+                "countrySubdivision": "WA",
+                "countrySubdivisionName": "Washington",
+                "postalCode": "98007",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Microsoft West Campus Road, Bellevue, WA 98007"
+            },
+            "position": {
+                "lat": 47.65784,
+                "lon": -122.14335
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.65785,
+                    "lon": -122.14335,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 47.65784,
+                    "lon": -122.14325,
+                    "valid": true
+                }
+            }
+        },
+        {
+            "type": "Street",
+            "id": "US/STR/p0/12812615",
+            "score": 2.527509927749634,
+            "dist": 2870.9579016916873,
+            "address": {
+                "streetName": "Microsoft West Campus Road",
+                "municipalitySubdivision": "Redmond",
+                "municipality": "Redmond",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle East",
+                "countrySubdivision": "WA",
+                "countrySubdivisionName": "Washington",
+                "postalCode": "98052",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Microsoft West Campus Road, Redmond, WA 98052"
+            },
+            "position": {
+                "lat": 47.66034,
+                "lon": -122.1404
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.66039,
+                    "lon": -122.14325,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 47.65778,
+                    "lon": -122.13749,
+                    "valid": true
+                }
+            }
+        },
+        {
+            "type": "Street",
+            "id": "US/STR/p0/197588",
+            "score": 2.4630401134490967,
+            "dist": 878.1404663812472,
+            "address": {
+                "streetName": "157th Avenue Northeast",
+                "municipalitySubdivision": "Redmond",
+                "municipality": "Redmond",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle East",
+                "countrySubdivision": "WA",
+                "countrySubdivisionName": "Washington",
+                "postalCode": "98052",
+                "extendedPostalCode": "980525344, 980525398, 980525399",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "157th Avenue Northeast, Redmond, WA 98052"
+            },
+            "position": {
+                "lat": 47.64351,
+                "lon": -122.13056
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.64473,
+                    "lon": -122.13058,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 47.6425,
+                    "lon": -122.13016,
+                    "valid": true
+                }
+            }
+        },
+        {
+            "type": "Street",
+            "id": "US/STR/p0/3033991",
+            "score": 2.0754499435424805,
+            "dist": 3655467.8844475765,
             "address": {
                 "streetName": "Microsoft Way",
                 "municipalitySubdivision": "Yorkmount, Charlotte",
             },
             "position": {
-                "lat": 35.14279,
-                "lon": -80.91814
+                "lat": 35.14267,
+                "lon": -80.91824
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 35.14267,
-                    "lon": -80.91814
+                    "lat": 35.14287,
+                    "lon": -80.91839,
+                    "valid": true
                 },
                 "btmRightPoint": {
-                    "lat": 35.14279,
-                    "lon": -80.91824
+                    "lat": 35.14267,
+                    "lon": -80.91814,
+                    "valid": true
+                }
+            }
+        },
+        {
+            "type": "Street",
+            "id": "US/STR/p0/8395877",
+            "score": 2.0754499435424805,
+            "dist": 3655437.0037482483,
+            "address": {
+                "streetName": "Microsoft Way",
+                "municipalitySubdivision": "Charlotte",
+                "municipality": "Charlotte",
+                "countrySecondarySubdivision": "Mecklenburg",
+                "countryTertiarySubdivision": "Township 1 Charlotte",
+                "countrySubdivision": "NC",
+                "countrySubdivisionName": "North Carolina",
+                "postalCode": "28273",
+                "extendedPostalCode": "282738105, 282738106, 282738108, 2827382, 282738200",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Microsoft Way, Charlotte, NC 28273"
+            },
+            "position": {
+                "lat": 35.14134,
+                "lon": -80.9198
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 35.14274,
+                    "lon": -80.92159,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 35.14002,
+                    "lon": -80.91824,
+                    "valid": true
                 }
             }
         }
@@ -307,10 +490,10 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
     "summary": {
         "query": "gas station",
         "queryType": "NON_NEAR",
-        "queryTime": 206,
+        "queryTime": 276,
         "numResults": 3,
         "offset": 0,
-        "totalResults": 742169,
+        "totalResults": 762680,
         "fuzzyLevel": 1,
         "geoBias": {
             "lat": 47.6413362,
@@ -320,8 +503,8 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
     "results": [
         {
             "type": "POI",
-            "id": "US/POI/p0/245813",
-            "score": 5.663,
+            "id": "US/POI/p0/8831765",
+            "score": 5.6631999015808105,
             "dist": 1037.0280221303253,
             "info": "search:ta:840531000004190-US",
             "poi": {
@@ -332,7 +515,15 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
                         "name": "Chevron"
                     }
                 ],
+                "categorySet": [
+                    {
+                        "id": 7311
+                    }
+                ],
                 "url": "www.chevron.com",
+                "categories": [
+                    "petrol station"
+                ],
                 "classifications": [
                     {
                         "code": "PETROL_STATION",
@@ -357,28 +548,116 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
             "viewport": {
                 "topLeftPoint": {
                     "lat": 47.63291,
-                    "lon": -122.13414
+                    "lon": -122.13414,
+                    "valid": true
                 },
                 "btmRightPoint": {
                     "lat": 47.63111,
-                    "lon": -122.13148
+                    "lon": -122.13148,
+                    "valid": true
                 }
             },
             "entryPoints": [
                 {
                     "type": "main",
                     "position": {
-                        "lat": 47.63223,
-                        "lon": -122.13311
+                        "lat": 47.63222,
+                        "lon": -122.13312,
+                        "valid": true
                     }
                 }
             ]
         },
-        ...,
         {
             "type": "POI",
-            "id": "US/POI/p0/7727106",
-            "score": 5.662,
+            "id": "US/POI/p0/8831752",
+            "score": 5.662710189819336,
+            "dist": 1330.1278248163273,
+            "info": "search:ta:840539001100326-US",
+            "poi": {
+                "name": "76",
+                "phone": "+(1)-(425)-7472126",
+                "brands": [
+                    {
+                        "name": "76"
+                    }
+                ],
+                "categorySet": [
+                    {
+                        "id": 7311
+                    }
+                ],
+                "url": "www.76.com",
+                "categories": [
+                    "petrol station"
+                ],
+                "classifications": [
+                    {
+                        "code": "PETROL_STATION",
+                        "names": [
+                            {
+                                "nameLocale": "en-US",
+                                "name": "petrol station"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "address": {
+                "streetNumber": "2421",
+                "streetName": "148Th Ave Ne",
+                "municipalitySubdivision": "Redmond, Bridle Trails, Bellevue",
+                "municipality": "Redmond, Bellevue",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle East",
+                "countrySubdivision": "WA",
+                "countrySubdivisionName": "Washington",
+                "postalCode": "98007",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "2421 148Th Ave Ne, Bellevue, WA 98007",
+                "localName": "Bellevue"
+            },
+            "position": {
+                "lat": 47.63187,
+                "lon": -122.14365
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.63277,
+                    "lon": -122.14498,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 47.63097,
+                    "lon": -122.14232,
+                    "valid": true
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "minor",
+                    "position": {
+                        "lat": 47.63187,
+                        "lon": -122.14374,
+                        "valid": true
+                    }
+                },
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 47.63186,
+                        "lon": -122.14313,
+                        "valid": true
+                    }
+                }
+            ]
+        },
+        {
+            "type": "POI",
+            "id": "US/POI/p0/8831764",
+            "score": 5.662449836730957,
             "dist": 1458.645407416307,
             "info": "search:ta:840539000488527-US",
             "poi": {
@@ -389,7 +668,15 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
                         "name": "Texaco"
                     }
                 ],
+                "categorySet": [
+                    {
+                        "id": 7311
+                    }
+                ],
                 "url": "www.texaco.com/",
+                "categories": [
+                    "petrol station"
+                ],
                 "classifications": [
                     {
                         "code": "PETROL_STATION",
@@ -414,19 +701,22 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
             "viewport": {
                 "topLeftPoint": {
                     "lat": 47.62933,
-                    "lon": -122.13761
+                    "lon": -122.13761,
+                    "valid": true
                 },
                 "btmRightPoint": {
                     "lat": 47.62753,
-                    "lon": -122.13495
+                    "lon": -122.13495,
+                    "valid": true
                 }
             },
             "entryPoints": [
                 {
                     "type": "main",
                     "position": {
-                        "lat": 47.62826,
-                        "lon": -122.13626
+                        "lat": 47.62827,
+                        "lon": -122.13628,
+                        "valid": true
                     }
                 }
             ]
@@ -481,17 +771,17 @@ Further let's have a look at the response structure below. The result types of t
     "summary": {
         "query": "400 broad street seattle wa",
         "queryType": "NON_NEAR",
-        "queryTime": 129,
+        "queryTime": 146,
         "numResults": 6,
         "offset": 0,
-        "totalResults": 6,
+        "totalResults": 7,
         "fuzzyLevel": 1
     },
     "results": [
         {
             "type": "Point Address",
-            "id": "US/PAD/p0/43076024",
-            "score": 9.894,
+            "id": "US/PAD/p0/28725082",
+            "score": 9.893799781799316,
             "address": {
                 "streetNumber": "400",
                 "streetName": "Broad Street",
@@ -503,11 +793,13 @@ Further let's have a look at the response structure below. The result types of t
             "viewport": {
                 "topLeftPoint": {
                     "lat": 47.62129,
-                    "lon": -122.35061
+                    "lon": -122.35061,
+                    "valid": true
                 },
                 "btmRightPoint": {
                     "lat": 47.61949,
-                    "lon": -122.34795
+                    "lon": -122.34795,
+                    "valid": true
                 }
             },
             "entryPoints": [
@@ -515,79 +807,118 @@ Further let's have a look at the response structure below. The result types of t
                     "type": "main",
                     "position": {
                         "lat": 47.61982,
-                        "lon": -122.34886
+                        "lon": -122.34886,
+                        "valid": true
                     }
                 }
             ]
         },
         {
             "type": "Street",
-            "id": "US/STR/p0/2440854",
-            "score": 8.129,
+            "id": "US/STR/p0/6700384",
+            "score": 8.129190444946289,
             "address": {
                 "streetName": "Broad Street",
-                "municipalitySubdivision": "Seattle, Westlake, South Lake Union",
             },
             "position": {
-                "lat": 47.62553,
-                "lon": -122.33936
+                "lat": 47.61724,
+                "lon": -122.35207
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.62545,
-                    "lon": -122.33861
+                    "lat": 47.61825,
+                    "lon": -122.35336,
+                    "valid": true
                 },
                 "btmRightPoint": {
-                    "lat": 47.62574,
-                    "lon": -122.33974
+                    "lat": 47.61626,
+                    "lon": -122.35078,
+                    "valid": true
                 }
             }
         },
         {
             "type": "Street",
-            "id": "US/STR/p0/8450985",
-            "score": 8.129,
+            "id": "US/STR/p0/9701953",
+            "score": 8.129190444946289,
             "address": {
                 "streetName": "Broad Street",
-                "municipalitySubdivision": "Seattle, Belltown",
             },
             "position": {
-                "lat": 47.61691,
-                "lon": -122.35251
+                "lat": 47.61965,
+                "lon": -122.349
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.61502,
-                    "lon": -122.35041
+                    "lat": 47.62066,
+                    "lon": -122.35041,
+                    "valid": true
                 },
                 "btmRightPoint": {
                     "lat": 47.61857,
-                    "lon": -122.35484
+                    "lon": -122.34761,
+                    "valid": true
                 }
             }
         },
-        ...,
-        ...,
+        {
+            "type": "Street",
+            "id": "US/STR/p0/11721297",
+            "score": 8.129190444946289,
+            "address": {
+                "streetName": "Broad Street",
+                "municipalitySubdivision": "Seattle, Downtown Seattle, Denny Regrade, Belltown",
+                "municipality": "Seattle",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle",
+                "countrySubdivision": "WA",
+                "countrySubdivisionName": "Washington",
+                "postalCode": "98121",
+                "extendedPostalCode": "981211237",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Broad Street, Seattle, WA 98121"
+            },
+            "position": {
+                "lat": 47.61825,
+                "lon": -122.35078
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.61857,
+                    "lon": -122.35078,
+                    "valid": true
+                },
+                "btmRightPoint": {
+                    "lat": 47.61825,
+                    "lon": -122.35041,
+                    "valid": true
+                }
+            }
+        },
         {
             "type": "Cross Street",
-            "id": "US/XSTR/p1/3816818",
-            "score": 6.759,
+            "id": "US/XSTR/p1/232144",
+            "score": 6.754479885101318,
             "address": {
                 "streetName": "Broad Street & Valley Street",
                 "municipalitySubdivision": "South Lake Union, Seattle",
             },
             "position": {
-                "lat": 47.62574,
-                "lon": -122.33861
+                "lat": 47.62545,
+                "lon": -122.33974
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.62664,
-                    "lon": -122.33994
+                    "lat": 47.62635,
+                    "lon": -122.34107,
+                    "valid": true
                 },
                 "btmRightPoint": {
-                    "lat": 47.62484,
-                    "lon": -122.33728
+                    "lat": 47.62455,
+                    "lon": -122.33841,
+                    "valid": true
                 }
             }
         }

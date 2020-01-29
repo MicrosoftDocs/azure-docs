@@ -95,7 +95,7 @@ On each VM that you want to replicate, install the service by one of several met
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
 - [Manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or PowerShell
-- Deployment by using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
 
@@ -284,7 +284,7 @@ In the Recovery Services vault, select **Configuration Servers** in **Site Recov
 
 ### Can a single configuration server be used to protect multiple vCenter instances?
 
-Yes, a single configuration server can protect VMs accross multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
+Yes, a single configuration server can protect VMs across multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
 
 ### Can a single configuration server protect multiple clusters within vCenter?
 
