@@ -26,7 +26,7 @@ Follow the steps in this article to use the custom policies to enable your custo
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
 * [Web application registered](tutorial-register-applications.md) in your tenant
-* [Custom policies](active-directory-b2c-get-started-custom.md) uploaded to your tenant
+* [Custom policies](custom-policy-get-started.md) uploaded to your tenant
 
 ## Get the phone sign-up & sign-in starter pack
 
@@ -40,7 +40,7 @@ The following steps assume that you've completed the [prerequisites](#prerequisi
 
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 
-1. Complete the steps in the [Add application IDs to the custom policy](active-directory-b2c-get-started-custom.md#add-application-ids-to-the-custom-policy) section of [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). In this case, update `/phone-number-passwordless/`**`Phone_Email_Base.xml`** with the **Application (client) IDs** of the two applications you registered when completing the prerequisites, *IdentityExperienceFramework* and *ProxyIdentityExperienceFramework*.
+1. Complete the steps in the [Add application IDs to the custom policy](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) section of [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md). In this case, update `/phone-number-passwordless/`**`Phone_Email_Base.xml`** with the **Application (client) IDs** of the two applications you registered when completing the prerequisites, *IdentityExperienceFramework* and *ProxyIdentityExperienceFramework*.
 
 ## Upload the policy files
 

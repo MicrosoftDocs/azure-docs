@@ -18,7 +18,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Increase security and control over keys and passwords.
 - Create and import encryption keys in minutes.
 - Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for SSL/TLS certificates.
+- Simplify and automate tasks for TLS/SSL certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
 [API reference documentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
