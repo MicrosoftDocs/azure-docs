@@ -6,23 +6,10 @@ ms.date: 08/01/2018
 ms.author: adjohnso
 ---
 
-# Configure NFS Mounts and Exports
+# Configure NFS Mounts
 
-Azure CycleCloud provides built-in support for exporting, mounting, and configuring simple Network File System.
-
-## Create an NFS Export
-
-To export a directory from a node as a shared NFS filesystem, provide a mount configuration section with `type=nfs` and an export path:
-
-``` ini
-[[[configuration cyclecloud.exports.nfs_data]]]
-type = nfs
-export_path = /mnt/exports/nfs_data
-```
-
-The above configuration `cyclecloud.exports.nfs_data` specifies that you are configuring directory `/mnt/exports/nfs_data` to be exported as an NFS filesystem named `nfs_data`. The attributes within the configuration section describe the exported filesystem properties.
-
-Note that you can only have one fileserver per cluster otherwise the discovery mechanisms will interfere.
+Azure CycleCloud provides built-in support for mounting a simple Network File System (NFS). 
+The NFS can be another resource managed by CycleCloud or an external resource.
 
 ## Mount an NFS Filesystem
 
@@ -84,42 +71,6 @@ enable a fileserver and mount it on each cluster node with:
     address = 54.83.20.2
 ```
 
-## Creating exports
-
-NFS exports can also be configured in a cluster template. A node can have an arbitrary number of exports but only one node in
-a cluster may be a fileserver. In the example below we show configs to add to a node to disable the default nfs exports and add
-a new export named _backup_. This export will then be available to other nodes via the mount configurations in this page.
-
-``` ini
-        [[[configuration]]]
-        run_list = recipe[cshared::directories],recipe[cshared::server]
-        cyclecloud.discoverable = true
-        cshared.server.shared_dir = /shared
-        cyclecloud.mounts.sched.disabled = true
-        cyclecloud.mounts.shared.disabled = true
-        cshared.server.legacy_links_disabled = true
-
-        [[[configuration cyclecloud.exports.backup]]]
-        type = nfs
-        export_path = /mnt/raid/backup
-        options = no_root_squash
-        samba.enabled = false
-```
-
-## Export Configuration Options
-
-| Option | Definition |
-| ------ | ---------- |
-| type         | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports to differentiate from other shared filesystem types. |
-| export_path  | The local path to export as an NFS filesystem.  If the directory does not exist already, it will be created. |
-| owner        | The user account that should own the exported directory.  |
-| group        | The group of the user that should own the exported directory. |
-| mode         | The default filesystem permissions on the exported directory.  |
-| network      | The network interface on which the directory is exported.  Defaults to all: `*`.  |
-| sync         | Synchronous/asynchronous export option.  Defaults to `true`.   |
-| writable     | The ro/rw export option for the filesystem. Defaults to `true`.  |
-| options      | Any non-default options to use when exporting the filesystem.   |
-
 ## Mount Configuration Options
 
 | Option | Definition |
@@ -131,3 +82,8 @@ a new export named _backup_. This export will then be available to other nodes v
 | address       | The explicit hostname or IP address of the filesystem.  If not set, search will attempt to find the filesystem in a CycleCloud cluster. |
 | options       | Any non-default options to use when mounting the filesystem.    |
 | disabled      | If set to `true`, the node will not mount the filesystem.  |
+
+## Further Reading
+
+* [How to Mount a Disk](./mount-disk.md)
+* [How to Create a File Share and File Server](./create-fileserver.md)
