@@ -335,8 +335,8 @@
         href: logic-apps-monitor-logic-apps-log-analytics.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: logic-apps-monitor-b2b-messages-log-analytics.md
-      - name: Create queries for B2B messages with Azure Monitor logs
-        href: logic-apps-create-b2b-monitoring-tracking-queries.md
+      - name: Create monitoring and tracking queries
+        href: logic-apps-create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 

@@ -169,31 +169,6 @@ After your logic app runs, you can view the data about those runs in your Log An
      ![Resubmit logic app runs](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-resubmit.png)
 --------------->
 
-## View and create queries
-
-Queries use [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results. To view the [query](../azure-monitor/log-query/log-query-overview.md) behind a results page, follow these steps:
-
-1. On any results page, at the bottom, select **See All**, which opens the **Logs** page.
-
-   ![See all results](./media/logic-apps-monitor-logic-apps-log-analytics/logic-app-see-all.png)
-
-1. On the **Logs** page, you can select these options:
-
-   * To view the query results as a table, under the query editor, select **Table**.
-
-   * To change the query, update the query string and select **Run** to view the results in the table.
-
-     ![Log Analytics - query view](./media/logic-apps-monitor-logic-apps-log-analytics/view-query-behind-results.png)
-
-   * To create your own query, next the most recent existing query, select the plus sign (**+**). In the search box, specify a field that you want to find, and press **Enter**. When you start typing, you see possible matches and operations that you can use.
-
-     ![Start typing to create query](./media/logic-apps-monitor-logic-apps-log-analytics/create-query-log-analytics-workspace.png)
-
-For more information about creating queries, see these topics:
-
-* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
-* [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-
 <a name="extend-data"></a>
 
 ## Extend diagnostic data Azure Storage and Azure Event Hubs
@@ -215,4 +190,5 @@ You can then select the destinations where you want to send that data. Retention
 
 ## Next steps
 
+* [Create monitoring and tracking queries](../logic-apps/logic-apps-create-monitoring-tracking-queries.md)
 * [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-messages-log-analytics.md)

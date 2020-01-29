@@ -144,7 +144,7 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
 1. On your logic app menu, under **Monitoring**, select **Alerts** > **New alert rule**.
 
-   ![Add an alert for your logic app](./media/logic-apps-monitor-logic-apps/set-up-alerts.png)
+   ![Add an alert for your logic app](./media/logic-apps-monitor-logic-apps/add-new-alert-rule.png)
 
 1. On the **Create rule** pane, follow these steps:
 
@@ -178,6 +178,10 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
          ![Set up condition for alert](./media/logic-apps-monitor-logic-apps/set-up-condition-for-alert.png)
 
+      The **Create rule** page now shows the condition that you created and the cost for running that alert.
+
+      ![New alert on the "Create rule" page](./media/logic-apps-monitor-logic-apps/finished-alert-condition-cost.png)
+
    1. Specify a name, optional description, and severity level for your alert. Either leave the **Enable rule upon creation** setting turned on, or turn off until you're ready to enable the rule.
 
    1. When you're done, select **Create alert rule**.
@@ -194,5 +198,4 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 ## Next steps
 
 * [Monitor logic apps by using Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
-* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)
+* [Monitor B2B messages by using Azure Monitor](../logic-apps/logic-apps-monitor-b2b-message.md)

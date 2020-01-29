@@ -155,16 +155,13 @@ After your logic app runs, you can view the status and data about those messages
 
    ![Download message files](./media/logic-apps-monitor-b2b-messages-log-analytics/download-messages.png)
 
--->
-
-<!-->
 1. To view all actions that have the same run ID, on the **Log Search** page, select a message from the message list.
 
    You can sort these actions by column, or search for specific results.
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](logic-apps-create-b2b-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](logic-apps-create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -280,5 +277,4 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 
 ## Next steps
 
-* [Create tracking queries for B2B messages with Azure Monitor logs](../logic-apps/logic-apps-create-b2b-monitoring-tracking-queries.md)
-* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Create monitoring and tracking queries](../logic-apps/logic-apps-create-monitoring-tracking-queries.md)
