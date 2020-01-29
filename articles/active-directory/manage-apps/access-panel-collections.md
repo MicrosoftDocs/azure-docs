@@ -40,13 +40,11 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 5. Select **Review + Create**. The properties for the new collection appear.
 
-6. Select the **Applications** tab. Under **Add applications**, select all the applications you want to add to the collection, or use the **Search** box to find applications. 
+6. To add applications to the collection, select the **Applications** tab. Select **+ Add application**, and then in the **Add applications** page, select all the applications you want to add to the collection, or use the **Search** box to find applications. 
 
-7. Select **Add**. The list of selected applications appears. You can use the up and down arrows to change the order of applications in the list.
+7. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the up arrows to change the order of applications in the list. To move an application down or to delete it from the collection, select the **More** menu (**...**).
 
-8. Select the **Users and groups** tab. To add a user or group, select **Add user**. 
-
-9. On the **Select members** page, select the users or groups you want to assign the collection to. Or use the **Search** box to find users or groups.
+8. To assign users and groups to the collection, select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the **Search** box to find users or groups.
 
 10. When you're finished selecting users and groups, choose **Select**.
 
