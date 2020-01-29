@@ -176,11 +176,14 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 - Deny outbound internet connection by using the NSG rules.
 
-- Limit outbound traffic to the following items:
-   - Azure Storage, by using __Service Tag__ of __Storage.Region_Name__ (for example, Storage.EastUS)
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.Region_Name__ (for example, AzureContainerRegistry.EastUS)
+- For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
+   - Azure Storage, by using __Service Tag__ of __Storage__
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
-   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureResourceManager__
+   
+- For a __compute instance__, also add the follow items:
+   - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
+   - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
@@ -203,12 +206,12 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Estimator training__
+> __Estimator training__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```

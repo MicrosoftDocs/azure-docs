@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 
 tags: billing
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 01/28/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
