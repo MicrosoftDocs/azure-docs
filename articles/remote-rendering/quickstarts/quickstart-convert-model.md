@@ -201,4 +201,4 @@ Set the expiry date to a date you would like and press **Create**. Copy the URI 
 Now that you know the basics, have a look at our tutorials to gain more in-depth knowledge.
 
 > [!div class="nextstepaction"]
-> [Tutorial 1](../tutorials/tutorial-1-getting-started.md)
+> [Setting up a Unity project](../tutorials/tutorial-1-unity-project-setup.md)
