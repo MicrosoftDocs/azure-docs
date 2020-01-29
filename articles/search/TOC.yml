@@ -131,7 +131,7 @@
     items:
     - name: API versions
       href: search-api-versions.md
-    - name: Preview APIs
+    - name: Preview feature list
       href: search-api-preview.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
