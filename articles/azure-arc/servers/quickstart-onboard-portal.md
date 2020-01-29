@@ -21,7 +21,7 @@ Before you get started, be sure to review the [prerequisites](overview.md#prereq
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Generate the agent install script from the Azure portal
+## Generate install script from the Azure portal
 
 The script to automate the download, installation, and establishing the connection with Azure Arc is available from the Azure portal. The following steps describe how to complete this process.
 
