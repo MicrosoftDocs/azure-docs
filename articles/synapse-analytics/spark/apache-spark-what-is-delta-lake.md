@@ -4,7 +4,7 @@ description: Overview of Delta Lake and how it works as part of Azure Synapse An
 services: sql-data-warehouse 
 author: euangMS 
 ms.service: sql-data-warehouse 
-ms.topic: concept 
+ms.topic: conceptual 
 ms.subservice: design 
 ms.date: 10/16/2019 
 ms.author: euang 

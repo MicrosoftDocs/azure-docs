@@ -22,7 +22,7 @@ In this Quickstart, you use the Synapse Analytics tools to create a Spark pool a
 <!---Need a link to a Gen 2 Storage in Synapse Analytics article--->
 
 > [!IMPORTANT]  
-> Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
+> Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
