@@ -163,6 +163,8 @@ Azure Remote Rendering contains some built-in resources, which can be loaded by 
 
 Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to a [converted model](../conversion/conversion-rest-api.md) in blob storage.
 
+A SAS URI of a sample model can be found in the [sample model chapter](../samples/sample-model.md).
+
 ## Objects and Lifetime Management
 
 [Components](../sdk/concepts-components.md) and [Entities](../sdk/concepts-entities.md) are unique objects with explicit lifetime management. Both objects have a `Destroy()` member function that will destroy the object when it can be freed from the remote rendering runtime. `Entity.Destroy()` will destroy the entity, its children, and all of its components.
