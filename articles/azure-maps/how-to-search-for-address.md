@@ -134,8 +134,8 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 ## Search for a street address using Reverse Address Search
 
-Azure Maps [Get Search Address Reverse API]( https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchaddressreverse) helps to translate a coordinate (example: 37.786505, -122.3862) into a human understandable street address. Most often this is needed in tracking applications where you receive a GPS feed from the device or asset and wish to know what address where the coordinate is located.
-If you have a set of coordinate locations to reverse geocode, you can use [Post Search Address Reverse Batch API](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchaddressreversebatch) to send a batch of queries in a single API call.
+Azure Maps [Get Search Address Reverse API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) helps to translate a coordinate (example: 37.786505, -122.3862) into a human understandable street address. Most often this is needed in tracking applications where you receive a GPS feed from the device or asset and wish to know what address where the coordinate is located.
+If you have a set of coordinate locations to reverse geocode, you can use [Post Search Address Reverse Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) to send a batch of queries in a single API call.
 
 
 1. In Postman, click **New Request** | **GET request** and name it **Reverse Address Search**.
