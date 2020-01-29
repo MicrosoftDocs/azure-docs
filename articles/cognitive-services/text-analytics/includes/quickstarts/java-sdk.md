@@ -16,7 +16,7 @@ ms.reviewer: tasharm, assafi
 [Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~com.azure) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 > [!NOTE]
-> * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
 
 ## Prerequisites
@@ -28,7 +28,7 @@ ms.reviewer: tasharm, assafi
 
 ### Create a Text Analytics Azure resource
 
-[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
 ### Create a new Maven project
 
@@ -67,7 +67,7 @@ import java.util.List;
 
 In the java file, add a new class and add your azure resource's key and endpoint as shown below.
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](find-azure-resource-info.md)]
 
 ```java
 public class TextAnalyticsSample {
