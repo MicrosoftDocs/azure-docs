@@ -169,7 +169,7 @@ To disconnect a machine from Azure Arc for servers, you need to perform the foll
    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
    Get-ItemProperty | `
    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-   ForEach-Object {MsiExec.exe /Quiet /x "$($_.PsChildName)"}
+   ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
    ```
 
 4. To uninstall the Linux agent, execute the following command to uninstall the agent.
