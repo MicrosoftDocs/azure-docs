@@ -32,7 +32,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 Video Indexer now supports custom language models for `ar-SY` , `en-UK`, and `en-AU` (API only).
  
-### Delete account timeframe change
+### Delete account timeframe action update
 
 Delete account action now deletes the account within 90 days instead of 48 hours.
  
