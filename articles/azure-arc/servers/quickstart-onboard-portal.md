@@ -42,7 +42,7 @@ The script to automate the download, installation, and establishing the connecti
 
 5. On the **Generate script** page, under the **Operating system** drop-down list, select the appropriate operating system the script will be running on.
 
-6. If the machine is communicating through a proxy server in order to connect to the Internet, select the option **Next: Proxy Server>**. On the **Proxy server** tab, specify the proxy server IP address and port number that the machine will use to communicate with the proxy server. Once completed, select **Review + generate**.  Otherwise, select **Review + generate** to complete the steps.
+6. If the machine is communicating through a proxy server in order to connect to the Internet, select the option **Next: Proxy Server>**. On the **Proxy server** tab, specify the proxy server IP address or name and port number that the machine will use to communicate with the proxy server. Enter the value following the format `http://<proxyURL>:<proxyport>`. Once completed, select **Review + generate**.  Otherwise, select **Review + generate** to complete the steps.
 
 7. On the **Review + generate** tab, review the summary information and then select **Download**. Otherwise if you need to make changes, you can select **Previous**.
 
