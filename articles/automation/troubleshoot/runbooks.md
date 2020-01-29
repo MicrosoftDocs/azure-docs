@@ -163,7 +163,7 @@ This error is caused by using both AzureRM and Az cmdlets in a runbook. It occur
 
 ### Resolution
 
-Az and AzureRM cmdlets can't be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -358,11 +358,11 @@ Object reference not set to an instance of an object
 
 ### Cause
 
-There is a known issue where the [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) does not handle the output stream correctly if it contains objects.
+There is a known issue where the Start-AzureRmAutomationRunbook does not handles the output stream correctly if it contains objects.
 
 ### Resolution
 
-To resolve this it is recommended that you instead implement a polling logic and use the [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet to retrieve the output. A sample of this logic is defined in the following example.
+To resolve this issue, it is recommended that you implement a polling logic and use the [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet to retrieve the output. A sample of this logic is defined in the following example.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -504,7 +504,7 @@ The webhook that you're trying to call is either disabled or is expired.
 
 If the webhook is disabled, you can re-enable the webhook through the Azure portal. when a webhook is expired, the webhook needs to be deleted and recreated. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it hasn't already expired.
 
-## <a name="429"></a>Scenario: 429: The request rate is currently too large. Please try again
+## <a name="429"></a>Scenario: 429: The request rate is currently too large...
 
 ### Issue
 
@@ -567,7 +567,7 @@ RunAs accounts may not have the same permissions against Azure resources as your
 
 ## Issues Passing parameters into webhooks
 
-For help passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
 ## Issues Using Az modules
 
@@ -583,20 +583,20 @@ RunAs accounts may not have the same permissions against Azure resources as your
 
 ## Runbooks were working, but suddenly stopped
 
-* If runbooks were previously executing but stopped, ensure the RunAs account [has not expired](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* If runbooks were previously executing but stopped, ensure that the RunAs account [has not expired](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * If you are using webhooks to start runbooks, ensure the webhook [has not expired](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
 ## Passing parameters into webhooks
 
-For help passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
 ## Using Az modules
 
-Using Az modules and AzureRM modules in the same Automation Account is not supported. Please see [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
+Using Az modules and AzureRM modules in the same Automation Account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
 ## Using Self-Signed Certificates
 
-To use Self-Signed certificates you must follow the guide at [Creating a New Certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
+To use Self-Signed certificates, see [Creating a New Certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
 ## Recommended Documents
 
