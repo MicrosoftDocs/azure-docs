@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "displayName": "Require tag and its value",
+        "policyType": "BuiltIn",
+        "mode": "Indexed",
+        "description": "Enforces a required tag and its value. Does not apply to resource groups.",
+        "parameters": {
+            "tagName": {
+                "type": "String",
+                "metadata": {
+                    "description": "Name of the tag, such as costCenter"
+                }
+            },
+            "tagValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "Value of the tag, such as headquarter"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "[concat('tags[', parameters('tagName'), ']')]",
+                    "equals": "[parameters('tagValue')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "audit-vm-extension",
+    "properties": {
+        "displayName": "Audit if extension does not exist",
+        "description": "This policy audits if a required extension doesn't exist.",
+        "parameters": {
+            "publisher": {
+                "type": "String",
+                "metadata": {
+                    "description": "The publisher of the extension",
+                    "displayName": "Extension Publisher"
+                }
+            },
+            "type": {
+                "type": "String",
+                "metadata": {
+                    "description": "The type of the extension",
+                    "displayName": "Extension Type"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [{
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "field": "Microsoft.Compute/imagePublisher",
+                        "in": [
+                            "MicrosoftWindowsServer"
+                        ]
+                    },
+                    {
+                        "field": "Microsoft.Compute/imageOffer",
+                        "in": [
+                            "WindowsServer"
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "auditIfNotExists",
+                "details": {
+                    "type": "Microsoft.Compute/virtualMachines/extensions",
+                    "existenceCondition": {
+                        "allOf": [{
+                                "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                                "equals": "[parameters('publisher')]"
+                            },
+                            {
+                                "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                                "equals": "[parameters('type')]"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

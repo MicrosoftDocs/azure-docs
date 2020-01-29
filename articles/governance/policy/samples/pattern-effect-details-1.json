@@ -1,0 +1,54 @@
+{
+    "properties": {
+        "displayName": "Add a tag to resource groups",
+        "policyType": "BuiltIn",
+        "mode": "All",
+        "description": "Adds the specified tag and value when any resource group missing this tag is created or updated. Existing resource groups can be remediated by triggering a remediation task. If the tag exists with a different value it will not be changed.",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Tags"
+        },
+        "parameters": {
+            "tagName": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Name",
+                    "description": "Name of the tag, such as 'environment'"
+                }
+            },
+            "tagValue": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Value",
+                    "description": "Value of the tag, such as 'production'"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [{
+                        "field": "type",
+                        "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+                    },
+                    {
+                        "field": "[concat('tags[', parameters('tagName'), ']')]",
+                        "exists": "false"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "modify",
+                "details": {
+                    "roleDefinitionIds": [
+                        "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                    ],
+                    "operations": [{
+                        "operation": "add",
+                        "field": "[concat('tags[', parameters('tagName'), ']')]",
+                        "value": "[parameters('tagValue')]"
+                    }]
+                }
+            }
+        }
+    }
+}

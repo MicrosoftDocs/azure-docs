@@ -1,0 +1,65 @@
+{
+    "properties": {
+        "displayName": "Billing Tags Policy Initiative",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [{
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    }
+}
