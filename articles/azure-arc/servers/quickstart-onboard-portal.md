@@ -27,7 +27,7 @@ The script to automate the download, installation, and establishing the connecti
 
 1. From your browser, launch [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
 
-2. On the **Machines - Azure Arc** page, either select **+Add** in the upper lef-hand corner, or select the **Create machine - Azure Arc** option from the bottom of the middle pane. 
+2. On the **Machines - Azure Arc** page, either select **+Add** in the upper left-hand corner, or select the **Create machine - Azure Arc** option from the bottom of the middle pane. 
 
 3. On the **Select a method** page, select from the **Add machines using interactive script** tile **Generate script**.
 
@@ -64,7 +64,7 @@ The following table highlights the parameters that are supported by setup for th
 | /? | Returns a list of the command-line options. |
 | /S | Performs a silent installation with no user interaction. |
 
-For example, to run the installation program with the `/?` parameter, enter **msiexec.exe /i AzureConnectedMachineAgent /?**.
+For example, to run the installation program with the `/?` parameter, enter `msiexec.exe /i AzureConnectedMachineAgent.msi /?`.
 
 Files for the Connected Machine agent are installed in *C:\Program Files\AzureConnectedMachineAgent* by default. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
@@ -72,11 +72,9 @@ Files for the Connected Machine agent are installed in *C:\Program Files\AzureCo
 
 1. Log onto the server.
 
-2. Open an elevated PowerShell command prompt. 
+2. Open an elevated PowerShell command prompt.
 
-3. Change to the folder or share you copied the script to and execute it on the server by running the command :
-
-    `./OnboardingScript.ps1`
+3. Change to the folder or share you copied the script to and execute it on the server by running the command `./OnboardingScript.ps1`.
 
 ### Configure agent proxy setting
 
@@ -102,13 +100,13 @@ After installing the agent, you need to configure the agent to communicate with 
 
 ## Install and validate the agent on Linux
 
-The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) and hosted on Microsoft's [package repository](https://packages.microsoft.com/). A shell script bundle `Install_linux_azcmagent.sh` located at [https://aka.ms/azcmagent](https://aka.ms/azcmagent) performs the following actions:
+The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) hosted on Microsoft's [package repository](https://packages.microsoft.com/). A shell script bundle `Install_linux_azcmagent.sh` located at [https://aka.ms/azcmagent](https://aka.ms/azcmagent) performs the following actions:
 
 - Configures the host machine to download the agent package from packages.microsoft.com.
 - Installs the Hybrid Resource Provider package.
 - Optionally, configures the agent with your proxy information, if you specify the `--proxy "{proxy-url}:{proxy-port}"` parameter.
 
-The script also contains logic to identify supported and un-supported distributions, as well as verifying required permissions to perform the installation. You can skip the conditional checks by specifying the `-O` parameter.
+The script also contains logic to identify supported and un-supported distributions, as well as verifying required permissions to perform the installation. 
 
 The example below downloads the agent and installs it, without performing any of the conditional checks.
 
