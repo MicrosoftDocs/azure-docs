@@ -34,7 +34,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in the left pane, select **Create a resource**. 
 
-   [Create an Azure resource in Azure portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
+   ![Create an Azure resource in Azure portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 1. Search for and select **DevOps Projects**, and then select **Create**.
 
