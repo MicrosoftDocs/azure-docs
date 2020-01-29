@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ---
 
-# Quickstart: Create an Azure Data Explorer cluster and database by using Python
+# Create an Azure Data Explorer cluster and database by using Python
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -19,13 +19,15 @@ ms.date: 06/03/2019
 > * [Python](create-cluster-database-python.md)
 > * [ARM template](create-cluster-database-resource-manager.md)
 
-In this quickstart, you create an Azure Data Explorer cluster and database by using Python. Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. In this article, you create a cluster and a database.
+In this article, you create an Azure Data Explorer cluster and database by using Python. Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, first create a cluster, and create one or more databases in that cluster. Then ingest, or load, data into a database so that you can run queries against it.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python](https://www.python.org/downloads/).
+* [Python](https://www.python.org/downloads/) version 3.4 or more recent.
+
+* [An Azure AD Application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Get values for `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ## Install Python package
 
