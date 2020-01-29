@@ -39,12 +39,12 @@ landingContent:
           url: deploy-speech-on-container-instances.md
     - linkListType: whats-new
       links:
-        - text: What's new?
+        - text: Speech SDK release notes
           url: releasenotes.md
 
 - title: Speech-to-text
   linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is speech-to-text?
         url: speech-to-text.md
@@ -56,14 +56,6 @@ landingContent:
           url: quickstarts/speech-to-text-from-microphone.md
         - text: Recognize speech stored in blob storage
           url: quickstarts/from-blob.md
-    - linkListType: how-to-guide
-      links:
-        - text: Use speech recognition with Docker containers
-          url: speech-container-howto.md?tabs=stt
-    - linkListType: whats-new
-      links:
-        - text: Release notes
-          url: releasenotes.md
     - linkListType: reference
       links:
         - text: Speech-to-text REST API
@@ -75,7 +67,7 @@ landingContent:
 
 - title: Text-to-speech
   linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is text-to-speech?
         url: text-to-speech.md
@@ -87,14 +79,6 @@ landingContent:
           url: quickstarts/text-to-speech.md
         - text: Async synthesis for long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-    - linkListType: how-to-guide
-      links:
-        - text: Use speech synthesis with Docker containers
-          url: speech-container-howto.md?tabs=tts
-    - linkListType: whats-new
-      links:
-        - text: Release notes
-          url: releasenotes.md
     - linkListType: reference
       links:
         - text: Text-to-speech REST API
@@ -119,7 +103,7 @@ landingContent:
 
 - title: Speech translation
   linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is speech translation?
         url: speech-translation.md
@@ -146,7 +130,7 @@ landingContent:
 
 - title: Conversation scenarios
   linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is conversation transcription?
         url: conversation-transcription.md
@@ -169,7 +153,7 @@ landingContent:
 
 - title: Voice assistants
   linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is a voice assistant?
         url: voice-assistants.md
@@ -190,7 +174,7 @@ landingContent:
 
 - title: Customization
   linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is Custom Speech?
         url: how-to-custom-speech.md
