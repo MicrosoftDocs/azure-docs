@@ -26,7 +26,7 @@ Say your application gateway has a global policy applied to it. Then you apply a
 
 ## Global WAF policy
 
-If you want a single policy to apply to all sites, you can associate the policy with the application gateway. 
+If you want a single policy to apply to all sites, you can associate the policy with the application gateway. See how to [create a WAF Policy](create-waf-policy-ag.md) for creating and applying a WAF policy in the portal. 
 
 ## Per-site WAF policy
 
