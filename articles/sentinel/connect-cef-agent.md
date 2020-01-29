@@ -36,6 +36,9 @@ In this step, you need to select the Linux machine that will act as a proxy betw
 
 1. Run the following script on your proxy machine.
    `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+   > [!NOTE]
+   > If using Python 3 be sure to call the script with python3 in the above line.
+   > The script does require the ctypes package in order to run.
 1. While the script is running, check to make sure you don't get any error or warning messages.
 
 Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
