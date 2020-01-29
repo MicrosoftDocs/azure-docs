@@ -16,8 +16,6 @@ ms.date: 04/26/2019
 
 This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](sql-database-serverless.md) provides compute auto-scaling and bills per second for compute used.
 
-## Change compute size (vCores or DTUs)
-
 After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
@@ -27,7 +25,7 @@ The following video shows dynamically changing the service tier and compute size
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-### Impact of changing service tier or rescaling compute size
+## Impact
 
 Changing the service tier or compute size of mainly involves the service performing the following steps:
 
@@ -42,7 +40,7 @@ Changing the service tier or compute size of mainly involves the service perform
 > [!IMPORTANT]
 > No data is lost during any step in the workflow. Make sure that you have implemented some [retry logic](sql-database-connectivity-issues.md) in the applications and components that are using Azure SQL Database while the service tier is changed.
 
-### Latency of changing service tier or rescaling compute size
+## Latency 
 
 The estimated latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
@@ -55,7 +53,7 @@ The estimated latency to change the service tier or rescale the compute size of 
 > [!TIP]
 > To monitor in-progress operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### Cancelling service tier changes or compute rescaling operations
+## Cancelling changes
 
 A service tier change or compute rescaling operation can be canceled.
 
@@ -84,7 +82,7 @@ else {
 }
 ```
 
-### Additional considerations when changing service tier or rescaling compute size
+## Additional considerations
 
 - If you are upgrading to a higher service tier or compute size, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 - To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and compute size.
@@ -94,7 +92,7 @@ else {
 - The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period. See [Azure SQL Database Backups](sql-database-automated-backups.md).
 - The new properties for the database are not applied until the changes are complete.
 
-### Billing during compute rescaling
+## Billing 
 
 You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
@@ -119,6 +117,10 @@ You are billed for each hour a database exists using the highest service tier + 
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+
+### Geo-replicated database
+
+To change the database size of a replicated secondary database, change the size of the primary database. This change will then be replicated and implemented on the secondary database as well. 
 
 ## P11 and P15 constraints when max size greater than 1 TB
 
