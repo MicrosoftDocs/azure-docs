@@ -4,42 +4,37 @@ description: 'In this tutorial, you will configure an Azure Virtual Machine runn
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 2/3/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ---
-
 # Tutorial: Configure an IoT Edge device
 
 > [!NOTE]
 > This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-In this article, we configure an Azure Virtual Machine running Linux to be an Azure IoT Edge device that acts as a transparent gateway. The transparent gateway configuration allows devices to connect to Azure IoT Hub through the gateway without knowing that the gateway exists. At the same time, a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Ultimately, we use the transparent gateway to add edge analytics to our system by adding IoT Edge modules to the gateway.
+In this article, we configure an Azure VM running Linux to be an IoT Edge device and act as a transparent gateway. A transparent gateway configuration allows devices to connect to Azure IoT Hub through the gateway without knowing that the gateway exists. At the same time, a user interacting with the devices in Azure IoT Hub is unaware of the intermediate gateway device. Ultimately, we use the transparent gateway to add edge analytics to our system by adding IoT Edge modules to the transparent gateway.
 
 The steps in this article are typically performed by a cloud developer.
 
 ## Generate certificates
 
-For a device to function as a gateway it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
+For a device to function as a gateway it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream IoT device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
 
-In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step as it significantly reduced the number of steps needed to create the certificates on the Windows development machine. See [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to understand what we automated with the Docker image.
+In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step because it significantly reduces the number of steps needed to create the certificates on the Windows development machine. See [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to understand what we automated with the Docker image.
 
-1. Sign in to your development virtual machine.
+1. Sign in to your development VM.
 
-2. Open a command-line prompt and run the following command to create a directory on the VM.
+2. Create a new folder with the path and name `c:\edgeCertificates`.
 
-    ```cmd
-    mkdir c:\edgeCertificates
-    ```
-
-3. Start **Docker for Windows** from the Windows Start menu.
+3. If not already running, start **Docker for Windows** from the Windows Start menu.
 
 4. Open Visual Studio Code.
 
 5. Select **File** > **Open Folder...** and choose **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates**.
 
-6. Right-click on the dockerfile and choose **Build Image**.
+6. In the Explorer pane, right-click on **dockerfile** and choose **Build Image**.
 
 7. In the dialog, accept the default value for the image name and tag: **createcertificates:latest**.
 
@@ -68,7 +63,7 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault Certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault Secrets. We will use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault secrets. We will use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
 1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning workspace.
 
