@@ -30,7 +30,7 @@ With so many services offering security benefits, it's often hard to know what s
 ## Secure score calculation
 
 Security Center mimics the work of a security analyst, reviewing your security recommendations, and applying advanced algorithms to determine how crucial each recommendation is.
-Azure Security center constantly reviews you active recommendations and calculates your secure score based on them, the score of a recommendation is derived from its severity and security best practices that will affect your workload security the most.
+Azure Security center constantly reviews your active recommendations and calculates your secure score based on them, the score of a recommendation is derived from its severity and security best practices that will affect your workload security the most.
 
 Security Center also provides you with an **Overall secure score**. 
 
