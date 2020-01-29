@@ -1,6 +1,121 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-network/create-virtual-network-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-dns-settings-in-a-service-configuration-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-using-network-configuration-file.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-create-nsg-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-create-nsg-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-create-udr-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-create-udr-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-create-udr-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-create-udr-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-deploy-multinic-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-deploy-multinic-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-reserved-public-ip.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-reserved-private-ip.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-static-private-ip-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-instance-level-public-ip.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-acl-powershell.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-acl-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-move-vm-role-to-subnet.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-move-vm-role-to-subnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-sample-app.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-sample-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-acl.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-acl",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/power-bi-workspace-collections/app-token-flow.md",
       "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/app-token-flow",
       "redirect_document_id": false
@@ -14846,6 +14961,16 @@
       "source_path": "articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/machine-learning/how-to-ui-sample-classification-predict-flight-delay.md",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
@@ -47188,6 +47313,61 @@
     {
       "source_path": "articles/mysql/concepts-aad-authentication.md",
       "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/quickstart-create-basic-load-balancer-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/quickstart-create-basic-load-balancer-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/quickstart-create-basic-load-balancer-powershell.md",
+      "redirect_url": "articles/load-balancer/quickstart-load-balancer-standard-public-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-template.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/create-load-balancer-rest-api.md",
+      "redirect_url": "/rest/api/load-balancer/loadbalancers/createorupdate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-az-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-az-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-az-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
       "redirect_document_id": false
     }
   ]
