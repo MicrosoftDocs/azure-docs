@@ -4,10 +4,9 @@ description: You use Azure Cost Management and Billing features to conduct billi
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/20/2019
+ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
-manager: dougeby
 ms.custom:
 ---
 

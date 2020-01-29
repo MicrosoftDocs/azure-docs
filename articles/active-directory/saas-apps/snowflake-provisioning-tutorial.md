@@ -52,10 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Snowflake for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Snowflake.
 
-> [!NOTE]
-> This integration is in Private Preview in Snowflake today. If you would like to enable this feature in your Snowflake account, contact your Snowflake Sales Representative.
-
-1. Sign in to your Snowflake Admin Console. Enter the query shown below in the workspace highlighted and click **Run**.
+1. Sign in to your Snowflake Admin Console. Enter the query shown below in the worksheet highlighted and click **Run**.
 
 	![Snowflake Admin Console](media/Snowflake-provisioning-tutorial/image00.png)
 
@@ -148,7 +145,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-15. Define the users and/or groups that you would like to provision to Snowflake by choosing the desired values in **Scope** in the **Settings** section.
+15. Define the users and/or groups that you would like to provision to Snowflake by choosing the desired values in **Scope** in the **Settings** section. If this option is not available, please configure the required fields under Admin Credentials, Click **Save** and refresh the page. 
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
