@@ -560,7 +560,7 @@ Next, create the HANA topology. Run the following commands on one of the Pacemak
 
 # Replace the bold string with your instance number and HANA system ID
 sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> \
-op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \  
+op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
 --clone clone-max=2 clone-node-max=1 interleave=true
 </code></pre>
 
@@ -589,6 +589,9 @@ sudo pcs property set maintenance-mode=false
 </code></pre>
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
+
+> [!NOTE]
+> The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA configuration.  
 
 <pre><code>sudo pcs status
 
