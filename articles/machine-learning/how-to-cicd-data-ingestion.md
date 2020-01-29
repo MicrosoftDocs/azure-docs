@@ -33,16 +33,16 @@ As with any software solution, there is a team (for example, Data Engineers) wor
 
 ![cicd-data-ingestion](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
 
-They collaborate and share the same Azure resources such as Azure Data Factory, Azure Databricks, Azure Storage account and such. The collection of these resources is a Development environment. The data engineers contribute to the same source code base. The Continuous Integration process assembles the code, checks it with the numerous code quality tests, unit tests and produces artifacts (tested code, ARM templates) ready to be deployed to the downstream environments by the Continuous Delivery process. This article demonstrates how to automate the CI and CD processes with [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/).
+They collaborate and share the same Azure resources such as Azure Data Factory, Azure Databricks, Azure Storage account and such. The collection of these resources is a Development environment. The data engineers contribute to the same source code base. The Continuous Integration process assembles the code, checks it with the code quality tests, unit tests and produces artifacts (tested code, ARM templates) ready to be deployed to the downstream environments by the Continuous Delivery process. This article demonstrates how to automate the CI and CD processes with [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/).
 
 ## Source Control Management
 
-The team members work in slightly different ways to collaborate on the Python notebook source code and the Azure Data Factory source code. However, in both cases the code is stored in a source control repository (for example, Azure DevOps, GitHub, GitLab, etc.) and the collaboration is normally based on some branching model (for example, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)).
+The team members work in slightly different ways to collaborate on the Python notebook source code and the Azure Data Factory source code. However, in both cases the code is stored in a source control repository (for example, Azure DevOps, GitHub, GitLa) and the collaboration is normally based on some branching model (for example, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)).
 
 ### Python Notebook Source Code
 
 The data engineers work with the Python notebook source code either locally in a local IDE (for example, [Visual Studio Code](https://code.visualstudio.com)) or directly in the Databricks workspace. The latter gives the ability to debug the code on the development environment. In any case, the code is going to be merged to the repository following a branching policy. 
-It is highly recommended to store the code in regular *.py files rather than in Jupyter notebook format. It improves the code readability and enables automatic code quality checks in the CI process. 
+It's highly recommended to store the code in regular *.py files rather than in Jupyter notebook format. It improves the code readability and enables automatic code quality checks in the CI process. 
 
 ### Azure Data Factory Source Code
 
@@ -85,7 +85,7 @@ steps:
 
 ```
 
-The pipeline uses ***flake8*** to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they are available in the Azure Pipeline execution screen:
+The pipeline uses ***flake8*** to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipeline execution screen:
 
 ![linting-unit-tests](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
 
@@ -93,9 +93,10 @@ If the linting and unit testing is successful, the pipeline will copy the source
 
 ### Azure Data Factory CI
 
-CI process for an Azure Data Factory pipeline is a ***bottleneck*** in the whole CI/CD story for a data ingestion pipeline. There is no ***Continuous*** Integration. A deployable artifact for Azure Data Factory is a collection of ARM templates. The only way to produce those templates is to click the ***publish*** button in the Azure Data Factory workspace. There is no automation here. The data engineers merge the source code from their feature branches into the collaboration branch, for example, ***master*** or ***develop***. Then, someone with the granted permissions clicks the ***publish*** button to generate ARM templates from the source code in the collaboration branch. When the button is clicked, the workspace validates the pipelines (think of it as of ***linting*** and ***unit testing***), generates ARM templates (think of it as of ***building***) and saves the generated templates to a technical branch ***adf_publish*** in the same code repository (think of it as of ***publishing artifacts***). This branch is created automatically by the Azure Data Factory workspace. This process is described in details in the [Azure Data Factory documentation](https://docs.microsoft.com/en-us/azure/data-factory/continuous-integration-deployment).
+CI process for an Azure Data Factory pipeline is a ***bottleneck*** in the whole CI/CD story for a data ingestion pipeline. There's no ***Continuous*** Integration. A deployable artifact for Azure Data Factory is a collection of ARM templates. The only way to produce those templates is to click the ***publish*** button in the Azure Data Factory workspace. There's no automation here.
+The data engineers merge the source code from their feature branches into the collaboration branch, for example, ***master*** or ***develop***. Then, someone with the granted permissions clicks the ***publish*** button to generate ARM templates from the source code in the collaboration branch. When the button is clicked, the workspace validates the pipelines (think of it as of ***linting*** and ***unit testing***), generates ARM templates (think of it as of ***building***) and saves the generated templates to a technical branch ***adf_publish*** in the same code repository (think of it as of ***publishing artifacts***). This branch is created automatically by the Azure Data Factory workspace. This process is described in details in the [Azure Data Factory documentation](https://docs.microsoft.com/en-us/azure/data-factory/continuous-integration-deployment).
 
-It is important to make sure that the generated ARM templates are environment agnostic, meaning that all values that may differ from environment to environment are parametrized. The Azure Data Factory is smart enough to expose the majority of such values as parameters. For example, in the following template the connection properties to an Azure Machine Learning workspace are exposed as parameters:
+It's important to make sure that the generated ARM templates are environment agnostic, meaning that all values that may differ from environment to environment are parametrized. The Azure Data Factory is smart enough to expose the majority of such values as parameters. For example, in the following template the connection properties to an Azure Machine Learning workspace are exposed as parameters:
 
 ```json
 {
@@ -124,7 +125,7 @@ It is important to make sure that the generated ARM templates are environment ag
 }
 ```
 
-However, you may want to expose your custom properties that are not handled by the Azure Data Factory workspace out-of-the-box. For example, in the scenario of this article  an Azure Data Factory pipeline invokes a Python notebook processing the data. The notebook accepts a parameter with a name of an input data file. 
+However, you may want to expose your custom properties that are not handled by the Azure Data Factory workspace by default. In the scenario of this article  an Azure Data Factory pipeline invokes a Python notebook processing the data. The notebook accepts a parameter with a name of an input data file. 
 
 ```Python
 import pandas as pd
@@ -177,11 +178,11 @@ It will force the Azure Data Factory workspace to add the variables to the param
 }
 ```
 
-The values in the json file are some default values configured in the pipeline definition and they are expected to be overridden with the target environment values when the ARM template is being deployed.
+The values in the json file are some default values configured in the pipeline definition. They're expected to be overridden with the target environment values when the ARM template is being deployed.
 
 ## CD
 
-The goal of the Continuous Delivery process is to take the artifacts (prepared by CI), deploy them to the first target environment, make sure that the solution works by running some tests, proceed to the next environment. The CD Azure Pipeline would consist of multiple stages representing the environments. Each stage contains [deployments](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) and [jobs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) implementing the following steps:
+The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running some tests. If it is ok, it continues to the next environment. The CD Azure Pipeline would consist of multiple stages representing the environments. Each stage contains [deployments](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) and [jobs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) implementing the following steps:
 * Deploy a Python Notebook to Azure Databricks workspace
 * Deploy an Azure Data Factory pipeline 
 * Run the pipeline
@@ -232,7 +233,7 @@ The ***Deploy_to_QA*** stage contains a reference to ***devops-ds-qa-vg*** varia
 
 ### Deploy an Azure Data Factory pipeline
 
-A deployable artifact for Azure Data Factory is an ARM template, so it is going to be deployed with the ***Azure Resource Group Deployment*** task as it is demonstrated in the following snippet:
+A deployable artifact for Azure Data Factory is an ARM template. Therefore, it's going to be deployed with the ***Azure Resource Group Deployment*** task as it is demonstrated in the following snippet:
 
 ```yaml
   - deployment: "Deploy_to_ADF"
@@ -257,7 +258,7 @@ The value of the data filename parameter is coming from the $(DATA_FILE_NAME) va
 
 ### Run the pipeline and check the data ingestion result
 
-The next step is to make sure that the deployed solution is working. The following job definition contains steps running an Azure Data Factory pipeline with a PowerShell script and executing a Python notebook on an Azure Databricks cluster that checks if the data has been ingested correctly. It validates the result data file with $(bin_FILE_NAME) name.
+The next step is to make sure that the deployed solution is working. The following job definition runs an Azure Data Factory pipeline with a PowerShell script and executes a Python notebook on an Azure Databricks cluster. The notebook checks if the data has been ingested correctly. It validates the result data file with $(bin_FILE_NAME) name.
 
 ```yaml
   - job: "Integration_test_job"
