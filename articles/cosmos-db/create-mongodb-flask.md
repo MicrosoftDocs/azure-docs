@@ -27,6 +27,7 @@ In this quickstart, you use an Azure Cosmos DB for Mongo DB API account and the 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. 
 - The [Azure Cosmos DB Emulator](local-emulator.md). 
+- [Python 3.6+](https://www.python.org/downloads/)
 - [Visual Studio Code](https://code.visualstudio.com/Download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
 
 ## Clone the sample application
