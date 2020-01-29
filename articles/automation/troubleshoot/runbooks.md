@@ -12,7 +12,7 @@ manager: carmonm
 
 # Troubleshoot errors with runbooks
 
-When you have errors executing runbooks in Azure Automation, you can use the following steps to help diagnose the issue.
+When you have errors executing runbooks in Azure Automation, you can use the following steps to help diagnose the issues.
 
 1. **Ensure your runbook script executes successfully on your local machine:**  Refer to the [PowerShell Docs](/powershell/scripting/overview) or [Python Docs](https://docs.python.org/3/) for language reference and learning modules.
 
@@ -24,7 +24,7 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
 
 2. **Investigate runbook** [error streams](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) for specific messages and compare them to the errors below.
 
-3. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions under [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot Modules](shared-resources.md#modules).
+3. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available to your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot Modules](shared-resources.md#modules).
 
 If your Runbook is suspended or unexpectedly failed:
 
@@ -32,7 +32,7 @@ If your Runbook is suspended or unexpectedly failed:
 * [Add additional output](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) to the runbook to identify what happens before the runbook is suspended.
 * [Handle any exceptions](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) that are thrown by your job.
 
-## <a name="login-azurerm"></a>Scenario: Run Login-AzureRMAccount to login
+## <a name="login-azurerm"></a>Scenario: Run Login-AzureRMAccount to log in
 
 ### Issue
 
@@ -49,15 +49,15 @@ This error can occur when you are not using a RunAs account or the RunAs account
 This error has two primary causes:
 
 * Different versions of AzureRM modules.
-* You are trying to access resources in a separate subscription.
+* You're trying to access resources in a separate subscription.
 
 ### Resolution
 
 If you receive this error after updating one AzureRM module, you should update all of your AzureRM modules to the same version.
 
-If you are trying to access resources in another subscription, you can follow the steps below to configure permissions.
+If you're trying to access resources in another subscription, you can follow the steps below to configure permissions.
 
-1. Go to the Automation Account's run as account and copy the Application ID and thumbprint.
+1. Go to the Automation RunAs account and copy the Application ID and thumbprint.
   ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
 1. Go to the subscription's Access Control where the Automation Account is NOT hosted, and add a new role assignment.
   ![Access control](../media/troubleshoot-runbooks/access-control.png)
@@ -137,7 +137,7 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 
 ### Resolution
 
-To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about the get_SerializationSettings Method
 
@@ -163,7 +163,7 @@ This error is caused by using both AzureRM and Az cmdlets in a runbook. It occur
 
 ### Resolution
 
-Az and AzureRM cmdlets can not be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+Az and AzureRM cmdlets can't be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -263,31 +263,29 @@ The job was tried three times but it failed
 
 ### Cause
 
-This error occurs due to one of the following issues:
+This error occurs due to one of the following issues.
 
-* Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
+* Memory Limit. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). A job may fail if it's using more than 400 MB of memory.
 
-* Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+* Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets. See [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-* Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
+* Module Incompatible. Module dependencies might not be correct. In this case, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-* Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+* No Authentication with Active Directory for Sandbox. Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD using the Azure Active Directory Authentication Library (ADAL) is not supported.
 
-* Your runbook attempted to write too much exception data to the output stream.
+* Too Much Exception Data. Your runbook attempted to write too much exception data to the output stream.
 
 ### Resolution
 
-Any of the following solutions fix the problem:
+* Memory Limit, Network Sockets. Suggested ways work within the memory limit are to split the workload among multiple runbooks, process less data in memory, avoid writing unnecessary output from your runbooks, and consider how many checkpoints are written into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear`, to clear out variables and use `[GC]::Collect` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
 
-* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear()` to clear out the variable and use `[GC]::Collect()` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
+* Module Incompatible. Update your Azure modules by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
-* Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+* No Authentication with ADAL for Sandbox. When authenticating to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Automation RunAs account the necessary permissions to perform the tasks that the runbook automates.
 
-* Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
+  If your runbook can't call an executable or subprocess running in an Azure sandbox, use the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid workers aren't limited by the memory and network limits that Azure sandboxes have.
 
-* If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
-
-* There is a 1MB limit on the job output stream. Ensure that you enclose calls to an executable or subprocess in a try/catch block. If they throw an exception, write the message from that exception into an Automation variable. This will prevent it from being written into the job output stream.
+* Too Much Exception Data. There is a 1-MB limit on the job output stream. Ensure that your runbook encloses calls to an executable or subprocess in a try/catch block. If the operations throw an exception, have the code write the message from the exception into an Automation variable. This technique prevents the message from being written into the job output stream. 
 
 ## <a name="sign-in-failed"></a>Scenario: Sign in to Azure Account failed
 
@@ -472,13 +470,13 @@ This behavior is by design in Azure sandboxes because of the "Fair Share" monito
 
 ### Cause
 
-The runbook ran over the 3 hour limit allowed by fair share in an Azure Sandbox.
+The runbook ran over the 3-hour limit allowed by Fair Share in an Azure Sandbox.
 
 ### Resolution
 
 One recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. Runbooks ran on Hybrid Runbook Workers should be developed to support restart behaviors if there are unexpected local infrastructure issues.
+Hybrid Workers aren't limited by the [Fair Share](../automation-runbook-execution.md#fair-share) 3-hour runbook limit that Azure sandboxes have. Runbooks run on Hybrid Runbook Workers should be developed to support restart behaviors if there are unexpected local infrastructure issues.
 
 Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete.
 
@@ -539,7 +537,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 ### Cause
 
-This error may occur when you start a PowerShell job in a runbook ran in Azure. This behavior may occur because runbooks ran in an Azure sandbox may not run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+This error may occur when you start a PowerShell job in a runbook that runs in Azure. This behavior may occur because runbooks run in an Azure sandbox may not run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
 ### Resolution
 
