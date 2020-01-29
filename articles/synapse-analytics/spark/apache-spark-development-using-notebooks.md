@@ -1,6 +1,6 @@
 ---
 title: Create, develop, and maintain Azure Synapse Studio notebooks
-description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparatio and visualization.
+description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 

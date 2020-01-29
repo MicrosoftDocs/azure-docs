@@ -111,7 +111,7 @@ A notebook is an interactive environment that supports various programming langu
 
  Enter the code below in another cell and run it, this creates a Spark table, a CSV, and a Parquet file all with copies of the data:
 
-   ``pPython
+   ```python
    demo_df.createOrReplaceTempView('demo_df')
    demo_df.write.csv('demo_df', mode='overwrite')
    demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
@@ -131,12 +131,12 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 1. Paste the following code in an empty cell, and then run the code. The command lists the tables on the pool.
 
-    ```sql
-    %%sql
-    SHOW TABLES
-    ```
+   ```sql
+   %%sql
+   SHOW TABLES
+   ```
 
-    When you use a Notebook with your Synapse Analytics Spark pool, you get a preset `sqlContext` that you can use to run queries using Spark SQL. `%%sql` tells the notebook to use the preset `sqlContext` to run the query. The query retrieves the top 10 rows from a system table that comes with all Synapse Analytics Spark pools by default.
+   When you use a Notebook with your Synapse Analytics Spark pool, you get a preset `sqlContext` that you can use to run queries using Spark SQL. `%%sql` tells the notebook to use the preset `sqlContext` to run the query. The query retrieves the top 10 rows from a system table that comes with all Synapse Analytics Spark pools by default.
 
 2. Run another query to see the data in `demo_df`.
 
@@ -169,9 +169,9 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 10. It is possible to get the same experience of running SQL but without having to switch languages. You can do this by replacing the SQL cell above with this PySpark cell, the output experience is the same because the **display** command is used:
 
-    ```python
-    display(spark.sql('SELECT * FROM demo_df'))
-    ```
+   ```python
+   display(spark.sql('SELECT * FROM demo_df'))
+   ```
 
 11. Each of the cells that previously executed had the option to go to **History Server** and **Monitoring**. Clicking the links takes you to different parts of the User Experience.
 
