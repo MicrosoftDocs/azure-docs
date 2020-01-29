@@ -39,7 +39,7 @@ Use the Text Analytics client library to perform:
 
 ### Create a Text Analytics Azure resource 
 
-[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### Create a new Ruby application
 
@@ -62,7 +62,7 @@ In your Ruby file, import the following packages.
 
 Create variables for your resource's Azure endpoint and key. 
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info-v2.md)]
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```ruby
 const subscription_key = '<paste-your-text-analytics-key-here>'
