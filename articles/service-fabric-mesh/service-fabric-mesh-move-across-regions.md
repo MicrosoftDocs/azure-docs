@@ -12,7 +12,7 @@ ms.custom: subject-moving-resources
 
 This article describes how to move your Service Fabric Mesh application and its resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, in response to outages, to gain features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
- [Service Fabric Mesh does not support](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) the ability to directly move resources across Azure regions. However, you can move resources indirectly by deploying a copy of your current Azure Resource Manager (ARM) template to the new target region and then redirecting ingress traffic and dependencies to the newly created Service Fabric Mesh application.
+ [Service Fabric Mesh does not support](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) the ability to directly move resources across Azure regions. However, you can move resources indirectly by deploying a copy of your current Azure Resource Manager template to the new target region and then redirecting ingress traffic and dependencies to the newly created Service Fabric Mesh application.
 
 ## Prerequisites
 
