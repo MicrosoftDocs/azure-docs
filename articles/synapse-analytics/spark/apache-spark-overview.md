@@ -1,5 +1,5 @@
 ---
-title: What is Apache Spark - Azure Synapse Analytics 
+title: What is Apache Spark in  Azure Synapse Analytics?
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different scenarios in which you can use Spark.
 services: sql-data-warehouse 
 author: euangMS 
@@ -11,19 +11,19 @@ ms.author: euang
 ms.reviewer: euang
 ---
 
-# What is Apache Spark in Azure Synapse Analytics
+# What is Apache Spark in Azure Synapse Analytics?
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse Analytics makes it easy to create and configure a Spark pool in Azure. Spark pools in Synapse Analytics are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Synapse Analytics Spark pools to process your data stored in Azure.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark in Azure Synapse Analytics is one of Microsoft's implementations of Spark in the cloud. Azure Synapse Analytics makes it easy to create and configure a Spark pool in Azure. Spark pools in Synapse Analytics are compatible with Azure Storage and Azure Data Lake Generation 2 Storage, so you can use Synapse Analytics Spark pools to process your data stored in Azure.
 
 ![Spark: a unified framework](./media/apache-spark-overview/spark-overview.png)
 
-## What is Apache Spark
+## What is Apache Spark?
 
-Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
+Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
 ![Traditional MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
-Spark pools in Synapse Analytics offer a fully managed Spark service. The benefits of creating a Spark pool in Synapse Analytics are listed here.
+Spark pools in Synapse Analytics offer a fully managed Spark service. The benefits of creating a Spark pool in Synapse Analytics are listed in the table below.
 
 | Feature | Description |
 | --- | --- |
@@ -36,7 +36,7 @@ Spark pools in Synapse Analytics offer a fully managed Spark service. The benefi
 | Pre-loaded Anaconda libraries |Spark pools in Synapse Analytics come with Anaconda libraries pre-installed. [Anaconda](https://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc. |
 | Scalability | Apache Spark in Synapse Analytics pools can have Auto-Scale enabled, so that pools scale up and down as needed. Also, Spark pools can be shut down with no loss of data since all the data is stored in Azure Storage or Data Lake Storage. |
 
-Apache Spark pools in Synapse Analytics include the following components that are available on the pools by default.
+Apache Spark pools in Synapse Analytics include the following components that are available on the pools by default:
 
 * [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib.
 * [Anaconda](https://docs.continuum.io/anaconda/)
@@ -64,13 +64,13 @@ The SparkContext connects to the Spark pool and is responsible for converting an
 
 Spark instances in Synapse Analytics enable the following key scenarios:
 
-* Data Engineering/Data Preparation
+### Data Engineering/Data Preparation
 
-    Apache Spark includes many language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
+Apache Spark includes many language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
 
-* Machine Learning
+### Machine Learning
 
-    Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also includes Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also includes Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
 
 <!--- TODO: add this back in when streaming is enabled
 * Spark streaming and real-time data analysis
@@ -78,9 +78,9 @@ Spark instances in Synapse Analytics enable the following key scenarios:
     Spark pools in Synapse Analytics offer rich support for building real-time analytics solutions. While Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets, Spark in Synapse Analytics adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having an out-of-the-box support for Event Hubs makes Spark clusters in Synapse Analytics an ideal platform for building real-time analytics pipeline.
 --->
 
-## Where do I start
+## Where do I start?
 
-You can use the following articles to learn more about Apache Spark in Synapse Analytics:
+Use the following articles to learn more about Apache Spark in Synapse Analytics:
 
 * [Quickstart: Create an Apache Spark cluster in HDInsight and run interactive query using Jupyter](./apache-spark-notebook-create-spark-use-sql.md)
 <!---TODO: * [Tutorial: Run an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)--->
@@ -89,6 +89,6 @@ You can use the following articles to learn more about Apache Spark in Synapse A
 
 ## Next steps
 
-In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Advance to the next article to learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
+In this overview, you get a basic understanding of Apache Spark in Azure Synapse Analytics. Advance to the next article to learn how to create an Apache Spark cluster in Azure Synapse Analytics:
 
 * [Create an Apache Spark cluster in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
