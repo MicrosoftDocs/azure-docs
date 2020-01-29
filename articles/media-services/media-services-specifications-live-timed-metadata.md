@@ -279,7 +279,7 @@ In this scenario, the following payload MUST be sent from the on-premises encode
 See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
 #### Example HLS manifest .m3u8 with SCTE-35 mode signal
-See [example 3.3.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+See [Section 3.2.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
 
 ## 2.1.5 RTMP Ad signaling with "onCuePoint" for Elemental Live
 
