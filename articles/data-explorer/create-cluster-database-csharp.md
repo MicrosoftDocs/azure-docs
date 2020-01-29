@@ -92,10 +92,14 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
     var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
     var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
     var databaseName = "mykustodatabase";
-    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+    var database = new ReadWriteDatabase(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
     await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
+
+        [!NOTE]
+        if you are using C# client of version 2.0.0 or below, please use "Database" object instead of "ReadWriteDatabase". 
+
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
@@ -108,7 +112,7 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
 2. Run the following command to see the database that you created:
 
     ```csharp
-    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName) as ReadWriteDatabase;
     ```
 
 You now have a cluster and a database.

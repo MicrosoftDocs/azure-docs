@@ -105,13 +105,17 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 	databaseName="mykustodatabase"
 	
 	database_operations = kusto_management_client.databases	
-	_database = Database(location=location,
+	_database = ReadWriteDatabase(location=location,
 						soft_delete_period=softDeletePeriod,
 						hot_cache_period=hotCachePeriod)
 	
 	#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
     poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
+
+        [!NOTE]
+       if you are using python client of version 0.4.0 or below, please use "Database" object instead of "ReadWriteDatabase". 
+
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
