@@ -22,148 +22,140 @@ Learn more about the Microsoft identity platform from these videos by members of
 
 They are typically only 1-2 minutes long.
 
-## TEST
-
-
-|Column1  |Column2  |
-|---------|---------|
-|text     |  <iframe width="320" height="175" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>       |
-|text     |    <iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>     |
-
-## TEST2
-
-:::row:::
-    :::column:::
-        text
-    :::column-end:::
-    :::column:::
-        <iframe width="320" height="175" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        text
-    :::column-end:::
-    :::column:::
-        <iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen>
-    :::column-end:::
-:::row-end:::
-
-## TEST3
-
-:::row:::
-    :::column:::
-        text
-    :::column-end:::
-    :::column:::
-        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=3]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        text
-    :::column-end:::
-    :::column:::
-        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=3]
-    :::column-end:::
-:::row-end:::
-
-## END TEST
-
 ## Microsoft identity platform basics
 
-Get a quick overview of what's in the Microsoft identity platform.
-
+:::row:::
+    :::column:::
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8?t=3]
-
-<iframe width="320" height="160" src="https://www.youtube.com/embed/bNlcFuIo3r8?t=2" allowfullscreen></iframe>
-
-
-### MSAL authentication libraries
-
-Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.
-
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q?t=2]
-<iframe width="320" height="175" src="https://www.youtube.com/embed/yLVEBU9Z96Q?t=2" allowfullscreen></iframe>
-
-### Accounts
-
-Learn the difference between work and school accounts, and personal Microsoft accounts.
-
-> [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk?t=2]
-<iframe width="320" height="175" src="https://www.youtube.com/embed/E2OUluQQKSk?t=2" allowfullscreen></iframe>
-
-### Brokers
-
-Learn what a broker is and how to use one.
-
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0?t=2]
-
-### Redirect URI
-
-Learn how a redirect URI allows you to delegate sign in and get a security token for your app.
-
+        Get a quick overview of what's in the Microsoft identity platform.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/bNlcFuIo3r8?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU?t=2]
-
-### Application object
-
-Learn about the role of the Azure Active Directory application object in the Microsoft identity platform.
-
 <br/>
-> [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw?t=2]
-
-### Azure active directory
-
-What's the role of Azure Active Directory in the Microsoft identity platform
-
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
-
-### Tenants
-
-Learn how tenants are related to your organization
-
+        Learn how the Microsoft identity platform libraries make it easier to handle authentication in your app.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/yLVEBU9Z96Q?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
 <br/>
-
-## App types
-
-### Web apps
-
-Learn about the difference between a single page application and a web app within the Microsoft identity platform.
-
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8]
+<br/>
+        Learn the difference between work and school accounts, and personal Microsoft accounts.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/E2OUluQQKSk?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn what a broker is and how to use one.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/Zd_Uubnu0U0?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn how a redirect URI allows you to delegate sign in and get a security token for your app.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/znSN_3JAuoU?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn about the role of the Azure Active Directory application object in the Microsoft identity platform.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/HEpq_YSmuWw?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        What's the role of Azure Active Directory in the Microsoft identity platform
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/zDEC7A5ZS2Q?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn how tenants are related to your organization
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://youtu.be/mDhT4Zv1fZU?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn about the difference between a single page application and a web app within the Microsoft identity platform.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/ZJirt7eTVw8?t=3]
+    :::column-end:::
+:::row-end:::
 
 ## Migration from v1.0 to v2.0
 
-### Why migrate your app from v1.0 to v2.0
-
-Learn what endpoints are and the benefits of moving from the v1.0 endpoint to the v2.0 endpoint.
-
+:::row:::
+    :::column:::
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg?]
-
-### Migrate your code
-
-Learn about migrating your ADAL codebase to use MSAL instead.
-
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
-
-Learn why Microsoft recommends that you from the Azure Active Directory Authentication Library (ADAL) to the Microsoft Authentication library (MSAL).
-
 <br/>
-
-> [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        Learn what endpoints are and the benefits of moving from the v1.0 endpoint to the v2.0 endpoint.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/qpdC45tZYDg?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn about migrating your ADAL codebase to use MSAL instead.
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/xgL_z9yCnrE?t=3]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+<br/>
+<br/>
+<br/>
+        Learn why Microsoft recommends that you from the Azure Active Directory Authentication Library (ADAL) to the Microsoft Authentication library (MSAL).
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtu.be.com/embed/qpdC45tZYDg?t=3]
+    :::column-end:::
+:::row-end:::
