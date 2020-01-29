@@ -41,9 +41,9 @@ To complete this self-service process, follow these steps:
 
     ![Convert trial](media/howto-view-bill/convert.png)
 
-1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your paid application.
 
-1. After you select **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
+1. After you select **Convert**, your application is now a paid application and you start getting billed.
 
 ## Next steps
 
