@@ -28,7 +28,7 @@ To complete this quickstart, you need the following prerequisites:
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 - Node.js version 8.x or later. Download the latest [long-term support (LTS) version](https://nodejs.org).  
 - Visual Studio Code (recommended) or any other integrated development environment (IDE).  
-- An active Event Hubs namespace and event hub. Do the following: 
+- An active Event Hubs namespace and event hub. To create them, do the following: 
 
    1. In the [Azure portal](https://portal.azure.com), create a namespace of type *Event Hubs*, and then obtain the management credentials that your application needs to communicate with the event hub. 
    1. To create the namespace and event hub, follow the instructions at [Quickstart: Create an event hub by using the Azure portal](event-hubs-create.md).
@@ -110,7 +110,7 @@ Congratulations! You have now sent events to an event hub.
 In this section, you receive events from an event hub by using an Azure Blob storage checkpoint store in a Node.js application. It performs metadata checkpoints on received messages at regular intervals in an Azure Storage blob. This approach makes it easy to continue receiving messages later from where you left off.
 
 ### Create an Azure storage account and a blob container
-To create an Azure storage account a blob container in it, do the following:
+To create an Azure storage account and a blob container in it, do the following:
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
