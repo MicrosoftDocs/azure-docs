@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 01/01/2020
 ---
 
-# Create schemas for tracking X12 messages in integration accounts for Azure Logic Apps
+# Create schemas for tracking X12 messages in Azure Logic Apps
 
 To help you monitor success, errors, and message properties for business-to-business (B2B) transactions, you can use these X12 tracking schemas in your integration account:
 
@@ -59,7 +59,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverQualifier | Yes | String | Receive partner qualifier |
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | Name of the X12 agreement to which the messages are resolved |
-| direction | Yes | Enum | Direction of the message flow, receive or send |
+| direction | Yes | Enum | Direction of the message flow, which is either `receive` or `send` |
 | interchangeControlNumber | No | String | Interchange control number |
 | functionalGroupControlNumber | No | String | Functional control number |
 | transactionSetControlNumber | No | String | Transaction set control number |
@@ -115,7 +115,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverQualifier | Yes | String | Receive partner qualifier |
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | Name of the X12 agreement to which the messages are resolved |
-| direction | Yes | Enum | Direction of the message flow, receive or send |
+| direction | Yes | Enum | Direction of the message flow, which is either `receive` or `send` |
 | interchangeControlNumber | No | String | Interchange control number of the functional acknowledgment. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner. |
 | functionalGroupControlNumber | No | String | Functional group control number of the functional acknowledgment. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
 | isaSegment | No | String | ISA segment of the message. The value populates only for the send side where functional acknowledgment is received for the messages sent to partner |
@@ -125,11 +125,11 @@ To help you monitor success, errors, and message properties for business-to-busi
 | respondingtransactionSetControlNumber | No | String | The responding transaction set control number |
 | respondingTransactionSetId | No | String | The responding transaction set ID, which maps to AK201 in the acknowledgment |
 | statusCode | Yes | Boolean | Transaction set acknowledgment status code |
-| segmentsCount | Yes | Enum | Acknowledgement status code with these permitted values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
+| segmentsCount | Yes | Enum | Acknowledgment status code with these permitted values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
 | processingStatus | Yes | Enum | Processing status of the acknowledgment with these permitted values: `Received`, `Generated`, and `Sent` |
 | CorrelationMessageId | No | String | Correlation message ID, which is a combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
 | isMessageFailed | Yes | Boolean | Whether the X12 message failed |
-| ak2Segment | No | String | Acknowledgement for a transaction set within the received functional group |
+| ak2Segment | No | String | Acknowledgment for a transaction set within the received functional group |
 | ak3Segment | No | String | Reports errors in a data segment |
 | ak5Segment | No | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why |
 |||||
@@ -173,7 +173,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverQualifier | Yes | String | Receive partner qualifier |
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | Name of the X12 agreement to which the messages are resolved |
-| direction | Yes | Enum | Direction of the message flow, receive or send |
+| direction | Yes | Enum | Direction of the message flow, which is either `receive` or `send` |
 | interchangeControlNumber | No | String | Interchange control number |
 | isaSegment | No | String | Message ISA segment |
 | isTechnicalAcknowledgmentExpected | Boolean | Whether the technical acknowledgment is configured in the X12 agreement  |
@@ -224,13 +224,13 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverQualifier | Yes | String | Receive partner qualifier |
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | Name of the X12 agreement to which the messages are resolved |
-| direction | Yes | Enum | Direction of the message flow, receive or send |
+| direction | Yes | Enum | Direction of the message flow, which is either `receive` or `send` |
 | interchangeControlNumber | No | String | Interchange control number of the technical acknowledgment that's received from partners |
 | isaSegment | No | String | ISA segment for the technical acknowledgment that's received from partners |
 | respondingInterchangeControlNumber | No | String | Interchange control number for the technical acknowledgment that's received from partners |
 | isMessageFailed | Yes | Boolean | Whether the X12 message failed |
 | statusCode | Yes | Enum | Interchange acknowledgment status code with these permitted values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
-| processingStatus | Yes | Enum | Acknowledgement status with these permitted values: `Received`, `Generated`, and `Sent` |
+| processingStatus | Yes | Enum | Acknowledgment status with these permitted values: `Received`, `Generated`, and `Sent` |
 | ta102 | No | String | Interchange date |
 | ta103 | No | String | Interchange time |
 | ta105 | No | String | Interchange note code |
@@ -333,7 +333,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | receiverQualifier | Yes | String | Receive partner qualifier |
 | receiverIdentifier | Yes | String | Receive partner identifier |
 | agreementName | No | String | Name of the X12 agreement to which the messages are resolved |
-| direction | Yes | Enum | Direction of the message flow, receive or send |
+| direction | Yes | Enum | Direction of the message flow, which is either `receive` or `send` |
 | interchangeControlNumber | No | String | Interchange control number, which populates for the send side when a technical acknowledgment is received from partners |
 | functionalGroupControlNumber | No | String | Functional group control number of the technical acknowledgment, which populates for the send side when a technical acknowledgment is received from partners |
 | isaSegment | No | String | Same as interchange control number, but populated only in specific cases |
@@ -341,7 +341,7 @@ To help you monitor success, errors, and message properties for business-to-busi
 | respondingfunctionalGroupControlNumber | No | String | Control number of the original functional group |
 | respondingFunctionalGroupId | No | String | Maps to AK101 in the acknowledgment functional group ID |
 | isMessageFailed | Boolean | Whether the X12 message failed |
-| statusCode | Yes | Enum | Acknowledgement status code with these permitted values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
+| statusCode | Yes | Enum | Acknowledgment status code with these permitted values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
 | processingStatus | Yes | Enum | Processing status of the acknowledgment with these permitted values: `Received`, `Generated`, and `Sent` |
 | ak903 | No | String | Number of transaction sets received |
 | ak904 | No | String | Number of transaction sets accepted in the identified functional group |

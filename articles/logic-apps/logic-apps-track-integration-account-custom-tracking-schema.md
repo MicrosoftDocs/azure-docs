@@ -7,14 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 01/01/2020
 ---
 
-# Create custom tracking schemas that monitor end-to-end workflows in Azure Logic Apps
+# Create custom tracking schemas that monitor end-to-end workflows in Azure Logic A
 
-There is built-in tracking that you can enable for different parts of your business-to-business workflow, such as tracking AS2 or X12 messages. When you create workflows that includes a logic app, BizTalk Server, SQL Server, or any other layer, then you can enable custom tracking that logs events from the beginning to the end of your workflow.
-
-This article provides custom code that you can use in the layers outside of your logic app.
+Azure Logic Apps has built-in tracking that you can enable for parts of your workflow. However, you can set up custom tracking that logs events from the beginning to the end of workflows, for example, workflows that include a logic app, BizTalk Server, SQL Server, or any other layer. This article provides custom code that you can use in the layers outside of your logic app.
 
 ## Custom tracking schema
 
