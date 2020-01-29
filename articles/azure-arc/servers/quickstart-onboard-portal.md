@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/24/2020
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: quickstart
 ---
@@ -55,7 +55,7 @@ You can install the Connected Machine agent manually by running the Windows Inst
 >[!NOTE]
 >*Administrator* privileges are required to install or uninstall the agent.
 
-If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command described in a section below to set the proxy server system environment variable `https_proxy`.
+If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command described in a section below, to set the proxy server system environment variable `https_proxy`.
 
 The following table highlights the parameters that are supported by setup for the agent from the command line.
 
