@@ -1,7 +1,7 @@
 ---
 title: How to create Guest Configuration policies
 description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
 ---
 # How to create Guest Configuration policies
@@ -27,6 +27,10 @@ To create a Guest Configuration policy, the resource module must be added. This 
 be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> While the **GuestConfiguration** module works in the above environments, the steps to compile a
+> DSC configuration must be completed in Windows PowerShell 5.1.
 
 ### Base requirements
 
@@ -73,6 +77,16 @@ in the correct state. The boolean value returned by the function determines if t
 Manager status for the Guest Assignment should be Compliant/Not-Compliant. If the boolean is
 `$false` for any resource in the configuration, then the provider will run `Get-TargetResource`. If
 the boolean is `$true` then `Get-TargetResource` isn't called.
+
+#### Configuration requirements
+
+The only requirement for Guest Configuration to use a custom configuration is for the name of the
+configuration to be consistent everywhere it's used. This name requirement includes the name of the
+.zip file for the content package, the configuration name in the MOF file stored inside the content
+package, and the configuration name used in a Resource Manager template as the guest assignment
+name.
+
+#### Get-TargetResource requirements
 
 The function `Get-TargetResource` has special requirements for Guest Configuration that haven't been
 needed for Windows Desired State Configuration.
@@ -131,7 +145,7 @@ The following example creates a configuration named **baseline**, imports the **
 resource module, and uses the `ChefInSpecResource` resource set the name of the InSpec definition to
 **linux-patch-baseline**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -159,7 +173,7 @@ The following example creates a configuration named **AuditBitLocker**, imports 
 **GuestConfiguration** resource module, and uses the `Service` resource to audit for a running
 service:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -217,55 +231,6 @@ You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
 and not communicating with the service.
-
-### Working with secrets in Guest Configuration packages
-
-In Azure Policy Guest Configuration, the optimal way to manage secrets used at run time is to store
-them in Azure Key Vault. This design is implemented within custom DSC resources.
-
-1. First, create a user-assigned managed identity in Azure.
-
-   The identity is used by machines to access secrets stored in Key Vault. For detailed steps, see
-   [Create, list or delete a user-assigned managed identity using Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
-
-1. Create a Key Vault instance.
-
-   For detailed steps, see [Set and retrieve a secret - PowerShell](../../../key-vault/quick-create-powershell.md).
-   Assign permissions to the instance to give the user-assigned identity access to secrets stored in
-   Key Vault. For detailed steps, see
-   [Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
-
-1. Assign the user-assigned identity to your machine.
-
-   For detailed steps, see
-   [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   At scale, assign this identity using Azure Resource Manager via Azure Policy. For detailed steps,
-   see
-   [Configure managed identities for Azure resources on an Azure VM using a template](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
-
-1. Finally, within your custom resource use the client ID generated above to access Key Vault using
-   the token available from the machine.
-
-   The `client_id` and url to the Key Vault instance can be passed to the resource as
-   [properties](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) so
-   the resource won't need to be updated for multiple environments or if the values need to be
-   changed.
-
-The following code sample can be used in a custom resource to retrieve secrets from Key Vault using
-a user-assigned identity. The value returned from the request to Key Vault is plain text. As a best
-practice, store it within a credential object.
-
-```azurepowershell-interactive
-# the following values should be input as properties
-$client_id = 'e3a78c9b-4dd2-46e1-8bfa-88c0574697ce'
-$keyvault_url = 'https://keyvaultname.vault.azure.net/secrets/mysecret'
-
-$access_token = ((Invoke-WebRequest -Uri "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=$client_id&resource=https%3A%2F%2Fvault.azure.net" -Method GET -Headers @{Metadata='true'}).Content | ConvertFrom-Json).access_token
-
-$value = ((Invoke-WebRequest -Uri $($keyvault_url+'?api-version=2016-10-01') -Method GET -Headers @{Authorization="Bearer $access_token"}).content | convertfrom-json).value |  ConvertTo-SecureString -asplaintext -force
-
-$credential = New-Object System.Management.Automation.PSCredential('secret',$value)
-```
 
 ## Test a Guest Configuration package
 
@@ -382,10 +347,10 @@ New-GuestConfigurationPolicy
 ```
 
 For Linux policies, include the property **AttributesYmlContent** in your configuration and
-overwrite the values accordingly. The Guest Configuration agent automatically creates the YaML file
+overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
 used by InSpec to store attributes. See the example below.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -537,7 +502,7 @@ sample. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
 
-## [PREVIEW] Troubleshooting Guest Configuration policy assignments
+## Troubleshooting Guest Configuration policy assignments (Preview)
 
 A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration
 assignments. The tool is in preview and has been published to the PowerShell Gallery as module name

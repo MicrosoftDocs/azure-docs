@@ -88,7 +88,7 @@ conceptualContent:
       links:
         - url: ./speech-service/index.md
           itemType: overview
-          text: Speech Services
+          text: Speech service
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)

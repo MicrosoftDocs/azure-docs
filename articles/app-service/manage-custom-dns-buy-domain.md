@@ -19,7 +19,7 @@ For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azu
 To complete this tutorial:
 
 * [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
-* [Remove the spending limit on your subscription](../billing/billing-spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
+* [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
 
 ## Prepare the app
 

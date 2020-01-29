@@ -197,6 +197,8 @@
     href: troubleshoot-critical-service-failed-boot-error.md
   - name: Reboot loop
     href: troubleshoot-reboot-loop.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
   - name: Stuck at Windows update
     href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors

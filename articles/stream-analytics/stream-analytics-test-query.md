@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Test an Azure Stream Analytics job with sample data
 
-In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your input sink or uploaded sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](vscode-local-run.md). 
+In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your input sink or uploaded sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## Sample incoming data from input
 
@@ -24,7 +24,7 @@ Azure Stream Analytics automatically fetches events from your streaming input. Y
 
 3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
 
-4. To see a sample list of incoming events, select the input with file icon and the sample events will automatically appear in the **Input preview**. 
+4. To see a sample list of incoming events, select the input with file icon and the sample events will automatically appear in the **Input preview**.
 
    a. The serialization type for your data is automatically detected if its JSON or CSV. You can manually change it as well to JSON, CSV, AVRO by changing the option in the dropdown menu.
     

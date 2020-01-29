@@ -222,13 +222,13 @@ conceptualContent:
 
     - title: Identity protection
       links: 
-        - url: ./identity-protection/overview.md
+        - url: ./identity-protection/overview-identity-protection.md
           itemType: overview
           text:  What is identity protection?
-        - url: ./identity-protection/quickstart-sign-in-risk-policy.md
-          itemType: quickstart
-          text:  Block access when session risk is detected
-        - url: ./identity-protection/howto-unblock-user.md
+        - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
+          itemType: how-to-guide
+          text:  Configure risk policies
+        - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
           itemType: how-to-guide
           text:  How to unblock users
       footerLink: 

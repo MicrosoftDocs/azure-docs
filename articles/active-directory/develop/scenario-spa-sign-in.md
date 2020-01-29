@@ -18,7 +18,6 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Single-page application: Sign-in and Sign-out

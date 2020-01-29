@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Bing Custom Search client library for Java | Microsoft Docs"
-description: Get started with the Bing Custom Search client library for Java by requesting search results from your Bing Custom Search instance. 
+title: "Quickstart: Bing Custom Search client library for Java"
+description: Get started with the Bing Custom Search client library for Java by requesting search results from your Bing Custom Search instance in this quickstart. 
 services: cognitive-services
 author: aahill
 manager: nitinme

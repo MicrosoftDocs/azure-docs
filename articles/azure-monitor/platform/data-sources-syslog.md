@@ -4,8 +4,8 @@ description: Syslog is an event logging protocol that is common to Linux. This a
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/22/2019
 
 ---

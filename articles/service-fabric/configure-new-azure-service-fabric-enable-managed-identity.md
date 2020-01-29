@@ -1,13 +1,9 @@
 ---
-title: Azure Service Fabric - Deploy a new Azure Service Fabric cluster with support for Managed Identity  | Microsoft Docs
+title: Deploy a new Service Fabric cluster with Managed Identity
 description: This article shows you how to create a new Service Fabric cluster with Managed Identity enabled
-services: service-fabric
-author: athinanthny
 
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
+ms.date: 12/09/2019
 ---
 
 # Create a new Azure Service Fabric cluster with Managed Identity support (preview)
