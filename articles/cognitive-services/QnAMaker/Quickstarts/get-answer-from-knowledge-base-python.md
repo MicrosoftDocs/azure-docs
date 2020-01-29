@@ -1,16 +1,10 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Python - QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This Python REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
-services: cognitive-services
-author: diberry
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
+ms.date: 01/28/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCHANGE-20200128
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Python.
 ---
 

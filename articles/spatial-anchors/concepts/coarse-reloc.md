@@ -1,6 +1,6 @@
 ---
 title: Coarse Relocalization
-description: Coarse relocalization quickstart guide.
+description: Learn about using Coarse relocalization to find anchors near you.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
