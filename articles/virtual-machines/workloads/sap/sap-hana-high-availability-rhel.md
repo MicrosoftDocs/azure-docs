@@ -591,7 +591,7 @@ sudo pcs property set maintenance-mode=false
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 
 > [!NOTE]
-> The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA configuration.  
+> The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database.  
 
 <pre><code>sudo pcs status
 
