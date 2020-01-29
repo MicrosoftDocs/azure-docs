@@ -21,9 +21,11 @@ ms.custom: seo-python-october2019
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-python.md)
 
-In this quickstart, you create a data factory by using Python. The pipeline in this data factory copies data from one folder to another folder in an Azure Blob storage.
+In this quickstart, you create a data factory by using Python. The pipeline in this data factory copies data from one folder to another folder in Azure Blob storage.
 
-Azure Data Factory is a cloud-based data integration service. This service allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows, called pipelines. Pipelines can ingest data from disparate data stores. Pipelines process or transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Pipelines publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications.
+Azure Data Factory is a cloud-based data integration service. This service allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows, called pipelines.
+
+Pipelines can ingest data from disparate data stores. Pipelines process or transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Pipelines publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications.
 
 ## Prerequisites
 
