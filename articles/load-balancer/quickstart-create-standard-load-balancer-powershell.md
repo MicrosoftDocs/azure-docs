@@ -206,7 +206,7 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
-To created a zonal Public IP, use 
+
 Use ```-SKU Basic``` to create a Basic Public IPs. Microsoft recommends using Standard for production workloads.
 
 ### Create network security group
