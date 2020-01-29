@@ -13,13 +13,13 @@ This article describes common tasks for managing and monitoring the Azure file s
 
 When you trigger a backup or restore operation, the backup service creates a job for tracking. You can monitor the progress of all jobs on the **Backup Jobs** page.
 
-Follow these steps to open the **Backup Jobs** page.
+To open the **Backup Jobs** page, follow these steps.
 
 1. Open the Recovery Services vault you used to configure backup for your file shares. In the **Overview** pane, select **Backup Jobs** under the **Monitoring** section.
 
    ![Backup Jobs in Monitoring section](./media/manage-afs-backup/backup-jobs.png)
 
-2. After you select **OK**, the **Backup Jobs** pane lists the status of all jobs. Select the workload name that corresponds to the file share you want to monitor.
+1. After you select **OK**, the **Backup Jobs** pane lists the status of all jobs. Select the workload name that corresponds to the file share you want to monitor.
 
    ![Workload name](./media/manage-afs-backup/workload-name.png)
 
@@ -27,23 +27,23 @@ Follow these steps to open the **Backup Jobs** page.
 
 You can create a new policy to back up Azure file shares from the **Backup policies** section of the Recovery Services vault. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.
 
-Follow these steps to view the existing backup policies.
+To view the existing backup policies, follow these steps.
 
 1. Open the Recovery Services vault you used to configure the backup for the file share. On the Recovery Services vault menu, select **Backup policies** under the **Manage** section. All the backup policies configured in the vault appear.
 
    ![All backup policies](./media/manage-afs-backup/all-backup-policies.png)
 
-2. To view policies specific to **Azure File Share**, select **Azure File Share** from the drop-down list on the upper right.
+1. To view policies specific to **Azure File Share**, select **Azure File Share** from the drop-down list on the upper right.
 
    ![Select Azure File Share](./media/manage-afs-backup/azure-file-share.png)
 
-Follow these steps to create a new backup policy.
+To create a new backup policy, follow these steps.
 
 1. In the **Backup policies** pane, select **+ Add**.
 
    ![New backup policy](./media/manage-afs-backup/new-backup-policy.png)
 
-2. In the **Add** pane, select **Azure File Share** as the **Policy Type**. The **Backup policy** pane for **Azure File Share** opens. Specify the policy name, backup frequency, and retention range for the recovery points. After you define the policy, select **OK**.
+1. In the **Add** pane, select **Azure File Share** as the **Policy Type**. The **Backup policy** pane for **Azure File Share** opens. Specify the policy name, backup frequency, and retention range for the recovery points. After you define the policy, select **OK**.
 
    ![Define the backup policy](./media/manage-afs-backup/define-backup-policy.png)
 
@@ -51,17 +51,17 @@ Follow these steps to create a new backup policy.
 
 You can modify a backup policy to change the backup frequency or retention range.
 
-Follow these steps to modify a policy.
+To modify a policy, follow these steps.
 
 1. Open the Recovery Services vault you used to configure the backup for the file share. On the Recovery Services vault menu, select **Backup policies** under the **Manage** section. All the backup policies configured in the vault appear.
 
    ![All backup policies in vault](./media/manage-afs-backup/all-backup-policies-modify.png)
 
-2. To view policies specific to an Azure file share, select **Azure File Share** from the drop-down list on the upper right. Select the backup policy you want to modify.
+1. To view policies specific to an Azure file share, select **Azure File Share** from the drop-down list on the upper right. Select the backup policy you want to modify.
 
    ![Azure file share to modify](./media/manage-afs-backup/azure-file-share-modify.png)
 
-3. The **Schedule** pane opens. Edit the **Backup schedule** and **Retention range** as required, and select **Save**. You'll see an "Update in Progress" message in the pane. After the policy changes update successfully, you'll see the message "Successfully updated the backup policy."
+1. The **Schedule** pane opens. Edit the **Backup schedule** and **Retention range** as required, and select **Save**. You'll see an "Update in Progress" message in the pane. After the policy changes update successfully, you'll see the message "Successfully updated the backup policy."
 
    ![Save the modified policy](./media/manage-afs-backup/save-policy.png)
 
@@ -74,23 +74,23 @@ There are two ways to stop protecting Azure file shares:
 
 There might be a cost associated with leaving the recovery points in storage, because the underlying snapshots created by Azure Backup will be retained. The benefit of leaving the recovery points is that you can restore the file share later. For information about the cost of leaving the recovery points, see the [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you decide to delete all the recovery points, you can't restore the file share.
 
-Follow these steps to stop protection for an Azure file share.
+To stop protection for an Azure file share, follow these steps.
 
 1. Open the Recovery Services vault that contains the file share recovery points. Select **Backup Items** under the **Protected Items** section. The list of backup item types appears.
 
    ![Backup Items](./media/manage-afs-backup/backup-items.png)
 
-2. In the **Backup Management Type** list, select **Azure Storage (Azure Files)**. The **Backup Items (Azure Storage (Azure Files))** list appears.
+1. In the **Backup Management Type** list, select **Azure Storage (Azure Files)**. The **Backup Items (Azure Storage (Azure Files))** list appears.
 
    ![Select Azure Storage (Azure Files)](./media/manage-afs-backup/azure-storage-azure-files.png)
 
-3. In the **Backup Items (Azure Storage (Azure Files))** list, select the backup item for which you want to stop protection.
+1. In the **Backup Items (Azure Storage (Azure Files))** list, select the backup item for which you want to stop protection.
 
-4. Select the **Stop backup** option.
+1. Select the **Stop backup** option.
 
    ![Select Stop backup](./media/manage-afs-backup/stop-backup.png)
 
-5. In the **Stop Backup** pane, select **Retain Backup Data** or **Delete Backup Data**. Then select **Stop backup**.
+1. In the **Stop Backup** pane, select **Retain Backup Data** or **Delete Backup Data**. Then select **Stop backup**.
 
     ![Select Retain Backup Data or Delete Backup Data](./media/manage-afs-backup/retain-or-delete-backup-data.png)
 
@@ -98,25 +98,25 @@ Follow these steps to stop protection for an Azure file share.
 
 If the **Retain Backup Data** option was selected when protection for the file share was stopped, it's possible to resume protection. If the **Delete Backup Data** option was selected, protection for the file share can't resume.
 
-Follow these steps to resume protection for the Azure file share.
+To resume protection for the Azure file share, follow these steps.
 
 1. Open the Recovery Services vault that contains the file share recovery points. Select **Backup Items** under the **Protected Items** section. The list of backup item types appears.
 
    ![Backup items for resume](./media/manage-afs-backup/backup-items-resume.png)
 
-2. In the **Backup Management Type** list, select **Azure Storage (Azure Files)**. The **Backup Items (Azure Storage (Azure Files))** list appears.
+1. In the **Backup Management Type** list, select **Azure Storage (Azure Files)**. The **Backup Items (Azure Storage (Azure Files))** list appears.
 
    ![List of Azure Storage (Azure Files)](./media/manage-afs-backup/azure-storage-azure-files.png)
 
-3. In the **Backup Items (Azure Storage (Azure Files))** list, select the backup item for which you want to resume protection.
+1. In the **Backup Items (Azure Storage (Azure Files))** list, select the backup item for which you want to resume protection.
 
-4. Select the **Resume backup** option.
+1. Select the **Resume backup** option.
 
    ![Select Resume backup](./media/manage-afs-backup/resume-backup.png)
 
-5. The **Backup Policy** pane opens. Select a policy of your choice to resume backup.
+1. The **Backup Policy** pane opens. Select a policy of your choice to resume backup.
 
-6. After you select a backup policy, select **Save**. You'll see an "Update in Progress" message in the portal. After the backup successfully resumes, you'll see the message "Successfully updated backup policy for the Protected Azure File Share."
+1. After you select a backup policy, select **Save**. You'll see an "Update in Progress" message in the portal. After the backup successfully resumes, you'll see the message "Successfully updated backup policy for the Protected Azure File Share."
 
    ![Successfully updated backup policy](./media/manage-afs-backup/successfully-updated.png)
 
@@ -126,13 +126,13 @@ You can delete the backup of a file share during the **Stop backup** job, or any
 
 The following procedure assumes that the protection was stopped for the file share.
 
-Follow these steps to delete backup data for the Azure file share.
+To delete backup data for the Azure file share, follow these steps.
 
 1. After the backup job is stopped, the **Resume backup** and **Delete backup data** options are available in the **Backup Item** dashboard. Select the **Delete backup data** option.
 
    ![Delete backup data](./media/manage-afs-backup/delete-backup-data.png)
 
-2. The **Delete Backup Data** pane opens. Enter the name of the file share to confirm deletion. Optionally, provide more information in the **Reason** or **Comments** boxes. After you're sure about deleting the backup data, select **Delete**.
+1. The **Delete Backup Data** pane opens. Enter the name of the file share to confirm deletion. Optionally, provide more information in the **Reason** or **Comments** boxes. After you're sure about deleting the backup data, select **Delete**.
 
    ![Confirm delete data](./media/manage-afs-backup/confirm-delete-data.png)
 
@@ -142,19 +142,19 @@ To protect your file shares in a particular storage account by using a different
 
 The following procedure assumes that the protection was stopped for all file shares in the storage account you want to unregister.
 
-Follow these steps to unregister the storage account.
+To unregister the storage account, follow these steps.
 
 1. Open the Recovery Services vault where your storage account is registered.
-2. On the **Overview** pane, select the **Backup Infrastructure** option under the **Manage** section.
+1. On the **Overview** pane, select the **Backup Infrastructure** option under the **Manage** section.
 
    ![Select Backup Infrastructure](./media/manage-afs-backup/backup-infrastructure.png)
 
-3. The **Backup Infrastructure** pane opens. Select **Storage Accounts** under the **Azure Storage Accounts** section.
+1. The **Backup Infrastructure** pane opens. Select **Storage Accounts** under the **Azure Storage Accounts** section.
 
    ![Select Storage Accounts](./media/manage-afs-backup/storage-accounts.png)
 
-4. After you select **Storage Accounts**, a list of storage accounts registered with the vault appears.
-5. Right-click the storage account you want to unregister, and select **Unregister**.
+1. After you select **Storage Accounts**, a list of storage accounts registered with the vault appears.
+1. Right-click the storage account you want to unregister, and select **Unregister**.
 
    ![Select Unregister](./media/manage-afs-backup/select-unregister.png)
 
