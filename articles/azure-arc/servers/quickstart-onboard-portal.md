@@ -1,6 +1,6 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
-description: In this article you learn how to install the agent and connect machines to Azure using Azure Arc for servers from the Azure portal.
+description: In this article, you learn how to install the agent and connect machines to Azure using Azure Arc for servers from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -44,7 +44,7 @@ The script to automate the download, installation, and establishing the connecti
 
 6. If the machine is communicating through a proxy server in order to connect to the Internet, select the option **Next: Proxy Server>**. On the **Proxy server** tab, specify the proxy server IP address or name and port number that the machine will use to communicate with the proxy server. Enter the value following the format `http://<proxyURL>:<proxyport>`. Once completed, select **Review + generate**.  Otherwise, select **Review + generate** to complete the steps.
 
-7. On the **Review + generate** tab, review the summary information and then select **Download**. Otherwise if you need to make changes, you can select **Previous**.
+7. On the **Review + generate** tab, review the summary information, and then select **Download**. Otherwise if you need to make changes, you can select **Previous**.
 
 ## Install and validate the agent on Windows
 
@@ -106,7 +106,7 @@ The Connected Machine agent for Linux is provided in the preferred package forma
 - Installs the Hybrid Resource Provider package.
 - Optionally, configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter.
 
-The script also contains logic to identify supported and un-supported distributions, as well as verifying required permissions to perform the installation. 
+The script also contains logic to identify supported and unsupported distributions, as well as verifying required permissions to perform the installation. 
 
 The example below downloads the agent and installs it, without performing any of the conditional checks.
 
@@ -159,7 +159,7 @@ To disconnect a machine from Azure Arc for servers, you need to perform the foll
         >[!NOTE]
         >The agent Setup Wizard can also be run by double-clicking **AzureConnectedMachineAgent.msi** installer package.
 
-    If you would like to script the uninstall, you can use the following example which retrieves the product code and uninstalls the agent using the Msiexec.exe command line - `msiexec /x {Product Code}`. Open the Registry Editor and look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the product code GUID. You can then uninstall the agent using Msiexec.
+    If you would like to script the uninstall, you can use the following example, which retrieves the product code and uninstalls the agent using the Msiexec.exe command line - `msiexec /x {Product Code}`. Open the Registry Editor and look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the product code GUID. You can then uninstall the agent using Msiexec.
 
    The example below demonstrates uninstalling the agent.
 
