@@ -131,7 +131,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Requests made by the API can be set to time-out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
+Requests made by the API can be set to time out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -201,7 +201,7 @@ As with the container, the block blob doesn't exist yet. The *blockBlobURL* vari
 
 ### Using the Aborter class
 
-Requests made by the API can be set to time-out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
+Requests made by the API can be set to time out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
