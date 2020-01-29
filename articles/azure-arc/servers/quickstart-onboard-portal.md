@@ -104,7 +104,7 @@ The Connected Machine agent for Linux is provided in the preferred package forma
 
 - Configures the host machine to download the agent package from packages.microsoft.com.
 - Installs the Hybrid Resource Provider package.
-- Optionally, configures the agent with your proxy information, if you specify the `--proxy "{proxy-url}:{proxy-port}"` parameter.
+- Optionally, configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter.
 
 The script also contains logic to identify supported and un-supported distributions, as well as verifying required permissions to perform the installation. 
 
@@ -159,7 +159,7 @@ To disconnect a machine from Azure Arc for servers, you need to perform the foll
         >[!NOTE]
         >The agent Setup Wizard can also be run by double-clicking **AzureConnectedMachineAgent.msi** installer package.
 
-    If you would like to script the uninstall, you can use the following example which retrieves the product code and uninstalls the agent using the Msiexec.exe command-line - `msiexec /x {Product Code}`. Open the Registry Editor and look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the product code GUID. You can then uninstall the agent using Msiexec.
+    If you would like to script the uninstall, you can use the following example which retrieves the product code and uninstalls the agent using the Msiexec.exe command line - `msiexec /x {Product Code}`. Open the Registry Editor and look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the product code GUID. You can then uninstall the agent using Msiexec.
 
    The example below demonstrates uninstalling the agent.
 
