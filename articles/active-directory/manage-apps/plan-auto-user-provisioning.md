@@ -146,7 +146,7 @@ Widen the rollout to larger groups of users by increasing the scope of the group
 
 ## Plan application connections and administration
 
-Use the Azure AD portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](configure-automatic-user-provisioning-portal.md).
+Use the Azure AD portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 
 ### Determine the type of connector to use
 
@@ -164,7 +164,7 @@ For more information, see [What applications and systems can I use with Azure AD
 
 ### Collect information to authorize application access
 
-Setting up automatic user provisioning is a per-application process. For each application, you need to provide [administrator credentials](configure-automatic-user-provisioning-portal.md) to connect to the target system’s user management endpoint.
+Setting up automatic user provisioning is a per-application process. For each application, you need to provide [administrator credentials](../app-provisioning/configure-automatic-user-provisioning-portal.md) to connect to the target system’s user management endpoint.
 
 The image below shows one version of the required admin credentials:
 
@@ -200,11 +200,11 @@ Before implementing automatic user provisioning, you must determine the users an
 
 ### Define user and group attribute mapping
 
-To implement automatic user provisioning, you need to define the user and group attributes that are needed for the application. There's a pre-configured set of attributes and [attribute-mappings](configure-automatic-user-provisioning-portal.md) between Azure AD user objects, and each SaaS application’s user objects. Not all SaaS apps enable group attributes.
+To implement automatic user provisioning, you need to define the user and group attributes that are needed for the application. There's a pre-configured set of attributes and [attribute-mappings](../app-provisioning/configure-automatic-user-provisioning-portal.md) between Azure AD user objects, and each SaaS application’s user objects. Not all SaaS apps enable group attributes.
 
 Azure AD supports by direct attribute-to-attribute mapping, providing constant values, or [writing expressions for attribute mappings](functions-for-customizing-application-data.md). This flexibility gives you fine control of what will be populated in the targeted system's attribute. You can use [Microsoft Graph API](export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
 
-For more information, see [Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory](customize-application-attributes.md).
+For more information, see [Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
 ### Special considerations for user provisioning
 
@@ -239,7 +239,7 @@ It's common for a security review to be required as part of a deployment. If you
 
 If the automatic user provisioning implementation fails to work as desired in the production environment, the following rollback steps below can assist you in reverting to a previous known good state:
 
-1. Review the [provisioning summary report](check-status-user-account-provisioning.md) and [provisioning logs](check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations occurred on the affected users and/or groups.
+1. Review the [provisioning summary report](../app-provisioning/check-status-user-account-provisioning.md) and [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations occurred on the affected users and/or groups.
 
 1. Use provisioning audit logs to determine the last known good state of the users and/or groups affected. Also review the source systems (Azure AD or AD).
 
@@ -253,7 +253,7 @@ Choose the steps that align to your solution requirements.
 
 When the Azure AD provisioning service runs for the first time, the initial cycle against the source system and target systems creates a snapshot of all user objects for each target system.
 
-When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning. See [How to improve provisioning performance](application-provisioning-when-will-provisioning-finish.md).
+When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning. See [How to improve provisioning performance](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
@@ -279,13 +279,13 @@ After a successful [initial cycle](user-provisioning.md), the Azure AD provision
 
 To review these events, and all other activities performed by the provisioning service, refer to Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-To understand how long the provisioning cycles take and monitor the progress of the provisioning job, you can [check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
+To understand how long the provisioning cycles take and monitor the progress of the provisioning job, you can [check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### Gain insights from reports
 
-Azure AD can provide [additional insights](application-provisioning-when-will-provisioning-finish-specific-user.md) into your organization’s user provisioning usage and operational health through audit logs and reports.
+Azure AD can provide [additional insights](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) into your organization’s user provisioning usage and operational health through audit logs and reports.
 
-Admins should check the  provisioning summary report to monitor the operational health of the provisioning job. All activities performed by the provisioning service are recorded in the Azure AD audit logs. See [Tutorial: Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+Admins should check the  provisioning summary report to monitor the operational health of the provisioning job. All activities performed by the provisioning service are recorded in the Azure AD audit logs. See [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 We recommend that you assume ownership of and consume these reports on a cadence that meets your organization’s requirements. Azure AD retains most audit data for 30 days.
 
@@ -297,7 +297,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
 
-* [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
+* [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 
@@ -324,7 +324,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 * [Stack overflow Azure AD forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## Next steps
-* [Configure Automatic User Provisioning](configure-automatic-user-provisioning-portal.md)
+* [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
 * [Export or import your provisioning configuration by using Microsoft Graph API](export-import-provisioning-configuration.md)
 

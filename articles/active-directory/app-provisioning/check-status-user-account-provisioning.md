@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Reporting on automatic user account provisioning
 
-Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems in the "Featured" section of the [Azure AD application gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory (Azure AD) includes a [user account provisioning service](../manage-apps/user-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems in the "Featured" section of the [Azure AD application gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 This article describes how to check the status of provisioning jobs after they have been set up, and how to troubleshoot the provisioning of individual users and groups.
 
@@ -50,13 +50,13 @@ From here, you can access both the provisioning progress bar and the provisionin
 The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for given application. It is located in the **Current Status** section underneath **Settings**, and shows the status of the current initial or incremental cycle. This section also shows:
 
 * The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
-* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
-* Whether or not an [initial cycle](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
+* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](../manage-apps/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
+* Whether or not an [initial cycle](../manage-apps/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
 
 The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
- ![Summary report](media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Summary report](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## Provisioning logs (preview)
 
@@ -72,4 +72,4 @@ For scenario-based guidance on how to troubleshoot automatic user provisioning, 
 ## Additional Resources
 
 * [Managing user account provisioning for Enterprise Apps](configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

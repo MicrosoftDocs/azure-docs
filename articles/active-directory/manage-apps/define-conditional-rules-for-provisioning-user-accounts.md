@@ -122,7 +122,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 ## Related articles
 * [Automate user provisioning and deprovisioning to SaaS applications](user-provisioning.md)
-* [Customize attribute mappings for user provisioning](customize-application-attributes.md)
+* [Customize attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
 * [Write expressions for attribute mappings](functions-for-customizing-application-data.md)
 * [Account provisioning notifications](user-provisioning.md)
 * [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
