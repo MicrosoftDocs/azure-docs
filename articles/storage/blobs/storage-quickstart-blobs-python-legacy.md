@@ -12,7 +12,7 @@ ms.custom: seo-python-october2019
 
 # Quickstart: Manage blobs with Python v2.1 SDK
 
-In this article, you use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
+In this quickstart, you learn to manage blobs by using Python. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
 
 ## Prerequisites
 
