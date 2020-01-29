@@ -17,7 +17,7 @@ Learn how to use [Apache Pig](https://pig.apache.org/) with HDInsight.
 Apache Pig is a platform for creating programs for Apache Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
 
 > [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="why"></a>Why use Apache Pig
 
@@ -50,7 +50,7 @@ Each log inside the file consists of a line of fields that contains a `[LOG LEVE
 In the previous example, the log level is ERROR.
 
 > [!NOTE]  
-> You can also generate a log4j file by using the [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](../hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+> You can also generate a log4j file by using the [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Example job
 
@@ -75,7 +75,7 @@ The following image shows a summary of what each transformation does to the data
 HDInsight can run Pig Latin jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
 > [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Pig and SQL Server Integration Services
 
@@ -91,11 +91,10 @@ Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 
 Now that you have learned how to use Pig with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Upload data to HDInsight](../hdinsight-upload-data.md)
-* [Use Apache Hive with HDInsight][hdinsight-use-hive]
+* [Upload data to HDInsight](hdinsight-upload-data.md)
+* [Use Apache Hive with HDInsight](/hadoop/hdinsight-use-hive.md)
 * [Use Apache Sqoop with HDInsight](hdinsight-use-sqoop.md)
-* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md)
-* [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
+* [Use MapReduce jobs with HDInsight](/hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
@@ -106,7 +105,6 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
-[hdinsight-use-mapreduce]:../hdinsight-use-mapreduce.md
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md#mapreduce-sdk
@@ -116,4 +114,4 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
-[image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
+[image-hdi-pig-data-transformation]: ./media/use-pig/HDI.DataTransformation.gif
