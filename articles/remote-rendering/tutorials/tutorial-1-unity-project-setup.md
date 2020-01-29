@@ -29,8 +29,8 @@ In this tutorial you will learn:
 
 For this tutorial you need:
 
-* The prerequisites from [Quickstart: Convert a model for rendering](../quickstarts/quickstart-render-model.md#Prerequisites).
-* The prerequisites from [Quickstart: Render a model with Unity](../quickstarts/quickstart-convert-model.md#Prerequisites).
+* The prerequisites from [Quickstart: Convert a model for rendering](../quickstarts/quickstart-render-model.md#prerequisites).
+* The prerequisites from [Quickstart: Render a model with Unity](../quickstarts/quickstart-convert-model.md#prerequisites).
 * Your account information (account ID, account key, subscription ID)
 * Add the package source to NuGet:
 
@@ -48,7 +48,7 @@ For this tutorial you need:
     nuget.exe install ScriptableRenderPipeline -ExcludeVersion
     ```
 
-    If any of the NuGet commands fail, make sure you set up [these prerequisites](../quickstarts/quickstart-render-model.md#Prerequisites) correctly.
+    If any of the NuGet commands fail, make sure you set up [these prerequisites](../quickstarts/quickstart-render-model.md#prerequisites) correctly.
 
 ## Create a new Unity project
 
