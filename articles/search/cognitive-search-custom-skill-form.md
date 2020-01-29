@@ -107,35 +107,41 @@ When you're satisfied with the function behavior, you can publish it.
 To use this skill in a Cognitive Search pipeline, you'll need to add a skill definition to your skillset. The following JSON block is a sample skill definition (you should update the inputs and outputs to reflect your particular scenario and skillset environment). Replace `AzureFunctionEndpointUrl` with your function URL, and replace `AzureFunctionDefaultHostKey` with your host key.
 
 ```json
-{
-    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-    "name": "formrecognizer", 
-    "description": "Extracts fields from a form using a pre-trained form recognition model",
-    "uri": "[AzureFunctionEndpointUrl]/api/analyze-form?code=[AzureFunctionDefaultHostKey]",
-    "httpMethod": "POST",
-    "timeout": "PT30S",
-    "context": "/document",
-    "batchSize": 1,
-    "inputs": [
-        {
-            "name": "formUrl",
-            "source": "/document/metadata_storage_path"
+{ 
+  "description":"Skillset that invokes the Form Recognizer custom skill",
+  "skills":[ 
+    "[... your existing skills go here]",
+    { 
+      "@odata.type":"#Microsoft.Skills.Custom.WebApiSkill",
+      "name":"formrecognizer",
+      "description":"Extracts fields from a form using a pre-trained form recognition model",
+      "uri":"[AzureFunctionEndpointUrl]/api/analyze-form?code=[AzureFunctionDefaultHostKey]",
+      "httpMethod":"POST",
+      "timeout":"PT30S",
+      "context":"/document",
+      "batchSize":1,
+      "inputs":[ 
+        { 
+          "name":"formUrl",
+          "source":"/document/metadata_storage_path"
         },
-        {
-            "name": "formSasToken",
-            "source": "/document/metadata_storage_sas_token"
+        { 
+          "name":"formSasToken",
+          "source":"/document/metadata_storage_sas_token"
         }
-    ],
-    "outputs": [
-        {
-            "name": "address",
-            "targetName": "address"
+      ],
+      "outputs":[ 
+        { 
+          "name":"address",
+          "targetName":"address"
         },
-        {
-            "name": "recipient",
-            "targetName": "recipient"
+        { 
+          "name":"recipient",
+          "targetName":"recipient"
         }
-    ]
+      ]
+    }
+  ]
 }
 ```
 
