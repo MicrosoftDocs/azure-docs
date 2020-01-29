@@ -6862,6 +6862,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/create-cli.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/create-visual-studio.md",
       "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
       "redirect_document_id": false
@@ -14841,6 +14846,16 @@
       "source_path": "articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/machine-learning/how-to-ui-sample-classification-predict-flight-delay.md",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
