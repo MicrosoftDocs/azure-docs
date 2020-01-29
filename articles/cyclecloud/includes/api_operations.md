@@ -31,7 +31,7 @@ GET /clusters/{cluster}/nodes
 
 #### Request path
 ```
-/clusters/string/nodes
+/clusters/CLUSTER_NAME/nodes
 ```
 
 
@@ -43,7 +43,7 @@ GET /clusters/{cluster}/nodes
   "nodes" : [ { } ],
   "operation" : {
     "action" : "string",
-    "startTime" : "string"
+    "startTime" : "2020-01-01T12:34:56Z"
   }
 }
 ```
@@ -82,14 +82,14 @@ This operation adds new nodes from a nodearray to a cluster. It accepts multiple
 
 #### Request path
 ```
-/clusters/string/nodes/create
+/clusters/CLUSTER_NAME/nodes/create
 ```
 
 
 #### Request body
 ```json
 {
-  "requestId" : "string",
+  "requestId" : "00000000-0000-0000-0000-000000000000",
   "sets" : [ "object" ]
 }
 ```
@@ -139,7 +139,7 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
 
 #### Request path
 ```
-/clusters/string/nodes/deallocate
+/clusters/CLUSTER_NAME/nodes/deallocate
 ```
 
 
@@ -151,7 +151,7 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
   "ids" : [ "id1", "id2" ],
   "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
-  "requestId" : "string"
+  "requestId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -200,7 +200,7 @@ This operation removes nodes in a cluster. The nodes can be identified in severa
 
 #### Request path
 ```
-/clusters/string/nodes/remove
+/clusters/CLUSTER_NAME/nodes/remove
 ```
 
 
@@ -212,7 +212,7 @@ This operation removes nodes in a cluster. The nodes can be identified in severa
   "ids" : [ "id1", "id2" ],
   "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
-  "requestId" : "string"
+  "requestId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -261,7 +261,7 @@ This operation terminates or deallocates nodes in a cluster, depending on whethe
 
 #### Request path
 ```
-/clusters/string/nodes/shutdown
+/clusters/CLUSTER_NAME/nodes/shutdown
 ```
 
 
@@ -273,7 +273,7 @@ This operation terminates or deallocates nodes in a cluster, depending on whethe
   "ids" : [ "id1", "id2" ],
   "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
-  "requestId" : "string"
+  "requestId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -322,7 +322,7 @@ This operation starts nodes in a cluster. The nodes can be identified in several
 
 #### Request path
 ```
-/clusters/string/nodes/start
+/clusters/CLUSTER_NAME/nodes/start
 ```
 
 
@@ -334,7 +334,7 @@ This operation starts nodes in a cluster. The nodes can be identified in several
   "ids" : [ "id1", "id2" ],
   "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
-  "requestId" : "string"
+  "requestId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -383,7 +383,7 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
 
 #### Request path
 ```
-/clusters/string/nodes/terminate
+/clusters/CLUSTER_NAME/nodes/terminate
 ```
 
 
@@ -395,7 +395,7 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
   "ids" : [ "id1", "id2" ],
   "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
-  "requestId" : "string"
+  "requestId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -446,7 +446,7 @@ This operation adds nodes as needed to a nodearray to hit a total count. The req
 
 #### Request path
 ```
-/clusters/string/scale/string
+/clusters/CLUSTER_NAME/scale/NODEARRAY_NAME
 ```
 
 
@@ -493,7 +493,7 @@ This operation contains information for the nodes and nodearrays in a given clus
 
 #### Request path
 ```
-/clusters/string/status
+/clusters/CLUSTER_NAME/status
 ```
 
 
@@ -502,12 +502,12 @@ This operation contains information for the nodes and nodearrays in a given clus
 #### Response 200
 ```json
 {
-  "maxCoreCount" : 0,
-  "maxCount" : 0,
+  "maxCoreCount" : 16,
+  "maxCount" : 4,
   "nodearrays" : [ "object" ],
   "nodes" : [ { } ],
-  "state" : "string",
-  "targetState" : "string"
+  "state" : "Starting",
+  "targetState" : "Started"
 }
 ```
 
@@ -551,7 +551,7 @@ GET /operations/
 ```json
 [ {
   "action" : "string",
-  "startTime" : "string"
+  "startTime" : "2020-01-01T12:34:56Z"
 } ]
 ```
 
@@ -584,7 +584,7 @@ GET /operations/{id}
 
 #### Request path
 ```
-/operations/string
+/operations/00000000-0000-0000-0000-000000000000
 ```
 
 
@@ -594,7 +594,7 @@ GET /operations/{id}
 ```json
 {
   "action" : "string",
-  "startTime" : "string"
+  "startTime" : "2020-01-01T12:34:56Z"
 }
 ```
 
