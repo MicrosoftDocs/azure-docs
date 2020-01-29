@@ -43,7 +43,7 @@ To on-board Azure Sentinel, you first need to [connect to your security sources]
 
 ![Data collectors](./media/collect-data/collect-data-page.png)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Workbooks
 
