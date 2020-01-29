@@ -248,7 +248,7 @@ The following section shows RTMP "simple" mode" payload, which can be used to si
  
 #### Example MPEG DASH manifest output when using Adobe RTMP simple mode
 
-See example [3.3.2.1 for MPEG DASH .mpd EventStream using Adobe simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+See example [3.3.2.1 MPEG DASH .mpd EventStream using Adobe simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
 See example [3.3.3.1 DASH manifest with single period and Adobe simple mode ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
