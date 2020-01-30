@@ -126,7 +126,7 @@ There are several ways to unblock this scenario, including using a proxy. Evalua
 ## Symptom: Cannot change backend port for existing LB rule of a load balancer which has VM Scale Set deployed in the backend pool. 
 ### Cause : The backend port cannot be modified for a load balancing rule that’s used by a health probe for load balancer referenced by VM Scale Set.
 **Resolution** 
-In order to change the port, customer can remove the health probe by updating the vmss, update the port and then configure the health probe again.
+In order to change the port, you can remove the health probe by updating the VM Scale Set, update the port and then configure the health probe again.
 
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
