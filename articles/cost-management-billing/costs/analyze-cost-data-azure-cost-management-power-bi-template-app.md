@@ -42,7 +42,8 @@ To install the app:
   ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Select **Sign in** to authenticate with your EA enrollment. This step also starts a data refresh action in Power BI.  
   ![Connect to EA enrollment](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
-  The data refresh process might take quite a while to complete. The length depends on the number of months specified and the amount of data needed to sync.
+    > [!NOTE]
+    > The data refresh process might take quite a while to complete. The length depends on the number of months specified and the amount of data needed to sync.
 12. To check the data refresh status, select the **Datasets** tab in the workspace. Look next to the Refreshed timestamp. If it's still updating, you'll see an indicator showing that the refresh is in progress.  
   ![Refresh data](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/data-refresh2.png)
 
