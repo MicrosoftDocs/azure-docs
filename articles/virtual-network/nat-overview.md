@@ -28,7 +28,7 @@ Virtual network NAT (network address translation) simplifies outbound-only Inter
 
 ## Static IP addresses for outbound-only
 
-Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT Gateway resource <!-- [NAT gateway resource](./nat-gateway-resource.md) --> to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. All outbound Internet flows will always use the configured static public IP addresses assigned to the NAT gateway resource.
+Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT Gateway resource <!-- "ADD when PM is done"[NAT gateway resource](./nat-gateway-resource.md) --> to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. All outbound Internet flows will always use the configured static public IP addresses assigned to the NAT gateway resource.
 
 NAT is compatible with standard SKU [public IP address resources](./virtual-network-ip-addresses-overview-arm.md#standard) or [public IP prefix resources](./public-ip-address-prefix.md) or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to a specific range of IP addresses.  Any IP whitelisting of your deployments is now easy.
 
@@ -83,7 +83,7 @@ You can monitor the operation of your NAT through multi-dimensional metrics expo
 - Total SNAT connections
 - SNAT connection state transitions per interval.
 
-Learn more about NAT gateway metrics <!--  [NAT gateway metrics](./nat-gateway-metrics.md) -->
+<!-- "ADD when PM is done" Learn more about [NAT gateway metrics](./nat-gateway-metrics.md) -->
 
 ## SLA
 
@@ -162,7 +162,7 @@ You may also provide [feedback on the Public Preview](https://aka.ms/natfeedback
 
 ## Next steps
 
-- Learn about NAT gateway resource. <!-- [NAT gateway resource](./nat-gateway-resource.md) -->
+<!-- "ADD when PM is done" Learn about [NAT gateway resource](./nat-gateway-resource.md) -->
 - Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
