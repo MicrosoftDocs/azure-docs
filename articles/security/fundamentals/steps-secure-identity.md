@@ -76,7 +76,7 @@ You can use [PowerShell to prevent passwords from expiring](../../active-directo
 If your organization uses a hybrid identity solution with pass-through authentication or federation, then you should enable password hash sync for the following two reasons:
 
 * The [Users with leaked credentials](../../active-directory/reports-monitoring/concept-risk-events.md) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* In the event of an on-premises outage (for example, in a ransomware attack) you can switch over to using [cloud authentication using password hash sync](choose-ad-authn.md). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365. In this case IT staff won't need to resort to personal email accounts to share data until the on-premises outage is resolved.
+* In the event of an on-premises outage (for example, in a ransomware attack) you can switch over to using [cloud authentication using password hash sync](choose-ad-authn.md). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365. In this case, IT staff won't need to resort to personal email accounts to share data until the on-premises outage is resolved.
 
 Learn more about how [password hash sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) works.
 
@@ -129,7 +129,7 @@ Another impact of "assume breach" is the need to minimize the likelihood a compr
 
 Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely, with the necessary change control.
 
-As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) to make sure you have access to Azure AD if you lock yourself out.
+As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) to make sure you still have access to Azure AD if you lock yourself out.
 
 ## Step 3 - Automate threat response
 
@@ -175,7 +175,7 @@ Azure AD Identity Protection provides two important reports you should monitor d
 
 Users can be tricked into navigating to a compromised web site or apps that will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) the permissions given by users or disable the ability of users to give consent by default.
 
-In addition to auditing the permissions given by users, it can help to try and specifically [locate risky or unwanted OAuth applications](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), which is an functionality available to premium environments.
+In addition to auditing the permissions given by users, you can [locate risky or unwanted OAuth applications](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) in premium environments.
 
 ## Step 5 - Enable end-user self-service
 
@@ -187,11 +187,11 @@ Azure AD's [self-service password reset (SSPR)](../../active-directory/authentic
 
 ### Implement self-service group and application access
 
-Azure AD provides the ability to non-administrators to manage access to resources, using security groups, Office 365 groups, application roles and access package catalogs.  [Self-service group management](../../active-directory/users-groups-roles/groups-self-service-management.md) enables group owners to manage their own groups, without needing to be assigned an administrative role. Users can also create and manage Office 365 groups without relying on administrators to handle their requests, and unused groups expire automatically.  [Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md) further enables delegation and visibility, with comprehensive access request workflows and automatic expiration.  You can delegate to non-administrators the ability to configure their own access packages for groups, Teams, applications, and SharePoint Online sites they own, with custom policies for who is required to approve access, including configuring employee's managers and business partner sponsors as approvers.
+Azure AD provides the ability to non-administrators to manage access to resources, using security groups, Office 365 groups, application roles, and access package catalogs.  [Self-service group management](../../active-directory/users-groups-roles/groups-self-service-management.md) enables group owners to manage their own groups, without needing to be assigned an administrative role. Users can also create and manage Office 365 groups without relying on administrators to handle their requests, and unused groups expire automatically.  [Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md) further enables delegation and visibility, with comprehensive access request workflows and automatic expiration.  You can delegate to non-administrators the ability to configure their own access packages for groups, Teams, applications, and SharePoint Online sites they own, with custom policies for who is required to approve access, including configuring employee's managers and business partner sponsors as approvers.
 
 ### Implement Azure AD access reviews
 
-With [Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md), you can manage access package and group memberships, access to enterprise applications, and privileged role assignments to make sure you maintain a security standard.  Regular oversight by the users themselves, resource owners and other reviewers ensure that users don't retain access for extended periods of time when they no longer need it.
+With [Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md), you can manage access package and group memberships, access to enterprise applications, and privileged role assignments to make sure you maintain a security standard.  Regular oversight by the users themselves, resource owners, and other reviewers ensure that users don't retain access for extended periods of time when they no longer need it.
 
 ## Summary
 
@@ -209,4 +209,4 @@ We appreciate how seriously you take Identity Security and hope this document is
 
 If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](https://aka.ms/deploymentplans) for help.
 
-If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), which will keep you up-to-date with the [latest best practices](identity-management-best-practices.md) and security threats.
+If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), which will keep you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.
