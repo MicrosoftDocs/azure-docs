@@ -1,6 +1,6 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
-description: In this article, you learn how to install the agent and connect machines to Azure using Azure Arc for servers from the Azure portal.
+description: In this article, you learn how to install the agent and connect machines to Azure using Azure Arc for servers (preview) from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -136,15 +136,15 @@ After installing the agent, you need to configure the agent to communicate with 
 
 ## Verify connection with Azure Arc
 
-After performing the steps to install the agent and configure it to connect to Azure Arc for servers, go to the Azure portal to verify that the server has been successfully connected. You can view your machines in the Azure portal by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
+After performing the steps to install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. You can view your machines in the Azure portal by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
 
 ![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
 ## Clean up
 
-To disconnect a machine from Azure Arc for servers, you need to perform the following steps.
+To disconnect a machine from Azure Arc for servers (preview), you need to perform the following steps.
 
-1. Open Azure Arc for servers by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
+1. Open Azure Arc for servers (preview) by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
 
 2. Select the machine in the list, click the ellipse (`...`) and select **Delete**.
 
