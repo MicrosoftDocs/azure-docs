@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/30/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -65,7 +65,7 @@ For more information on interactive calls in MSAL.js, see [Prompt behavior in MS
 
 MSAL supports the [OAuth 2 implicit grant flow](v2-oauth2-implicit-grant-flow.md), which allows the app to get tokens from Microsoft identity platform without performing a back-end server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs, all within the client JavaScript code.
 
-![Diagram of implicit grant flow](media/msal-authentication-flows/implicit-grant.svg)
+![Diagram of implicit grant flow](media/msal-authentication-flows/implicit-grant.png)
 
 Many modern web applications are built as client-side, single page applications, written by using JavaScript or an SPA framework such as Angular, Vue.js, and React.js. These applications run in a web browser, and have different authentication characteristics than traditional server-side web applications. The Microsoft identity platform enables single page applications to sign in users, and get tokens to access back-end services or web APIs, by using the implicit grant flow. The implicit flow allows the application to get ID tokens to represent the authenticated user, and also access tokens needed to call protected APIs.
 
