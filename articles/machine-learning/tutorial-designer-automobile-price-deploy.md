@@ -35,7 +35,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![Screenshot showing how to find the create pipeline](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
 
     Your pipeline should now look like this: 
 
