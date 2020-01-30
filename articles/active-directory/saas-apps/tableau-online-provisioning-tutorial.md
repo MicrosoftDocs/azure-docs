@@ -143,7 +143,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tableau Online matching group attributes](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for Tableau Online, in the **Settings** section, change **Provisioning Status** to **On**.
 

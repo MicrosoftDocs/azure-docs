@@ -124,7 +124,7 @@ Example: `<demo0-qa>`.mypolicies.com.
 
 	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/userattribute.png)
 
-11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. To enable the Azure AD provisioning service for myPolicies, change the **Provisioning Status** to **On** in the **Settings** section.
 

@@ -6487,6 +6487,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-monitor-your-logic-apps.md",
+      "redirect_url": "/azure/logic-apps/monitor-logic-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-your-logic-apps-oms.md",
+      "redirect_url": "/azure/logic-apps/monitor-logic-apps-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-b2b-message.md",
+      "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal.md",
+      "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md",
+      "redirect_url": "/azure/logic-apps/create-monitoring-tracking-queries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
       "redirect_document_id": true
@@ -13266,6 +13291,11 @@
       "redirect_url": "/azure/event-hubs/event-hubs-quickstart-powershell",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-managed-service-identity.md",
+      "redirect_url": "/azure/event-hubs/authenticate-managed-identity",
+      "redirect_document_id": false
+    },  
     {
       "source_path": "articles/event-hubs/event-hubs-node-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
@@ -35857,6 +35887,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/plan-auto-user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-auto-user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/plan-cloud-hr-provision.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-cloud-hr-provision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/provisioning-agent-release-version-history.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/provisioning-agent-release-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/sap-successfactors-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/sap-successfactors-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/skip-out-of-scope-deletions.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/skip-out-of-scope-deletions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/manage-apps/configure-automatic-user-provisioning-portal.md",
       "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
       "redirect_document_id": false
@@ -35978,13 +36033,23 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-scoping-filters.md",
-      "redirect_url": "/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/functions-for-customizing-application-data",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/functions-for-customizing-application-data.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
@@ -36024,6 +36089,11 @@
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-workspaces.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-collections",
       "redirect_document_id": true
     },
     {

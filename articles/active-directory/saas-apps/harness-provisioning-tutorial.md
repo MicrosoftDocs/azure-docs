@@ -152,7 +152,7 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 	![Harness group "Attribute Mappings" pane](media/harness-provisioning-tutorial/groupattributes.png)
 
-1. To configure scoping filters, see [Attribute-based application provisioning with scoping filters](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Under **Settings**, to enable the Azure AD provisioning service for Harness, toggle the **Provisioning Status** switch to **On**.
 

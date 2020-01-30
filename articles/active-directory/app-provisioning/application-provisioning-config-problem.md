@@ -59,7 +59,7 @@ In order for provisioning to work, Azure AD requires valid credentials that allo
 
 When a user shows up as “skipped” in the provisioning logs, it is very important to read the extended details in the log message to determine the reason. Below are common reasons and resolutions:
 
-- **A scoping filter has been configured** **that is filtering the user out based on an attribute value**. For more information, see [Attribute-based application provisioning with scoping filters](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+- **A scoping filter has been configured** **that is filtering the user out based on an attribute value**. For more information, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 - **The user is “not effectively entitled”.** If you see this specific error message, it is because there is a problem with the user assignment record stored in Azure AD. To fix this issue, un-assign the user (or group) from the app, and re-assign it again. For more information, see [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
