@@ -23,11 +23,9 @@ ms.author: aahi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## Setting up
-
-### Create a Text Analytics Azure resource
-
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+
+## Setting up
 
 ### Install the client library
 

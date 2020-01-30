@@ -24,11 +24,10 @@ ms.reviewer: tasharm, assafi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
 
-## Setting up
-
-### Create a Text Analytics Azure resource
 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+
+## Setting up
 
 ### Create a new Maven project
 

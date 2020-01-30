@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Text Analytics client library v3 | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
+description: Use this quickstart to connect your applications to the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme

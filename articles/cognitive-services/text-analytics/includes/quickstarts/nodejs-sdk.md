@@ -29,11 +29,9 @@ ms.reviewer: sumeh, assafi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [Node.js](https://nodejs.org/).
 
-## Setting up
-
-### Create a Text Analytics Azure resource
-
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+
+## Setting up
 
 ### Create a new Node.js application
 
