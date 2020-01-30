@@ -1,5 +1,5 @@
 ---
-title: Quickstart create a workspace #Required; update as needed page title displayed in search results. Include the brand.
+title: Quickstart - create a workspace #Required; update as needed page title displayed in search results. Include the brand.
 description: #Required; Add article description that is displayed in search results.
 services: synapse-analytics 
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
@@ -95,7 +95,7 @@ The Azure portal provides user-friendly experience that you can use to create an
 4. Enter the subscription, resource group, workspace name, data center region where you want to deploy your workspace. Choose name of Data Lake and file system that you created in previous step. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
 5. Review the changes and create resource.
 
-If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-portal.md#storage-account-scope). Assign this role on storage account scope (don't use inherited roles from subscription or groups).
+If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-portal.md#assign-rbac-roles-using-the-azure-portal). Assign this role on storage account scope (don't use inherited roles from subscription or groups).
 
 ## Using Azure PowerShell
 
@@ -106,7 +106,7 @@ For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 ```azurepowershell-interactive
     
 ```
-If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-powershell.md#assign-a-built-in-rbac-role).
+If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-powershell.md#storage-account-scope).
 
 ## Using Azure Command Line Interface
 
