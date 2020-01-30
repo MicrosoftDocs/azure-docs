@@ -26,7 +26,7 @@ You send events to an event hub either using HTTP POST or via an AMQP 1.0 connec
 When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient][] and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata(Properties), and header information(SystemProperties) about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
 
 ## Get started
-The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
+The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs

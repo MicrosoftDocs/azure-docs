@@ -49,10 +49,10 @@ This section shows you how to create a .NET Core console application to send eve
 
     ![C# > Console app](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
 
-### Add the Event Hubs Nuget package
+### Add the Event Hubs NuGet package
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
-1. Run the following command to install the **Azure.Messaging.EventHubs** Nuget package:
+1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs -Version 5.0.0
@@ -128,15 +128,15 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 1. Select **Console App (.NET Core)**, and select **Next**. 
 1. Event **EventHubsReceiver** for the **Project name**, and select **Create**. 
 
-### Add the Event Hubs Nuget package
+### Add the Event Hubs NuGet package
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
-1. Run the following command to install the **Azure.Messaging.EventHubs** Nuget package:
+1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs -Version 5.0.0
     ```
-1. Run the following command to install the **Azure.Messaging.EventHubs.Processor** Nuget package:
+1. Run the following command to install the **Azure.Messaging.EventHubs.Processor** NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs.Processor -Version 5.0.0
