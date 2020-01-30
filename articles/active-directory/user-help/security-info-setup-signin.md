@@ -12,7 +12,6 @@ ms.subservice: user-help
 ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Set up your Security info (preview) from a sign-in prompt

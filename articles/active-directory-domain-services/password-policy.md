@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
 
 ---
@@ -61,7 +61,7 @@ With these default settings, user accounts are locked out for 30 minutes if five
 
 Account lockouts only occur within the managed domain. User accounts are only locked out in Azure AD DS, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Azure AD or on-premises aren't locked out in their source directories, only in Azure AD DS.
 
-If you have an Azure AD password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Azure AD DS. You can configure a custom password policy to define a different maximum password age in Azure AD DS. Take care if you have a shorter maximum password age configured in an Azure AD DS password policy than in Azure AD or an on-premises AD DS environment. In that scenario, a user's password may expire in Azure AD DS before they're prompted to change in Azure AD on an on-premises AD DS environment.
+If you have an Azure AD password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Azure AD DS. You can configure a custom password policy to define a different maximum password age in Azure AD DS. Take care if you have a shorter maximum password age configured in an Azure AD DS password policy than in Azure AD or an on-premises AD DS environment. In that scenario, a user's password may expire in Azure AD DS before they're prompted to change in Azure AD or an on-premises AD DS environment.
 
 For user accounts created manually in an Azure AD DS managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Azure AD, as a user can't update their password directly in Azure AD DS.
 
@@ -99,12 +99,12 @@ To create a custom password policy, you use the Active Directory Administrative 
 1. Edit other password policy settings as desired. Remember the following key points:
 
     * Settings like password complexity, age, or expiration time only to users manually created in an Azure AD DS managed domain.
-    * Account lockout settings apply to all users, but only take effect within the managed domain.
+    * Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
 
     ![Create a custom fine-grained password policy](./media/how-to/custom-fgpp.png)
 
 1. Uncheck **Protect from accidental deletion**. If this option is selected, you can't save the FGPP.
-1. In the **Directly Applies To** section, select the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
+1. In the **Directly Applies To** section, select the **Add** button. In the **Select Users or Groups** dialog, select the **Locations** button.
 
     ![Select the users and groups to apply the password policy to](./media/how-to/fgpp-applies-to.png)
 

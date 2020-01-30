@@ -71,6 +71,7 @@ Two notifications should pop up and succeed. Doing this will allow you to use th
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
 
+1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. On the **Basic** tab, select the same region as your disk encryption set and Azure Key Vault.
 1. Fill in the other values on the **Basic** tab as you like.
@@ -90,6 +91,7 @@ To manage and configure disk encryption on your existing disks, you must use the
 > [!CAUTION]
 > Enabling disk encryption on any disks attached to a VM will require that you stop the VM.
 
+1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
 1. Navigate to a VM which is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.
 

@@ -156,10 +156,10 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 - Have stateless applications that accept incoming requests from the internet.
 - Don’t require sticky sessions or SSL offload. Sticky sessions is a method used with Application Load Balancing, to achieve server-affinity.
 
-**Load-balancing option**: Use the Azure portal to [create an external load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
+**Load-balancing option**: Use the Azure portal to [create an external load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
 
 **Scenario**: You need to load balance connections from VMs that are not on the internet. In most cases, the connections that are accepted for load balancing are initiated by devices on an Azure virtual network, such as SQL Server instances or internal web servers.   
-**Load-balancing option**: Use the Azure portal to [create an internal load balancer](../../load-balancer/quickstart-create-basic-load-balancer-powershell.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
+**Load-balancing option**: Use the Azure portal to [create an internal load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
 
 **Scenario**: You need global load balancing because you:
 

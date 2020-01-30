@@ -16,7 +16,6 @@ ms.date: 07/17/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build a Xamarin app that integrates Microsoft sign-in
