@@ -210,6 +210,18 @@ If your API Management service is in a VNet - refer to the VNet connectivity que
 
 The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
 
+### What's the browser support for the portal?
+
+| Browser                     | Supported       |
+|-----------------------------|-----------------|
+| Apple Safari                | Yes<sup>1</sup> |
+| Google Chrome               | Yes<sup>1</sup> |
+| Microsoft Edge              | Yes<sup>1</sup> |
+| Microsoft Internet Explorer | No              |
+| Mozilla Firefox             | Yes<sup>1</sup> |
+
+ <small><sup>1</sup> Supported in the two latest production versions.</small>
+
 ## Next steps
 
 Learn more about the new developer portal:

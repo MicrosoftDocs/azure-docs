@@ -62,7 +62,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
 * **Applications that support SCIM 2.0**. For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
-## What is SCIM?
+## What is System for Cross-domain Identity Management (SCIM)?
 
 To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. However, anyone who’s tried to manage users in more than one app will tell you that every app tries to perform the same simple actions, such as creating or updating users, adding users to groups, or deprovisioning users. Yet, all these simple actions are implemented just a little bit differently, using different endpoint paths, different methods to specify user information, and a different schema to represent each element of information.
 
@@ -97,7 +97,7 @@ For other applications that support SCIM 2.0, follow the steps in the article [B
 
 - [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
 - [Customizing attribute mappings for user provisioning](customize-application-attributes.md)
-- [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-- [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
+- [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md)
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

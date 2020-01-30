@@ -126,7 +126,7 @@ To configure automatic user provisioning for Elium in Azure AD, follow these ste
 
     ![Attribute mappings between Azure AD and Elium](media/Elium-provisioning-tutorial/userattribute.png)
 
-1. To configure scoping filters, follow the instructions in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, follow the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Elium, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -140,15 +140,15 @@ To configure automatic user provisioning for Elium in Azure AD, follow these ste
 
     ![Save button for provisioning configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and groups defined in **Scope** in the **Settings** section. This initial sync process takes longer than later syncs. For more information about the time required for provisioning, see [How long will it take to provision users?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+This operation starts the initial synchronization of all users and groups defined in **Scope** in the **Settings** section. This initial sync process takes longer than later syncs. For more information about the time required for provisioning, see [How long will it take to provision users?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Use the **Current Status** section to monitor progress and follow links to your provisioning activity report. The provisioning activity report describes all actions performed by the Azure AD provisioning service on Elium. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+Use the **Current Status** section to monitor progress and follow links to your provisioning activity report. The provisioning activity report describes all actions performed by the Azure AD provisioning service on Elium. For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
