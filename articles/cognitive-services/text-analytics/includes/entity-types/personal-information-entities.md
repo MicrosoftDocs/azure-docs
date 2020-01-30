@@ -12,9 +12,31 @@ ms.author: aahi
 
 ## Personal information entity types:
 
+### Person
+Recognize person names in text.
+
+Languages:
+* Public preview: `English`
+
+| Subtype name | Description             |
+|--------------|-------------------------|
+| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` * Available starting with model version `2020-02-01`|
+
+### Organization  
+
+Recognize organizations, corporations, agencies, companies, clubs and other groups of people.
+
+Languages: 
+
+* Public preview: `English`
+
+| Subtype name | Description                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------|
+| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` * Available starting with model version `2020-02-01`|
+
 ### Phone Number
 
-Phone numbers. 
+Phone numbers (US Phone numbers only). 
 
 Languages:
 
@@ -22,9 +44,67 @@ Languages:
 
 | Subtype name           | Description                                           |
 |------------------------|-------------------------------------------------------|
-| N/A                    | Phone numbers, for example `+1 123-123-123`.          |
-| EU Phone number        | Phone numbers specific to the European union.         |
-| EU Mobile Phone number | Mobile phone numbers specific to the European union. |
+| N/A                    |  US phone numbers, for example `(312) 555-0176` * Available starting with model version `2020-02-01` |
+
+### Email
+
+Email address. 
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                  |
+|----------|----------------------------------------------|
+| N/A         | Email address, for example `support@contoso.com` * Available starting with model version `2020-02-01` |
+
+### URL
+
+Internet URLs.
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                           |
+|----------|-------------------------------------------------------|
+| N/A         | URLs to websites, for example `https://www.bing.com` * Available starting with model version `2020-02-01` |
+
+### IP Address
+
+Internet Protocol Address
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                           |
+|----------|-------------------------------------------------------|
+| N/A         | Network address for example `10.0.0.101` * Available starting with model version `2020-02-01` |
+
+### Quantity 
+
+Numeric quantities
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                           |
+|----------|-------------------------------------------------------|
+| Age        | `90 days old`, `30 years old` * Available starting with model version `2020-02-01` |
+
+### DateTime
+
+Date and Time entities
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                           |
+|----------|-------------------------------------------------------|
+| Date         | `May 2nd, 2017`, `05/02/2017` * Available starting with model version `2020-02-01` |
 
 ### EU GPS Coordinates
 
