@@ -128,9 +128,12 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 <a name="kstore-rest-api"></a>
 
-## API reference
+## APIs and examples
 
-This section is a version of the [Create Skillset (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference doc, modified to include a `knowledgeStore` definition. 
+A knowledge store is defined inline with a skillset. You can create or modify a knowledge store using the preview version of the REST APIs:
+
++ [Create Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
++ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
 
 ### Example - knowledgeStore embedded in a Skillset
 
@@ -210,7 +213,7 @@ The body of request is a JSON document that defines a skillset, which includes `
 
 ### Request body syntax  
 
-The following JSON specifies a `knowledgeStore`, which is part of a [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset), which is invoked by an `indexer` (not shown). If you are already familiar with AI enrichment, a skillset determines the composition of an enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
+The following JSON specifies a [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset) that contains an optional knowledge store. A skillset is invoked by an `indexer` (not shown). If you are already familiar with AI enrichment, a skillset determines whether AI enrichment occurs. A skillset must contain at least one skill, most likely a Shaper skill if you are projecting documents into a knowledge store.
 
 The syntax for structuring the request payload is as follows.
 
