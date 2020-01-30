@@ -5,7 +5,6 @@ description: In this tutorial, you learn how to set up Azure App Configuration e
 services: azure-app-configuration
 documentationcenter: ''
 author: jimmyca
-manager: lcozzens
 editor: ''
 
 ms.assetid: 
