@@ -36,8 +36,6 @@ Additional new types are now available in the Named Entity Recognition (NER) v3 
     * Phone Number (US only)
     * URL
     * IP Address
-    
-* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
 > [!div class="nextstepaction"]
 > [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
