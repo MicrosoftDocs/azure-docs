@@ -46,7 +46,7 @@ Run `node --version` to check your Node.js version reports 8.x or 10.x.
 ::: zone pivot="programming-language-python"
 + Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x or 3.6.x.
 
-## Create and activate a virtual environment
+## <a name="create-venv"></a>Create and activate a virtual environment
 
 In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.7 or 3.6, which are supported by Azure Functions.
 
@@ -252,7 +252,7 @@ You can change `scriptFile` to invoke a different Python file if desired.
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-:::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json"
+<!-- :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json" -->
 ::: zone-end
 
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
