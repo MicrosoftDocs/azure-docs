@@ -7,7 +7,7 @@ services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 01/29/2020
-ms.topic: samples
+ms.topic: guide
 ms.service: azure-remote-rendering
 ---
 
