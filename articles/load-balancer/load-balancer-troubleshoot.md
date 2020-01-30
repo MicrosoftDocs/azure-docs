@@ -123,8 +123,8 @@ If an internal Load Balancer is configured inside a VNet, and one of the partici
 **Resolution**
 There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
-## Symptom: Cannot change backend port of existing load balancer which has VM Scale Set deployed in the backend pool. 
-### Cause : The backend port cannot be modified for a rule that’s used by a health probe for VM Scale Set.
+## Symptom: Cannot change backend port for existing LB rule of a load balancer which has VM Scale Set deployed in the backend pool. 
+### Cause : The backend port cannot be modified for a load balancing rule that’s used by a health probe for load balancer referenced by VM Scale Set.
 **Resolution** 
 In order to change the port, customer can remove the health probe by updating the vmss, update the port and then configure the health probe again.
 
