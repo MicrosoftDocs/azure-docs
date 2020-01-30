@@ -58,7 +58,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Start command
 
-The deployment includes a `command` property that defines a starting command that runs when the container first starts running. This property accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready. First, it starts a shell session and runs a `node` command to start the web app. It also starts a command to sleep for 240 seconds, after which it creates a file called `ready` within the `/tmp` directory:
+The deployment includes a `command` property defining a starting command that runs when the container first starts running. This property accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready. 
+
+First, it starts a shell session and runs a `node` command to start the web app. It also starts a command to sleep for 240 seconds, after which it creates a file called `ready` within the `/tmp` directory:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

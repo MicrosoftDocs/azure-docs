@@ -57,13 +57,13 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### Start command
 
-The deployment includes a `command` property that defines a starting command that runs when the container first starts running. This property accepts an array of strings. In this example, it starts a bash session and creates a file called `healthy` within the `/tmp` directory by passing this command:
+The deployment includes a `command` property defining a starting command that runs when the container first starts running. This property accepts an array of strings. This command simulates the container entering an unhealthy state.
+
+First, it starts a bash session and creates a file called `healthy` within the `/tmp` directory. It then sleeps for 30 seconds before deleting the file, then enters a 10-minute sleep:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
-
- It then sleeps for 30 seconds before deleting the file, then enters a 10-minute sleep.
 
 ### Liveness command
 
