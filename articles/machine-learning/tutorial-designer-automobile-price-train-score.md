@@ -9,13 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 01/30/2020
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning designer to develop and deploy a predictive analytics solution that predicts the price of any car.
+In this two-part tutorial, you learn how to use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop tool that lets you create machine learnig models without a single line of code.
 
 In part one of the tutorial, you'll learn how to:
 
@@ -47,7 +47,7 @@ If you have an Azure Machine Learning workspace with an Enterprise edition, [ski
 
 ### Create the pipeline
 
-1. Sign in to [ml.azure.com](https://ml.azure.com), and select the workspace you want to work with.
+1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
 1. Select **Designer**.
 
