@@ -6,8 +6,8 @@ metadata:
   description: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
   ms.service: azure-app-configuration
   ms.topic: landing-page
-  author: jeconnoc
-  ms.author: jpconnock 
+  author: jpconnock
+  ms.author: jeconnoc
   ms.date: 02/01/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
