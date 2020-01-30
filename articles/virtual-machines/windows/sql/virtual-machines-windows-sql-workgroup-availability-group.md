@@ -42,7 +42,7 @@ For reference, the following parameters are used in this article, but can be mod
 | **Work group name** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## 1 - Set DNS suffix 
+## Set DNS suffix 
 
 In this step, configure the DNS suffix for both servers. For example, `ag.wgcluster.example.com`. This allows you to use the name of the object you want to connect to as a fully qualified address within your network, such as `AGNode1.ag.wgcluster.example.com`. 
 
@@ -67,7 +67,7 @@ To configure the DNS suffix, follow these steps:
 1. Reboot the server when you are prompted to do so. 
 1. Repeat these steps on any other nodes to be used for the availability group. 
 
-## 2 - Edit host file
+## Edit host file
 
 Since there is no active directory, there is no way to authenticate windows connections. As such, assign trust by editing the host file with a text editor. 
 
@@ -87,7 +87,7 @@ To edit the host file, follow these steps:
  
    ![Add entries for the IP address, cluster, and listener to the host file](media/virtual-machines-windows-sql-workgroup-availability-group/4-host-file.png)
 
-## 3 - Set permissions
+## Set permissions
 
 Since there is no Active Directory to manage permissions, you need to manually allow a non-builtin local administrator account to create the cluster. 
 
@@ -98,12 +98,12 @@ To do so, run the following PowerShell cmdlet in an administrative PowerShell se
 new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy -Value 1
 ```
 
-## 4 - Create the failover cluster
+## Create the failover cluster
 
 In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
 
 Notable differences between the tutorial and what should be done for a workgroup cluster:
-- Uncheck **Storage Spaces Direct** when running the cluster validation. 
+- Uncheck **Storage**, and **Storage Spaces Direct** when running the cluster validation. 
 - When adding the nodes to the cluster, add the fully qualified name, such as:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
@@ -124,15 +124,15 @@ Once the cluster has been created, assign a static Cluster IP address. To do so,
 
    ![Verify cluster properties](media/virtual-machines-windows-sql-workgroup-availability-group/7-verify-cluster-properties.png)
 
-## 5 - Create a cloud witness 
+## Create a cloud witness 
 
 In this step, configure a cloud share witness. If you're unfamiliar with the steps, see the [failover cluster tutorial](virtual-machines-windows-portal-sql-create-failover-cluster.md#create-a-cloud-witness). 
 
-## 6 - Enable availability group feature 
+## Enable availability group feature 
 
 In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#enable-availability-groups). 
 
-## 7 - Create keys and certificate
+## Create keys and certificate
 
 In this step, create certificates that a SQL login uses on the encrypted endpoint. Create a folder on each node to hold the certificate backups, such as `c:\certs`. 
 
@@ -221,7 +221,7 @@ To configure the second node, follow these steps:
 
 If there are any other nodes in the cluster, repeat these steps there also, modifying the respective certificate names. 
 
-## 8 - Create logins
+## Create logins
 
 Certificate authentication is used to synchronize data across nodes. To allow this, create a login for the other node, create a user for the login, create a certificate for the login to use the backed-up certificate, and then grant connect on the mirroring endpoint. 
 
@@ -273,35 +273,20 @@ GO
 
 If there are any other nodes in the cluster, repeat these steps there also, modifying the respective certificate and user names. 
 
-## 9 - Configure availability group
+## Configure availability group
 
 In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
 
    > [!NOTE]
    > If there is a failure during the synchronization process, you may need to grant `NT AUTHORITY\SYSTEM` sysadmin rights to create cluster resources on the first node, such as `AGNode1` temporarily. 
 
-## 10 - Configure load balancer
+## Configure load balancer
 
 In this final step, configure the load balancer using either the [Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md) or [PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 
-## 11 - Configure health probe
 
-In this step, configure the health probe on both nodes with a single PowerShell command:
+## Next Steps
 
-```PowerShell
- # Define variables
- $ClusterNetworkName = "Cluster Network 1" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-
- $IPResourceName = "AGListenerIP_10.0.0.7"# the IP Address resource name
-
- $ILBIP = “10.0.0.7” # the IP Address of the Internal Load Balancer (ILB)/Listener
-
- Import-Module FailoverClusters
-
- Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0} 
-```
-
-### Other resources
-* [Configure an availability group with Az SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+You can also use [Az SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) to configure an availability group. 
 
 
